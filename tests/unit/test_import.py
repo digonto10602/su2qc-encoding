@@ -17,7 +17,7 @@ def test_module_imports(name):
 
 
 def test_stub_raises_not_implemented():
-    from su2plaq.geometry import plaquette_diagram
+    from su2plaq.su2.wigner import six_j
 
     with pytest.raises(NotImplementedError):
-        plaquette_diagram()
+        six_j(0, 0, 0, 0, 0, 0)

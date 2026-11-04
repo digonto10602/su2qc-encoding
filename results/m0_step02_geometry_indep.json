@@ -1,0 +1,180 @@
+{
+ "commit": "5bda416+uncommitted step 0.2",
+ "command": "python scratchpad/indep_geom.py (independent geometry check vs note s1)",
+ "seed": null,
+ "machine": "local",
+ "n_pass": 34,
+ "n": 34,
+ "checks": [
+  {
+   "check": "link0(b) start/end",
+   "pass": true,
+   "detail": "(0, 0)->(1, 0)"
+  },
+  {
+   "check": "link1(r) start/end",
+   "pass": true,
+   "detail": "(1, 0)->(1, 1)"
+  },
+  {
+   "check": "link2(t) start/end",
+   "pass": true,
+   "detail": "(0, 1)->(1, 1)"
+  },
+  {
+   "check": "link3(l) start/end",
+   "pass": true,
+   "detail": "(0, 0)->(0, 1)"
+  },
+  {
+   "check": "link4(o0) start/end",
+   "pass": true,
+   "detail": "(-1, 0)->(0, 0)"
+  },
+  {
+   "check": "link5(o1) start/end",
+   "pass": true,
+   "detail": "(0, -1)->(0, 0)"
+  },
+  {
+   "check": "link6(o2) start/end",
+   "pass": true,
+   "detail": "(1, 0)->(2, 0)"
+  },
+  {
+   "check": "link7(o3) start/end",
+   "pass": true,
+   "detail": "(1, -1)->(1, 0)"
+  },
+  {
+   "check": "link8(o4) start/end",
+   "pass": true,
+   "detail": "(1, 1)->(2, 1)"
+  },
+  {
+   "check": "link9(o5) start/end",
+   "pass": true,
+   "detail": "(1, 1)->(1, 2)"
+  },
+  {
+   "check": "link10(o6) start/end",
+   "pass": true,
+   "detail": "(-1, 1)->(0, 1)"
+  },
+  {
+   "check": "link11(o7) start/end",
+   "pass": true,
+   "detail": "(0, 1)->(0, 2)"
+  },
+  {
+   "check": "o0 exactly one end at a corner, near_end",
+   "pass": true,
+   "detail": "R"
+  },
+  {
+   "check": "o1 exactly one end at a corner, near_end",
+   "pass": true,
+   "detail": "R"
+  },
+  {
+   "check": "o2 exactly one end at a corner, near_end",
+   "pass": true,
+   "detail": "L"
+  },
+  {
+   "check": "o3 exactly one end at a corner, near_end",
+   "pass": true,
+   "detail": "R"
+  },
+  {
+   "check": "o4 exactly one end at a corner, near_end",
+   "pass": true,
+   "detail": "L"
+  },
+  {
+   "check": "o5 exactly one end at a corner, near_end",
+   "pass": true,
+   "detail": "L"
+  },
+  {
+   "check": "o6 exactly one end at a corner, near_end",
+   "pass": true,
+   "detail": "R"
+  },
+  {
+   "check": "o7 exactly one end at a corner, near_end",
+   "pass": true,
+   "detail": "L"
+  },
+  {
+   "check": "corner0(0, 0) ends set/2+2/order",
+   "pass": true,
+   "detail": "((0, 'out'), (3, 'out'), (4, 'in'), (5, 'in'))"
+  },
+  {
+   "check": "corner1(1, 0) ends set/2+2/order",
+   "pass": true,
+   "detail": "((0, 'in'), (1, 'out'), (6, 'out'), (7, 'in'))"
+  },
+  {
+   "check": "corner2(1, 1) ends set/2+2/order",
+   "pass": true,
+   "detail": "((1, 'in'), (2, 'in'), (8, 'out'), (9, 'out'))"
+  },
+  {
+   "check": "corner3(0, 1) ends set/2+2/order",
+   "pass": true,
+   "detail": "((2, 'out'), (3, 'in'), (10, 'in'), (11, 'out'))"
+  },
+  {
+   "check": "each (link,role) in at most one corner; total 16",
+   "pass": true,
+   "detail": "16"
+  },
+  {
+   "check": "loop is a closed path with U_P=b r t^dag l^dag",
+   "pass": true,
+   "detail": "[(0, 1), (1, 1), (2, -1), (3, -1)]"
+  },
+  {
+   "check": "corner_of_end all",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "corner_of_end raises on non-corner end",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "8 sites, 16 edges, edge ids 0..15",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "all 8 sites trivalent",
+   "pass": true,
+   "detail": "{('in', 0): 3, ('in', 1): 3, ('in', 2): 3, ('in', 3): 3, ('out', 0): 3, ('out', 1): 3, ('out', 2): 3, ('out', 3): 3}"
+  },
+  {
+   "check": "(inner|outer) split at every corner; virtual edge in->out",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "edge direction follows link direction",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "ext pseudo-sites not in g.sites",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "inner pairs per corner {c0:(b,l),c1:(b,r),c2:(r,t),c3:(t,l)}",
+   "pass": true,
+   "detail": "{0: [0, 3], 1: [0, 1], 2: [1, 2], 3: [2, 3]}"
+  }
+ ]
+}
