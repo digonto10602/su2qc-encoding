@@ -26,7 +26,9 @@ Kickoff — planner to research methods, write the plan and the locked acceptanc
 - Framework: circuits in Qiskit 2.5.2 / Aer 0.17.2 (CPU only); tests in parallel (`pytest -n auto`, pytest-xdist 3.8.0 installed 2026-11-02; joblib process pools).
 
 ## Next action
-Call `planner` (kickoff).
+Planner (kickoff) running → on return: `acceptance-lock "prompts/001-..."`, reset counters, start M1 step 1 with `builder`.
 
 ## Log
 - 2026-11-02: project created, git init, starter plan 000 written.
+- 2026-11-02: Digonto: build circuits in Qiskit, test with parallelization → pytest-xdist installed, added to 000 §2.5.
+- 2026-11-02: planner kickoff launched.
