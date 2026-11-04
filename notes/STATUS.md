@@ -16,7 +16,7 @@ Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 Acceptance tests locked as `acceptance-v1` (84 tests, M0–M2). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-M0 (foundation), step 0.3 — link algebra, 6j, Paulo adapter (builder).
+M0 (foundation), step 0.4 — physical states, route A (builder).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -36,7 +36,7 @@ M0 (foundation), step 0.3 — link algebra, 6j, Paulo adapter (builder).
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: settled numerically by acceptance test M0-X5 (expected: Paulo right in the (inner|outer) pairing).
 
 ## Next action
-Builder on M0 step 0.3 → tester (step) → commit → step 0.4.
+Builder on M0 step 0.4 → tester (step) → commit → step 0.5.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -48,3 +48,4 @@ Builder on M0 step 0.3 → tester (step) → commit → step 0.4.
 - 2026-11-04: `acceptance-lock` → `acceptance-v1` at 003cc3a; project `CLAUDE.md` written.
 - 2026-11-04: M0 step 0.1 PASS (reports/tests/001); `tools/lock.py` → LOCK.json, re-locked as `acceptance-v2` (c48e549).
 - 2026-11-04: M0 step 0.2 geometry PASS (reports/tests/002): G1, G2 green; outer far ends = pseudo-sites ('ext', i) (builder's choice; later spin-network code must skip them).
+- 2026-11-04: M0 step 0.3 algebra PASS (reports/tests/003): A1–A3 green; independent checks ≤ 8.9e-16 (Haar-quadrature U, 570 6j vs sympy, V_P vs Paulo Eq. 28/29).

@@ -17,7 +17,7 @@ def test_module_imports(name):
 
 
 def test_stub_raises_not_implemented():
-    from su2plaq.su2.wigner import six_j
+    from su2plaq.exact.physical import physical_basis
 
     with pytest.raises(NotImplementedError):
-        six_j(0, 0, 0, 0, 0, 0)
+        physical_basis()
