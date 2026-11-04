@@ -1,0 +1,6 @@
+code 0: MPS run 1.5s; bond dims: [(2,), (4,), (5,), (9,), (5,), (5,), (3,), (5,)] ...
+  contraction 0.1s; sum|amp|^2 over codes = 1.000000; top:  [(np.float64(0.41614642925709583), 0), (np.float64(0.22732440330644343), 586), (np.float64(0.22732440330642562), 606), (np.float64(0.22732440330641404), 617)]
+  save_amplitudes 0.2s: sum|amp|^2 = 0.173178; max |diff vs contraction| = 2.27e-01
+code 46: MPS run 0.1s; bond dims: [(2,), (4,), (4,), (4,), (2,), (2,), (2,), (3,)] ...
+  contraction 0.1s; sum|amp|^2 over codes = 1.000000; top:  [(np.float64(0.7701509997022946), 17), (np.float64(0.4207355907925477), 150), (np.float64(0.4207355907925473), 325), (np.float64(0.2298490002973629), 6)]
+  save_amplitudes 0.2s: sum|amp|^2 = 0.000000; max |diff vs contraction| = 7.70e-01

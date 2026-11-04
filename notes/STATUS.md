@@ -12,12 +12,11 @@ Gu-et-al-style LLM loop (in-session proposer agents, deterministic evaluator) �
 Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 
 ## Plan in force
-`prompts/001-plaquette-five-encodings-plan.md` (approved by Digonto 2026-11-04; chat-derived).
-Planner kickoff → `prompts/002-…` with researched formulas, `docs/METHODS.md`, locked
-`tests/acceptance/m0/ m1/ m2/`.
+`prompts/002-m0-m2-foundation-twelve-qubit-compression.md` (planner kickoff; refines prompts/001 M0–M2).
+Acceptance tests locked as `acceptance-v1` (84 tests, M0–M2). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-Kickoff — planner running (research + prompts/002 + METHODS + locked M0–M2 acceptance tests).
+M0 (foundation), step 0.1 — scaffold + stubs (builder).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -37,10 +36,13 @@ Kickoff — planner running (research + prompts/002 + METHODS + locked M0–M2 a
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: settled numerically by acceptance test M0-X5 (expected: Paulo right in the (inner|outer) pairing).
 
 ## Next action
-Planner (kickoff) running since 2026-11-04 → on return: review `prompts/002-…`, run
-`~/.claude/bin/acceptance-lock "prompts/002-…"`, reset counters, start M0 step 0.1 with `builder`.
+Builder on M0 step 0.1 → tester (step) → commit → step 0.2.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
 - 2026-11-04: `python3 -I refs/su2_plaquette_encodings.py` (numpy 2.5.2, 0.7 s): every number in note §5 reproduced.
 - 2026-11-04: exploration of Paulo's notes, Gu et al., and sibling projects (su2qc-trotter, su2qc-skqd, su2qc-paulo-code, su2qc-qcadvantage); plan 001 designed and approved.
+- 2026-11-04: plan step 2.0 done early (coordinator, outside the repo): `~/.claude/agents/proposer.md` created (Opus 5.5, high); `WRITE_ALLOW["proposer"] = ["compress/programs/", "compress/ideation/", "scratch/"]` added to `~/.claude/hooks/guard.py` (checked: denies `src/` and `tests/acceptance/`, allows `compress/programs/`); proposer row added to the roles table in `~/.claude/CLAUDE.md`.
+- 2026-11-04: planner kickoff launched (prompts/002, METHODS, locked M0–M2 tests); design reports parked in `scratch/design-A-physics.md`, `scratch/design-B-compress.md`.
+- 2026-11-04: planner kickoff done: `reports/research/001-…`, `prompts/002-…`, `docs/METHODS.md`, 84 locked tests. Findings: Paulo's Fig. 2 claim holds in the (inner|outer) pairing (prototype residual 3e-15); Paulo's 34-qubit circuit verified vs $U_B(\beta=1)$ to 2.9e-6 (Aer MPS); Paulo Eq. 25 missing a conjugate (typo, harmless); native Qiskit `mcx` (≥3 controls) excluded from the gate set (not Clifford+T exact).
+- 2026-11-04: `acceptance-lock` → `acceptance-v1` at 003cc3a; project `CLAUDE.md` written.
