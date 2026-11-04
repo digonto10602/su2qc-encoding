@@ -16,7 +16,7 @@ Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 Acceptance tests locked as `acceptance-v1` (84 tests, M0–M2). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-M0 (foundation), step 0.5 — exact operators W, H_E, H_B, targets (builder).
+M0 (foundation), step 0.6 — route B spin network (6j) + compare (builder).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -36,7 +36,7 @@ M0 (foundation), step 0.5 — exact operators W, H_E, H_B, targets (builder).
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: settled numerically by acceptance test M0-X5 (expected: Paulo right in the (inner|outer) pairing).
 
 ## Next action
-Builder on M0 step 0.5 → tester (step) → commit → step 0.6.
+Builder on M0 step 0.6 → tester (step) → commit → step 0.7.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -50,3 +50,4 @@ Builder on M0 step 0.5 → tester (step) → commit → step 0.6.
 - 2026-11-04: M0 step 0.2 geometry PASS (reports/tests/002): G1, G2 green; outer far ends = pseudo-sites ('ext', i) (builder's choice; later spin-network code must skip them).
 - 2026-11-04: M0 step 0.3 algebra PASS (reports/tests/003): A1–A3 green; independent checks ≤ 8.9e-16 (Haar-quadrature U, 570 6j vs sympy, V_P vs Paulo Eq. 28/29).
 - 2026-11-04: M0 step 0.4 physical states PASS (reports/tests/004): C1–C6, X1 green; independent recount 433/2/256/95/17362; Gauss ≤ 5.2e-16, Gram ≤ 7.3e-15. Claim (i) data: inner span rank = 625 (full); 3153 of 6561 outer patterns allowed; dim S_o ∈ {1..5, 8, 9, 17}, closed = 2.
+- 2026-11-04: M0 step 0.5 operators PASS (reports/tests/005): X2,X3,X7,X8 green; W leak 1.1e-15; closed block exact incl. sign; H_B spectrum −2(16) −1(96) −½(16) 0(177) ½(16) 1(96) 2(16); ‖U2−U1‖ slope → 2.
