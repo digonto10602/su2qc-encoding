@@ -1,0 +1,68 @@
+{
+  "description": "SU(2) jmax=1/2 promise-aware plaquette evolution, compiled to Clifford+T",
+  "qiskit_version": "2.5.2",
+  "physics_parameters": {
+    "dt": 1.0,
+    "a": 1.0,
+    "gs": 1.0,
+    "gt": 1.0
+  },
+  "compilation": {
+    "basis_gates": [
+      "cx",
+      "h",
+      "s",
+      "sdg",
+      "t",
+      "tdg"
+    ],
+    "rz_synthesis_error": 1e-06,
+    "optimization_level": 3,
+    "seed_transpiler": 12345
+  },
+  "resources": {
+    "num_qubits": 34,
+    "num_gates": 3207,
+    "depth": 2549,
+    "T_count": 1162,
+    "CX_count": 294,
+    "gate_counts": {
+      "h": 1155,
+      "t": 1027,
+      "s": 504,
+      "cx": 294,
+      "tdg": 135,
+      "sdg": 92
+    }
+  },
+  "qubit_registers": [
+    {
+      "name": "d",
+      "size": 12
+    },
+    {
+      "name": "p",
+      "size": 4
+    },
+    {
+      "name": "e",
+      "size": 4
+    },
+    {
+      "name": "w",
+      "size": 7
+    },
+    {
+      "name": "g",
+      "size": 3
+    },
+    {
+      "name": "tmp",
+      "size": 3
+    },
+    {
+      "name": "h",
+      "size": 1
+    }
+  ]
+}

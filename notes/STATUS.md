@@ -16,7 +16,7 @@ Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 Acceptance tests locked as `acceptance-v1` (84 tests, M0–M2). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-M0 (foundation), step 0.1 — scaffold + stubs (builder).
+M0 (foundation), step 0.2 — geometry (builder).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -36,7 +36,7 @@ M0 (foundation), step 0.1 — scaffold + stubs (builder).
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: settled numerically by acceptance test M0-X5 (expected: Paulo right in the (inner|outer) pairing).
 
 ## Next action
-Builder on M0 step 0.1 → tester (step) → commit → step 0.2.
+Builder on M0 step 0.2 → tester (step) → commit → step 0.3.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -46,3 +46,4 @@ Builder on M0 step 0.1 → tester (step) → commit → step 0.2.
 - 2026-11-04: planner kickoff launched (prompts/002, METHODS, locked M0–M2 tests); design reports parked in `scratch/design-A-physics.md`, `scratch/design-B-compress.md`.
 - 2026-11-04: planner kickoff done: `reports/research/001-…`, `prompts/002-…`, `docs/METHODS.md`, 84 locked tests. Findings: Paulo's Fig. 2 claim holds in the (inner|outer) pairing (prototype residual 3e-15); Paulo's 34-qubit circuit verified vs $U_B(\beta=1)$ to 2.9e-6 (Aer MPS); Paulo Eq. 25 missing a conjugate (typo, harmless); native Qiskit `mcx` (≥3 controls) excluded from the gate set (not Clifford+T exact).
 - 2026-11-04: `acceptance-lock` → `acceptance-v1` at 003cc3a; project `CLAUDE.md` written.
+- 2026-11-04: M0 step 0.1 PASS (reports/tests/001); `tools/lock.py` → LOCK.json, re-locked as `acceptance-v2` (c48e549).

@@ -1,0 +1,9 @@
+[project]
+name = "su2plaq"
+version = "0.0.1"
+description = "SU(2) plaquette with outer links: exact reference, encodings, circuit evaluator and compression loop"
+requires-python = ">=3.12"
+# No installation needed: pytest.ini sets pythonpath = src.
+
+[tool.setuptools.packages.find]
+where = ["src"]
