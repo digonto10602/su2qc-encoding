@@ -1,0 +1,472 @@
+{
+ "seed": 20261104,
+ "commit": "893cd3e",
+ "count_independent": {
+  "dim": 433,
+  "closed": 2,
+  "link_strings": 256,
+  "ambiguous": 95,
+  "far_end_weighted": 17362,
+  "seconds": 0.02
+ },
+ "basis_build_seconds": 0.29,
+ "labels_multiplicity_matches_independent": true,
+ "gauss_sample": {
+  "n": 60,
+  "max_residual": 5.162835502930473e-16,
+  "indices": [
+   0,
+   15,
+   18,
+   27,
+   28,
+   31,
+   35,
+   45,
+   48,
+   60,
+   80,
+   83,
+   94,
+   98,
+   109,
+   113,
+   117,
+   124,
+   125,
+   138,
+   141,
+   153,
+   162,
+   172,
+   182,
+   197,
+   215,
+   223,
+   226,
+   231,
+   233,
+   236,
+   251,
+   253,
+   259,
+   260,
+   265,
+   266,
+   274,
+   279,
+   287,
+   298,
+   303,
+   309,
+   314,
+   320,
+   324,
+   327,
+   335,
+   343,
+   346,
+   348,
+   355,
+   361,
+   363,
+   369,
+   384,
+   400,
+   404,
+   415
+  ]
+ },
+ "gauss_negative_control": 0.0555555555555555,
+ "gram_max_dev": 7.327471962526033e-15,
+ "max_components": 1296,
+ "max_imag": 0.0,
+ "far_end_violations": 0,
+ "completeness_nullity_vs_basis": [
+  {
+   "string": [
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.0
+   ],
+   "dim_space": 1024,
+   "nullity": 2,
+   "n_basis": 2
+  },
+  {
+   "string": [
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.0
+   ],
+   "dim_space": 256,
+   "nullity": 2,
+   "n_basis": 2
+  },
+  {
+   "string": [
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.5
+   ],
+   "dim_space": 256,
+   "nullity": 1,
+   "n_basis": 1
+  },
+  {
+   "string": [
+    0.0,
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "dim_space": 256,
+   "nullity": 1,
+   "n_basis": 1
+  },
+  {
+   "string": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "dim_space": 256,
+   "nullity": 1,
+   "n_basis": 1
+  },
+  {
+   "string": [
+    0.0,
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.0,
+    0.0
+   ],
+   "dim_space": 64,
+   "nullity": 1,
+   "n_basis": 1
+  },
+  {
+   "string": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.5,
+    0.5
+   ],
+   "dim_space": 1024,
+   "nullity": 2,
+   "n_basis": 2
+  },
+  {
+   "string": [
+    0.0,
+    0.0,
+    0.5,
+    0.0,
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.0,
+    0.5
+   ],
+   "dim_space": 64,
+   "nullity": 1,
+   "n_basis": 1
+  },
+  {
+   "string": [
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "dim_space": 256,
+   "nullity": 1,
+   "n_basis": 1
+  },
+  {
+   "string": [
+    0.5,
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.0,
+    0.0
+   ],
+   "dim_space": 256,
+   "nullity": 2,
+   "n_basis": 2
+  },
+  {
+   "string": [
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.0,
+    0.0
+   ],
+   "dim_space": 256,
+   "nullity": 1,
+   "n_basis": 1
+  },
+  {
+   "string": [
+    0.0,
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.5
+   ],
+   "dim_space": 16,
+   "nullity": 1,
+   "n_basis": 1
+  },
+  {
+   "string": [
+    0.5,
+    0.0,
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.0,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.0
+   ],
+   "dim_space": 256,
+   "nullity": 1,
+   "n_basis": 1
+  },
+  {
+   "string": [
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "dim_space": 1024,
+   "nullity": 2,
+   "n_basis": 2
+  },
+  {
+   "string": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.5,
+    0.5
+   ],
+   "dim_space": 1024,
+   "nullity": 2,
+   "n_basis": 2
+  },
+  {
+   "string": [
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.5
+   ],
+   "dim_space": 1024,
+   "nullity": 2,
+   "n_basis": 2
+  },
+  {
+   "string": [
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.0
+   ],
+   "dim_space": 1024,
+   "nullity": 2,
+   "n_basis": 2
+  },
+  {
+   "string": [
+    0.0,
+    0.0,
+    0.5,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "dim_space": 1024,
+   "nullity": 2,
+   "n_basis": 2
+  }
+ ],
+ "paulo_generators_vs_eq28_commutator": 0.0,
+ "paulo": {
+  "builder_matches_own_transform": 0.0,
+  "roundtrip_CG_P_CG_all433": 0.0,
+  "own_roundtrip": 0.0,
+  "gauss_paulo_gens_on_paulo_states_60": 5.162835502930473e-16,
+  "gauss_paulo_gens_on_CG_states_negctrl": 2.6436184077311883e-16
+ },
+ "paulo_convention_discrimination": {
+  "right": 2.6436184077311883e-16,
+  "no_signs": 2.6436184077311883e-16,
+  "no_permutation": 2.6436184077311883e-16
+ },
+ "S_o": {
+  "n_outer_keys_with_support_own": 3153,
+  "n_entries_builder_table": 3153,
+  "nonzero_builder": 3153,
+  "histogram_dim_S_o": {
+   "1": 976,
+   "2": 1073,
+   "3": 392,
+   "4": 320,
+   "5": 280,
+   "8": 64,
+   "9": 32,
+   "17": 16
+  },
+  "rank_span_own": 625,
+  "builder_inner_span_shape": [
+   625,
+   625
+  ],
+  "table_agrees": true,
+  "closed_pattern_dim_own": 2,
+  "closed_pattern_dim_builder": 2,
+  "max_dim": 17,
+  "sv_gap_around_rank": [
+   0.11111111111111073,
+   0.0
+  ],
+  "span_residual_of_all_inner_components_in_builder_span": 1.301991868750237e-15,
+  "possible_outer_patterns": 6561
+ }
+}

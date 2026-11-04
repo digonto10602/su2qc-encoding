@@ -17,7 +17,7 @@ def test_module_imports(name):
 
 
 def test_stub_raises_not_implemented():
-    from su2plaq.exact.physical import physical_basis
+    from su2plaq._stub import todo
 
     with pytest.raises(NotImplementedError):
-        physical_basis()
+        todo("x")
