@@ -1,0 +1,35 @@
+{
+ "seed": 20261104,
+ "rows": [
+  {
+   "label": "14 blocks x 3 h pairs (42 pairs), rotations on data qubits 0-7",
+   "gates": 4109,
+   "h": 84,
+   "secs": 2.985614538192749,
+   "peak_entries": 320000,
+   "final_entries": 160000,
+   "norm_dev": 1.432187701766452e-14,
+   "rss_MB": 145.171875
+  },
+  {
+   "label": "14 blocks x 3 h pairs, pool 5 data qubits",
+   "gates": 4109,
+   "h": 84,
+   "secs": 0.47489213943481445,
+   "peak_entries": 40000,
+   "final_entries": 20000,
+   "norm_dev": 1.4099832412739488e-14,
+   "rss_MB": 145.171875
+  },
+  {
+   "label": "40 blocks x 1 h pair, pool 8",
+   "gates": 3825,
+   "h": 80,
+   "secs": 2.1083600521087646,
+   "peak_entries": 320000,
+   "final_entries": 160000,
+   "norm_dev": 1.4432899320127035e-14,
+   "rss_MB": 148.21875
+  }
+ ]
+}

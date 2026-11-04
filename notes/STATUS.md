@@ -16,7 +16,7 @@ Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 Acceptance tests locked as `acceptance-v1` (84 tests, M0–M2). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-M0 (foundation), step 0.7 — sparse simulator (builder).
+M0 (foundation), step 0.8 — evaluator (builder).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -32,11 +32,12 @@ M0 (foundation), step 0.7 — sparse simulator (builder).
 - T-count rule: $T_{\rm total}=T_{\rm fixed}+\sum_{\rm rot}T_r(\varepsilon)$, $T_r\approx3\log_2(1/\varepsilon)$ (Ross–Selinger), measured with pygridsynth; the "$+3\ln\varepsilon$" form was wrong (sign, base, multiplicity).
 
 ## Known issues
+- Aer MPS engine accurate only to ~1e-11–2e-10 (reports/tests/008): METHODS corrected by coordinator; evaluator must record engine and not certify 1e-10/1e-12 verdicts with aer_mps. Next planner run: confirm engine-specific tolerance policy.
 - Note §5 register table vs its bullets (q-deformed 16 vs 12; spin network 20 vs 16): the script's register sizes are upper bounds. Not blocking (q-deformed not in scope).
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: SETTLED by M0-X5 (reports/tests/006): in the (inner|outer) pairing H_B is block-diagonal in outer spins, 128 blocks all equal to one 47×47 K (2.7e-15), J conserved → Paulo right; in a mixed pairing amplitudes depend on outer spins → note §4.2 right there.
 
 ## Next action
-Builder on M0 step 0.7 → tester (step) → commit → step 0.8.
+Builder on M0 step 0.8 → tester (step) → commit → step 0.9.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -52,3 +53,5 @@ Builder on M0 step 0.7 → tester (step) → commit → step 0.8.
 - 2026-11-04: M0 step 0.4 physical states PASS (reports/tests/004): C1–C6, X1 green; independent recount 433/2/256/95/17362; Gauss ≤ 5.2e-16, Gram ≤ 7.3e-15. Claim (i) data: inner span rank = 625 (full); 3153 of 6561 outer patterns allowed; dim S_o ∈ {1..5, 8, 9, 17}, closed = 2.
 - 2026-11-04: M0 step 0.5 operators PASS (reports/tests/005): X2,X3,X7,X8 green; W leak 1.1e-15; closed block exact incl. sign; H_B spectrum −2(16) −1(96) −½(16) 0(177) ½(16) 1(96) 2(16); ‖U2−U1‖ slope → 2.
 - 2026-11-04: M0 step 0.6 route B PASS (reports/tests/006): X4–X6 green; spectra A vs B ≤ 1.1e-14; K = 8 bright 2×2 pairs (couplings 2, 1×6, ½) + 31 dark rows. Caveat: K is a matching, so A/B comparison tests moduli, not signs (sign anchored by vacuum amplitude +1).
+- 2026-11-04: M0 step 0.7 tester FAIL (reports/tests/007): E1/E2 green, vs Aer 3.2e-15 on 36 circuits; pruning without accounting can bias op-norm (constructed 4e-10); native mcx≥3 silently wrong (Qiskit uses idle qubits as clean ancillas); aer_check.py still a stub. Sent back to builder (attempt 1).
+- 2026-11-04: M0 step 0.7 recheck PASS (reports/tests/008): relative pruning + certified `dropped_l2` bound (64 896 forced-pruning cases, 0 violations); mcx≥3 rejected (hole: inside custom gates → fix in 0.8); aer_check built. Counters reset.

@@ -1,0 +1,230 @@
+{
+ "A": [
+  {
+   "n": 20,
+   "theta": 1e-08,
+   "stored_pruned": 21,
+   "stored_exact": 1048576,
+   "l2_err": 3.446012188022544e-16,
+   "l1_err": 4.7500001424999864e-15,
+   "analytic_dropped_L2": 3.4460121880225557e-16,
+   "secs": 0.6517386436462402
+  },
+  {
+   "n": 20,
+   "theta": 1e-06,
+   "stored_pruned": 211,
+   "stored_exact": 1048576,
+   "l2_err": 4.220485754026263e-18,
+   "l1_err": 1.425003028126633e-16,
+   "analytic_dropped_L2": 4.220485754026277e-18,
+   "secs": 0.5553944110870361
+  },
+  {
+   "n": 20,
+   "theta": 0.0001,
+   "stored_pruned": 1351,
+   "stored_exact": 1048576,
+   "l2_err": 4.3503770619670365e-16,
+   "l1_err": 3.0286094949490775e-14,
+   "analytic_dropped_L2": 4.350377061967054e-16,
+   "secs": 0.5415740013122559
+  },
+  {
+   "n": 20,
+   "theta": 0.001,
+   "stored_pruned": 6196,
+   "stored_exact": 1048576,
+   "l2_err": 3.891088713592755e-15,
+   "l1_err": 4.851052205309993e-13,
+   "analytic_dropped_L2": 3.8910887135927685e-15,
+   "secs": 0.5508027076721191
+  },
+  {
+   "n": 20,
+   "theta": 0.01,
+   "stored_pruned": 60460,
+   "stored_exact": 1048576,
+   "l2_err": 2.1748158735056918e-14,
+   "l1_err": 6.104617138152596e-12,
+   "analytic_dropped_L2": 2.1748158735057e-14,
+   "secs": 0.5936422348022461
+  },
+  {
+   "n": 20,
+   "theta": 0.05,
+   "stored_pruned": 263950,
+   "stored_exact": 1048576,
+   "l2_err": 1.5570845416183637e-12,
+   "l1_err": 6.558721988229404e-10,
+   "analytic_dropped_L2": 1.5570845416183694e-12,
+   "secs": 0.7544288635253906
+  },
+  {
+   "n": 20,
+   "theta": 0.2,
+   "stored_pruned": 988116,
+   "stored_exact": 1048576,
+   "l2_err": 1.8701642984727086e-12,
+   "l1_err": 3.8266891308433987e-10,
+   "analytic_dropped_L2": 1.8701642984727154e-12,
+   "secs": 1.0559585094451904
+  },
+  {
+   "n": 30,
+   "theta": 1e-08,
+   "note": "cap"
+  },
+  {
+   "n": 30,
+   "theta": 1e-06,
+   "note": "cap"
+  },
+  {
+   "n": 30,
+   "theta": 0.0001,
+   "note": "cap"
+  },
+  {
+   "n": 30,
+   "theta": 0.001,
+   "note": "cap"
+  },
+  {
+   "n": 30,
+   "theta": 0.01,
+   "note": "cap"
+  },
+  {
+   "n": 30,
+   "theta": 0.05,
+   "note": "cap"
+  },
+  {
+   "n": 30,
+   "theta": 0.2,
+   "note": "cap"
+  },
+  {
+   "n": 40,
+   "theta": 1e-08,
+   "note": "cap"
+  },
+  {
+   "n": 40,
+   "theta": 1e-06,
+   "note": "cap"
+  },
+  {
+   "n": 40,
+   "theta": 0.0001,
+   "note": "cap"
+  },
+  {
+   "n": 40,
+   "theta": 0.001,
+   "note": "cap"
+  },
+  {
+   "n": 40,
+   "theta": 0.01,
+   "note": "cap"
+  },
+  {
+   "n": 40,
+   "theta": 0.05,
+   "note": "cap"
+  },
+  {
+   "n": 40,
+   "theta": 0.2,
+   "note": "cap"
+  }
+ ],
+ "B": [
+  {
+   "m": 12,
+   "N_gates": 20,
+   "theta": 2e-12,
+   "amp_per_entry": 0.015625,
+   "branch_amp": 1.5625e-14,
+   "dropped_each": false,
+   "stored_pruned": 8192,
+   "stored_exact": 8192,
+   "l2_err": 0.0,
+   "analytic": 2e-11
+  },
+  {
+   "m": 16,
+   "N_gates": 20,
+   "theta": 3.2e-11,
+   "amp_per_entry": 0.00390625,
+   "branch_amp": 6.25e-14,
+   "dropped_each": false,
+   "stored_pruned": 131072,
+   "stored_exact": 131072,
+   "l2_err": 0.0,
+   "analytic": 3.2e-10
+  },
+  {
+   "m": 20,
+   "N_gates": 20,
+   "theta": 2e-11,
+   "amp_per_entry": 0.0009765625,
+   "branch_amp": 9.765625e-15,
+   "dropped_each": true,
+   "stored_pruned": 1048576,
+   "stored_exact": 2097152,
+   "l2_err": 1.999999999999997e-10,
+   "analytic": 1.9999999999999998e-10
+  },
+  {
+   "m": 20,
+   "N_gates": 10,
+   "theta": 2e-11,
+   "amp_per_entry": 0.0009765625,
+   "branch_amp": 9.765625e-15,
+   "dropped_each": true,
+   "stored_pruned": 1048576,
+   "stored_exact": 2097152,
+   "l2_err": 9.999999999999982e-11,
+   "analytic": 9.999999999999999e-11
+  },
+  {
+   "m": 20,
+   "N_gates": 40,
+   "theta": 2e-11,
+   "amp_per_entry": 0.0009765625,
+   "branch_amp": 9.765625e-15,
+   "dropped_each": true,
+   "stored_pruned": 1048576,
+   "stored_exact": 2097152,
+   "l2_err": 3.9999999999999903e-10,
+   "analytic": 3.9999999999999996e-10
+  },
+  {
+   "m": 10,
+   "N_gates": 20,
+   "theta": 1e-12,
+   "amp_per_entry": 0.03125,
+   "branch_amp": 1.5625e-14,
+   "dropped_each": false,
+   "stored_pruned": 2048,
+   "stored_exact": 2048,
+   "l2_err": 0.0,
+   "analytic": 1e-11
+  },
+  {
+   "m": 10,
+   "N_gates": 20,
+   "theta": 2e-13,
+   "amp_per_entry": 0.03125,
+   "branch_amp": 3.125e-15,
+   "dropped_each": true,
+   "stored_pruned": 1024,
+   "stored_exact": 2048,
+   "l2_err": 1.999999999999999e-12,
+   "analytic": 2e-12
+  }
+ ]
+}
