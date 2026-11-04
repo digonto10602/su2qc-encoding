@@ -1,0 +1,72 @@
+"""M1-P1, M1-P2 — cross-checks against Paulo's circuit files (prompts/002 §4 step 1.6, research 001 §3.6, §6).
+Second evaluator engine: qiskit-aer matrix_product_state (truncation threshold 0, Aer's memory estimate overridden
+with max_memory_mb, amplitudes by contracting save_matrix_product_state — never save_amplitudes, which returns
+zeros with MPS in Aer 0.17.2). Measured by the planner: 625 inputs in 139 s, max bond dimension 16, error 2.9e-6."""
+import json
+
+import pytest
+
+import functools
+
+from tests.acceptance._api import api, op_norm_after_phase
+
+META = "refs/paulo/SU2_plaquette_jmax_half_CT_metadata.json"
+
+
+@functools.lru_cache(maxsize=None)
+def _enc():
+    return api("su2plaq.encodings.twelve:TwelveQubit")()
+
+
+@pytest.mark.slow
+def test_M1_P1_paulo_qpy_verifies(root):
+    """Paulo's compiled 34-qubit Clifford+T circuit (dt = g = 1, i.e. beta = 1, alpha_P = 2) loads with the metadata
+    counts (34 qubits, 294 CX, 1162 T) and verifies against target 'UB' at beta = 1 through the evaluator:
+    op-norm error <= 2e-5, leak <= 1e-9. Justification: 866 rotation-T at >= 54 T per rotation (3 log2 1e6 - 6) means
+    at most 16 synthesised rotations, each within 1e-6 -> triangle-inequality error <= 1.6e-5; leak probability
+    <= (1.6e-5)^2 = 2.6e-10. Engine 'auto': the sparse simulator if its amplitude cap is not exceeded (Qiskit's
+    level-3 schedule opens up to 21 Hadamards at once, 2^21 amplitudes per input), else aer_mps."""
+    enc = _enc()
+    paulo_circuit = api("su2plaq.circuits.twelve:paulo_circuit")
+    evaluate = api("su2plaq.evaluate.evaluator:evaluate")
+    meta = json.loads((root / META).read_text())
+    qc = paulo_circuit()
+    ops = qc.count_ops()
+    assert qc.num_qubits == meta["resources"]["num_qubits"] == 34
+    assert ops["cx"] == meta["resources"]["CX_count"] == 294
+    assert ops.get("t", 0) + ops.get("tdg", 0) == meta["resources"]["T_count"] == 1162
+    assert qc.qregs[0].name == "d" and qc.qregs[0].size == 12
+    V = enc.target("UB", None, 1.0)
+    v = evaluate(qc, enc, V, tol_err=2e-5, tol_leak=1e-9, engine="auto")
+    assert v.ok, (v.reason, v.op_norm_error, v.max_leak, v.method, v.engine)
+    assert v.op_norm_error <= 2e-5 and v.max_leak <= 1e-9 and v.dirty_ancilla <= 1e-9
+    assert v.engine in ("sparse", "aer_mps")
+    # the sign of beta matters: the inverse is not accepted
+    v2 = evaluate(qc, enc, V.conj().T, tol_err=2e-5, tol_leak=1e-9, engine=v.engine)
+    assert not v2.ok and v2.op_norm_error > 0.1
+
+
+def test_M1_P2_port_reproduces_counts(root):
+    """The faithful reconstruction of the notebook circuit, paulo_logical(beta = 1) (keeps the notebook's mcrx/crx and
+    registers d p e w g tmp h), is exact on the 625 inner codes (1e-10), has logical T_fixed = 296 (56 rccx x 4 +
+    8 ccx x 7 + 16 explicit T), 294 CX and 14 rotations after level-0 lowering, and compiled with Paulo's settings
+    (Clifford+T PM level 3, eps 1e-6, seed 12345) reproduces his resources within 5 % (T 1162, CX 294, 34 qubits).
+    Same Qiskit version/seed/settings: equality expected, 5 % absorbs pass-manager drift."""
+    enc = _enc()
+    paulo_logical = api("su2plaq.circuits.twelve:paulo_logical")
+    ct_compile = api("su2plaq.metrics.cliffordt:ct_compile")
+    logical_metrics = api("su2plaq.metrics.logical:logical_metrics")
+    run_batch = api("su2plaq.evaluate.sparse_sim:run_batch")
+    encoded_block = api("su2plaq.evaluate.sparse_sim:encoded_block")
+    inner_target = api("su2plaq.evaluate.evaluator:inner_target")
+    meta = json.loads((root / META).read_text())
+    qc = paulo_logical(1.0)
+    assert qc.num_qubits == 34 and [r.name for r in qc.qregs] == ["d", "p", "e", "w", "g", "tmp", "h"]
+    lm = logical_metrics(qc)
+    assert lm["t_fixed"] == 296 and lm["cx"] == 294 and lm["n_rot"] == 14
+    codes = enc.inner_codes()
+    M, leak = encoded_block(run_batch(qc, codes), codes, len(codes), code_mask=(1 << 12) - 1)
+    assert leak.max() <= 1e-12 and op_norm_after_phase(M, inner_target(enc, "UB", None, 1.0)) <= 1e-10
+    out, m = ct_compile(qc, 1e-6, level=3, seed=12345)
+    for key, ref in (("t", meta["resources"]["T_count"]), ("cx", meta["resources"]["CX_count"]), ("qubits", meta["resources"]["num_qubits"])):
+        assert abs(m[key] - ref) <= 0.05 * ref, (key, m[key], ref)
