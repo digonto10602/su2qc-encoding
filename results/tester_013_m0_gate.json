@@ -1,0 +1,74 @@
+{
+ "commit": "5f094ab",
+ "tree": "step 0.10 files uncommitted",
+ "mode": "full (M0 gate)",
+ "date": "2026-11-04",
+ "seeds": "fixed in each script (20261104 where stochastic)",
+ "m0_full": {
+  "passed": 33,
+  "failed": 0,
+  "skipped": 0,
+  "wall_s": 28.29,
+  "pytest_reported_s": 27.69,
+  "workers": 6,
+  "per_file_summed_case_s": {
+   "test_algebra": 1.07,
+   "test_evaluator": 43.43,
+   "test_geometry": 0.01,
+   "test_metrics": 3.79,
+   "test_operators": 4.12,
+   "test_physical": 4.24,
+   "test_results": 0.03,
+   "test_sparse_sim": 0.3,
+   "test_spinnet": 1.13
+  },
+  "slowest": {
+   "M0_E3_sensitivity": 18.87,
+   "M0_E5_gauss_of_outputs": 17.65,
+   "M0_E4_outer_control_blocks": 6.9,
+   "M0_C6_jmax1_count_slow": 2.96
+  }
+ },
+ "m1_m2": {
+  "collected": 51,
+  "passed": 1,
+  "failed": 50,
+  "pending_NotImplementedError": 46,
+  "M1_R1_missing_results_file": 3,
+  "M1_O1_len_3153_vs_6561": 1,
+  "wall_s": 7.97
+ },
+ "unit": {
+  "passed": 131,
+  "wall_s": 37.6
+ },
+ "collect": 84,
+ "check_lock": "LOCK OK",
+ "acceptance_check": "PASS (acceptance-v3)",
+ "step010": {
+  "commit_equals_git": true,
+  "dirty_clean_clone": false,
+  "dirty_modified_tracked": true,
+  "dirty_staged": true,
+  "dirty_untracked": false,
+  "no_git": {
+   "commit": "unknown",
+   "dirty": null
+  },
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "json_nonstrict_tokens": [
+   "Infinity",
+   "NaN"
+  ],
+  "strict_python_parse": "rejected",
+  "jq": "accepts",
+  "node_JSON.parse": "rejects"
+ }
+}
