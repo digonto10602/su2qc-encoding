@@ -9,8 +9,8 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "7a54eaa",
-    "git_dirty": true,
+    "git_commit": "a9702e5",
+    "git_dirty": false,
     "versions": {
       "python": "3.12.14",
       "numpy": "2.5.2",
@@ -26,7 +26,8 @@
       "clifford_t_pass_manager": 12345,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-05T15:12:46Z"
+    "timestamp_utc": "2026-11-05T16:14:13Z",
+    "provenance_captured_at": "2026-11-05T16:14:13Z"
   },
   "verification": {
     "ok": true,
@@ -52,7 +53,7 @@
     "dropped_total": 1.4672962251711322e-13,
     "block_error": 1.2208677012450994e-13,
     "leak_amplitude": 0.0,
-    "seconds": 2.3010318279266357,
+    "seconds": 2.3075764179229736,
     "n_inputs": 433,
     "extra": {
       "op_norm_error_physical": 1.606997691151797e-14,
@@ -121,7 +122,7 @@
             "dropped_total": 8.157238909155892e-13,
             "block_error": 0.0001945197684134172,
             "leak_amplitude": 4.380068927408598e-05,
-            "seconds": 7.932823657989502,
+            "seconds": 7.992916107177734,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 0.00019315709924556284,
@@ -171,7 +172,7 @@
             "dropped_total": 9.159408558945755e-12,
             "block_error": 2.6382539303247094e-06,
             "leak_amplitude": 6.046146422065105e-07,
-            "seconds": 7.311022996902466,
+            "seconds": 7.30628776550293,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 2.5608847553677052e-06,
@@ -221,7 +222,7 @@
             "dropped_total": 2.1670470819486065e-13,
             "block_error": 1.9046902739241126e-08,
             "leak_amplitude": 9.518232608423165e-09,
-            "seconds": 6.848252296447754,
+            "seconds": 6.815699100494385,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.2119621268030707e-08,
@@ -271,7 +272,7 @@
             "dropped_total": 2.2752164371371564e-13,
             "block_error": 1.5162020093326852e-10,
             "leak_amplitude": 7.384905239172324e-11,
-            "seconds": 7.4719085693359375,
+            "seconds": 7.487677812576294,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.1882883650785715e-10,
@@ -355,7 +356,7 @@
         "dropped_total": 1.5188018990563096e-13,
         "block_error": 1.222121857857705e-13,
         "leak_amplitude": 0.0,
-        "seconds": 2.3731167316436768,
+        "seconds": 2.3515002727508545,
         "n_inputs": 433,
         "extra": {
           "op_norm_error_physical": 1.6732254513521057e-14,
@@ -424,7 +425,7 @@
                 "dropped_total": 3.879675699284115e-11,
                 "block_error": 0.0004103649289373294,
                 "leak_amplitude": 0.00016707628480789788,
-                "seconds": 14.893163919448853,
+                "seconds": 15.15466022491455,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 0.00016182820901144363,
@@ -474,7 +475,7 @@
                 "dropped_total": 3.926143207306732e-12,
                 "block_error": 2.929061869962571e-06,
                 "leak_amplitude": 5.562404806918663e-07,
-                "seconds": 7.628737449645996,
+                "seconds": 7.573070049285889,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 2.8794979849091256e-06,
@@ -524,7 +525,7 @@
                 "dropped_total": 2.2128958597045411e-13,
                 "block_error": 3.5882361070559984e-08,
                 "leak_amplitude": 1.5606533719671183e-08,
-                "seconds": 8.498844146728516,
+                "seconds": 8.160839080810547,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 1.729206968277676e-08,
@@ -574,7 +575,7 @@
                 "dropped_total": 2.323009963281727e-13,
                 "block_error": 3.4092625532005825e-10,
                 "leak_amplitude": 1.5850405329881709e-10,
-                "seconds": 9.134644985198975,
+                "seconds": 9.009411573410034,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 1.1876996248953625e-10,

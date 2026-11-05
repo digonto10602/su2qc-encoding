@@ -9,8 +9,8 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "7a54eaa",
-    "git_dirty": true,
+    "git_commit": "a9702e5",
+    "git_dirty": false,
     "versions": {
       "python": "3.12.14",
       "numpy": "2.5.2",
@@ -26,7 +26,8 @@
       "clifford_t_pass_manager": 12345,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-05T15:11:29Z"
+    "timestamp_utc": "2026-11-05T16:14:13Z",
+    "provenance_captured_at": "2026-11-05T16:14:13Z"
   },
   "verification": {
     "ok": true,
@@ -52,7 +53,7 @@
     "dropped_total": 1.2025044025530426e-13,
     "block_error": 1.217814868793918e-13,
     "leak_amplitude": 0.0,
-    "seconds": 2.3430464267730713,
+    "seconds": 2.322892665863037,
     "n_inputs": 433,
     "extra": {
       "op_norm_error_physical": 1.501184063002989e-14,
@@ -121,7 +122,7 @@
             "dropped_total": 1.7967253571350892e-13,
             "block_error": 0.00015179096446213899,
             "leak_amplitude": 4.05144491040979e-05,
-            "seconds": 3.379167079925537,
+            "seconds": 3.2981510162353516,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 0.00015179096446134687,
@@ -171,7 +172,7 @@
             "dropped_total": 1.9899270709053752e-13,
             "block_error": 1.3148362635017303e-06,
             "leak_amplitude": 5.39446650420226e-07,
-            "seconds": 3.6426503658294678,
+            "seconds": 3.5469934940338135,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.3148362620663963e-06,
@@ -221,7 +222,7 @@
             "dropped_total": 2.1153045995935668e-13,
             "block_error": 1.171386692280721e-08,
             "leak_amplitude": 7.54412940199055e-09,
-            "seconds": 3.813218116760254,
+            "seconds": 3.829590320587158,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.1713866323862561e-08,
@@ -271,7 +272,7 @@
             "dropped_total": 2.0489902534125318e-13,
             "block_error": 1.1893414726336874e-10,
             "leak_amplitude": 5.720599251101198e-11,
-            "seconds": 4.038627624511719,
+            "seconds": 3.976607084274292,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.1893414726336874e-10,
@@ -368,7 +369,7 @@
           "dropped_total": 0.0,
           "block_error": 2.904793858178439e-06,
           "leak_amplitude": 7.85106908051691e-06,
-          "seconds": 78.60992980003357,
+          "seconds": 78.61491680145264,
           "n_inputs": 433,
           "extra": {
             "op_norm_error_physical": 2.9047814455186083e-06,
@@ -377,7 +378,7 @@
             "op_norm_error_inner_span": 2.904793858178439e-06
           }
         },
-        "seconds": 78.61670017242432,
+        "seconds": 78.62180781364441,
         "tolerances_note": "synthesised circuit: tol_err = tol_gauss = 2e-5 (prompts/003, prompts/004)"
       },
       "our_UB_beta_1": {
@@ -426,7 +427,7 @@
           "dropped_total": 1.206546287546029e-13,
           "block_error": 1.2177232802429922e-13,
           "leak_amplitude": 0.0,
-          "seconds": 2.3154170513153076,
+          "seconds": 2.3181638717651367,
           "n_inputs": 433,
           "extra": {
             "op_norm_error_physical": 1.523032178310512e-14,
