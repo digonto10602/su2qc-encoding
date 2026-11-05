@@ -141,3 +141,28 @@ def test_paulo_circuit_loads_with_registers_and_embeds_in_our_layout(enc):
     assert all(qo.find_bit(q).index < 12 or qo.find_bit(q).index >= 28 for i in qo.data for q in i.qubits)
     lay = enc.layout_of(qo)
     assert lay.outer == list(range(12, 28)) and lay.ancilla == list(range(28, 50))
+
+
+def test_global_phase_is_counted_exactly_once(monkeypatch):
+    import math
+
+    from su2plaq.circuits import twelve as C
+
+    src = C.paulo_circuit()
+    assert abs(C.paulo_circuit(with_outer=True).global_phase - src.global_phase) < 1e-15   # not doubled
+    ue0, ub0 = C.build_UE, C.build_UB
+
+    def ue(alpha, *a, **k):
+        qc = ue0(alpha, *a, **k)
+        qc.global_phase = 0.1
+        return qc
+
+    def ub(beta, *a, **k):
+        qc = ub0(beta, *a, **k)
+        qc.global_phase = 0.3
+        return qc
+
+    monkeypatch.setattr(C, "build_UE", ue)
+    monkeypatch.setattr(C, "build_UB", ub)
+    assert math.isclose(C.build_step(0.37, 0.61, order=1).global_phase, 0.4, abs_tol=1e-15)
+    assert math.isclose(C.build_step(0.37, 0.61, order=2).global_phase, 0.5, abs_tol=1e-15)

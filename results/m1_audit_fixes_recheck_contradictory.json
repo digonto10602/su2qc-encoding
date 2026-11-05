@@ -1,0 +1,70 @@
+[
+ {
+  "case": "TGate-named singleton subclass: definition X, to_matrix T",
+  "sim_vs_definition": 2.7755575615628914e-17,
+  "sim_vs_to_matrix": 0.7071067811865474,
+  "lower_vs_definition": 1.8384814670847006e-33,
+  "lower_vs_to_matrix": NaN,
+  "qiskit_transpile_vs_definition": NaN,
+  "qiskit_transpile_vs_to_matrix": 1.8384814670847013e-33,
+  "qiskit_Operator_vs_definition": 0.7071067811865474,
+  "qiskit_Operator_vs_to_matrix": 0.0,
+  "lower_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "is_standard_gate": false
+ },
+ {
+  "case": "MyT: definition X, to_matrix T",
+  "sim_vs_definition": 2.7755575615628914e-17,
+  "sim_vs_to_matrix": 0.7071067811865474,
+  "lower_vs_definition": 1.8384814670847006e-33,
+  "lower_vs_to_matrix": NaN,
+  "qiskit_transpile_vs_definition": NaN,
+  "qiskit_transpile_vs_to_matrix": 1.8384814670847013e-33,
+  "qiskit_Operator_vs_definition": 0.7071067811865474,
+  "qiskit_Operator_vs_to_matrix": 0.0,
+  "lower_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "is_standard_gate": false
+ },
+ {
+  "case": "RZGate-named subclass: definition RX, to_matrix RZ",
+  "sim_vs_definition": 6.206335383118183e-17,
+  "sim_vs_to_matrix": 0.2424653649057487,
+  "lower_vs_definition": 7.850462293418876e-17,
+  "lower_vs_to_matrix": 0.24246536490574866,
+  "qiskit_transpile_vs_definition": 0.24246536490574866,
+  "qiskit_transpile_vs_to_matrix": 0.0,
+  "qiskit_Operator_vs_definition": 0.2424653649057487,
+  "qiskit_Operator_vs_to_matrix": 0.0,
+  "lower_counts": {
+   "h": 5,
+   "rz": 1,
+   "t": 1
+  },
+  "is_standard_gate": false
+ },
+ {
+  "case": "MyRZ: definition RX, to_matrix RZ",
+  "sim_vs_definition": 6.206335383118183e-17,
+  "sim_vs_to_matrix": 0.2424653649057487,
+  "lower_vs_definition": 7.850462293418876e-17,
+  "lower_vs_to_matrix": 0.24246536490574866,
+  "qiskit_transpile_vs_definition": 0.24246536490574866,
+  "qiskit_transpile_vs_to_matrix": 0.0,
+  "qiskit_Operator_vs_definition": 0.2424653649057487,
+  "qiskit_Operator_vs_to_matrix": 0.0,
+  "lower_counts": {
+   "h": 5,
+   "rz": 1,
+   "t": 1
+  },
+  "is_standard_gate": false
+ }
+]

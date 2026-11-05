@@ -228,3 +228,147 @@ def test_two_ub_macros_with_the_same_name_are_not_confused():
         out.append(d)
     ov = np.vdot(out[1], out[0])
     assert np.abs(out[0] - ov / abs(ov) * out[1]).max() < 1e-9   # U_B(0.3) U_B(0.31) = U_B(0.61) on the inner codes
+
+
+# ---------------------------------------------------------------- audit 003 N6: never trust a gate's name
+def _disguised(name, content, nq):
+    c = QuantumCircuit(nq, name=name)
+    content(c)
+    return c.to_gate()
+
+
+def test_disguised_gates_are_simulated_by_their_content_not_their_name():
+    from qiskit.quantum_info import Operator
+
+    cases = {
+        "t": (_disguised("t", lambda c: c.x(0), 1), 1),      # really X
+        "h": (_disguised("h", lambda c: c.s(0), 1), 1),      # really S
+        "cx": (_disguised("cx", lambda c: c.cz(0, 1), 2), 2),  # really CZ
+        "rz": (_disguised("rz", lambda c: c.x(0), 1), 1),
+        "ccx": (_disguised("ccx", lambda c: c.cz(0, 1), 3), 3),
+    }
+    for name, (g, nq) in cases.items():
+        qc = QuantumCircuit(nq)
+        qc.h(0)
+        qc.append(g, list(range(nq)))
+        qc.h(0)
+        dense = np.zeros((2 ** nq, 2 ** nq), complex)
+        b = ss.run_batch(qc, np.arange(2 ** nq, dtype=np.int64))
+        np.add.at(dense, (b.keys, b.cols), b.amps)
+        assert np.abs(dense - Operator(qc).data).max() < 1e-12, name
+    # |0> -> |1> for the disguised "t" (a genuine T would leave |0>)
+    qc = QuantumCircuit(1)
+    qc.append(cases["t"][0], [0])
+    b = ss.run_batch(qc, np.array([0], dtype=np.int64))
+    assert b.keys.tolist() == [1]
+
+
+def test_opaque_custom_gate_with_a_basis_name_is_rejected_and_barrier_cannot_be_faked():
+    from qiskit.circuit import Gate
+
+    qc = QuantumCircuit(1)
+    qc.append(Gate("t", 1, []), [0])           # no definition: cannot be simulated
+    with pytest.raises(ValueError, match="no definition"):
+        ss.run_batch(qc, np.array([0], dtype=np.int64))
+    fake = QuantumCircuit(1)
+    inner = QuantumCircuit(1, name="barrier")
+    inner.x(0)
+    fake.append(inner.to_gate(), [0])          # a gate named 'barrier' that flips the qubit: must not be dropped
+    assert ss.run_batch(fake, np.array([0], dtype=np.int64)).keys.tolist() == [1]
+    real = QuantumCircuit(1)
+    real.x(0)
+    real.barrier()
+    assert ss.run_batch(real, np.array([0], dtype=np.int64)).keys.tolist() == [1]
+
+
+def test_is_standard_gate_predicate():
+    from qiskit.circuit.library import CXGate, TGate, UnitaryGate
+
+    assert ss.is_standard_gate(TGate()) and ss.is_standard_gate(CXGate()) and ss.is_standard_gate(UnitaryGate(np.eye(2)))
+    assert not ss.is_standard_gate(_disguised("t", lambda c: c.x(0), 1))
+    qc = QuantumCircuit(2)
+    qc.cx(0, 1)
+    assert ss.is_standard_gate(qc.data[0].operation)
+
+
+# ---------------------------------------------------------------- audit-fix verification (reports/tests/022): class identity
+def _dense_of(qc, nq=None):
+    n = qc.num_qubits
+    b = ss.run_batch(qc, np.arange(2 ** n, dtype=np.int64))
+    out = np.zeros((2 ** n, 2 ** n), complex)
+    np.add.at(out, (b.keys, b.cols), b.amps)
+    return out
+
+
+def test_genuine_open_control_gates_are_accepted():
+    from qiskit.circuit.library import XGate
+    from qiskit.quantum_info import Operator
+
+    qc = QuantumCircuit(3)
+    qc.h(0)
+    qc.cx(0, 1, ctrl_state=0)
+    qc.append(XGate().control(1, ctrl_state=0), [1, 2])
+    qc.ccx(0, 1, 2, ctrl_state="01")
+    assert np.abs(_dense_of(qc) - Operator(qc).data).max() < 1e-12
+    qa = QuantumCircuit(2)
+    qa.h(0)
+    qa.append(XGate().control(1, annotated=True), [0, 1])
+    assert np.abs(_dense_of(qa) - Operator(qa).data).max() < 1e-12
+    from su2plaq.metrics.logical import lower
+
+    Ul = Operator(lower(qc)).data
+    ov = np.trace(Operator(qc).data.conj().T @ Ul)
+    assert np.abs(Ul - ov / abs(ov) * Operator(qc).data).max() < 1e-12
+
+
+def test_forged_and_subclassed_standard_classes_are_not_trusted():
+    from qiskit.circuit.library import CPhaseGate, CRXGate, PhaseGate, RXGate, RZGate, UGate
+    from qiskit.quantum_info import Operator
+    from su2plaq.metrics.logical import lower, logical_metrics
+
+    def forge(base, content):
+        # user-module subclass reusing the Qiskit class name but with different content
+        cls = type(base.__name__, (base,), {"_define": lambda self: content(self)})
+        return cls
+
+    def rz_as_rx(self):
+        c = QuantumCircuit(1)
+        c.rx(self.params[0], 0)
+        self.definition = c
+
+    cases = [(RZGate, 1, (0.7,), rz_as_rx), (PhaseGate, 1, (0.7,), rz_as_rx), (RXGate, 1, (0.7,), lambda s: setattr(s, "definition", _rz_def(s)))]
+
+    def _rz_def(s):
+        c = QuantumCircuit(1)
+        c.rz(s.params[0], 0)
+        return c
+
+    for base, nq, params, content in cases:
+        g = forge(base, content)(*params)
+        assert not ss.is_standard_gate(g)
+        qc = QuantumCircuit(nq)
+        qc.h(0)
+        qc.append(g, [0])
+        ref = QuantumCircuit(nq)
+        ref.h(0)
+        ref.append(g.definition.to_gate(), [0])
+        assert np.abs(_dense_of(qc) - Operator(ref).data).max() < 1e-12, base.__name__
+    for base in (CPhaseGate, CRXGate, UGate):
+        assert not ss.is_standard_gate(type(base.__name__, (base,), {})(*([0.3, 0.2, 0.1] if base is UGate else [0.3])))
+    # a genuine gate is still standard and keeps counting as one rotation
+    g = QuantumCircuit(1)
+    g.rz(0.3, 0)
+    assert ss.is_standard_gate(g.data[0].operation) and logical_metrics(g)["n_rot"] == 1
+
+
+def test_wide_mcx_hidden_in_a_custom_gate_with_a_standard_name_is_rejected():
+    inner = QuantumCircuit(5, name="cx")      # custom gate that carries a standard name
+    inner.mcx([0, 1, 2], 3)
+    outer = QuantumCircuit(7)
+    outer.append(inner.to_gate(), range(5))
+    with pytest.raises(ValueError, match="mcx"):
+        ss.run_batch(outer, np.array([0], dtype=np.int64))
+    from su2plaq.metrics.logical import lower
+
+    with pytest.raises(ValueError, match="mcx"):
+        lower(outer)

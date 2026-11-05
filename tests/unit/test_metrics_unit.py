@@ -147,3 +147,30 @@ def test_lower_inlines_nested_custom_gates_in_program_order():
     flat = QuantumCircuit(4)
     flat.rccx(0, 1, 2), flat.rccx(0, 1, 3), flat.t(0)
     assert dict(low.count_ops()) == dict(lg.lower(flat).count_ops())
+
+
+def test_disguised_gates_are_lowered_and_counted_by_content():
+    t_as_x = QuantumCircuit(1, name="t")
+    t_as_x.x(0)
+    cx_as_cz = QuantumCircuit(2, name="cx")
+    cx_as_cz.cz(0, 1)
+    h_as_s = QuantumCircuit(1, name="h")
+    h_as_s.s(0)
+    qc = QuantumCircuit(2)
+    qc.append(t_as_x.to_gate(), [0])
+    qc.append(cx_as_cz.to_gate(), [0, 1])
+    qc.append(h_as_s.to_gate(), [1])
+    m = lg.logical_metrics(qc)
+    assert m["t_fixed"] == 0 and m["n_rot"] == 0
+    assert m["cx"] == 1   # a CZ lowers to one CX (+ H), not the 'cx' by name
+    ops = dict(lg.lower(qc).count_ops())
+    assert ops.get("t", 0) == 0 and ops.get("x", 0) >= 1 and ops.get("s", 0) >= 1
+    U, V = Operator(lg.lower(qc)).data, Operator(qc).data
+    ov = np.trace(V.conj().T @ U)
+    assert np.abs(U - ov / abs(ov) * V).max() < 1e-12
+    from qiskit.circuit import Gate
+
+    bad = QuantumCircuit(1)
+    bad.append(Gate("t", 1, []), [0])
+    with pytest.raises(ValueError, match="no definition"):
+        lg.lower(bad)

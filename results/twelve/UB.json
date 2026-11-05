@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "b6d5f50",
+    "git_commit": "7a54eaa",
     "git_dirty": true,
     "versions": {
       "python": "3.12.14",
@@ -26,7 +26,7 @@
       "clifford_t_pass_manager": 12345,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-05T13:54:19Z"
+    "timestamp_utc": "2026-11-05T15:11:29Z"
   },
   "verification": {
     "ok": true,
@@ -52,7 +52,7 @@
     "dropped_total": 1.2025044025530426e-13,
     "block_error": 1.217814868793918e-13,
     "leak_amplitude": 0.0,
-    "seconds": 2.339885711669922,
+    "seconds": 2.3430464267730713,
     "n_inputs": 433,
     "extra": {
       "op_norm_error_physical": 1.501184063002989e-14,
@@ -121,7 +121,7 @@
             "dropped_total": 1.7967253571350892e-13,
             "block_error": 0.00015179096446213899,
             "leak_amplitude": 4.05144491040979e-05,
-            "seconds": 3.2981748580932617,
+            "seconds": 3.379167079925537,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 0.00015179096446134687,
@@ -171,7 +171,7 @@
             "dropped_total": 1.9899270709053752e-13,
             "block_error": 1.3148362635017303e-06,
             "leak_amplitude": 5.39446650420226e-07,
-            "seconds": 3.5556132793426514,
+            "seconds": 3.6426503658294678,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.3148362620663963e-06,
@@ -221,7 +221,7 @@
             "dropped_total": 2.1153045995935668e-13,
             "block_error": 1.171386692280721e-08,
             "leak_amplitude": 7.54412940199055e-09,
-            "seconds": 3.8004157543182373,
+            "seconds": 3.813218116760254,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.1713866323862561e-08,
@@ -271,7 +271,7 @@
             "dropped_total": 2.0489902534125318e-13,
             "block_error": 1.1893414726336874e-10,
             "leak_amplitude": 5.720599251101198e-11,
-            "seconds": 3.9568982124328613,
+            "seconds": 4.038627624511719,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.1893414726336874e-10,
@@ -368,7 +368,7 @@
           "dropped_total": 0.0,
           "block_error": 2.904793858178439e-06,
           "leak_amplitude": 7.85106908051691e-06,
-          "seconds": 78.04779410362244,
+          "seconds": 78.60992980003357,
           "n_inputs": 433,
           "extra": {
             "op_norm_error_physical": 2.9047814455186083e-06,
@@ -377,7 +377,7 @@
             "op_norm_error_inner_span": 2.904793858178439e-06
           }
         },
-        "seconds": 78.053950548172,
+        "seconds": 78.61670017242432,
         "tolerances_note": "synthesised circuit: tol_err = tol_gauss = 2e-5 (prompts/003, prompts/004)"
       },
       "our_UB_beta_1": {
@@ -426,7 +426,7 @@
           "dropped_total": 1.206546287546029e-13,
           "block_error": 1.2177232802429922e-13,
           "leak_amplitude": 0.0,
-          "seconds": 2.3508524894714355,
+          "seconds": 2.3154170513153076,
           "n_inputs": 433,
           "extra": {
             "op_norm_error_physical": 1.523032178310512e-14,
@@ -434,7 +434,59 @@
             "max_span_leak": 7.327471962526033e-15,
             "op_norm_error_inner_span": 1.2177232802429922e-13
           }
-        }
+        },
+        "qiskit_clifford_t_pm_paulo_settings_eps_1e-6": {
+          "t": 662,
+          "cx": 294,
+          "depth": 1170,
+          "qubits": 34
+        },
+        "t_table_pygridsynth": [
+          {
+            "eps": 0.0001,
+            "t_fixed": 312,
+            "n_rot": 6,
+            "t_rot_pygridsynth": 252,
+            "t_total": 564,
+            "t_est": 551.1788228318901,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-06,
+            "t_fixed": 312,
+            "n_rot": 6,
+            "t_rot_pygridsynth": 372,
+            "t_total": 684,
+            "t_est": 670.7682342478352,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-08,
+            "t_fixed": 312,
+            "n_rot": 6,
+            "t_rot_pygridsynth": 500,
+            "t_total": 812,
+            "t_est": 790.3576456637802,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-10,
+            "t_fixed": 312,
+            "n_rot": 6,
+            "t_rot_pygridsynth": 624,
+            "t_total": 936,
+            "t_est": 909.9470570797253,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          }
+        ]
       },
       "paulo_logical_beta_1": {
         "logical": {
@@ -444,8 +496,55 @@
           "t_fixed": 296,
           "qubits": 34,
           "ancilla": 22
-        }
-      }
+        },
+        "t_table_pygridsynth": [
+          {
+            "eps": 0.0001,
+            "t_fixed": 296,
+            "n_rot": 14,
+            "t_rot_pygridsynth": 576,
+            "t_total": 872,
+            "t_est": 854.0839199410768,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-06,
+            "t_fixed": 296,
+            "n_rot": 14,
+            "t_rot_pygridsynth": 884,
+            "t_total": 1180,
+            "t_est": 1133.1258799116154,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-08,
+            "t_fixed": 296,
+            "n_rot": 14,
+            "t_rot_pygridsynth": 1192,
+            "t_total": 1488,
+            "t_est": 1412.1678398821537,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-10,
+            "t_fixed": 296,
+            "n_rot": 14,
+            "t_rot_pygridsynth": 1440,
+            "t_total": 1736,
+            "t_est": 1691.2097998526922,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          }
+        ]
+      },
+      "note": "Like-for-like: both circuits are U_B at beta = 1 (alpha_P = 2) on the inner codes. 'paulo_circuit' is his compiled file (Clifford+T from Qiskit's pass manager, eps 1e-6, seed 12345); 'our_UB_beta_1.qiskit_clifford_t_pm_paulo_settings_eps_1e-6' is OUR logical circuit run through the same pass manager with the same settings; the pygridsynth T tables are the plain per-rotation synthesis of each logical circuit. The accuracy budgets differ (N_rot*eps with his N_rot against ours, see the n_rot fields), so the T counts are not a same-accuracy comparison."
     }
   }
 }

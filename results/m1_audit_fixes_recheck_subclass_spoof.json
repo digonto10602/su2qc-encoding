@@ -1,0 +1,242 @@
+[
+ {
+  "case": "RZGate-named subclass (other module), content RX",
+  "cls": "userpkg.RZGate",
+  "is_standard_gate": false,
+  "name": "rz",
+  "sim_err_vs_intended": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 7.850462293418876e-17,
+  "lower_counts": {
+   "h": 5,
+   "rz": 1,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 5,
+   "rz": 1,
+   "t": 1
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "MyRZ subclass (other name), content RX",
+  "cls": "abc.MyRZ",
+  "is_standard_gate": false,
+  "name": "rz",
+  "sim_err_vs_intended": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 7.850462293418876e-17,
+  "lower_counts": {
+   "h": 5,
+   "rz": 1,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 5,
+   "rz": 1,
+   "t": 1
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "XGate-named subclass, content H",
+  "cls": "None._SingletonXGate",
+  "is_standard_gate": false,
+  "name": "x",
+  "sim_err_vs_intended": 5.551115123125783e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 1.321086788410165e-18,
+  "lower_counts": {
+   "h": 4,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 4,
+   "t": 1
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "TGate-named subclass, content X",
+  "cls": "None._SingletonTGate",
+  "is_standard_gate": false,
+  "name": "t",
+  "sim_err_vs_intended": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 1.8384814670847006e-33,
+  "lower_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "TGate-named subclass, module forged qiskit.*",
+  "cls": "None._SingletonTGate",
+  "is_standard_gate": false,
+  "name": "t",
+  "sim_err_vs_intended": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 1.8384814670847006e-33,
+  "lower_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "HGate-named subclass, content X",
+  "cls": "None._SingletonHGate",
+  "is_standard_gate": false,
+  "name": "h",
+  "sim_err_vs_intended": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 1.8384814670847006e-33,
+  "lower_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "CXGate-named subclass, content CZ",
+  "cls": "None._SingletonCXGate",
+  "is_standard_gate": false,
+  "name": "cx",
+  "sim_err_vs_intended": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 5.551115123125783e-17,
+  "lower_counts": {
+   "h": 5,
+   "cx": 1,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 5,
+   "cx": 1,
+   "t": 1
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "CCXGate-named subclass, content CCZ",
+  "cls": "None._SingletonCCXGate",
+  "is_standard_gate": false,
+  "name": "ccx",
+  "sim_err_vs_intended": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 2.355138688025663e-16,
+  "lower_counts": {
+   "h": 7,
+   "cx": 6,
+   "t": 5,
+   "tdg": 3
+  },
+  "intended_counts": {
+   "h": 7,
+   "cx": 6,
+   "t": 5,
+   "tdg": 3
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "MyT (other name, singleton base), content X",
+  "cls": "None._SingletonMyT",
+  "is_standard_gate": false,
+  "name": "t",
+  "sim_err_vs_intended": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 1.8384814670847006e-33,
+  "lower_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "MyH (other name), content X",
+  "cls": "None._SingletonMyH",
+  "is_standard_gate": false,
+  "name": "h",
+  "sim_err_vs_intended": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 1.8384814670847006e-33,
+  "lower_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "TGate-named subclass, ONLY _define overridden (X)",
+  "cls": "None._SingletonTGate",
+  "is_standard_gate": false,
+  "name": "t",
+  "sim_err_vs_intended": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 1.8384814670847006e-33,
+  "lower_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 3,
+   "x": 1,
+   "t": 1
+  },
+  "lower": "ok"
+ },
+ {
+  "case": "RZGate-named subclass, ONLY _define overridden (RX)",
+  "cls": "userpkg.RZGate",
+  "is_standard_gate": false,
+  "name": "rz",
+  "sim_err_vs_intended": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err_vs_intended": 7.850462293418876e-17,
+  "lower_counts": {
+   "h": 5,
+   "rz": 1,
+   "t": 1
+  },
+  "intended_counts": {
+   "h": 5,
+   "rz": 1,
+   "t": 1
+  },
+  "lower": "ok"
+ }
+]

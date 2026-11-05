@@ -179,7 +179,11 @@ class TwelveQubit(Encoding):
         apply.  Sources: "paulo34" (Paulo's compiled 34-qubit Clifford+T circuit, `refs/paulo/*.qpy`: fixed angle beta = 1,
         kind UB), "lean22" / "lean22_v2" (su2qc-trotter lean 22-qubit and structurally compressed 19-qubit plaquette
         circuits: same data layout, plaquette angle alpha_P = 2 beta in exp(+i alpha_P Re Tr W), electric phase p(-3 alpha/4)
-        on each q_j), "spinnet15" (different encoding: reason string)."""
+        on each q_j), "spinnet15" (different encoding: reason string).
+
+        TODO(M2, audit 003 N4): su2qc-trotter's step appends the electric phases AFTER the plaquette circuit (U = U_E U_B),
+        the opposite of our U_1 = U_B U_E.  Before the lean22 seeds are used as `step` seeds, import only the plaquette part
+        (kind "UB") and prepend our build_UE, or record the source order and reverse it; check it against target("UB", beta)."""
         n_anc = {"paulo34": 22, "lean22": 10, "lean22_v2": 7}
         if source == "spinnet15":
             return ("spinnet15 is Paulo's 15-qubit spin-network circuit: it acts on route-B labels (a different encoding), "

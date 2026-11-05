@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "b6d5f50",
+    "git_commit": "7a54eaa",
     "git_dirty": true,
     "versions": {
       "python": "3.12.14",
@@ -26,7 +26,7 @@
       "clifford_t_pass_manager": 12345,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-05T13:52:37Z"
+    "timestamp_utc": "2026-11-05T15:09:45Z"
   },
   "verification": {
     "ok": true,
@@ -52,7 +52,7 @@
     "dropped_total": 0.0,
     "block_error": 1.206819431111926e-13,
     "leak_amplitude": 0.0,
-    "seconds": 6.665532827377319,
+    "seconds": 6.7429118156433105,
     "n_inputs": 433,
     "extra": {
       "op_norm_error_physical": 3.2509699194571052e-15,
@@ -113,7 +113,7 @@
             "dropped_total": 6.062533970064369e-14,
             "block_error": 0.00010630604700330997,
             "leak_amplitude": 1.6645714017555118e-05,
-            "seconds": 3.6614866256713867,
+            "seconds": 3.6474156379699707,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 9.738665455135144e-05,
@@ -163,7 +163,7 @@
             "dropped_total": 4.578549926417772e-12,
             "block_error": 1.8677710023150569e-06,
             "leak_amplitude": 2.7304976967569537e-07,
-            "seconds": 3.337233304977417,
+            "seconds": 3.3719985485076904,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.7317614404116703e-06,
@@ -213,7 +213,7 @@
             "dropped_total": 1.1638173643833535e-15,
             "block_error": 1.3798091305278031e-08,
             "leak_amplitude": 5.803694426892373e-09,
-            "seconds": 3.195505380630493,
+            "seconds": 3.2533106803894043,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.6768174560897002e-09,
@@ -263,7 +263,7 @@
             "dropped_total": 7.536559746041006e-20,
             "block_error": 1.0823266358482211e-10,
             "leak_amplitude": 4.670319699842611e-11,
-            "seconds": 3.3231608867645264,
+            "seconds": 3.3183252811431885,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.8683293624498494e-12,
@@ -330,7 +330,7 @@
         "dropped_total": 0.0,
         "block_error": 3.7805352786289556e-15,
         "leak_amplitude": 0.0,
-        "seconds": 1.9234895706176758,
+        "seconds": 1.9324407577514648,
         "n_inputs": 433,
         "extra": {
           "op_norm_error_physical": 3.7805352786289556e-15,
@@ -368,38 +368,9 @@
               "error_bound_sum": 0.0012000000000000001,
               "error_measured_sum": 0.00026189807386382304,
               "verdict": {
-                "ok": false,
+                "evaluable": false,
                 "reason": "writes_outer",
-                "op_norm_error": Infinity,
-                "max_leak": Infinity,
-                "dirty_ancilla": Infinity,
-                "phase": [
-                  1.0,
-                  0.0
-                ],
-                "outer_bits_read": 0,
-                "n_blocks": 0,
-                "gauss_residual": NaN,
-                "method": "auto",
-                "engine": "auto",
-                "engine_accuracy": 0.0,
-                "certified": true,
-                "tolerances": {
-                  "tol_err": 0.001200001,
-                  "tol_gauss": 0.001200001
-                },
-                "dropped_total": 0.0,
-                "block_error": Infinity,
-                "leak_amplitude": Infinity,
-                "seconds": 0.006953239440917969,
-                "n_inputs": 0,
-                "failing_inputs": [
-                  [
-                    "message",
-                    "gate h on (13,) is not diagonal on outer qubit(s) [13]"
-                  ]
-                ],
-                "extra": {}
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
               }
             }
           },
@@ -419,38 +390,9 @@
               "error_bound_sum": 1.2e-05,
               "error_measured_sum": 4.5893634728340785e-06,
               "verdict": {
-                "ok": false,
+                "evaluable": false,
                 "reason": "writes_outer",
-                "op_norm_error": Infinity,
-                "max_leak": Infinity,
-                "dirty_ancilla": Infinity,
-                "phase": [
-                  1.0,
-                  0.0
-                ],
-                "outer_bits_read": 0,
-                "n_blocks": 0,
-                "gauss_residual": NaN,
-                "method": "auto",
-                "engine": "auto",
-                "engine_accuracy": 0.0,
-                "certified": true,
-                "tolerances": {
-                  "tol_err": 1.2001e-05,
-                  "tol_gauss": 1.2001e-05
-                },
-                "dropped_total": 0.0,
-                "block_error": Infinity,
-                "leak_amplitude": Infinity,
-                "seconds": 0.010549306869506836,
-                "n_inputs": 0,
-                "failing_inputs": [
-                  [
-                    "message",
-                    "gate h on (13,) is not diagonal on outer qubit(s) [13]"
-                  ]
-                ],
-                "extra": {}
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
               }
             }
           },
@@ -470,38 +412,9 @@
               "error_bound_sum": 1.2000000000000002e-07,
               "error_measured_sum": 4.041249175343641e-08,
               "verdict": {
-                "ok": false,
+                "evaluable": false,
                 "reason": "writes_outer",
-                "op_norm_error": Infinity,
-                "max_leak": Infinity,
-                "dirty_ancilla": Infinity,
-                "phase": [
-                  1.0,
-                  0.0
-                ],
-                "outer_bits_read": 0,
-                "n_blocks": 0,
-                "gauss_residual": NaN,
-                "method": "auto",
-                "engine": "auto",
-                "engine_accuracy": 0.0,
-                "certified": true,
-                "tolerances": {
-                  "tol_err": 1.21e-07,
-                  "tol_gauss": 1.21e-07
-                },
-                "dropped_total": 0.0,
-                "block_error": Infinity,
-                "leak_amplitude": Infinity,
-                "seconds": 0.013656139373779297,
-                "n_inputs": 0,
-                "failing_inputs": [
-                  [
-                    "message",
-                    "gate h on (13,) is not diagonal on outer qubit(s) [13]"
-                  ]
-                ],
-                "extra": {}
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
               }
             }
           },
@@ -521,38 +434,9 @@
               "error_bound_sum": 1.2e-09,
               "error_measured_sum": 3.236125890232529e-10,
               "verdict": {
-                "ok": false,
+                "evaluable": false,
                 "reason": "writes_outer",
-                "op_norm_error": Infinity,
-                "max_leak": Infinity,
-                "dirty_ancilla": Infinity,
-                "phase": [
-                  1.0,
-                  0.0
-                ],
-                "outer_bits_read": 0,
-                "n_blocks": 0,
-                "gauss_residual": NaN,
-                "method": "auto",
-                "engine": "auto",
-                "engine_accuracy": 0.0,
-                "certified": true,
-                "tolerances": {
-                  "tol_err": 2.2e-09,
-                  "tol_gauss": 2.2e-09
-                },
-                "dropped_total": 0.0,
-                "block_error": Infinity,
-                "leak_amplitude": Infinity,
-                "seconds": 0.01701641082763672,
-                "n_inputs": 0,
-                "failing_inputs": [
-                  [
-                    "message",
-                    "gate h on (13,) is not diagonal on outer qubit(s) [13]"
-                  ]
-                ],
-                "extra": {}
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
               }
             }
           }

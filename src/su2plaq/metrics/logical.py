@@ -53,24 +53,26 @@ def lower(qc):
             raise ValueError(f"gate {nm!r} cannot be lowered to the logical gate set")
     from qiskit.circuit.library.standard_gates import get_standard_gate_name_mapping
 
-    from su2plaq.evaluate.sparse_sim import decomposition_cache_key
+    from su2plaq.evaluate.sparse_sim import is_standard_gate
 
     std = get_standard_gate_name_mapping()
     out = QuantumCircuit(*qc.qregs, *qc.cregs, global_phase=qc.global_phase, name=qc.name)
     phase = [0.0]
 
     def emit(op, qs, depth=0):
-        if op.name == "barrier":
+        if type(op).__name__ == "Barrier" and type(op).__module__.startswith("qiskit."):
             return
-        if op.name in LOGICAL_BASIS:
+        if op.name in LOGICAL_BASIS and is_standard_gate(op):
             out.append(op, qs, [])
-        elif decomposition_cache_key(op) is not None or getattr(op, "definition", None) is None or depth > 30:
+        elif is_standard_gate(op):
             local, ph = _lower_gate(op)
             phase[0] += ph
             for nm, lq, params in local:
                 out.append(std[nm].__class__(*params) if params else std[nm].copy(), [qs[k] for k in lq], [])
-        else:   # custom / composite gate: inline its definition in program order
-            d = op.definition
+        else:   # custom / composite gate: inline its definition in program order (never trust its name)
+            d = getattr(op, "definition", None)
+            if d is None or depth > 30:
+                raise ValueError(f"custom gate {op.name!r} has no definition (or is nested too deeply) and cannot be lowered")
             phase[0] += float(d.global_phase)
             for inst in d.data:
                 emit(inst.operation, [qs[d.find_bit(q).index] for q in inst.qubits], depth + 1)

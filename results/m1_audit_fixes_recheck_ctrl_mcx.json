@@ -1,0 +1,421 @@
+[
+ {
+  "case": "cx cs=0",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 1.8384814670847006e-33,
+  "good": true
+ },
+ {
+  "case": "cx cs=1",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 1.8384814670847006e-33,
+  "good": true
+ },
+ {
+  "case": "ccx cs=0/1/2",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 5.10280049072227e-16,
+  "good": true
+ },
+ {
+  "case": "ch cs=0",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 6.206335383118183e-17,
+  "lower": "ok",
+  "lower_err": 7.850462293418876e-17,
+  "good": true
+ },
+ {
+  "case": "cz cs=0",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 5.551115123125783e-17,
+  "good": true
+ },
+ {
+  "case": "ccz cs=1",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 2.355138688025663e-16,
+  "good": true
+ },
+ {
+  "case": "crx cs=0",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 7.850462293418876e-17,
+  "lower": "ok",
+  "lower_err": 5.721958498152797e-17,
+  "good": true
+ },
+ {
+  "case": "cry cs=0",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 1.3877787807814457e-16,
+  "lower": "ok",
+  "lower_err": 1.1775693440128314e-16,
+  "good": true
+ },
+ {
+  "case": "crz cs=0",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 8.777083671441753e-17,
+  "lower": "ok",
+  "lower_err": 6.206335383118183e-17,
+  "good": true
+ },
+ {
+  "case": "cp cs=0",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 5.551115123125783e-17,
+  "lower": "ok",
+  "lower_err": 1.3877787807814457e-16,
+  "good": true
+ },
+ {
+  "case": "cswap cs=0",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 1.6653345369377348e-16,
+  "good": true
+ },
+ {
+  "case": "X.control(1,cs=0)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 1.8384814670847006e-33,
+  "good": true
+ },
+ {
+  "case": "X.control(1,annotated)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 1.8384814670847006e-33,
+  "good": true
+ },
+ {
+  "case": "X.control(1,annotated,cs=0)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 1.8384814670847006e-33,
+  "good": true
+ },
+ {
+  "case": "Z.control(1,annotated)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 5.551115123125783e-17,
+  "good": true
+ },
+ {
+  "case": "H.control(1,annotated)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 6.206335383118183e-17,
+  "lower": "ok",
+  "lower_err": 7.850462293418876e-17,
+  "good": true
+ },
+ {
+  "case": "X.control(2,cs=0)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 1.6653345369377348e-16,
+  "good": true
+ },
+ {
+  "case": "H.control(2,cs=1)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 6.206335383118183e-17,
+  "lower": "ok",
+  "lower_err": 3.3344304750504175e-16,
+  "good": true
+ },
+ {
+  "case": "RZ.control(1,cs=0)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 8.777083671441753e-17,
+  "lower": "ok",
+  "lower_err": 6.206335383118183e-17,
+  "good": true
+ },
+ {
+  "case": "RZ.control(2,cs=3)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 6.206335383118183e-17,
+  "lower": "ok",
+  "lower_err": 2.763589640142897e-19,
+  "good": true
+ },
+ {
+  "case": "Swap.control(1,cs=0)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.7755575615628914e-17,
+  "lower": "ok",
+  "lower_err": 1.6653345369377348e-16,
+  "good": true
+ },
+ {
+  "case": "RZ.control(3)",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 2.5018537765542007e-16,
+  "lower": "ok",
+  "lower_err": 2.263816981771578e-19,
+  "good": true
+ },
+ {
+  "case": "RZ.control(2,annotated)",
+  "sim": "rejected",
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named my_wrap",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named my_wrap",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named cx",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named cx",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named h",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named h",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named t",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named t",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named x",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named x",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named ccx",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named ccx",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named barrier",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named barrier",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named rz",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named rz",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named unitary",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named unitary",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named ccz",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named ccz",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 inside gate named swap",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx4 inside gate named swap",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx3 nested cx>h",
+  "expect": "rejected",
+  "sim": "rejected",
+  "sim_err": null,
+  "lower": "rejected",
+  "lower_err": null,
+  "good": true
+ },
+ {
+  "case": "mcx2",
+  "expect": "exact",
+  "sim": "ok",
+  "sim_err": 0.0,
+  "lower": "ok",
+  "lower_err": 1.1102230246251565e-16,
+  "good": true
+ }
+]

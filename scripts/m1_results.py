@@ -23,7 +23,7 @@ from su2plaq.encodings.twelve import TwelveQubit
 from su2plaq.evaluate.evaluator import evaluate, synth_tolerances
 from su2plaq.exact import operators
 from su2plaq.exact.physical import inner_span, s_o_dims
-from su2plaq.metrics.cliffordt import synthesize, t_table
+from su2plaq.metrics.cliffordt import ct_compile, synthesize, t_table
 from su2plaq.metrics.logical import logical_metrics
 from su2plaq.results.store import save_result, verdict_to_dict
 
@@ -39,25 +39,43 @@ def _verdict_block(v) -> dict:
     return d
 
 
+def _rel(p: pathlib.Path) -> str:
+    """Path relative to the repository root when inside it, else absolute."""
+    p = p.resolve()
+    try:
+        return str(p.relative_to(ROOT))
+    except ValueError:
+        return str(p)
+
+
 def _save_circuit(qc, out: pathlib.Path, name: str) -> dict:
     from qiskit import qasm3, qpy
 
     qpath = out / f"{name}.qpy"
     with open(qpath, "wb") as fh:
         qpy.dump(qc, fh)
-    files = {"qpy": str(qpath.relative_to(ROOT)), "sha256": hashlib.sha256(qpath.read_bytes()).hexdigest()}
+    files = {"qpy": _rel(qpath), "sha256": hashlib.sha256(qpath.read_bytes()).hexdigest()}
     try:
         apath = out / f"{name}.qasm3"
         apath.write_text(qasm3.dumps(qc))
-        files["qasm3"] = str(apath.relative_to(ROOT))
+        files["qasm3"] = _rel(apath)
     except Exception as exc:  # export limitation of Qiskit, recorded not hidden
         files["qasm3"] = None
         files["qasm3_error"] = f"{type(exc).__name__}: {exc}"
     return files
 
 
+def _unevaluable(v) -> dict:
+    return {"evaluable": False, "reason": v.reason,
+            "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on "
+                           "the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal "
+                           "on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the "
+                           "T cost of the outer row is reported from the T table."}
+
+
 def _metrics_block(qc, enc, V) -> dict:
-    """logical metrics, macro counts, and the T(eps) table; each row carries the re-verification of its synthesised circuit."""
+    """logical metrics, macro counts, and the T(eps) table; each row carries the re-verification of its synthesised circuit
+    (rows whose synthesised circuit writes the outer register carry an `evaluable: False` record instead of a verdict)."""
     lm = logical_metrics(qc)
     rows = t_table(qc, EPS)
     for row in rows:
@@ -65,7 +83,8 @@ def _metrics_block(qc, enc, V) -> dict:
         synth, info = synthesize(qc, eps)
         v = evaluate(synth, enc, V, **synth_tolerances(info["n_rot"], eps))
         row["synth"] = {"n_rot": info["n_rot"], "t_rot": info["t_rot"], "error_bound_sum": info["error_bound_sum"],
-                        "error_measured_sum": info["error_measured_sum"], "verdict": _verdict_block(v)}
+                        "error_measured_sum": info["error_measured_sum"],
+                        "verdict": _unevaluable(v) if v.reason == "writes_outer" else _verdict_block(v)}
     logical = {k: lm[k] for k in ("cx", "depth", "n_rot", "t_fixed", "qubits", "ancilla")}
     return {"logical": logical, "gates_lowered": lm["gates"], "t_table": rows, "macro_counts": dict(qc.count_ops())}
 
@@ -83,7 +102,7 @@ def _physics(enc) -> dict:
     return {"n_physical_states": len(enc.basis.labels), "n_outer_patterns": len(dims),
             "n_outer_patterns_with_support": sum(1 for v in dims.values() if v > 0),
             "dim_So_histogram": {str(k): hist[k] for k in sorted(hist)}, "max_dim_So": max(dims.values()),
-            "closed_pattern_dim": dims[0], "inner_span_rank": int(inner_span(enc.basis).shape[1]), "n_inner_codes": 625}
+            "closed_pattern_dim": dims[0], "inner_span_rank": int(inner_span(enc.basis).shape[1]), "n_inner_codes": len(enc.inner_codes())}
 
 
 def main(argv=None):
@@ -91,7 +110,7 @@ def main(argv=None):
     ap.add_argument("--out", default=str(ROOT / "results" / "twelve"))
     ap.add_argument("--no-paulo", action="store_true")
     args = ap.parse_args(argv)
-    out = pathlib.Path(args.out)
+    out = pathlib.Path(args.out).resolve()
     out.mkdir(parents=True, exist_ok=True)
     enc = TwelveQubit()
     physics = _physics(enc)
@@ -126,7 +145,19 @@ def main(argv=None):
             "our_UB_beta_1": {"logical": {k: logical_metrics(ours1)[k] for k in ("cx", "depth", "n_rot", "t_fixed", "qubits", "ancilla")},
                               "t_table_eps_1e-6": [r for r in t_table(ours1, (1e-6,))],
                               "verification": _verdict_block(evaluate(ours1, enc, V1))},
-            "paulo_logical_beta_1": {"logical": {k: logical_metrics(C.paulo_logical(1.0))[k] for k in ("cx", "depth", "n_rot", "t_fixed", "qubits", "ancilla")}}}
+            "paulo_logical_beta_1": {"logical": {k: logical_metrics(C.paulo_logical(1.0))[k] for k in ("cx", "depth", "n_rot", "t_fixed", "qubits", "ancilla")},
+                                     "t_table_pygridsynth": t_table(C.paulo_logical(1.0), EPS, qiskit=False)}}
+        _, ct = ct_compile(ours1, 1e-6, level=3, seed=12345)
+        extra["paulo_comparison"]["our_UB_beta_1"]["qiskit_clifford_t_pm_paulo_settings_eps_1e-6"] = {
+            k: ct[k] for k in ("t", "cx", "depth", "qubits")}
+        extra["paulo_comparison"]["our_UB_beta_1"]["t_table_pygridsynth"] = t_table(ours1, EPS, qiskit=False)
+        extra["paulo_comparison"]["note"] = (
+            "Like-for-like: both circuits are U_B at beta = 1 (alpha_P = 2) on the inner codes. 'paulo_circuit' is his compiled "
+            "file (Clifford+T from Qiskit's pass manager, eps 1e-6, seed 12345); "
+            "'our_UB_beta_1.qiskit_clifford_t_pm_paulo_settings_eps_1e-6' is OUR logical circuit run through the same pass manager "
+            "with the same settings; the pygridsynth T tables are the plain per-rotation synthesis of each logical circuit. The "
+            "accuracy budgets differ (N_rot*eps with his N_rot against ours, see the n_rot fields), so the T counts are not a "
+            "same-accuracy comparison.")
     save_result(out / "UB.json", encoding="twelve", circuit_id="UB", kind="UB", params={"alpha": None, "beta": BETA, "order": 1},
                 verification=b["verification"], metrics=b["metrics"], files=b["files"], seeds=SEEDS, extra=extra)
 

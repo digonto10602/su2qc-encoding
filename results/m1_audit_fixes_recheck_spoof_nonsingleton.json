@@ -1,0 +1,142 @@
+[
+ {
+  "case": "RZGate -> content RX",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.RZGate",
+  "is_standard_gate": false,
+  "sim_err": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err": 7.850462293418876e-17,
+  "lower": "ok"
+ },
+ {
+  "case": "RZGate -> content RX",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.RZGate",
+  "is_standard_gate": false,
+  "sim_err": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err": 7.850462293418876e-17,
+  "lower": "ok"
+ },
+ {
+  "case": "PhaseGate -> content RZ",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.PhaseGate",
+  "is_standard_gate": false,
+  "sim_err": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err": 0.0,
+  "lower": "ok"
+ },
+ {
+  "case": "PhaseGate -> content RZ",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.PhaseGate",
+  "is_standard_gate": false,
+  "sim_err": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err": 0.0,
+  "lower": "ok"
+ },
+ {
+  "case": "CPhaseGate -> content CRZ",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.CPhaseGate",
+  "is_standard_gate": false,
+  "sim_err": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err": 1.3877787807814457e-17,
+  "lower": "ok"
+ },
+ {
+  "case": "CPhaseGate -> content CRZ",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.CPhaseGate",
+  "is_standard_gate": false,
+  "sim_err": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err": 1.3877787807814457e-17,
+  "lower": "ok"
+ },
+ {
+  "case": "UGate -> content RX",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.UGate",
+  "is_standard_gate": false,
+  "sim_err": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err": 7.850462293418876e-17,
+  "lower": "ok"
+ },
+ {
+  "case": "UGate -> content RX",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.UGate",
+  "is_standard_gate": false,
+  "sim_err": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err": 7.850462293418876e-17,
+  "lower": "ok"
+ },
+ {
+  "case": "RXGate -> content RY",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.RXGate",
+  "is_standard_gate": false,
+  "sim_err": 5.551115123125783e-17,
+  "sim": "ok",
+  "lower_err": 7.850462293418876e-17,
+  "lower": "ok"
+ },
+ {
+  "case": "RXGate -> content RY",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.RXGate",
+  "is_standard_gate": false,
+  "sim_err": 5.551115123125783e-17,
+  "sim": "ok",
+  "lower_err": 7.850462293418876e-17,
+  "lower": "ok"
+ },
+ {
+  "case": "CRXGate -> content CRY",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.CRXGate",
+  "is_standard_gate": false,
+  "sim_err": 5.551115123125783e-17,
+  "sim": "ok",
+  "lower_err": 1.6654358390056548e-16,
+  "lower": "ok"
+ },
+ {
+  "case": "CRXGate -> content CRY",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.CRXGate",
+  "is_standard_gate": false,
+  "sim_err": 5.551115123125783e-17,
+  "sim": "ok",
+  "lower_err": 1.6654358390056548e-16,
+  "lower": "ok"
+ },
+ {
+  "case": "SXGate (singleton) -> content X",
+  "to_matrix_overridden": false,
+  "cls": "None._SingletonSXGate",
+  "is_standard_gate": false,
+  "sim_err": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err": 1.8384814670847006e-33,
+  "lower": "ok"
+ },
+ {
+  "case": "SXGate (singleton) -> content X",
+  "to_matrix_overridden": true,
+  "cls": "None._SingletonSXGate",
+  "is_standard_gate": false,
+  "sim_err": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err": 1.8384814670847006e-33,
+  "lower": "ok"
+ }
+]

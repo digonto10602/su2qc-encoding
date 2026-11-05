@@ -222,6 +222,7 @@ def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = Fal
         raise ValueError(f"order must be 1 or 2, got {order}")
     ub = build_UB(beta, with_outer=with_outer)
     step = ub.copy_empty_like(name="step")
+    step.global_phase = 0.0                        # compose() adds each part's global phase exactly once
     data = list(range(N_DATA))
     first = build_UE(alpha if order == 1 else alpha / 2)
     step.compose(first, qubits=data, inplace=True)
@@ -255,6 +256,6 @@ def paulo_circuit(with_outer: bool = False):
 
     qmap = TwelveQubit().import_map("paulo34")["qubit_map"]
     regs = [QuantumRegister(N_DATA, "d"), QuantumRegister(N_OUTER, "o")] + [QuantumRegister(len(r), r.name) for r in src.qregs[1:]]
-    out = QuantumCircuit(*regs, name=src.name, global_phase=src.global_phase)
+    out = QuantumCircuit(*regs, name=src.name)   # compose() adds src.global_phase itself
     out.compose(src, qubits=qmap, inplace=True)
     return out

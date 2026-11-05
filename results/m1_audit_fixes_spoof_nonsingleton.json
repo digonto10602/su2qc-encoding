@@ -1,0 +1,142 @@
+[
+ {
+  "case": "RZGate -> content RX",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.RZGate",
+  "is_standard_gate": true,
+  "sim_err": 0.2424653649057487,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 0.24246536490574866,
+  "lower": "WRONG (trusted by name)"
+ },
+ {
+  "case": "RZGate -> content RX",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.RZGate",
+  "is_standard_gate": true,
+  "sim_err": 0.2424653649057487,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 0.24246536490574866,
+  "lower": "WRONG (trusted by name)"
+ },
+ {
+  "case": "PhaseGate -> content RZ",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.PhaseGate",
+  "is_standard_gate": true,
+  "sim_err": 0.12311304475219212,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 7.850462293418876e-17,
+  "lower": "ok"
+ },
+ {
+  "case": "PhaseGate -> content RZ",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.PhaseGate",
+  "is_standard_gate": true,
+  "sim_err": 0.12311304475219212,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 7.850462293418876e-17,
+  "lower": "ok"
+ },
+ {
+  "case": "CPhaseGate -> content CRZ",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.CPhaseGate",
+  "is_standard_gate": true,
+  "sim_err": 0.12311304475219212,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 0.06179292252164995,
+  "lower": "WRONG (trusted by name)"
+ },
+ {
+  "case": "CPhaseGate -> content CRZ",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.CPhaseGate",
+  "is_standard_gate": true,
+  "sim_err": 0.12311304475219212,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 0.06179292252164995,
+  "lower": "WRONG (trusted by name)"
+ },
+ {
+  "case": "UGate -> content RX",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.UGate",
+  "is_standard_gate": true,
+  "sim_err": 0.25451295518828776,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 0.20231671498176448,
+  "lower": "WRONG (trusted by name)"
+ },
+ {
+  "case": "UGate -> content RX",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.UGate",
+  "is_standard_gate": true,
+  "sim_err": 6.206335383118183e-17,
+  "sim": "ok",
+  "lower_err": 0.20231671498176448,
+  "lower": "WRONG (trusted by name)"
+ },
+ {
+  "case": "RXGate -> content RY",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.RXGate",
+  "is_standard_gate": true,
+  "sim_err": 0.17144890372772567,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 0.17144890372772564,
+  "lower": "WRONG (trusted by name)"
+ },
+ {
+  "case": "RXGate -> content RY",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.RXGate",
+  "is_standard_gate": true,
+  "sim_err": 0.17144890372772567,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 0.17144890372772564,
+  "lower": "WRONG (trusted by name)"
+ },
+ {
+  "case": "CRXGate -> content CRY",
+  "to_matrix_overridden": false,
+  "cls": "userpkg.gates.CRXGate",
+  "is_standard_gate": true,
+  "sim_err": 0.17144890372772567,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 0.17144890372772564,
+  "lower": "WRONG (trusted by name)"
+ },
+ {
+  "case": "CRXGate -> content CRY",
+  "to_matrix_overridden": true,
+  "cls": "userpkg.gates.CRXGate",
+  "is_standard_gate": true,
+  "sim_err": 0.17144890372772567,
+  "sim": "WRONG (trusted by name)",
+  "lower_err": 0.17144890372772564,
+  "lower": "WRONG (trusted by name)"
+ },
+ {
+  "case": "SXGate (singleton) -> content X",
+  "to_matrix_overridden": false,
+  "cls": "None._SingletonSXGate",
+  "is_standard_gate": false,
+  "sim_err": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err": 1.8384814670847006e-33,
+  "lower": "ok"
+ },
+ {
+  "case": "SXGate (singleton) -> content X",
+  "to_matrix_overridden": true,
+  "cls": "None._SingletonSXGate",
+  "is_standard_gate": false,
+  "sim_err": 2.7755575615628914e-17,
+  "sim": "ok",
+  "lower_err": 1.8384814670847006e-33,
+  "lower": "ok"
+ }
+]

@@ -16,7 +16,7 @@ Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 Acceptance tests locked as `acceptance-v4` (86 tests, M0–M2; v3 = prompts/003 Gauss rule, v4 = prompts/004 leak as amplitude). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-M1 gate — tester full PASS (reports/tests/021); auditor review running.
+M1 gate — audit fixes verified (reports/tests/022, 023); regenerating results on clean commit → benchmark → tag milestone-1 → Report 1.
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -32,6 +32,7 @@ M1 gate — tester full PASS (reports/tests/021); auditor review running.
 - T-count rule: $T_{\rm total}=T_{\rm fixed}+\sum_{\rm rot}T_r(\varepsilon)$, $T_r\approx3\log_2(1/\varepsilon)$ (Ross–Selinger), measured with pygridsynth; the "$+3\ln\varepsilon$" form was wrong (sign, base, multiplicity).
 
 ## Known issues
+- M2 prerequisite (audit 003 N4): su2qc-trotter lean22/lean22_v2 apply the electric layer AFTER the plaquette (U_E U_B, opposite of our U_1); import only the plaquette part and prepend our build_UE.
 - Fixed prune cap TOL_PRUNE = 1e-12 rejects step order 2 at ε=1e-4 (max dropped 2.6e-12) although op_norm_error 5.8e-4 ≤ 1.4e-3 and dropped is already inside op_norm_error (reports/tests/020): RESOLVED: prompts/005, acceptance-v5, implemented (reports/tests/021).
 - Audit 002 R1: span-leak bound ‖s_k‖ ≤ 4·gauss_residual is per state; coherent span leak could be ≤ √433 × larger — optional operator-norm Gauss residual (one 433×433 Gram). Non-blocking; raise with planner before M2 loop.
 - Audit 002 R2: aer_mps `certified` threshold is engine_accuracy 2e-10, but METHODS/prompts/004 say 1e-9 minimum → fix in M1 step 1.1 (require min tol ≥ 1e-9 for aer_mps; do not change engine_accuracy, M0-E5 asserts ≤ 2e-10).
@@ -81,3 +82,6 @@ Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer
 - 2026-11-05: M1 steps 1.7 + 1.8 PASS (reports/tests/020): full 6561 dim S_o table (independent, both conventions); T tables verified 16/16 cells; error_measured_sum = 0.22–0.42 × n_rot·ε. Committed.
 - 2026-11-05: M1 step 1.9 built (scripts/m1_results.py → results/twelve/{UE,UB,step}.json; M1-R1 green); uncommitted, waiting on the prune-cap change before regenerating.
 - 2026-11-05: step 1.9-pre (prompts/005) + 1.9 results + M1 gate tester full PASS (reports/tests/021): m0+m1 56/56 incl. slow, unit 166; results script reproducible bit-for-bit; 64 numbers recomputed independently. Outer-row synthesised verdicts are writes_outer (Rz words contain H on outer qubits) — tester computed them by hand, all within budget.
+- 2026-11-05: M1 audit PASS WITH NOTES (reports/audits/003): conventions all correct; mcrx→rccx·crx·rccx exact; U_B(0.61) vacuum P = cos²(2β) via Aer (α_P=2β confirmed); like-for-like Qiskit CT at β=1, ε=1e-6: ours 662 T vs Paulo 1162 T, both 294 CX. Notes N2,N3,N5–N8 to builder; N6 (name-only gate recognition) fixed now since it blocks M2; N1: regenerate results on a clean tree before Report 1.
+- 2026-11-05: M1 audit fixes tester (reports/tests/022): N2, N3 (662 vs 1162 T; pygridsynth 564/684/812/936 vs 872/1180/1488/1736), N5, N7, N8 PASS; N6 FAIL (open-control cx rejected; forged class names; mcx bypass) → builder attempt 1.
+- 2026-11-05: M1 audit fixes recheck PASS (reports/tests/023): N6 class-identity predicate, open-control gates exact, mcx bypass closed; evaluator follows gate definitions (matches QPY/QASM export); results unchanged numerically. Committed; results regenerated on the clean commit next.

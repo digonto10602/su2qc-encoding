@@ -1,0 +1,314 @@
+{
+ "commit": "7a54eaa+uncommitted",
+ "checks": {
+  "ours via Qiskit CT (T)": {
+   "expected": 662,
+   "got": 662,
+   "tol": 0,
+   "ok": true
+  },
+  "ours via Qiskit CT (CX)": {
+   "expected": 294,
+   "got": 294,
+   "tol": 0,
+   "ok": true
+  },
+  "ours via CT: T == 662 (task statement)": {
+   "expected": 662,
+   "got": 662,
+   "tol": 0,
+   "ok": true
+  },
+  "ours via CT: CX == 294": {
+   "expected": 294,
+   "got": 294,
+   "tol": 0,
+   "ok": true
+  },
+  "paulo_logical via same CT (T)": {
+   "expected": 1162,
+   "got": 1162,
+   "tol": 0,
+   "ok": true
+  },
+  "paulo_logical via same CT (CX)": {
+   "expected": 294,
+   "got": 294,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo's shipped file T": {
+   "expected": 1162,
+   "got": 1162,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo's shipped file CX": {
+   "expected": 294,
+   "got": 294,
+   "tol": 0,
+   "ok": true
+  },
+  "ours pygridsynth T_total eps=0.0001": {
+   "expected": 564,
+   "got": 564,
+   "tol": 0,
+   "ok": true
+  },
+  "ours n_rot eps=0.0001": {
+   "expected": 6,
+   "got": 6,
+   "tol": 0,
+   "ok": true
+  },
+  "ours t_fixed eps=0.0001": {
+   "expected": 312,
+   "got": 312,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo-logical pygridsynth T_total eps=0.0001": {
+   "expected": 872,
+   "got": 872,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo n_rot eps=0.0001": {
+   "expected": 14,
+   "got": 14,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo t_fixed eps=0.0001": {
+   "expected": 296,
+   "got": 296,
+   "tol": 0,
+   "ok": true
+  },
+  "ours pygridsynth T_total eps=1e-06": {
+   "expected": 684,
+   "got": 684,
+   "tol": 0,
+   "ok": true
+  },
+  "ours n_rot eps=1e-06": {
+   "expected": 6,
+   "got": 6,
+   "tol": 0,
+   "ok": true
+  },
+  "ours t_fixed eps=1e-06": {
+   "expected": 312,
+   "got": 312,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo-logical pygridsynth T_total eps=1e-06": {
+   "expected": 1180,
+   "got": 1180,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo n_rot eps=1e-06": {
+   "expected": 14,
+   "got": 14,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo t_fixed eps=1e-06": {
+   "expected": 296,
+   "got": 296,
+   "tol": 0,
+   "ok": true
+  },
+  "ours pygridsynth T_total eps=1e-08": {
+   "expected": 812,
+   "got": 812,
+   "tol": 0,
+   "ok": true
+  },
+  "ours n_rot eps=1e-08": {
+   "expected": 6,
+   "got": 6,
+   "tol": 0,
+   "ok": true
+  },
+  "ours t_fixed eps=1e-08": {
+   "expected": 312,
+   "got": 312,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo-logical pygridsynth T_total eps=1e-08": {
+   "expected": 1488,
+   "got": 1488,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo n_rot eps=1e-08": {
+   "expected": 14,
+   "got": 14,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo t_fixed eps=1e-08": {
+   "expected": 296,
+   "got": 296,
+   "tol": 0,
+   "ok": true
+  },
+  "ours pygridsynth T_total eps=1e-10": {
+   "expected": 936,
+   "got": 936,
+   "tol": 0,
+   "ok": true
+  },
+  "ours n_rot eps=1e-10": {
+   "expected": 6,
+   "got": 6,
+   "tol": 0,
+   "ok": true
+  },
+  "ours t_fixed eps=1e-10": {
+   "expected": 312,
+   "got": 312,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo-logical pygridsynth T_total eps=1e-10": {
+   "expected": 1736,
+   "got": 1736,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo n_rot eps=1e-10": {
+   "expected": 14,
+   "got": 14,
+   "tol": 0,
+   "ok": true
+  },
+  "Paulo t_fixed eps=1e-10": {
+   "expected": 296,
+   "got": 296,
+   "tol": 0,
+   "ok": true
+  },
+  "ours table value 564 (task statement) eps=0.0001": {
+   "expected": 564,
+   "got": 564,
+   "tol": 0,
+   "ok": true
+  },
+  "ours table value 684 (task statement) eps=1e-06": {
+   "expected": 684,
+   "got": 684,
+   "tol": 0,
+   "ok": true
+  },
+  "ours table value 812 (task statement) eps=1e-08": {
+   "expected": 812,
+   "got": 812,
+   "tol": 0,
+   "ok": true
+  },
+  "ours table value 936 (task statement) eps=1e-10": {
+   "expected": 936,
+   "got": 936,
+   "tol": 0,
+   "ok": true
+  },
+  "his table value 872 (task statement) eps=0.0001": {
+   "expected": 872,
+   "got": 872,
+   "tol": 0,
+   "ok": true
+  },
+  "his table value 1180 (task statement) eps=1e-06": {
+   "expected": 1180,
+   "got": 1180,
+   "tol": 0,
+   "ok": true
+  },
+  "his table value 1488 (task statement) eps=1e-08": {
+   "expected": 1488,
+   "got": 1488,
+   "tol": 0,
+   "ok": true
+  },
+  "his table value 1736 (task statement) eps=1e-10": {
+   "expected": 1736,
+   "got": 1736,
+   "tol": 0,
+   "ok": true
+  }
+ },
+ "ours_ct": {
+  "t": 662,
+  "cx": 294
+ },
+ "paulo_logical_ct": {
+  "t": 1162,
+  "cx": 294
+ },
+ "ours_table": [
+  {
+   "eps": 0.0001,
+   "t_fixed": 312,
+   "n_rot": 6,
+   "t_rot": 252,
+   "t_total": 564
+  },
+  {
+   "eps": 1e-06,
+   "t_fixed": 312,
+   "n_rot": 6,
+   "t_rot": 372,
+   "t_total": 684
+  },
+  {
+   "eps": 1e-08,
+   "t_fixed": 312,
+   "n_rot": 6,
+   "t_rot": 500,
+   "t_total": 812
+  },
+  {
+   "eps": 1e-10,
+   "t_fixed": 312,
+   "n_rot": 6,
+   "t_rot": 624,
+   "t_total": 936
+  }
+ ],
+ "paulo_table": [
+  {
+   "eps": 0.0001,
+   "t_fixed": 296,
+   "n_rot": 14,
+   "t_rot": 576,
+   "t_total": 872
+  },
+  {
+   "eps": 1e-06,
+   "t_fixed": 296,
+   "n_rot": 14,
+   "t_rot": 884,
+   "t_total": 1180
+  },
+  {
+   "eps": 1e-08,
+   "t_fixed": 296,
+   "n_rot": 14,
+   "t_rot": 1192,
+   "t_total": 1488
+  },
+  {
+   "eps": 1e-10,
+   "t_fixed": 296,
+   "n_rot": 14,
+   "t_rot": 1440,
+   "t_total": 1736
+  }
+ ],
+ "all_ok": true
+}

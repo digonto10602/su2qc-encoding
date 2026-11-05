@@ -1,0 +1,4401 @@
+{
+ "commit": "7a54eaa+uncommitted",
+ "seed": 123,
+ "n_cases": 201,
+ "n_unsafe": 8,
+ "unsafe": [
+  {
+   "case": "std_subclass_RZGate-spoof",
+   "kind": "cls=RZGate mod=__main__",
+   "sim": "WRONG",
+   "sim_detail": "2.42e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "rz": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "rz": 1,
+     "t": 1
+    },
+    "unitary_err": 0.24246536490574866
+   },
+   "safe": false
+  },
+  {
+   "case": "std_subclass_MyRZ",
+   "kind": "cls=MyRZ mod=__main__",
+   "sim": "WRONG",
+   "sim_detail": "2.42e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "rz": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "rz": 1,
+     "t": 1
+    },
+    "unitary_err": 0.24246536490574866
+   },
+   "safe": false
+  },
+  {
+   "case": "std_subclass_XGate-spoof",
+   "kind": "cls=_SingletonXGate mod=None",
+   "sim": "WRONG",
+   "sim_detail": "3.54e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 4,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 4,
+     "t": 1
+    },
+    "unitary_err": 0.3535533905932737
+   },
+   "safe": false
+  },
+  {
+   "case": "std_subclass_TGate-spoof",
+   "kind": "cls=_SingletonTGate mod=None",
+   "sim": "WRONG",
+   "sim_detail": "7.07e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": NaN
+   },
+   "safe": false
+  },
+  {
+   "case": "std_subclass_CXGate-spoof",
+   "kind": "cls=_SingletonCXGate mod=None",
+   "sim": "WRONG",
+   "sim_detail": "7.07e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "cx": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "cx": 1,
+     "t": 1
+    },
+    "unitary_err": 0.7071067811865472
+   },
+   "safe": false
+  },
+  {
+   "case": "std_subclass_MyT",
+   "kind": "cls=_SingletonMyT mod=None",
+   "sim": "WRONG",
+   "sim_detail": "7.07e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": NaN
+   },
+   "safe": false
+  },
+  {
+   "case": "forged_module_TGate",
+   "kind": "module forged to qiskit.*",
+   "sim": "WRONG",
+   "sim_detail": "1.00e+00",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 2,
+     "x": 1
+    },
+    "counts_ref": {
+     "h": 2,
+     "x": 1
+    },
+    "unitary_err": NaN
+   },
+   "safe": false
+  },
+  {
+   "case": "annotated_cx",
+   "kind": "CXGate",
+   "sim": "ok",
+   "sim_detail": "0.00e+00",
+   "lower": "ref-fail",
+   "lower_detail": "AttributeError(\"'NoneType' object has no attribute 'qregs'\")",
+   "safe": false
+  }
+ ],
+ "all": [
+  {
+   "case": "custom_named_ccx",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "1.34e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 4.574924947027907e-34
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_CCX",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "1.69e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Ccx",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "1.34e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 1.8959340129310997e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_ccz",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "1.34e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 1.7022976547080585e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_CCZ",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "1.37e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Ccz",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "1.34e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 11,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 4.574924947027907e-34
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_cp",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "1.00e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 8.205810482861442e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_CP",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 1.0605390551611693e-15
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Cp",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "8.37e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 1.874323561063233e-15
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_cp",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "3.24e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 3.3851957973974345e-21
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_CP",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "1.69e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 1.4810838278371247e-19
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Cp",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "3.43e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_cx",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "1.19e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 8.317415680509753e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_CX",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 8.956281716411581e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Cx",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 1.993963333964045e-15
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_cx",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "1.94e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 6.537337265596213e-20
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_CX",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.06e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 2.2817846730486068e-20
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Cx",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.06e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 2.2817846730486068e-20
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_cz",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 4.154190085525917e-15
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_CZ",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "8.33e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 9.961361631809747e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Cz",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "3.10e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 1.5265566588595902e-15
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_cz",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "3.71e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 1.3779209286136625e-19
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_CZ",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.37e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 3.8469233122803575e-20
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Cz",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.51e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 8.709405363778776e-20
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_h",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.7894008272968645e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_H",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.8041124150158794e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_H",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.1443916996305594e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_h",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_H",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_H",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_h",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_H",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_H",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_p",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 3.5821094699185227e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_P",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.7755575615628914e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_P",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.2412670766236366e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_p",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_P",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_P",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_p",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_P",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_P",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_rz",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.2887833992611187e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_RZ",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.5700924586837752e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Rz",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 4.308824046522781e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_rz",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_RZ",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Rz",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_rz",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_RZ",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Rz",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_s",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.3592239273284576e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_S",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.82e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.9638418250041014e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_S",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.7554167342883506e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_s",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_S",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_S",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_s",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_S",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_S",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_sdg",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "1.00e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.2591401799415137e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_SDG",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.1102230246251565e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Sdg",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.3877787807814457e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_sdg",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_SDG",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Sdg",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_sdg",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_SDG",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Sdg",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_swap",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 1.0270500623343e-15
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_SWAP",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 8.783938091597278e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Swap",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "1.11e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 1.529455625525872e-15
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_swap",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.37e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 9.875749989578384e-20
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_SWAP",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "1.78e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 9.924726719058232e-20
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Swap",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.35e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 6.076606776399005e-21
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_sx",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "1.39e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.482534153247273e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_SX",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "7.85e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.6883057536160646e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Sx",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "1.11e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.355138688025663e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_sx",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_SX",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Sx",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_sx",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_SX",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Sx",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_t",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.0206364052201328e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_T",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.0206364052201328e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_T",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 3.3306690738754696e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_t",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_T",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_T",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_t",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_T",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_T",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_tdg",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "3.10e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.8305244335018383e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_TDG",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "7.85e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 3.554447978966673e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Tdg",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.1775693440128314e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_tdg",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_TDG",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Tdg",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_tdg",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_TDG",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Tdg",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_u",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.558937633260452e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_U",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.7554167342883506e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_U",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.4206697122486917e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_u",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_U",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_U",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_u",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_U",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_U",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_unitary",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "1.11e-16",
+   "lower": "rejected",
+   "lower_detail": "gate 'unitary' cannot be lowered to the logical gate set",
+   "safe": true
+  },
+  {
+   "case": "custom_named_UNITARY",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.46e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 9.567625110586499e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Unitary",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "sdg": 32,
+     "rz": 24,
+     "h": 20,
+     "cx": 3,
+     "t": 1
+    },
+    "unitary_err": 1.8554763185194854e-15
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_unitary",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.79e-16",
+   "lower": "rejected",
+   "lower_detail": "gate 'unitary' cannot be lowered to the logical gate set",
+   "safe": true
+  },
+  {
+   "case": "custom_named_UNITARY",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.24e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Unitary",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.02e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 10,
+     "t": 7,
+     "cx": 6,
+     "tdg": 1
+    },
+    "unitary_err": 3.3181535578799065e-19
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_x",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 3.2487068343022356e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_X",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 3.1031676915590914e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_X",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.94e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.9667321830339977e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_x",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_X",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_X",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_x",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_X",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_X",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_z",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.7554167342883506e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Z",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 1.2412670766236366e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Z",
+   "kind": "random_unitary",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "sdg": 4,
+     "rz": 3,
+     "t": 1
+    },
+    "unitary_err": 2.0206364052201328e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_z",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Z",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Z",
+   "kind": "cliffordt",
+   "sim": "ok",
+   "sim_detail": "2.29e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "counts_ref": {
+     "h": 9,
+     "t": 7,
+     "tdg": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_z",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Z",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "custom_named_Z",
+   "kind": "x_only",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "param_disguise_rz",
+   "kind": "<lambda>",
+   "sim": "ok",
+   "sim_detail": "6.79e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "rz": 2,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "rz": 2,
+     "t": 1
+    },
+    "unitary_err": 1.1150912609939193e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "param_disguise_rz",
+   "kind": "<lambda>",
+   "sim": "ok",
+   "sim_detail": "8.89e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "rz": 2,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "rz": 2,
+     "t": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "param_disguise_rz",
+   "kind": "<lambda>",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "rz": 2,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "rz": 2,
+     "t": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "param_disguise_p",
+   "kind": "<lambda>",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "rz": 2,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "rz": 2,
+     "t": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "param_disguise_cp",
+   "kind": "<lambda>",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "rz": 4,
+     "cx": 4,
+     "h": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "rz": 4,
+     "cx": 4,
+     "h": 3,
+     "t": 1
+    },
+    "unitary_err": 6.206335383118183e-17
+   },
+   "safe": true
+  },
+  {
+   "case": "param_disguise_u",
+   "kind": "<lambda>",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 7,
+     "rz": 2,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 7,
+     "rz": 2,
+     "t": 1
+    },
+    "unitary_err": 1.6883057536160646e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "param_disguise_rz",
+   "kind": "<lambda>",
+   "sim": "ok",
+   "sim_detail": "8.89e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "rz": 4,
+     "h": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "rz": 4,
+     "h": 3,
+     "t": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "rz_disguise_controlled",
+   "kind": "p-vs-rz",
+   "sim": "ok",
+   "sim_detail": "1.24e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "rz": 4,
+     "cx": 4,
+     "x": 2,
+     "h": 1
+    },
+    "counts_ref": {
+     "rz": 4,
+     "cx": 4,
+     "x": 2,
+     "h": 1
+    },
+    "unitary_err": 1.1102230246251565e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_x_k1_csNone",
+   "kind": "gate name=cx cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "cx": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "cx": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_x_k2_csNone",
+   "kind": "gate name=ccx cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 6,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3
+    },
+    "counts_ref": {
+     "h": 6,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3
+    },
+    "unitary_err": 1.1775693440128314e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_x_k1_cs0",
+   "kind": "gate name=cx_o0 cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 2,
+     "cx": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 2,
+     "cx": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_x_k2_cs1",
+   "kind": "gate name=ccx_o1 cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 6,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3,
+     "x": 2
+    },
+    "counts_ref": {
+     "h": 6,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3,
+     "x": 2
+    },
+    "unitary_err": 1.1775693440128314e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_z_k1_csNone",
+   "kind": "gate name=cz cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "cx": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "cx": 1,
+     "t": 1
+    },
+    "unitary_err": 3.268411497039468e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_z_k2_csNone",
+   "kind": "gate name=ccz cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 8,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3
+    },
+    "counts_ref": {
+     "h": 8,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3
+    },
+    "unitary_err": 1.3877803904029674e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_z_k1_cs0",
+   "kind": "gate name=cz_o0 cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "x": 2,
+     "cx": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "x": 2,
+     "cx": 1,
+     "t": 1
+    },
+    "unitary_err": 3.268411497039468e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_z_k2_cs1",
+   "kind": "gate name=ccz_o1 cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 8,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3,
+     "x": 2
+    },
+    "counts_ref": {
+     "h": 8,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3,
+     "x": 2
+    },
+    "unitary_err": 1.3877803904029674e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_h_k1_csNone",
+   "kind": "gate name=ch cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "t": 2,
+     "s": 1,
+     "cx": 1,
+     "tdg": 1,
+     "sdg": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "t": 2,
+     "s": 1,
+     "cx": 1,
+     "tdg": 1,
+     "sdg": 1
+    },
+    "unitary_err": 3.02777682361332e-19
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_h_k2_csNone",
+   "kind": "gate name=cch cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "8.33e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 8,
+     "t": 6,
+     "cx": 6,
+     "tdg": 4,
+     "s": 1,
+     "sdg": 1
+    },
+    "counts_ref": {
+     "h": 8,
+     "t": 6,
+     "cx": 6,
+     "tdg": 4,
+     "s": 1,
+     "sdg": 1
+    },
+    "unitary_err": 1.5700924586837752e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_h_k1_cs0",
+   "kind": "gate name=ch_o0 cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "x": 2,
+     "t": 2,
+     "s": 1,
+     "cx": 1,
+     "tdg": 1,
+     "sdg": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "x": 2,
+     "t": 2,
+     "s": 1,
+     "cx": 1,
+     "tdg": 1,
+     "sdg": 1
+    },
+    "unitary_err": 4.333342374871283e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_h_k2_cs1",
+   "kind": "gate name=cch_o1 cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "8.33e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 8,
+     "t": 6,
+     "cx": 6,
+     "tdg": 4,
+     "x": 2,
+     "s": 1,
+     "sdg": 1
+    },
+    "counts_ref": {
+     "h": 8,
+     "t": 6,
+     "cx": 6,
+     "tdg": 4,
+     "x": 2,
+     "s": 1,
+     "sdg": 1
+    },
+    "unitary_err": 1.5700924586837752e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_rx_k1_csNone",
+   "kind": "gate name=crx cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "7.85e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "rz": 9,
+     "sdg": 8,
+     "h": 7,
+     "cx": 2,
+     "t": 1
+    },
+    "counts_ref": {
+     "rz": 9,
+     "sdg": 8,
+     "h": 7,
+     "cx": 2,
+     "t": 1
+    },
+    "unitary_err": 2.0389102691443827e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_rx_k2_csNone",
+   "kind": "gate name=ccrx cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "1.18e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "rz": 27,
+     "sdg": 24,
+     "h": 16,
+     "cx": 8,
+     "t": 1
+    },
+    "counts_ref": {
+     "rz": 27,
+     "sdg": 24,
+     "h": 16,
+     "cx": 8,
+     "t": 1
+    },
+    "unitary_err": 3.3558881280179433e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_rx_k1_cs0",
+   "kind": "gate name=crx_o0 cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "8.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "rz": 9,
+     "sdg": 8,
+     "h": 7,
+     "x": 2,
+     "cx": 2,
+     "t": 1
+    },
+    "counts_ref": {
+     "rz": 9,
+     "sdg": 8,
+     "h": 7,
+     "x": 2,
+     "cx": 2,
+     "t": 1
+    },
+    "unitary_err": 1.8619006149354548e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_rx_k2_cs1",
+   "kind": "gate name=ccrx_o1 cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "1.18e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "rz": 27,
+     "sdg": 24,
+     "h": 16,
+     "cx": 8,
+     "x": 2,
+     "t": 1
+    },
+    "counts_ref": {
+     "rz": 27,
+     "sdg": 24,
+     "h": 16,
+     "cx": 8,
+     "x": 2,
+     "t": 1
+    },
+    "unitary_err": 3.357675810555758e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_x_k1_csNone",
+   "kind": "gate name=cx cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "cx": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "cx": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_x_k2_csNone",
+   "kind": "gate name=ccx cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 6,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3
+    },
+    "counts_ref": {
+     "h": 6,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3
+    },
+    "unitary_err": 1.1775693440128314e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_x_k1_cs0",
+   "kind": "gate name=cx_o0 cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 2,
+     "cx": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 2,
+     "cx": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "disguised_controlled_x_k2_cs1",
+   "kind": "gate name=ccx_o1 cls=ControlledGate",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 6,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3,
+     "x": 2
+    },
+    "counts_ref": {
+     "h": 6,
+     "cx": 6,
+     "t": 5,
+     "tdg": 3,
+     "x": 2
+    },
+    "unitary_err": 1.1775693440128314e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "std_subclass_RZGate-spoof",
+   "kind": "cls=RZGate mod=__main__",
+   "sim": "WRONG",
+   "sim_detail": "2.42e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "rz": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "rz": 1,
+     "t": 1
+    },
+    "unitary_err": 0.24246536490574866
+   },
+   "safe": false
+  },
+  {
+   "case": "std_subclass_MyRZ",
+   "kind": "cls=MyRZ mod=__main__",
+   "sim": "WRONG",
+   "sim_detail": "2.42e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "rz": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "rz": 1,
+     "t": 1
+    },
+    "unitary_err": 0.24246536490574866
+   },
+   "safe": false
+  },
+  {
+   "case": "std_subclass_XGate-spoof",
+   "kind": "cls=_SingletonXGate mod=None",
+   "sim": "WRONG",
+   "sim_detail": "3.54e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 4,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 4,
+     "t": 1
+    },
+    "unitary_err": 0.3535533905932737
+   },
+   "safe": false
+  },
+  {
+   "case": "std_subclass_TGate-spoof",
+   "kind": "cls=_SingletonTGate mod=None",
+   "sim": "WRONG",
+   "sim_detail": "7.07e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": NaN
+   },
+   "safe": false
+  },
+  {
+   "case": "std_subclass_CXGate-spoof",
+   "kind": "cls=_SingletonCXGate mod=None",
+   "sim": "WRONG",
+   "sim_detail": "7.07e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "cx": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "cx": 1,
+     "t": 1
+    },
+    "unitary_err": 0.7071067811865472
+   },
+   "safe": false
+  },
+  {
+   "case": "std_subclass_MyT",
+   "kind": "cls=_SingletonMyT mod=None",
+   "sim": "WRONG",
+   "sim_detail": "7.07e-01",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "x": 1,
+     "t": 1
+    },
+    "unitary_err": NaN
+   },
+   "safe": false
+  },
+  {
+   "case": "forged_module_TGate",
+   "kind": "module forged to qiskit.*",
+   "sim": "WRONG",
+   "sim_detail": "1.00e+00",
+   "lower": "WRONG",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 2,
+     "x": 1
+    },
+    "counts_ref": {
+     "h": 2,
+     "x": 1
+    },
+    "unitary_err": NaN
+   },
+   "safe": false
+  },
+  {
+   "case": "real_XGate_renamed_t",
+   "kind": "instance.name='t'",
+   "sim": "ok",
+   "sim_detail": "8.26e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 4,
+     "sdg": 4,
+     "rz": 3
+    },
+    "counts_ref": {
+     "h": 4,
+     "sdg": 4,
+     "rz": 3
+    },
+    "unitary_err": 1.2185036964802777e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "real_TGate_renamed_x",
+   "kind": "instance.name='x'",
+   "sim": "ok",
+   "sim_detail": "5.55e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 2,
+     "rz": 1
+    },
+    "counts_ref": {
+     "h": 2,
+     "rz": 1
+    },
+    "unitary_err": 5.551115123125783e-17
+   },
+   "safe": true
+  },
+  {
+   "case": "real_RZ_params_mutated",
+   "kind": "params=[0.1]",
+   "sim": "ok",
+   "sim_detail": "0.00e+00",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 2,
+     "rz": 1
+    },
+    "counts_ref": {
+     "h": 2,
+     "rz": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "real_RZ_definition_overwritten",
+   "kind": "definition rewritten (instance)",
+   "sim": "ok",
+   "sim_detail": "0.00e+00",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 2,
+     "rz": 1
+    },
+    "counts_ref": {
+     "h": 2,
+     "rz": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "nested_disguise_cx_t_h_rz",
+   "kind": "3 levels",
+   "sim": "ok",
+   "sim_detail": "2.23e-16",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "x": 16,
+     "h": 12,
+     "t": 9,
+     "cx": 4
+    },
+    "counts_ref": {
+     "x": 16,
+     "h": 12,
+     "t": 9,
+     "cx": 4
+    },
+    "unitary_err": 2.0014830212433607e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "mcx3_inside_gate_named_cx",
+   "kind": "must be rejected",
+   "sim": "rejected",
+   "sim_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "lower": "rejected",
+   "lower_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "safe": true
+  },
+  {
+   "case": "mcx3_inside_gate_named_h",
+   "kind": "must be rejected",
+   "sim": "rejected",
+   "sim_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "lower": "rejected",
+   "lower_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "safe": true
+  },
+  {
+   "case": "mcx3_inside_gate_named_t",
+   "kind": "must be rejected",
+   "sim": "rejected",
+   "sim_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "lower": "rejected",
+   "lower_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "safe": true
+  },
+  {
+   "case": "mcx3_inside_gate_named_x",
+   "kind": "must be rejected",
+   "sim": "rejected",
+   "sim_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "lower": "rejected",
+   "lower_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "safe": true
+  },
+  {
+   "case": "mcx3_inside_gate_named_ccx",
+   "kind": "must be rejected",
+   "sim": "rejected",
+   "sim_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "lower": "rejected",
+   "lower_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "safe": true
+  },
+  {
+   "case": "mcx3_inside_gate_named_barrier",
+   "kind": "must be rejected",
+   "sim": "rejected",
+   "sim_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "lower": "rejected",
+   "lower_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "safe": true
+  },
+  {
+   "case": "mcx3_inside_gate_named_rz",
+   "kind": "must be rejected",
+   "sim": "rejected",
+   "sim_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "lower": "rejected",
+   "lower_detail": "mcx with 3 controls is not accepted: Qiskit's transpile may use idle q",
+   "safe": true
+  },
+  {
+   "case": "fake_barrier_gate_with_content",
+   "kind": "Gate named barrier",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "cx": 1,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "cx": 1,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "fake_barrier_instruction_no_definition",
+   "kind": "Instruction named barrier",
+   "sim": "rejected",
+   "sim_detail": "custom gate 'barrier' has no definition (or is nested too deeply) and ",
+   "lower": "rejected",
+   "lower_detail": "custom gate 'barrier' has no definition (or is nested too deeply) and ",
+   "safe": true
+  },
+  {
+   "case": "true_barrier",
+   "kind": "control",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 3,
+     "t": 1
+    },
+    "counts_ref": {
+     "h": 3,
+     "t": 1
+    },
+    "unitary_err": 1.8384814670847006e-33
+   },
+   "safe": true
+  },
+  {
+   "case": "instruction_named_t",
+   "kind": "to_instruction",
+   "sim": "ok",
+   "sim_detail": "0.00e+00",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 2,
+     "x": 1
+    },
+    "counts_ref": {
+     "h": 2,
+     "x": 1
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "opaque_gate_named_t",
+   "kind": "no definition",
+   "sim": "rejected",
+   "sim_detail": "custom gate 't' has no definition (or is nested too deeply) and cannot",
+   "lower": "rejected",
+   "lower_detail": "custom gate 't' has no definition (or is nested too deeply) and cannot",
+   "safe": true
+  },
+  {
+   "case": "opaque_gate_named_cx",
+   "kind": "no definition",
+   "sim": "rejected",
+   "sim_detail": "custom gate 'cx' has no definition (or is nested too deeply) and canno",
+   "lower": "rejected",
+   "lower_detail": "custom gate 'cx' has no definition (or is nested too deeply) and canno",
+   "safe": true
+  },
+  {
+   "case": "opaque_gate_named_rz",
+   "kind": "no definition",
+   "sim": "rejected",
+   "sim_detail": "custom gate 'rz' has no definition (or is nested too deeply) and canno",
+   "lower": "rejected",
+   "lower_detail": "custom gate 'rz' has no definition (or is nested too deeply) and canno",
+   "safe": true
+  },
+  {
+   "case": "opaque_gate_named_unitary",
+   "kind": "no definition",
+   "sim": "rejected",
+   "sim_detail": "custom gate 'unitary' has no definition (or is nested too deeply) and ",
+   "lower": "rejected",
+   "lower_detail": "gate 'unitary' cannot be lowered to the logical gate set",
+   "safe": true
+  },
+  {
+   "case": "opaque_gate_named_h",
+   "kind": "no definition",
+   "sim": "rejected",
+   "sim_detail": "custom gate 'h' has no definition (or is nested too deeply) and cannot",
+   "lower": "rejected",
+   "lower_detail": "custom gate 'h' has no definition (or is nested too deeply) and cannot",
+   "safe": true
+  },
+  {
+   "case": "custom_named_unitary_X",
+   "kind": "to_gate",
+   "sim": "ok",
+   "sim_detail": "0.00e+00",
+   "lower": "rejected",
+   "lower_detail": "gate 'unitary' cannot be lowered to the logical gate set",
+   "safe": true
+  },
+  {
+   "case": "UnitaryGate_subclass",
+   "kind": "subclass name UG2",
+   "sim": "ok",
+   "sim_detail": "3.14e-16",
+   "lower": "rejected",
+   "lower_detail": "gate 'unitary' cannot be lowered to the logical gate set",
+   "safe": true
+  },
+  {
+   "case": "annotated_controlled_H",
+   "kind": "_SingletonCHGate",
+   "sim": "ok",
+   "sim_detail": "6.21e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 5,
+     "s": 1,
+     "t": 1,
+     "cx": 1,
+     "tdg": 1,
+     "sdg": 1
+    },
+    "counts_ref": {
+     "h": 5,
+     "s": 1,
+     "t": 1,
+     "cx": 1,
+     "tdg": 1,
+     "sdg": 1
+    },
+    "unitary_err": 6.206335383118183e-17
+   },
+   "safe": true
+  },
+  {
+   "case": "annotated_ccrz",
+   "kind": "AnnotatedOperation",
+   "sim": "rejected",
+   "sim_detail": "custom gate 'annotated' has no definition (or is nested too deeply) an",
+   "lower": "rejected",
+   "lower_detail": "custom gate 'annotated' has no definition (or is nested too deeply) an",
+   "safe": true
+  },
+  {
+   "case": "annotated_cx",
+   "kind": "CXGate",
+   "sim": "ok",
+   "sim_detail": "0.00e+00",
+   "lower": "ref-fail",
+   "lower_detail": "AttributeError(\"'NoneType' object has no attribute 'qregs'\")",
+   "safe": false
+  },
+  {
+   "case": "genuine_crz",
+   "kind": "control group",
+   "sim": "ok",
+   "sim_detail": "2.86e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 4,
+     "rz": 2,
+     "cx": 2
+    },
+    "counts_ref": {
+     "h": 4,
+     "rz": 2,
+     "cx": 2
+    },
+    "unitary_err": 2.8020823804458566e-17
+   },
+   "safe": true
+  },
+  {
+   "case": "genuine_ccrz",
+   "kind": "control group",
+   "sim": "ok",
+   "sim_detail": "6.94e-18",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 4,
+     "cx": 4,
+     "rz": 4
+    },
+    "counts_ref": {
+     "h": 4,
+     "cx": 4,
+     "rz": 4
+    },
+    "unitary_err": 3.4493214584668894e-20
+   },
+   "safe": true
+  },
+  {
+   "case": "genuine_crx",
+   "kind": "control group",
+   "sim": "ok",
+   "sim_detail": "5.72e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 6,
+     "rz": 2,
+     "cx": 2
+    },
+    "counts_ref": {
+     "h": 6,
+     "rz": 2,
+     "cx": 2
+    },
+    "unitary_err": 0.0
+   },
+   "safe": true
+  },
+  {
+   "case": "genuine_cch_o1",
+   "kind": "control group",
+   "sim": "ok",
+   "sim_detail": "3.93e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "h": 8,
+     "cx": 6,
+     "t": 5,
+     "tdg": 4,
+     "x": 2,
+     "s": 1,
+     "sdg": 1
+    },
+    "counts_ref": {
+     "h": 8,
+     "cx": 6,
+     "t": 5,
+     "tdg": 4,
+     "x": 2,
+     "s": 1,
+     "sdg": 1
+    },
+    "unitary_err": 1.6653345369377348e-16
+   },
+   "safe": true
+  },
+  {
+   "case": "genuine_mcphase",
+   "kind": "control group",
+   "sim": "ok",
+   "sim_detail": "2.78e-17",
+   "lower": "ok",
+   "lower_detail": {
+    "counts_lower": {
+     "rz": 7,
+     "cx": 6,
+     "h": 4
+    },
+    "counts_ref": {
+     "rz": 7,
+     "cx": 6,
+     "h": 4
+    },
+    "unitary_err": 5.561004165686737e-17
+   },
+   "safe": true
+  }
+ ],
+ "n_sim_ok": 180,
+ "n_sim_rejected": 14,
+ "n_sim_wrong": 7,
+ "n_low_ok": 175,
+ "n_low_rejected": 18,
+ "n_low_wrong": 8
+}

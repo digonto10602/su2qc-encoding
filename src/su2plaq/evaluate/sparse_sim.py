@@ -149,10 +149,7 @@ def _to_ops(t, ops):
 
 def _reject_wide_mcx(circ, _depth=0):
     """Reject native mcx with >= 3 controls, also inside custom/composite gates (recurses into `op.definition` of every
-    gate whose name is not a standard-library name)."""
-    from qiskit.circuit.library.standard_gates import get_standard_gate_name_mapping
-
-    standard = _standard_names(get_standard_gate_name_mapping)
+    gate that is not a genuine Qiskit standard-library gate object)."""
     for inst in circ.data:
         op = inst.operation
         if op.name.startswith("mcx") and getattr(op, "num_ctrl_qubits", op.num_qubits - 1) >= 3:
@@ -160,36 +157,52 @@ def _reject_wide_mcx(circ, _depth=0):
                 f"{op.name} with {getattr(op, 'num_ctrl_qubits', op.num_qubits - 1)} controls is not accepted: Qiskit's "
                 "transpile may use idle qubits as clean ancillas and silently change the operator; build it from "
                 "ccx/rccx on explicit ancillas")
-        if op.name not in standard and op.name != "barrier" and _depth < 20:
+        if not is_standard_gate(op) and not _is_barrier(op) and _depth < 20:
             d = getattr(op, "definition", None)
             if d is not None:
                 _reject_wide_mcx(d, _depth + 1)
 
 
-_STD = None
-
-
-def _standard_names(getter):
-    global _STD
-    if _STD is None:
-        _STD = set(getter().keys()) | set(SIM_BASIS)
-    return _STD
-
-
 _DECOMP_CACHE: dict = {}
 
 
-def decomposition_cache_key(op):
-    """Cache key for a gate's decomposition, or None if it must not be cached.  Only gates of Qiskit's own standard library
-    are cached (their name + params + control state determine the gate completely); custom / composite gates
-    (QuantumCircuit.to_gate(), Gate subclasses) carry their content in `definition` and share names freely, so they are
-    decomposed every time -- never keyed on a name alone."""
-    from qiskit.circuit.library.standard_gates import get_standard_gate_name_mapping
+_STD_MAP = None
 
-    ref = get_standard_gate_name_mapping().get(op.name)
-    if ref is None or not isinstance(op, type(ref)):
-        return None
-    if type(op).__name__ not in (type(ref).__name__, "_Singleton" + type(ref).__name__):
+
+def _standard_classes():
+    """{gate name: set of Qiskit's own classes for it}: the class held by the standard mapping (the Singleton variant for
+    singleton gates) and the plain library class it derives from (definitions of controlled gates use the plain class)."""
+    global _STD_MAP
+    if _STD_MAP is None:
+        from qiskit.circuit.library.standard_gates import get_standard_gate_name_mapping
+
+        m = {}
+        for name, ref in get_standard_gate_name_mapping().items():
+            cls = type(ref)
+            allowed = {cls}
+            base = cls.__name__.removeprefix("_Singleton")
+            allowed |= {c for c in cls.__mro__ if c.__name__ == base and c.__module__.startswith("qiskit.circuit.library")}
+            m[name] = allowed
+        _STD_MAP = m
+    return _STD_MAP
+
+
+def is_standard_gate(op) -> bool:
+    """True iff the CLASS of `op` is one of Qiskit's own classes for its name (standard library gate, plain or singleton
+    variant; UnitaryGate for 'unitary').  Gate recognition by name or by class-name string is unsafe: a custom gate can carry
+    any name (QuantumCircuit.to_gate takes the circuit's name) and a user class can reuse a Qiskit class name or subclass one,
+    so class IDENTITY is compared; anything else (subclasses included) is expanded from its definition."""
+    if op.name == "unitary":
+        cls = type(op)
+        return cls.__name__ == "UnitaryGate" and cls.__module__.startswith("qiskit.circuit.library")
+    return type(op) in _standard_classes().get(op.name, ())
+
+
+def decomposition_cache_key(op):
+    """Cache key for a gate's decomposition, or None if it must not be cached.  Only standard-library gates are cached (class
+    + name + params + control state determine the gate completely); custom / composite gates carry their content in
+    `definition` and share names freely, so they are decomposed every time -- never keyed on a name alone."""
+    if not is_standard_gate(op):
         return None
     try:
         return (type(op).__name__, op.name, tuple(float(x) for x in op.params), op.num_qubits,
@@ -229,12 +242,12 @@ def _translate(qc):
     for inst in qc.data:
         op = inst.operation
         name = op.name
-        if name == "barrier":
+        if _is_barrier(op):
             continue
         if inst.clbits or name in ("measure", "reset", "delay") or name.startswith("if_") or name in ("for_loop", "while_loop", "switch_case"):
             raise ValueError(f"gate {name!r} cannot be simulated (measure/reset/classical control/unsupported)")
         qs = tuple(qc.find_bit(q).index for q in inst.qubits)
-        if name in SIM_BASIS:
+        if name in SIM_BASIS and is_standard_gate(op):
             payload = (np.asarray(op.to_matrix(), dtype=np.complex128) if name in _BRANCH
                        else tuple(float(x) for x in op.params))
             ops.append((name, qs, payload))
@@ -243,24 +256,30 @@ def _translate(qc):
     return ops, phase
 
 
+def _is_barrier(op) -> bool:
+    return type(op).__name__ == "Barrier" and type(op).__module__.startswith("qiskit.")
+
+
 def _expand(op, qs, ops, _depth=0) -> float:
     """Append the decomposition of a foreign gate on qubits `qs` to `ops`; returns the global phase.  Standard-library gates
     are transpiled one at a time (cached); custom / composite gates (to_gate(), Gate subclasses) are inlined from their
     `definition` in program order, recursively, so nested macros keep their local gate order too."""
-    if decomposition_cache_key(op) is not None or _depth > 30 or getattr(op, "definition", None) is None:
+    if is_standard_gate(op):
         local, ph = _decompose_local(op)
         ops.extend((nm, tuple(qs[k] for k in lq), pl) for nm, lq, pl in local)
         return ph
-    d = op.definition
+    d = getattr(op, "definition", None)
+    if d is None or _depth > 30:
+        raise ValueError(f"custom gate {op.name!r} has no definition (or is nested too deeply) and cannot be simulated")
     phase = float(d.global_phase)
     for inst in d.data:
         sub = inst.operation
         sq = tuple(qs[d.find_bit(q).index] for q in inst.qubits)
-        if sub.name == "barrier":
+        if _is_barrier(sub):
             continue
         if inst.clbits or sub.name in ("measure", "reset", "delay"):
             raise ValueError(f"gate {sub.name!r} cannot be simulated (measure/reset/classical control/unsupported)")
-        if sub.name in SIM_BASIS:
+        if sub.name in SIM_BASIS and is_standard_gate(sub):
             payload = (np.asarray(sub.to_matrix(), dtype=np.complex128) if sub.name in _BRANCH
                        else tuple(float(x) for x in sub.params))
             ops.append((sub.name, sq, payload))

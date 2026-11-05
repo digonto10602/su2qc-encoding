@@ -36,3 +36,18 @@ def test_results_files_are_consistent_if_present(kind):
         s = row["synth"]
         assert s["error_measured_sum"] <= s["error_bound_sum"] + 1e-15 and s["verdict"]["tolerances"]["tol_err"] > s["error_bound_sum"]
         assert s["verdict"]["op_norm_error"] <= s["verdict"]["tolerances"]["tol_err"] or not s["verdict"]["ok"]
+
+
+def test_rel_path_helper_accepts_paths_outside_the_repo(mod, tmp_path):
+    assert mod._rel(ROOT / "results" / "twelve" / "UE.json") == str(pathlib.Path("results") / "twelve" / "UE.json")
+    outside = tmp_path / "x.qpy"
+    assert mod._rel(outside) == str(outside.resolve())
+
+
+def test_unevaluable_record_has_no_numbers_that_look_like_a_verdict(mod):
+    class V:
+        reason = "writes_outer"
+
+    rec = mod._unevaluable(V())
+    assert rec["evaluable"] is False and rec["reason"] == "writes_outer" and "ok" not in rec and "certified" not in rec
+    assert "Hadamard" in rec["explanation"]
