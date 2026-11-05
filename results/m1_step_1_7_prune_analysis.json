@@ -1,0 +1,86 @@
+[
+ {
+  "eps": 0.0001,
+  "prune_rel": 1e-14,
+  "bound_dropped_max": 2.62912469192233e-12,
+  "actual_diff_max": 2.5262138178505426e-13,
+  "ratio_actual_over_bound_at_worst_col": 0.09608500576953563,
+  "bound_col_worst": 30,
+  "actual_total_frob": 4.421848459742643e-12,
+  "bound_total": 3.879675699284115e-11,
+  "stored_pruned": 136593,
+  "stored_exact": 208102
+ },
+ {
+  "eps": 0.0001,
+  "prune_rel": 1e-15,
+  "bound_dropped_max": 4.2251159507063756e-14,
+  "actual_diff_max": 5.7168233939646814e-15,
+  "ratio_actual_over_bound_at_worst_col": 0.07740284654574904,
+  "bound_col_worst": 53,
+  "actual_total_frob": 6.48734587526843e-14,
+  "bound_total": 3.1571990389848636e-13,
+  "stored_pruned": 169689,
+  "stored_exact": 208102
+ },
+ {
+  "eps": 0.0001,
+  "prune_rel": 1e-16,
+  "bound_dropped_max": 1.4647478213543876e-14,
+  "actual_diff_max": 4.9585647752950795e-15,
+  "ratio_actual_over_bound_at_worst_col": 0.1852003416093259,
+  "bound_col_worst": 248,
+  "actual_total_frob": 5.966231009705359e-14,
+  "bound_total": 2.173875495887568e-13,
+  "stored_pruned": 170974,
+  "stored_exact": 208102
+ },
+ {
+  "eps": 0.0001,
+  "n_small": 42913,
+  "n_all": 208102,
+  "small_l2_total": 3.5459018483020446e-13
+ },
+ {
+  "eps": 1e-06,
+  "prune_rel": 1e-14,
+  "bound_dropped_max": 1.7475242859442878e-13,
+  "actual_diff_max": 6.198286008123555e-14,
+  "ratio_actual_over_bound_at_worst_col": 0.3091345888155271,
+  "bound_col_worst": 205,
+  "actual_total_frob": 1.3896060570927112e-12,
+  "bound_total": 3.926143207306732e-12,
+  "stored_pruned": 14437,
+  "stored_exact": 91670
+ },
+ {
+  "eps": 1e-06,
+  "prune_rel": 1e-15,
+  "bound_dropped_max": 1.7090008848083202e-13,
+  "actual_diff_max": 1.6915723119192934e-14,
+  "ratio_actual_over_bound_at_worst_col": 0.09535929772786648,
+  "bound_col_worst": 211,
+  "actual_total_frob": 3.4125994580979435e-13,
+  "bound_total": 3.6033112931689642e-12,
+  "stored_pruned": 63730,
+  "stored_exact": 91670
+ },
+ {
+  "eps": 1e-06,
+  "prune_rel": 1e-16,
+  "bound_dropped_max": 3.2401232376749756e-14,
+  "actual_diff_max": 5.33642009801434e-15,
+  "ratio_actual_over_bound_at_worst_col": 0.10304171373205255,
+  "bound_col_worst": 126,
+  "actual_total_frob": 7.311623350543771e-14,
+  "bound_total": 4.3871799559205406e-13,
+  "stored_pruned": 59757,
+  "stored_exact": 91670
+ },
+ {
+  "eps": 1e-06,
+  "n_small": 66427,
+  "n_all": 91670,
+  "small_l2_total": 8.462904711190339e-13
+ }
+]

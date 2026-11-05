@@ -86,12 +86,13 @@ def ct_compile(qc, eps: float, level: int = 3, seed: int = 12345):
 def synthesize(qc, eps: float):
     """Replace every rz of the level-0 lowering by its Clifford+T word (gate order preserved; W dropped, X -> H S S H;
     multiples of pi/4 by exact S/T words).  Global phases of the replaced rotations are not tracked (the evaluator allows
-    one global phase).  Returns (circuit, {"n_rot","t_rot","error_bound_sum","per_rotation":[...]})."""
+    one global phase).  Returns (circuit, {"n_rot","t_rot","error_bound_sum" = n_rot*eps, "error_measured_sum" = sum of the measured per-word
+    errors (<= error_bound_sum), "per_rotation":[...]}).  Rotations at multiples of pi/4 are exact and not counted."""
     from qiskit import QuantumCircuit
 
     low = lower(qc)
     out = QuantumCircuit(*low.qregs, *low.cregs, global_phase=low.global_phase)
-    per, n_rot, t_rot, err_sum = [], 0, 0, 0.0
+    per, n_rot, t_rot, err_meas = [], 0, 0, 0.0
     for inst in low.data:
         op, qs = inst.operation, [low.find_bit(q).index for q in inst.qubits]
         if op.name != "rz":
@@ -118,8 +119,10 @@ def synthesize(qc, eps: float):
         if not exact:
             n_rot += 1
             t_rot += w.count("T")
+            err_meas += err
         per.append({"theta": th, "t": w.count("T"), "exact": exact, "error": err})
-    return out, {"n_rot": n_rot, "t_rot": t_rot, "error_bound_sum": n_rot * eps, "per_rotation": per}
+    return out, {"n_rot": n_rot, "t_rot": t_rot, "error_bound_sum": n_rot * eps, "error_measured_sum": err_meas,
+                  "per_rotation": per}
 
 
 def t_table(qc, eps_list=(1e-4, 1e-6, 1e-8, 1e-10), qiskit: bool = True) -> list[dict]:

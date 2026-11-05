@@ -56,7 +56,7 @@ def test_inner_span_rank_bounds():
     assert S.shape[0] == 625 and 0 < S.shape[1] <= 625
     assert np.abs(S.conj().T @ S - np.eye(S.shape[1])).max() < 1e-12
     dims = s_o_dims(b)
-    assert all(1 <= v <= 625 for v in dims.values())
+    assert all(0 <= v <= 625 for v in dims.values()) and len(dims) == 3 ** 8
 
 
 def test_jmax_one_not_supported_for_route_a():
@@ -89,3 +89,16 @@ def test_singlet_signs_are_deterministic_under_ties_and_noise():
     # across the full basis the tied singlets appear: 32 over all corners and spin assignments, all with positive pivot
     b = physical_basis()
     assert np.all(np.isfinite(np.concatenate(b.amps).real))
+
+
+def test_outer_dont_care_table_is_complete_and_matches_the_measured_histogram():
+    import collections
+
+    from su2plaq.exact.physical import outer_patterns
+
+    b = physical_basis()
+    dims = s_o_dims(b)
+    assert sorted(dims) == outer_patterns(b) and len(dims) == 3 ** 8
+    assert dict(collections.Counter(dims.values())) == {0: 3408, 1: 976, 2: 1073, 3: 392, 4: 320, 5: 280, 8: 64, 9: 32, 17: 16}
+    assert dims[0] == 2 and inner_span(b).shape == (625, 625)
+    assert s_o_dims(to_convention(b, "paulo")).values().__len__() == 3 ** 8

@@ -73,6 +73,7 @@ def test_synthesize_reproduces_circuit_up_to_global_phase_and_bound(eps):
     assert err <= info["error_bound_sum"] + 1e-9
     assert info["n_rot"] == 5  # rz(0.37), rz(-0.55) and the three rz of cp(0.9)
     assert info["error_bound_sum"] == pytest.approx(info["n_rot"] * eps)
+    assert info["error_measured_sum"] == pytest.approx(sum(p["error"] for p in info["per_rotation"])) and 0 < info["error_measured_sum"] <= info["error_bound_sum"]
     assert info["t_rot"] == sum(p["t"] for p in info["per_rotation"] if not p["exact"])
 
 

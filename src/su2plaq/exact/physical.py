@@ -283,8 +283,37 @@ def _rank_basis(M, tol=1e-9):
     return u[:, :r]
 
 
+def outer_patterns(basis) -> list[int]:
+    """All admissible outer electric keys (far end of every outer link fixed): per outer link the local indices j = 0 and the
+    two j = 1/2 states whose near magnetic number is free (3 per link, 3^8 = 6561 keys), in `basis.convention`."""
+    ls = LinkSpace(basis.jmax)
+    m0 = m_values(0.5)[0]
+    allowed = []
+    for link in basis.diagram.links[4:]:
+        near_is_right = link.near_end == "R"
+        idx = [ls.index[(0.0, 0.0, 0.0)]]
+        for (j, ml, mr), k in ls.index.items():
+            far = ml if near_is_right else mr
+            if j == 0.5 and far == m0:
+                idx.append(k)
+        if basis.convention == "paulo":
+            V = paulo_adapter()
+            idx = [int(np.nonzero(V[:, c])[0][0]) for c in idx]
+        allowed.append(sorted(idx))
+    keys = [0]
+    for pos, idx in enumerate(allowed):
+        keys = [k + i * _BASE ** pos for k in keys for i in idx]
+    return sorted(keys)
+
+
 def s_o_dims(basis) -> dict[int, int]:
-    return {o: _rank_basis(_dense_inner(items)).shape[1] for o, items in _inner_components(basis).items()}
+    """dim S_o for EVERY admissible outer pattern (3^8 = 6561 entries); 0 where no physical state has support."""
+    dims = {o: 0 for o in outer_patterns(basis)}
+    for o, items in _inner_components(basis).items():
+        if o not in dims:
+            raise ValueError(f"outer key {o} is not an admissible outer pattern")
+        dims[o] = _rank_basis(_dense_inner(items)).shape[1]
+    return dims
 
 
 def inner_span(basis) -> np.ndarray:
