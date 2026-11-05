@@ -16,7 +16,8 @@ Algorithm
      weights of the inner inputs in the support of the outer block).  The verdict criterion is the combined bound
          op_norm_error = block_error + dropped_total + leak_amplitude <= tol_err .
      The weights `max_leak`, `dirty_ancilla` are diagnostics (max_leak <= leak_amplitude^2).  The code-space weight outside
-     the physical span (`extra['max_span_leak']`) is controlled by the Gauss check: |s| <= 4 * gauss_residual.
+     the physical span (`extra['max_span_leak']`) is controlled by the Gauss check: |s| <= 4 * gauss_residual.  The simulator's
+     certified pruning bound `dropped_total` (max over outer groups) must stay <= PRUNE_FRACTION * tol_err (`pruning_bound`).
   6. Gauss residual of the decoded outputs U|psi_k>.
 Engines: `sparse` (run_batch), `aer_mps` (per-input MPS, accuracy ~2e-10, flagged in `engine_accuracy`/`certified`),
 `auto` (sparse; aer_mps on SimCapExceeded).
@@ -34,7 +35,7 @@ from su2plaq.encodings.base import Layout
 from su2plaq.evaluate import sparse_sim as ss
 
 TOL_GAUSS = 1e-10
-TOL_PRUNE = 1e-12          # reject when one simulation dropped more than this (L2, one column)
+PRUNE_FRACTION = 1e-2      # `pruning_bound` iff dropped_total > PRUNE_FRACTION * tol_err (prompts/005); exact-angle cap 1e-12
 MPS_ACCURACY = 2e-10       # observed accuracy of Aer's MPS (reports/tests/008)
 MPS_CERTIFY_MIN = 1e-9     # aer_mps verdicts are certified only at tolerances >= this (combined noise <= 2e-10 + 3.9e-10; prompts/004 §2)
 
@@ -216,7 +217,7 @@ class Verdict:
     seconds: float
     failing_inputs: list
     n_inputs: int
-    dropped_total: float = 0.0        # certified pruning bound already included in op_norm_error
+    dropped_total: float = 0.0        # certified pruning bound (max over outer groups of the per-group Frobenius bound), already included in op_norm_error
     engine_accuracy: float = 0.0      # accuracy of the engine itself (aer_mps ~2e-10); 0 for the exact sparse engine
     certified: bool = True            # False if engine_accuracy exceeds the tolerances the verdict was judged by
     tolerances: dict = field(default_factory=dict)  # {"tol_err","tol_gauss"} actually applied
@@ -399,7 +400,7 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
         except ss.SimCapExceeded as e:
             return _early("unsimulable", t0, use_method, "sparse", len(R), str(e), tol=tols)
         eng_used = used
-        dropped_total += dt
+        dropped_total = max(dropped_total, dt)   # block-diagonal in the outer pattern: max over groups (prompts/005 §2)
         dropped_max = max(dropped_max, dm)
         if used == "aer_mps":
             wa, wi = info["w_anc"], info["w_inv"]
@@ -475,7 +476,7 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
     acc = MPS_ACCURACY if eng_used == "aer_mps" else 0.0
     tmin = min(tol_err, tg) if gauss else tol_err
     certified = (acc <= tmin) and (acc == 0.0 or tmin >= MPS_CERTIFY_MIN)
-    if dropped_max > TOL_PRUNE:
+    if dropped_total > PRUNE_FRACTION * tol_err:
         reason = "pruning_bound"
     elif leak_amp > tol_err:
         reason = "dirty_ancilla" if dirty >= inv_max else "leak"
@@ -496,7 +497,7 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
     elif reason == "gauss":
         failing = [(int(gstates[i]), float(gk[i])) for i in np.argsort(-gk)[:10] if gk[i] > tg]
     elif reason == "pruning_bound":
-        failing = [("max_dropped_l2", float(dropped_max))]
+        failing = [("dropped_total", float(dropped_total)), ("prune_cap", float(PRUNE_FRACTION * tol_err))]
     else:
         worst = np.argsort(-colerr)[:10]
         failing = [(int(k), float(colerr[k])) for k in worst if colerr[k] > 0]

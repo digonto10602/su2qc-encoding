@@ -425,3 +425,19 @@ def test_aer_mps_certified_only_at_or_above_1e9():
     # without the Gauss check only tol_err counts
     assert not ev.evaluate(qc, enc, V, engine="aer_mps", gauss=False, tol_err=5e-10).certified
     assert ev.evaluate(qc, enc, V, engine="aer_mps", gauss=False, tol_err=2e-9, tol_gauss=1e-12).certified
+
+
+def test_pruning_bound_failing_inputs_and_relative_cap(monkeypatch):
+    """prompts/005: pruning_bound iff dropped_total > PRUNE_FRACTION * tol_err; failing_inputs carry both numbers."""
+    monkeypatch.setattr(ss, "PRUNE_REL", 1.5)
+    qc, r = _circ(1)
+    qc.h(r["a"][0])
+    qc.h(r["d"][0])
+    I = np.eye(433, dtype=complex)
+    v = ev.evaluate(qc, _enc(), I, gauss=False)
+    assert v.reason == "pruning_bound" and v.dropped_total > ev.PRUNE_FRACTION * v.tolerances["tol_err"]
+    assert v.failing_inputs == [("dropped_total", v.dropped_total), ("prune_cap", ev.PRUNE_FRACTION * 1e-10)]
+    assert ev.PRUNE_FRACTION == 1e-2 and not hasattr(ev, "TOL_PRUNE")
+    # a huge error budget moves the cap above the dropped bound: the verdict is then decided by the other checks
+    v2 = ev.evaluate(qc, _enc(), I, gauss=False, tol_err=1e6)
+    assert v2.reason != "pruning_bound"

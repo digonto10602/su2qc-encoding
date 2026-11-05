@@ -1,0 +1,572 @@
+{
+  "schema_version": 1,
+  "encoding": "twelve",
+  "circuit_id": "UE",
+  "kind": "UE",
+  "params": {
+    "alpha": 0.37,
+    "beta": null,
+    "order": 1
+  },
+  "provenance": {
+    "git_commit": "b6d5f50",
+    "git_dirty": true,
+    "versions": {
+      "python": "3.12.14",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
+    "cpu_count": 12,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "trial_subset": 0
+    },
+    "timestamp_utc": "2026-11-05T13:52:37Z"
+  },
+  "verification": {
+    "ok": true,
+    "reason": "ok",
+    "op_norm_error": 1.206819431111926e-13,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      1.8163544309622522e-17
+    ],
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 5.302695275805847e-16,
+    "method": "inner_span",
+    "engine": "sparse",
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "dropped_total": 0.0,
+    "block_error": 1.206819431111926e-13,
+    "leak_amplitude": 0.0,
+    "seconds": 6.665532827377319,
+    "n_inputs": 433,
+    "extra": {
+      "op_norm_error_physical": 3.2509699194571052e-15,
+      "max_dropped_l2": 0.0,
+      "max_span_leak": 4.107825191113079e-15,
+      "op_norm_error_inner_span": 1.206819431111926e-13
+    }
+  },
+  "metrics": {
+    "logical": {
+      "cx": 0,
+      "depth": 1,
+      "n_rot": 4,
+      "t_fixed": 0,
+      "qubits": 12,
+      "ancilla": 0
+    },
+    "gates_lowered": {
+      "rz": 4
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 0,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 176,
+        "t_total": 176,
+        "t_est": 159.4525485545934,
+        "t_qiskit": 172,
+        "cx_qiskit": 0,
+        "depth_qiskit": 116,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 176,
+          "error_bound_sum": 0.0004,
+          "error_measured_sum": 8.729935795460768e-05,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 0.00012295176108149044,
+            "max_leak": 2.770797951542309e-10,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              -0.9999999998193729,
+              -1.9006689089610162e-05
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 6.795584291905195e-06,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 0.00040000100000000003,
+              "tol_gauss": 0.00040000100000000003
+            },
+            "dropped_total": 6.062533970064369e-14,
+            "block_error": 0.00010630604700330997,
+            "leak_amplitude": 1.6645714017555118e-05,
+            "seconds": 3.6614866256713867,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 9.738665455135144e-05,
+              "max_dropped_l2": 2.4250135881122433e-15,
+              "max_span_leak": 3.6944025616492127e-10,
+              "op_norm_error_inner_span": 0.00010630604700330997
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 0,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 256,
+        "t_total": 256,
+        "t_est": 239.1788228318901,
+        "t_qiskit": 236,
+        "cx_qiskit": 0,
+        "depth_qiskit": 149,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 256,
+          "error_bound_sum": 4e-06,
+          "error_measured_sum": 1.5297878242780261e-06,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 2.1408253505406787e-06,
+            "max_leak": 7.455617671995029e-14,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.9999999999999429,
+              -3.379831911887656e-07
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 1.1147210181308239e-07,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 4.0009999999999995e-06,
+              "tol_gauss": 4.0009999999999995e-06
+            },
+            "dropped_total": 4.578549926417772e-12,
+            "block_error": 1.8677710023150569e-06,
+            "leak_amplitude": 2.7304976967569537e-07,
+            "seconds": 3.337233304977417,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 1.7317614404116703e-06,
+              "max_dropped_l2": 1.8314199793962364e-13,
+              "max_span_leak": 1.0058620603103918e-13,
+              "op_norm_error_inner_span": 1.8677710023150569e-06
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 0,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 328,
+        "t_total": 328,
+        "t_est": 318.9050971091868,
+        "t_qiskit": 328,
+        "cx_qiskit": 0,
+        "depth_qiskit": 212,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 328,
+          "error_bound_sum": 4e-08,
+          "error_measured_sum": 1.3470830584478804e-08,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.960178689598777e-08,
+            "max_leak": 3.368286900074158e-17,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              -1.0,
+              3.272731568391699e-10
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 2.3693487028712575e-09,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 4.1e-08,
+              "tol_gauss": 4.1e-08
+            },
+            "dropped_total": 1.1638173643833535e-15,
+            "block_error": 1.3798091305278031e-08,
+            "leak_amplitude": 5.803694426892373e-09,
+            "seconds": 3.195505380630493,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 1.6768174560897002e-09,
+              "max_dropped_l2": 4.655270017573048e-17,
+              "max_span_leak": 3.3306690738754696e-15,
+              "op_norm_error_inner_span": 1.3798091305278031e-08
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 0,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 416,
+        "t_total": 416,
+        "t_est": 398.63137138648347,
+        "t_qiskit": 380,
+        "cx_qiskit": 0,
+        "depth_qiskit": 244,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 416,
+          "error_bound_sum": 4e-10,
+          "error_measured_sum": 1.0787086300775098e-10,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.5493586065861382e-10,
+            "max_leak": 2.1811886098737963e-21,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              3.479665721874086e-13
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 1.906681345494209e-11,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1.4000000000000001e-09,
+              "tol_gauss": 1.4000000000000001e-09
+            },
+            "dropped_total": 7.536559746041006e-20,
+            "block_error": 1.0823266358482211e-10,
+            "leak_amplitude": 4.670319699842611e-11,
+            "seconds": 3.3231608867645264,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 1.8683293624498494e-12,
+              "max_dropped_l2": 3.014698487042586e-21,
+              "max_span_leak": 2.7755575615628914e-15,
+              "op_norm_error_inner_span": 1.0823266358482211e-10
+            }
+          }
+        }
+      }
+    ],
+    "macro_counts": {
+      "p": 4
+    }
+  },
+  "files": {
+    "qpy": "results/twelve/UE.qpy",
+    "sha256": "de93658b9be3da12180c4b7fbf3d3146b5c389f04e3af742c1df9f4459c5d1be",
+    "qasm3": "results/twelve/UE.qasm3"
+  },
+  "extra": {
+    "physics": {
+      "n_physical_states": 433,
+      "n_outer_patterns": 6561,
+      "n_outer_patterns_with_support": 3153,
+      "dim_So_histogram": {
+        "0": 3408,
+        "1": 976,
+        "2": 1073,
+        "3": 392,
+        "4": 320,
+        "5": 280,
+        "8": 64,
+        "9": 32,
+        "17": 16
+      },
+      "max_dim_So": 17,
+      "closed_pattern_dim": 2,
+      "inner_span_rank": 625,
+      "n_inner_codes": 625
+    },
+    "outer_electric_row": {
+      "verification": {
+        "ok": true,
+        "reason": "ok",
+        "op_norm_error": 3.7805352786289556e-15,
+        "max_leak": 0.0,
+        "dirty_ancilla": 0.0,
+        "phase": [
+          1.0,
+          3.9210696307825583e-16
+        ],
+        "outer_bits_read": 8,
+        "n_blocks": 128,
+        "gauss_residual": 5.592593521511171e-16,
+        "method": "physical",
+        "engine": "sparse",
+        "engine_accuracy": 0.0,
+        "certified": true,
+        "tolerances": {
+          "tol_err": 1e-10,
+          "tol_gauss": 1e-10
+        },
+        "dropped_total": 0.0,
+        "block_error": 3.7805352786289556e-15,
+        "leak_amplitude": 0.0,
+        "seconds": 1.9234895706176758,
+        "n_inputs": 433,
+        "extra": {
+          "op_norm_error_physical": 3.7805352786289556e-15,
+          "max_dropped_l2": 0.0,
+          "max_span_leak": 7.216449660063518e-15,
+          "op_norm_error_inner_span": null
+        }
+      },
+      "metrics": {
+        "logical": {
+          "cx": 0,
+          "depth": 1,
+          "n_rot": 12,
+          "t_fixed": 0,
+          "qubits": 28,
+          "ancilla": 0
+        },
+        "gates_lowered": {
+          "rz": 12
+        },
+        "t_table": [
+          {
+            "eps": 0.0001,
+            "t_fixed": 0,
+            "n_rot": 12,
+            "t_rot_pygridsynth": 528,
+            "t_total": 528,
+            "t_est": 478.35764566378015,
+            "t_qiskit": 516,
+            "cx_qiskit": 0,
+            "depth_qiskit": 116,
+            "synth": {
+              "n_rot": 12,
+              "t_rot": 528,
+              "error_bound_sum": 0.0012000000000000001,
+              "error_measured_sum": 0.00026189807386382304,
+              "verdict": {
+                "ok": false,
+                "reason": "writes_outer",
+                "op_norm_error": Infinity,
+                "max_leak": Infinity,
+                "dirty_ancilla": Infinity,
+                "phase": [
+                  1.0,
+                  0.0
+                ],
+                "outer_bits_read": 0,
+                "n_blocks": 0,
+                "gauss_residual": NaN,
+                "method": "auto",
+                "engine": "auto",
+                "engine_accuracy": 0.0,
+                "certified": true,
+                "tolerances": {
+                  "tol_err": 0.001200001,
+                  "tol_gauss": 0.001200001
+                },
+                "dropped_total": 0.0,
+                "block_error": Infinity,
+                "leak_amplitude": Infinity,
+                "seconds": 0.006953239440917969,
+                "n_inputs": 0,
+                "failing_inputs": [
+                  [
+                    "message",
+                    "gate h on (13,) is not diagonal on outer qubit(s) [13]"
+                  ]
+                ],
+                "extra": {}
+              }
+            }
+          },
+          {
+            "eps": 1e-06,
+            "t_fixed": 0,
+            "n_rot": 12,
+            "t_rot_pygridsynth": 768,
+            "t_total": 768,
+            "t_est": 717.5364684956703,
+            "t_qiskit": 708,
+            "cx_qiskit": 0,
+            "depth_qiskit": 149,
+            "synth": {
+              "n_rot": 12,
+              "t_rot": 768,
+              "error_bound_sum": 1.2e-05,
+              "error_measured_sum": 4.5893634728340785e-06,
+              "verdict": {
+                "ok": false,
+                "reason": "writes_outer",
+                "op_norm_error": Infinity,
+                "max_leak": Infinity,
+                "dirty_ancilla": Infinity,
+                "phase": [
+                  1.0,
+                  0.0
+                ],
+                "outer_bits_read": 0,
+                "n_blocks": 0,
+                "gauss_residual": NaN,
+                "method": "auto",
+                "engine": "auto",
+                "engine_accuracy": 0.0,
+                "certified": true,
+                "tolerances": {
+                  "tol_err": 1.2001e-05,
+                  "tol_gauss": 1.2001e-05
+                },
+                "dropped_total": 0.0,
+                "block_error": Infinity,
+                "leak_amplitude": Infinity,
+                "seconds": 0.010549306869506836,
+                "n_inputs": 0,
+                "failing_inputs": [
+                  [
+                    "message",
+                    "gate h on (13,) is not diagonal on outer qubit(s) [13]"
+                  ]
+                ],
+                "extra": {}
+              }
+            }
+          },
+          {
+            "eps": 1e-08,
+            "t_fixed": 0,
+            "n_rot": 12,
+            "t_rot_pygridsynth": 984,
+            "t_total": 984,
+            "t_est": 956.7152913275603,
+            "t_qiskit": 984,
+            "cx_qiskit": 0,
+            "depth_qiskit": 212,
+            "synth": {
+              "n_rot": 12,
+              "t_rot": 984,
+              "error_bound_sum": 1.2000000000000002e-07,
+              "error_measured_sum": 4.041249175343641e-08,
+              "verdict": {
+                "ok": false,
+                "reason": "writes_outer",
+                "op_norm_error": Infinity,
+                "max_leak": Infinity,
+                "dirty_ancilla": Infinity,
+                "phase": [
+                  1.0,
+                  0.0
+                ],
+                "outer_bits_read": 0,
+                "n_blocks": 0,
+                "gauss_residual": NaN,
+                "method": "auto",
+                "engine": "auto",
+                "engine_accuracy": 0.0,
+                "certified": true,
+                "tolerances": {
+                  "tol_err": 1.21e-07,
+                  "tol_gauss": 1.21e-07
+                },
+                "dropped_total": 0.0,
+                "block_error": Infinity,
+                "leak_amplitude": Infinity,
+                "seconds": 0.013656139373779297,
+                "n_inputs": 0,
+                "failing_inputs": [
+                  [
+                    "message",
+                    "gate h on (13,) is not diagonal on outer qubit(s) [13]"
+                  ]
+                ],
+                "extra": {}
+              }
+            }
+          },
+          {
+            "eps": 1e-10,
+            "t_fixed": 0,
+            "n_rot": 12,
+            "t_rot_pygridsynth": 1248,
+            "t_total": 1248,
+            "t_est": 1195.8941141594505,
+            "t_qiskit": 1140,
+            "cx_qiskit": 0,
+            "depth_qiskit": 244,
+            "synth": {
+              "n_rot": 12,
+              "t_rot": 1248,
+              "error_bound_sum": 1.2e-09,
+              "error_measured_sum": 3.236125890232529e-10,
+              "verdict": {
+                "ok": false,
+                "reason": "writes_outer",
+                "op_norm_error": Infinity,
+                "max_leak": Infinity,
+                "dirty_ancilla": Infinity,
+                "phase": [
+                  1.0,
+                  0.0
+                ],
+                "outer_bits_read": 0,
+                "n_blocks": 0,
+                "gauss_residual": NaN,
+                "method": "auto",
+                "engine": "auto",
+                "engine_accuracy": 0.0,
+                "certified": true,
+                "tolerances": {
+                  "tol_err": 2.2e-09,
+                  "tol_gauss": 2.2e-09
+                },
+                "dropped_total": 0.0,
+                "block_error": Infinity,
+                "leak_amplitude": Infinity,
+                "seconds": 0.01701641082763672,
+                "n_inputs": 0,
+                "failing_inputs": [
+                  [
+                    "message",
+                    "gate h on (13,) is not diagonal on outer qubit(s) [13]"
+                  ]
+                ],
+                "extra": {}
+              }
+            }
+          }
+        ],
+        "macro_counts": {
+          "p": 12
+        }
+      },
+      "files": {
+        "qpy": "results/twelve/UE_outer_row.qpy",
+        "sha256": "153698413719129f0cf90ca578bc50b056b86a24c103483a27fc4ede16e8f1d4",
+        "qasm3": "results/twelve/UE_outer_row.qasm3"
+      }
+    },
+    "note": "outer_electric_row: the same step with 8 extra p(-3 alpha/4) on the outer j-qubits (include_outer_electric)"
+  }
+}
