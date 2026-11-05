@@ -1,0 +1,132 @@
+{
+ "eq31_LINK_CODE_equal": true,
+ "eq31_from_bits": true,
+ "notebook_LINK_CODE": true,
+ "unused_codes": [
+  1,
+  2,
+  3
+ ],
+ "unused_ok": true,
+ "registers_ok": true,
+ "near_end_independent": [
+  "R",
+  "R",
+  "L",
+  "R",
+  "L",
+  "L",
+  "R",
+  "L"
+ ],
+ "near_end_equal": true,
+ "outer_code_independent_ok": true,
+ "decode_matches_own_625": true,
+ "decode_distinct_625": true,
+ "decode_encode_identity_625": true,
+ "encode_decode_identity_625": true,
+ "n_invalid_inner": 3471,
+ "invalid_inner_decode_none": true,
+ "n_vectors": 433,
+ "norm_dev_max": 1.5543122344752192e-15,
+ "gram_dev_max": 2.9976021664879227e-15,
+ "all_codes_int64_in_range": true,
+ "inner_codes_valid_all": true,
+ "linkspace_order_assumption": true,
+ "own_decode_equals_repo_decode_state_all433": true,
+ "gauss_residual_own_max": 5.410557748946589e-16,
+ "R2": {
+  "aer_mps tol_err=5e-10 tol_gauss=5e-10": {
+   "ok": true,
+   "certified": false,
+   "engine": "aer_mps",
+   "acc": 2e-10,
+   "err": null
+  },
+  "aer_mps tol_err=9.99e-10 tol_gauss=9.99e-10": {
+   "ok": true,
+   "certified": false,
+   "engine": "aer_mps",
+   "acc": 2e-10,
+   "err": null
+  },
+  "aer_mps tol_err=1e-09 tol_gauss=1e-09": {
+   "ok": true,
+   "certified": true,
+   "engine": "aer_mps",
+   "acc": 2e-10,
+   "err": null
+  },
+  "aer_mps tol_err=1e-09 tol_gauss=5e-10": {
+   "ok": true,
+   "certified": false,
+   "engine": "aer_mps",
+   "acc": 2e-10,
+   "err": null
+  },
+  "aer_mps tol_err=5e-10 tol_gauss=1e-09": {
+   "ok": true,
+   "certified": false,
+   "engine": "aer_mps",
+   "acc": 2e-10,
+   "err": null
+  },
+  "aer_mps tol_err=1e-06 tol_gauss=1e-06": {
+   "ok": true,
+   "certified": true,
+   "engine": "aer_mps",
+   "acc": 2e-10,
+   "err": null
+  },
+  "aer_mps tol_err=1e-10 tol_gauss=1e-10": {
+   "ok": true,
+   "certified": false,
+   "engine": "aer_mps",
+   "acc": 2e-10,
+   "err": null
+  },
+  "sparse tol_err=5e-10 tol_gauss=5e-10": {
+   "ok": true,
+   "certified": true,
+   "engine": "sparse",
+   "acc": 0.0,
+   "err": null
+  },
+  "sparse tol_err=1e-10 tol_gauss=1e-10": {
+   "ok": true,
+   "certified": true,
+   "engine": "sparse",
+   "acc": 0.0,
+   "err": null
+  },
+  "sparse tol_err=1e-12 tol_gauss=1e-12": {
+   "ok": true,
+   "certified": true,
+   "engine": "sparse",
+   "acc": 0.0,
+   "err": null
+  },
+  "aer_mps gauss=False tol_err=5e-10": {
+   "ok": true,
+   "certified": false,
+   "engine": "aer_mps"
+  },
+  "aer_mps gauss=False tol_err=2e-09": {
+   "ok": true,
+   "certified": true,
+   "engine": "aer_mps"
+  },
+  "aer_mps gauss=False tol_err=9.9e-10": {
+   "ok": true,
+   "certified": false,
+   "engine": "aer_mps"
+  },
+  "sparse gauss=False tol_err=5e-10": {
+   "ok": true,
+   "certified": true,
+   "engine": "sparse"
+  }
+ },
+ "commit": "7743b18",
+ "seed_note": "deterministic; no random numbers"
+}

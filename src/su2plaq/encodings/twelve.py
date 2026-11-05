@@ -149,7 +149,52 @@ class TwelveQubit(Encoding):
         return Layout(data=list(data), outer=list(outer), ancilla=[q for q in range(n) if q not in used])
 
     def describe(self) -> str:
-        todo("TwelveQubit.describe")
+        """Markdown description of registers, codec and controls (used in the task specification)."""
+        inv = {v: k for k, v in self.LINK_CODE.items()}
+        rows = "\n".join(f"| `{nm}` | {self.LINK_CODE[nm]:03b} | {nm if nm != '0' else '(j=0)'} |"
+                         for nm in PAULO_ORDER)
+        links = ", ".join(f"`{n}` = qubits ({3 * l}, {3 * l + 1}, {3 * l + 2})" for l, n in enumerate(_LINK_NAMES))
+        outs = ", ".join(f"o{k}: ({12 + 2 * k}, {13 + 2 * k}) near end `{self._near[k]}`" for k in range(8))
+        n_phys = len(self.basis.labels)
+        return (
+            f"### Encoding `{self.name}` ({self.n_data} data + {self.n_outer} outer qubits)\n\n"
+            f"**Data register `d[0..{self.n_data - 1}]`.** Inner link l in {{b, r, t, l}} occupies qubits (3l, 3l+1, 3l+2) = "
+            f"(q_m', q_m, q_j) ({links}). Codes are written as bits q_j q_m q_m' (q_m' is bit 0 of the link code):\n\n"
+            "| Paulo state | q_j q_m q_m' | meaning |\n|---|---|---|\n" + rows + "\n\n"
+            f"The codes 001, 010, 011 are unused (don't-care). {len(self.inner_codes())} valid inner codes "
+            f"(5^4 = {5 ** 4}); the inner register is the Paulo basis |m m'> = s(m)s(m')|1/2,-m,-m'>_CG.\n\n"
+            f"**Outer controls `o[0..{self.n_outer - 1}]`.** Outer link k (0..7) occupies qubits (12+2k, 13+2k) = "
+            "(q_m, q_j): j = 0 -> 00; j = 1/2 -> q_j = 1 and q_m = 1 for m_near = +, 0 for m_near = - "
+            f"(m_near is the first Paulo label for a link that starts at its corner, the second for one that ends there; "
+            f"the far-end label is fixed to -). {outs}. The target never changes the outer register; a circuit may read "
+            "it (diagonal gates on those qubits only), never write it.\n\n"
+            f"**Physical states.** {n_phys} Gauss-law (gauge-invariant) states, superpositions of inner codes entangled "
+            "with the outer register; unphysical inputs are don't-care. Ancillas must return to |0> on physical inputs.\n")
 
     def import_map(self, source: str) -> dict | str:
-        todo("TwelveQubit.import_map")
+        """How an external circuit maps onto this encoding's qubits (frame: data 0..11, outer 12..27, ancillas from 28).
+
+        Returns {"qubit_map": source qubit -> our qubit, "angles": callable(alpha, beta) -> dict of the angles the source
+        needs, "fixed_angle": bool, plus "n_source_qubits", "kind", "note"}, or a reason string if the source does not
+        apply.  Sources: "paulo34" (Paulo's compiled 34-qubit Clifford+T circuit, `refs/paulo/*.qpy`: fixed angle beta = 1,
+        kind UB), "lean22" / "lean22_v2" (su2qc-trotter lean 22-qubit and structurally compressed 19-qubit plaquette
+        circuits: same data layout, plaquette angle alpha_P = 2 beta in exp(+i alpha_P Re Tr W), electric phase p(-3 alpha/4)
+        on each q_j), "spinnet15" (different encoding: reason string)."""
+        n_anc = {"paulo34": 22, "lean22": 10, "lean22_v2": 7}
+        if source == "spinnet15":
+            return ("spinnet15 is Paulo's 15-qubit spin-network circuit: it acts on route-B labels (a different encoding), "
+                    "not on the 12-qubit electric-basis codes; it is handled by the spin-network encoding (M3)")
+        if source not in n_anc:
+            raise ValueError(f"unknown import source {source!r}; known: {sorted(n_anc) + ['spinnet15']}")
+        n_src = self.n_data + n_anc[source]
+        qubit_map = list(range(self.n_data)) + [self.n_data + self.n_outer + i for i in range(n_anc[source])]
+        if source == "paulo34":
+            def angles(alpha, beta):  # fixed: the compiled circuit is exp(+i*2*Re Tr W), i.e. beta = 1
+                return {"kind": "UB", "beta": 1.0, "alpha_P": 2.0}
+            return {"qubit_map": qubit_map, "angles": angles, "fixed_angle": True, "n_source_qubits": n_src, "kind": "UB",
+                    "note": "34 qubits = 12 data + 22 ancillas (registers p e w g tmp h); Clifford+T, 294 CX, 1162 T"}
+
+        def angles(alpha, beta):
+            return {"alpha_P": 2.0 * beta, "electric_p": -0.75 * alpha}
+        return {"qubit_map": qubit_map, "angles": angles, "fixed_angle": False, "n_source_qubits": n_src, "kind": "step",
+                "note": f"{source}: {n_anc[source]} ancillas; angles solved from the operator, skeleton independent of alpha"}

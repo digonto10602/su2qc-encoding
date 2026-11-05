@@ -16,7 +16,7 @@ Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 Acceptance tests locked as `acceptance-v4` (86 tests, M0–M2; v3 = prompts/003 Gauss rule, v4 = prompts/004 leak as amplitude). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-M1 (12-qubit encoding, general circuit), step 1.1 — codec completion (builder). M0 tagged milestone-0.
+M1 (12-qubit encoding, general circuit), step 1.3 — U_B(β) port of Paulo's notebook (builder). Steps 1.1, 1.2 done.
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -44,7 +44,7 @@ M1 (12-qubit encoding, general circuit), step 1.1 — codec completion (builder)
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: SETTLED by M0-X5 (reports/tests/006): in the (inner|outer) pairing H_B is block-diagonal in outer spins, 128 blocks all equal to one 47×47 K (2.7e-15), J conserved → Paulo right; in a mixed pairing amplitudes depend on outer spins → note §4.2 right there.
 
 ## Next action
-Builder on M1 step 1.1 (+ audit 002 R2 fix) → tester (step) → commit → step 1.2.
+Builder on M1 step 1.3 → tester (step) → commit → step 1.4.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -72,3 +72,5 @@ Builder on M1 step 1.1 (+ audit 002 R2 fix) → tester (step) → commit → ste
 - 2026-11-04: audit fixes N2–N4/N7–N9 + step 0.11 leak-as-amplitude: tester full PASS (reports/tests/014): m0 34/34, unit 140; leak = sin(θ/2) exactly; cry(1.9e-6) rejected; Paulo QPY ok/certified: block 2.905e-6 + leak 7.851e-6 = 1.076e-5 ≤ 2e-5 (84 s, aer_mps). aer_mps bound pessimism ≤ √17 (prompts/004 text corrected 16→17).
 - 2026-11-04: M0 audit recheck PASS WITH NOTES (reports/audits/002): combined bound correct, aer_mps bound valid (ratio ≤ √17), N2–N4/N7–N9 resolved; new non-blocking R1, R2. Benchmark launched.
 - 2026-11-04: M0 benchmark baseline (reports/benchmarks/001): physical_basis 0.30 s cold; evaluate identity 6.7 s cold / 2.0 s warm (inner_span), 1.4/0.9 s (physical); Paulo QPY aer_mps 83 s; m0 suite 33 s, unit 48 s; physics unchanged. M0 gate complete → tag milestone-0.
+- 2026-11-04: M1 step 1.2 electric PASS (reports/tests/015): U_E = 4×p(−3α/4), error 1.2e-13, leak 0; cx 0, n_rot 4, depth 1; T(ε) inner at α=0.37: 176/256/328/416 at ε=1e-4/1e-6/1e-8/1e-10 (estimate 160/239/319/399); outer row +8 rotations (T 528/768/984/1248 total for 12). Waiting on step 1.1 tester before committing both.
+- 2026-11-04: M1 step 1.1 codec + audit R2 PASS (reports/tests/016): codec = Paulo Eq. 31 exactly; 433 vectors Gram 3e-15, Gauss 5.4e-16; aer_mps certified only at tol ≥ 1e-9. Steps 1.1 + 1.2 committed.

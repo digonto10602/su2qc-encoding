@@ -36,6 +36,7 @@ from su2plaq.evaluate import sparse_sim as ss
 TOL_GAUSS = 1e-10
 TOL_PRUNE = 1e-12          # reject when one simulation dropped more than this (L2, one column)
 MPS_ACCURACY = 2e-10       # observed accuracy of Aer's MPS (reports/tests/008)
+MPS_CERTIFY_MIN = 1e-9     # aer_mps verdicts are certified only at tolerances >= this (combined noise <= 2e-10 + 3.9e-10; prompts/004 §2)
 
 _DIAG_NAMES = {"z", "s", "sdg", "t", "tdg", "rz", "p", "cz", "cp", "ccz"}
 
@@ -472,7 +473,8 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
         gstates = [k for k in range(dim) if out_codes[k]]
     # verdict
     acc = MPS_ACCURACY if eng_used == "aer_mps" else 0.0
-    certified = acc <= min(tol_err, tg) if gauss else acc <= tol_err
+    tmin = min(tol_err, tg) if gauss else tol_err
+    certified = (acc <= tmin) and (acc == 0.0 or tmin >= MPS_CERTIFY_MIN)
     if dropped_max > TOL_PRUNE:
         reason = "pruning_bound"
     elif leak_amp > tol_err:

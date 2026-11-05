@@ -408,3 +408,20 @@ def test_aer_mps_direct_weights_on_exact_circuit_are_at_noise_floor():
     assert info["leak_derived"].shape == leak.shape   # the old subtraction value stays as a diagnostic
     with pytest.raises(ValueError):
         aer_mps_block(QuantumCircuit(20), sel[:1], np.array([0]), (1 << 17) - 1)
+
+
+def test_aer_mps_certified_only_at_or_above_1e9():
+    """Audit 002 R2: tolerances in (2e-10, 1e-9) are above the engine accuracy but below the documented certification floor."""
+    enc = _enc()
+    alpha = 0.37
+    V = enc.target("UE", alpha, 0.0)
+    qc, r = _circ()
+    for q in (2, 5, 8, 11):
+        qc.p(-0.75 * alpha, r["d"][q])
+    v = ev.evaluate(qc, enc, V, engine="aer_mps", tol_err=5e-10, tol_gauss=5e-10)
+    assert v.ok and v.engine_accuracy == ev.MPS_ACCURACY == 2e-10 and not v.certified
+    v = ev.evaluate(qc, enc, V, engine="aer_mps", tol_err=1e-9, tol_gauss=1e-9)
+    assert v.ok and v.certified
+    # without the Gauss check only tol_err counts
+    assert not ev.evaluate(qc, enc, V, engine="aer_mps", gauss=False, tol_err=5e-10).certified
+    assert ev.evaluate(qc, enc, V, engine="aer_mps", gauss=False, tol_err=2e-9, tol_gauss=1e-12).certified
