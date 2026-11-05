@@ -16,7 +16,7 @@ Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 Acceptance tests locked as `acceptance-v3` (84 tests, M0–M2; v3 = prompts/003 Gauss-tolerance addendum). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-M0 (foundation), step 0.9 — metrics: CX/depth/N_rot/T_fixed, pygridsynth T(ε), Qiskit CT compile (builder).
+M0 (foundation), step 0.10 — results store, report, provenance (builder).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -32,13 +32,15 @@ M0 (foundation), step 0.9 — metrics: CX/depth/N_rot/T_fixed, pygridsynth T(ε)
 - T-count rule: $T_{\rm total}=T_{\rm fixed}+\sum_{\rm rot}T_r(\varepsilon)$, $T_r\approx3\log_2(1/\varepsilon)$ (Ross–Selinger), measured with pygridsynth; the "$+3\ln\varepsilon$" form was wrong (sign, base, multiplicity).
 
 ## Known issues
+- Ross–Selinger band lower edge 3·log2(1/ε)−4 is violated by 1 of 24 angles at ε=1e-10 (T=94 < 95.7); not a tested M0 case — check whether M1-T1 asserts the band at 1e-10 before M1 step 1.7 (reports/tests/012).
+- `t_table()['t_qiskit']` compiles the level-0 lowered circuit (1096 T on Paulo's circuit) — not comparable with Paulo's metadata (1162, from `ct_compile` on the original).
 - M1-T1 for UE/UB needs the sparse engine (aer_mps uncertifiable at synth tolerances when N_rot < 15 at ε=1e-6): the M1 UB builder must keep rotation targets on few reused qubits (sparse state grows 2^k in distinct rotation qubits; 14 distinct → cap exceeded). reports/tests/011.
 - Aer MPS engine accurate only to ~1e-11–2e-10 (reports/tests/008): METHODS corrected by coordinator; evaluator must record engine and not certify 1e-10/1e-12 verdicts with aer_mps. Next planner run: confirm engine-specific tolerance policy.
 - Note §5 register table vs its bullets (q-deformed 16 vs 12; spin network 20 vs 16): the script's register sizes are upper bounds. Not blocking (q-deformed not in scope).
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: SETTLED by M0-X5 (reports/tests/006): in the (inner|outer) pairing H_B is block-diagonal in outer spins, 128 blocks all equal to one 47×47 K (2.7e-15), J conserved → Paulo right; in a mixed pairing amplitudes depend on outer spins → note §4.2 right there.
 
 ## Next action
-Builder on M0 step 0.9 → tester (step) → commit → step 0.10.
+Builder on M0 step 0.10 → tester (step) → commit → M0 gate (tester full → auditor → benchmark → tag milestone-0).
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -59,3 +61,4 @@ Builder on M0 step 0.9 → tester (step) → commit → step 0.10.
 - 2026-11-04: M0 step 0.8 tester (reports/tests/009): E3–E5 green, 125 adversarial checks; F1 SERIOUS (non-default register order → silent false accept) sent to builder, fixed, recheck running. F2: fixed Gauss tol 1e-10 fails M1-P1 for Paulo's synthesised circuit (residual 1.16e-10) → Digonto decided: Gauss tol for synthesised circuits = N_rot·ε + 1e-9; planner amending locked tests.
 - 2026-11-04: planner addendum prompts/003 + reports/research/002: Gauss tol for synthesised circuits = N_rot·ε+1e-9 (M1-P1, M1-T1), `synth_tolerances`, `Verdict.tolerances`, `certified` includes tol_gauss; M0-E5 aer_mps clause moved 1e-10→1e-9 (engine floor 2e-10; flagged loosening). Re-locked as acceptance-v3 (05f0391). Next: after 0.8 recheck, builder implements prompts/003 §4.
 - 2026-11-04: M0 step 0.8 evaluator PASS (reports/tests/009, 010, 011): F1 fixed (24-order fuzz identical), prompts/003 interface in; Paulo's QPY under amended M1-P1: ok, certified, err 2.905e-6, Gauss 1.16e-10 (aer_mps, 108 s). Counters reset.
+- 2026-11-04: M0 step 0.9 metrics PASS (reports/tests/012): counts = Qiskit on 30 random circuits; macro costs match METHODS; T per rotation measured (24 angles): 1e-4 42.6 [38,48], 1e-6 62.8 [56,66], 1e-8 82.6 [78,86], 1e-10 101.9 [94,106] vs 3log2(1/ε) 39.9/59.8/79.7/99.7; Paulo's circuit reproduced exactly by ct_compile (cx 294, T 1162, depth 2549).

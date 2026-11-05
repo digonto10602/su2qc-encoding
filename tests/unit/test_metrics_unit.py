@@ -1,0 +1,90 @@
+"""Unit tests for su2plaq.metrics (own checks)."""
+import math
+
+import numpy as np
+import pytest
+from qiskit import QuantumCircuit, QuantumRegister
+from qiskit.quantum_info import Operator
+
+from su2plaq.metrics import cliffordt as ct
+from su2plaq.metrics import logical as lg
+
+
+def test_logical_metrics_register_ancilla_and_angles():
+    d, o, a = QuantumRegister(3, "d"), QuantumRegister(2, "o"), QuantumRegister(1, "a")
+    qc = QuantumCircuit(d, o, a)
+    qc.rz(0.3, d[0])
+    qc.rz(math.pi / 4, d[1])
+    qc.rz(3 * math.pi / 4, d[1])
+    qc.rz(math.pi / 2, d[1])
+    qc.t(a[0])
+    qc.cx(d[0], a[0])
+    m = lg.logical_metrics(qc)
+    assert m["n_rot"] == 1 and m["t_fixed"] == 3 and m["cx"] == 1 and m["qubits"] == 6 and m["ancilla"] == 1
+    assert m["rz_angles"] == [0.3]
+
+
+def test_lower_rejects_unitary_measure_and_wrapped_mcx():
+    qc = QuantumCircuit(1)
+    qc.unitary(np.eye(2), [0])
+    with pytest.raises(ValueError):
+        lg.lower(qc)
+    qm = QuantumCircuit(1, 1)
+    qm.measure(0, 0)
+    with pytest.raises(ValueError):
+        lg.lower(qm)
+    inner = QuantumCircuit(5)
+    inner.mcx([0, 1, 2], 3)
+    outer = QuantumCircuit(6)
+    outer.append(inner.to_gate(), range(5))
+    with pytest.raises(ValueError):
+        lg.lower(outer)
+
+
+@pytest.mark.parametrize("k", range(-8, 9))
+def test_exact_words_for_multiples_of_pi_over_4(k):
+    th = k * math.pi / 4
+    w = ct.pygridsynth_word(th, 1e-6)
+    assert ct.word_error(w, th) < 1e-12 and w.count("T") == (k % 2)
+
+
+def test_word_error_detects_wrong_word():
+    assert ct.word_error("HT", 0.37) > 0.1
+
+
+def test_word_cache_returns_identical_object():
+    assert ct.pygridsynth_word(0.37, 1e-4) is ct.pygridsynth_word(0.37, 1e-4)
+
+
+@pytest.mark.parametrize("eps", [1e-3, 1e-6])
+def test_synthesize_reproduces_circuit_up_to_global_phase_and_bound(eps):
+    qc = QuantumCircuit(2)
+    qc.h(0)
+    qc.rz(0.37, 0)
+    qc.cx(0, 1)
+    qc.rz(-0.55, 1)
+    qc.rz(math.pi / 4, 1)
+    qc.cp(0.9, 0, 1)
+    out, info = ct.synthesize(qc, eps)
+    assert set(out.count_ops()) <= {"h", "s", "t", "cx", "sdg", "tdg", "x", "z"}
+    U, V = Operator(qc).data, Operator(out).data
+    ov = np.trace(V.conj().T @ U)
+    err = np.linalg.norm(U - ov / abs(ov) * V, 2)
+    assert err <= info["error_bound_sum"] + 1e-9
+    assert info["n_rot"] == 5  # rz(0.37), rz(-0.55) and the three rz of cp(0.9)
+    assert info["error_bound_sum"] == pytest.approx(info["n_rot"] * eps)
+    assert info["t_rot"] == sum(p["t"] for p in info["per_rotation"] if not p["exact"])
+
+
+def test_t_table_rows_consistent():
+    qc = QuantumCircuit(2)
+    qc.cp(0.4, 0, 1)
+    qc.t(0)
+    rows = ct.t_table(qc, eps_list=(1e-4, 1e-6), qiskit=False)
+    m = lg.logical_metrics(qc)
+    for r in rows:
+        assert r["t_fixed"] == m["t_fixed"] and r["n_rot"] == m["n_rot"] == 3
+        assert r["t_total"] == r["t_fixed"] + r["t_rot_pygridsynth"] and r["t_qiskit"] is None
+        assert r["t_est"] == pytest.approx(ct.t_estimate(3, m["t_fixed"], r["eps"]))
+    rows_q = ct.t_table(qc, eps_list=(1e-4,), qiskit=True)
+    assert abs(rows_q[0]["t_qiskit"] - rows_q[0]["t_total"]) <= 6 * 3
