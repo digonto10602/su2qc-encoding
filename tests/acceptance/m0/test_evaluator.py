@@ -101,7 +101,11 @@ def test_M0_E4_outer_control_blocks():
 def test_M0_E5_gauss_of_outputs():
     """Gauss residual of the decoded outputs: the exact electric step as p gates (gauge invariant) gives <= 1e-10; a
     code-preserving but gauge-violating gate (swap of q_m' and q_m on link b, i.e. m_L <-> m_R) gives residual > 0.1
-    and is reported. The aer_mps engine agrees with the sparse engine on the electric step (1e-10)."""
+    and is reported. The aer_mps engine agrees with the sparse engine on the electric step at 1e-9 and the verdict is
+    certified: Aer's MPS contraction is accurate only to ~2e-10 per amplitude (reports/tests/008), so 1e-9 (5x the
+    measured engine floor) is the tightest tolerance at which an aer_mps verdict can be certified; the sparse-engine
+    assertions stay at 1e-10 (prompts/003 §3). The Gauss tolerance defaults to 1e-10 for exact-angle circuits and the
+    verdict records the tolerances it was judged by."""
     enc = _enc()
     evaluate = api("su2plaq.evaluate.evaluator:evaluate")
     target = api("su2plaq.exact.operators:target")
@@ -112,8 +116,13 @@ def test_M0_E5_gauss_of_outputs():
         qc.p(-0.75 * alpha, r["d"][q])
     v = evaluate(qc, enc, V, gauss=True)
     assert v.ok and v.op_norm_error <= 1e-10 and v.gauss_residual <= 1e-10
-    vm = evaluate(qc, enc, V, gauss=True, engine="aer_mps")
-    assert vm.ok and vm.engine == "aer_mps" and vm.op_norm_error <= 1e-10 and vm.max_leak <= 1e-12
+    assert v.certified and v.engine_accuracy == 0.0 and v.tolerances == dict(tol_err=1e-10, tol_leak=1e-12, tol_gauss=1e-10)
+    vm = evaluate(qc, enc, V, gauss=True, engine="aer_mps", tol_err=1e-9, tol_leak=1e-9, tol_gauss=1e-9)
+    assert vm.ok and vm.engine == "aer_mps" and vm.op_norm_error <= 1e-9 and vm.max_leak <= 1e-9 and vm.gauss_residual <= 1e-9
+    assert vm.certified and 0.0 < vm.engine_accuracy <= 2e-10 and vm.tolerances == dict(tol_err=1e-9, tol_leak=1e-9, tol_gauss=1e-9)
+    # an aer_mps verdict judged at the exact-angle tolerances is not certified (engine floor above 1e-10 / 1e-12)
+    vu = evaluate(qc, enc, V, gauss=True, engine="aer_mps")
+    assert vu.engine == "aer_mps" and not vu.certified
     qc, r = _circ(False)
     qc.swap(r["d"][0], r["d"][1])
     v = evaluate(qc, enc, np.eye(433, dtype=complex), gauss=True)

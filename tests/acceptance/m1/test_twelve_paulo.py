@@ -25,7 +25,12 @@ def test_M1_P1_paulo_qpy_verifies(root):
     op-norm error <= 2e-5, leak <= 1e-9. Justification: 866 rotation-T at >= 54 T per rotation (3 log2 1e6 - 6) means
     at most 16 synthesised rotations, each within 1e-6 -> triangle-inequality error <= 1.6e-5; leak probability
     <= (1.6e-5)^2 = 2.6e-10. Engine 'auto': the sparse simulator if its amplitude cap is not exceeded (Qiskit's
-    level-3 schedule opens up to 21 Hadamards at once, 2^21 amplitudes per input), else aer_mps."""
+    level-3 schedule opens up to 21 Hadamards at once, 2^21 amplitudes per input), else aer_mps.
+    Gauss tolerance 2e-5 = the error tolerance (prompts/003 §2, Digonto 2026-11-04): the Gauss residual of an output
+    is <= ||G^a_c|| ||U - U_exact|| with ||U - U_exact|| <= N_rot eps by the same triangle inequality, so the rounding
+    of the synthesised rotations is allowed to show up in the Gauss residual with the same budget (measured 1.2e-10,
+    reports/tests/009); exact-angle circuits keep 1e-10. The verdict must be certified (aer_mps accuracy 2e-10 is
+    below every tolerance used here)."""
     enc = _enc()
     paulo_circuit = api("su2plaq.circuits.twelve:paulo_circuit")
     evaluate = api("su2plaq.evaluate.evaluator:evaluate")
@@ -37,12 +42,14 @@ def test_M1_P1_paulo_qpy_verifies(root):
     assert ops.get("t", 0) + ops.get("tdg", 0) == meta["resources"]["T_count"] == 1162
     assert qc.qregs[0].name == "d" and qc.qregs[0].size == 12
     V = enc.target("UB", None, 1.0)
-    v = evaluate(qc, enc, V, tol_err=2e-5, tol_leak=1e-9, engine="auto")
-    assert v.ok, (v.reason, v.op_norm_error, v.max_leak, v.method, v.engine)
-    assert v.op_norm_error <= 2e-5 and v.max_leak <= 1e-9 and v.dirty_ancilla <= 1e-9
-    assert v.engine in ("sparse", "aer_mps")
+    tol = dict(tol_err=2e-5, tol_leak=1e-9, tol_gauss=2e-5)
+    v = evaluate(qc, enc, V, engine="auto", **tol)
+    assert v.ok, (v.reason, v.op_norm_error, v.max_leak, v.gauss_residual, v.method, v.engine)
+    assert v.op_norm_error <= 2e-5 and v.max_leak <= 1e-9 and v.dirty_ancilla <= 1e-9 and v.gauss_residual <= 2e-5
+    assert v.engine in ("sparse", "aer_mps") and v.certified and v.engine_accuracy <= 1e-9
+    assert v.tolerances == tol
     # the sign of beta matters: the inverse is not accepted
-    v2 = evaluate(qc, enc, V.conj().T, tol_err=2e-5, tol_leak=1e-9, engine=v.engine)
+    v2 = evaluate(qc, enc, V.conj().T, engine=v.engine, **tol)
     assert not v2.ok and v2.op_norm_error > 0.1
 
 

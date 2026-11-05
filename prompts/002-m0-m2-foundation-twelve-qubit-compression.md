@@ -1,5 +1,7 @@
 # 002 — Executable plan for M0 (foundation), M1 (12-qubit general circuit), M2 (compression machinery + first loop)
 
+> Amended 2026-11-04 by `prompts/003-gauss-tolerance-synthesised-circuits-engine-policy.md` (Gauss tolerance of synthesised circuits = N_rot·ε + 1e-9; `evaluate(..., tol_gauss=None)`, `synth_tolerances`, `Verdict.tolerances`; aer_mps certification policy; M0-E5/M1-P1/M1-T1 amended). This file remains the plan in force.
+
 Date: 2026-11-04 · Commit at writing: `067a22f` · Author: planner (kickoff)
 Supersedes `prompts/001-plaquette-five-encodings-plan.md` for M0–M2 only; M3–M10 stay as written there (§10 below).
 Trigger: kickoff of the physics loop (STATUS "Next action"); no prior failures. Research: `reports/research/001-plaquette-kickoff-spin-network-6j-tcount-conventio.md`. Methods: `docs/METHODS.md` (written with this plan). Locked tests: `tests/acceptance/{conftest.py,m0/,m1/,m2/}`.
@@ -145,7 +147,7 @@ class OuterWriteError(ValueError)
 def classify_outer_gates(qc, layout: Layout) -> set[int]   # outer qubits touched by diagonal gates; raises OuterWriteError if any gate is non-diagonal on an outer qubit (numerical check, 1e-12)
 def specialise(qc, read_qubits: set[int], pattern: int) -> QuantumCircuit   # resolve the read outer bits classically
 @dataclass class Verdict: ok: bool; reason: str; op_norm_error: float; max_leak: float; dirty_ancilla: float; phase: complex; outer_bits_read: int; n_blocks: int; gauss_residual: float; method: str; engine: str; seconds: float; failing_inputs: list; n_inputs: int
-def evaluate(qc, enc: Encoding, target: np.ndarray, *, tol_err: float = 1e-10, tol_leak: float = 1e-12, gauss: bool = True, method: str = "auto", engine: str = "auto") -> Verdict
+def evaluate(qc, enc: Encoding, target: np.ndarray, *, tol_err: float = 1e-10, tol_leak: float = 1e-12, tol_gauss: float | None = None, gauss: bool = True, method: str = "auto", engine: str = "auto") -> Verdict   # tol_gauss None -> 1e-10 (exact-angle); synthesised circuits pass synth_tolerances(n_rot, eps) — AMENDED by prompts/003 §4 (also Verdict.tolerances, synth_tolerances)
     # engine 'sparse' = run_batch (COO); 'aer_mps' = qiskit-aer matrix_product_state per input (truncation threshold 0, Aer's memory estimate overridden with max_memory_mb, amplitudes by contracting save_matrix_product_state); 'auto' = sparse, falling back to aer_mps when SimCapExceeded. Verdict.engine records the engine used.
     # method 'inner_span' (only if no outer bit is read): ||(M − e^{iφ} V_inner) P_S||_2 with V_inner = the 625×625 inner operator and P_S = inner_span projector; 'physical': explicit A[k',k] = <psi_k'|U|psi_k> on the 433 states (required when outer bits are read); 'auto' = inner_span if possible else physical.
     # global phase φ = arg tr(V^† A) (one for the whole operator). reason ∈ {"ok","writes_outer","error","leak","dirty_ancilla","gauss","unsimulable","disallowed_gate"}; failing_inputs = up to 10 (label/index, error) pairs.
@@ -310,14 +312,14 @@ Task-specification hand-text (Gu et al. Extended Data Fig. 1 structure) — `com
 | M0-X7 | 1e-12 | 2×2 block of exact numbers |
 | M0-E1/E2 | 1e-12 | two float64 simulators |
 | M0-E3/E4 | error 0 / ≥ 0.5 / ≥ 0.1; leak 1 | discrete, large separations |
-| M0-E5 | 1e-10 | as X1 |
+| M0-E5 | sparse 1e-10 ; aer_mps clause 1e-9 (certified) | as X1; aer_mps engine floor 2e-10 (reports/tests/008) — amended by prompts/003 §2 |
 | M0-M1 | exact | Qiskit level-0 decompositions are fixed |
 | M0-M2 | band $[3\log_2(1/\varepsilon)-4,\ 3\log_2(1/\varepsilon)+3\log_2\log_2(1/\varepsilon)+10]$, word error ≤ ε | Ross–Selinger typical case + measured offsets +2..+6 |
 | M0-M3 | ±6 T vs pygridsynth; identical counts under the same seed | two implementations of the same algorithm |
 | M1-E1, B1, B2, S1 | 1e-10 error, 1e-12 leak | exact-angle circuits; float64 over ≤ 3·10³ gates (~1e-13) |
-| M1-P1 | 2e-5 error, 1e-9 leak | ≤ 16 synthesised rotations × 1e-6 (triangle inequality); leak ≤ (1.6e-5)² |
+| M1-P1 | 2e-5 error, 1e-9 leak, 2e-5 Gauss | ≤ 16 synthesised rotations × 1e-6 (triangle inequality); leak ≤ (1.6e-5)²; Gauss residual ≤ ‖G‖·‖U−U_ex‖ shares the rounding budget (prompts/003 §2) |
 | M1-P2 | 5 % | same Qiskit/seed/settings ⇒ equality expected; 5 % absorbs pass-manager drift |
-| M1-T1 | synthesised error ≤ N_rot·ε + 1e-9, leak ≤ (N_rot ε)² + 1e-12; pygridsynth vs Qiskit ≤ 10 % | triangle inequality; two gridsynth implementations |
+| M1-T1 | synthesised error ≤ N_rot·ε + 1e-9, leak ≤ (N_rot ε)² + 1e-12, Gauss ≤ N_rot·ε + 1e-9; pygridsynth vs Qiskit ≤ 10 % | triangle inequality (Gauss: prompts/003 §2); two gridsynth implementations |
 | M2 evaluator cases | same as M0-E3 | — |
 | M2 archive gate | key ≤ round-0 best; valid under full evaluation | definition of improvement |
 
