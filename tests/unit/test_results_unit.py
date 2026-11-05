@@ -55,3 +55,15 @@ def test_non_serialisable_numpy_types_are_converted(tmp_path):
                     verification={"ok": np.bool_(True)}, metrics={"z": 1 + 2j})
     d = json.loads(p.read_text())
     assert d["params"]["arr"] == [0, 1, 2] and d["verification"]["ok"] is True and d["metrics"]["z"] == [1.0, 2.0]
+
+
+def test_provenance_snapshot_is_shared_and_not_recaptured(tmp_path):
+    snap = provenance({"s": 1})
+    snap["git_dirty"] = "sentinel"       # a fresh capture could never produce this value
+    snap["provenance_captured_at"] = snap["timestamp_utc"]
+    paths = [save_result(tmp_path / f"{i}.json", encoding="e", circuit_id=f"c{i}", kind="k", params={}, verification={"ok": True},
+                         metrics={}, provenance_snapshot=snap) for i in range(2)]
+    docs = [load_result(p) for p in paths]
+    assert docs[0]["provenance"] == docs[1]["provenance"] == snap
+    snap["git_dirty"] = "changed-after"  # the saved files hold a copy
+    assert load_result(paths[0])["provenance"]["git_dirty"] == "sentinel"

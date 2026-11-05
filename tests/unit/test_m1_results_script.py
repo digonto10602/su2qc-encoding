@@ -51,3 +51,10 @@ def test_unevaluable_record_has_no_numbers_that_look_like_a_verdict(mod):
     rec = mod._unevaluable(V())
     assert rec["evaluable"] is False and rec["reason"] == "writes_outer" and "ok" not in rec and "certified" not in rec
     assert "Hadamard" in rec["explanation"]
+
+
+def test_script_takes_one_provenance_snapshot_before_writing():
+    src = (ROOT / "scripts" / "m1_results.py").read_text()
+    first_snap = src.index("snap = provenance(SEEDS)")
+    assert first_snap < src.index("out.mkdir(parents=True") < src.index("save_result(out")
+    assert src.count("provenance_snapshot=snap") == src.count("save_result(out")

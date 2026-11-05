@@ -53,12 +53,14 @@ def verdict_to_dict(v) -> dict:
 
 
 def save_result(path, *, encoding, circuit_id, kind, params, verification, metrics, files=None, extra=None,
-                seeds: dict | None = None) -> pathlib.Path:
-    """Write results JSON with provenance; returns the path."""
+                seeds: dict | None = None, provenance_snapshot: dict | None = None) -> pathlib.Path:
+    """Write results JSON with provenance; returns the path.  `provenance_snapshot` (a dict from `provenance()`, captured
+    earlier) is used as is instead of taking a fresh one, so that several files written by one run share one snapshot (a
+    fresh capture after the first write would see the rewritten tracked file as a dirty working tree)."""
     if not isinstance(verification, dict):
         verification = verdict_to_dict(verification)
     doc = {"schema_version": SCHEMA_VERSION, "encoding": encoding, "circuit_id": circuit_id, "kind": kind,
-           "params": params, "provenance": provenance(seeds), "verification": verification, "metrics": metrics,
+           "params": params, "provenance": dict(provenance_snapshot) if provenance_snapshot is not None else provenance(seeds), "verification": verification, "metrics": metrics,
            "files": files if files is not None else {}, "extra": extra if extra is not None else {}}
     assert tuple(doc) == RESULT_KEYS
     path = pathlib.Path(path)

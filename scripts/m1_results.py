@@ -25,6 +25,7 @@ from su2plaq.exact import operators
 from su2plaq.exact.physical import inner_span, s_o_dims
 from su2plaq.metrics.cliffordt import ct_compile, synthesize, t_table
 from su2plaq.metrics.logical import logical_metrics
+from su2plaq.metrics.provenance import provenance
 from su2plaq.results.store import save_result, verdict_to_dict
 
 ALPHA, BETA = 0.37, 0.61
@@ -110,6 +111,9 @@ def main(argv=None):
     ap.add_argument("--out", default=str(ROOT / "results" / "twelve"))
     ap.add_argument("--no-paulo", action="store_true")
     args = ap.parse_args(argv)
+    # one provenance snapshot (commit, dirty flag, versions) taken BEFORE anything is written and shared by all files of the run
+    snap = provenance(SEEDS)
+    snap["provenance_captured_at"] = snap["timestamp_utc"]
     out = pathlib.Path(args.out).resolve()
     out.mkdir(parents=True, exist_ok=True)
     enc = TwelveQubit()
@@ -121,7 +125,7 @@ def main(argv=None):
     qo = C.build_UE(ALPHA, with_outer=True, include_outer_electric=True)
     outer_row = _entry(qo, enc, operators.target(enc.basis, "UE", alpha=ALPHA, include_outer_electric=True), out, "UE_outer_row")
     save_result(out / "UE.json", encoding="twelve", circuit_id="UE", kind="UE", params={"alpha": ALPHA, "beta": None, "order": 1},
-                verification=e["verification"], metrics=e["metrics"], files=e["files"], seeds=SEEDS,
+                verification=e["verification"], metrics=e["metrics"], files=e["files"], seeds=SEEDS, provenance_snapshot=snap,
                 extra={"physics": physics, "outer_electric_row": {k: outer_row[k] for k in ("verification", "metrics", "files")},
                        "note": "outer_electric_row: the same step with 8 extra p(-3 alpha/4) on the outer j-qubits (include_outer_electric)"})
 
@@ -159,14 +163,14 @@ def main(argv=None):
             "accuracy budgets differ (N_rot*eps with his N_rot against ours, see the n_rot fields), so the T counts are not a "
             "same-accuracy comparison.")
     save_result(out / "UB.json", encoding="twelve", circuit_id="UB", kind="UB", params={"alpha": None, "beta": BETA, "order": 1},
-                verification=b["verification"], metrics=b["metrics"], files=b["files"], seeds=SEEDS, extra=extra)
+                verification=b["verification"], metrics=b["metrics"], files=b["files"], seeds=SEEDS, provenance_snapshot=snap, extra=extra)
 
     # ---- step, order 1 (+ order 2)
     s1 = _entry(C.build_step(ALPHA, BETA, 1), enc, enc.target("step", ALPHA, BETA, 1), out, "step")
     s2 = _entry(C.build_step(ALPHA, BETA, 2), enc, enc.target("step", ALPHA, BETA, 2), out, "step_order2")
     save_result(out / "step.json", encoding="twelve", circuit_id="step", kind="step",
                 params={"alpha": ALPHA, "beta": BETA, "order": 1}, verification=s1["verification"], metrics=s1["metrics"],
-                files=s1["files"], seeds=SEEDS,
+                files=s1["files"], seeds=SEEDS, provenance_snapshot=snap,
                 extra={"physics": physics, "order2": {"params": {"alpha": ALPHA, "beta": BETA, "order": 2},
                        **{k: s2[k] for k in ("verification", "metrics", "files")}}})
     return 0
