@@ -17,7 +17,7 @@ class TaskSpec:
     order: int = 1
     alt_angles: tuple = ALT_ANGLES
     tol_err: float = 1e-10
-    tol_leak: float = 1e-12
+    tol_gauss: float = 1e-10
     eps: float = 1e-6
     eval_budget_s: float = 300.0
     support_cap: int = 5_000_000

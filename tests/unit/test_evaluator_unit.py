@@ -199,7 +199,9 @@ def test_aer_mps_dirty_ancilla_labelled_like_sparse():
     qc.x(r["a"][0])
     vs = ev.evaluate(qc, enc, np.eye(433, dtype=complex), gauss=False, engine="sparse")
     vm = ev.evaluate(qc, enc, np.eye(433, dtype=complex), gauss=False, engine="aer_mps")
-    assert vs.reason == vm.reason == "dirty_ancilla" and vm.failing_inputs and abs(vm.dirty_ancilla - 1) < 1e-8
+    assert vs.reason == vm.reason == "dirty_ancilla" and vm.failing_inputs
+    # aer_mps: dirty_ancilla is the per-outer-block weight bound W_o (sum over the <= ~17 inner inputs in the support of a block): 1 <= W_o <= 17
+    assert 1 - 1e-8 <= vm.dirty_ancilla <= 17 + 1e-8 and 1 - 1e-8 <= vm.leak_amplitude <= 5 + 1e-8 and vs.leak_amplitude > 1 - 1e-8
     # invalid data code only (no ancilla): X on q_m' of link b maps code 000 to 001 (invalid): reason 'leak'
     qc, r = _circ()
     qc.x(r["d"][0])
@@ -212,7 +214,9 @@ def test_aer_mps_dirty_ancilla_labelled_like_sparse():
 # ---------------------------------------------------------------- prompts/003 §4: tolerances and certification
 def test_synth_tolerances_formula():
     t = ev.synth_tolerances(14, 1e-6)
-    assert t == {"tol_err": 14e-6 + 1e-9, "tol_leak": (14e-6) ** 2 + 1e-12, "tol_gauss": 14e-6 + 1e-9}
+    assert t == {"tol_err": 14e-6 + 1e-9, "tol_gauss": 14e-6 + 1e-9}  # prompts/004: no tol_leak
+    with pytest.raises(TypeError):
+        ev.evaluate(QuantumCircuit(12), _enc(), np.eye(433, dtype=complex), tol_leak=1e-12)
 
 
 def test_tolerances_recorded_and_gauss_tolerance_effective():
@@ -221,7 +225,7 @@ def test_tolerances_recorded_and_gauss_tolerance_effective():
     qc, r = _circ()
     qc.swap(r["d"][0], r["d"][1])  # code-preserving, gauge-violating: Gauss residual ~ O(1), error O(1)
     v = ev.evaluate(qc, enc, I)
-    assert v.tolerances == {"tol_err": 1e-10, "tol_leak": 1e-12, "tol_gauss": ev.TOL_GAUSS}
+    assert v.tolerances == {"tol_err": 1e-10, "tol_gauss": ev.TOL_GAUSS}
     # a huge Gauss tolerance moves the failure to the error check, a tiny error budget stays an error
     v2 = ev.evaluate(qc, enc, I, tol_gauss=10.0)
     assert v2.tolerances["tol_gauss"] == 10.0 and v2.reason == "error"
@@ -232,7 +236,7 @@ def test_tolerances_recorded_and_gauss_tolerance_effective():
     # Gauss failure uses the effective tolerance in failing_inputs
     qc, r = _circ()
     qc.swap(r["d"][0], r["d"][1])
-    v4 = ev.evaluate(qc, enc, I, tol_err=10.0, tol_leak=1.0)
+    v4 = ev.evaluate(qc, enc, I, tol_err=10.0)
     assert v4.reason == "gauss" and v4.failing_inputs and all(x[1] > ev.TOL_GAUSS for x in v4.failing_inputs)
     # early exits fill tolerances too
     qc, r = _circ(0, True)
@@ -251,11 +255,156 @@ def test_certified_follows_engine_accuracy_against_tolerances():
     # exact-angle tolerances: MPS (2e-10) is not certified; sparse is
     assert not ev.evaluate(qc, enc, V, engine="aer_mps").certified
     assert ev.evaluate(qc, enc, V, engine="sparse").certified
-    # synthesised-circuit budget: tol_err and tol_gauss >= 1e-9, but tol_leak = (n eps)^2 + 1e-12 ~ 2e-11 < 2e-10, so by the
-    # prompts/003 rule min(tol_err, tol_leak, tol_gauss) the MPS verdict is still not certified
+    # synthesised-circuit budget (prompts/004: certified = engine_accuracy <= min(tol_err, tol_gauss)): both >= 1e-9, certified
     vs = ev.evaluate(qc, enc, V, engine="aer_mps", **ev.synth_tolerances(4, 1e-6))
-    assert vs.ok and not vs.certified
-    assert ev.evaluate(qc, enc, V, engine="aer_mps", tol_err=1e-8, tol_leak=1e-8, tol_gauss=1e-8).certified
+    assert vs.ok and vs.certified and vs.engine_accuracy == ev.MPS_ACCURACY
+    assert ev.evaluate(qc, enc, V, engine="aer_mps", tol_err=1e-8, tol_gauss=1e-8).certified
     # with gauss=False the Gauss tolerance does not enter the minimum
-    assert ev.evaluate(qc, enc, V, engine="aer_mps", gauss=False, tol_err=1e-8, tol_leak=1e-8, tol_gauss=1e-12).certified
-    assert not ev.evaluate(qc, enc, V, engine="aer_mps", gauss=True, tol_err=1e-8, tol_leak=1e-8, tol_gauss=1e-12).certified
+    assert ev.evaluate(qc, enc, V, engine="aer_mps", gauss=False, tol_err=1e-8, tol_gauss=1e-12).certified
+    assert not ev.evaluate(qc, enc, V, engine="aer_mps", gauss=True, tol_err=1e-8, tol_gauss=1e-12).certified
+
+
+# ---------------------------------------------------------------- audit 001 notes N2, N3, N4, N7, N8
+def test_inner_span_error_never_replaces_physical_error():
+    """A target that depends on the outer spins: the verdict error is max(inner_span, physical), i.e. >= physical."""
+    from su2plaq.exact.operators import h_electric_outer
+
+    enc = _enc()
+    V = np.diag(np.exp(-1j * 1.0 * h_electric_outer(enc.basis)))
+    qc, _ = _circ()
+    v = ev.evaluate(qc, enc, V, gauss=False)
+    assert v.method == "inner_span" and not v.ok
+    phys, inner = v.extra["op_norm_error_physical"], v.extra["op_norm_error_inner_span"]
+    assert phys > 0.5 and v.op_norm_error >= phys - 1e-12 and v.op_norm_error >= inner - 1e-12
+    assert abs(v.op_norm_error - max(phys, inner)) < 1e-12
+
+
+def test_aer_mps_leak_bound_is_sqrt_of_block_weight_and_consistent():
+    enc = _enc()
+    qc, r = _circ(1)
+    qc.x(r["a"][0])
+    v = ev.evaluate(qc, enc, np.eye(433, dtype=complex), gauss=False, engine="aer_mps")
+    assert v.reason == "dirty_ancilla" and v.max_leak <= v.leak_amplitude ** 2 + 1e-30
+    assert abs(v.leak_amplitude - np.sqrt(v.max_leak)) < 1e-12
+    assert all(isinstance(f[0], str) and f[0].startswith("inner_code_index") for f in v.failing_inputs) and len(v.failing_inputs) == 10
+    assert abs(v.op_norm_error - (v.block_error + v.dropped_total + v.leak_amplitude)) < 1e-15
+
+
+def test_bad_layout_has_its_own_reason():
+    enc = _enc()
+    qc = QuantumCircuit(QuantumRegister(12, "d"), QuantumRegister(15, "o"))
+    v = ev.evaluate(qc, enc, np.eye(433, dtype=complex), gauss=False)
+    assert not v.ok and v.reason == "bad_layout" and v.failing_inputs and v.tolerances
+    v = ev.evaluate(QuantumCircuit(QuantumRegister(11, "d")), enc, np.eye(433, dtype=complex), gauss=False)
+    assert v.reason == "bad_layout"
+
+
+def test_verdict_extra_is_persisted():
+    from su2plaq.results.store import verdict_to_dict
+
+    enc = _enc()
+    qc, _ = _circ()
+    v = ev.evaluate(qc, enc, np.eye(433, dtype=complex), gauss=False)
+    d = verdict_to_dict(v)
+    assert d["extra"]["max_span_leak"] == v.extra["max_span_leak"] and "op_norm_error_physical" in d["extra"]
+    import json
+
+    json.dumps(d)
+
+
+def test_idle_qubits_are_not_assumed_clean_by_the_translation():
+    """Qiskit's transpile uses idle qubits as clean ancillas by default (MCXGate(4) came out wrong by 1.0)."""
+    from qiskit import transpile
+    from qiskit.circuit.library import C3SXGate, MCXGate
+
+    qc = QuantumCircuit(8)
+    qc.append(MCXGate(4), [0, 1, 2, 3, 4])
+    default = transpile(qc, basis_gates=["x", "h", "t", "tdg", "cx"], optimization_level=0)
+    safe = transpile(qc, basis_gates=["x", "h", "t", "tdg", "cx"], optimization_level=0, qubits_initially_zero=False)
+    U = Operator(qc).data
+    assert np.abs(Operator(safe).data - U).max() < 1e-12
+    assert np.abs(Operator(default).data - U).max() > 0.5  # documents the default-behaviour hazard
+    # the allowed multi-controlled gates, with 3 idle qubits, through the simulator translation and the logical lowering
+    from su2plaq.metrics.logical import lower
+
+    allowed = QuantumCircuit(8)
+    allowed.mcp(0.37, [0, 1, 2], 3)
+    allowed.append(C3SXGate(), [4, 5, 6, 3])
+    allowed.mcrx(0.5, [0, 1, 2], 7)
+    Uf = Operator(allowed).data
+    assert np.abs(_dense_cols(allowed) - Uf).max() < 1e-12
+    Ul = Operator(lower(allowed)).data
+    ov = np.trace(Ul.conj().T @ Uf)
+    assert np.abs(Uf - ov / abs(ov) * Ul).max() < 1e-12
+
+
+def _dense_cols(qc):
+    b = ss.run_batch(qc, np.arange(2 ** qc.num_qubits, dtype=np.int64))
+    out = np.zeros((2 ** qc.num_qubits,) * 2, complex)
+    np.add.at(out, (b.keys, b.cols), b.amps)
+    return out
+
+
+# ---------------------------------------------------------------- prompts/004: leak as an amplitude
+def test_sparse_leak_amplitude_is_exact_and_combined_error_adds_up():
+    enc = _enc()
+    I = np.eye(433, dtype=complex)
+    th = 1e-3
+    qc, r = _circ(1)
+    qc.cry(th, r["d"][2], r["a"][0])
+    v = ev.evaluate(qc, enc, I, gauss=False)
+    assert abs(v.leak_amplitude - np.sin(th / 2)) < 1e-12 * np.sin(th / 2) + 1e-15
+    assert v.max_leak <= v.leak_amplitude ** 2 + 1e-30 and v.max_leak > 0.9 * v.leak_amplitude ** 2   # one coherent direction
+    assert abs(v.op_norm_error - (v.block_error + v.dropped_total + v.leak_amplitude)) < 1e-15
+    assert not v.ok and v.reason in ("leak", "dirty_ancilla") and len(v.failing_inputs) == 10   # unfiltered, never empty
+    assert v.failing_inputs[0][1] >= v.failing_inputs[-1][1]
+
+
+def test_sparse_and_aer_leak_amplitude_agree_within_the_certified_factor():
+    enc = _enc()
+    th = 1e-3
+    qc, r = _circ(1)
+    qc.cry(th, r["d"][2], r["a"][0])
+    I = np.eye(433, dtype=complex)
+    vs = ev.evaluate(qc, enc, I, gauss=False, engine="sparse")
+    va = ev.evaluate(qc, enc, I, gauss=False, engine="aer_mps")
+    s = np.sin(th / 2)
+    assert abs(vs.leak_amplitude - s) < 1e-9 * s
+    assert s * (1 - 1e-6) <= va.leak_amplitude <= 4 * s * (1 + 1e-6)   # certified bound, up to 4x pessimistic
+
+
+def _synthetic_exact(seed=20261104, n_anc=22, layers=6):
+    """34-qubit exact-angle code-preserving circuit with compute / phase / uncompute use of the ancillas (true leak 0)."""
+    r = np.random.default_rng(seed)
+    qc = QuantumCircuit(QuantumRegister(12, "d"), QuantumRegister(n_anc, "a"))
+    A = list(range(12, 12 + n_anc))
+    for _ in range(layers):
+        l = int(r.integers(4))
+        qj, qm, qmp = 3 * l + 2, 3 * l + 1, 3 * l
+        qc.ch(qj, qm), qc.cx(qj, qmp), qc.ccx(qj, qm, qmp)
+        a1, a2, a3 = [int(x) for x in r.choice(A, size=3, replace=False)]
+        l2 = int(r.integers(4))
+        qj2, qm2 = 3 * l2 + 2, 3 * l2 + 1
+        comp = [(qj, qm, a1), (qj2, qm2, a2), (a1, a2, a3)]
+        for c in comp:
+            qc.ccx(*c)
+        qc.crz(float(r.uniform(0.1, 1.5)), a3, qmp), qc.cp(float(r.uniform(0.1, 1.5)), a1, qj2), qc.rz(float(r.uniform(0.1, 1.5)), a2)
+        for c in reversed(comp):
+            qc.ccx(*c)
+        qc.ccx(qj, qm, qmp), qc.cx(qj, qmp), qc.ch(qj, qm)
+    return qc
+
+
+def test_aer_mps_direct_weights_on_exact_circuit_are_at_noise_floor():
+    from su2plaq.evaluate.aer_check import aer_mps_block
+
+    enc = _enc()
+    qc = _synthetic_exact()
+    inner = enc.inner_codes()
+    sel = inner[::40][:16]
+    M, leak, info = aer_mps_block(qc, sel, inner, (1 << 12) - 1)
+    assert leak.max() <= 1e-19 and info["w_anc"].max() <= 1e-19 and info["w_inv"].max() <= 1e-19
+    assert np.allclose(leak, info["w_anc"] + info["w_inv"], atol=0)
+    assert info["leak_derived"].shape == leak.shape   # the old subtraction value stays as a diagnostic
+    with pytest.raises(ValueError):
+        aer_mps_block(QuantumCircuit(20), sel[:1], np.array([0]), (1 << 17) - 1)

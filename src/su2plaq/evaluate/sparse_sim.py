@@ -171,7 +171,8 @@ def _translate(qc):
         _to_ops(qc, ops)
         return ops, float(qc.global_phase)
     if not any(i.operation.name == "unitary" for i in qc.data):
-        t = transpile(qc, basis_gates=_TRANSPILE_BASIS, optimization_level=0, seed_transpiler=20261104)
+        t = transpile(qc, basis_gates=_TRANSPILE_BASIS, optimization_level=0, seed_transpiler=20261104,
+                      qubits_initially_zero=False)
         _to_ops(t, ops)
         return ops, float(t.global_phase)
     phase = float(qc.global_phase)
@@ -181,7 +182,8 @@ def _translate(qc):
         if inst.operation.name in SIM_BASIS or inst.operation.name == "barrier":
             _to_ops(sub, ops)
         else:
-            t = transpile(sub, basis_gates=_TRANSPILE_BASIS, optimization_level=0, seed_transpiler=20261104)
+            t = transpile(sub, basis_gates=_TRANSPILE_BASIS, optimization_level=0, seed_transpiler=20261104,
+                      qubits_initially_zero=False)
             _to_ops(t, ops)
             phase += float(t.global_phase)
     return ops, phase

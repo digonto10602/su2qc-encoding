@@ -75,7 +75,8 @@ def ct_compile(qc, eps: float, level: int = 3, seed: int = 12345):
 
     pm = generate_preset_clifford_t_pass_manager(
         basis_gates=["cx", "h", "s", "sdg", "t", "tdg"], optimization_level=level,
-        rz_synthesis_config={"rz_synthesis_error": eps, "rz_cache_error": eps / 10}, seed_transpiler=seed)
+        rz_synthesis_config={"rz_synthesis_error": eps, "rz_cache_error": eps / 10}, seed_transpiler=seed,
+        qubits_initially_zero=False)
     out = pm.run(qc)
     ops = dict(out.count_ops())
     return out, {"cx": ops.get("cx", 0), "t": ops.get("t", 0) + ops.get("tdg", 0), "depth": out.depth(),

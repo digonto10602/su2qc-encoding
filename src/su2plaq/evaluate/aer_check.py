@@ -31,7 +31,7 @@ def _prep(qc: QuantumCircuit, x: int) -> QuantumCircuit:
 
 def _prep_all(qc: QuantumCircuit, sim, inputs, save):
     """Aer-native circuits for all inputs; the circuit is transpiled once (not once per input)."""
-    base = transpile(qc, sim, optimization_level=0)
+    base = transpile(qc, sim, optimization_level=0, qubits_initially_zero=False)
     for x in inputs:
         c = _prep(base, x)
         save(c)
@@ -83,49 +83,76 @@ def _contract(mps, ints: np.ndarray, n: int) -> np.ndarray:
     return vec[:, 0]
 
 
-def _outside_weight(mps, n: int, pinned: list[int]) -> float:
-    """Weight of the MPS state with every qubit in `pinned` equal to 0 (transfer matrices; other qubits summed)."""
+def _site_tensors(mps, n: int):
+    """A_q^s = Gamma_q^s diag(lambda_q) (shape chi_{q-1} x chi_q), list of (A^0, A^1)."""
     gammas, lambdas = mps
-    T = np.ones((1, 1), dtype=np.complex128)
+    out = []
     for q in range(n):
         g = [np.asarray(x, dtype=np.complex128) for x in gammas[q]]
         if q < len(lambdas):
             lam = np.asarray(lambdas[q], dtype=np.float64)
             g = [x * lam[None, :] for x in g]
-        if q in pinned:
-            T = g[0].conj().T @ T @ g[0]
+        out.append(g)
+    return out
+
+
+def _ancilla_weight(mps, n: int, pinned: list[int]) -> float:
+    """DIRECT weight of the output with some qubit of `pinned` set to 1: the disjoint terms 'qubit q is the FIRST pinned qubit
+    equal to 1' (earlier pinned qubits 0, all other qubits summed) from prefix / suffix transfer matrices.  A sum of
+    non-negative terms: no 1 - <Pi_0> subtraction (prompts/004 §2)."""
+    A = _site_tensors(mps, n)
+    pin = set(pinned)
+    R = [None] * (n + 1)                       # R[q]: environment of sites q..n-1, everything summed
+    R[n] = np.ones((1, 1), dtype=np.complex128)
+    for q in range(n - 1, -1, -1):
+        R[q] = sum(A[q][s].conj() @ R[q + 1] @ A[q][s].T for s in (0, 1))
+    L = np.ones((1, 1), dtype=np.complex128)   # left environment, earlier pinned qubits fixed to 0
+    w = 0.0
+    for q in range(n):
+        if q in pin:
+            T1 = A[q][1].conj().T @ L @ A[q][1]
+            w += float(np.sum(T1 * R[q + 1]).real)
+            L = A[q][0].conj().T @ L @ A[q][0]
         else:
-            T = g[0].conj().T @ T @ g[0] + g[1].conj().T @ T @ g[1]
-    return float(T[0, 0].real)
+            L = A[q][0].conj().T @ L @ A[q][0] + A[q][1].conj().T @ L @ A[q][1]
+    return w
 
 
 def aer_mps_block(qc, inputs: np.ndarray, codes: np.ndarray, code_mask: int, bond_dim: int | None = None) -> tuple[np.ndarray, np.ndarray, dict]:
     """Per-input MPS run (truncation threshold 0, i.e. no deliberate truncation; `bond_dim` caps the bond dimension if
     given).  Accuracy is that of Aer's MPS (~1e-10 vs an exact simulator, see module docstring).
 
-    Returns (M, leak, {"max_bond_dim", "seconds", "outside_weight"}); `outside_weight[col]` is the weight of the output with
-    any qubit outside `code_mask` set (ancilla bits; contracted from the MPS), the part of the leak that sparse_sim
-    reports as dirty-ancilla weight.  The MPS amplitudes are read only on the requested codes, so
-    leak is the derived quantity 1 - sum_codes |M|^2 (the saved MPS is normalised); it is NOT the sum of out-of-code
-    weights computed directly."""
+    Returns (M, leak, info).  leak[col] = w_anc[col] + w_inv[col], BOTH computed directly (prompts/004 §2), never as
+    1 - sum|M|^2:
+      w_anc = weight with some qubit outside `code_mask` set (ancillas, unused outer qubits; first-set decomposition),
+      w_inv = sum over the invalid data patterns c (all 2^n_data patterns not in `codes`, every other qubit 0) of |<c|U|i>|^2.
+    info = {"max_bond_dim", "seconds", "w_anc", "w_inv", "leak_derived"}; leak_derived = max(0, 1 - sum|M|^2) is the old
+    subtraction value, kept as a diagnostic only.  Raises ValueError if n_data (bit length of code_mask) > 16."""
     n = qc.num_qubits
+    n_data = int(code_mask).bit_length()
+    if n_data > 16:
+        raise ValueError(f"aer_mps_block enumerates the invalid data patterns: n_data={n_data} > 16 is not supported")
     inputs = np.asarray(inputs, dtype=np.int64)
     codes, ok = _valid_codes(codes, code_mask)
+    invalid = np.setdiff1d(np.arange(2 ** n_data, dtype=np.int64), codes[ok])
     opts = dict(method="matrix_product_state", matrix_product_state_truncation_threshold=0.0, max_memory_mb=200_000_000)
     if bond_dim is not None:
         opts["matrix_product_state_max_bond_dimension"] = int(bond_dim)
     sim = AerSimulator(**opts)
     t0 = time.time()
     M = np.zeros((len(codes), len(inputs)), dtype=np.complex128)
-    leak = np.zeros(len(inputs))
+    w_anc = np.zeros(len(inputs))
+    w_inv = np.zeros(len(inputs))
+    derived = np.zeros(len(inputs))
     max_bond = 1
     pinned = [q for q in range(n) if not (int(code_mask) >> q) & 1]
-    outside = np.zeros(len(inputs))
     circs = _prep_all(qc, sim, inputs, lambda c: c.save_matrix_product_state(label="mps"))
     for col, c in enumerate(circs):
         mps = sim.run(c).result().data()["mps"]
         max_bond = max([max_bond] + [int(np.asarray(l).shape[0]) for l in mps[1]])
         M[ok, col] = _contract(mps, codes[ok], n)
-        outside[col] = max(0.0, 1.0 - _outside_weight(mps, n, pinned))
-        leak[col] = max(0.0, 1.0 - float(np.sum(np.abs(M[:, col]) ** 2)))
-    return M, leak, {"max_bond_dim": max_bond, "seconds": time.time() - t0, "outside_weight": outside}
+        w_anc[col] = _ancilla_weight(mps, n, pinned)
+        w_inv[col] = float(np.sum(np.abs(_contract(mps, invalid, n)) ** 2))
+        derived[col] = max(0.0, 1.0 - float(np.sum(np.abs(M[:, col]) ** 2)))
+    return M, w_anc + w_inv, {"max_bond_dim": max_bond, "seconds": time.time() - t0, "w_anc": w_anc, "w_inv": w_inv,
+                              "leak_derived": derived}

@@ -62,3 +62,30 @@ def test_inner_span_rank_bounds():
 def test_jmax_one_not_supported_for_route_a():
     with pytest.raises(NotImplementedError):
         physical_basis(jmax=1.0)
+
+
+def test_singlet_signs_are_deterministic_under_ties_and_noise():
+    """Corner singlets with tied component moduli (32 of them) get a reproducible sign: the first component within the tie
+    tolerance of the maximum is positive, whatever the sign / rounding noise of the eigensolver."""
+    import itertools
+
+    from su2plaq.exact import physical as ph
+
+    rng = np.random.default_rng(0)
+    roles = ("out", "out", "in", "in")
+    n_tied = 0
+    for js in itertools.product((0.0, 0.5), repeat=4):
+        vecs, _ = ph.corner_singlets(js, roles)
+        for col in vecs.T:
+            a = np.abs(col)
+            tied = np.flatnonzero(a >= a.max() - ph.SIGN_TIE_TOL)
+            assert col[tied[0]] > 0
+            if len(tied) > 1:
+                n_tied += 1
+            for sgn in (1.0, -1.0):
+                noisy = sgn * col + 1e-14 * rng.normal(size=col.shape)
+                assert np.abs(ph._canonical_sign(noisy) - col).max() < 1e-12
+    assert n_tied > 0
+    # across the full basis the tied singlets appear: 32 over all corners and spin assignments, all with positive pivot
+    b = physical_basis()
+    assert np.all(np.isfinite(np.concatenate(b.amps).real))

@@ -25,11 +25,22 @@ _NL = 12
 _INNER = _BASE ** 4  # 625
 
 
+SIGN_TIE_TOL = 1e-10
+
+
+def _canonical_sign(vec: np.ndarray) -> np.ndarray:
+    """Rotate the phase so that the FIRST component (lowest index) whose modulus is within SIGN_TIE_TOL of the maximum is
+    real positive (a plain argmax would let rounding noise decide among tied moduli, machine-dependently)."""
+    a = np.abs(vec)
+    p = int(np.flatnonzero(a >= a.max() - SIGN_TIE_TOL)[0])
+    return vec * (abs(vec[p]) / vec[p])
+
+
 @functools.lru_cache(maxsize=None)
 def corner_singlets(js: tuple[float, float, float, float], roles: tuple[str, str, str, str]) -> tuple[np.ndarray, tuple[float, ...]]:
     """Kernel of sum_a (sum_ends G_a)^2 on the product of the 4 end spaces (end order = js order; 'out' end
     carries L = -J^T, 'in' end carries R = +J); columns are orthonormal real vectors sorted by the inner-pair
-    Casimir eigenvalue J(J+1) of ends 0,1; phase: largest |component| positive. Returns (vectors[D,k], J labels)."""
+    Casimir eigenvalue J(J+1) of ends 0,1; phase: the first component within 1e-10 of the largest modulus is positive. Returns (vectors[D,k], J labels)."""
     dims = [int(round(2 * j + 1)) for j in js]
     D = int(np.prod(dims))
 
@@ -57,8 +68,7 @@ def corner_singlets(js: tuple[float, float, float, float], roles: tuple[str, str
     cols = []
     for c in range(kern.shape[1]):
         vec = kern[:, c]
-        p = int(np.argmax(np.abs(vec)))
-        vec = vec * (abs(vec[p]) / vec[p])  # largest component real positive
+        vec = _canonical_sign(vec)
         if np.abs(vec.imag).max() > 1e-12:
             raise RuntimeError("corner singlet not real after phase fixing")
         cols.append(vec.real)

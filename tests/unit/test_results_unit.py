@@ -12,7 +12,8 @@ from su2plaq.results.store import RESULT_KEYS, load_result, save_result, verdict
 def _verdict():
     return Verdict(ok=True, reason="ok", op_norm_error=np.float64(1e-13), max_leak=0.0, dirty_ancilla=0.0, phase=1j,
                    outer_bits_read=0, n_blocks=1, gauss_residual=2e-16, method="inner_span", engine="sparse", seconds=0.5,
-                   failing_inputs=[], n_inputs=433, tolerances={"tol_err": 1e-10, "tol_leak": 1e-12, "tol_gauss": 1e-10})
+                   failing_inputs=[], n_inputs=433, tolerances={"tol_err": 1e-10, "tol_gauss": 1e-10},
+                   block_error=1e-13, leak_amplitude=0.0)
 
 
 def test_provenance_fields_and_seeds():
@@ -24,6 +25,7 @@ def test_provenance_fields_and_seeds():
 
 def test_verdict_roundtrip_and_optional_keys(tmp_path):
     ver = verdict_to_dict(_verdict())
+    assert ver["block_error"] == 1e-13 and ver["leak_amplitude"] == 0.0
     assert ver["phase"] == [0.0, 1.0] and ver["tolerances"]["tol_gauss"] == 1e-10 and "engine_accuracy" in ver and "certified" in ver
     for v in (ver, _verdict()):  # dict and Verdict objects are both accepted
         p = save_result(tmp_path / "a" / "x.json", encoding="twelve", circuit_id="x", kind="UE", params={"alpha": 0.3},

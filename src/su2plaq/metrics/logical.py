@@ -15,7 +15,8 @@ SEED = 20261104
 
 
 def lower(qc):
-    """transpile(qc, basis_gates=LOGICAL_BASIS, optimization_level=0, seed_transpiler=SEED); raises ValueError on
+    """transpile(qc, basis_gates=LOGICAL_BASIS, optimization_level=0, seed_transpiler=SEED,
+                    qubits_initially_zero=False); raises ValueError on
     'unitary', native mcx with >= 3 controls (also inside custom gates), measure, reset, delay."""
     from qiskit import transpile
 
@@ -24,7 +25,8 @@ def lower(qc):
         nm = inst.operation.name
         if nm in ("unitary", "measure", "reset", "delay") or nm.startswith("if_") or nm == "for_loop":
             raise ValueError(f"gate {nm!r} cannot be lowered to the logical gate set")
-    out = transpile(qc, basis_gates=LOGICAL_BASIS, optimization_level=0, seed_transpiler=SEED)
+    out = transpile(qc, basis_gates=LOGICAL_BASIS, optimization_level=0, seed_transpiler=SEED,
+                    qubits_initially_zero=False)
     bad = set(out.count_ops()) - set(LOGICAL_BASIS) - {"barrier"}
     if bad:
         raise ValueError(f"lowering left gates outside the logical basis: {sorted(bad)}")

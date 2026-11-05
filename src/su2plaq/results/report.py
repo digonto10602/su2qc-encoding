@@ -31,7 +31,7 @@ def render(paths: list) -> str:
     for d in docs:
         v, m, pr, par = d["verification"], d["metrics"], d["provenance"], d["params"]
         ver_rows.append([d["encoding"], d["circuit_id"], d["kind"], par.get("alpha"), par.get("beta"), par.get("order"),
-                         v.get("ok"), v.get("reason"), v.get("op_norm_error"), v.get("max_leak"), v.get("gauss_residual"),
+                         v.get("ok"), v.get("reason"), v.get("op_norm_error"), v.get("leak_amplitude"), v.get("max_leak"), v.get("gauss_residual"),
                          v.get("method"), v.get("engine"), v.get("certified"), pr["git_commit"] + ("*" if pr.get("git_dirty") else "")])
         lg = m.get("logical", {})
         log_rows.append([d["circuit_id"], lg.get("cx"), lg.get("depth"), lg.get("n_rot"), lg.get("t_fixed"), lg.get("qubits"), lg.get("ancilla")])
@@ -39,7 +39,7 @@ def render(paths: list) -> str:
             t_rows.append([d["circuit_id"], row.get("eps"), row.get("t_fixed"), row.get("n_rot"), row.get("t_rot_pygridsynth"),
                            row.get("t_total"), row.get("t_est"), row.get("t_qiskit"), row.get("cx_qiskit"), row.get("depth_qiskit")])
     parts = ["### Verification", _table(["encoding", "circuit", "kind", "alpha", "beta", "order", "ok", "reason", "op-norm error",
-                                         "max leak", "Gauss residual", "method", "engine", "certified", "commit"], ver_rows),
+                                         "leak amp", "max leak", "Gauss residual", "method", "engine", "certified", "commit"], ver_rows),
              "", "### Logical metrics", _table(["circuit", "CX", "depth", "N_rot", "T_fixed", "qubits", "ancilla"], log_rows)]
     if t_rows:
         parts += ["", "### T-count table", _table(["circuit", "eps", "T_fixed", "N_rot", "T_rot (pygridsynth)", "T_total",

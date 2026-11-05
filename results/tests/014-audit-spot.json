@@ -1,0 +1,67 @@
+{
+ "N2/outer-phase target (identity circuit)/inner_span": {
+  "block": 1.9358233891448116,
+  "inner": 1.9358233891448116,
+  "phys": 1.9358233891448025,
+  "method": "inner_span"
+ },
+ "N2/outer-phase target (identity circuit)/physical": {
+  "block": 1.9358233891448025,
+  "inner": null,
+  "phys": 1.9358233891448025,
+  "method": "physical"
+ },
+ "N2/outer-phase target (identity circuit)/auto": {
+  "block": 1.9358233891448116,
+  "inner": 1.9358233891448116,
+  "phys": 1.9358233891448025,
+  "method": "inner_span"
+ },
+ "N2/inner-only UE target (identity circuit)/inner_span": {
+  "block": 1.2218639352716276,
+  "inner": 1.2218639352716276,
+  "phys": 1.2218639352716274,
+  "method": "inner_span"
+ },
+ "N2/inner-only UE target (identity circuit)/physical": {
+  "block": 1.2218639352716274,
+  "inner": null,
+  "phys": 1.2218639352716274,
+  "method": "physical"
+ },
+ "N2/inner-only UE target (identity circuit)/auto": {
+  "block": 1.2218639352716276,
+  "inner": 1.2218639352716276,
+  "phys": 1.2218639352716274,
+  "method": "inner_span"
+ },
+ "N2/identity/inner_span": {
+  "block": 1.2068073815627953e-13,
+  "inner": 1.2068073815627953e-13,
+  "phys": 3.4024025397046025e-15,
+  "method": "inner_span"
+ },
+ "N2/identity/physical": {
+  "block": 3.4024025397046025e-15,
+  "inner": null,
+  "phys": 3.4024025397046025e-15,
+  "method": "physical"
+ },
+ "N2/identity/auto": {
+  "block": 1.2068073815627953e-13,
+  "inner": 1.2068073815627953e-13,
+  "phys": 3.4024025397046025e-15,
+  "method": "inner_span"
+ },
+ "N4/sparse_vs_qiskit": 1.6722869251260325e-15,
+ "N4/lower_vs_qiskit": 6.8057356239814126e-15,
+ "N4/mcx4_lower": "rejected",
+ "N4/mcx4_sim": "rejected",
+ "N4/wrapped_mcx4": "disallowed_gate",
+ "N7/d11": "bad_layout",
+ "N7/o15": "bad_layout",
+ "N7/5q": "bad_layout",
+ "N7/d_and_o_overlap?": "ok",
+ "N7/measure": "disallowed_gate",
+ "N7/mcx3": "disallowed_gate"
+}

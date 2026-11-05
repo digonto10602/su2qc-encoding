@@ -19,7 +19,7 @@ RESULT_KEYS = ("schema_version", "encoding", "circuit_id", "kind", "params", "pr
                "files", "extra")
 _VERDICT_KEYS = ("ok", "reason", "op_norm_error", "max_leak", "dirty_ancilla", "phase", "outer_bits_read", "n_blocks",
                  "gauss_residual", "method", "engine", "engine_accuracy", "certified", "tolerances", "dropped_total",
-                 "seconds", "n_inputs")
+                 "block_error", "leak_amplitude", "seconds", "n_inputs")
 
 
 def _jsonable(x):
@@ -48,6 +48,7 @@ def verdict_to_dict(v) -> dict:
     """Evaluator `Verdict` -> the JSON `verification` block (phase as [re, im], failing_inputs kept under that key)."""
     d = {k: getattr(v, k) for k in _VERDICT_KEYS if hasattr(v, k)}
     d["failing_inputs"] = list(getattr(v, "failing_inputs", []))
+    d["extra"] = dict(getattr(v, "extra", {}) or {})
     return _jsonable(d)
 
 

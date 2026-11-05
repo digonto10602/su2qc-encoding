@@ -13,10 +13,10 @@ Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 
 ## Plan in force
 `prompts/002-m0-m2-foundation-twelve-qubit-compression.md` (planner kickoff; refines prompts/001 M0–M2).
-Acceptance tests locked as `acceptance-v3` (84 tests, M0–M2; v3 = prompts/003 Gauss-tolerance addendum). M3–M10 still per prompts/001.
+Acceptance tests locked as `acceptance-v4` (86 tests, M0–M2; v3 = prompts/003 Gauss rule, v4 = prompts/004 leak as amplitude). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-M0 gate — auditor review (tester full PASS, reports/tests/013).
+M0 gate — audit PASS WITH NOTES (reports/audits/001); fixing notes before benchmark + tag.
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -42,7 +42,7 @@ M0 gate — auditor review (tester full PASS, reports/tests/013).
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: SETTLED by M0-X5 (reports/tests/006): in the (inner|outer) pairing H_B is block-diagonal in outer spins, 128 blocks all equal to one 47×47 K (2.7e-15), J conserved → Paulo right; in a mixed pairing amplitudes depend on outer spins → note §4.2 right there.
 
 ## Next action
-Auditor on the M0 diff → tester benchmark → tag milestone-0 → M1 step 1.1.
+Auditor recheck of audit fixes + step 0.11 → tester benchmark → tag milestone-0 → M1 step 1.1.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -65,3 +65,6 @@ Auditor on the M0 diff → tester benchmark → tag milestone-0 → M1 step 1.1.
 - 2026-11-04: M0 step 0.8 evaluator PASS (reports/tests/009, 010, 011): F1 fixed (24-order fuzz identical), prompts/003 interface in; Paulo's QPY under amended M1-P1: ok, certified, err 2.905e-6, Gauss 1.16e-10 (aer_mps, 108 s). Counters reset.
 - 2026-11-04: M0 step 0.9 metrics PASS (reports/tests/012): counts = Qiskit on 30 random circuits; macro costs match METHODS; T per rotation measured (24 angles): 1e-4 42.6 [38,48], 1e-6 62.8 [56,66], 1e-8 82.6 [78,86], 1e-10 101.9 [94,106] vs 3log2(1/ε) 39.9/59.8/79.7/99.7; Paulo's circuit reproduced exactly by ct_compile (cx 294, T 1162, depth 2549).
 - 2026-11-04: M0 step 0.10 + M0 gate tester full PASS (reports/tests/013): m0 33/33 incl. slow, 131 unit, no regression vs 001–012; full m0 run 28 s.
+- 2026-11-04: M0 audit PASS WITH NOTES (reports/audits/001): physics conventions all correct; N1 leak tolerance compares probability (1e-12) vs amplitude error (1e-10) → ancilla leak amplitude up to 1e-6 accepted. Digonto decided: count leak as amplitude, combined bound ‖A−e^{iφ}V‖+√λmax(X†X) ≤ tol_err. N2–N4, N7–N9 code fixes sent to builder; N5 (spin-network signs are gauge at jmax=½) and N6 (compress TaskSpec needs tol_gauss, gauss=True) noted for M2/M3.
+- 2026-11-04: planner prompts/004 + reports/research/003: op_norm_error = block_error + dropped_total + ‖X‖₂ ≤ tol_err; tol_leak removed; span leak bounded by Gauss (‖s‖ ≤ 4·gauss_residual); auditor case cry(1.9e-6) now rejected (9.5e-7); Paulo QPY combined 1.08e-5 ≤ 2e-5. Re-locked acceptance-v4 (35bd2a6). Open (stop-and-ask if hit): sum vs RSS for synthesised circuits (√2 slack); aer_mps leak floor beyond bond 16.
+- 2026-11-04: audit fixes N2–N4/N7–N9 + step 0.11 leak-as-amplitude: tester full PASS (reports/tests/014): m0 34/34, unit 140; leak = sin(θ/2) exactly; cry(1.9e-6) rejected; Paulo QPY ok/certified: block 2.905e-6 + leak 7.851e-6 = 1.076e-5 ≤ 2e-5 (84 s, aer_mps). aer_mps bound pessimism ≤ √17 (prompts/004 text corrected 16→17).

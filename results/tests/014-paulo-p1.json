@@ -1,0 +1,41 @@
+{
+ "commit": "35bd2a6",
+ "tol": {
+  "tol_err": 2e-05,
+  "tol_gauss": 2e-05
+ },
+ "UB(beta=1)": {
+  "ok": true,
+  "reason": "ok",
+  "op": 1.0755862938695349e-05,
+  "block": 2.904793858178439e-06,
+  "leak_amp": 7.85106908051691e-06,
+  "max_leak": 6.163928570704862e-11,
+  "dirty": 8.770430021764386e-20,
+  "gauss": 1.1599838873241755e-10,
+  "engine": "aer_mps",
+  "method": "inner_span",
+  "certified": true,
+  "acc": 2e-10,
+  "seconds": 84.13836479187012,
+  "dropped": 0.0,
+  "extra": {
+   "op_norm_error_physical": 2.9047814455186083e-06,
+   "max_dropped_l2": 0.0,
+   "max_span_leak": 4.6629367034256575e-15,
+   "op_norm_error_inner_span": 2.904793858178439e-06
+  },
+  "tolerances": {
+   "tol_err": 2e-05,
+   "tol_gauss": 2e-05
+  },
+  "n_blocks": 1,
+  "outer_read": 0
+ },
+ "inverse": {
+  "ok": false,
+  "op": 1.8186029402229817,
+  "reason": "error",
+  "seconds": 102.07608699798584
+ }
+}
