@@ -1,0 +1,1251 @@
+{
+ "commit": "5c5f567",
+ "dirty": true,
+ "seed": 20261104,
+ "machine": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
+ "python": "3.12.14",
+ "angles": {
+  "alpha": 0.37,
+  "beta": 0.61
+ },
+ "results": [
+  {
+   "check": "identity",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span fail=[]",
+   "tol": "",
+   "ok": false,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "UE p(-3a/4) vs UE",
+   "expected": "ok, err~1e-15",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.30e-16 read=0 method=inner_span fail=[]",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "UE physical method",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=3.251e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.30e-16 read=0 method=physical fail=[]",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "UE p(+3a/4) vs UE (wrong sign)",
+   "expected": "fail error",
+   "got": "ok=False reason=error err=1.281e+00 leak=0.00e+00 dirty=0.00e+00 gauss=5.30e-16 read=0 method=inner_span fail=[(0, 1.2814484184086277), (4, 1.2814484184086274)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "p(+3a/4) vs UE^dagger",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.30e-16 read=0 method=inner_span fail=[]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "global phase only",
+   "expected": "ok phase e^{0.9i}",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.40e-16 read=0 method=inner_span fail=[] phase=(0.6216099682706644+0.7833269096274834j)",
+   "tol": "1e-12",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "Z on data qubit 4 (q_m of link r)",
+   "expected": "fail error",
+   "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=1.00e+00 read=0 method=inner_span fail=[(384, 1.0), (385, 1.0)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "X on ancilla dirty",
+   "expected": "dirty_ancilla",
+   "got": "ok=False reason=dirty_ancilla err=1.000e+00 leak=1.00e+00 dirty=1.00e+00 gauss=0.00e+00 read=0 method=inner_span fail=[(0, 1.0), (1, 1.0)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "dirty ancilla computed+uncomputed (phases on |0> anc)",
+   "expected": "ok",
+   "got": "ok=False reason=error err=5.735e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.57e-16 read=0 method=inner_span fail=[(329, 0.5734883399139268), (333, 0.5734883399139268)]",
+   "tol": "",
+   "ok": false,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "compute-use-uncompute (phase on a0=jb^jr)",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span fail=[]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "same vs identity",
+   "expected": "fail error",
+   "got": "ok=False reason=error err=1.595e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span fail=[(119, 0.15954046311163092), (127, 0.15954046311163092)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "forgot to uncompute (a=jb left)",
+   "expected": "dirty_ancilla",
+   "got": "ok=False reason=dirty_ancilla err=1.000e+00 leak=1.00e+00 dirty=1.00e+00 gauss=5.11e-16 read=0 method=inner_span fail=[(227, 1.0), (249, 1.0)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "ancilla ry(1e-05) weight 2.50e-11",
+   "expected": "fail",
+   "got": "ok=False reason=dirty_ancilla err=1.256e-11 leak=2.50e-11 dirty=2.50e-11 gauss=5.41e-16 read=0 method=inner_span fail=[]",
+   "tol": "leak<=1e-12 (weight)",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "ancilla ry(1e-07) weight 2.50e-15",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=1.207e-13 leak=2.50e-15 dirty=2.50e-15 gauss=5.41e-16 read=0 method=inner_span fail=[]",
+   "tol": "leak<=1e-12 (weight)",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CX inner->outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "X on outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "H on outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "RY on outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "RX on outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "SWAP outer-inner",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CCX target outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CY target outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CRY target outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "SX on outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "unitary X on outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CX outer->outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CSWAP(inner; outer, inner) swaps outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "custom gate hiding CX inner->outer",
+   "expected": "writes_outer",
+   "got": "reason=writes_outer",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CZ(outer,inner)",
+   "expected": "not writes_outer, read=1",
+   "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=1 method=physical fail=[(178, 1.9999999999999998), (177, 1.9999999999999998)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CX(outer->inner)",
+   "expected": "not writes_outer, read=1",
+   "got": "ok=False reason=leak err=1.000e+00 leak=7.50e-01 dirty=0.00e+00 gauss=5.00e-01 read=1 method=physical fail=[(334, 1.0), (218, 1.0)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CX(outer->inner)",
+   "expected": "not writes_outer, read=1",
+   "got": "ok=False reason=leak err=1.000e+00 leak=7.50e-01 dirty=0.00e+00 gauss=5.00e-01 read=1 method=physical fail=[(334, 1.0), (218, 1.0)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CCX(outer,outer->inner)",
+   "expected": "not writes_outer, read=2",
+   "got": "ok=False reason=leak err=1.000e+00 leak=7.50e-01 dirty=0.00e+00 gauss=5.00e-01 read=2 method=physical fail=[(400, 1.0), (401, 1.0)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CRY(outer ctrl -> inner)",
+   "expected": "not writes_outer, read=1",
+   "got": "ok=False reason=leak err=1.993e-02 leak=2.96e-02 dirty=0.00e+00 gauss=9.93e-02 read=1 method=physical fail=[(431, 0.01993342215876226), (424, 0.019933422158761704)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "RZZ(outer,inner) (diag; may be conservatively rejected)",
+   "expected": "not writes_outer, read=1",
+   "got": "ok=False reason=error err=2.271e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.52e-16 read=1 method=physical fail=[(15, 0.2271229511543891), (101, 0.2271229511543891)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "RZZ(inner,outer)",
+   "expected": "not writes_outer, read=1",
+   "got": "ok=False reason=error err=2.271e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.52e-16 read=1 method=physical fail=[(15, 0.2271229511543891), (101, 0.2271229511543891)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "P on outer",
+   "expected": "not writes_outer, read=1",
+   "got": "ok=False reason=error err=1.704e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.39e-16 read=1 method=physical fail=[(0, 0.17038379797185263), (18, 0.1703837979718526)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "CP(outer,outer)",
+   "expected": "not writes_outer, read=2",
+   "got": "ok=False reason=error err=1.933e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.39e-16 read=2 method=physical fail=[(241, 0.19330038899606164), (247, 0.19330038899606164)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "id on outer",
+   "expected": "not writes_outer, read=0",
+   "got": "ok=True reason=ok err=3.402e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=1 method=physical fail=[]",
+   "tol": "",
+   "ok": false,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "barrier",
+   "expected": "not writes_outer, read=0",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span fail=[]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv1"
+  },
+  {
+   "check": "dirty ancilla compute/uncompute (identity)",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span eng=sparse t=6.5s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "p(th) on outer0.q_j vs diag(e^(i th [j_o0=1/2]))",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=3.380e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=sparse t=0.9s",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "p(th) on outer0 vs I: one global phase, analytic err",
+   "expected": "0.397042028824 (phi=0.399697), n1=246",
+   "got": "0.397042028824 phase=0.399697 reason=error",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "p(th) on outer5.q_j vs diag(e^(i th [j_o5=1/2]))",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=3.380e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=sparse t=0.9s",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "p(th) on outer5 vs I: one global phase, analytic err",
+   "expected": "0.397042028824 (phi=0.399697), n1=246",
+   "got": "0.397042028824 phase=0.399697 reason=error",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "outer p(th)+gphase(-th/2) vs diag(e^{i th(s-1/2)})",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=3.500e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.71e-16 read=1 method=physical eng=sparse t=0.9s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "CZ(outer0.q_j, d2=q_j(b)) vs diag(-1 if j_b=j_o0=1/2)",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=3.402e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=1 method=physical eng=sparse t=0.9s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "same vs I",
+   "expected": "fail error",
+   "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=1 method=physical eng=sparse t=0.9s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "phase on invalid code (q_j=0,q_m'=1) only",
+   "expected": "ok (don't-care)",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span eng=sparse t=2.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "  same, physical method",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=3.402e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=physical eng=sparse t=0.9s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "permutation of invalid codes only (001<->011)",
+   "expected": "ok",
+   "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=7.07e-01 read=0 method=inner_span eng=sparse t=2.0s",
+   "tol": "",
+   "ok": false,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "X on q_m' of link b: valid->invalid for j=0 states",
+   "expected": "leak",
+   "got": "ok=False reason=leak err=2.000e+00 leak=1.00e+00 dirty=0.00e+00 gauss=1.00e+00 read=0 method=inner_span eng=sparse t=2.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "X on q_m,q_m' of link b",
+   "expected": "leak",
+   "got": "ok=False reason=leak err=2.000e+00 leak=1.00e+00 dirty=0.00e+00 gauss=1.00e+00 read=0 method=inner_span eng=sparse t=2.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "exact UE vs target with one row sign-flipped (state 217)",
+   "expected": "fail, failing_inputs=[217]",
+   "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=5.30e-16 read=0 method=physical eng=sparse t=0.9s fail=[(217, 1.9999999999999993)]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "mcz on data==0 vs oracle A (Psi^dag D Psi) [independent]",
+   "expected": "err<=1e-12",
+   "got": "ok=True reason=ok err=9.993e-15 leak=0.00e+00 dirty=0.00e+00 gauss=nan read=0 method=physical eng=sparse t=0.4s",
+   "tol": "1e-12",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "  mcz on data==0 vs identity",
+   "expected": "fail; 16 states touched",
+   "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span eng=sparse t=2.0s fail=[0, 8, 2, 4, 1, 14, 13, 7, 11, 9]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "oracle A: CX(o0.q_j -> d0)",
+   "expected": "err<=1e-12",
+   "got": "ok=False reason=leak err=4.442e-15 leak=1.00e+00 dirty=0.00e+00 gauss=nan read=1 method=physical eng=sparse t=0.4s",
+   "tol": "1e-12",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "oracle A: CCX(o0.q_j,o3.q_j -> d5)",
+   "expected": "err<=1e-12",
+   "got": "ok=False reason=leak err=4.442e-15 leak=7.50e-01 dirty=0.00e+00 gauss=nan read=2 method=physical eng=sparse t=0.4s",
+   "tol": "1e-12",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "oracle A: CZ(o2.q_m,d4) + T(o2.q_m) + CP(0.6;o4.q_j,d7)",
+   "expected": "err<=1e-12",
+   "got": "ok=True reason=ok err=2.335e-15 leak=0.00e+00 dirty=0.00e+00 gauss=nan read=2 method=physical eng=sparse t=0.4s",
+   "tol": "1e-12",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "oracle A: mixed 5-gate permutation+phase circuit",
+   "expected": "err<=1e-12",
+   "got": "ok=False reason=leak err=5.743e-16 leak=9.37e-01 dirty=0.00e+00 gauss=nan read=3 method=physical eng=sparse t=0.5s",
+   "tol": "1e-12",
+   "ok": true,
+   "note": "",
+   "script": "adv2"
+  },
+  {
+   "check": "permutation of invalid codes only (001<->011)",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span eng=sparse t=6.6s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "o-register order d,o: p(th) on o[1] vs diag(j_o0)",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=3.380e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=sparse t=0.9s fail=[]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "o-register order d,a,o: p(th) on o[1] vs diag(j_o0)",
+   "expected": "ok",
+   "got": "ok=False reason=error err=6.858e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=sparse t=0.9s fail=[(16, 0.6857956149109026), (17, 0.6857956149109026)]",
+   "tol": "",
+   "ok": false,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "o-register order d,o,a: p(th) on o[1] vs diag(j_o0)",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=3.380e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=sparse t=0.9s fail=[]",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "layout o,d (o/a before data)",
+   "expected": "reject or evaluate with o=register",
+   "got": "ok=False reason=error err=3.970e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=1 method=physical eng=sparse t=0.9s",
+   "tol": "",
+   "ok": false,
+   "note": "informational",
+   "script": "adv3"
+  },
+  {
+   "check": "layout a,d,o (o/a before data)",
+   "expected": "reject or evaluate with o=register",
+   "got": "ok=False reason=error err=6.858e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=sparse t=0.9s",
+   "tol": "",
+   "ok": false,
+   "note": "informational",
+   "script": "adv3"
+  },
+  {
+   "check": "28 unnamed qubits, p on qubit 13 (treated as ancilla)",
+   "expected": "dirty-free; phase on |0> trivial -> identity vs diag => fail error",
+   "got": "ok=False reason=error err=2.992e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span eng=sparse t=2.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "11 qubits",
+   "expected": "ValueError",
+   "got": "ValueError",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "12-qubit unitary UB(beta=.61) embed vs target(UB) [inner_span]",
+   "expected": "ok, err~1e-14",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=6.18e-16 read=0 method=inner_span eng=sparse t=2.4s",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "12-qubit unitary UB(beta=.61) embed vs target(UB) [physical]",
+   "expected": "ok, err~1e-14",
+   "got": "ok=True reason=ok err=3.402e-15 leak=0.00e+00 dirty=0.00e+00 gauss=6.18e-16 read=0 method=physical eng=sparse t=1.3s",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "UB circuit vs wrong target UB(beta=-0.61)",
+   "expected": "fail both methods",
+   "got": "error 1.878 | error 1.878",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "UB circuit vs wrong target UB(beta=0.5)",
+   "expected": "fail both methods",
+   "got": "error 0.220 | error 0.220",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "UB circuit vs wrong target UB^T",
+   "expected": "fail both methods",
+   "got": "ok 0.000 | ok 0.000",
+   "tol": "",
+   "ok": false,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "UB circuit vs wrong target conj(UB)",
+   "expected": "fail both methods",
+   "got": "error 1.878 | error 1.878",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "UB.UE circuit vs target(step,order1) [inner_span]",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.95e-16 read=0 method=inner_span eng=sparse t=2.4s",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "UB.UE circuit vs target(step,order1) [physical]",
+   "expected": "ok",
+   "got": "ok=True reason=ok err=3.250e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.95e-16 read=0 method=physical eng=sparse t=1.3s",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "UB.UE circuit vs step order 2 (Strang)",
+   "expected": "fail",
+   "got": "ok=False reason=error err=5.145e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.95e-16 read=0 method=inner_span eng=sparse t=2.4s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "UE.UB circuit vs UB.UE target",
+   "expected": "fail (operators do not commute)",
+   "got": "ok=False reason=error err=9.897e-01 leak=0.00e+00 dirty=0.00e+00 gauss=6.81e-16 read=0 method=inner_span eng=sparse t=2.4s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "inner_span vs physical: identity",
+   "expected": "same verdict; equal err if exact",
+   "got": "span 1.207e-13 (ok) / phys 3.402e-15 (ok)",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "inner_span vs physical: UE",
+   "expected": "same verdict; equal err if exact",
+   "got": "span 1.207e-13 (ok) / phys 3.251e-15 (ok)",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "inner_span vs physical: UB unitary",
+   "expected": "same verdict; equal err if exact",
+   "got": "span 1.207e-13 (ok) / phys 3.402e-15 (ok)",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "inner_span vs physical: UB.UE",
+   "expected": "same verdict; equal err if exact",
+   "got": "span 1.207e-13 (ok) / phys 3.250e-15 (ok)",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "inner_span vs physical: UB vs wrong beta",
+   "expected": "same verdict; equal err if exact",
+   "got": "span 2.196e-01 (error) / phys 2.196e-01 (error)",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "inner_span vs physical: UE wrong sign",
+   "expected": "same verdict; equal err if exact",
+   "got": "span 1.281e+00 (error) / phys 1.281e+00 (error)",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "inner_span vs physical: Z data",
+   "expected": "same verdict; equal err if exact",
+   "got": "span 2.000e+00 (error) / phys 1.000e+00 (error)",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "inner_span vs physical: diag p/cp network",
+   "expected": "same verdict; equal err if exact",
+   "got": "span 1.207e-13 (ok) / phys 2.967e-15 (ok)",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "inner_span vs physical: diag network vs I",
+   "expected": "same verdict; equal err if exact",
+   "got": "span 9.244e-01 (error) / phys 9.244e-01 (error)",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv3"
+  },
+  {
+   "check": "UB is complex-symmetric so UB^T == UB (earlier 'UB^T accepted' is not a bug)",
+   "expected": "||UB-UB^T||=0",
+   "got": "2.22e-16",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "FALSE-ACCEPT probe: layout d,a(2),o; p on o[1] (=link0.q_j) vs diag(j_o1)",
+   "expected": "fail (wrong link)",
+   "got": "ok=True reason=ok err=3.380e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=sparse t=1.2s",
+   "tol": "",
+   "ok": false,
+   "note": "F1 evidence",
+   "script": "adv4"
+  },
+  {
+   "check": "Gauss residual of exact embedded states, CG decode WITH V_P signs",
+   "expected": "<=1e-10",
+   "got": "5.41e-16",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "  same WITHOUT the V_P signs (sensitivity of the check)",
+   "expected": ">0.1",
+   "got": "5.41e-16",
+   "tol": "",
+   "ok": false,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "D.UB.D (V_P sign-conjugated UB) vs target UB",
+   "expected": "fail; Gauss violated",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=6.18e-16 read=0 method=inner_span eng=sparse t=6.6s",
+   "tol": "",
+   "ok": false,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "identity circuit vs outer-dependent diag target (inner-unrealisable)",
+   "expected": "fail in both",
+   "got": "span error 2.992e-01 | phys error 3.970e-01",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "span-leak probe crx(1e-05) [physical,gauss=True | physical,gauss=False | inner_span,gauss=False]",
+   "expected": "all three should reject if error>1e-10",
+   "got": "gauss(1.25e-11,g=5.0e-06) | ok(1.25e-11, span_leak=2.5e-11) | error(5.00e-06)",
+   "tol": "",
+   "ok": true,
+   "note": "gauss=False physical => ACCEPTED",
+   "script": "adv4"
+  },
+  {
+   "check": "span-leak probe crx(0.001) [physical,gauss=True | physical,gauss=False | inner_span,gauss=False]",
+   "expected": "all three should reject if error>1e-10",
+   "got": "error(1.25e-07,g=5.0e-04) | error(1.25e-07, span_leak=2.5e-07) | error(5.00e-04)",
+   "tol": "",
+   "ok": true,
+   "note": "gauss=False physical => rejected",
+   "script": "adv4"
+  },
+  {
+   "check": "UE angle perturbation delta=0.001",
+   "expected": "span err 2.485e-03 / phys 2.485e-03",
+   "got": "span 2.485e-03 (error) / phys 2.485e-03 (error)",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "UE angle perturbation delta=1e-06",
+   "expected": "span err 2.485e-06 / phys 2.485e-06",
+   "got": "span 2.485e-06 (error) / phys 2.485e-06 (error)",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "UE angle perturbation delta=1e-09",
+   "expected": "span err 2.485e-09 / phys 2.485e-09",
+   "got": "span 2.485e-09 (error) / phys 2.485e-09 (error)",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "UE angle perturbation delta=3e-10",
+   "expected": "span err 7.455e-10 / phys 7.455e-10",
+   "got": "span 7.455e-10 (error) / phys 7.455e-10 (error)",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "UE angle perturbation delta=1e-10",
+   "expected": "span err 2.485e-10 / phys 2.485e-10",
+   "got": "span 2.485e-10 (error) / phys 2.485e-10 (error)",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "UE angle perturbation delta=3e-11",
+   "expected": "span err 7.455e-11 / phys 7.455e-11",
+   "got": "span 7.455e-11 (ok) / phys 7.455e-11 (ok)",
+   "tol": "1e-10",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "measure",
+   "expected": "reject (disallowed_gate)",
+   "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "reset",
+   "expected": "reject",
+   "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "unbound parameter",
+   "expected": "reject/raise",
+   "got": "EXC TypeError: Parameter expression with unbound parameters {Standalone { name: \"x\", uuid: 85a2",
+   "tol": "",
+   "ok": true,
+   "note": "raised",
+   "script": "adv4"
+  },
+  {
+   "check": "mcx 3 controls",
+   "expected": "disallowed_gate",
+   "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "mcx hidden in custom gate",
+   "expected": "disallowed_gate",
+   "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "mcx hidden 2 levels deep",
+   "expected": "disallowed_gate",
+   "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "C3XGate",
+   "expected": "disallowed_gate",
+   "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "RC3XGate (relative-phase)",
+   "expected": "(informational)",
+   "got": "ok=False reason=dirty_ancilla err=1.000e+00 leak=2.50e-01 dirty=2.50e-01 gauss=3.54e-01 read=0 method=inner_span eng=sparse t=2.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv4"
+  },
+  {
+   "check": "MCXGrayCode(4)",
+   "expected": "disallowed or exact",
+   "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+   "tol": "",
+   "ok": true,
+   "note": "informational",
+   "script": "adv4"
+  },
+  {
+   "check": "specialise vs Operator blocks (random circuits)",
+   "expected": "<=1e-12",
+   "got": "60 circuits, 236 patterns, worst 4.22e-15; classify mismatches 0",
+   "tol": "1e-12",
+   "ok": true,
+   "note": "",
+   "script": "adv5"
+  },
+  {
+   "check": "classify: cx onto outer",
+   "expected": "OuterWriteError",
+   "got": "raised",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv5"
+  },
+  {
+   "check": "decode_state(physical_vectors) == CG basis amplitudes exactly",
+   "expected": "<=1e-14",
+   "got": "0.00e+00",
+   "tol": "1e-14",
+   "ok": true,
+   "note": "",
+   "script": "adv6"
+  },
+  {
+   "check": "V_P sign product constant on support of every physical state (=> Gauss residual blind to V_P for in-span outputs)",
+   "expected": "True",
+   "got": "True; states with s=-1: 188/433",
+   "tol": "",
+   "ok": true,
+   "note": "informational",
+   "script": "adv6"
+  },
+  {
+   "check": "aer_mps UE default tol: engine/acc/certified",
+   "expected": "engine aer_mps, acc 2e-10, certified False",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.42e-16 read=0 method=inner_span eng=aer_mps t=8.9s acc=2e-10 certified=False ok=True",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv6"
+  },
+  {
+   "check": "aer_mps UE tol 1e-8: certified",
+   "expected": "True",
+   "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.42e-16 read=0 method=inner_span eng=aer_mps t=3.4s certified=True",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv6"
+  },
+  {
+   "check": "sparse: engine_accuracy 0, certified True",
+   "expected": "0,True",
+   "got": "acc=0.0 cert=True drop=0.0",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv6"
+  },
+  {
+   "check": "aer_mps rejects: Z data",
+   "expected": "error",
+   "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=1.00e+00 read=0 method=inner_span eng=aer_mps t=3.2s",
+   "tol": "",
+   "ok": true,
+   "note": "reason error",
+   "script": "adv6"
+  },
+  {
+   "check": "aer_mps rejects: X ancilla",
+   "expected": "dirty_ancilla",
+   "got": "ok=False reason=dirty_ancilla err=1.000e+00 leak=1.00e+00 dirty=1.00e+00 gauss=0.00e+00 read=0 method=inner_span eng=aer_mps t=2.8s",
+   "tol": "",
+   "ok": true,
+   "note": "reason dirty_ancilla",
+   "script": "adv6"
+  },
+  {
+   "check": "aer_mps rejects: UE wrong sign",
+   "expected": "error",
+   "got": "ok=False reason=error err=1.281e+00 leak=0.00e+00 dirty=0.00e+00 gauss=5.42e-16 read=0 method=inner_span eng=aer_mps t=3.2s",
+   "tol": "",
+   "ok": true,
+   "note": "reason error",
+   "script": "adv6"
+  },
+  {
+   "check": "aer_mps outer-read correct (2 blocks)",
+   "expected": "ok, err~1e-10",
+   "got": "ok=True reason=ok err=3.380e-15 leak=2.22e-16 dirty=2.22e-16 gauss=5.34e-16 read=1 method=physical eng=aer_mps t=3.8s acc=2e-10 cert=False",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv6"
+  },
+  {
+   "check": "aer_mps outer-read wrong target",
+   "expected": "fail",
+   "got": "ok=False reason=error err=3.970e-01 leak=2.22e-16 dirty=2.22e-16 gauss=5.34e-16 read=1 method=physical eng=aer_mps t=3.9s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv6"
+  },
+  {
+   "check": "engine=auto with tiny cap: fallback to aer_mps",
+   "expected": "engine aer_mps",
+   "got": "ok=True reason=ok err=3.380e-15 leak=2.22e-16 dirty=2.22e-16 gauss=5.34e-16 read=1 method=physical eng=aer_mps t=3.8s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv6"
+  },
+  {
+   "check": "engine=sparse with tiny cap",
+   "expected": "unsimulable verdict",
+   "got": "ok=False reason=unsimulable err=inf leak=inf dirty=inf gauss=nan read=1 method=physical eng=sparse t=0.0s",
+   "tol": "",
+   "ok": true,
+   "note": "",
+   "script": "adv6"
+  },
+  {
+   "check": "sparse vs aer_mps op_norm_error on UE(delta=1e-3)",
+   "expected": "diff<=1e-9",
+   "got": "2.484987878079e-03 vs 2.484987878079e-03 diff 4.9e-17",
+   "tol": "1e-09",
+   "ok": true,
+   "note": "",
+   "script": "adv6"
+  },
+  {
+   "check": "gauss_residuals_coo vs gauss_residual (20 exact-phase + 20 noisy states)",
+   "expected": "<=1e-13",
+   "got": "max diff 0.00e+00; max noisy residual 0.967",
+   "tol": "1e-13",
+   "ok": true,
+   "note": "",
+   "script": "adv7"
+  }
+ ],
+ "paulo": {
+  "ok": false,
+  "reason": "gauss",
+  "err": 2.904793858178439e-06,
+  "leak": 4.191758051774741e-12,
+  "dirty": 4.191758051774741e-12,
+  "engine": "aer_mps",
+  "acc": 2e-10,
+  "certified": true,
+  "seconds": 73.70659375190735,
+  "gauss": 1.1599838873241755e-10
+ },
+ "agree": [
+  {
+   "name": "identity",
+   "span": 1.2068073815627953e-13,
+   "phys": 3.4024025397046025e-15,
+   "ok_span": true,
+   "ok_phys": true,
+   "reason": [
+    "ok",
+    "ok"
+   ]
+  },
+  {
+   "name": "UE",
+   "span": 1.206819431111926e-13,
+   "phys": 3.2509699194571052e-15,
+   "ok_span": true,
+   "ok_phys": true,
+   "reason": [
+    "ok",
+    "ok"
+   ]
+  },
+  {
+   "name": "UB unitary",
+   "span": 1.206806781080497e-13,
+   "phys": 3.401512617080965e-15,
+   "ok_span": true,
+   "ok_phys": true,
+   "reason": [
+    "ok",
+    "ok"
+   ]
+  },
+  {
+   "name": "UB.UE",
+   "span": 1.2068187984195303e-13,
+   "phys": 3.249712502956721e-15,
+   "ok_span": true,
+   "ok_phys": true,
+   "reason": [
+    "ok",
+    "ok"
+   ]
+  },
+  {
+   "name": "UB vs wrong beta",
+   "span": 0.2195566016743495,
+   "phys": 0.21955660167434948,
+   "ok_span": false,
+   "ok_phys": false,
+   "reason": [
+    "error",
+    "error"
+   ]
+  },
+  {
+   "name": "UE wrong sign",
+   "span": 1.2814484184086279,
+   "phys": 1.2814484184086277,
+   "ok_span": false,
+   "ok_phys": false,
+   "reason": [
+    "error",
+    "error"
+   ]
+  },
+  {
+   "name": "Z data",
+   "span": 2.000000000000004,
+   "phys": 1.0000000000000004,
+   "ok_span": false,
+   "ok_phys": false,
+   "reason": [
+    "error",
+    "error"
+   ]
+  },
+  {
+   "name": "diag p/cp network",
+   "span": 1.2069372785278684e-13,
+   "phys": 2.9670329514404548e-15,
+   "ok_span": true,
+   "ok_phys": true,
+   "reason": [
+    "ok",
+    "ok"
+   ]
+  },
+  {
+   "name": "diag network vs I",
+   "span": 0.9243524256186413,
+   "phys": 0.9243524256185828,
+   "ok_span": false,
+   "ok_phys": false,
+   "reason": [
+    "error",
+    "error"
+   ]
+  }
+ ]
+}

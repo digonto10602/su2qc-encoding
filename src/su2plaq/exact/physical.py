@@ -187,10 +187,15 @@ def _generators(convention: str):
     return [V @ g @ V.T for g in L], [V @ g @ V.T for g in R]
 
 
-def gauss_residual(basis: PhysicalBasis, keys, amps) -> float:
-    """max over corners c and a of || sum_{ends of c} G_a psi || (G = L for 'out', R for 'in', in basis.convention)."""
+def gauss_residuals_coo(basis: PhysicalBasis, keys_list, amps_list) -> np.ndarray:
+    """Gauss residual max_{c,a} ||sum_{ends of c} G_a psi|| for many COO states at once (state id folded into the key
+    above 5^12, which no link operator touches)."""
     L, R = _generators(basis.convention)
-    worst = 0.0
+    n = len(keys_list)
+    sid = np.concatenate([np.full(len(k), i, dtype=np.int64) for i, k in enumerate(keys_list)])
+    keys = np.concatenate([np.asarray(k, dtype=np.int64) for k in keys_list]) + sid * _BASE ** _NL
+    amps = np.concatenate([np.asarray(a, dtype=np.complex128) for a in amps_list])
+    worst = np.zeros(n)
     for corner in basis.diagram.corners:
         for a in range(3):
             ks, vs = [], []
@@ -198,13 +203,19 @@ def gauss_residual(basis: PhysicalBasis, keys, amps) -> float:
                 k2, v2 = apply_link_op(keys, amps, link, L[a] if role == "out" else R[a])
                 ks.append(k2)
                 vs.append(v2)
-            _, v = _coalesce(np.concatenate(ks), np.concatenate(vs))
-            worst = max(worst, float(np.linalg.norm(v)))
+            uk, v = _coalesce(np.concatenate(ks), np.concatenate(vs))
+            w = np.bincount(uk // _BASE ** _NL, weights=np.abs(v) ** 2, minlength=n)
+            worst = np.maximum(worst, np.sqrt(w))
     return worst
 
 
+def gauss_residual(basis: PhysicalBasis, keys, amps) -> float:
+    """max over corners c and a of || sum_{ends of c} G_a psi || (G = L for 'out', R for 'in', in basis.convention)."""
+    return float(gauss_residuals_coo(basis, [keys], [amps])[0])
+
+
 def gauss_residuals(basis) -> np.ndarray:
-    return np.array([gauss_residual(basis, k, a) for k, a in zip(basis.keys, basis.amps)])
+    return gauss_residuals_coo(basis, basis.keys, basis.amps)
 
 
 def _sparse_matrix(basis):

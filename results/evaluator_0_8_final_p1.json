@@ -1,0 +1,18 @@
+[
+ {
+  "check": "M1-P1 conditions on Paulo QPY (new tolerances)",
+  "expected": "ok, certified, acc<=1e-9, tolerances==tol, gauss<=2e-5",
+  "got": "ok=True reason=ok err=2.905e-06 leak=4.19e-12 dirty=1.12e-13 gauss=1.16e-10 read=0 method=inner_span eng=aer_mps t=107.7s certified=True acc=2e-10 gauss=1.160e-10 tolerances={'tol_err': 2e-05, 'tol_leak': 1e-09, 'tol_gauss': 2e-05}",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "M1-P1 inverse rejected",
+  "expected": "not ok, err>0.1",
+  "got": "error 1.819",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ }
+]

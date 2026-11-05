@@ -1,0 +1,162 @@
+[
+ {
+  "check": "dirty ancilla compute/uncompute (identity)",
+  "expected": "ok",
+  "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span eng=sparse t=10.5s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "p(th) on outer0.q_j vs diag(e^(i th [j_o0=1/2]))",
+  "expected": "ok",
+  "got": "ok=True reason=ok err=3.380e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=sparse t=1.0s",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "p(th) on outer0 vs I: one global phase, analytic err",
+  "expected": "0.397042028824 (phi=0.399697), n1=246",
+  "got": "0.397042028824 phase=0.399697 reason=error",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "p(th) on outer5.q_j vs diag(e^(i th [j_o5=1/2]))",
+  "expected": "ok",
+  "got": "ok=True reason=ok err=3.380e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=sparse t=1.0s",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "p(th) on outer5 vs I: one global phase, analytic err",
+  "expected": "0.397042028824 (phi=0.399697), n1=246",
+  "got": "0.397042028824 phase=0.399697 reason=error",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "outer p(th)+gphase(-th/2) vs diag(e^{i th(s-1/2)})",
+  "expected": "ok",
+  "got": "ok=True reason=ok err=3.500e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.71e-16 read=1 method=physical eng=sparse t=1.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "CZ(outer0.q_j, d2=q_j(b)) vs diag(-1 if j_b=j_o0=1/2)",
+  "expected": "ok",
+  "got": "ok=True reason=ok err=3.402e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=1 method=physical eng=sparse t=1.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "same vs I",
+  "expected": "fail error",
+  "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=1 method=physical eng=sparse t=1.1s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "phase on invalid code (q_j=0,q_m'=1) only",
+  "expected": "ok (don't-care)",
+  "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span eng=sparse t=2.3s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "  same, physical method",
+  "expected": "ok",
+  "got": "ok=True reason=ok err=3.402e-15 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=physical eng=sparse t=1.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "permutation of invalid codes only (001<->011)",
+  "expected": "ok",
+  "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=7.07e-01 read=0 method=inner_span eng=sparse t=2.4s",
+  "tol": "",
+  "ok": false,
+  "note": ""
+ },
+ {
+  "check": "X on q_m' of link b: valid->invalid for j=0 states",
+  "expected": "leak",
+  "got": "ok=False reason=leak err=2.000e+00 leak=1.00e+00 dirty=0.00e+00 gauss=1.00e+00 read=0 method=inner_span eng=sparse t=2.6s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "X on q_m,q_m' of link b",
+  "expected": "leak",
+  "got": "ok=False reason=leak err=2.000e+00 leak=1.00e+00 dirty=0.00e+00 gauss=1.00e+00 read=0 method=inner_span eng=sparse t=2.3s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "exact UE vs target with one row sign-flipped (state 217)",
+  "expected": "fail, failing_inputs=[217]",
+  "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=5.30e-16 read=0 method=physical eng=sparse t=1.0s fail=[(217, 1.9999999999999993)]",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "mcz on data==0 vs oracle A (Psi^dag D Psi) [independent]",
+  "expected": "err<=1e-12",
+  "got": "ok=True reason=ok err=9.993e-15 leak=0.00e+00 dirty=0.00e+00 gauss=nan read=0 method=physical eng=sparse t=0.4s",
+  "tol": "1e-12",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "  mcz on data==0 vs identity",
+  "expected": "fail; 16 states touched",
+  "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=5.41e-16 read=0 method=inner_span eng=sparse t=3.3s fail=[0, 8, 2, 4, 1, 14, 13, 7, 11, 9]",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "oracle A: CX(o0.q_j -> d0)",
+  "expected": "err<=1e-12",
+  "got": "ok=False reason=leak err=4.442e-15 leak=1.00e+00 dirty=0.00e+00 gauss=nan read=1 method=physical eng=sparse t=0.5s",
+  "tol": "1e-12",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "oracle A: CCX(o0.q_j,o3.q_j -> d5)",
+  "expected": "err<=1e-12",
+  "got": "ok=False reason=leak err=4.442e-15 leak=7.50e-01 dirty=0.00e+00 gauss=nan read=2 method=physical eng=sparse t=0.5s",
+  "tol": "1e-12",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "oracle A: CZ(o2.q_m,d4) + T(o2.q_m) + CP(0.6;o4.q_j,d7)",
+  "expected": "err<=1e-12",
+  "got": "ok=True reason=ok err=2.335e-15 leak=0.00e+00 dirty=0.00e+00 gauss=nan read=2 method=physical eng=sparse t=0.4s",
+  "tol": "1e-12",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "oracle A: mixed 5-gate permutation+phase circuit",
+  "expected": "err<=1e-12",
+  "got": "ok=False reason=leak err=5.743e-16 leak=9.37e-01 dirty=0.00e+00 gauss=nan read=3 method=physical eng=sparse t=0.6s",
+  "tol": "1e-12",
+  "ok": true,
+  "note": ""
+ }
+]

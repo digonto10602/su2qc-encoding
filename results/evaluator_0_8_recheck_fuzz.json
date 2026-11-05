@@ -1,0 +1,154 @@
+[
+ {
+  "check": "register-order fuzz: outer_phase_UE",
+  "expected": "identical verdict+numbers over 24 orders",
+  "got": "reason ['ok'] ref [3e-15, 0.0, 0.0, 1e-15] mismatches 0",
+  "tol": "1e-9 rel",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "register-order fuzz: outer_phase_wrongtarget",
+  "expected": "identical verdict+numbers over 24 orders",
+  "got": "reason ['error'] ref [0.685795614910903, 0.0, 0.0, 1e-15] mismatches 0",
+  "tol": "1e-9 rel",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "register-order fuzz: cz_outer_inner",
+  "expected": "identical verdict+numbers over 24 orders",
+  "got": "reason ['ok'] ref [3e-15, 0.0, 0.0, 1e-15] mismatches 0",
+  "tol": "1e-9 rel",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "register-order fuzz: ancilla_uncompute",
+  "expected": "identical verdict+numbers over 24 orders",
+  "got": "reason ['ok'] ref [1.21e-13, 0.0, 0.0, 1e-15] mismatches 0",
+  "tol": "1e-9 rel",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "register-order fuzz: dirty_b",
+  "expected": "identical verdict+numbers over 24 orders",
+  "got": "reason ['dirty_ancilla'] ref [1.000000000000061, 1.0, 1.0, 0.0] mismatches 0",
+  "tol": "1e-9 rel",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "register-order fuzz: writes_outer",
+  "expected": "identical verdict+numbers over 24 orders",
+  "got": "reason ['writes_outer'] ref [inf, inf, inf, 0.0] mismatches 23",
+  "tol": "1e-9 rel",
+  "ok": false,
+  "note": ""
+ },
+ {
+  "check": "register-order fuzz: oracle_cx",
+  "expected": "identical verdict+numbers over 24 orders",
+  "got": "reason ['leak'] ref [4e-15, 1.0, 0.0, 0.0] mismatches 0",
+  "tol": "1e-9 rel",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "register-order fuzz: UE_only",
+  "expected": "identical verdict+numbers over 24 orders",
+  "got": "reason ['ok'] ref [1.21e-13, 0.0, 0.0, 1e-15] mismatches 0",
+  "tol": "1e-9 rel",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "fuzz expected reason outer_phase_UE",
+  "expected": "ok",
+  "got": "['ok']",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "fuzz expected reason outer_phase_wrongtarget",
+  "expected": "error",
+  "got": "['error']",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "fuzz expected reason cz_outer_inner",
+  "expected": "ok",
+  "got": "['ok']",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "fuzz expected reason ancilla_uncompute",
+  "expected": "ok",
+  "got": "['ok']",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "fuzz expected reason dirty_b",
+  "expected": "dirty_ancilla",
+  "got": "['dirty_ancilla']",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "fuzz expected reason writes_outer",
+  "expected": "writes_outer",
+  "got": "['writes_outer']",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "fuzz expected reason UE_only",
+  "expected": "ok",
+  "got": "['ok']",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "no named registers (first 12 = data, rest ancilla)",
+  "expected": "ok",
+  "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.30e-16 read=0 method=inner_span eng=sparse t=2.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "bad layout overlap",
+  "expected": "ValueError",
+  "got": "ValueError overlap not constructible with standard registers (skipped)",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "bad layout dsize",
+  "expected": "ValueError",
+  "got": "ValueError register 'd' must have 12 qubits, has 11",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "bad layout osize",
+  "expected": "ValueError",
+  "got": "ValueError register 'o' must have 16 qubits, has 15",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ }
+]

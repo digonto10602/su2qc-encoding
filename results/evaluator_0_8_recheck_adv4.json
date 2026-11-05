@@ -1,0 +1,186 @@
+[
+ {
+  "check": "UB is complex-symmetric so UB^T == UB (earlier 'UB^T accepted' is not a bug)",
+  "expected": "||UB-UB^T||=0",
+  "got": "2.22e-16",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "FALSE-ACCEPT probe: layout d,a(2),o; p on o[1] (=link0.q_j) vs diag(j_o1)",
+  "expected": "fail (wrong link)",
+  "got": "ok=False reason=error err=6.858e-01 leak=0.00e+00 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=sparse t=1.4s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "Gauss residual of exact embedded states, CG decode WITH V_P signs",
+  "expected": "<=1e-10",
+  "got": "5.41e-16",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "  same WITHOUT the V_P signs (sensitivity of the check)",
+  "expected": ">0.1",
+  "got": "5.41e-16",
+  "tol": "",
+  "ok": false,
+  "note": ""
+ },
+ {
+  "check": "D.UB.D (V_P sign-conjugated UB) vs target UB",
+  "expected": "fail; Gauss violated",
+  "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=6.18e-16 read=0 method=inner_span eng=sparse t=29.7s",
+  "tol": "",
+  "ok": false,
+  "note": ""
+ },
+ {
+  "check": "identity circuit vs outer-dependent diag target (inner-unrealisable)",
+  "expected": "fail in both",
+  "got": "span error 2.992e-01 | phys error 3.970e-01",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "span-leak probe crx(1e-05) [physical,gauss=True | physical,gauss=False | inner_span,gauss=False]",
+  "expected": "all three should reject if error>1e-10",
+  "got": "gauss(1.25e-11,g=5.0e-06) | ok(1.25e-11, span_leak=2.5e-11) | error(5.00e-06)",
+  "tol": "",
+  "ok": true,
+  "note": "gauss=False physical => ACCEPTED"
+ },
+ {
+  "check": "span-leak probe crx(0.001) [physical,gauss=True | physical,gauss=False | inner_span,gauss=False]",
+  "expected": "all three should reject if error>1e-10",
+  "got": "error(1.25e-07,g=5.0e-04) | error(1.25e-07, span_leak=2.5e-07) | error(5.00e-04)",
+  "tol": "",
+  "ok": true,
+  "note": "gauss=False physical => rejected"
+ },
+ {
+  "check": "UE angle perturbation delta=0.001",
+  "expected": "span err 2.485e-03 / phys 2.485e-03",
+  "got": "span 2.485e-03 (error) / phys 2.485e-03 (error)",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "UE angle perturbation delta=1e-06",
+  "expected": "span err 2.485e-06 / phys 2.485e-06",
+  "got": "span 2.485e-06 (error) / phys 2.485e-06 (error)",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "UE angle perturbation delta=1e-09",
+  "expected": "span err 2.485e-09 / phys 2.485e-09",
+  "got": "span 2.485e-09 (error) / phys 2.485e-09 (error)",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "UE angle perturbation delta=3e-10",
+  "expected": "span err 7.455e-10 / phys 7.455e-10",
+  "got": "span 7.455e-10 (error) / phys 7.455e-10 (error)",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "UE angle perturbation delta=1e-10",
+  "expected": "span err 2.485e-10 / phys 2.485e-10",
+  "got": "span 2.485e-10 (error) / phys 2.485e-10 (error)",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "UE angle perturbation delta=3e-11",
+  "expected": "span err 7.455e-11 / phys 7.455e-11",
+  "got": "span 7.455e-11 (ok) / phys 7.455e-11 (ok)",
+  "tol": "1e-10",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "measure",
+  "expected": "reject (disallowed_gate)",
+  "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "reset",
+  "expected": "reject",
+  "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "unbound parameter",
+  "expected": "reject/raise",
+  "got": "EXC TypeError: Parameter expression with unbound parameters {Standalone { name: \"x\", uuid: 4339",
+  "tol": "",
+  "ok": true,
+  "note": "raised"
+ },
+ {
+  "check": "mcx 3 controls",
+  "expected": "disallowed_gate",
+  "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "mcx hidden in custom gate",
+  "expected": "disallowed_gate",
+  "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "mcx hidden 2 levels deep",
+  "expected": "disallowed_gate",
+  "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "C3XGate",
+  "expected": "disallowed_gate",
+  "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "RC3XGate (relative-phase)",
+  "expected": "(informational)",
+  "got": "ok=False reason=dirty_ancilla err=1.000e+00 leak=2.50e-01 dirty=2.50e-01 gauss=3.54e-01 read=0 method=inner_span eng=sparse t=2.1s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "MCXGrayCode(4)",
+  "expected": "disallowed or exact",
+  "got": "ok=False reason=disallowed_gate err=inf leak=inf dirty=inf gauss=nan read=0 method=auto eng=auto t=0.0s",
+  "tol": "",
+  "ok": true,
+  "note": "informational"
+ }
+]

@@ -1,0 +1,186 @@
+[
+ {
+  "check": "synth_tolerances(14,1e-06)",
+  "expected": "{'tol_err': 1.4001e-05, 'tol_leak': 1.97e-10, 'tol_gauss': 1.4001e-05}",
+  "got": "{'tol_err': 1.4001e-05, 'tol_leak': 1.97e-10, 'tol_gauss': 1.4001e-05}",
+  "tol": "exact",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "synth_tolerances(4,1e-06)",
+  "expected": "{'tol_err': 4.0009999999999995e-06, 'tol_leak': 1.7e-11, 'tol_gauss': 4.0009999999999995e-06}",
+  "got": "{'tol_err': 4.0009999999999995e-06, 'tol_leak': 1.7e-11, 'tol_gauss': 4.0009999999999995e-06}",
+  "tol": "exact",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "synth_tolerances(18,1e-06)",
+  "expected": "{'tol_err': 1.8001e-05, 'tol_leak': 3.25e-10, 'tol_gauss': 1.8001e-05}",
+  "got": "{'tol_err': 1.8001e-05, 'tol_leak': 3.25e-10, 'tol_gauss': 1.8001e-05}",
+  "tol": "exact",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "synth_tolerances(16,0.0001)",
+  "expected": "{'tol_err': 0.001600001, 'tol_leak': 2.560001e-06, 'tol_gauss': 0.001600001}",
+  "got": "{'tol_err': 0.001600001, 'tol_leak': 2.560001e-06, 'tol_gauss': 0.001600001}",
+  "tol": "exact",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "synth_tolerances(0,1e-06)",
+  "expected": "{'tol_err': 1e-09, 'tol_leak': 1e-12, 'tol_gauss': 1e-09}",
+  "got": "{'tol_err': 1e-09, 'tol_leak': 1e-12, 'tol_gauss': 1e-09}",
+  "tol": "exact",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "TOL_GAUSS default",
+  "expected": "1e-10",
+  "got": "1e-10",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "early exit writes_outer default: tolerances recorded",
+  "expected": "{'tol_err': 1e-10, 'tol_leak': 1e-12, 'tol_gauss': 1e-10}",
+  "got": "{'tol_err': 1e-10, 'tol_leak': 1e-12, 'tol_gauss': 1e-10}",
+  "tol": "",
+  "ok": true,
+  "note": "reason writes_outer"
+ },
+ {
+  "check": "early exit writes_outer custom: tolerances recorded",
+  "expected": "{'tol_err': 3e-05, 'tol_leak': 2e-09, 'tol_gauss': 7e-06}",
+  "got": "{'tol_err': 3e-05, 'tol_leak': 2e-09, 'tol_gauss': 7e-06}",
+  "tol": "",
+  "ok": true,
+  "note": "reason writes_outer"
+ },
+ {
+  "check": "early exit disallowed_gate, tol_gauss None: tolerances recorded",
+  "expected": "{'tol_err': 1e-06, 'tol_leak': 1e-12, 'tol_gauss': 1e-10}",
+  "got": "{'tol_err': 1e-06, 'tol_leak': 1e-12, 'tol_gauss': 1e-10}",
+  "tol": "",
+  "ok": true,
+  "note": "reason disallowed_gate"
+ },
+ {
+  "check": "early exit unsimulable: tolerances recorded",
+  "expected": "{'tol_err': 1e-10, 'tol_leak': 1e-12, 'tol_gauss': 1e-10}",
+  "got": "{'tol_err': 1e-10, 'tol_leak': 1e-12, 'tol_gauss': 1e-10}",
+  "tol": "",
+  "ok": true,
+  "note": "reason unsimulable"
+ },
+ {
+  "check": "ok verdict tolerances default",
+  "expected": "{'tol_err': 1e-10, 'tol_leak': 1e-12, 'tol_gauss': 1e-10}",
+  "got": "{'tol_err': 1e-10, 'tol_leak': 1e-12, 'tol_gauss': 1e-10}",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "tol_gauss override recorded",
+  "expected": "3e-07",
+  "got": "3e-07",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "gauss reason uses effective tol: crx(2e-08) residual 1.000e-08",
+  "expected": "default fail(gauss), loose pass, tighter fail, edge: pass at r(1+1e-6), fail at r(1-1e-6)",
+  "got": "default gauss; tol 2e-07: ok; tol 2e-09: gauss; edge ok/gauss; err 3.2e-15; failing [(432, 1.0000000000000086e-08)]",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "gauss reason uses effective tol: crx(2e-09) residual 1.000e-09",
+  "expected": "default fail(gauss), loose pass, tighter fail, edge: pass at r(1+1e-6), fail at r(1-1e-6)",
+  "got": "default gauss; tol 2e-08: ok; tol 2e-10: gauss; edge ok/gauss; err 3.2e-15; failing [(386, 1.0000000000001438e-09)]",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps certified: tol 1e-9/1e-9, gauss default 1e-10",
+  "expected": "False",
+  "got": "certified=False ok=True acc=2e-10",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps certified: tol 1e-9 x3",
+  "expected": "True",
+  "got": "certified=True ok=True acc=2e-10",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps certified: tol 1e-9 x2, gauss=False (gauss tol default ignored)",
+  "expected": "True",
+  "got": "certified=True ok=True acc=2e-10",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps certified: default tols",
+  "expected": "False",
+  "got": "certified=False ok=True acc=2e-10",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps certified: synth(14,1e-6)",
+  "expected": "False",
+  "got": "certified=False ok=True acc=2e-10",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps certified: synth(18,1e-6)",
+  "expected": "True",
+  "got": "certified=True ok=True acc=2e-10",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps certified: synth(4,1e-6)",
+  "expected": "False",
+  "got": "certified=False ok=True acc=2e-10",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps certified: P1 tol dict 2e-5/1e-9/2e-5",
+  "expected": "True",
+  "got": "certified=True ok=True acc=2e-10",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "sparse certified at synth(14,1e-6)",
+  "expected": "True",
+  "got": "True",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ }
+]

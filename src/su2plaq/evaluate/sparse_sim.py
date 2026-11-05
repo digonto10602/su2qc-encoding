@@ -129,18 +129,42 @@ def _to_ops(t, ops):
         ops.append((name, qs, payload))
 
 
+def _reject_wide_mcx(circ, _depth=0):
+    """Reject native mcx with >= 3 controls, also inside custom/composite gates (recurses into `op.definition` of every
+    gate whose name is not a standard-library name)."""
+    from qiskit.circuit.library.standard_gates import get_standard_gate_name_mapping
+
+    standard = _standard_names(get_standard_gate_name_mapping)
+    for inst in circ.data:
+        op = inst.operation
+        if op.name.startswith("mcx") and getattr(op, "num_ctrl_qubits", op.num_qubits - 1) >= 3:
+            raise ValueError(
+                f"{op.name} with {getattr(op, 'num_ctrl_qubits', op.num_qubits - 1)} controls is not accepted: Qiskit's "
+                "transpile may use idle qubits as clean ancillas and silently change the operator; build it from "
+                "ccx/rccx on explicit ancillas")
+        if op.name not in standard and op.name != "barrier" and _depth < 20:
+            d = getattr(op, "definition", None)
+            if d is not None:
+                _reject_wide_mcx(d, _depth + 1)
+
+
+_STD = None
+
+
+def _standard_names(getter):
+    global _STD
+    if _STD is None:
+        _STD = set(getter().keys()) | set(SIM_BASIS)
+    return _STD
+
+
 def _translate(qc):
     """Gate list [(name, qubits, payload)] over SIM_BASIS (level 0, no optimisation) and the global phase.
     Circuits already in SIM_BASIS are used as they are; otherwise the circuit is transpiled (or, if it holds a
     'unitary' gate, each foreign instruction is transpiled on its own so that 'unitary' is kept)."""
     from qiskit import QuantumCircuit, transpile
 
-    for inst in qc.data:
-        op = inst.operation
-        if op.name.startswith("mcx") and getattr(op, "num_ctrl_qubits", op.num_qubits - 1) >= 3:
-            raise ValueError(
-                f"{op.name} with {op.num_ctrl_qubits} controls is not accepted: Qiskit's transpile may use idle qubits "
-                "as clean ancillas and silently change the operator; build it from ccx/rccx on explicit ancillas")
+    _reject_wide_mcx(qc)
     foreign = [i for i in qc.data if i.operation.name not in SIM_BASIS and i.operation.name != "barrier"]
     ops: list = []
     if not foreign:
@@ -224,6 +248,9 @@ def run_batch(qc, inputs: np.ndarray, cap: int = 5_000_000) -> Batch:
                 nk.append(base[nz] | pat)
                 nc.append(cols[nz])
                 na.append(coef[nz] * amps[nz])
+            if not nk:  # every branch has zero coefficient (cannot happen for unitary gates) or the state is empty
+                keys, cols, amps = keys[:0], cols[:0], amps[:0]
+                continue
             keys, cols, amps = _coalesce(np.concatenate(nk), np.concatenate(nc), np.concatenate(na), n, n_cols, dropped)
             if len(keys) > cap:
                 raise SimCapExceeded(f"more than {cap} stored amplitudes after gate #{gi} ({name} on {qs})")

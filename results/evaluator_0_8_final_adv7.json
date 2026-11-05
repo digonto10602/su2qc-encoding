@@ -1,0 +1,10 @@
+[
+ {
+  "check": "gauss_residuals_coo vs gauss_residual (20 exact-phase + 20 noisy states)",
+  "expected": "<=1e-13",
+  "got": "max diff 0.00e+00; max noisy residual 0.967",
+  "tol": "1e-13",
+  "ok": true,
+  "note": ""
+ }
+]

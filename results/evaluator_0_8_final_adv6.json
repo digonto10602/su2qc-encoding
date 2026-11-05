@@ -1,0 +1,106 @@
+[
+ {
+  "check": "decode_state(physical_vectors) == CG basis amplitudes exactly",
+  "expected": "<=1e-14",
+  "got": "0.00e+00",
+  "tol": "1e-14",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "V_P sign product constant on support of every physical state (=> Gauss residual blind to V_P for in-span outputs)",
+  "expected": "True",
+  "got": "True; states with s=-1: 188/433",
+  "tol": "",
+  "ok": true,
+  "note": "informational"
+ },
+ {
+  "check": "aer_mps UE default tol: engine/acc/certified",
+  "expected": "engine aer_mps, acc 2e-10, certified False",
+  "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.42e-16 read=0 method=inner_span eng=aer_mps t=14.6s acc=2e-10 certified=False ok=True",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps UE tol 1e-8: certified",
+  "expected": "True",
+  "got": "ok=True reason=ok err=1.207e-13 leak=0.00e+00 dirty=0.00e+00 gauss=5.42e-16 read=0 method=inner_span eng=aer_mps t=5.4s certified=False",
+  "tol": "",
+  "ok": false,
+  "note": ""
+ },
+ {
+  "check": "sparse: engine_accuracy 0, certified True",
+  "expected": "0,True",
+  "got": "acc=0.0 cert=True drop=0.0",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps rejects: Z data",
+  "expected": "error",
+  "got": "ok=False reason=error err=2.000e+00 leak=0.00e+00 dirty=0.00e+00 gauss=1.00e+00 read=0 method=inner_span eng=aer_mps t=6.2s",
+  "tol": "",
+  "ok": true,
+  "note": "reason error"
+ },
+ {
+  "check": "aer_mps rejects: X ancilla",
+  "expected": "dirty_ancilla",
+  "got": "ok=False reason=dirty_ancilla err=1.000e+00 leak=1.00e+00 dirty=1.00e+00 gauss=0.00e+00 read=0 method=inner_span eng=aer_mps t=5.4s",
+  "tol": "",
+  "ok": true,
+  "note": "reason dirty_ancilla"
+ },
+ {
+  "check": "aer_mps rejects: UE wrong sign",
+  "expected": "error",
+  "got": "ok=False reason=error err=1.281e+00 leak=0.00e+00 dirty=0.00e+00 gauss=5.42e-16 read=0 method=inner_span eng=aer_mps t=6.2s",
+  "tol": "",
+  "ok": true,
+  "note": "reason error"
+ },
+ {
+  "check": "aer_mps outer-read correct (2 blocks)",
+  "expected": "ok, err~1e-10",
+  "got": "ok=True reason=ok err=3.380e-15 leak=2.22e-16 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=aer_mps t=7.2s acc=2e-10 cert=False",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "aer_mps outer-read wrong target",
+  "expected": "fail",
+  "got": "ok=False reason=error err=3.970e-01 leak=2.22e-16 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=aer_mps t=6.6s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "engine=auto with tiny cap: fallback to aer_mps",
+  "expected": "engine aer_mps",
+  "got": "ok=True reason=ok err=3.380e-15 leak=2.22e-16 dirty=0.00e+00 gauss=5.34e-16 read=1 method=physical eng=aer_mps t=5.3s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "engine=sparse with tiny cap",
+  "expected": "unsimulable verdict",
+  "got": "ok=False reason=unsimulable err=inf leak=inf dirty=inf gauss=nan read=1 method=physical eng=sparse t=0.0s",
+  "tol": "",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "check": "sparse vs aer_mps op_norm_error on UE(delta=1e-3)",
+  "expected": "diff<=1e-9",
+  "got": "2.484987878079e-03 vs 2.484987878079e-03 diff 4.9e-17",
+  "tol": "1e-09",
+  "ok": true,
+  "note": ""
+ }
+]

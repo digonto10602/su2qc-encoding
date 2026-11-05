@@ -29,6 +29,15 @@ def _prep(qc: QuantumCircuit, x: int) -> QuantumCircuit:
     return circ
 
 
+def _prep_all(qc: QuantumCircuit, sim, inputs, save):
+    """Aer-native circuits for all inputs; the circuit is transpiled once (not once per input)."""
+    base = transpile(qc, sim, optimization_level=0)
+    for x in inputs:
+        c = _prep(base, x)
+        save(c)
+        yield c
+
+
 def _valid_codes(codes, code_mask):
     codes = np.asarray(codes, dtype=np.int64)
     return codes, (codes & ~np.int64(code_mask)) == 0
@@ -46,11 +55,7 @@ def aer_statevector_block(qc, inputs: np.ndarray, codes: np.ndarray, code_mask: 
     leak = np.zeros(len(inputs))
     chunk = max(1, 2 ** 22 // 2 ** n)
     for s0 in range(0, len(inputs), chunk):
-        circs = []
-        for x in inputs[s0:s0 + chunk]:
-            c = _prep(qc, x)
-            c.save_statevector(label="sv")
-            circs.append(transpile(c, sim, optimization_level=0))
+        circs = list(_prep_all(qc, sim, inputs[s0:s0 + chunk], lambda c: c.save_statevector(label="sv")))
         res = sim.run(circs).result()
         for i in range(len(circs)):
             sv = np.asarray(res.data(i)["sv"], dtype=np.complex128)
@@ -78,11 +83,29 @@ def _contract(mps, ints: np.ndarray, n: int) -> np.ndarray:
     return vec[:, 0]
 
 
+def _outside_weight(mps, n: int, pinned: list[int]) -> float:
+    """Weight of the MPS state with every qubit in `pinned` equal to 0 (transfer matrices; other qubits summed)."""
+    gammas, lambdas = mps
+    T = np.ones((1, 1), dtype=np.complex128)
+    for q in range(n):
+        g = [np.asarray(x, dtype=np.complex128) for x in gammas[q]]
+        if q < len(lambdas):
+            lam = np.asarray(lambdas[q], dtype=np.float64)
+            g = [x * lam[None, :] for x in g]
+        if q in pinned:
+            T = g[0].conj().T @ T @ g[0]
+        else:
+            T = g[0].conj().T @ T @ g[0] + g[1].conj().T @ T @ g[1]
+    return float(T[0, 0].real)
+
+
 def aer_mps_block(qc, inputs: np.ndarray, codes: np.ndarray, code_mask: int, bond_dim: int | None = None) -> tuple[np.ndarray, np.ndarray, dict]:
     """Per-input MPS run (truncation threshold 0, i.e. no deliberate truncation; `bond_dim` caps the bond dimension if
     given).  Accuracy is that of Aer's MPS (~1e-10 vs an exact simulator, see module docstring).
 
-    Returns (M, leak, {"max_bond_dim", "seconds"}).  The MPS amplitudes are read only on the requested codes, so
+    Returns (M, leak, {"max_bond_dim", "seconds", "outside_weight"}); `outside_weight[col]` is the weight of the output with
+    any qubit outside `code_mask` set (ancilla bits; contracted from the MPS), the part of the leak that sparse_sim
+    reports as dirty-ancilla weight.  The MPS amplitudes are read only on the requested codes, so
     leak is the derived quantity 1 - sum_codes |M|^2 (the saved MPS is normalised); it is NOT the sum of out-of-code
     weights computed directly."""
     n = qc.num_qubits
@@ -96,11 +119,13 @@ def aer_mps_block(qc, inputs: np.ndarray, codes: np.ndarray, code_mask: int, bon
     M = np.zeros((len(codes), len(inputs)), dtype=np.complex128)
     leak = np.zeros(len(inputs))
     max_bond = 1
-    for col, x in enumerate(inputs):
-        c = _prep(qc, x)
-        c.save_matrix_product_state(label="mps")
-        mps = sim.run(transpile(c, sim, optimization_level=0)).result().data()["mps"]
+    pinned = [q for q in range(n) if not (int(code_mask) >> q) & 1]
+    outside = np.zeros(len(inputs))
+    circs = _prep_all(qc, sim, inputs, lambda c: c.save_matrix_product_state(label="mps"))
+    for col, c in enumerate(circs):
+        mps = sim.run(c).result().data()["mps"]
         max_bond = max([max_bond] + [int(np.asarray(l).shape[0]) for l in mps[1]])
         M[ok, col] = _contract(mps, codes[ok], n)
+        outside[col] = max(0.0, 1.0 - _outside_weight(mps, n, pinned))
         leak[col] = max(0.0, 1.0 - float(np.sum(np.abs(M[:, col]) ** 2)))
-    return M, leak, {"max_bond_dim": max_bond, "seconds": time.time() - t0}
+    return M, leak, {"max_bond_dim": max_bond, "seconds": time.time() - t0, "outside_weight": outside}

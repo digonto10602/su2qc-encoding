@@ -1,0 +1,101 @@
+[
+ {
+  "name": "identity",
+  "span": 1.2068073815627953e-13,
+  "phys": 3.4024025397046025e-15,
+  "ok_span": true,
+  "ok_phys": true,
+  "reason": [
+   "ok",
+   "ok"
+  ]
+ },
+ {
+  "name": "UE",
+  "span": 1.206819431111926e-13,
+  "phys": 3.2509699194571052e-15,
+  "ok_span": true,
+  "ok_phys": true,
+  "reason": [
+   "ok",
+   "ok"
+  ]
+ },
+ {
+  "name": "UB unitary",
+  "span": 1.206806781080497e-13,
+  "phys": 3.401512617080965e-15,
+  "ok_span": true,
+  "ok_phys": true,
+  "reason": [
+   "ok",
+   "ok"
+  ]
+ },
+ {
+  "name": "UB.UE",
+  "span": 1.2068187984195303e-13,
+  "phys": 3.249712502956721e-15,
+  "ok_span": true,
+  "ok_phys": true,
+  "reason": [
+   "ok",
+   "ok"
+  ]
+ },
+ {
+  "name": "UB vs wrong beta",
+  "span": 0.2195566016743495,
+  "phys": 0.21955660167434948,
+  "ok_span": false,
+  "ok_phys": false,
+  "reason": [
+   "error",
+   "error"
+  ]
+ },
+ {
+  "name": "UE wrong sign",
+  "span": 1.2814484184086279,
+  "phys": 1.2814484184086277,
+  "ok_span": false,
+  "ok_phys": false,
+  "reason": [
+   "error",
+   "error"
+  ]
+ },
+ {
+  "name": "Z data",
+  "span": 2.000000000000004,
+  "phys": 1.0000000000000004,
+  "ok_span": false,
+  "ok_phys": false,
+  "reason": [
+   "error",
+   "error"
+  ]
+ },
+ {
+  "name": "diag p/cp network",
+  "span": 1.2069372785278684e-13,
+  "phys": 2.9670329514404548e-15,
+  "ok_span": true,
+  "ok_phys": true,
+  "reason": [
+   "ok",
+   "ok"
+  ]
+ },
+ {
+  "name": "diag network vs I",
+  "span": 0.9243524256186413,
+  "phys": 0.9243524256185828,
+  "ok_span": false,
+  "ok_phys": false,
+  "reason": [
+   "error",
+   "error"
+  ]
+ }
+]
