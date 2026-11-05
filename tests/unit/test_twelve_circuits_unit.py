@@ -95,3 +95,49 @@ def test_build_UB_equals_inner_target_and_paulo_logical(enc):
     for M in blocks:
         ov = np.trace(V.conj().T @ M)
         assert np.linalg.norm(M - ov / abs(ov) * V, 2) < 1e-10
+
+
+# ---------------------------------------------------------------- step and Paulo's compiled circuit
+def test_build_step_structure_skeleton_and_order(enc):
+    from su2plaq.circuits.twelve import build_step, build_UB
+
+    s1, s2 = build_step(0.37, 0.61, order=1), build_step(0.37, 0.61, order=2)
+    ub = build_UB(0.61)
+    assert [r.name for r in s1.qregs] == [r.name for r in ub.qregs] and s1.num_qubits == 34
+    assert {i.operation.name for i in s1.data} <= ALLOWED | {"p"}
+    assert _skeleton(s1)[:4] == [("p", (q,)) for q in (2, 5, 8, 11)]        # electric layer first
+    assert _skeleton(s1)[4:] == _skeleton(ub)
+    k = len(_skeleton(ub))
+    assert _skeleton(s2)[:4] == _skeleton(s2)[4 + k:] == [("p", (q,)) for q in (2, 5, 8, 11)]
+    assert abs(s2.data[0].operation.params[0] + 0.75 * 0.37 / 2) < 1e-15
+    assert _skeleton(build_step(1.7, 1.0, order=1)) == _skeleton(s1) and _skeleton(build_step(1.7, 1.0, order=2)) == _skeleton(s2)
+    assert s1.metadata == {"kind": "step", "alpha": 0.37, "beta": 0.61, "order": 1}
+    so = build_step(0.37, 0.61, with_outer=True)
+    assert [r.name for r in so.qregs][:2] == ["d", "o"] and so.num_qubits == 50
+    with pytest.raises(ValueError):
+        build_step(0.1, 0.1, order=3)
+
+
+@pytest.mark.parametrize("order", [1, 2])
+def test_build_step_matches_target(enc, order):
+    from su2plaq.circuits.twelve import build_step
+
+    v = ev.evaluate(build_step(0.37, 0.61, order=order), enc, enc.target("step", 0.37, 0.61, order=order))
+    assert v.ok and v.certified and v.engine == "sparse"
+    other = 3 - order
+    v2 = ev.evaluate(build_step(0.37, 0.61, order=order), enc, enc.target("step", 0.37, 0.61, order=other), gauss=False)
+    assert not v2.ok
+
+
+def test_paulo_circuit_loads_with_registers_and_embeds_in_our_layout(enc):
+    from su2plaq.circuits.twelve import paulo_circuit
+
+    qc = paulo_circuit()
+    assert qc.num_qubits == 34 and [(r.name, len(r)) for r in qc.qregs] == [("d", 12), ("p", 4), ("e", 4), ("w", 7), ("g", 3), ("tmp", 3), ("h", 1)]
+    ops = qc.count_ops()
+    assert ops["cx"] == 294 and ops["t"] + ops["tdg"] == 1162
+    qo = paulo_circuit(with_outer=True)
+    assert qo.num_qubits == 50 and [r.name for r in qo.qregs][:2] == ["d", "o"] and dict(qo.count_ops()) == dict(ops)
+    assert all(qo.find_bit(q).index < 12 or qo.find_bit(q).index >= 28 for i in qo.data for q in i.qubits)
+    lay = enc.layout_of(qo)
+    assert lay.outer == list(range(12, 28)) and lay.ancilla == list(range(28, 50))

@@ -215,7 +215,21 @@ def build_UB(beta: float, with_outer: bool = False):
 
 
 def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = False):
-    todo("build_step")
+    """One Trotter step with the electric layer acting first: order 1 = U_B(beta) U_E(alpha) (circuit: U_E then U_B);
+    order 2 = U_E(alpha/2) U_B(beta) U_E(alpha/2).  Registers as build_UB (d, [o], p e w g tmp h); the gate skeleton does not
+    depend on the angles.  Metadata {"kind": "step", "alpha", "beta", "order"}."""
+    if order not in (1, 2):
+        raise ValueError(f"order must be 1 or 2, got {order}")
+    ub = build_UB(beta, with_outer=with_outer)
+    step = ub.copy_empty_like(name="step")
+    data = list(range(N_DATA))
+    first = build_UE(alpha if order == 1 else alpha / 2)
+    step.compose(first, qubits=data, inplace=True)
+    step.compose(ub, inplace=True)
+    if order == 2:
+        step.compose(build_UE(alpha / 2), qubits=data, inplace=True)
+    step.metadata = {"kind": "step", "alpha": alpha, "beta": beta, "order": order}
+    return step
 
 
 def paulo_logical(beta: float = 1.0):
@@ -224,5 +238,23 @@ def paulo_logical(beta: float = 1.0):
     return _paulo_ub(beta, False, native_mcrx=True)
 
 
-def paulo_circuit():
-    todo("paulo_circuit")
+def paulo_circuit(with_outer: bool = False):
+    """Paulo's compiled Clifford+T circuit (refs/paulo/SU2_plaquette_jmax_half_CT.qpy: dt = g = 1, i.e. beta = 1, kind UB;
+    34 qubits, registers d p e w g tmp h as in the notebook).  With `with_outer` the circuit is embedded into our layout
+    d, o, ancillas through `TwelveQubit.import_map("paulo34")["qubit_map"]` (the outer register stays idle)."""
+    import pathlib
+
+    from qiskit import QuantumCircuit, QuantumRegister, qpy
+
+    path = pathlib.Path(__file__).resolve().parents[3] / "refs" / "paulo" / "SU2_plaquette_jmax_half_CT.qpy"
+    with open(path, "rb") as fh:
+        src = qpy.load(fh)[0]
+    if not with_outer:
+        return src
+    from su2plaq.encodings.twelve import TwelveQubit
+
+    qmap = TwelveQubit().import_map("paulo34")["qubit_map"]
+    regs = [QuantumRegister(N_DATA, "d"), QuantumRegister(N_OUTER, "o")] + [QuantumRegister(len(r), r.name) for r in src.qregs[1:]]
+    out = QuantumCircuit(*regs, name=src.name, global_phase=src.global_phase)
+    out.compose(src, qubits=qmap, inplace=True)
+    return out

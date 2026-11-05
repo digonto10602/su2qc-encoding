@@ -1,0 +1,166 @@
+{
+ "commit": "4e25639+uncommitted",
+ "res": {
+  "plain": {
+   "qubits": 34,
+   "cx": 294,
+   "T": 1162,
+   "regs": [
+    [
+     "d",
+     12
+    ],
+    [
+     "p",
+     4
+    ],
+    [
+     "e",
+     4
+    ],
+    [
+     "w",
+     7
+    ],
+    [
+     "g",
+     3
+    ],
+    [
+     "tmp",
+     3
+    ],
+    [
+     "h",
+     1
+    ]
+   ],
+   "gates": {
+    "h": 1155,
+    "t": 1027,
+    "s": 504,
+    "cx": 294,
+    "tdg": 135,
+    "sdg": 92
+   },
+   "depth": 2549,
+   "global_phase": 2.1316282072803006e-14,
+   "used_qubits_n": 34,
+   "outer_touched": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "verdict": {
+    "ok": true,
+    "certified": true,
+    "engine": "aer_mps",
+    "method": "inner_span",
+    "op_norm_error": 1.0755862938695349e-05,
+    "block": 2.904793858178439e-06,
+    "leak": 7.85106908051691e-06,
+    "gauss": 1.1599838873241755e-10,
+    "max_leak": 6.163928570704862e-11,
+    "dirty": 8.770430021764386e-20,
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "tolerances": {
+     "tol_err": 2e-05,
+     "tol_gauss": 2e-05
+    },
+    "sec": 84.43167996406555
+   },
+   "inverse_target": {
+    "ok": false,
+    "op_norm_error": 1.8186029402229817
+   }
+  },
+  "with_outer": {
+   "qubits": 50,
+   "cx": 294,
+   "T": 1162,
+   "regs": [
+    [
+     "d",
+     12
+    ],
+    [
+     "o",
+     16
+    ],
+    [
+     "p",
+     4
+    ],
+    [
+     "e",
+     4
+    ],
+    [
+     "w",
+     7
+    ],
+    [
+     "g",
+     3
+    ],
+    [
+     "tmp",
+     3
+    ],
+    [
+     "h",
+     1
+    ]
+   ],
+   "gates": {
+    "h": 1155,
+    "t": 1027,
+    "s": 504,
+    "cx": 294,
+    "tdg": 135,
+    "sdg": 92
+   },
+   "depth": 2549,
+   "global_phase": 4.263256414560601e-14,
+   "used_qubits_n": 34,
+   "outer_touched": [],
+   "verdict": {
+    "ok": true,
+    "certified": true,
+    "engine": "aer_mps",
+    "method": "inner_span",
+    "op_norm_error": 1.0755854208806426e-05,
+    "block": 2.904790586606461e-06,
+    "leak": 7.851063622199965e-06,
+    "gauss": 1.233679016386932e-10,
+    "max_leak": 6.163919999983163e-11,
+    "dirty": 2.0869352235797325e-20,
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "tolerances": {
+     "tol_err": 2e-05,
+     "tol_gauss": 2e-05
+    },
+    "sec": 81.81005501747131
+   },
+   "inverse_target": {
+    "ok": false,
+    "op_norm_error": 1.8186029402145687
+   }
+  }
+ }
+}

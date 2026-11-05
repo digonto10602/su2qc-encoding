@@ -16,7 +16,7 @@ Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 Acceptance tests locked as `acceptance-v4` (86 tests, M0–M2; v3 = prompts/003 Gauss rule, v4 = prompts/004 leak as amplitude). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-M1, steps 1.5 (build_step) + 1.6 (paulo_circuit, Paulo cross-checks) — builder. Steps 1.1–1.4 done.
+M1, steps 1.7 (T-table/synth verify, error_measured_sum) + 1.8 (6561-entry dim S_o table) — builder. Steps 1.1–1.6 done.
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -44,7 +44,7 @@ M1, steps 1.5 (build_step) + 1.6 (paulo_circuit, Paulo cross-checks) — builder
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: SETTLED by M0-X5 (reports/tests/006): in the (inner|outer) pairing H_B is block-diagonal in outer spins, 128 blocks all equal to one 47×47 K (2.7e-15), J conserved → Paulo right; in a mixed pairing amplitudes depend on outer spins → note §4.2 right there.
 
 ## Next action
-Builder on M1 steps 1.5 + 1.6 → tester → commit → 1.7 (T table) → 1.8 (O1 6561 table) → 1.9 Report 1.
+Builder on 1.7 + 1.8 → tester → commit → 1.9 results files + Report 1 → M1 gate.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -76,3 +76,4 @@ Builder on M1 steps 1.5 + 1.6 → tester → commit → 1.7 (T table) → 1.8 (O
 - 2026-11-04: M1 step 1.1 codec + audit R2 PASS (reports/tests/016): codec = Paulo Eq. 31 exactly; 433 vectors Gram 3e-15, Gauss 5.4e-16; aer_mps certified only at tol ≥ 1e-9. Steps 1.1 + 1.2 committed.
 - 2026-11-04: M1 step 1.3 tester FAIL (reports/tests/017): build_UB exact at β=0.4/0.61/1/2 (block 1.7e-14), composition ok, paulo_logical + ct_compile reproduce Paulo (294 CX, 1162 T); build_UB(0.61): cx 294, n_rot 6 (all on d[11]), t_fixed 312, depth 292, 34 qubits; T(ε)=560/696/820/936. Failures: decomposition-cache key collision (silent wrong result for same-named custom gates); synthesize() whole-circuit lowering hoists Hadamards → T1[UB] unsimulable on sparse. Sent to builder (attempt 1). Digonto asked about lean22: pending his choice whether to add lean22/lean22_v2 as comparison rows in Report 1 (planned as M2 seeds).
 - 2026-11-04: M1 step 1.3 recheck PASS (reports/tests/018): cache keyed on standard gates only, program-order lowering; T1[UB] certified on sparse (ε=1e-6: 1.854e-6 ≤ 6.0e-6, 3.6 s). Step 1.4 tests (B2–B4) green and covered by reports 017/018. Steps 1.3 + 1.4 committed.
+- 2026-11-05: M1 steps 1.5 + 1.6 PASS (reports/tests/019): build_step exact (2.7e-13) both orders at 3 angle pairs; wrong order rejected (0.51–1.74); order 2 = UE(α/2)UB UE(α/2) gate for gate; ‖U2−U1‖ ≈ 3αβ; paulo_circuit ok/certified 1.0756e-5 (aer_mps 84 s). Step counts (0.37,0.61): cx 294, T_fixed 312, n_rot 10/14, T_total(1e-6) 952/1224. Committed.

@@ -118,9 +118,8 @@ def synthesize(qc, eps: float):
         if not exact:
             n_rot += 1
             t_rot += w.count("T")
-            err_sum += eps
         per.append({"theta": th, "t": w.count("T"), "exact": exact, "error": err})
-    return out, {"n_rot": n_rot, "t_rot": t_rot, "error_bound_sum": err_sum, "per_rotation": per}
+    return out, {"n_rot": n_rot, "t_rot": t_rot, "error_bound_sum": n_rot * eps, "per_rotation": per}
 
 
 def t_table(qc, eps_list=(1e-4, 1e-6, 1e-8, 1e-10), qiskit: bool = True) -> list[dict]:
