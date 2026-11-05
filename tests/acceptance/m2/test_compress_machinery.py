@@ -50,7 +50,8 @@ def test_oracle_matches_exact_step():
     oracle = api("su2plaq.compress.oracle")
     enc = api("su2plaq.encodings.twelve:TwelveQubit")()
     assert spec.encoding == ENC and spec.kind == KIND and (spec.alpha, spec.beta) == (0.37, 0.61) and spec.order == 1
-    assert tuple(spec.alt_angles) == ((0.91, 0.23), (1.70, 1.00)) and spec.tol_err == 1e-10 and spec.tol_leak == 1e-12 and spec.eps == 1e-6
+    assert tuple(spec.alt_angles) == ((0.91, 0.23), (1.70, 1.00)) and spec.tol_err == 1e-10 and spec.eps == 1e-6
+    assert spec.tol_gauss == 1e-10 and not hasattr(spec, "tol_leak")  # prompts/004 (audit 001 N1, N6): one amplitude budget + Gauss
     V = oracle.target(spec)
     assert V.shape == (433, 433) and np.abs(V - enc.target("step", spec.alpha, spec.beta, order=1)).max() <= 1e-12
     col = oracle.column(spec, 0, top=5)          # [(row index, value), ...] sorted by |value| descending
@@ -160,7 +161,8 @@ def test_evaluator_accepts_general_circuit():
     ev = api("su2plaq.compress.evaluate")
     assert path.exists() and path.read_text().lstrip().startswith('"""SUMMARY:')
     r = ev.evaluate_program(str(path), spec, mode="trial")
-    assert r.valid and r.reason == "ok" and r.verdict.op_norm_error <= 1e-10 and r.verdict.max_leak <= 1e-12
+    assert r.valid and r.reason == "ok" and r.verdict.op_norm_error <= 1e-10 and r.verdict.leak_amplitude <= 1e-10  # prompts/004
+    assert r.verdict.certified and r.verdict.gauss_residual <= 1e-10  # audit 001 N6: gauss=True is mandatory in the loop
     assert len(r.program_sha256) == 64 and r.summary
     r2 = ev.evaluate_circuit(qc, spec, mode="trial")
     assert r2.valid
@@ -196,6 +198,20 @@ def test_evaluator_rejects_dirty_ancilla():
     out = qc.copy(); a = QuantumRegister(1, "anc_dirty"); out.add_register(a); out.cx(2, a[0])
     r = api("su2plaq.compress.evaluate").evaluate_circuit(out, spec, mode="trial")
     assert not r.valid and ("ancilla" in r.reason or "leak" in r.reason)
+
+
+def test_evaluator_rejects_small_ancilla_leak():
+    """prompts/004 (audit 001 N1): a proposer program whose uncompute leaves amplitude ~1e-6 on an ancilla must be invalid
+    in the loop too — under the old weight tolerance (9e-13 <= 1e-12) it was accepted as 'exact'. Here ry(1.9e-6) on a
+    fresh ancilla: leaked amplitude sin(0.95e-6) = 9.5e-7 on EVERY input, so the verdict does not depend on which physical
+    states the trial subset samples (the data-controlled version of the auditor's case is pinned exactly in M0-E6)."""
+    spec = _spec()
+    general = _general()
+    qc, _ = general
+    from qiskit import QuantumRegister
+    out = qc.copy(); a = QuantumRegister(1, "anc_small"); out.add_register(a); out.ry(1.9e-6, a[0])
+    r = api("su2plaq.compress.evaluate").evaluate_circuit(out, spec, mode="trial")
+    assert not r.valid and r.verdict is not None and r.verdict.leak_amplitude >= 9e-7 and r.verdict.op_norm_error > 1e-10
 
 
 def test_evaluator_rejects_angle_error():

@@ -19,8 +19,9 @@ def test_M1_T1_t_table_and_synth_verify(kind):
     """t_table rows for the eps grid: t_total = t_fixed + sum of pygridsynth T per rotation, each within the
     Ross-Selinger band; |t_qiskit - t_total| <= 10 % of t_total (two gridsynth implementations plus Qiskit's
     optimisation); t_est = t_fixed + 3 n_rot log2(1/eps). The circuit synthesised with pygridsynth at eps = 1e-6
-    re-verifies with error <= n_rot eps + 1e-9 and leak <= (n_rot eps)^2 + 1e-12 (triangle inequality; gridsynth
-    words are not diagonal). Gauss tolerance = the error tolerance n_rot eps + 1e-9 (prompts/003 §2): the Gauss
+    re-verifies with op_norm_error = block error + leak amplitude <= n_rot eps + 1e-9 (prompts/004: the leak is an
+    amplitude inside the one error budget; gridsynth words are not diagonal, so some leak is expected and bounded by
+    the same triangle inequality). Gauss tolerance = the error tolerance n_rot eps + 1e-9 (prompts/003 §2): the Gauss
     residual of an output is <= ||G^a_c|| ||U - U_exact|| <= ||G^a_c|| n_rot eps, i.e. the same rounding budget
     (measured ratio residual/||U - U_exact|| <= 1.0 for single-qubit gauge-breaking errors, reports/research/002);
     exact-angle circuits keep 1e-10. `synth_tolerances` is the production copy of this rule and must agree."""
@@ -46,10 +47,11 @@ def test_M1_T1_t_table_and_synth_verify(kind):
     evaluate = api("su2plaq.evaluate.evaluator:evaluate")
     synth_tolerances = api("su2plaq.evaluate.evaluator:synth_tolerances")
     V = enc.target(kind, alpha, beta)
-    tol = dict(tol_err=lm["n_rot"] * eps + 1e-9, tol_leak=(lm["n_rot"] * eps) ** 2 + 1e-12, tol_gauss=lm["n_rot"] * eps + 1e-9)
+    tol = dict(tol_err=lm["n_rot"] * eps + 1e-9, tol_gauss=lm["n_rot"] * eps + 1e-9)  # prompts/004: two tolerances
     assert synth_tolerances(lm["n_rot"], eps) == tol
     v = evaluate(synth, enc, V, **tol)
-    assert v.ok, (v.reason, v.op_norm_error, v.max_leak, v.gauss_residual)
+    assert v.ok, (v.reason, v.op_norm_error, v.block_error, v.leak_amplitude, v.gauss_residual)
+    assert v.leak_amplitude <= tol["tol_err"] and v.engine == "sparse"
     assert v.certified and v.tolerances == tol
     # synthesised T equals the table's rotation T at that eps
     assert synth.count_ops().get("t", 0) + synth.count_ops().get("tdg", 0) == rows[1]["t_total"]

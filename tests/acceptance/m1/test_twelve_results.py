@@ -17,7 +17,8 @@ def test_M1_R1_results_files(kind, root):
     assert list(d.keys()) == list(RESULT_KEYS)
     assert d["encoding"] == "twelve" and d["kind"] == kind and d["circuit_id"] == kind
     assert d["params"]["alpha"] in (0.37, None) and d["params"]["beta"] in (0.61, None)
-    assert d["verification"]["ok"] and d["verification"]["op_norm_error"] <= 1e-10 and d["verification"]["max_leak"] <= 1e-12
+    assert d["verification"]["ok"] and d["verification"]["op_norm_error"] <= 1e-10 and d["verification"]["leak_amplitude"] <= 1e-10  # prompts/004
+    assert d["verification"]["max_leak"] <= 1e-20 and d["verification"]["block_error"] <= d["verification"]["op_norm_error"]
     assert d["metrics"]["logical"]["cx"] >= 0 and len(d["metrics"]["t_table"]) == 4
     assert len(d["provenance"]["git_commit"]) >= 7 and "qiskit" in d["provenance"]["versions"]
     if kind in ("UB", "step"):

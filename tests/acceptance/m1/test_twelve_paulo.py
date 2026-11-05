@@ -22,9 +22,13 @@ def _enc():
 def test_M1_P1_paulo_qpy_verifies(root):
     """Paulo's compiled 34-qubit Clifford+T circuit (dt = g = 1, i.e. beta = 1, alpha_P = 2) loads with the metadata
     counts (34 qubits, 294 CX, 1162 T) and verifies against target 'UB' at beta = 1 through the evaluator:
-    op-norm error <= 2e-5, leak <= 1e-9. Justification: 866 rotation-T at >= 54 T per rotation (3 log2 1e6 - 6) means
-    at most 16 synthesised rotations, each within 1e-6 -> triangle-inequality error <= 1.6e-5; leak probability
-    <= (1.6e-5)^2 = 2.6e-10. Engine 'auto': the sparse simulator if its amplitude cap is not exceeded (Qiskit's
+    op-norm error <= 2e-5 where op_norm_error = block error + leak amplitude (prompts/004; the leak is no longer a
+    separate weight check). Justification: 866 rotation-T at >= 54 T per rotation (3 log2 1e6 - 6) means at most 16
+    synthesised rotations, each within 1e-6 -> triangle-inequality bound ||U - U_ex||_2 <= 1.6e-5 on the whole register,
+    which bounds block error and leak amplitude jointly (root-sum-square); the sum of the two is <= sqrt(2) x that, i.e.
+    <= 2.3e-5 in the worst case, and the aer_mps leak amplitude is a certified upper bound (Cauchy-Schwarz over the <= 16
+    inner components of a physical state, reports/research/003 §3) that can exceed the true value by up to 4x. Measured
+    (research/003): block error 2.905e-6, leak-amplitude bound 7.85e-6 (per-input weight max 4.1e-12, max_o W_o = 6.2e-11) -> combined 1.08e-5, budget 2e-5. Engine 'auto': the sparse simulator if its amplitude cap is not exceeded (Qiskit's
     level-3 schedule opens up to 21 Hadamards at once, 2^21 amplitudes per input), else aer_mps.
     Gauss tolerance 2e-5 = the error tolerance (prompts/003 §2, Digonto 2026-11-04): the Gauss residual of an output
     is <= ||G^a_c|| ||U - U_exact|| with ||U - U_exact|| <= N_rot eps by the same triangle inequality, so the rounding
@@ -42,10 +46,11 @@ def test_M1_P1_paulo_qpy_verifies(root):
     assert ops.get("t", 0) + ops.get("tdg", 0) == meta["resources"]["T_count"] == 1162
     assert qc.qregs[0].name == "d" and qc.qregs[0].size == 12
     V = enc.target("UB", None, 1.0)
-    tol = dict(tol_err=2e-5, tol_leak=1e-9, tol_gauss=2e-5)
+    tol = dict(tol_err=2e-5, tol_gauss=2e-5)  # prompts/004: no tol_leak; the leak amplitude is inside op_norm_error
     v = evaluate(qc, enc, V, engine="auto", **tol)
-    assert v.ok, (v.reason, v.op_norm_error, v.max_leak, v.gauss_residual, v.method, v.engine)
-    assert v.op_norm_error <= 2e-5 and v.max_leak <= 1e-9 and v.dirty_ancilla <= 1e-9 and v.gauss_residual <= 2e-5
+    assert v.ok, (v.reason, v.op_norm_error, v.block_error, v.leak_amplitude, v.gauss_residual, v.method, v.engine)
+    assert v.op_norm_error <= 2e-5 and v.block_error <= 1.6e-5 and v.leak_amplitude <= 2e-5 and v.gauss_residual <= 2e-5
+    assert v.max_leak <= v.leak_amplitude ** 2 + 1e-30 and v.dirty_ancilla <= v.max_leak + 1e-30
     assert v.engine in ("sparse", "aer_mps") and v.certified and v.engine_accuracy <= 1e-9
     assert v.tolerances == tol
     # the sign of beta matters: the inverse is not accepted

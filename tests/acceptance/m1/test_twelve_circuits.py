@@ -1,5 +1,7 @@
 """M1-E1, B1..B4, S1 — general circuits of the 12-qubit encoding (prompts/002 §2.6, §4; METHODS §2, §6).
-Exact-angle circuits: op-norm error <= 1e-10, leak <= 1e-12 (float64 over <= 3e3 gates accumulates ~1e-13)."""
+Exact-angle circuits: op-norm error <= 1e-10 where op_norm_error = block error + leak amplitude (prompts/004: leak is
+judged as an amplitude, no separate weight tolerance); weight diagnostics (max_leak, dirty_ancilla) <= 1e-20 = (1e-10)^2
+(float64 over <= 3e3 gates accumulates ~1e-13 in amplitude, ~1e-26 in weight)."""
 import numpy as np
 import pytest
 
@@ -33,7 +35,7 @@ def test_M1_E1_electric_step(alpha):
     lm = api("su2plaq.metrics.logical:logical_metrics")(qc)
     assert lm["cx"] == 0 and lm["n_rot"] == 4 and lm["t_fixed"] == 0
     v = evaluate(qc, enc, enc.target("UE", alpha, None))
-    assert v.ok and v.op_norm_error <= 1e-10 and v.max_leak <= 1e-12
+    assert v.ok and v.op_norm_error <= 1e-10 and v.leak_amplitude <= 1e-10 and v.max_leak <= 1e-20  # prompts/004
     b = run_batch(qc, np.array([0b111], dtype=np.int64))
     assert len(b.keys) == 1 and b.keys[0] == 0b111 and abs(b.amps[0] - np.exp(-0.75j * alpha)) <= 1e-12
     qo = build_UE(alpha, with_outer=True)
@@ -63,7 +65,7 @@ def test_M1_B1_magnetic_inner_block(beta):
     assert op_norm_after_phase(M, V) <= 1e-10
     evaluate = api("su2plaq.evaluate.evaluator:evaluate")
     v = evaluate(qc, enc, enc.target("UB", None, beta))
-    assert v.ok and v.op_norm_error <= 1e-10 and v.max_leak <= 1e-12 and v.dirty_ancilla <= 1e-12
+    assert v.ok and v.op_norm_error <= 1e-10 and v.leak_amplitude <= 1e-10 and v.max_leak <= 1e-20 and v.dirty_ancilla <= 1e-20  # prompts/004
     # the general circuit uses only macro gates: no native mcrx / cu / mcx; its logical cost is recorded, not fixed here
     lm = api("su2plaq.metrics.logical:logical_metrics")(qc)
     assert lm["ancilla"] == 22 and lm["qubits"] == 34 and lm["n_rot"] >= 3
@@ -80,12 +82,13 @@ def _ub_outer():
 
 
 def test_M1_B2_physical_states():
-    """On the 433 physical states with the outer register present (explicit assembly): error <= 1e-10, leak <= 1e-12."""
+    """On the 433 physical states with the outer register present (explicit assembly): error <= 1e-10 including the
+    leak amplitude (prompts/004); weight diagnostic max_leak <= 1e-20."""
     enc = _enc()
     ub_outer = _ub_outer()
     qc, v = ub_outer
     assert [r.name for r in qc.qregs][:2] == ["d", "o"]
-    assert v.ok and v.method == "physical" and v.op_norm_error <= 1e-10 and v.max_leak <= 1e-12 and v.n_inputs >= 433
+    assert v.ok and v.method == "physical" and v.op_norm_error <= 1e-10 and v.leak_amplitude <= 1e-10 and v.max_leak <= 1e-20 and v.n_inputs >= 433
 
 
 def test_M1_B3_gauss_outputs():
@@ -98,11 +101,12 @@ def test_M1_B3_gauss_outputs():
 
 def test_M1_B4_outer_blind_and_clean():
     """outer_bits_read = 0 (the general circuit never reads the outer register), declared ancillas only (registers d, o,
-    then ancillas; Paulo's names p, e, w, g, tmp, h), all returned to |0> (dirty_ancilla <= 1e-12)."""
+    then ancillas; Paulo's names p, e, w, g, tmp, h), all returned to |0> (dirty-ancilla weight <= 1e-20 = (1e-10)^2,
+    prompts/004: the ancilla leak amplitude is inside op_norm_error <= 1e-10)."""
     enc = _enc()
     ub_outer = _ub_outer()
     qc, v = ub_outer
-    assert v.outer_bits_read == 0 and v.n_blocks == 1 and v.dirty_ancilla <= 1e-12
+    assert v.outer_bits_read == 0 and v.n_blocks == 1 and v.dirty_ancilla <= 1e-20 and v.leak_amplitude <= 1e-10
     names = [r.name for r in qc.qregs]
     assert names[:2] == ["d", "o"] and set(names[2:]) == {"p", "e", "w", "g", "tmp", "h"}
     assert qc.num_qubits == 28 + 22
@@ -121,7 +125,7 @@ def test_M1_S1_step_orders(order):
         qc = build_step(alpha, beta, order=order)
         assert _ops(qc) <= ALLOWED
         v = evaluate(qc, enc, enc.target("step", alpha, beta, order=order))
-        assert v.ok and v.op_norm_error <= 1e-10 and v.max_leak <= 1e-12 and v.dirty_ancilla <= 1e-12
+        assert v.ok and v.op_norm_error <= 1e-10 and v.leak_amplitude <= 1e-10 and v.max_leak <= 1e-20 and v.dirty_ancilla <= 1e-20  # prompts/004
     # order mismatch is detected (orders 1 and 2 differ by O(alpha beta) >> 1e-10 at these angles)
     v = evaluate(build_step(0.37, 0.61, order=1), enc, enc.target("step", 0.37, 0.61, order=2))
     assert not v.ok and v.op_norm_error > 1e-3
