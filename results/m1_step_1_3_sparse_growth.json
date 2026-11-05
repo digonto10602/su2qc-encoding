@@ -1,0 +1,126 @@
+{
+ "inputs": [
+  181,
+  187,
+  355,
+  438,
+  474,
+  532,
+  551,
+  598
+ ],
+ "results": [
+  {
+   "eps": 0.0001,
+   "k_synth": 0,
+   "stored_total": 12,
+   "per_input": 1.5,
+   "seconds": 37.52283954620361,
+   "dropped": 9.334266452958001e-15
+  },
+  {
+   "eps": 0.0001,
+   "k_synth": 1,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 37.591434955596924,
+   "dropped": 1.0289836052166934e-14
+  },
+  {
+   "eps": 0.0001,
+   "k_synth": 2,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 37.63021183013916,
+   "dropped": 1.0729718481006472e-14
+  },
+  {
+   "eps": 0.0001,
+   "k_synth": 3,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 37.83170127868652,
+   "dropped": 1.1111570910784408e-14
+  },
+  {
+   "eps": 0.0001,
+   "k_synth": 4,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 38.25622487068176,
+   "dropped": 1.1332602546794234e-14
+  },
+  {
+   "eps": 0.0001,
+   "k_synth": 5,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 37.824506998062134,
+   "dropped": 1.1800808541977111e-14
+  },
+  {
+   "eps": 0.0001,
+   "k_synth": 6,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 38.186800956726074,
+   "dropped": 1.1777704378586295e-14
+  },
+  {
+   "eps": 1e-06,
+   "k_synth": 0,
+   "stored_total": 12,
+   "per_input": 1.5,
+   "seconds": 37.52590322494507,
+   "dropped": 9.334266452958001e-15
+  },
+  {
+   "eps": 1e-06,
+   "k_synth": 1,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 37.53262782096863,
+   "dropped": 1.0781148887597719e-14
+  },
+  {
+   "eps": 1e-06,
+   "k_synth": 2,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 38.63037967681885,
+   "dropped": 1.1548956121447125e-14
+  },
+  {
+   "eps": 1e-06,
+   "k_synth": 3,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 38.73355197906494,
+   "dropped": 1.1815663683947384e-14
+  },
+  {
+   "eps": 1e-06,
+   "k_synth": 4,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 37.994186878204346,
+   "dropped": 1.2240645545172928e-14
+  },
+  {
+   "eps": 1e-06,
+   "k_synth": 5,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 37.990344762802124,
+   "dropped": 1.2369450403505294e-14
+  },
+  {
+   "eps": 1e-06,
+   "k_synth": 6,
+   "stored_total": 115,
+   "per_input": 14.375,
+   "seconds": 38.314950942993164,
+   "dropped": 1.289417057401768e-14
+  }
+ ]
+}

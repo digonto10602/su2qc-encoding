@@ -1,0 +1,62 @@
+[
+ {
+  "circuit": "exact build_UB(0.61)",
+  "order": "program",
+  "n_ops": 725,
+  "n_inputs": 5,
+  "peak_total": 76,
+  "peak_per_input": 15.2,
+  "status": "ok",
+  "seconds": 0.02760171890258789
+ },
+ {
+  "circuit": "exact build_UB(0.61)",
+  "order": "dag",
+  "n_ops": 725,
+  "n_inputs": 5,
+  "peak_total": 76,
+  "peak_per_input": 15.2,
+  "status": "ok",
+  "seconds": 0.027487754821777344
+ },
+ {
+  "circuit": "synth eps=0.0001",
+  "order": "program",
+  "n_ops": 1492,
+  "n_inputs": 5,
+  "peak_total": 144,
+  "peak_per_input": 28.8,
+  "status": "ok",
+  "seconds": 0.07972359657287598
+ },
+ {
+  "circuit": "synth eps=0.0001",
+  "order": "dag",
+  "n_ops": 1492,
+  "n_inputs": 5,
+  "peak_total": 144,
+  "peak_per_input": 28.8,
+  "status": "ok",
+  "seconds": 0.07919621467590332
+ },
+ {
+  "circuit": "synth eps=1e-06",
+  "order": "program",
+  "n_ops": 1838,
+  "n_inputs": 5,
+  "peak_total": 144,
+  "peak_per_input": 28.8,
+  "status": "ok",
+  "seconds": 0.10238385200500488
+ },
+ {
+  "circuit": "synth eps=1e-06",
+  "order": "dag",
+  "n_ops": 1838,
+  "n_inputs": 5,
+  "peak_total": 144,
+  "peak_per_input": 28.8,
+  "status": "ok",
+  "seconds": 0.10399842262268066
+ }
+]

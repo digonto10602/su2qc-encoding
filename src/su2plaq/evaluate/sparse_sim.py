@@ -83,8 +83,10 @@ def _coalesce(keys, cols, amps, n_qubits, n_cols, dropped):
 
 
 def _schedule(ops):
-    """Topological order of the gate list: non-branching ready gates first (by original index), else the
-    earliest ready branching gate."""
+    """Topological order of the gate list that keeps few qubits in superposition: non-branching ready gates first (by
+    original index); when only branching gates are ready, prefer one on a qubit that an earlier branching gate has already
+    opened (it usually closes the branch: H ... H of a relative-phase Toffoli), else the earliest ready one.  Any topological
+    order is exact; this one avoids the layer-by-layer hoisting of Hadamards that Qiskit's transpile output has."""
     n = len(ops)
     last: dict = {}
     indeg = [0] * n
@@ -96,18 +98,34 @@ def _schedule(ops):
         indeg[i] = len(deps)
         for q in qs:
             last[q] = i
-    plain, branch = [], []
+    plain, branch = [], set()
     for i in range(n):
         if indeg[i] == 0:
-            heapq.heappush(branch if ops[i][0] in _BRANCH else plain, i)
-    order = []
+            if ops[i][0] in _BRANCH:
+                branch.add(i)
+            else:
+                heapq.heappush(plain, i)
+    order, opened = [], set()
     while plain or branch:
-        i = heapq.heappop(plain) if plain else heapq.heappop(branch)
+        if plain:
+            i = heapq.heappop(plain)
+        else:
+            closers = [b for b in branch if any(q in opened for q in ops[b][1])]
+            i = min(closers) if closers else min(branch)
+            branch.discard(i)
+            qs = ops[i][1]
+            if len(qs) == 1:
+                opened ^= {qs[0]}
+            else:
+                opened |= set(qs)
         order.append(i)
-        for s in succ[i]:
-            indeg[s] -= 1
-            if indeg[s] == 0:
-                heapq.heappush(branch if ops[s][0] in _BRANCH else plain, s)
+        for s_ in succ[i]:
+            indeg[s_] -= 1
+            if indeg[s_] == 0:
+                if ops[s_][0] in _BRANCH:
+                    branch.add(s_)
+                else:
+                    heapq.heappush(plain, s_)
     return order
 
 
@@ -158,45 +176,117 @@ def _standard_names(getter):
     return _STD
 
 
-def _translate(qc):
-    """Gate list [(name, qubits, payload)] over SIM_BASIS (level 0, no optimisation) and the global phase.
-    Circuits already in SIM_BASIS are used as they are; otherwise the circuit is transpiled (or, if it holds a
-    'unitary' gate, each foreign instruction is transpiled on its own so that 'unitary' is kept)."""
+_DECOMP_CACHE: dict = {}
+
+
+def decomposition_cache_key(op):
+    """Cache key for a gate's decomposition, or None if it must not be cached.  Only gates of Qiskit's own standard library
+    are cached (their name + params + control state determine the gate completely); custom / composite gates
+    (QuantumCircuit.to_gate(), Gate subclasses) carry their content in `definition` and share names freely, so they are
+    decomposed every time -- never keyed on a name alone."""
+    from qiskit.circuit.library.standard_gates import get_standard_gate_name_mapping
+
+    ref = get_standard_gate_name_mapping().get(op.name)
+    if ref is None or not isinstance(op, type(ref)):
+        return None
+    if type(op).__name__ not in (type(ref).__name__, "_Singleton" + type(ref).__name__):
+        return None
+    try:
+        return (type(op).__name__, op.name, tuple(float(x) for x in op.params), op.num_qubits,
+                getattr(op, "ctrl_state", None))
+    except (TypeError, ValueError):
+        return None
+
+
+def _decompose_local(op):
+    """Level-0 decomposition of one foreign gate on qubits 0..k-1: (ops over SIM_BASIS, global phase); cached."""
     from qiskit import QuantumCircuit, transpile
 
-    _reject_wide_mcx(qc)
-    foreign = [i for i in qc.data if i.operation.name not in SIM_BASIS and i.operation.name != "barrier"]
+    key = decomposition_cache_key(op)
+    if key is not None and key in _DECOMP_CACHE:
+        return _DECOMP_CACHE[key]
+    sub = QuantumCircuit(op.num_qubits)
+    sub.append(op, list(range(op.num_qubits)), [])
+    t = transpile(sub, basis_gates=_TRANSPILE_BASIS, optimization_level=0, seed_transpiler=20261104,
+                  qubits_initially_zero=False)
     ops: list = []
-    if not foreign:
-        _to_ops(qc, ops)
-        return ops, float(qc.global_phase)
-    if not any(i.operation.name == "unitary" for i in qc.data):
-        t = transpile(qc, basis_gates=_TRANSPILE_BASIS, optimization_level=0, seed_transpiler=20261104,
-                      qubits_initially_zero=False)
-        _to_ops(t, ops)
-        return ops, float(t.global_phase)
+    _to_ops(t, ops)
+    res = (ops, float(t.global_phase))
+    if key is not None:
+        _DECOMP_CACHE[key] = res
+    return res
+
+
+def _translate(qc):
+    """Gate list [(name, qubits, payload)] over SIM_BASIS and the global phase, in PROGRAM ORDER: every foreign gate is
+    replaced in place by its level-0 decomposition (one transpile per distinct gate, cached), so that e.g. the H ... H of a
+    relative-phase Toffoli stay adjacent (transpiling the whole circuit would reorder the DAG layer by layer and hoist all
+    the Hadamards).  Idle qubits are never assumed clean (qubits_initially_zero=False); native mcx with >= 3 controls is
+    rejected."""
+    _reject_wide_mcx(qc)
+    ops: list = []
     phase = float(qc.global_phase)
     for inst in qc.data:
-        sub = QuantumCircuit(qc.num_qubits)
-        sub.append(inst.operation, [qc.find_bit(q).index for q in inst.qubits], [])
-        if inst.operation.name in SIM_BASIS or inst.operation.name == "barrier":
-            _to_ops(sub, ops)
+        op = inst.operation
+        name = op.name
+        if name == "barrier":
+            continue
+        if inst.clbits or name in ("measure", "reset", "delay") or name.startswith("if_") or name in ("for_loop", "while_loop", "switch_case"):
+            raise ValueError(f"gate {name!r} cannot be simulated (measure/reset/classical control/unsupported)")
+        qs = tuple(qc.find_bit(q).index for q in inst.qubits)
+        if name in SIM_BASIS:
+            payload = (np.asarray(op.to_matrix(), dtype=np.complex128) if name in _BRANCH
+                       else tuple(float(x) for x in op.params))
+            ops.append((name, qs, payload))
         else:
-            t = transpile(sub, basis_gates=_TRANSPILE_BASIS, optimization_level=0, seed_transpiler=20261104,
-                      qubits_initially_zero=False)
-            _to_ops(t, ops)
-            phase += float(t.global_phase)
+            phase += _expand(op, qs, ops)
     return ops, phase
+
+
+def _expand(op, qs, ops, _depth=0) -> float:
+    """Append the decomposition of a foreign gate on qubits `qs` to `ops`; returns the global phase.  Standard-library gates
+    are transpiled one at a time (cached); custom / composite gates (to_gate(), Gate subclasses) are inlined from their
+    `definition` in program order, recursively, so nested macros keep their local gate order too."""
+    if decomposition_cache_key(op) is not None or _depth > 30 or getattr(op, "definition", None) is None:
+        local, ph = _decompose_local(op)
+        ops.extend((nm, tuple(qs[k] for k in lq), pl) for nm, lq, pl in local)
+        return ph
+    d = op.definition
+    phase = float(d.global_phase)
+    for inst in d.data:
+        sub = inst.operation
+        sq = tuple(qs[d.find_bit(q).index] for q in inst.qubits)
+        if sub.name == "barrier":
+            continue
+        if inst.clbits or sub.name in ("measure", "reset", "delay"):
+            raise ValueError(f"gate {sub.name!r} cannot be simulated (measure/reset/classical control/unsupported)")
+        if sub.name in SIM_BASIS:
+            payload = (np.asarray(sub.to_matrix(), dtype=np.complex128) if sub.name in _BRANCH
+                       else tuple(float(x) for x in sub.params))
+            ops.append((sub.name, sq, payload))
+        else:
+            phase += _expand(sub, sq, ops, _depth + 1)
+    return phase
 
 
 def run_batch(qc, inputs: np.ndarray, cap: int = 5_000_000) -> Batch:
     """Simulate `qc` on every basis integer in `inputs` (ancillas 0). Raises SimCapExceeded if the number of stored
-    amplitudes (over all inputs) exceeds `cap`. Applies qc.global_phase."""
+    amplitudes (over all inputs) exceeds `cap`. Applies qc.global_phase.
+
+    Gates run in program order first (fast, and branches of a decomposed macro open and close locally); if that exceeds the
+    cap, a second attempt uses the DAG schedule that postpones branching gates (`_schedule`).  Both orders are exact."""
     n = qc.num_qubits
     if n > 62:
         raise ValueError("at most 62 qubits")
     inputs = np.asarray(inputs, dtype=np.int64)
     ops, gphase = _translate(qc)
+    try:
+        return _run(ops, gphase, n, inputs, cap, range(len(ops)))
+    except SimCapExceeded:
+        return _run(ops, gphase, n, inputs, cap, _schedule(ops))
+
+
+def _run(ops, gphase, n, inputs, cap, order) -> Batch:
     keys = inputs.copy()
     cols = np.arange(len(inputs), dtype=np.int32)
     amps = np.full(len(inputs), np.exp(1j * gphase), dtype=np.complex128)
@@ -205,7 +295,7 @@ def run_batch(qc, inputs: np.ndarray, cap: int = 5_000_000) -> Batch:
     n_cols = len(inputs)
     dropped = np.zeros(n_cols)
     one = np.int64(1)
-    for gi in _schedule(ops):
+    for gi in order:
         name, qs, p = ops[gi]
         if name == "x":
             keys = keys ^ (one << qs[0])

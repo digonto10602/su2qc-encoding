@@ -14,20 +14,71 @@ LOGICAL_BASIS = ["cx", "h", "s", "sdg", "t", "tdg", "x", "z", "rz"]
 SEED = 20261104
 
 
+_LOWER_CACHE: dict = {}
+
+
+def _lower_gate(op):
+    """Level-0 decomposition of one gate on qubits 0..k-1 into LOGICAL_BASIS: ([(name, local qubits, params)], phase);
+    cached for standard-library gates only (never on a name alone)."""
+    from qiskit import QuantumCircuit, transpile
+
+    from su2plaq.evaluate.sparse_sim import decomposition_cache_key
+
+    key = decomposition_cache_key(op)
+    if key is not None and key in _LOWER_CACHE:
+        return _LOWER_CACHE[key]
+    sub = QuantumCircuit(op.num_qubits)
+    sub.append(op, list(range(op.num_qubits)), [])
+    t = transpile(sub, basis_gates=LOGICAL_BASIS, optimization_level=0, seed_transpiler=SEED, qubits_initially_zero=False)
+    res = ([(i.operation.name, tuple(t.find_bit(q).index for q in i.qubits), tuple(i.operation.params)) for i in t.data
+            if i.operation.name != "barrier"], float(t.global_phase))
+    if key is not None:
+        _LOWER_CACHE[key] = res
+    return res
+
+
 def lower(qc):
-    """transpile(qc, basis_gates=LOGICAL_BASIS, optimization_level=0, seed_transpiler=SEED,
-                    qubits_initially_zero=False); raises ValueError on
-    'unitary', native mcx with >= 3 controls (also inside custom gates), measure, reset, delay."""
-    from qiskit import transpile
+    """Level-0 lowering to {cx, h, s, sdg, t, tdg, x, z, rz}, gate by gate in PROGRAM ORDER (each foreign gate is replaced in
+    place by its own transpile(basis_gates=LOGICAL_BASIS, optimization_level=0, seed_transpiler=SEED,
+    qubits_initially_zero=False); a whole-circuit transpile would reorder the DAG layer by layer and hoist every Hadamard of
+    the Toffoli expansions together, which makes the lowered circuit impractical to simulate).  Same counts as the
+    whole-circuit lowering.  Raises ValueError on 'unitary', native mcx with >= 3 controls (also inside custom gates),
+    measure, reset, delay, classical control."""
+    from qiskit import QuantumCircuit
 
     _reject_wide_mcx(qc)
     for inst in qc.data:
         nm = inst.operation.name
-        if nm in ("unitary", "measure", "reset", "delay") or nm.startswith("if_") or nm == "for_loop":
+        if nm in ("unitary", "measure", "reset", "delay") or nm.startswith("if_") or nm in ("for_loop", "while_loop", "switch_case") or inst.clbits:
             raise ValueError(f"gate {nm!r} cannot be lowered to the logical gate set")
-    out = transpile(qc, basis_gates=LOGICAL_BASIS, optimization_level=0, seed_transpiler=SEED,
-                    qubits_initially_zero=False)
-    bad = set(out.count_ops()) - set(LOGICAL_BASIS) - {"barrier"}
+    from qiskit.circuit.library.standard_gates import get_standard_gate_name_mapping
+
+    from su2plaq.evaluate.sparse_sim import decomposition_cache_key
+
+    std = get_standard_gate_name_mapping()
+    out = QuantumCircuit(*qc.qregs, *qc.cregs, global_phase=qc.global_phase, name=qc.name)
+    phase = [0.0]
+
+    def emit(op, qs, depth=0):
+        if op.name == "barrier":
+            return
+        if op.name in LOGICAL_BASIS:
+            out.append(op, qs, [])
+        elif decomposition_cache_key(op) is not None or getattr(op, "definition", None) is None or depth > 30:
+            local, ph = _lower_gate(op)
+            phase[0] += ph
+            for nm, lq, params in local:
+                out.append(std[nm].__class__(*params) if params else std[nm].copy(), [qs[k] for k in lq], [])
+        else:   # custom / composite gate: inline its definition in program order
+            d = op.definition
+            phase[0] += float(d.global_phase)
+            for inst in d.data:
+                emit(inst.operation, [qs[d.find_bit(q).index] for q in inst.qubits], depth + 1)
+
+    for inst in qc.data:
+        emit(inst.operation, [out.qubits[qc.find_bit(q).index] for q in inst.qubits])
+    out.global_phase = float(qc.global_phase) + phase[0]
+    bad = set(out.count_ops()) - set(LOGICAL_BASIS)
     if bad:
         raise ValueError(f"lowering left gates outside the logical basis: {sorted(bad)}")
     return out

@@ -1,0 +1,304 @@
+{
+ "commit": "99846e4+uncommitted",
+ "beta": 0.61,
+ "metrics": {
+  "cx": 294,
+  "n_rot": 6,
+  "t_fixed": 312,
+  "depth": 292,
+  "qubits": 34,
+  "ancilla": 22
+ },
+ "metrics_with_outer": {
+  "cx": 294,
+  "n_rot": 6,
+  "t_fixed": 312,
+  "depth": 292,
+  "qubits": 50,
+  "ancilla": 22
+ },
+ "gates_level0": {
+  "cx": 294,
+  "h": 178,
+  "t": 160,
+  "tdg": 152,
+  "x": 50,
+  "sdg": 8,
+  "s": 8,
+  "rz": 6,
+  "z": 4
+ },
+ "native_gate_names": {
+  "rccx": 60,
+  "cx": 50,
+  "x": 50,
+  "h": 16,
+  "cz": 10,
+  "ccx": 8,
+  "sdg": 8,
+  "tdg": 8,
+  "t": 8,
+  "s": 8,
+  "z": 4,
+  "crx": 3
+ },
+ "rotation_qubits_lowered": [
+  "d[11]"
+ ],
+ "native_rotations": [
+  [
+   "crx",
+   [
+    "h[0]",
+    "d[11]"
+   ],
+   -2.44
+  ],
+  [
+   "crx",
+   [
+    "h[0]",
+    "d[11]"
+   ],
+   -1.22
+  ],
+  [
+   "crx",
+   [
+    "g[1]",
+    "d[11]"
+   ],
+   -0.61
+  ]
+ ],
+ "rz_angles_abs_distinct": [
+  0.305,
+  0.61,
+  1.22
+ ],
+ "outer_qubits_touched": [],
+ "skeleton_same_for_beta": true,
+ "t_table": [
+  {
+   "eps": 0.0001,
+   "t_fixed": 312,
+   "n_rot": 6,
+   "t_rot_pygridsynth": 248,
+   "t_total": 560,
+   "t_est": 551.1788228318901,
+   "t_qiskit": 536,
+   "cx_qiskit": 294,
+   "depth_qiskit": 864
+  },
+  {
+   "eps": 1e-06,
+   "t_fixed": 312,
+   "n_rot": 6,
+   "t_rot_pygridsynth": 384,
+   "t_total": 696,
+   "t_est": 670.7682342478352,
+   "t_qiskit": 670,
+   "cx_qiskit": 294,
+   "depth_qiskit": 1202
+  },
+  {
+   "eps": 1e-08,
+   "t_fixed": 312,
+   "n_rot": 6,
+   "t_rot_pygridsynth": 508,
+   "t_total": 820,
+   "t_est": 790.3576456637802,
+   "t_qiskit": 780,
+   "cx_qiskit": 294,
+   "depth_qiskit": 1485
+  },
+  {
+   "eps": 1e-10,
+   "t_fixed": 312,
+   "n_rot": 6,
+   "t_rot_pygridsynth": 624,
+   "t_total": 936,
+   "t_est": 909.9470570797253,
+   "t_qiskit": 912,
+   "cx_qiskit": 294,
+   "depth_qiskit": 1805
+  }
+ ],
+ "per_angle_T": {
+  "0.0001": [
+   42,
+   42,
+   44,
+   44,
+   38,
+   38
+  ],
+  "1e-06": [
+   62,
+   62,
+   64,
+   64,
+   66,
+   66
+  ],
+  "1e-08": [
+   84,
+   84,
+   86,
+   86,
+   84,
+   84
+  ],
+  "1e-10": [
+   104,
+   104,
+   104,
+   104,
+   104,
+   104
+  ]
+ },
+ "synth": {
+  "0.0001": {
+   "eps": 0.0001,
+   "n_rot": 6,
+   "t_rot": 248,
+   "t_total": 560,
+   "t_gates_in_synth": 560,
+   "error_bound_sum": 0.0006000000000000001,
+   "tol": {
+    "tol_err": 0.0006000010000000001,
+    "tol_gauss": 0.0006000010000000001
+   },
+   "synth_seconds": 0.02062392234802246,
+   "synth_cx": 294,
+   "synth_gates": 1492,
+   "sparse": {
+    "ok": false,
+    "reason": "unsimulable",
+    "engine_used": "sparse",
+    "certified": true,
+    "op_norm_error": Infinity,
+    "block_error": Infinity,
+    "leak_amplitude": Infinity,
+    "gauss": NaN,
+    "max_leak": Infinity,
+    "dirty": Infinity,
+    "dropped_total": 0.0,
+    "engine_accuracy": 0.0,
+    "method": "inner_span",
+    "seconds": 2.2193307876586914,
+    "wall": 2.23360013961792,
+    "extra": {}
+   },
+   "auto": {
+    "ok": true,
+    "reason": "ok",
+    "engine_used": "aer_mps",
+    "certified": true,
+    "op_norm_error": 0.00030870278537308894,
+    "block_error": 0.00015179098602594395,
+    "leak_amplitude": 0.00015691179934714496,
+    "gauss": 1.390427164557552e-10,
+    "max_leak": 2.462131277435868e-08,
+    "dirty": 5.058897994363561e-20,
+    "dropped_total": 0.0,
+    "engine_accuracy": 2e-10,
+    "method": "inner_span",
+    "seconds": 51.61655044555664,
+    "wall": 51.62076020240784,
+    "extra": {
+     "op_norm_error_physical": 0.00015179096574328117,
+     "max_dropped_l2": 0.0,
+     "max_span_leak": 2.7755575615628914e-15,
+     "op_norm_error_inner_span": 0.00015179098602594395
+    }
+   },
+   "inner625_run_batch": {
+    "5000000": {
+     "ok": false,
+     "seconds": 1.7523128986358643
+    },
+    "20000000": {
+     "ok": false,
+     "seconds": 7.3304667472839355
+    },
+    "60000000": {
+     "ok": false,
+     "seconds": 29.878390312194824
+    }
+   }
+  },
+  "1e-06": {
+   "eps": 1e-06,
+   "n_rot": 6,
+   "t_rot": 384,
+   "t_total": 696,
+   "t_gates_in_synth": 696,
+   "error_bound_sum": 5.999999999999999e-06,
+   "tol": {
+    "tol_err": 6.001e-06,
+    "tol_gauss": 6.001e-06
+   },
+   "synth_seconds": 0.022342205047607422,
+   "synth_cx": 294,
+   "synth_gates": 1838,
+   "sparse": {
+    "ok": false,
+    "reason": "unsimulable",
+    "engine_used": "sparse",
+    "certified": true,
+    "op_norm_error": Infinity,
+    "block_error": Infinity,
+    "leak_amplitude": Infinity,
+    "gauss": NaN,
+    "max_leak": Infinity,
+    "dirty": Infinity,
+    "dropped_total": 0.0,
+    "engine_accuracy": 0.0,
+    "method": "inner_span",
+    "seconds": 1.8779079914093018,
+    "wall": 1.8923602104187012,
+    "extra": {}
+   },
+   "auto": {
+    "ok": true,
+    "reason": "ok",
+    "engine_used": "aer_mps",
+    "certified": true,
+    "op_norm_error": 3.404143232135473e-06,
+    "block_error": 1.314860433308066e-06,
+    "leak_amplitude": 2.0892827988274073e-06,
+    "gauss": 1.3282380179337568e-10,
+    "max_leak": 4.365102613476085e-12,
+    "dirty": 1.382652298673613e-20,
+    "dropped_total": 0.0,
+    "engine_accuracy": 2e-10,
+    "method": "inner_span",
+    "seconds": 53.57759690284729,
+    "wall": 53.58247518539429,
+    "extra": {
+     "op_norm_error_physical": 1.3148340940742747e-06,
+     "max_dropped_l2": 0.0,
+     "max_span_leak": 2.886579864025407e-15,
+     "op_norm_error_inner_span": 1.314860433308066e-06
+    }
+   },
+   "inner625_run_batch": {
+    "5000000": {
+     "ok": false,
+     "seconds": 1.7440681457519531
+    },
+    "20000000": {
+     "ok": false,
+     "seconds": 7.402252435684204
+    },
+    "60000000": {
+     "ok": false,
+     "seconds": 30.178788661956787
+    }
+   }
+  }
+ },
+ "maxrss_MB": 20611.5
+}

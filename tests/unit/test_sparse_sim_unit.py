@@ -170,3 +170,61 @@ def test_aer_statevector_qubit_limit():
 
     with pytest.raises(ValueError):
         ac.aer_statevector_block(QuantumCircuit(25), np.array([0]), np.array([0]), 1)
+
+
+def test_program_order_keeps_decomposed_macros_local():
+    """Foreign gates are decomposed in place (not DAG-layer by layer), so 40 independent rccx on one input never hold more
+    than a handful of amplitudes (a layer-hoisted order would open 40 Hadamards at once = 2^40)."""
+    qc = QuantumCircuit(2 + 40)
+    for k in range(40):
+        qc.rccx(0, 1, 2 + k)
+    b = ss.run_batch(qc, np.array([3], dtype=np.int64), cap=50)
+    assert len(b.keys) == 1 and b.keys[0] == 3 | (((1 << 40) - 1) << 2)
+    qm = QuantumCircuit(1, 1)
+    qm.h(0)
+    qm.measure(0, 0)
+    with pytest.raises(ValueError):
+        ss.run_batch(qm, np.array([0], dtype=np.int64))
+
+
+def test_decomposition_cache_never_keyed_on_name_alone():
+    """Two different custom gates with the same name (QuantumCircuit.to_gate takes the circuit's name) must not share a
+    decomposition (audit 1.3: 2-qubit repro was wrong by 0.707)."""
+    from qiskit.quantum_info import Operator
+
+    a = QuantumCircuit(2, name="m")
+    a.cx(0, 1)
+    b = QuantumCircuit(2, name="m")
+    b.cz(0, 1)
+    q = QuantumCircuit(2)
+    q.h(0)
+    q.append(a.to_gate(), [0, 1])
+    q.append(b.to_gate(), [0, 1])
+    got = np.zeros((4, 4), complex)
+    batch = ss.run_batch(q, np.arange(4, dtype=np.int64))
+    np.add.at(got, (batch.keys, batch.cols), batch.amps)
+    assert np.abs(got - Operator(q).data).max() < 1e-12
+    assert ss.decomposition_cache_key(a.to_gate()) is None   # custom gate: not cacheable
+    from qiskit.circuit.library import CXGate, RZGate
+
+    assert ss.decomposition_cache_key(CXGate()) is not None and ss.decomposition_cache_key(RZGate(0.3)) is not None
+    assert ss.decomposition_cache_key(RZGate(0.3)) != ss.decomposition_cache_key(RZGate(0.31))
+
+
+def test_two_ub_macros_with_the_same_name_are_not_confused():
+    from su2plaq.circuits.twelve import build_UB
+
+    qc = QuantumCircuit(34)
+    qc.append(build_UB(0.3).to_gate(), range(34))
+    qc.append(build_UB(0.31).to_gate(), range(34))
+    ref = build_UB(0.61)
+    inputs = np.array([0, 0b111, 0b100100100100, 0b111100111000], dtype=np.int64)
+    out = []
+    for c in (qc, ref):
+        b = ss.run_batch(c, inputs)
+        d = np.zeros((1 << 12, 4), complex)
+        sel = b.keys < (1 << 12)
+        np.add.at(d, (b.keys[sel], b.cols[sel]), b.amps[sel])
+        out.append(d)
+    ov = np.vdot(out[1], out[0])
+    assert np.abs(out[0] - ov / abs(ov) * out[1]).max() < 1e-9   # U_B(0.3) U_B(0.31) = U_B(0.61) on the inner codes

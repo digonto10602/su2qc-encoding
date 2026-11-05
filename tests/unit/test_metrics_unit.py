@@ -88,3 +88,61 @@ def test_t_table_rows_consistent():
         assert r["t_est"] == pytest.approx(ct.t_estimate(3, m["t_fixed"], r["eps"]))
     rows_q = ct.t_table(qc, eps_list=(1e-4,), qiskit=True)
     assert abs(rows_q[0]["t_qiskit"] - rows_q[0]["t_total"]) <= 6 * 3
+
+
+def test_lower_is_program_order_and_counts_match_whole_circuit_transpile():
+    from qiskit import transpile
+
+    qc = QuantumCircuit(5)
+    qc.h(0)
+    qc.ccx(0, 1, 2)
+    qc.rccx(1, 2, 3)
+    qc.cp(0.4, 3, 4)
+    qc.swap(0, 4)
+    qc.ch(1, 0)
+    qc.crx(0.3, 2, 3)
+    qc.p(0.2, 1)
+    low = lg.lower(qc)
+    ref = transpile(qc, basis_gates=lg.LOGICAL_BASIS, optimization_level=0, seed_transpiler=lg.SEED, qubits_initially_zero=False)
+    assert dict(low.count_ops()) == dict(ref.count_ops())
+    U, V = Operator(low).data, Operator(qc).data
+    ov = np.trace(V.conj().T @ U)
+    assert np.abs(U - ov / abs(ov) * V).max() < 1e-12
+    # program order: the opening and closing H of 40 independent rccx are adjacent, not hoisted together
+    big = QuantumCircuit(42)
+    for k in range(40):
+        big.rccx(0, 1, 2 + k)
+    lowb = lg.lower(big)
+    first_targets = {lowb.find_bit(i.qubits[-1]).index for i in lowb.data[:9]}
+    assert len(first_targets) <= 2   # the first 9 gates belong to the first rccx (target qubit 2) only
+
+
+def test_lower_does_not_confuse_same_named_custom_gates():
+    a = QuantumCircuit(2, name="m")
+    a.cx(0, 1)
+    b = QuantumCircuit(2, name="m")
+    b.cz(0, 1)
+    q = QuantumCircuit(2)
+    q.append(a.to_gate(), [0, 1])
+    q.append(b.to_gate(), [0, 1])
+    U, V = Operator(lg.lower(q)).data, Operator(q).data
+    ov = np.trace(V.conj().T @ U)
+    assert np.abs(U - ov / abs(ov) * V).max() < 1e-12
+
+
+def test_lower_inlines_nested_custom_gates_in_program_order():
+    inner = QuantumCircuit(4, name="m")
+    for k in range(2):
+        inner.rccx(0, 1, 2 + k)
+    mid = QuantumCircuit(4, name="m")
+    mid.append(inner.to_gate(), range(4))
+    mid.t(0)
+    top = QuantumCircuit(4)
+    top.append(mid.to_gate(), range(4))
+    low = lg.lower(top)
+    U, V = Operator(low).data, Operator(top).data
+    ov = np.trace(V.conj().T @ U)
+    assert np.abs(U - ov / abs(ov) * V).max() < 1e-12
+    flat = QuantumCircuit(4)
+    flat.rccx(0, 1, 2), flat.rccx(0, 1, 3), flat.t(0)
+    assert dict(low.count_ops()) == dict(lg.lower(flat).count_ops())
