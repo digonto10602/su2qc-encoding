@@ -5,10 +5,9 @@ M3 done (milestone-3, Report 3); M4 waiting for laptop milestone-2 bundle in ~/s
 Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 100–199. Cores 0–9, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-spinnet.md`.
 
 ## Current milestone / step
-M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Steps 3.0+3.1 PASS (reports/tests/100). Step 3.2 PASS (reports/tests/101). Steps 3.3–3.5 PASS (reports/tests/102). Steps 3.6, 3.7, 3.L1, 3.L2 PASS (reports/tests/103–105). M3 gate done: tester full (reports/tests/106), audit PASS WITH NOTES (reports/audits/100; N1 → prompts/101 erratum, N2, N4 fixed d82a472; N3 → merge notes), benchmark (reports/benchmarks/100), tag milestone-3 (526503a), Report 3 (docs/report-3-spinnet-general-circuit.md). 3.L3 PENDING on the laptop's checker. While waiting for milestone-2: Lean/robustness work only (START_HERE §6).
+M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Steps 3.0+3.1 PASS (reports/tests/100). Step 3.2 PASS (reports/tests/101). Steps 3.3–3.5 PASS (reports/tests/102). Steps 3.6, 3.7, 3.L1, 3.L2 PASS (reports/tests/103–105). M3 gate done: tester full (reports/tests/106), audit PASS WITH NOTES (reports/audits/100; N1 → prompts/101 erratum, N2, N4 fixed d82a472; N3 → merge notes), benchmark (reports/benchmarks/100), tag milestone-3 (526503a), Report 3 (docs/report-3-spinnet-general-circuit.md). 3.L3 PENDING on the laptop's checker. While waiting for milestone-2: wait-time plan `prompts/102-spinnet-m3-wait-lean-structure.md` (m3x tests, acceptance-v8): W1 K from 6j in Lean, W2 exact gate semantics of build_UB, W3 H_B eigenbasis/multiplicities on 433 states, W4 bridge. Step W0+W1 with builder.
 
 ## Pending notes
-- METHODS-spinnet §3: fallback decode must say "each end's $G^z$ eigenvalue $\pm\tfrac12$", not "$m=\pm\tfrac12$" (builder fix, reports/tests/100) — next planner run.
 - Laptop-owned flaky unit test `tests/unit/test_results_unit.py::test_render_is_deterministic_and_contains_only_json_numbers` fails when the short commit hash contains "c1" (merge notes).
 - Tester data goes to `results/spinnet/tester/` (track-owned), not `results/tester/`.
 
@@ -17,6 +16,7 @@ M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Steps
 |---|---|---|---|---|
 
 ## Desktop log
+- 2026-11-06: planner prompts/102 + reports/research/101 + tests/acceptance/m3x (4 tests) + METHODS-spinnet §9; locked acceptance-v8 (83e6d80). Lean prototype (Mathlib-free, decide): 11 theorems in 19.4 s / 1.94 GB.
 - 2026-11-06: M3 gate complete → tag milestone-3; Report 3 written; outgoing bundle in ~/su2qc-sync/outbox/. Inbox empty → M4 waiting (watcher every 30 min).
 - 2026-11-06: M3 3.L1+3.L2 PASS (reports/tests/105): 12 count theorems + 5 circuit-structure theorems, axioms ⊆ {propext}; tables copied from Python are only checked for self-consistency with the Lean gate model; the 16/96/16/177/16/96/16 spectrum is NOT kernel-checked (pair-class counts only) — say so in Report 3. coupling_table now snaps to half-integers (raise if off > 1e-12); results regenerated on clean commit.
 - 2026-11-06: M3 step 3.7 PASS (reports/tests/104): results reproducible (all numeric fields identical on rerun), 133 numbers independently recomputed.
