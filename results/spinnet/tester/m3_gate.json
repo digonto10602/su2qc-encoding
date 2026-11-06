@@ -1,0 +1,10 @@
+{"commit":"de68cc8","date":"2026-11-06","machine":"SupremeCommander (taskset -c 0-9, OMP=1)","seeds":"fixed inside the tests (transpiler_logical 20261104, clifford_t 12345)",
+ "collect_acceptance":126,
+ "acc_m0_m1_m3":{"passed":79,"failed":1,"failed_id":"m3/test_spinnet_lean.py::test_M3_L3_native_certificate_general_step","msg":"PENDING: Su2PlaqCert checker not yet delivered by the laptop (prompts/006 step 2.L4)","wall_s":92.33},
+ "acc_m2_head":{"passed":7,"failed":39,"wall_s":5.37},
+ "acc_m2_base_a2ec571":{"passed":4,"failed":42,"wall_s":24.97},
+ "unit":{"passed":286,"failed":0,"wall_s":33.2},
+ "lock":"LOCK OK; acceptance-v7 PASS",
+ "lake_build":"Build completed successfully (9091 jobs), 2.6 s, no sorry; 17 SpinNet theorems axioms subset of propext",
+ "results_provenance":{"UE":["7a716fc",false],"UB":["7a716fc",false],"step":["7a716fc",false]},
+ "repro_rerun_wall_s":11.24,"repro_rerun_rss_kb":295172,"verify_133_checks_failed":0,"verify_wall_s":21.35}

@@ -1,0 +1,22 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [ 90%]
+F.......                                                                 [100%]
+=================================== FAILURES ===================================
+__________________ test_M3_L3_native_certificate_general_step __________________
+[gw1] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+PENDING: Su2PlaqCert checker not yet delivered by the laptop (prompts/006 step 2.L4)
+============================= slowest 5 durations ==============================
+78.42s call     tests/acceptance/m1/test_twelve_outer.py::test_M1_O1_outer_dont_care_table
+57.52s call     tests/acceptance/m1/test_twelve_paulo.py::test_M1_P1_paulo_qpy_verifies
+13.59s call     tests/acceptance/m0/test_evaluator.py::test_M0_E5_gauss_of_outputs
+12.52s call     tests/acceptance/m0/test_evaluator.py::test_M0_E3_sensitivity
+12.02s call     tests/acceptance/m1/test_evaluator_prune.py::test_M1_V1_pruning_cap_is_relative_to_tol_err
+=========================== short test summary info ============================
+FAILED tests/acceptance/m3/test_spinnet_lean.py::test_M3_L3_native_certificate_general_step
+1 failed, 79 passed in 92.33s (0:01:32)
+
+real	1m32.563s
+user	5m1.652s
+sys	0m7.965s
