@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import math
 
-from su2plaq.compress.synth import gridsynth_T, gridsynth_word
+from su2plaq.compress.synth import cell, gridsynth_T, gridsynth_word, key  # noqa: F401  (key / cell are re-exported: the metrics module is where callers look)
 from su2plaq.metrics.cliffordt import synthesize, t_estimate
 from su2plaq.metrics.logical import logical_metrics
 
