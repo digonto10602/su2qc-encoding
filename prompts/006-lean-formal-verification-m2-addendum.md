@@ -250,3 +250,9 @@ Collection: both files import the project only through `tests/acceptance/_api.py
 
 ## 11. Expected cost
 Builder: 2.L1 ≈ 1 h (copying 6.7 GB cache ≈ 1–2 min); 2.L2 ≈ 2 h (prototypes exist); 2.L3 ≈ 3–4 h (Gates + vendoring + counts, build ≈ 10–40 min for the counts file once); 2.L4 ≈ 1 day (checker ≈ 400 lines Lean + exact.py ≈ 400 lines); 2.L5 ≈ 2 h; 2.L6 ≈ 1 day; 2.L7 ≈ 3 h; 2.L8 ≈ 1 h. Disk: `lean/.lake` ≈ 7 GB (gitignored). Runtime: `lake build` cold ≤ 15 min (plus the counts file), incremental seconds; m2 Lean fast tests ≈ 2–4 min; slow ones ≈ 10–30 min. Memory: Lean elaboration of Mathlib files ≈ 2–4 GB.
+
+## 12. Fix recorded 2026-11-05 (approved by Digonto): tampering of circuits in locked m2 tests
+Qiskit 2.5.2 stores standard gates natively and `CircuitInstruction.operation` returns a fresh object on every access, so the pattern `inst.operation.params[0] = …` is a silent no-op (verified: `Operator` of the "tampered" circuit equals the original). Affected locked tests, rewritten to rebuild the instruction (`op = inst.operation.copy(); op.params = [new]; qc.data[i] = CircuitInstruction(op, inst.qubits, inst.clbits)`) with an assertion that the new angle landed and the original is untouched; no assertion was changed or loosened:
+- `tests/acceptance/m2/test_lean_formal.py::test_lean_certificate_small_accept_reject_na` (helper `_with_first_angle`; wrong multiple → `rejected`, `p(0.123)` → `n_a`, correct → `certified`).
+- `tests/acceptance/m2/test_compress_machinery.py::_perturb_first_rotation` (used by `test_evaluator_rejects_angle_error`): previously compared the general circuit with itself and could only pass by accident of a different failure.
+No other locked test (m0, m1, m2) uses the pattern (`grep -n "operation.params\[0\] =" tests/acceptance/m*/*.py`). Builder/tester note: never mutate `inst.operation` in place in Qiskit ≥ 2.

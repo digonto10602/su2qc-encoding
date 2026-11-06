@@ -1,0 +1,189 @@
+{
+ "id": "r03-F2-003",
+ "program_path": "compress/programs/twelve/F2/003-inwalk-pa.py",
+ "program_sha256": "80b82d0d40e49353865fd32098f89f78d4f68ccd250aae122201c69096cebb81",
+ "parent": "r02-F2-002",
+ "family": "F2",
+ "round": 3,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  119,
+  912,
+  1678,
+  32
+ ],
+ "cell": [
+  55,
+  78
+ ],
+ "metrics_raw": {
+  "cx": 119,
+  "t_fixed": 104,
+  "n_rot": 13,
+  "t_eps": 912,
+  "t_estimate": {
+   "1e-06": 881.3311742036428,
+   "1e-10": 1399.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 912,
+   "1e-10": 1456
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 161,
+  "depth_ct": 1678,
+  "qubits": 32,
+  "gates": {
+   "h": 144,
+   "cx": 119,
+   "t": 52,
+   "tdg": 52,
+   "s": 44,
+   "sdg": 44,
+   "x": 40,
+   "rz": 13,
+   "z": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 9.589745807312452e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -3.281952590115983e-17
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 1.0919887934715067e-15,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 7.999010341400741e-14,
+  "block_error": 1.59073546591171e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 3.5278868675231934,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.59073546591171e-14,
+   "max_dropped_l2": 6.052415337365267e-15,
+   "max_span_leak": 4.551914400963142e-15,
+   "op_norm_error_inner_span": null
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.511678030771059e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.1486834065405943e-16
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 8.792156342038207e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.845250335298959e-14,
+   "block_error": 1.6664276954720992e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.924851894378662,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.6664276954720992e-14,
+    "max_dropped_l2": 4.645140448777712e-15,
+    "max_span_leak": 5.662137425588298e-15,
+    "op_norm_error_inner_span": null
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.1259230044335122e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.3127810360463925e-16
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 1.1688689843384096e-15,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 9.418468903219698e-14,
+   "block_error": 1.8407611411154245e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.928325891494751,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8407611411154245e-14,
+    "max_dropped_l2": 7.594395104709149e-15,
+    "max_span_leak": 6.994405055138486e-15,
+    "op_norm_error_inner_span": null
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: qiskit's rccx(c0, c1, F) = CCX up to (-1)^(c0 F_in) i^(c0 c1) and is an involution, so two in-walk toggles of the same AND leave exactly (-1)^(c0 L), L = XOR of the walk variables toggled an odd number of times between them; among all 9- and 10-term supports of kappa(pa, pb, z, t) the best in-walk cycle has 10 toggles, pa (or pb) toggled twice and |L| = 1 (z or the other pair AND), never L = {t}, so in-walk costs 10 + 2*2 + 1 = 15 vs 6 + 10 = 16 for a stored pa.",
+  "DISCOVERY: the corner flag gadget cx(t, b) + rccx(a, b, t) (4 CX) is minimal among 3-qubit circuits: a numerical search over all 2- and 3-CX skeletons with free single-qubit layers finds no circuit leaving t | (a & ~b) (the flag on the 7 reachable leg/type codes) on any one qubit (residual floors 1.0 and 0.90).",
+  "DISCOVERY: with pa in-walk, an exhaustive DFS over multi-target parity networks (CX between F, pb, z, t2 in any direction, rotations on any register, pa toggles on any register, fix cost counted) finds no walk of cost <= 14 for any of the four 9-term supports, so the 15-CX single-target walk is optimal in that model."
+ ],
+ "summary": "F2 pair frame with in-place flags (parent r02-F2-002) and the pair AND pa = f0 & f1 never stored: in a 10-CX Gray cycle of the 9-term Walsh rotation over (pa, pb, z, t2) pa toggles exactly twice, so both toggles are rccx(f0, f1, F) and the Margolus residual (-1)^(f0 z) (z = net toggle between them) is cancelled by one CZ; CX 119.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "418de65",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 10.416760921478271,
+ "written_utc": "2026-11-06T15:21:03Z",
+ "git_dirty": false,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.3e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

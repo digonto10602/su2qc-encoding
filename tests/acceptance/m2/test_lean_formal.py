@@ -12,6 +12,7 @@ import time
 import numpy as np
 import pytest
 from qiskit import QuantumCircuit, QuantumRegister
+from qiskit.circuit import CircuitInstruction
 
 from tests.acceptance._api import api
 
@@ -43,6 +44,23 @@ def _lean_dir(root: pathlib.Path) -> pathlib.Path:
 
 def _spec():
     return api("su2plaq.compress.spec:default_spec")(ENC, KIND)
+
+
+def _with_first_angle(qc: QuantumCircuit, name: str, new_angle: float) -> QuantumCircuit:
+    """Copy of qc with the FIRST gate named `name` rebuilt with angle `new_angle`.  Qiskit 2.5.2 stores standard gates
+    natively and `inst.operation` returns a fresh object on every access, so `inst.operation.params[0] = …` is a silent
+    no-op; the instruction must be replaced through `qc.data[i] = CircuitInstruction(...)` (coordinator/Digonto fix,
+    2026-11-05)."""
+    out = qc.copy()
+    for i, inst in enumerate(out.data):
+        if inst.operation.name == name:
+            op = inst.operation.copy()
+            op.params = [new_angle]
+            out.data[i] = CircuitInstruction(op, inst.qubits, inst.clbits)
+            assert abs(float(out.data[i].operation.params[0]) - new_angle) <= 1e-15      # the change really landed
+            assert abs(float(qc.data[i].operation.params[0]) - new_angle) > 1e-9        # and the original is untouched
+            return out
+    raise AssertionError(f"no gate {name!r} found")
 
 
 def _axioms_ok(ax: set, allow_native: bool = False) -> bool:
@@ -154,18 +172,10 @@ def test_lean_certificate_small_accept_reject_na(root, tmp_path):
     c1 = C.certify_circuit_kind(qc, enc, "UE", alpha, beta, 1, out_dir=tmp_path, timeout=300)
     assert c1.status == "certified", (c1.status, c1.reason)
     assert c1.cert_path and json.loads(pathlib.Path(c1.cert_path).read_text())["schema"] == "su2plaq-cert-1"
-    bad = qc.copy()
-    for inst in bad.data:
-        if inst.operation.name == "p":
-            inst.operation.params[0] = -alpha / 2          # still angle-linear, but wrong
-            break
+    bad = _with_first_angle(qc, "p", -alpha / 2)          # still angle-linear, but wrong
     c2 = C.certify_circuit_kind(bad, enc, "UE", alpha, beta, 1, out_dir=tmp_path / "bad", timeout=300)
     assert c2.status == "rejected", (c2.status, c2.reason)
-    na = qc.copy()
-    for inst in na.data:
-        if inst.operation.name == "p":
-            inst.operation.params[0] = 0.123
-            break
+    na = _with_first_angle(qc, "p", 0.123)                # not a rational multiple of alpha or beta
     c3 = C.certify_circuit_kind(na, enc, "UE", alpha, beta, 1, out_dir=tmp_path / "na", timeout=300)
     assert c3.status == "n_a" and c3.reason.startswith("non_linear_angle"), (c3.status, c3.reason)
     assert time.time() - t0 <= 300

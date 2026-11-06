@@ -41,8 +41,10 @@ def test_no_sorry_scanner(tmp_path):
 def test_lake_build_checker_and_exe():
     r = project.build("Su2PlaqCert", timeout=600)
     assert r["ok"], r["stderr"][-1000:]
-    r = project.lake(["exe", "su2plaq_cert", "check", "x.json"], timeout=120)
-    assert r.returncode == 1 and r.stdout.strip() == "REJECT unimplemented"
+    r = project.lake(["exe", "su2plaq_cert", "check", "no-such-file.json"], timeout=120)
+    assert r.returncode == 1 and r.stdout.strip().startswith("REJECT cannot read")
+    r = project.lake(["exe", "su2plaq_cert", "structure", "x.json"], timeout=120)
+    assert r.returncode == 1 and r.stdout.strip().startswith("REJECT cannot read")
 
 
 def test_print_axioms_real_and_unknown():
@@ -53,73 +55,70 @@ def test_print_axioms_real_and_unknown():
     assert not (project.LEAN_DIR / f"AxiomCheck_{os.getpid()}.lean").exists()   # own temp file only (other workers may run)
 
 
-def test_skeleton_stubs_raise():
-    with pytest.raises(NotImplementedError):
-        exact.rational_multiple(0.1, 0.2)
-    with pytest.raises(NotImplementedError):
-        certify.check_certificate("x.json")
-    with pytest.raises(NotImplementedError):
-        structure.structure_facts()
-    with pytest.raises(NotImplementedError):
-        lemmas.check_program_lemmas(pathlib.Path("x.py"))
-    assert isinstance(rules.LEAN_RULES, dict)
+def test_lean_cert_defaults():
     assert certify.LeanCert("n_a", "r", None, 0.0, "").axioms == []
 
 
-L2_THEOREMS = (
-    "Su2Plaq.norm_sum_sq_of_pairwise_orth", "Su2Plaq.opNorm_add_three_le_of_orth", "Su2Plaq.rss_le_sum",
-    "Su2Plaq.pruning_triangle", "Su2Plaq.opNorm_le_of_blockdiag", "Su2Plaq.verdict_sound",
-    "Su2Plaq.gauss_max_ge", "Su2Plaq.span_leak_le_four_gauss", "Su2Plaq.cs_block_bound",
-    "Su2Plaq.norm_list_prod_le_one", "Su2Plaq.prod_sub_prod_le", "Su2Plaq.synth_bound",
-)
+def test_polish_rules_table_and_theorems():
+    from su2plaq.lean import rules
+
+    assert set(rules.LEAN_RULES) == {"cancel_inverse_pairs", "merge_adjacent_rotations"}
+    assert all(v.startswith("Su2Plaq.") and v.split(".")[-1] == k for k, v in rules.LEAN_RULES.items())
+    src = (project.LEAN_DIR / "Su2Plaq" / "Rewrites.lean").read_text()
+    for needle in ("diagonal (czDiag a b) * diagonal (czDiag b a) = 1", "perm (swapE a b) * perm (swapE b a) = 1",
+                   "diagonal (cczDiag a b c) * diagonal (cczDiag c b a) = 1"):
+        assert needle in src, needle                 # the symmetric-pair cases the pass cancels
+    ax = project.print_axioms(sorted(rules.LEAN_RULES.values()), timeout=600)
+    for n, a in ax.items():
+        assert a <= project.STANDARD_AXIOMS, (n, sorted(a))
 
 
-def test_step_2L2_theorems_exist_with_standard_axioms():
-    """Evaluator/Gauss/Aer/Synthesis theorems (prompts/006 step 2.L2): kernel-checked, standard axioms only."""
-    assert set(L2_THEOREMS) <= set(project.GENERIC_THEOREMS)
-    ax = project.print_axioms(list(L2_THEOREMS), timeout=600)
-    for n in L2_THEOREMS:
-        assert "<unknown>" not in ax[n], n
-        assert ax[n] <= project.STANDARD_AXIOMS, (n, sorted(ax[n]))
-    assert project.no_sorry() == []
-    for f in ("Evaluator", "Gauss", "Aer", "Synthesis"):
-        assert "native_decide" not in (project.LEAN_DIR / "Su2Plaq" / f"{f}.lean").read_text()
+def test_program_lemma_files(tmp_path):
+    from su2plaq.lean import lemmas
+
+    prog = tmp_path / "001-x.py"
+    prog.write_text("# program\n")
+    assert lemmas.lemma_file_for(prog) is None and lemmas.check_program_lemmas(prog)["status"] == "none"
+    lem = tmp_path / "001-x.lean"
+
+    def run(text):
+        lem.write_text(text)
+        return lemmas.check_program_lemmas(prog, timeout=120)
+
+    ok = run("import Su2Plaq\n\ntheorem fact_a : (2 : Nat) + 2 = 4 := by decide\n\ntheorem fact_b (a b : Nat) : a + b = b + a := Nat.add_comm a b\n")
+    assert ok["status"] == "proved" and ok["axioms_ok"] and ok["theorems"] == ["fact_a", "fact_b"], ok
+    assert run("import Su2Plaq\ntheorem t : (2 : Nat) + 2 = 5 := by sorry\n")["status"] == "failed"
+    assert run("import Su2Plaq\ntheorem t : (2 : Nat) + 2 = 4 := by native_decide\n")["status"] == "failed"
+    assert run("import Su2Plaq\ntheorem t : (2 : Nat) + 2 = 5 := by decide\n")["status"] == "failed"       # does not elaborate
+    r = run("import Std\ntheorem t : (2 : Nat) + 2 = 4 := by decide\n")
+    assert r["status"] == "failed" and "import" in r["message"]
+    # classical axioms are standard; a hand-declared axiom is not accepted
+    assert run("import Su2Plaq\ntheorem t (p : Prop) : p ∨ ¬p := Classical.em p\n")["status"] == "proved"
+    assert run("import Su2Plaq\naxiom bad : (2 : Nat) = 3\ntheorem t : (2 : Nat) = 3 := bad\n")["status"] == "failed"
+    assert not list((project.LEAN_DIR).glob("Lemma_*.lean"))
 
 
-def test_rccx_phase_rule_in_gates_lean_matches_qiskit():
-    """Gates.lean defines RCCX = mono rccxPerm rccxPhase; re-implement that rule here and compare with Qiskit's matrix
-    (qubits a, b, h little-endian: index a + 2b + 4h)."""
-    import numpy as np
-    from qiskit.circuit.library import RCCXGate
+def test_lemma_files_with_side_effects_or_no_theorem(tmp_path):
+    from su2plaq.lean import lemmas
 
-    M = np.zeros((8, 8), dtype=complex)
-    for a in (0, 1):
-        for b in (0, 1):
-            for h in (0, 1):
-                h2 = (h + a * b) % 2
-                if a == 1 and b == 1:
-                    ph = 1j if h == 0 else -1j
-                elif a == 1 and b == 0 and h == 1:
-                    ph = -1
-                else:
-                    ph = 1
-                M[a + 2 * b + 4 * h2, a + 2 * b + 4 * h] = ph
-    assert np.abs(M - RCCXGate().to_matrix()).max() < 1e-14
-    text = (project.LEAN_DIR / "Su2Plaq" / "Gates.lean").read_text()
-    assert "if p.1.1 = 1 ∧ p.1.2.1 = 1 then (if p.2 = 0 then Complex.I else -Complex.I)" in text
+    prog = tmp_path / "002-y.py"
+    prog.write_text("# program\n")
+    lem = tmp_path / "002-y.lean"
+    victim = tmp_path / "pwned.txt"
 
+    def run(text):
+        lem.write_text(text)
+        return lemmas.check_program_lemmas(prog, timeout=120)
 
-L3_THEOREMS = tuple(n for n in project.GENERIC_THEOREMS if n not in L2_THEOREMS)
-
-
-def test_step_2L3_theorems_exist_with_standard_axioms():
-    """Gates / Peephole / Commute theorems and the counts (prompts/006 step 2.L3): kernel-checked, standard axioms only."""
-    names = list(L3_THEOREMS) + list(project.COUNT_THEOREMS)
-    assert len(L3_THEOREMS) == 14
-    ax = project.print_axioms(names, timeout=3600)
-    for n in names:
-        assert "<unknown>" not in ax[n], n
-        assert ax[n] <= project.STANDARD_AXIOMS, (n, sorted(ax[n]))
-    assert project.no_sorry() == []
-    for f in project.LEAN_DIR.joinpath("Su2Plaq").rglob("*.lean"):
-        assert "native_decide" not in f.read_text(), f
+    base = "import Su2Plaq\ntheorem t : (2 : Nat) + 2 = 4 := by decide\n"
+    for bad in (f'#eval IO.FS.writeFile "{victim}" "x"', "#exit", "run_cmd pure ()", "run_tac pure ()", "initialize foo : IO.Ref Nat <- IO.mkRef 0",
+                "elab \"evil\" : command => pure ()", "macro \"m\" : term => `(1)", "unsafe def u : Nat := 1", "axiom ax : False"):
+        r = run(base + bad + "\n")
+        assert r["status"] == "failed" and "not accepted" in r["message"], (bad, r)
+        assert not victim.exists()
+    # words inside comments and identifiers are fine
+    assert run("import Su2Plaq\n-- #eval IO.println in a comment\ntheorem eval_io_ok : (1 : Nat) = 1 := rfl\n")["status"] == "proved"
+    # a file without theorem / lemma is not 'proved'
+    r = run("import Su2Plaq\n\ndef foo : Nat := 3\n")
+    assert r["status"] == "none" and "no theorem" in r["message"]
+    assert run("import Su2Plaq\n")["status"] == "none"

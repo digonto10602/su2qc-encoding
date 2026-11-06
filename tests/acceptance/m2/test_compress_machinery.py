@@ -28,10 +28,18 @@ def _general():
 
 
 def _perturb_first_rotation(qc: QuantumCircuit, delta: float) -> QuantumCircuit:
+    """Copy of qc with the first rotation angle shifted by delta.  Qiskit 2.5.2 stores standard gates natively and
+    `inst.operation` is a fresh object on every access, so `inst.operation.params[0] = …` was a silent no-op (prompts/006
+    §12 fix, 2026-11-05): the instruction is rebuilt and replaced in `out.data`."""
+    from qiskit.circuit import CircuitInstruction
     out = qc.copy()
-    for inst in out.data:
+    for i, inst in enumerate(out.data):
         if inst.operation.name in ("rz", "p", "crz", "crx", "cp") and inst.operation.params:
-            inst.operation.params[0] = float(inst.operation.params[0]) + delta
+            op = inst.operation.copy()
+            old = float(op.params[0])
+            op.params = [old + delta]
+            out.data[i] = CircuitInstruction(op, inst.qubits, inst.clbits)
+            assert abs(float(out.data[i].operation.params[0]) - (old + delta)) <= 1e-15 and abs(float(qc.data[i].operation.params[0]) - old) <= 1e-15
             return out
     raise AssertionError("no rotation found")
 

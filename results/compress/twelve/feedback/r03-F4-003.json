@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.8292594456053324e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -3.281952590115983e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 9.761916494637743e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.086356688350396e-14,
+  "block_error": 1.2206237767702926e-13,
+  "leak_amplitude": 0.0,
+  "seconds": 6.637475967407227,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.5849616913435815e-14,
+   "max_dropped_l2": 3.7687857043216635e-15,
+   "max_span_leak": 3.9968028886505635e-15,
+   "op_norm_error_inner_span": 1.2206237767702926e-13
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.8569341595928178e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -1.1486834065405945e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 9.163642896501715e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.349355393007947e-14,
+   "block_error": 1.2219986202920233e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.4411585330963135,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.708888550024308e-14,
+    "max_dropped_l2": 3.97857364563815e-15,
+    "max_span_leak": 5.551115123125783e-15,
+    "op_norm_error_inner_span": 1.2219986202920233e-13
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.8501920084937989e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -5.743417032702969e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 7.1917208411144e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.275460075403575e-14,
+   "block_error": 1.2226460009534413e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.2545816898345947,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.849484784568476e-14,
+    "max_dropped_l2": 3.838220781711613e-15,
+    "max_span_leak": 6.8833827526759706e-15,
+    "op_norm_error_inner_span": 1.2226460009534413e-13
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 119,
+  "t_fixed": 104,
+  "n_rot": 13,
+  "t_eps": 912,
+  "t_estimate": {
+   "1e-06": 881.3311742036428,
+   "1e-10": 1399.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 912,
+   "1e-10": 1456
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 156,
+  "depth_ct": 1716,
+  "qubits": 32,
+  "gates": {
+   "h": 144,
+   "cx": 119,
+   "t": 52,
+   "tdg": 52,
+   "s": 44,
+   "sdg": 44,
+   "x": 40,
+   "rz": 13,
+   "z": 4
+  },
+  "measured": true
+ },
+ "program_sha256": "b4f9ffacd87ec69a8cfea0ccab4260d364148c67b5c09524c178c36bbc009de2",
+ "wall_s": 12.635464429855347,
+ "discoveries": [
+  "DISCOVERY: One pair AND of the bright tree can live inside the 9-term (pa, pb, z, t) Walsh walk: toggling F twice with rccx(b0, b1, F) leaves Z_F^b1 phases that only straddle the toggles between them, i.e. (-1)^(b1 * net) with net = pb on the best walk, fixed by one CZ; this drops the pa register (6 CX) for +4 walk CX +1 CZ. Exhaustive over all 9- and 11-term supports and Gray cycles with pa (or pb) toggled twice: linear toggles + fixes >= 9 (walk 15 CX); fix-free walks (net = t, using b_c t_c = t_c so the residual is a plain Z) need 10 linear toggles.",
+  "DISCOVERY: Both pair ANDs in-walk cannot be made residual-free: a nested pa/pb interval structure would need every pb-carrying Walsh term to share one pa value, which contradicts kappa (kappa(pa=1, pb=1) - kappa(pa=1, pb=0) = k(z,t) != 0 while the pa=0 difference is 0), so interleaving leaves a cubic phase b_a b2 b3 + b_c b0 b1.",
+  "DISCOVERY: The walk type bit may be any register equal to the common corner type when z = 1 (kappa is t-independent at z = 0), but at walk time no leg bit is a type proxy (same-type bright legs are (1,1), diff and dark legs both span {00, 01, 10}), so 4 flags + 1 type need 2 ancilla loads besides the 6 distinct fold forms (t0..t3, u, v): 8 plumbing CX per side stays the floor in this frame."
+ ],
+ "summary": "F4-002 frame and 8-CX plumbing (no outer reads; flags b0, b1 in place on q11, q8, flags b2, b3 in ancillas) with only pb = b2&b3 stored; U_B is F2's 9-term Walsh rotation of F = j_b over (pa, pb, z, t2) on a closed Gray walk in which pa = b0&b1 is toggled by two in-walk rccx (no pa register) and the straddled Margolus phase (-1)^(b1 pb) is cancelled by one CZ: CX 119."
+}

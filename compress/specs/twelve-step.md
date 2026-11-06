@@ -38,7 +38,22 @@ Key $(\mathrm{CX},\,T_{\varepsilon},\,\mathrm{depth}_{\rm CT},\,\mathrm{qubits})
 
 ## Proved structure (Lean)
 
-pending: `compress/lean/structure.json` has not been generated yet.
+Machine-checked facts about the problem (Lean 4); the numerical evaluator remains ground truth.
+
+- `card_physical` = 433 (proved by decide, Su2Plaq.card_physical) -- the Gauss-law subspace has 433 states
+- `card_link_patterns` = 256 (proved by decide, Su2Plaq.card_link_patterns) -- link-spin patterns with at least one state
+- `card_two_or_more` = 95 (proved by decide, Su2Plaq.card_two_or_more) -- link-spin patterns carrying at least two states
+- `card_closed` = 2 (proved by decide, Su2Plaq.card_closed) -- states with all outer spins 0
+- `far_end_weighted` = 17362 (proved by decide, Su2Plaq.far_end_weighted) -- sum over states of prod over outer links (2j+1)
+- `card_supported_outer` = 3153 (proved by decide, Su2Plaq.card_supported_outer) -- outer m-patterns carrying at least one state (NOT dim S_o)
+- `max_states_per_outer` = 17 (proved by decide, Su2Plaq.max_states_per_outer) -- maximum number of states with weight on one outer m-pattern (NOT dim S_o)
+- `dont_care_codes` = 3471 (proved by decide, Su2Plaq.dont_care_codes) -- 4^6 - 5^4 inner codes of the 12 qubits are not physical-link patterns
+- `spectrum_multiplicities` = [[-2.0, 16], [-1.0, 96], [-0.5, 16], [0.0, 177], [0.5, 16], [1.0, 96], [2.0, 16]] (proved by native, compress/lean/structure-cert.json (su2plaq_cert structure)) -- [[lambda, multiplicity]] of H_B^phys on the 433 states, lambda in {0, +-1/2, +-1, +-2}
+- `k_inner_bright_pairs` = [[0, 31, 2.0], [1, 27, 1.0], [2, 23, 1.0], [3, 21, 1.0], [5, 17, 1.0], [6, 16, 0.5], [7, 14, 1.0], [9, 13, 1.0]] (proved by native, compress/lean/structure-cert.json (su2plaq_cert structure)) -- H_B^phys = D K D inside every outer-spin block; K_inner (47 inner labels) pairs 16 'bright' labels in 8 2x2 blocks [index, index, coupling]; indices into the sorted inner labels ((2j_b,2j_r,2j_t,2j_l),(2J_0..2J_3))
+- `k_inner_dark_rows` = 31 (proved by native, compress/lean/structure-cert.json (su2plaq_cert structure)) -- inner labels on which H_B^phys acts as zero (a corner with J=1 is annihilated)
+- `dark_labels` = [[[0, 0, 1, 1], [1, 0, 1, 2]], [[0, 1, 1, 0], [0, 1, 2, 1]], [[0, 1, 1, 1], [1, 1, 0, 2]], [[0, 1, 1, 1], [1, 1, 2, 0]], [[0, 1, 1, 1], [1, 1, 2, 2]], [[1, 0, 0, 1], [2, 1, 0, 1]], [[1, 0, 1, 1], [0, 1, 1, 2]], [[1, 0, 1, 1], [2, 1, 1, 0]], [[1, 0, 1, 1], [2, 1, 1, 2]], [[1, 1, 0, 0], [1, 2, 1, 0]], [[1, 1, 0, 1], [0, 2, 1, 1]], [[1, 1, 0, 1], [2, 0, 1, 1]], [[1, 1, 0, 1], [2, 2, 1, 1]], [[1, 1, 1, 0], [1, 0, 2, 1]], [[1, 1, 1, 0], [1, 2, 0, 1]], [[1, 1, 1, 0], [1, 2, 2, 1]], [[1, 1, 1, 1], [0, 0, 0, 2]], [[1, 1, 1, 1], [0, 0, 2, 0]], [[1, 1, 1, 1], [0, 0, 2, 2]], [[1, 1, 1, 1], [0, 2, 0, 0]], [[1, 1, 1, 1], [0, 2, 0, 2]], [[1, 1, 1, 1], [0, 2, 2, 0]], [[1, 1, 1, 1], [0, 2, 2, 2]], [[1, 1, 1, 1], [2, 0, 0, 0]], [[1, 1, 1, 1], [2, 0, 0, 2]], [[1, 1, 1, 1], [2, 0, 2, 0]], [[1, 1, 1, 1], [2, 0, 2, 2]], [[1, 1, 1, 1], [2, 2, 0, 0]], [[1, 1, 1, 1], [2, 2, 0, 2]], [[1, 1, 1, 1], [2, 2, 2, 0]], [[1, 1, 1, 1], [2, 2, 2, 2]]] (proved by native, compress/lean/structure-cert.json (su2plaq_cert structure)) -- the dark inner labels ((2j_b,2j_r,2j_t,2j_l),(2J_0..2J_3)): H_B^phys annihilates every state carrying one
+- `inner625_components` = {'n_edges': 128, 'edge_moduli': ['1/2'], 'component_sizes': [[1, 464], [2, 16], [4, 8], [5, 16], [17, 1]], 'spectrum': [[-2.0, 1], [-1.0, 24], [-0.5, 16], [0.0, 543], [0.5, 16], [1.0, 24], [2.0, 1]]} (proved by native, compress/lean/structure-cert.json (su2plaq_cert structure)) -- -(W + W^dag) on the 625 inner codes (Paulo basis): connected components [size, count], edge moduli, spectrum
+- `outer_support_table` = {'n_keys': 3153, 'max_states': 17} (proved by native, compress/lean/structure-cert.json (su2plaq_cert structure)) -- recomputed from the exact states: number of outer m-patterns with support and the largest number of states sharing one
 
 ## Tools
 

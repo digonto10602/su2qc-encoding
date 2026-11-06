@@ -1,0 +1,188 @@
+{
+ "id": "r05-F4-005",
+ "program_path": "compress/programs/twelve/F4/005-sched-heads-under-electric.py",
+ "program_sha256": "43d02e768894d11d1b74dd6d8df07bfc578e0232d54c338e59c0b80b2d7a80d5",
+ "parent": "r04-F4-004",
+ "family": "F4",
+ "round": 5,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  111,
+  912,
+  1672,
+  32
+ ],
+ "cell": [
+  54,
+  78
+ ],
+ "metrics_raw": {
+  "cx": 111,
+  "t_fixed": 104,
+  "n_rot": 13,
+  "t_eps": 912,
+  "t_estimate": {
+   "1e-06": 881.3311742036428,
+   "1e-10": 1399.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 912,
+   "1e-10": 1456
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 138,
+  "depth_ct": 1672,
+  "qubits": 32,
+  "gates": {
+   "h": 128,
+   "cx": 111,
+   "t": 52,
+   "tdg": 52,
+   "s": 32,
+   "sdg": 32,
+   "x": 24,
+   "rz": 13,
+   "z": 12
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 2.0989323625620635e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   6.563905180231957e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 7.172279192459191e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 8.810333678287913e-14,
+  "block_error": 1.2178989947332722e-13,
+  "leak_amplitude": 0.0,
+  "seconds": 7.121293306350708,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.4469916004927212e-14,
+   "max_dropped_l2": 4.7932185813760666e-15,
+   "max_span_leak": 5.329070518200751e-15,
+   "op_norm_error_inner_span": 1.2178989947332722e-13
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 2.0909854250785662e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.8871227393166892e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 7.458584748035334e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 8.719668736107655e-14,
+   "block_error": 1.2190185514678007e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.8873212337493896,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.5444413661840768e-14,
+    "max_dropped_l2": 4.586538810655959e-15,
+    "max_span_leak": 5.773159728050814e-15,
+    "op_norm_error_inner_span": 1.2190185514678007e-13
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 2.1048923909122654e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.2717566286699419e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.985173094038516e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 8.855230164047806e-14,
+   "block_error": 1.2193693745074848e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.8885858058929443,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.768560721397573e-14,
+    "max_dropped_l2": 4.559717068307529e-15,
+    "max_span_leak": 7.993605777301127e-15,
+    "op_norm_error_inner_span": 1.2193693745074848e-13
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: Rotation floor at CX 111 (MILP over the 30 walk-time points, 26 dark flag patterns + 4 bright classes): over (pa, pb, z, t2) plus any extra linear form (type form or single flag) or with z replaced by any AND of two type forms, the minimum Walsh support stays 9; 8 terms need y = z&t2 or pb&z (>= 2 more in-walk rccx), 6 need g = pa&pb, and 4 need {g, z, t2, y} (f = (1/2) g (-1)^t2 - (3/2)(g & ~y)(-1)^(z+t2)), each >= 4 CX more; the electric layer stays 4 rotations even with z or a pair-AND feature, and no electric term merges with the walk since Z_{j_b} anticommutes with X_F.",
+  "DISCOVERY: All 10 parity networks of cost 15 on (F, pb, z, t2) with two in-walk rccx on any register and the residual CZ fix counted are single-target into F (exhaustive DFS), so the 9 walk rotations stay serial on one qubit (about 1430 of the depth); path-sum phase folding of the 111-CX circuit finds no T or rotation merges (T_fixed 104 is fold-optimal) and pygridsynth T counts are invariant under pi/2 angle shifts, so T_eps 912 is the floor of this skeleton."
+ ],
+ "summary": "Same gates as r04-F4-004 (5-CX clean corner frames, 8-CX no-outer-read plumbing, pb stored, 9-term Walsh walk of F = j_b over (pa, pb, z, t2) with pa toggled in-walk, 4 electric phases; CX 111, 13 rotations) rescheduled for depth: the leg-only heads of all four corner frames run under the 167-layer electric rotations, t3 and t2 are formed together before the corner-3/2 frame tails, so depth_CT drops from 1694 to 1672 at equal CX and T.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "d05f973",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 14.162851333618164,
+ "written_utc": "2026-11-06T17:53:36Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.3e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

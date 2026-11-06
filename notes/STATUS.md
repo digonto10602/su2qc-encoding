@@ -1,4 +1,5 @@
-M3 done (milestone-3, Report 3); M4 waiting for laptop milestone-2 bundle in ~/su2qc-sync/inbox/ (waiting since 2026-11-06T03:20; stop after 24 h).
+M3 done (milestone-3, Report 3); laptop milestone-2 (5111d69) merged 2026-11-06T14:25; M4 next: full-suite check of the merge, then planner for M4.
+- 2026-11-06T14:25 merged laptop master 5111d69 (tag milestone-2, bundle laptop-milestone-2-20261106-1211) with --no-ff; no conflicts; our STATUS kept; LOCK.json regenerated with tools/lock.py (identical to the auto-merged one, LOCK OK); laptop acceptance-v7 fetched as tag laptop-acceptance-v7 (name clash with ours).
 
 # Desktop track S — spin network — branch `m3-spin-network` (clone `~/Projects/su2qc-spinnet`)
 

@@ -1,0 +1,185 @@
+{
+ "id": "r00-seed-000",
+ "program_path": "compress/programs/twelve/seed/000-general.py",
+ "program_sha256": "21874db4838605485056abbc85490273bd886dd4524876d2924541750b193bd1",
+ "parent": null,
+ "family": "seed",
+ "round": 0,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  294,
+  952,
+  1421,
+  50
+ ],
+ "cell": [
+  65,
+  79
+ ],
+ "metrics_raw": {
+  "cx": 294,
+  "t_fixed": 312,
+  "n_rot": 10,
+  "t_eps": 952,
+  "t_estimate": {
+   "1e-06": 909.9470570797253,
+   "1e-10": 1308.5784284662086
+  },
+  "t_measured": {
+   "1e-06": 952,
+   "1e-10": 1352
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 292,
+  "depth_ct": 1421,
+  "qubits": 50,
+  "gates": {
+   "cx": 294,
+   "h": 178,
+   "t": 160,
+   "tdg": 152,
+   "x": 50,
+   "rz": 10,
+   "sdg": 8,
+   "s": 8,
+   "z": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 2.68813143571731e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -2.625562072092785e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 3.908513313125536e-15,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.4672962251711322e-13,
+  "block_error": 1.220835210546178e-13,
+  "leak_amplitude": 0.0,
+  "seconds": 9.523832082748413,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.604674843032669e-14,
+   "max_dropped_l2": 7.9137572320129e-15,
+   "max_span_leak": 4.440892098500626e-15,
+   "op_norm_error_inner_span": 1.220835210546178e-13
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 2.694656317437985e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    6.563905180231966e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 9.05465834433109e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.4740499617474063e-13,
+   "block_error": 1.2206063556905786e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.76483416557312,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.643397371898485e-14,
+    "max_dropped_l2": 8.040087435806515e-15,
+    "max_span_leak": 5.218048215738236e-15,
+    "op_norm_error_inner_span": 1.2206063556905786e-13
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 2.669600012558199e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -1.0666345917876934e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 8.501914974009294e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.4481267374071162e-13,
+   "block_error": 1.2214732751510832e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.6963791847229004,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8365160964400214e-14,
+    "max_dropped_l2": 8.211722188123053e-15,
+    "max_span_leak": 7.66053886991358e-15,
+    "op_norm_error_inner_span": 1.2214732751510832e-13
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [],
+ "summary": "the reference circuit of the twelve encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+ "evaluator_sha256": "810e86f2640d4f76b5434e511ff41ccd7c54cce284ad217a11971c8b2d2e26d7",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "a4c28a6",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 17.92728304862976,
+ "written_utc": "2026-11-06T06:11:19Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9.999999999999999e-06
+ },
+ "lean": null,
+ "mode": "full"
+}

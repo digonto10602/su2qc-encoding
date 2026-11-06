@@ -1,0 +1,148 @@
+{
+ "full_entry": {
+  "id": [
+   "r02-F9-001",
+   "r02-F9-001"
+  ],
+  "program_sha256": [
+   true,
+   true
+  ],
+  "evaluator_sha256": [
+   true,
+   true
+  ],
+  "spec_sha256": [
+   true,
+   true
+  ],
+  "git_commit": [
+   "51aca3d",
+   "51aca3d"
+  ],
+  "git_dirty": [
+   true,
+   true
+  ],
+  "versions": {
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "numpy": "2.5.2",
+   "pygridsynth": "1.2.0",
+   "python": "3.12.14",
+   "scipy": "1.18.0"
+  },
+  "versions_keys": [
+   "numpy",
+   "pygridsynth",
+   "python",
+   "qiskit",
+   "qiskit_aer",
+   "scipy"
+  ],
+  "seeds": {
+   "trial_seed": 0,
+   "transpiler_logical": 20261104,
+   "clifford_t_pass_manager": 12345,
+   "gridsynth": 0
+  },
+  "machine": "pichkaCommander x86_64 cpus=12",
+  "wall_s": 13.737527847290039,
+  "written_utc": "2026-11-06T05:03:36Z",
+  "parent": "r01-F9-001",
+  "mode": "full",
+  "valid_reason": [
+   true,
+   "ok"
+  ],
+  "key": [
+   0,
+   256,
+   167,
+   28
+  ],
+  "cell": [
+   0,
+   64
+  ],
+  "synthesis": {
+   "measured": true,
+   "synth_error_bound": 4e-06
+  },
+  "verdict_nominal_has": {
+   "ok": true,
+   "certified": true,
+   "engine": "sparse",
+   "op_norm_error": 1.206819430576674e-13,
+   "tol_err": null,
+   "tol_gauss": null,
+   "gauss_residual": 5.302695275805847e-16
+  },
+  "n_alt": 2,
+  "skeleton_equal": true,
+  "installed": {
+   "qiskit": "2.5.2",
+   "qiskit-aer": "0.17.2",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "pygridsynth": "1.2.0"
+  }
+ },
+ "cached_entry": {
+  "seeds": {
+   "trial_seed": 0,
+   "transpiler_logical": 20261104,
+   "clifford_t_pass_manager": 12345,
+   "gridsynth": 0
+  },
+  "spec_sha_ok": true,
+  "evaluator_ok": true,
+  "wall_s": 7.164267539978027,
+  "key_equal": true
+ },
+ "trial_entry": {
+  "mode": "trial",
+  "valid": true,
+  "reason": "ok",
+  "inserted": false,
+  "rejected": [
+   [
+    "r02-F9-001",
+    "mode 'trial' is not 'full'"
+   ]
+  ],
+  "key": [
+   0,
+   239.1788228318901,
+   1,
+   28
+  ],
+  "measured": {
+   "measured": false,
+   "synth_error_bound": 4e-06
+  }
+ },
+ "full_entry_inserted_n_alt2": true,
+ "invalid_entry": {
+  "valid": false,
+  "reason": "error",
+  "key": [
+   "inf",
+   "inf",
+   "inf",
+   "inf"
+  ],
+  "cell": null,
+  "inserted": false
+ },
+ "seeds_vs_code": {
+  "transpiler_logical": [
+   20261104,
+   20261104
+  ],
+  "trial_seed": [
+   0,
+   0
+  ]
+ }
+}

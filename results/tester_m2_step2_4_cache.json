@@ -1,0 +1,148 @@
+{
+ "A_miss_then_hit": {
+  "evals_first": 1,
+  "evals_second": 0,
+  "t_first": 24.99,
+  "t_second": 0.002,
+  "valid": true,
+  "same_key": false,
+  "same_verdict": true,
+  "files": 1
+ },
+ "A_same_bytes_other_path_hit": true,
+ "C_program_byte_edit_miss": true,
+ "D_spec_fields_change_sha": {
+  "alpha": true,
+  "beta": true,
+  "order": true,
+  "alt_angles": true,
+  "tol_err": true,
+  "tol_gauss": true,
+  "eps": true,
+  "eval_budget_s": true,
+  "support_cap": true,
+  "max_qubits": true,
+  "cell_k": true,
+  "trial_inputs": true,
+  "trial_seed": true,
+  "kind": true,
+  "encoding": true
+ },
+ "D_fields_not_probed": [],
+ "D_spec_eps_miss": true,
+ "D_spec_tol_err_miss": true,
+ "E_trial_not_cached": {
+  "evals": 1,
+  "files_before": 4,
+  "files_after": 4,
+  "mode": "trial"
+ },
+ "E_trial_twice_reevaluates": true,
+ "E_cached_modes": [
+  "full"
+ ],
+ "B_each_evaluator_file_edit_changes_hash": {
+  "compress/builder.py": true,
+  "compress/evaluate.py": true,
+  "compress/metrics.py": true,
+  "compress/synth.py": true,
+  "compress/passes.py": true,
+  "compress/archive.py": true,
+  "compress/spec.py": true,
+  "compress/oracle.py": true,
+  "evaluate/evaluator.py": true,
+  "evaluate/sparse_sim.py": true,
+  "evaluate/aer_check.py": true,
+  "metrics/logical.py": true,
+  "metrics/cliffordt.py": true,
+  "encodings/base.py": true,
+  "encodings/twelve.py": true,
+  "exact/operators.py": true,
+  "exact/physical.py": true,
+  "su2/algebra.py": true,
+  "su2/wigner.py": true,
+  "geometry.py": true
+ },
+ "B_all_changed": true,
+ "B_unlisted_files_that_do_not_change_hash": [
+  "__init__.py",
+  "_stub.py",
+  "circuits/__init__.py",
+  "circuits/twelve.py",
+  "compress/__init__.py",
+  "compress/baselines.py",
+  "compress/brief.py",
+  "compress/provenance.py",
+  "compress/report.py",
+  "compress/round.py",
+  "compress/run_candidate.py",
+  "encodings/__init__.py",
+  "evaluate/__init__.py",
+  "exact/__init__.py",
+  "exact/compare.py",
+  "exact/spinnet.py",
+  "lean/__init__.py",
+  "lean/certify.py",
+  "lean/exact.py",
+  "lean/lemmas.py",
+  "lean/project.py",
+  "lean/rules.py",
+  "lean/structure.py",
+  "metrics/__init__.py",
+  "metrics/provenance.py",
+  "results/__init__.py",
+  "results/report.py",
+  "results/store.py",
+  "su2/__init__.py"
+ ],
+ "B_evaluate_program_miss_after_evaluator_edit": true,
+ "B_back_to_original_hits_old_entry": true,
+ "F_bad_program_uncached_result": {
+  "valid": false,
+  "reason": "error",
+  "op_norm": 1.2814484184086286
+ },
+ "F_tamper_valid_flag": {
+  "reevaluated": false,
+  "returned_valid": true,
+  "returned_reason": "ok"
+ },
+ "F_forged_entry_inserted_into_archive": {
+  "inserted": true,
+  "key": [
+   0,
+   239.1788228318901,
+   1,
+   28
+  ],
+  "verdict_ok": false
+ },
+ "F_tamper_metrics_to_zero": {
+  "reevaluated": false,
+  "returned_metrics": {
+   "cx": 0,
+   "t_eps": 0
+  }
+ },
+ "G_swapped_cache_file": {
+  "reevaluated": false,
+  "returned_valid": true,
+  "returned_program_sha_is_requested": false,
+  "returned_program_sha": "423c6159cb62",
+  "requested": "dc2040857faf"
+ },
+ "H_malformed_cache": {
+  "truncated": "ok reeval=1 valid=True",
+  "empty": "ok reeval=1 valid=True",
+  "list": "ok reeval=1 valid=True",
+  "null": "ok reeval=1 valid=True",
+  "missing_key": "ok reeval=1 valid=True",
+  "verdict_string": "ok reeval=1 valid=True",
+  "verdict_list": "ok reeval=1 valid=True",
+  "phase_bad": "ok reeval=1 valid=True",
+  "failing_inputs_int": "ok reeval=1 valid=True",
+  "alts_none": "ok reeval=1 valid=True",
+  "binary": "ok reeval=1 valid=True"
+ },
+ "F_note_cache_dir": "/tmp/tmpayju5m2u"
+}

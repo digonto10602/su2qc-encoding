@@ -1,0 +1,1439 @@
+{
+ "commit": "f5ff810 (+ uncommitted step 2.3 working tree)",
+ "seeds": {
+  "states_test": 20261105,
+  "trial_seed": 0,
+  "pattern_search": 1
+ },
+ "machine": "12 cores, 62 GB",
+ "states": {
+  "full": {
+   "ref": 0.012381173420994936,
+   "got": 0.012381173420994956,
+   "leak": 0.0,
+   "n": 433,
+   "gauss": 0.002854752713418062
+  },
+  "first5": {
+   "n": 5,
+   "ref": 0.001781635617122528,
+   "got": 0.0017816356171226602,
+   "absdiff": 1.3227266504323154e-16,
+   "leak": 0.0
+  },
+  "rand64_s0": {
+   "n": 64,
+   "ref": 0.012249285083562652,
+   "got": 0.012249285083562897,
+   "absdiff": 2.445960101127298e-16,
+   "leak": 0.0
+  },
+  "rand10_s7": {
+   "n": 10,
+   "ref": 0.008003711202475032,
+   "got": 0.008003711202474883,
+   "absdiff": 1.491862189340054e-16,
+   "leak": 0.0
+  },
+  "single_200": {
+   "n": 1,
+   "ref": 4.502214819345756e-06,
+   "got": 4.502214819687987e-06,
+   "absdiff": 3.4223095684389124e-16,
+   "leak": 0.0
+  },
+  "dup_unsorted": {
+   "n": 3,
+   "ref": 0.009464774396116805,
+   "got": 0.009464774396117186,
+   "absdiff": 3.8163916471489756e-16,
+   "leak": 0.0
+  },
+  "last": {
+   "n": 1,
+   "ref": 8.37799004789866e-06,
+   "got": 8.377990048411973e-06,
+   "absdiff": 5.133121304314731e-16,
+   "leak": 0.0
+  },
+  "all": {
+   "n": 433,
+   "ref": 0.012381173420994936,
+   "got": 0.012381173420994956,
+   "absdiff": 2.0816681711721685e-17,
+   "leak": 0.0
+  },
+  "max_abs_diff": 5.133121304314731e-16,
+  "bad_[]": "ValueError",
+  "bad_[-1]": "ValueError",
+  "bad_[433]": "ValueError",
+  "bad_[0.5]": "accepted"
+ },
+ "synth_cache": {
+  "n_files_after_first": 1,
+  "file_name_matches_key": true,
+  "n_files_after_theta_eps_variants": 3,
+  "n_files_after_fake_version": 4,
+  "corrupt_garbage_word_returned": "HTHTHTHTHTHTHTHTHTHT",
+  "corrupt_garbage_trusted": true,
+  "T_good": 64,
+  "T_after_corrupt": 14,
+  "corrupt_empty_returned_repr": "''",
+  "corrupt_empty_trusted": true,
+  "corrupt_text_returned_repr": "'not a word ###'",
+  "wrong_angle_word_trusted": true,
+  "word_error_of_returned_vs_theta": 0.39826942241864366,
+  "pygridsynth_version": "1.2.0"
+ },
+ "unverified": {
+  "tol8e-10": {
+   "valid": false,
+   "reason": "unverified",
+   "engine": "aer_mps",
+   "ok": true,
+   "certified": false,
+   "err": 6.775082399278781e-10,
+   "acc": 2e-10,
+   "wall": 40.2
+  },
+  "tol1e-09": {
+   "valid": true,
+   "reason": "ok",
+   "engine": "aer_mps",
+   "ok": true,
+   "certified": true,
+   "err": 6.775082399278781e-10,
+   "acc": 2e-10,
+   "wall": 44.0
+  }
+ },
+ "unverified_default_tol": {
+  "trial_cap2000": {
+   "valid": false,
+   "reason": "unsimulable",
+   "engine": "sparse",
+   "wall": 2.5
+  },
+  "full_cap2000": {
+   "valid": false,
+   "reason": "leak",
+   "engine": "aer_mps",
+   "ok": false,
+   "certified": false,
+   "err": 6.775082399278781e-10,
+   "acc": 2e-10,
+   "wall": 43.5
+  }
+ },
+ "dos": {
+  "x_5_hadamard_ancillas_clean:trial": {
+   "valid": true,
+   "reason": "ok",
+   "wall": 3.9,
+   "engine": "sparse",
+   "msg": ""
+  },
+  "x_5_hadamard_ancillas_clean:full": {
+   "valid": true,
+   "reason": "ok",
+   "wall": 11.7,
+   "engine": "sparse",
+   "msg": ""
+  },
+  "x_30_hadamard_ancillas:trial": {
+   "valid": true,
+   "reason": "ok",
+   "wall": 3.0,
+   "engine": "sparse",
+   "msg": ""
+  },
+  "x_30_hadamard_ancillas:full": {
+   "valid": true,
+   "reason": "ok",
+   "wall": 12.2,
+   "engine": "sparse",
+   "msg": ""
+  },
+  "x_circuit_with_huge_gate_count:trial": {
+   "valid": true,
+   "reason": "ok",
+   "wall": 6.7,
+   "engine": "sparse",
+   "msg": ""
+  }
+ },
+ "cases_main": {
+  "angle_hardcoded_nominal": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 4.0,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "alt_angles:error",
+    "msg": "",
+    "t": 12.4,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "angle_skeleton_different_gates": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "skeleton",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": false
+   }
+  },
+  "bypass_attr_builtins": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.3,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "bypass_builder_module_os": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.3,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "bypass_numpy_save": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.4,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "bypass_subclasses": {
+   "trial": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 1.4,
+    "err": 0.6250048292160191,
+    "leak": 0.0,
+    "gauss": 5.041095676159061e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 3.2,
+    "err": 0.6773232190804346,
+    "leak": 0.0,
+    "gauss": 5.410557748946589e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "cheat_subset_states": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 1.2045077887403776e-14,
+    "leak": 0.0,
+    "gauss": 6.170545761967547e-16,
+    "qubits": 30,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 2.1,
+    "err": 1.0000000000000087,
+    "leak": 0.0,
+    "gauss": 0.999999999999999,
+    "qubits": 30,
+    "skel": true
+   }
+  },
+  "dirty_ancilla": {
+   "trial": {
+    "valid": false,
+    "reason": "dirty_ancilla",
+    "msg": "",
+    "t": 1.3,
+    "err": 1.9999999999999998,
+    "leak": 0.9999999999999998,
+    "gauss": 5.095246377785861e-16,
+    "qubits": 29,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "dirty_ancilla",
+    "msg": "",
+    "t": 3.2,
+    "err": 2.0000000000000595,
+    "leak": 1.0,
+    "gauss": 5.095246377785861e-16,
+    "qubits": 29,
+    "skel": true
+   }
+  },
+  "disguised_custom_gate_named_h": {
+   "trial": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 1.3,
+    "err": 0.10040712424410661,
+    "leak": 0.0,
+    "gauss": 0.14943813247359938,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 3.2,
+    "err": 0.20681015774604944,
+    "leak": 0.0,
+    "gauss": 0.14943813247359952,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "disguised_cx_renamed_from_ccx": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "TypeError: This 'CCXGate' object is immutable. You can get a mutable version by calling 'to_mutable()'. | encoding/src/su2plaq/compress/evalua",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "disguised_hidden_t_in_custom": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3920171247368903e-15,
+    "leak": 0.0,
+    "gauss": 5.108929983010925e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.2,
+    "err": 1.206851117089158e-13,
+    "leak": 0.0,
+    "gauss": 5.613217783960923e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "disguised_native_mcx": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "disguised_renamed_class": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "TypeError: This 'HGate' object is immutable. You can get a mutable version by calling 'to_mutable()'. | jects/su2qc-encoding/src/su2plaq/compr",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "disguised_ry": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.19978121911714e-15,
+    "leak": 0.0,
+    "gauss": 5.109872329229954e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.3,
+    "err": 1.206838362062381e-13,
+    "leak": 0.0,
+    "gauss": 5.933464366067994e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "disguised_sx_pair": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 5.602692397102278e-15,
+    "leak": 0.0,
+    "gauss": 5.222180388738334e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.2,
+    "err": 1.2328130750157897e-13,
+    "leak": 0.0,
+    "gauss": 5.31720336112929e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "disguised_unitary_named_x": {
+   "trial": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 1.4,
+    "err": 2.0,
+    "leak": 0.9999999999999999,
+    "gauss": 1.0000000000000024,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 3.4,
+    "err": 3.000000000000028,
+    "leak": 1.0,
+    "gauss": 1.0000000000000036,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "forbid_from_compress_import_evaluate": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'su2plaq.compress.evaluate' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2pl",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_from_numpy_lib_import_os": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.4,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.8,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "forbid_from_su2plaq_import_circuits": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'su2plaq' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import builtins": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'builtins' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracl",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import ctypes": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'ctypes' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle'",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import evaluator": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'su2plaq.evaluate' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compre",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import importlib": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'importlib' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.orac",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import io": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'io' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle', 's",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import pathlib": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'pathlib' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import pickle": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'pickle' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle'",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import qiskit_aer": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'qiskit_aer' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.ora",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import shutil": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'shutil' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle'",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import socket": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'socket' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle'",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import su2plaq_compress_evaluate": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'su2plaq.compress.evaluate' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2pl",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import subprocess": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'subprocess' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.ora",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import sys": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'sys' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle', '",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import_os": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'os' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle', 's",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import_scipy": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'scipy' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle',",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_compile": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "use of 'compile' is not allowed",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_dunder_import": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "use of '__import__' is not allowed",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_eval": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "use of 'eval' is not allowed",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_exec": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "use of 'exec' is not allowed",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_getattr_builtins": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "AttributeError: 'dict' object has no attribute 'open' | Traceback (most recent call last): |   File \"/home/digimonk/Projects/su2qc-encoding/src/",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_open": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "use of 'open' is not allowed",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "good_UE": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 2.1,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 12.4,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "infinite_loop": {
+   "trial": {
+    "valid": false,
+    "reason": "build_timeout",
+    "msg": "build exceeded 8 s",
+    "t": 8.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "leak_1e-11": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.9,
+    "err": 1.0002770253738093e-11,
+    "leak": 1.0000053978148216e-11,
+    "gauss": 5.222180388738334e-16,
+    "qubits": 29,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 14.8,
+    "err": 1.0120738667570135e-11,
+    "leak": 1.0000053978148218e-11,
+    "gauss": 5.474255194514172e-16,
+    "qubits": 29,
+    "skel": true
+   }
+  },
+  "leak_1e-9": {
+   "trial": {
+    "valid": false,
+    "reason": "dirty_ancilla",
+    "msg": "",
+    "t": 2.3,
+    "err": 1.0000027613914189e-09,
+    "leak": 1.0000000189894305e-09,
+    "gauss": 5.222180388738334e-16,
+    "qubits": 29,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "dirty_ancilla",
+    "msg": "",
+    "t": 5.5,
+    "err": 1.0001207036650564e-09,
+    "leak": 1.0000000189894305e-09,
+    "gauss": 5.474255194514172e-16,
+    "qubits": 29,
+    "skel": true
+   }
+  },
+  "qubit_cap_alloc": {
+   "trial": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "128 qubits > cap 60",
+    "t": 1.2,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "128 qubits > cap 60",
+    "t": 1.2,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "qubit_cap_ancilla_tamper": {
+   "trial": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "528 qubits > cap 60",
+    "t": 1.3,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "528 qubits > cap 60",
+    "t": 1.2,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "qubit_cap_direct_qc": {
+   "trial": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "228 qubits > cap 60",
+    "t": 1.2,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "228 qubits > cap 60",
+    "t": 1.2,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "tamper_builder_monkeypatch_basis": {
+   "trial": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 1.5,
+    "err": 0.10484047713817844,
+    "leak": 0.09983341664682815,
+    "gauss": 0.09983464376659658,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 4.0,
+    "err": 0.19998213878542082,
+    "leak": 0.0998334166468282,
+    "gauss": 0.09983464376659736,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "tamper_class_swap": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "build(spec) must return a su2plaq.compress.builder.Builder",
+    "t": 1.2,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "tamper_ops_bigqubit": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "CircuitError: 'Index 300 out of range for size 28.' | 3.12/site-packages/qiskit/circuit/quantumcircuit.py\", line 2820, in _append_standard_gat",
+    "t": 1.2,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "tamper_ops_mcx": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "TypeError: object of type 'int' has no len() |    ^^^^^^^^^^^ |   File \"/home/digimonk/Projects/su2qc-encoding/src/su2plaq/compress/builder.py\",",
+    "t": 1.2,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "tamper_ops_ry": {
+   "trial": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 1.5,
+    "err": 0.16066705453755914,
+    "leak": 0.14943813247359922,
+    "gauss": 0.14943813247359938,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 4.1,
+    "err": 0.29929754701914335,
+    "leak": 0.14943813247359922,
+    "gauss": 0.14943813247359952,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "tamper_peak_qubits": {
+   "trial": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "68 qubits > cap 60",
+    "t": 1.3,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "68 qubits > cap 60",
+    "t": 1.2,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "tamper_spec_in_builder": {
+   "trial": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 1.3,
+    "err": 0.6250048292160191,
+    "leak": 0.0,
+    "gauss": 5.041095676159061e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 3.3,
+    "err": 0.6773232190804346,
+    "leak": 0.0,
+    "gauss": 5.410557748946589e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "writes_outer": {
+   "trial": {
+    "valid": false,
+    "reason": "writes_outer",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "writes_outer",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": 28,
+    "skel": true
+   }
+  }
+ },
+ "cases_extra": {
+  "x_mut_H_named_z_pair": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 3.8,
+    "err": 2.742401988296986e-15,
+    "leak": 0.0,
+    "gauss": 5.251601356122266e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 11.6,
+    "err": 1.2068473919906092e-13,
+    "leak": 0.0,
+    "gauss": 5.474255194514172e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_CX_named_cz_with_CZ": {
+   "trial": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 1.3,
+    "err": 0.5000000000000011,
+    "leak": 0.0,
+    "gauss": 0.7071067811865496,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.4142135623731227,
+    "leak": 0.0,
+    "gauss": 0.7071067811865502,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_CZ_named_cx_with_CZ": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_custom_identity_named_h": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_custom_identity_named_z_two": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_unitary_named_x_pair": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "x_hidden_Tgates_in_cx_named_custom": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3920171247368903e-15,
+    "leak": 0.0,
+    "gauss": 5.108929983010925e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206851117089158e-13,
+    "leak": 0.0,
+    "gauss": 5.613217783960923e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_clbit_measure": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "x_global_phase_free": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.789891200844728e-15,
+    "leak": 0.0,
+    "gauss": 5.311767472816653e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.1,
+    "err": 1.2069096993534925e-13,
+    "leak": 0.0,
+    "gauss": 5.452663891757675e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_barrier_label": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  }
+ }
+}

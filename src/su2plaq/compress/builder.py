@@ -106,7 +106,7 @@ class Builder:
             raise BuilderError(f"gate {name!r} takes {_ARITY[name]} qubit(s)"
                                f"{' and one angle' if name in _PARAMETRIC else ''}")
         for th in params:
-            if isinstance(th, bool) or not isinstance(th, (int, float)) or not math.isfinite(float(th)):
+            if isinstance(th, bool) or not isinstance(th, numbers.Real) or not math.isfinite(float(th)):
                 raise BuilderError(f"angle must be a finite real number, got {th!r}")
         self._check_qubits(qs)
         self._ops.append((name, tuple(float(x) for x in params), tuple(int(q) for q in qs)))
@@ -175,6 +175,12 @@ class Builder:
             except (TypeError, ValueError) as exc:
                 raise BuilderError(f"gate {op.name!r} has a non-numeric parameter") from exc
             pending.append((op.name, params, tuple(qubit_map[qc.find_bit(q).index] for q in inst.qubits)))
+        try:
+            phase = float(qc.global_phase)
+        except (TypeError, ValueError) as exc:
+            raise BuilderError("the circuit's global phase must be a number (it is parametrised or non-numeric)") from exc
+        if not math.isfinite(phase):
+            raise BuilderError("the circuit's global phase must be finite")
         # validate everything first (all-or-nothing)
         saved = list(self._ops)
         try:
@@ -183,10 +189,7 @@ class Builder:
         except BuilderError:
             self._ops = saved
             raise
-        try:
-            self._global_phase += float(qc.global_phase)
-        except (TypeError, ValueError):
-            pass
+        self._global_phase += phase
 
     def discover(self, line: str):
         """Record a DISCOVERY line (at most 3; the 4th raises)."""

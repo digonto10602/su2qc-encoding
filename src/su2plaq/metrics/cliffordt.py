@@ -83,11 +83,12 @@ def ct_compile(qc, eps: float, level: int = 3, seed: int = 12345):
                  "qubits": out.num_qubits, "gates": ops}
 
 
-def synthesize(qc, eps: float):
+def synthesize(qc, eps: float, word_fn=None):
     """Replace every rz of the level-0 lowering by its Clifford+T word (gate order preserved; W dropped, X -> H S S H;
     multiples of pi/4 by exact S/T words).  Global phases of the replaced rotations are not tracked (the evaluator allows
     one global phase).  Returns (circuit, {"n_rot","t_rot","error_bound_sum" = n_rot*eps, "error_measured_sum" = sum of the measured per-word
-    errors (<= error_bound_sum), "per_rotation":[...]}).  Rotations at multiples of pi/4 are exact and not counted."""
+    errors (<= error_bound_sum), "per_rotation":[...]}); `word_fn(theta, eps)` may replace the in-process word cache (the
+    compression loop passes a disk-cached one).  Rotations at multiples of pi/4 are exact and not counted."""
     from qiskit import QuantumCircuit
 
     low = lower(qc)
@@ -99,7 +100,7 @@ def synthesize(qc, eps: float):
             out.append(op, [out.qubits[q] for q in qs])
             continue
         th = float(op.params[0])
-        w = pygridsynth_word(th, eps)
+        w = (word_fn or pygridsynth_word)(th, eps)
         q = out.qubits[qs[0]]
         for ch in reversed(w):  # rightmost letter acts first
             if ch == "H":
