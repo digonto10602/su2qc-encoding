@@ -1,3 +1,22 @@
+M3 in progress (desktop track S, spin network): environment set up and baseline green; planner running for M3.
+
+# Desktop track S — spin network — branch `m3-spin-network` (clone `~/Projects/su2qc-spinnet`)
+
+Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 100–199. Cores 0–9, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-spinnet.md`.
+
+## Current milestone / step
+M3 — step 0: planner (prompts/100).
+
+## Open failures (attempt counters)
+| Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
+|---|---|---|---|---|
+
+## Desktop log
+- 2026-11-05: desktop setup done (`~/su2qc-sync/setup-log.md`); baseline on fresh clone: m0+m1 56/56 incl. slow, unit 216/216, lock PASS acceptance-v6.
+
+---
+# Laptop STATUS at branch point (a2ec571), kept for reference
+
 # STATUS — su2qc-encoding
 
 Last updated: 2026-11-04 (coordinator)
