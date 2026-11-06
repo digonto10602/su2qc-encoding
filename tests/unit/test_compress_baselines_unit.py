@@ -102,6 +102,7 @@ def test_polish_keeps_the_input_when_nothing_is_better_and_improves_when_it_can(
     worse.cx(2, 5)                       # a redundant CX pair: removing it is strictly better and exact
     out, log = PS.polish(worse, UE)
     assert out is not worse and out.count_ops().get("cx", 0) == 0 and any("accepted" in x for x in log)
+    assert all(x.split(":")[0] in ("cancel_inverse_pairs", "merge_adjacent_rotations") for x in log)    # Lean rule names
     assert E.evaluate_circuit(out, UE, "trial").valid
     bad = ue.copy()
     bad.sx(0)
@@ -197,6 +198,7 @@ def test_run_round_with_proposals_archives_logs_and_is_idempotent(tmp_path):
     rj = json.loads((tmp_path / "results" / "compress" / "twelve" / "round-001.json").read_text())
     assert rj["entries"] == ["r01-F9-003"] and rj["invalid"][0]["reason"] == "error" and "git_commit" in rj["provenance"]
     assert rj["synthesis_verification"]["ok"] is True and rj["synthesis_verification"]["entry"] == "r01-F9-003"
+    assert A.Archive.load("twelve", root=tmp_path).best().program_path == "compress/programs/twelve/F9/003-ue.py"   # relocatable
     att = [json.loads(x) for x in (tmp_path / "compress" / "attempts" / "twelve.jsonl").read_text().splitlines()]
     assert [a["valid"] for a in att] == [True, False]
     assert "diagonal in the j bits" in (tmp_path / "compress" / "discoveries" / "twelve.md").read_text()

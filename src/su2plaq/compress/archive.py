@@ -72,7 +72,7 @@ class Entry:
         return Entry(**{k: v for k, v in d.items() if k in fields})
 
 
-_ID_RE = re.compile(r"^r\d{2,3}-[A-Za-z0-9_+]+(?:[-.][A-Za-z0-9_+]+)*$")
+_ID_RE = re.compile(r"r\d{2,3}-[A-Za-z0-9_+]+(?:[-.][A-Za-z0-9_+]+)*")      # used with fullmatch (no trailing newline slips through)
 _METRIC_KEYS = ("cx", "t_eps", "depth_ct", "qubits")
 log = logging.getLogger(__name__)
 
@@ -81,13 +81,15 @@ def _finite_key(k) -> bool:
     return len(k) == 4 and all(isinstance(x, numbers.Real) and not isinstance(x, bool) and math.isfinite(float(x)) for x in k)
 
 
-def entry_problem(e: "Entry", n_alt: int = 0, k: int = 8) -> str | None:
+def entry_problem(e: "Entry", n_alt: int = 0, k: int = 8, strict: bool = False) -> str | None:
     """Why `e` may not enter the archive, or None.  Rules (prompts/002 §2.10): a sane id (no path characters); a FULL-mode
     result; valid with reason ok; verdict ok and certified at the nominal angles and at every alternate pair that is present
-    (exactly `n_alt` of them when n_alt > 0); skeleton equal; key and cell equal to the ones recomputed from the metrics, finite."""
+    (exactly `n_alt` of them when n_alt > 0); skeleton equal; key and cell equal to the ones recomputed from the metrics, finite.
+    `strict=True` (all real callers) additionally requires `certified` to be present and True in every verdict: a verdict that does
+    not say it is certified is not certified.  The lenient default exists only for hand-made test entries."""
     from su2plaq.compress.synth import cell as _c, key as _k
 
-    if not isinstance(e.id, str) or len(e.id) > 100 or not _ID_RE.match(e.id):
+    if not isinstance(e.id, str) or len(e.id) > 100 or not _ID_RE.fullmatch(e.id):
         return "bad id"
     if e.mode != "full":
         return f"mode {e.mode!r} is not 'full'"
@@ -96,13 +98,16 @@ def entry_problem(e: "Entry", n_alt: int = 0, k: int = 8) -> str | None:
     if not e.skeleton_equal:
         return "skeleton differs between the angle pairs"
     vn = e.verdict_nominal
-    if not isinstance(vn, dict) or not vn or vn.get("ok") is not True or vn.get("certified") is False:
+    cert_ok = (lambda v: v.get("certified") is True) if strict else (lambda v: v.get("certified") is not False)
+    if not isinstance(vn, dict) or not vn or vn.get("ok") is not True or not cert_ok(vn):
         return "nominal verdict empty, not ok, or not certified"
     if n_alt and len(e.verdicts_alt) != n_alt:
         return f"expected {n_alt} alternate-angle verdicts, got {len(e.verdicts_alt)}"
     for va in e.verdicts_alt:
-        if not isinstance(va, dict) or va.get("ok") is not True or va.get("certified") is False:
+        if not isinstance(va, dict) or va.get("ok") is not True or not cert_ok(va):
             return "an alternate-angle verdict is empty, not ok, or not certified"
+    if strict and not n_alt:
+        return "strict archives must be told the number of alternate-angle pairs (n_alt)"
     m = e.metrics_raw
     if not isinstance(m, dict) or any(x not in m for x in _METRIC_KEYS):
         return "metrics incomplete"
@@ -118,10 +123,13 @@ def entry_problem(e: "Entry", n_alt: int = 0, k: int = 8) -> str | None:
 
 
 class Archive:
-    def __init__(self, encoding: str, root=None, entries=None, n_alt: int = 0):
+    def __init__(self, encoding: str, root=None, entries=None, n_alt: int | None = None, strict: bool = False):
+        if strict and not n_alt:
+            raise ValueError("a strict Archive needs n_alt (the number of alternate-angle pairs the verdicts must cover)")
         self.encoding = encoding
         self.root = pathlib.Path(root) if root is not None else ROOT
-        self.n_alt = n_alt                      # required number of alternate-angle verdicts (0: whatever is present is checked)
+        self.n_alt = n_alt or 0                 # required number of alternate-angle verdicts (0: whatever is present is checked)
+        self.strict = strict                    # True: `certified` must be present and True (real callers); False: hand-made entries
         self._entries: dict[str, Entry] = dict(entries or {})
         self.rejected: list[tuple[str, str]] = []   # (file or id, reason) of entries refused on load / insert
 
@@ -131,16 +139,16 @@ class Archive:
         return self.root / "compress" / "archive" / self.encoding
 
     @classmethod
-    def load(cls, encoding, root=None, n_alt: int = 0) -> "Archive":
+    def load(cls, encoding, root=None, n_alt: int | None = None, strict: bool = False) -> "Archive":
         """Load the archive; every stored entry is re-validated with the insert rules and refused (logged, listed in
         `.rejected`) if it fails or if its file name does not match its id."""
-        arch = cls(encoding, root, n_alt=n_alt)
+        arch = cls(encoding, root, n_alt=n_alt, strict=strict)
         d = arch.directory / "entries"
         if d.is_dir():
             for f in sorted(d.glob("*.json")):
                 try:
                     e = Entry.from_dict(json.loads(f.read_text()))
-                    why = entry_problem(e, n_alt) if f.stem == e.id else "file name does not match the entry id"
+                    why = entry_problem(e, arch.n_alt, strict=strict) if f.stem == e.id else "file name does not match the entry id"
                 except (OSError, ValueError, KeyError, TypeError) as exc:
                     why = f"unreadable entry ({type(exc).__name__}: {exc})"
                 if why is not None:
@@ -155,7 +163,7 @@ class Archive:
         edir = (d / "entries")
         edir.mkdir(parents=True, exist_ok=True)
         for e in self._entries.values():
-            why = entry_problem(e, self.n_alt)
+            why = entry_problem(e, self.n_alt, strict=self.strict)
             if why is not None:
                 raise ValueError(f"entry {e.id!r} no longer satisfies the archive rules ({why})")
             target = (edir / f"{e.id}.json")
@@ -180,7 +188,7 @@ class Archive:
         """Add an entry that satisfies `entry_problem`; returns False (archive untouched, the reason is appended to `.rejected`)
         otherwise: not a full-mode result, not ok AND certified at the nominal and alternate angles, skeleton differs, key / cell
         not equal to the ones recomputed from the metrics, non-finite key, unsafe id.  A duplicate id is an error."""
-        why = entry_problem(entry, self.n_alt)
+        why = entry_problem(entry, self.n_alt, strict=self.strict)
         if why is not None:
             self.rejected.append((str(entry.id), why))
             return False

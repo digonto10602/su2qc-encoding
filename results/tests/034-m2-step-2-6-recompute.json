@@ -1,0 +1,382 @@
+{
+ "commit": "a1449ea (+ uncommitted step 2.6 working tree)",
+ "purpose": "independent recomputation of report_table cells (tester)",
+ "parameters": {
+  "encoding": "twelve",
+  "kind": "step",
+  "eps": [
+   1e-06,
+   1e-10
+  ],
+  "qiskit_l3_seed": 12345,
+  "scratch_root": "scratchpad/root",
+  "rounds": [
+   0,
+   1,
+   2
+  ]
+ },
+ "note": "depth_ct for qiskit_l3 not reproduced (own exact-angle word handling differs); all other 71 cells equal",
+ "cells": {
+  "r00-seed-000|qubits": {
+   "mine": 50,
+   "json": 50,
+   "equal": true
+  },
+  "r00-seed-000|cx": {
+   "mine": 294,
+   "json": 294,
+   "equal": true
+  },
+  "r00-seed-000|t_fixed": {
+   "mine": 312,
+   "json": 312,
+   "equal": true
+  },
+  "r00-seed-000|n_rot": {
+   "mine": 10,
+   "json": 10,
+   "equal": true
+  },
+  "r00-seed-000|T1e-06": {
+   "mine": 952,
+   "json": 952,
+   "equal": true
+  },
+  "r00-seed-000|T1e-10": {
+   "mine": 1352,
+   "json": 1352,
+   "equal": true
+  },
+  "r00-seed-000|Test1e-06": {
+   "mine": 909.9470570797253,
+   "json": 909.9470570797253,
+   "equal": true
+  },
+  "r00-seed-000|Test1e-10": {
+   "mine": 1308.5784284662086,
+   "json": 1308.5784284662086,
+   "equal": true
+  },
+  "r00-seed-000|depth_ct": {
+   "mine": 1421,
+   "json": 1421,
+   "equal": true
+  },
+  "r00-seed-010|qubits": {
+   "mine": 50,
+   "json": 50,
+   "equal": true
+  },
+  "r00-seed-010|cx": {
+   "mine": 294,
+   "json": 294,
+   "equal": true
+  },
+  "r00-seed-010|t_fixed": {
+   "mine": 312,
+   "json": 312,
+   "equal": true
+  },
+  "r00-seed-010|n_rot": {
+   "mine": 10,
+   "json": 10,
+   "equal": true
+  },
+  "r00-seed-010|T1e-06": {
+   "mine": 952,
+   "json": 952,
+   "equal": true
+  },
+  "r00-seed-010|T1e-10": {
+   "mine": 1352,
+   "json": 1352,
+   "equal": true
+  },
+  "r00-seed-010|Test1e-06": {
+   "mine": 909.9470570797253,
+   "json": 909.9470570797253,
+   "equal": true
+  },
+  "r00-seed-010|Test1e-10": {
+   "mine": 1308.5784284662086,
+   "json": 1308.5784284662086,
+   "equal": true
+  },
+  "r00-seed-010|depth_ct": {
+   "mine": 1421,
+   "json": 1421,
+   "equal": true
+  },
+  "r00-seed-qiskit_l3|qubits": {
+   "mine": 50,
+   "json": 50,
+   "equal": true
+  },
+  "r00-seed-qiskit_l3|cx": {
+   "mine": 290,
+   "json": 290,
+   "equal": true
+  },
+  "r00-seed-qiskit_l3|t_fixed": {
+   "mine": 302,
+   "json": 302,
+   "equal": true
+  },
+  "r00-seed-qiskit_l3|n_rot": {
+   "mine": 10,
+   "json": 10,
+   "equal": true
+  },
+  "r00-seed-qiskit_l3|T1e-06": {
+   "mine": 918,
+   "json": 918,
+   "equal": true
+  },
+  "r00-seed-qiskit_l3|T1e-10": {
+   "mine": 1310,
+   "json": 1310,
+   "equal": true
+  },
+  "r00-seed-qiskit_l3|Test1e-06": {
+   "mine": 899.9470570797253,
+   "json": 899.9470570797253,
+   "equal": true
+  },
+  "r00-seed-qiskit_l3|Test1e-10": {
+   "mine": 1298.5784284662086,
+   "json": 1298.5784284662086,
+   "equal": true
+  },
+  "r00-seed-qiskit_l3|depth_ct": {
+   "mine": 1986,
+   "json": 1387,
+   "equal": false
+  },
+  "r00-seed-001|qubits": {
+   "mine": 35,
+   "json": 35,
+   "equal": true
+  },
+  "r00-seed-001|cx": {
+   "mine": 162,
+   "json": 162,
+   "equal": true
+  },
+  "r00-seed-001|t_fixed": {
+   "mine": 160,
+   "json": 160,
+   "equal": true
+  },
+  "r00-seed-001|n_rot": {
+   "mine": 8,
+   "json": 8,
+   "equal": true
+  },
+  "r00-seed-001|T1e-06": {
+   "mine": 660,
+   "json": 660,
+   "equal": true
+  },
+  "r00-seed-001|T1e-10": {
+   "mine": 986,
+   "json": 986,
+   "equal": true
+  },
+  "r00-seed-001|Test1e-06": {
+   "mine": 638.3576456637802,
+   "json": 638.3576456637802,
+   "equal": true
+  },
+  "r00-seed-001|Test1e-10": {
+   "mine": 957.2627427729669,
+   "json": 957.2627427729669,
+   "equal": true
+  },
+  "r00-seed-001|depth_ct": {
+   "mine": 1029,
+   "json": 1029,
+   "equal": true
+  },
+  "r00-seed-002|qubits": {
+   "mine": 38,
+   "json": 38,
+   "equal": true
+  },
+  "r00-seed-002|cx": {
+   "mine": 210,
+   "json": 210,
+   "equal": true
+  },
+  "r00-seed-002|t_fixed": {
+   "mine": 192,
+   "json": 192,
+   "equal": true
+  },
+  "r00-seed-002|n_rot": {
+   "mine": 8,
+   "json": 8,
+   "equal": true
+  },
+  "r00-seed-002|T1e-06": {
+   "mine": 704,
+   "json": 704,
+   "equal": true
+  },
+  "r00-seed-002|T1e-10": {
+   "mine": 1026,
+   "json": 1026,
+   "equal": true
+  },
+  "r00-seed-002|Test1e-06": {
+   "mine": 670.3576456637802,
+   "json": 670.3576456637802,
+   "equal": true
+  },
+  "r00-seed-002|Test1e-10": {
+   "mine": 989.2627427729669,
+   "json": 989.2627427729669,
+   "equal": true
+  },
+  "r00-seed-002|depth_ct": {
+   "mine": 1148,
+   "json": 1148,
+   "equal": true
+  },
+  "r01-F1-001|qubits": {
+   "mine": 38,
+   "json": 38,
+   "equal": true
+  },
+  "r01-F1-001|cx": {
+   "mine": 210,
+   "json": 210,
+   "equal": true
+  },
+  "r01-F1-001|t_fixed": {
+   "mine": 184,
+   "json": 184,
+   "equal": true
+  },
+  "r01-F1-001|n_rot": {
+   "mine": 8,
+   "json": 8,
+   "equal": true
+  },
+  "r01-F1-001|T1e-06": {
+   "mine": 696,
+   "json": 696,
+   "equal": true
+  },
+  "r01-F1-001|T1e-10": {
+   "mine": 1018,
+   "json": 1018,
+   "equal": true
+  },
+  "r01-F1-001|Test1e-06": {
+   "mine": 662.3576456637802,
+   "json": 662.3576456637802,
+   "equal": true
+  },
+  "r01-F1-001|Test1e-10": {
+   "mine": 981.2627427729669,
+   "json": 981.2627427729669,
+   "equal": true
+  },
+  "r01-F1-001|depth_ct": {
+   "mine": 1148,
+   "json": 1148,
+   "equal": true
+  },
+  "r01-F2-001|qubits": {
+   "mine": 35,
+   "json": 35,
+   "equal": true
+  },
+  "r01-F2-001|cx": {
+   "mine": 162,
+   "json": 162,
+   "equal": true
+  },
+  "r01-F2-001|t_fixed": {
+   "mine": 160,
+   "json": 160,
+   "equal": true
+  },
+  "r01-F2-001|n_rot": {
+   "mine": 8,
+   "json": 8,
+   "equal": true
+  },
+  "r01-F2-001|T1e-06": {
+   "mine": 660,
+   "json": 660,
+   "equal": true
+  },
+  "r01-F2-001|T1e-10": {
+   "mine": 986,
+   "json": 986,
+   "equal": true
+  },
+  "r01-F2-001|Test1e-06": {
+   "mine": 638.3576456637802,
+   "json": 638.3576456637802,
+   "equal": true
+  },
+  "r01-F2-001|Test1e-10": {
+   "mine": 957.2627427729669,
+   "json": 957.2627427729669,
+   "equal": true
+  },
+  "r01-F2-001|depth_ct": {
+   "mine": 1029,
+   "json": 1029,
+   "equal": true
+  },
+  "r02-F2-002|qubits": {
+   "mine": 35,
+   "json": 35,
+   "equal": true
+  },
+  "r02-F2-002|cx": {
+   "mine": 162,
+   "json": 162,
+   "equal": true
+  },
+  "r02-F2-002|t_fixed": {
+   "mine": 160,
+   "json": 160,
+   "equal": true
+  },
+  "r02-F2-002|n_rot": {
+   "mine": 8,
+   "json": 8,
+   "equal": true
+  },
+  "r02-F2-002|T1e-06": {
+   "mine": 660,
+   "json": 660,
+   "equal": true
+  },
+  "r02-F2-002|T1e-10": {
+   "mine": 986,
+   "json": 986,
+   "equal": true
+  },
+  "r02-F2-002|Test1e-06": {
+   "mine": 638.3576456637802,
+   "json": 638.3576456637802,
+   "equal": true
+  },
+  "r02-F2-002|Test1e-10": {
+   "mine": 957.2627427729669,
+   "json": 957.2627427729669,
+   "equal": true
+  },
+  "r02-F2-002|depth_ct": {
+   "mine": 1029,
+   "json": 1029,
+   "equal": true
+  }
+ }
+}

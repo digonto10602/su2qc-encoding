@@ -7,7 +7,8 @@ is STRICTLY better in the cost key and still valid (trial evaluation); otherwise
      ch ch, rccx rccx), "adjacent" meaning no other gate acts on any of the pair's qubits in between;
   2. merge adjacent rotations of the same kind on the same qubits (rz, p, crz, crx, cp: angles add).
 
-Both are exact identities and angle-structural (no angle is ever tested for zero), so a skeleton that is angle independent stays
+Every log line starts with the name of the rewrite rule it concerns (`cancel_inverse_pairs`, `merge_adjacent_rotations`), the
+names under which the Lean rule table (`su2plaq.lean.rules.LEAN_RULES`) lists the certified identities.  Both are exact identities and angle-structural (no angle is ever tested for zero), so a skeleton that is angle independent stays
 angle independent.
 """
 from __future__ import annotations
@@ -81,18 +82,18 @@ def polish(qc, spec) -> tuple:
     from su2plaq.compress.synth import key
 
     if _gate_violations(qc):
-        return qc, ["skipped: the circuit contains gates outside BASIS u MACROS"]
+        return qc, ["cancel_inverse_pairs: skipped, the circuit contains gates outside BASIS u MACROS"]
     ops = [(i.operation.name, tuple(float(x) for x in i.operation.params), tuple(qc.find_bit(q).index for q in i.qubits))
            for i in qc.data if i.operation.name != "barrier"]
     new_ops, n_cancel, n_merge = _cancel_and_merge(ops)
-    log = [f"cancelled {n_cancel} gates in inverse pairs, merged {n_merge} rotations"]
+    log = [f"cancel_inverse_pairs: {n_cancel} gates removed in inverse pairs", f"merge_adjacent_rotations: {n_merge} rotations merged"]
     if not (n_cancel or n_merge):
-        return qc, log + ["nothing to do"]
+        return qc, log + ["cancel_inverse_pairs: nothing to do"]
     cand = _rebuild(qc, new_ops)
     k0, k1 = key(metrics(qc, spec, measured=False)), key(metrics(cand, spec, measured=False))
     if not k1 < k0:
-        return qc, log + [f"not strictly better ({k1} vs {k0}); kept the input"]
+        return qc, log + [f"cancel_inverse_pairs: not strictly better ({k1} vs {k0}); kept the input"]
     r = evaluate_circuit(cand, spec, mode="trial")
     if not r.valid:
-        return qc, log + [f"candidate invalid ({r.reason}); kept the input"]
-    return cand, log + [f"accepted: key {k0} -> {k1}"]
+        return qc, log + [f"cancel_inverse_pairs: candidate invalid ({r.reason}); kept the input"]
+    return cand, log + [f"cancel_inverse_pairs: accepted, key {k0} -> {k1}"]

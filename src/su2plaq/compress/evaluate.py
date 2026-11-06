@@ -314,9 +314,15 @@ def result_from_dict(d: dict) -> ProgramResult:
         keys = set(Verdict.__dataclass_fields__)
         return Verdict(**{k: x for k, x in v.items() if k in keys})
 
+    met = d["metrics"]
+    if isinstance(met, dict):      # JSON object keys are strings; the epsilon-keyed tables are float-keyed in a fresh result
+        met = dict(met)
+        for k in ("t_estimate", "t_measured"):
+            if isinstance(met.get(k), dict):
+                met[k] = {float(e): v for e, v in met[k].items()}
     return ProgramResult(valid=d["valid"], reason=d["reason"], verdict=verdict(d["verdict"]),
                          verdicts_alt=[verdict(v) for v in d["verdicts_alt"]], skeleton_equal=d["skeleton_equal"],
-                         metrics=d["metrics"], program_sha256=d["program_sha256"], wall_s=d["wall_s"],
+                         metrics=met, program_sha256=d["program_sha256"], wall_s=d["wall_s"],
                          discoveries=list(d["discoveries"]), summary=d["summary"], mode=d.get("mode", "full"),
                          message=d.get("message", ""), spec_sha256=d.get("spec_sha256", ""), seeds=d.get("seeds", {}))
 

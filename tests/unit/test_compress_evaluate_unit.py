@@ -511,3 +511,12 @@ def test_an_untampered_cache_entry_is_still_served(tmp_path, monkeypatch):
     monkeypatch.setattr(E, "_evaluate_program_bytes", lambda *a, **k: pytest.fail("re-evaluated"))
     r2 = E.evaluate_program(good_p, UE, "full", cache=True, root=tmp_path)
     assert r2.valid and r2.verdict.op_norm_error == r1.verdict.op_norm_error
+
+
+def test_cached_result_equals_the_fresh_one_including_float_keyed_tables(tmp_path):
+    good_p = write(tmp_path, UE_BODY.format(sign="-"))
+    r1 = E.evaluate_program(good_p, UE, "full", cache=True, root=tmp_path)
+    r2 = E.evaluate_program(good_p, UE, "full", cache=True, root=tmp_path)
+    assert all(isinstance(k, float) for k in r2.metrics["t_estimate"]) and set(r2.metrics["t_estimate"]) == set(r1.metrics["t_estimate"])
+    assert all(isinstance(k, float) for k in r2.metrics["t_measured"]) and r2.metrics["t_measured"] == r1.metrics["t_measured"]
+    assert r2.metrics == r1.metrics

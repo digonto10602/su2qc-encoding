@@ -176,3 +176,28 @@ def test_load_revalidates_every_stored_entry(tmp_path):
     again = A.Archive.load("twelve", root=tmp_path)
     assert sorted(e.id for e in again.entries()) == ["r01-F1-001", "r01-F1-002"]
     assert sorted(n for n, _ in again.rejected) == ["r01-F1-003.json", "r01-F1-004.json", "r01-F1-005.json", "r01-F1-006.json"]
+
+
+# ------------------------------------------------------------------------------------------------ tester 033 notes
+def test_id_with_a_trailing_newline_is_refused(tmp_path):
+    arch = A.Archive.load("twelve", root=tmp_path)
+    assert not arch.insert(good("r01-F1-001\n")) and arch.insert(good("r01-F1-001"))
+
+
+def test_strict_archives_need_certified_verdicts_and_n_alt(tmp_path):
+    with pytest.raises(ValueError):
+        A.Archive.load("twelve", root=tmp_path, strict=True)                  # strict without n_alt is refused outright
+    arch = A.Archive.load("twelve", root=tmp_path, n_alt=2, strict=True)
+    certified = [{"ok": True, "certified": True}] * 2
+    assert not arch.insert(good(verdict_nominal={"ok": True}, verdicts_alt=certified))          # no `certified` field: not certified
+    assert not arch.insert(good(verdict_nominal={"ok": True, "certified": True}, verdicts_alt=[{"ok": True}, {"ok": True, "certified": True}]))
+    assert arch.insert(good(verdict_nominal={"ok": True, "certified": True}, verdicts_alt=certified))
+    lenient = A.Archive.load("twelve", root=tmp_path / "other")
+    assert lenient.insert(good(verdict_nominal={"ok": True}))                                  # hand-made entries (locked tests)
+    arch.save()
+    again = A.Archive.load("twelve", root=tmp_path, n_alt=2, strict=True)
+    assert [e.id for e in again.entries()] == ["r01-F1-001"] and not again.rejected
+    # a stored entry without `certified` is refused by a strict loader
+    lenient.save()
+    strict_view = A.Archive.load("twelve", root=tmp_path / "other", n_alt=2, strict=True)
+    assert strict_view.entries() == [] and strict_view.rejected
