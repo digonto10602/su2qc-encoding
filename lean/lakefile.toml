@@ -1,0 +1,20 @@
+name = "su2plaq-lean"
+defaultTargets = ["Su2Plaq", "Su2PlaqCert", "su2plaq_cert"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.35.0"
+
+# Theorems about the compression methods (kernel-checked, standard axioms only). Imports Mathlib.
+[[lean_lib]]
+name = "Su2Plaq"
+
+# Exact certificate checker (computable, NO Mathlib import so precompileModules stays cheap).
+[[lean_lib]]
+name = "Su2PlaqCert"
+precompileModules = true
+
+[[lean_exe]]
+name = "su2plaq_cert"
+root = "Su2PlaqCert.Main"

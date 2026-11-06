@@ -1,0 +1,7 @@
+{"commit": "cdc6551", "step": "2.L1", "mode": "step", "date": "2026-11-05", "machine": "local",
+ "clean_lake_build": {"rc": 0, "wall_s": 22.4, "jobs": 9089, "first_job_built": 9046, "mathlib_modules_compiled": 0},
+ "unit_suite_n_auto": [{"passed":201,"failed":0},{"passed":200,"failed":1,"cause":"racy glob assertion in test_print_axioms_real_and_unknown vs foreign process"},{"passed":202,"failed":0},{"passed":202,"failed":0}],
+ "acceptance": {"m0_m1_not_slow": "54 passed", "m2_not_slow": "5 passed, 35 failed (all PENDING/NotImplemented or later steps)", "collect": 102, "lock": "acceptance-v6 OK"},
+ "axiom_classification": {"none":[], "propext":["propext"], "em":["Classical.choice","Quot.sound","propext"], "native_decide":"propext + <thm>._native.native_decide.ax_1_1 (native)", "sorry":"sorryAx (neither)"},
+ "no_sorry_edge_cases": {"passed": 15, "failed": 1, "failing": "char literal '\"' followed by sorry -> missed"},
+ "seeds": "none (deterministic)"}

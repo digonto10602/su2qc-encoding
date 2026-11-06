@@ -1,0 +1,168 @@
+{
+ "commit": "f5ff810+uncommitted lean work",
+ "script": "scratch/t2l23_axioms.py",
+ "lean": "4.35.0",
+ "mathlib": "v4.35.0",
+ "build": {
+  "clean_build_wall_s": 379,
+  "counts_module_s": 365,
+  "counts_peak_rss_kB": 15342356,
+  "baseline_other_modules_rss_kB": 6900000.0
+ },
+ "axioms": {
+  "Su2Plaq.norm_sum_sq_of_pairwise_orth": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.opNorm_add_three_le_of_orth": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.rss_le_sum": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.pruning_triangle": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.opNorm_le_of_blockdiag": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.verdict_sound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.gauss_max_ge": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.span_leak_le_four_gauss": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.cs_block_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.norm_list_prod_le_one": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.prod_sub_prod_le": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.synth_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.ctrl_mulVec_e": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.mono_mulVec_e": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.mono_conjTranspose_mul": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.sandwich": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.rccx_crx_rccx_eq_ccrx": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.h_z_h": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.h_rz_h": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.cx_involutive": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.perm_conj_diagonal": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.cx_comm_diagonal_of_indep": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.cx_comm_cx": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.ccz_circuit": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.kron_disjoint_comm": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.outer_electric_commutes": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "Su2Plaq.card_physical": [
+   "propext"
+  ],
+  "Su2Plaq.card_link_patterns": [
+   "propext"
+  ],
+  "Su2Plaq.card_two_or_more": [
+   "propext"
+  ],
+  "Su2Plaq.card_closed": [
+   "propext"
+  ],
+  "Su2Plaq.far_end_weighted": [
+   "propext"
+  ],
+  "Su2Plaq.card_supported_outer": [
+   "propext"
+  ],
+  "Su2Plaq.max_states_per_outer": [
+   "propext"
+  ],
+  "Su2Plaq.dont_care_codes": [
+   "propext"
+  ]
+ }
+}
