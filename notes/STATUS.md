@@ -5,14 +5,14 @@ M5 in progress (desktop track R, rishon QLM): plan prompts/200 locked as accepta
 Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 200–299. Cores 10–19, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-rishon.md`.
 
 ## Current milestone / step
-M5 — plan `prompts/200-rishon-m5-plan.md` (acceptance-v7, m5 tests 34). Steps 5.0+5.1 PASS (reports/tests/200). Step 5.2 PASS (reports/tests/201). Step 5.3 with builder. Lean steps 5.L1–5.L3 run after, one builder per clone at a time (START_HERE §3 overrides the plan's parallel-builder note).
+M5 — plan `prompts/200-rishon-m5-plan.md` (acceptance-v8 after the prompts/201 test fix; m5 tests 34; plan in force stays prompts/200). Steps 5.0+5.1 PASS (reports/tests/200). Step 5.2 PASS (reports/tests/201). Step 5.3 with builder. Lean steps 5.L1–5.L3 run after, one builder per clone at a time (START_HERE §3 overrides the plan's parallel-builder note).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
 |---|---|---|---|---|
-| M5-C1 `test_rishon_codec.py::test_M5_C1_encoding_codec_and_vectors` | 1 | 0 | 0 | **BLOCKED — locked-test defect, waiting for Digonto (global stop rule: an agent believes a locked test is wrong).** Line 35 `enc.decode(va \| outer \| (1 << 0)) is None` and the `decode_state(va \| outer \| 1)` raises-check: link b in `va` is type A = 0b0011, bit 0 already set, so the input equals the one asserted valid on line 33 — contradictory, unsatisfiable. Proposed fix (planner, then re-lock): `(1 << 0)` → `(1 << 2)` and `\| 1` → `\| (1 << 2)`; with it the test passes (builder, scratchpad copy). Other M5 steps continue. |
 
 ## Desktop log
+- 2026-11-06: M5-C1 codec test defect (line 35 `(1 << 0)` on a type-A link was a no-op → contradicted line 33): Digonto approved the fix in chat; planner prompts/201 (one-off test fix; plan in force stays prompts/200) changed `(1 << 0)`→`(1 << 2)` twice + LOCK.json entry; re-locked acceptance-v8. Test now passes.
 - 2026-11-06: M5 step 5.2 PASS (reports/tests/201): 38 432 physical states by fusion, built basis, and two tester routes (Haar integral, brute-force corner kernels); closed 4352, 431 U(1) sectors, U(2) sector 2192; Gauss ≤ 2e-16 on all; Gram − 1 ≤ 8e-15; inner span rank 1296; build 2.3 s / 0.33 GB.
 - 2026-11-06: M5 steps 5.0+5.1 PASS (reports/tests/200): D1 ×2 green; independent JW image: CAR, BCW Eq. 4.1, sector dim 6 (2 singlets + quartet), string-freeness on 8/12 modes all exact (0 deviation); unit 259/259; m0+m1 54/54.
 - 2026-11-06: planner prompts/200 + reports/research/200 + docs/METHODS-rishon.md + tests/acceptance/m5 (34 tests, all PENDING); locked acceptance-v7 (202a340). Model: SU(2) QLM, 2 rishons/link (6 states), SU(2) Gauss only, det coupling γ=0 (default, flagged for Digonto). Physical count 38 432 (two routes + Lean decide prototype), closed sector 4352, inner span 1296 full; H_B^in = 81 bright pairs (κ ∈ {1×32, 2×48, 4√2×1}) + 1134 dark. Verification: laptop evaluate on an inner view (certifies all 38 432 for outer-blind circuits) + sampled Gauss.
