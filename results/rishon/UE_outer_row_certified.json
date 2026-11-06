@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "encoding": "rishon",
+  "circuit_id": "UE_outer_row_certified",
+  "kind": "UE",
+  "params": {
+    "alpha": 0.37
+  },
+  "provenance": {
+    "git_commit": "59e863d",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "cpu_count": 20,
+    "seeds": {
+      "outer_row_certified": null,
+      "outer_row_sample": 20261104
+    },
+    "timestamp_utc": "2026-11-06T16:06:41Z",
+    "provenance_captured_at": "2026-11-06T16:06:41Z",
+    "host": "SupremeCommander",
+    "command": "python scripts/m5x_outer_row.py",
+    "wall_seconds": 0.12128067016601562,
+    "peak_rss_mb": 111.7578125
+  },
+  "verification": {
+    "certified": true,
+    "ok": true,
+    "method": "outer_electric_gadgets",
+    "n_links": 12,
+    "link_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max_link_error": 0.0,
+    "error_bound": 0.0,
+    "phase": [
+      1.0,
+      0.0
+    ],
+    "gates_per_link": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "tol_err": 1e-10,
+    "target": "exp(-i alpha (3/4) [type Q]) per link on the 6 sector codes; bound = sum over links (tensor product)",
+    "reason": "ok"
+  },
+  "metrics": {},
+  "files": {},
+  "extra": {
+    "sampled_check_file": "results/rishon/UE_outer_row.json",
+    "note": "exhaustive per-link check; see prompts/202 section 1 O1"
+  }
+}
