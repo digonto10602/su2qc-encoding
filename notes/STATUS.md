@@ -1,3 +1,22 @@
+M5 in progress (desktop track R, rishon (quantum link model)): environment set up and baseline green; planner running for M5.
+
+# Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)
+
+Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 200–299. Cores 10–19, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-rishon.md`.
+
+## Current milestone / step
+M5 — step 0: planner (prompts/200).
+
+## Open failures (attempt counters)
+| Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
+|---|---|---|---|---|
+
+## Desktop log
+- 2026-11-05: desktop setup done (`~/su2qc-sync/setup-log.md`); baseline on fresh clone: m0+m1 56/56 incl. slow, unit 216/216, lock PASS acceptance-v6.
+
+---
+# Laptop STATUS at branch point (a2ec571), kept for reference
+
 # STATUS — su2qc-encoding
 
 Last updated: 2026-11-04 (coordinator)
