@@ -96,60 +96,52 @@ def _program(tmp: pathlib.Path, name: str, body: str) -> pathlib.Path:
     return p
 
 
-GENERAL_WITH_ORACLE = '''"""SUMMARY: the general spin-network step circuit; reads one target element from the oracle at emission time.
+def _derived_program(gp: pathlib.Path, *, prologue: str = "", epilogue: str = "") -> str:
+    """A proposer-style rewrite of the generated gate-list program `000-general.py` (prompts/104 §11 erratum E1): `prologue`
+    is inserted right after `def build(spec):`, `epilogue` right before `return b`.  Like every real proposer program it
+    reaches the spin-network circuit only through the gate list and the whitelisted `su2plaq.compress.{oracle,builder,spec}`
+    modules -- never by importing `su2plaq.circuits.spinnet` (the laptop's static scan refuses that, and must keep doing so)."""
+    text = gp.read_text()
+    assert text.count("def build(spec):\n") == 1 and text.rstrip().endswith("return b"), gp
+    assert "su2plaq.circuits" not in text and "su2plaq.spinnet" not in text, "the general program must be a plain gate list"
+    head, body = text.split("def build(spec):\n", 1)
+    body, tail = body.rsplit("    return b", 1)
+    return head + "def build(spec):\n" + prologue + body + epilogue + "    return b" + tail
 
-"""
-FAMILY = "T"
-PARENT = None
 
-from su2plaq.compress.builder import Builder
-
-
-def build(spec):
-    from su2plaq.compress import oracle
-    import numpy as np
-    v = oracle.element(spec, 0, 0)          # the worker must know the encoding for this to work
+# the worker must know the encoding for `oracle.element` to work (prompts/104 §1 shim iii)
+ORACLE_PROLOGUE = '''    from su2plaq.compress import oracle
+    v = oracle.element(spec, 0, 0)
     assert abs(v) <= 1.0 + 1e-12
-    from su2plaq.circuits.spinnet import build_step
-    qc = build_step(spec.alpha, spec.beta, spec.order, with_outer=True)
-    b = Builder(spec)
-    b.alloc(qc.num_qubits - 16, "work")
-    b.append_qiskit(qc, list(range(qc.num_qubits)))
-    return b
 '''
 
-WRITING_PROGRAM = '''"""SUMMARY: a program that tries to write a file (must be refused by the worker sandbox).
+# a gate pair whose presence depends on beta: nominal beta = 0.61 > 0.5, first alternate 0.23 (skeleton rule violation);
+# qubit 16 is the first ancilla of the general program (`b.alloc(7, "work")`, M4-S0 checks the first ancilla index)
+SKELETON_EPILOGUE = '''    if spec.beta > 0.5:
+        b.x(16)
+        b.x(16)
+'''
+
+# importing the reference circuit is outside the laptop's import whitelist: the static scan must refuse it (`contract`),
+# i.e. the shim must not widen ALLOWED_PROJECT_IMPORTS (prompts/104 §1 "exactly these effects and no others")
+CIRCUIT_IMPORT_PROLOGUE = '''    from su2plaq.circuits.spinnet import build_step
+'''
+
+# the laptop's own sandbox test (tests/unit/test_compress_evaluate_unit.py "pathlib via the builder module"): a write that the
+# static scan cannot see (no `open` name in the source) and that only the worker's audit guard can stop
+WRITING_PROGRAM = '''"""SUMMARY: a program that tries to write a file through pathlib (must be refused by the worker's audit guard).
 
 """
 FAMILY = "T"
 PARENT = None
 
 from su2plaq.compress.builder import Builder
+import su2plaq.compress.builder as BB
 
 
 def build(spec):
-    open("/tmp/su2plaq-m4-should-not-exist.txt", "w").write("x")
+    BB.pathlib.Path(%(marker)r).write_text("x")
     b = Builder(spec)
-    return b
-'''
-
-ANGLE_DEPENDENT_SKELETON = '''"""SUMMARY: the general circuit plus a gate whose presence depends on beta (skeleton rule violation).
-
-"""
-FAMILY = "T"
-PARENT = None
-
-from su2plaq.compress.builder import Builder
-
-
-def build(spec):
-    from su2plaq.circuits.spinnet import build_step
-    qc = build_step(spec.alpha, spec.beta, spec.order, with_outer=True)
-    b = Builder(spec)
-    b.alloc(qc.num_qubits - 16, "work")
-    b.append_qiskit(qc, list(range(qc.num_qubits)))
-    if spec.beta > 0.5:
-        b.x(16); b.x(16)
     return b
 '''
 
@@ -194,12 +186,20 @@ def test_M4_S2_worker_registers_encoding_and_keeps_sandbox(tmp_path):
     circuits, disc = E._build_in_subprocess(gp.read_bytes(), specs, E.BUILD_TIMEOUT_S)
     assert len(circuits) == 3 and len({tuple(map(tuple, E.skeleton(c))) for c in circuits}) == 1
     t0 = time.time()
-    r = E.evaluate_program(str(_program(tmp_path, "001-oracle", GENERAL_WITH_ORACLE)), spec, mode="trial")
+    r = E.evaluate_program(str(_program(tmp_path, "001-oracle", _derived_program(gp, prologue=ORACLE_PROLOGUE))), spec, mode="trial")
     assert r.valid and r.reason == "ok", (r.reason, r.message)
     assert time.time() - t0 <= 30
-    r2 = E.evaluate_program(str(_program(tmp_path, "002-writer", WRITING_PROGRAM)), spec, mode="trial")
-    assert not r2.valid and r2.reason == "build_error" and "write" in r2.message.lower(), (r2.reason, r2.message)
-    assert not pathlib.Path("/tmp/su2plaq-m4-should-not-exist.txt").exists()
+    # the static scan still refuses the reference-circuit import (no whitelist widening by the shim)
+    r_imp = E.evaluate_program(str(_program(tmp_path, "003-import", _derived_program(gp, prologue=CIRCUIT_IMPORT_PROLOGUE))), spec, mode="trial")
+    assert not r_imp.valid and r_imp.reason == "contract" and "su2plaq.circuits.spinnet" in r_imp.message, (r_imp.reason, r_imp.message)
+    # the worker's audit guard (not the static scan) refuses a pathlib write reached through an allowed module
+    marker = tmp_path / "MARKER-should-not-exist.txt"
+    writer = WRITING_PROGRAM % {"marker": str(marker)}
+    E._scan_source(writer)                    # passes the static scan on purpose: only the audit guard is under test
+    r2 = E.evaluate_program(str(_program(tmp_path, "002-writer", writer)), spec, mode="trial")
+    assert not r2.valid and r2.reason == "build_error", (r2.reason, r2.message)
+    assert "PermissionError" in r2.message and "write" in r2.message.lower(), r2.message
+    assert not marker.exists()
 
 
 def test_M4_S7_shim_leaves_twelve_untouched():
@@ -259,7 +259,8 @@ def test_M4_S5_evaluator_rejections_on_spinnet(tmp_path):
     for name, bad in cases.items():
         r = E.evaluate_circuit(bad, spec, mode="trial")
         assert not r.valid and r.reason != "ok", name
-    r = E.evaluate_program(str(_program(tmp_path, "003-skel", ANGLE_DEPENDENT_SKELETON)), spec, mode="full")
+    gp = L.general_program_path(spec, root=tmp_path)
+    r = E.evaluate_program(str(_program(tmp_path, "003-skel", _derived_program(gp, epilogue=SKELETON_EPILOGUE))), spec, mode="full")
     assert not r.valid and r.reason == "skeleton", (r.reason, r.message)
 
 
