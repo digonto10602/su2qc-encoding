@@ -26,6 +26,11 @@ structure Cert where
   phaseK : K
   phaseExp : Exp
   hasTarget : Bool
+  /-- `target.kind` (`UE`, `UB`, `step`), `target.order`, and the base `(d_alpha, d_beta)` of the exponents -/
+  kind : String := ""
+  order : Nat := 1
+  dAlpha : Nat := 1
+  dBeta : Nat := 1
 
 def parseRat (s : String) : Except String Rat :=
   match s.splitOn "/" with
@@ -113,7 +118,20 @@ def parseCert (j : Json) : Except String Cert := do
   let (phaseK, phaseExp) ← match j.getObjVal? "phase" with
     | .ok p => do pure (← parseK (← p.getObjVal? "k"), ← parseExp (← p.getObjVal? "m"))
     | .error _ => pure (K.one, ((0 : Int), (0 : Int)))
-  pure { nQubits, nData, nOuter, gates, states, blocks, phaseK, phaseExp, hasTarget }
+  let (kind, order) ← match j.getObjVal? "target" with
+    | .ok t => do
+      let k ← match t.getObjVal? "kind" with
+        | .ok kj => kj.getStr?
+        | .error _ => pure ""
+      let o ← match t.getObjVal? "order" with
+        | .ok oj => oj.getNat?
+        | .error _ => pure 1
+      pure (k, o)
+    | .error _ => pure ("", 1)
+  let (dAlpha, dBeta) ← match j.getObjVal? "base" with
+    | .ok b => do pure (← (← b.getObjVal? "d_alpha").getNat?, ← (← b.getObjVal? "d_beta").getNat?)
+    | .error _ => pure (1, 1)
+  pure { nQubits, nData, nOuter, gates, states, blocks, phaseK, phaseExp, hasTarget, kind, order, dAlpha, dBeta }
 
 def readCert (path : String) : IO (Except String Cert) := do
   try

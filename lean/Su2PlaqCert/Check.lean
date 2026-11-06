@@ -1,4 +1,6 @@
 import Su2PlaqCert.Json
+import Su2PlaqCert.Sha256
+import Su2PlaqCert.Pins
 
 /-!
 # Su2PlaqCert.Check — the exact acceptance test of a circuit certificate
@@ -43,14 +45,56 @@ def Cert.expected (c : Cert) (bi j : Nat) : State :=
   let phase := Lp.mono c.phaseExp c.phaseK
   State.normalize ((State.ofMap m).map fun (code, lp) => (code, Lp.mul phase lp))
 
+def ratStr (r : Rat) : String := if r.den == 1 then toString r.num else s!"{r.num}/{r.den}"
+
+def kStr (k : K) : String :=
+  ",".intercalate ([k.a, k.b, k.c, k.d, k.e, k.f, k.g, k.h].map ratStr)
+
+/-- Canonical text of the states (one line per term, states in index order, terms by basis integer). -/
+def Cert.statesText (c : Cert) : String :=
+  c.states.zipIdx.foldl (init := "") fun acc (st, k) =>
+    (st.qsort fun x y => x.1 < y.1).foldl (init := acc) fun acc (code, a) =>
+      acc ++ s!"S{k}:{code}:{kStr a}\n"
+
+/-- Canonical text of the target at the target's own base (exponents divided by `(fa, fb)`, exactly), blocks in order,
+entries by `(i, j)`, terms by exponent. -/
+def Cert.targetText (c : Cert) (fa fb : Nat) : Except String String := do
+  let mut out := ""
+  for b in c.blocks do
+    out := out ++ "B" ++ ",".intercalate (b.ks.toList.map toString) ++ "\n"
+    let es := b.entries.qsort fun x y => x.1 < y.1 || (x.1 == y.1 && x.2.1 < y.2.1)
+    for (i, j, lp) in es do
+      let mut terms : List String := []
+      for ((ma, mb), k) in lp do
+        if ma % (fa : Int) != 0 || mb % (fb : Int) != 0 then throw "target exponent not divisible by the base ratio"
+        terms := terms ++ [s!"({ma / (fa : Int)},{mb / (fb : Int)})={kStr k}"]
+      out := out ++ s!"E{i},{j}:" ++ ";".intercalate terms ++ "\n"
+  pure out
+
+/-- The states and the target must be the exporter's exact ones: compare SHA-256 fingerprints with `Pins`. -/
+def Cert.pinError (c : Cert) : Option String :=
+  if Sha256.ofString c.statesText != Pins.statesSha256 then
+    some "states differ from the pinned exact physical basis (SHA-256)"
+  else
+    match Pins.targetBase c.kind c.order with
+    | none => some s!"unknown target kind '{c.kind}' (order {c.order})"
+    | some (ta, tb) =>
+      if ta == 0 || tb == 0 || c.dAlpha % ta != 0 || c.dBeta % tb != 0 then some "base is not a multiple of the target's base"
+      else
+        match c.targetText (c.dAlpha / ta) (c.dBeta / tb) with
+        | .error e => some e
+        | .ok t =>
+          if some (Sha256.ofString t) == Pins.targetSha256 c.kind c.order then none
+          else some s!"target differs from the pinned exact {c.kind} target (SHA-256)"
+
 /-- Number of physical (Gauss-law) states of the 12-qubit encoding; the certificate must carry exactly these. -/
 def physicalDim : Nat := 433
 
 /-- Exact Gram matrix of the supplied states: orthonormal iff every diagonal entry is `1` and every off-diagonal entry is
 `0`.  (Together with the exporter-side comparison against the exact physical basis this pins the state set.) -/
-def Cert.gramError (c : Cert) : Option String :=
+def Cert.gramErrorOf (states : Array (Array (Nat × K))) : Option String :=
   let byCode : Std.HashMap Nat (Array (Nat × K)) :=
-    (c.states.zipIdx.foldl (init := (∅ : Std.HashMap Nat (Array (Nat × K)))) fun acc (st, k) =>
+    (states.zipIdx.foldl (init := (∅ : Std.HashMap Nat (Array (Nat × K)))) fun acc (st, k) =>
       st.foldl (init := acc) fun acc (code, a) =>
         acc.insert code ((acc.getD code #[]).push (k, a)))
   let gram : Std.HashMap Nat K :=
@@ -58,22 +102,24 @@ def Cert.gramError (c : Cert) : Option String :=
       lst.foldl (init := acc) fun acc (k, a) =>
         lst.foldl (init := acc) fun acc (k', a') =>
           if k ≤ k' then
-            let key := k * c.states.size + k'
+            let key := k * states.size + k'
             acc.insert key ((acc.getD key K.zero) + K.conj a * a')
           else acc
   let bad := gram.fold (init := (none : Option String)) fun r key v =>
     match r with
     | some _ => r
     | none =>
-      let k := key / c.states.size
-      let k' := key % c.states.size
+      let k := key / states.size
+      let k' := key % states.size
       if k == k' then (if v == K.one then none else some s!"state {k} is not normalised")
       else (if v.isZero then none else some s!"states {k} and {k'} are not orthogonal")
   match bad with
   | some e => some e
   | none =>
-    let diag := (List.range c.states.size).all fun k => gram.contains (k * c.states.size + k)
+    let diag := (List.range states.size).all fun k => gram.contains (k * states.size + k)
     if diag then none else some "a state has zero norm"
+
+def Cert.gramError (c : Cert) : Option String := Cert.gramErrorOf c.states
 
 /-- Structural validation of the certificate (before any gate is replayed). -/
 def Cert.validate (c : Cert) : Except String Unit := do
@@ -97,6 +143,9 @@ def Cert.validate (c : Cert) : Except String Unit := do
     for (i, j, _) in b.entries do
       if i ≥ b.ks.size || j ≥ b.ks.size then throw s!"target entry index ({i}, {j}) outside a block of size {b.ks.size}"
   match c.gramError with
+  | some e => throw e
+  | none => pure ()
+  match c.pinError with
   | some e => throw e
   | none => pure ()
 

@@ -44,7 +44,7 @@ def test_lake_build_checker_and_exe():
     r = project.lake(["exe", "su2plaq_cert", "check", "no-such-file.json"], timeout=120)
     assert r.returncode == 1 and r.stdout.strip().startswith("REJECT cannot read")
     r = project.lake(["exe", "su2plaq_cert", "structure", "x.json"], timeout=120)
-    assert r.returncode == 1 and r.stdout.strip().startswith("REJECT structure checker not implemented")
+    assert r.returncode == 1 and r.stdout.strip().startswith("REJECT cannot read")
 
 
 def test_print_axioms_real_and_unknown():
@@ -56,8 +56,6 @@ def test_print_axioms_real_and_unknown():
 
 
 def test_skeleton_stubs_raise():
-    with pytest.raises(NotImplementedError):
-        structure.structure_facts()
     with pytest.raises(NotImplementedError):
         lemmas.check_program_lemmas(pathlib.Path("x.py"))
     assert isinstance(rules.LEAN_RULES, dict)

@@ -9,9 +9,6 @@ Entry point of the exact certificate checker `su2plaq_cert` (prompts/006 §2, §
 -/
 open Su2PlaqCert
 
-def ratStr (r : Rat) : String :=
-  if r.den == 1 then toString r.num else s!"{r.num}/{r.den}"
-
 def kJson (k : K) : String :=
   let cs := [k.a, k.b, k.c, k.d, k.e, k.f, k.g, k.h].map fun r => "\"" ++ ratStr r ++ "\""
   "[" ++ ", ".intercalate cs ++ "]"
@@ -43,5 +40,18 @@ def main (args : List String) : IO UInt32 := do
       | .ok () =>
         IO.println (stateJson (runGates c.gates #[(i, Lp.const K.one)]))
         pure 0
+  | ["sha256", path] => do
+    IO.println (Sha256.ofBytes (← IO.FS.readBinFile path)); pure 0
+  | ["fingerprint", path] =>
+    match ← readCert path with
+    | .error e => verdict (some e)
+    | .ok c =>
+      IO.println s!"states {Sha256.ofString c.statesText}"
+      match Pins.targetBase c.kind c.order with
+      | some (ta, tb) =>
+        match c.targetText (c.dAlpha / ta) (c.dBeta / tb) with
+        | .ok t => IO.println s!"target {Sha256.ofString t}"; pure 0
+        | .error e => verdict (some e)
+      | none => verdict (some "unknown target kind")
   | ["structure", path] => verdict (← checkStructurePath path)
   | _ => verdict (some "usage: su2plaq_cert (check|eval|structure) <file> [index]")

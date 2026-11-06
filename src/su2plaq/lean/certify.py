@@ -440,7 +440,7 @@ def _exporter_mismatch(path) -> str | None:
                 return f"target blocks differ from the exact {kind} target"
     except E.ExactError as exc:
         return f"exporter data unavailable: {exc}"
-    except (KeyError, TypeError, ValueError, AttributeError, IndexError) as exc:
+    except (KeyError, TypeError, ValueError, AttributeError, IndexError, ZeroDivisionError, OverflowError) as exc:
         return f"malformed certificate: {type(exc).__name__}: {exc}"
     return None
 
@@ -505,6 +505,9 @@ def write_theorem_file(cert_path, theorem_name: str, out_path) -> pathlib.Path:
     Su2PlaqCert.checkJsonString certJson = true := by native_decide` + `#print axioms <name>` (standard axioms plus one
     per-theorem `native_decide` axiom: compiler trust).  Elaborate with `cd lean && lake env lean <out_path>`."""
     cert_path, out_path = pathlib.Path(cert_path), pathlib.Path(out_path)
+    why = _exporter_mismatch(cert_path)
+    if why is not None:
+        raise ValueError(f"refusing to write a theorem file for a certificate that differs from the exporter's exact data: {why}")
     text = cert_path.read_text()
     d = json.loads(text)
     if not theorem_name.replace("_", "").isalnum() or len(theorem_name) > 13:

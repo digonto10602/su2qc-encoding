@@ -613,11 +613,9 @@ def _transpose_real(M):
     return [[M[c][r].conj() for c in range(5)] for r in range(5)]
 
 
-@functools.lru_cache(maxsize=1)
-def exact_plaquette_W() -> dict:
-    """W = Tr(U_b U_r U_t^dag U_l^dag) on the four inner links in the CG convention (index sum_l s_l 5^l, link 0 least
-    significant) as a sparse column dict {col: {row: KNum}}; exact."""
-    U = exact_link_U()
+def _plaquette_W_from_U(U) -> dict:
+    """Sparse columns {col: {row: KNum}} of W = sum_{abce} U_l^dag(e,a) U_t^dag(c,e) U_r(b,c) U_b(a,b) on four links
+    (index sum_l s_l 5^l, link 0 least significant), for the 2x2 array U of 5x5 KNum matrices."""
     cols = {}
     for c in range(_INNER):
         s = [(c // 5 ** l) % 5 for l in range(4)]          # s[0] = b, s[1] = r, s[2] = t, s[3] = l
@@ -637,10 +635,13 @@ def exact_plaquette_W() -> dict:
                 v = ((vb * vr) * (vt * vl))
                 acc[row] = acc[row] + v if row in acc else v
         cols[c] = {r: v for r, v in acc.items() if not v.is_zero()}
-    # cross-check with the float W
+    return cols
+
+
+def _check_W(cols: dict, convention: str) -> None:
     from su2plaq.exact.operators import plaquette_W
 
-    Wf = plaquette_W(convention="cg")
+    Wf = plaquette_W(convention=convention)
     err = 0.0
     for c, d in cols.items():
         colf = Wf[:, c].copy()
@@ -648,7 +649,46 @@ def exact_plaquette_W() -> dict:
             colf[r] -= v.to_complex()
         err = max(err, float(np.abs(colf).max()))
     if err > CROSS_TOL:
-        raise ExactError(f"exact W deviates from float by {err}")
+        raise ExactError(f"exact W ({convention}) deviates from float by {err}")
+
+
+@functools.lru_cache(maxsize=1)
+def exact_plaquette_W() -> dict:
+    """W = Tr(U_b U_r U_t^dag U_l^dag) on the four inner links in the CG convention (index sum_l s_l 5^l, link 0 least
+    significant) as a sparse column dict {col: {row: KNum}}; exact, cross-checked against the float W."""
+    cols = _plaquette_W_from_U(exact_link_U())
+    _check_W(cols, "cg")
+    return cols
+
+
+@functools.lru_cache(maxsize=1)
+def exact_paulo_U() -> list:
+    """Paulo's Eq. 28 link operators in the order (0, ++, +-, -+, --): U_ab|ab> = |0>/sqrt2, U_ab|0> = s(a)s(b)|a'b'>/sqrt2."""
+    r = sqrt_rational(Fraction(1, 2))
+    s = {0: 1, 1: -1}
+    bar = {0: 1, 1: 0}
+    idx = {(0, 0): 1, (0, 1): 2, (1, 0): 3, (1, 1): 4}
+    U = [[[[KNum(0) for _ in range(5)] for _ in range(5)] for _ in range(2)] for _ in range(2)]
+    for a in range(2):
+        for b in range(2):
+            U[a][b][0][idx[(a, b)]] = r
+            U[a][b][idx[(bar[a], bar[b])]][0] = r * (s[a] * s[b])
+    from su2plaq.su2.algebra import paulo_U
+
+    fl = paulo_U()
+    for a in range(2):
+        for b in range(2):
+            for i in range(5):
+                for j in range(5):
+                    if abs(U[a][b][i][j].to_complex() - fl[a][b][i, j]) > CROSS_TOL:
+                        raise ExactError("exact Paulo link operator deviates from float")
+    return U
+
+
+@functools.lru_cache(maxsize=1)
+def exact_plaquette_W_paulo() -> dict:
+    cols = _plaquette_W_from_U(exact_paulo_U())
+    _check_W(cols, "paulo")
     return cols
 
 

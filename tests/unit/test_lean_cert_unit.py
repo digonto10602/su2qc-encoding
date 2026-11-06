@@ -321,3 +321,75 @@ def test_theorem_file_for_small_certificate(ue_cert, tmp_path):
     assert r2.returncode != 0
     with pytest.raises(ValueError):
         C.write_theorem_file(cert, "a_far_too_long_theorem_name", tmp_path / "x.lean")
+
+
+# ---------------------------------------------------------------------------------------------- N5, N6: pinned data
+def _fake_identity_cert(ue_cert):
+    """433 fake orthonormal states (one basis state each) with the identity circuit and the identity target."""
+    d = json.loads(json.dumps(ue_cert))
+    d["gates"] = []
+    d["states"] = [{"k": k, "label": "fake", "terms": [{"code": 1 + k, "c": ["1"] + ["0"] * 7}]} for k in range(433)]
+    d["target"]["blocks"] = [{"ks": [k], "entries": [[0, 0, [[[0, 0], ["1"] + ["0"] * 7]]]]} for k in range(433)]
+    d["phase"]["m"] = [0, 0]
+    return d
+
+
+def test_n5_fake_states_and_theorem_files_are_refused(ue_cert, tmp_path):
+    fake = _fake_identity_cert(ue_cert)
+    line, _ = _lean_only(fake, tmp_path, "fake.json")          # Lean alone: pinned fingerprint
+    assert line.startswith("REJECT") and "pinned exact physical basis" in line, line
+    p = tmp_path / "fake2.json"
+    p.write_text(json.dumps(fake))
+    assert C.check_certificate(p).status == "rejected"
+    with pytest.raises(ValueError, match="differs from the exporter"):
+        C.write_theorem_file(p, "fake_ok", tmp_path / "fake.lean")
+    assert not (tmp_path / "fake.lean").exists()
+    # right states, wrong target (identity instead of U_E): Lean alone rejects on the target fingerprint
+    d = json.loads(json.dumps(ue_cert))
+    d["gates"] = []
+    d["target"]["blocks"] = [{"ks": [k], "entries": [[0, 0, [[[0, 0], ["1"] + ["0"] * 7]]]]} for k in range(433)]
+    line, _ = _lean_only(d, tmp_path, "wrongtarget.json")
+    assert line.startswith("REJECT") and "pinned exact" in line, line
+    # unknown target kind
+    d = json.loads(json.dumps(ue_cert))
+    d["target"]["kind"] = "nonsense"
+    line, _ = _lean_only(d, tmp_path, "kind.json")
+    assert line.startswith("REJECT") and "unknown target kind" in line
+
+
+def test_pins_file_and_fingerprint_agree_with_exporter(ue_cert, tmp_path):
+    from su2plaq.lean import pins as Pn
+
+    assert Pn.PINS_FILE.read_text() == Pn.render_lean(Pn.compute_pins()), "run: python -m su2plaq.lean.pins"
+    p = tmp_path / "ue.json"
+    p.write_text(json.dumps(ue_cert))
+    r = C._run_checker(["fingerprint", str(p)], 120)
+    got = dict(ln.split() for ln in r.stdout.strip().splitlines())
+    want = Pn.compute_pins()
+    assert got["states"] == want["states"] and got["target"] == want["targets"]["UE:1"]
+
+
+@pytest.mark.parametrize("n", [0, 1, 55, 56, 63, 64, 119, 120, 1000])
+def test_lean_sha256_matches_hashlib(n, tmp_path):
+    import hashlib
+
+    data = bytes((7 * i + 3) % 256 for i in range(n))
+    f = tmp_path / "d.bin"
+    f.write_bytes(data)
+    r = C._run_checker(["sha256", str(f)], 60)
+    assert r.stdout.strip() == hashlib.sha256(data).hexdigest()
+
+
+def test_n6_zero_denominator_is_rejected_not_raised(ue_cert, tmp_path):
+    for where in ("state", "target", "phase"):
+        d = json.loads(json.dumps(ue_cert))
+        if where == "state":
+            d["states"][4]["terms"][0]["c"][0] = "1/0"
+        elif where == "target":
+            d["target"]["blocks"][0]["entries"][0][2][0][1][0] = "1/0"
+        else:
+            d["phase"]["k"][0] = "1/0"
+        p = tmp_path / f"zero-{where}.json"
+        p.write_text(json.dumps(d))
+        r = C.check_certificate(p)
+        assert r.status == "rejected", (where, r.status, r.reason)
