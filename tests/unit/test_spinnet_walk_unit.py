@@ -96,3 +96,22 @@ def test_build_walk_general7_is_exact(with_outer):
     assert ops["rz"] == 4 and ops["rccx"] == 14 and set(ops) <= {"cx", "x", "h", "rz", "rccx"}
     v = evaluate(qc, enc(), enc().target("UB", None, beta), **({"method": "physical"} if with_outer else {}))
     assert v.ok and v.op_norm_error <= 1e-10 and v.leak_amplitude <= 1e-10 and v.dirty_ancilla <= 1e-20, (v.reason, v.op_norm_error)
+
+
+def test_coupling_table_exact_half_integers():
+    """Entries are exact multiples of 1/2 (K carries ~1e-15 noise, snapped); non-half-integer K raises."""
+    t = table()
+    assert all(2 * v == round(2 * v) for v in t.values())
+    assert sorted(set(t.values())) == [-2.0, -0.5, 0.0, 1.0]
+
+    class Fake:
+        def __init__(self, scale):
+            e = enc()
+            self.K_codes = e.K_codes * scale
+            self._e = e
+
+        def inner_codes(self):
+            return self._e.inner_codes()
+
+    with pytest.raises(ValueError):
+        coupling_table(Fake(1.01))

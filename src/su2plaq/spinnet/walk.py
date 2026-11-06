@@ -20,8 +20,9 @@ FLIP = 0b1111
 
 
 def coupling_table(enc) -> dict[int, float]:
-    """inner code -> K[partner, code] (0.0 for dark codes); partner = code ^ 0b1111 (all four inner spins flip, corner
-    bits unchanged).  Raises if K has any other non-zero entry in the column (K must be a matching on the inner codes)."""
+    """inner code -> K[partner, code] (0.0 for dark codes), snapped to the nearest half-integer (ValueError if K is not
+    within 1e-12 of one); partner = code ^ 0b1111 (all four inner spins flip, corner bits unchanged).  Raises if K has
+    any other non-zero entry in the column (K must be a matching on the inner codes)."""
     codes = enc.inner_codes()
     pos = {int(c): i for i, c in enumerate(codes)}
     K = enc.K_codes
@@ -34,7 +35,10 @@ def coupling_table(enc) -> dict[int, float]:
         partner = c ^ FLIP
         if len(nz) != 1 or partner not in pos or nz[0] != pos[partner]:
             raise ValueError(f"K is not a pair matching at inner code {c:08b}")
-        table[c] = float(K[nz[0], i])
+        v = float(K[nz[0], i])
+        if abs(2.0 * v - round(2.0 * v)) > 1e-12:
+            raise ValueError(f"K at inner code {c:08b} is {v!r}, not a half-integer within 1e-12")
+        table[c] = round(2.0 * v) / 2.0
     return table
 
 
