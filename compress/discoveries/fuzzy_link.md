@@ -1,0 +1,2 @@
+- r01-F1-001: DISCOVERY: in the frame (qubit bits b0..b3 after cx(3,1) cx(2,0) h(3) h(2)) H = const - alpha/8 * sum Z_s over s in {0001,0011,0100,0101,0110,0111} - kappa2 * sum Z_s over s in {1000,1011,1110,1111}; signs are constant, so every angle is -alpha/4 or -2 kappa2.
+- r01-F1-001: DISCOVERY: the 9-CX network cx(0,1) cx(0,2) cx(3,1) cx(2,1) cx(0,1) cx(0,2) cx(3,1) cx(0,1) cx(2,1) returns to identity and visits all 7 weight>1 parities (BFS over GL(4,2) x coverage, minimum).
