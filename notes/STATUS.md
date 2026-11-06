@@ -1,4 +1,4 @@
-M9 fuzzy: plan prompts/300 written and tests locked (acceptance-v8, 28 m9 tests); 4 builders running (link/plaquette/targets, codec/Gauss/counts, Lean, verify+circuits); next: observables + step + results, tester, audit.
+M9 fuzzy: all modules built and committed (link/plaquette/targets, codec/Gauss/counts, verify, circuits incl. exact U_B with 16 crx + Clifford, observables, Lean link algebra + counts); in progress: approved fix of 2 locked tests (prompts/301) and results script/T tables (9.7); next: re-lock, tester full, auditor, Report 9.
 
 # STATUS — branch m9-fuzzy (48-core machine, fuzzy encoding M9/M10)
 
@@ -23,4 +23,6 @@ M9 — planner (prompts/300, docs/METHODS-fuzzy.md, reports/research/300, tests/
 - Numbers 300+ for prompts/reports on this branch. Branch m9-fuzzy off master 9b5443d.
 - 2026-11-06 (Digonto, chat): target = Bedaque note refs/fuzzy/fuzzy-hamiltonian-digonto.pdf = paper Eqs. 34-37 INCLUDING kappa_2 K_2 (own circuit U_K; 48 qubits, no 3-qubit reduction). Electric normalisation g^2/4 on K_1 (Paulo Eq. 16, kappa_1 = alpha/2). Check report: scratch/fuzzy-hamiltonian-check.md (copied to reports/research by planner).
 - Coordinator defaults (not yet confirmed by Digonto): kappa_2/kappa_1 not given in the note -> free parameter, nominal kappa_2 = kappa_1, also verify kappa_2 = 0; plaquette coupling per Eq. 16 (alpha_N = -2 beta, KS sign); note Eq. 3 (T_L on incoming) treated as typo -> T_L on outgoing links as in the paper; daggers per paper Eqs. 35/37.
+- 2026-11-06 (Digonto, chat): approved two locked-test fixes -> prompts/301: (1) O1 one-step plaquette = 0 only for order 1 (order 2 is O(alpha beta), 0.0348 at nominal r=0); (2) K1 electric dense 65536^2 check -> seeded-state check, tol 1e-10 unchanged.
+- Known test costs: C1 ~18 min (test's own reference Gauss on 4^12 vacuum); S1 needs 68-135 GB per test -> run with -n 1.
 - Env: ~/venvs/coding (uv, CPython 3.12.14), not conda (none on this host). See notes/merge-notes-fuzzy.md.
