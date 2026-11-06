@@ -30,3 +30,6 @@ From the planner (prompts/200, reports/research/200):
 ## Model decisions taken without Digonto (default; flagged for review)
 - SU(2) quantum link model with two fermionic rishons per link; SU(2) Gauss law only; **det coupling $\gamma=0$** (defined, not built). With $\gamma=0$ the U(1) charges are conserved (431 sectors; the U(2)-QLM sector has 2192 states). Adding the det term would be a third Trotter layer = a plan amendment.
 - Register 48 qubits (16 inert far-end qubits kept); the 36-qubit codeword variant is a register-size row only.
+
+## Tag-name clash warning
+Both desktop clones and the laptop create `acceptance-vN` tags independently (both desktop clones started at acceptance-v6 → each made its own acceptance-v7; rishon also acceptance-v8). The outgoing bundles carry only the branch and the `milestone-N` tag, not the `acceptance-v*` tags, so nothing collides on fetch. At merge time, re-lock with `tools/lock.py` and create the next `acceptance-vN` on the merged master.
