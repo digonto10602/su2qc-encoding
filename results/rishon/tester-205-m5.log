@@ -1,0 +1,63 @@
+bringing up nodes...
+bringing up nodes...
+
+..........FF.....................                                        [100%]
+=================================== FAILURES ===================================
+______________________ test_M5_L2_jw_facts_kernel_checked ______________________
+[gw1] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+
+root = PosixPath('/home/digonto/Projects/su2qc-rishon')
+
+    def test_M5_L2_jw_facts_kernel_checked(root):
+        """lean/Su2Plaq/Rishon/JW.lean: the Jordan-Wigner facts used by the encoding (canonical anticommutation on 4 and 8
+        modes, string-freeness of the link bilinears on two links, the 6-element two-rishon sector, the A -> Q -> B ladder of
+        U, det U = 2|B><A| on the sector, 2-qubit locality of the end bilinears) are theorems with standard axioms only."""
+        d = _lean_dir(root)
+        src = _file(d, "Su2Plaq/Rishon/JW.lean")
+>       assert "native_decide" not in src and "sorry" not in src
+E       AssertionError: assert ('native_decide' not in '/-!\n# Su2P...laq.Rishon\n'
+E         
+E         'native_decide' is contained here:
+E           only, no
+E           `native_decide`, no axioms).
+E           -/
+E           set_option maxRecDepth 100000
+E           set_option maxHeartbeats 0...
+E         
+E         ...Full output truncated, use '-vv' to show)
+
+tests/acceptance/m5/test_rishon_lean.py:65: AssertionError
+_______________________ test_M5_L1_counts_kernel_checked _______________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+
+root = PosixPath('/home/digonto/Projects/su2qc-rishon')
+
+    def test_M5_L1_counts_kernel_checked(root):
+        """lean/Su2Plaq/Rishon/Counts.lean: rishonTotal = 38432 and rishonClosed = 4352 by `decide` (kernel), standard axioms
+        only, statement text pins the values; imported from lean/Su2Plaq.lean; builds within 900 s."""
+        d = _lean_dir(root)
+        src = _file(d, "Su2Plaq/Rishon/Counts.lean")
+        assert "native_decide" not in src and "sorry" not in src
+        assert "import Su2Plaq.Structure.Counts" in src
+        for name, value in COUNT_THEOREMS.items():
+            short = name.split(".")[-1]
+            assert f"theorem {short}" in src and f"= {value}" in src.split(f"theorem {short}", 1)[1].split("\n", 1)[0], (name, value)
+        assert "Su2Plaq.Rishon.Counts" in (d / "Su2Plaq.lean").read_text()
+        LE = api("su2plaq.rishon.lean_export")
+        assert set(COUNT_THEOREMS) == set(LE.RISHON_COUNT_THEOREMS)
+        P = api("su2plaq.lean.project")
+        t0 = time.time()
+        r = P.build("Su2Plaq.Rishon.Counts", timeout=900)
+        assert r["ok"], r.get("stderr", "")[-2000:]
+        assert time.time() - t0 <= 900
+        ax = P.print_axioms(list(COUNT_THEOREMS), timeout=900)
+        bad = {n: sorted(ax[n] - STANDARD) for n in COUNT_THEOREMS if n not in ax or "<unknown>" in ax[n] or ax[n] - STANDARD}
+>       assert not bad, bad
+E       AssertionError: {'Su2Plaq.card_rishon_physical': ['<unknown>'], 'Su2Plaq.card_rishon_closed': ['<unknown>']}
+E       assert not {'Su2Plaq.card_rishon_physical': ['<unknown>'], 'Su2Plaq.card_rishon_closed': ['<unknown>']}
+
+tests/acceptance/m5/test_rishon_lean.py:55: AssertionError
+=========================== short test summary info ============================
+FAILED tests/acceptance/m5/test_rishon_lean.py::test_M5_L2_jw_facts_kernel_checked
+FAILED tests/acceptance/m5/test_rishon_lean.py::test_M5_L1_counts_kernel_checked
+2 failed, 31 passed in 701.95s (0:11:41)

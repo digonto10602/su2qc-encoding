@@ -20,7 +20,10 @@ For the laptop session merging this branch. Lists every shared-file append, ever
 | first `lake build` (spinnet; rishon reused the copied `.lake`) | 2 min 15 s, peak RSS 15.7 GB |
 
 ## Shared-file appends
-(none yet)
+- `lean/Su2Plaq.lean`: two lines appended at the end (M5 steps 5.L1, 5.L2), nothing else changed:
+  `import Su2Plaq.Rishon.Counts`
+  `import Su2Plaq.Rishon.JW`
+  After merging, run `lake build Su2Plaq` once (about 6 s; replays only) because the axiom checks in the tests do `import Su2Plaq`. Spinnet appends three other import lines to the same file, so a merge of both tracks keeps all five appended lines.
 
 ## Requested changes to laptop-owned files
 From the planner (prompts/200, reports/research/200):

@@ -1,4 +1,4 @@
-M5 in progress (desktop track R, rishon QLM): plan prompts/200 locked as acceptance-v7; steps 5.0+5.1 done; 5.0–5.8 done; building steps 5.9+5.10 (metrics, results).
+M5 in progress (desktop track R, rishon QLM): plan prompts/200 (+201) locked as acceptance-v8; steps 5.0–5.10 and Lean 5.L1–5.L2 built; testing 5.9+5.10 (reports/tests/205); building Lean 5.L3; then milestone gate.
 
 # Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)
 

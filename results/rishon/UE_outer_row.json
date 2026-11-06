@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "encoding": "rishon",
+  "circuit_id": "UE_outer_row",
+  "kind": "UE",
+  "params": {
+    "alpha": 0.37,
+    "beta": null,
+    "order": 1
+  },
+  "provenance": {
+    "git_commit": "56b466d",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "cpu_count": 20,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "gauss_sample": 20261104,
+      "outer_row_sample": 20261104,
+      "trial_subset": 0
+    },
+    "timestamp_utc": "2026-11-06T09:40:36Z",
+    "provenance_captured_at": "2026-11-06T09:40:36Z",
+    "host": "SupremeCommander",
+    "command": "python scripts/m5_results.py",
+    "quick": false,
+    "jobs": 8,
+    "wall_seconds": 3490.803976535797,
+    "peak_rss_mb": 495.9765625,
+    "peak_rss_mb_largest_worker": 3090.5703125
+  },
+  "verification": {
+    "method": "outer_electric_check",
+    "sampled": true,
+    "certified": false,
+    "ok": true,
+    "tolerances": {
+      "tol_err": 1e-10
+    },
+    "max_error": 1.3877787807814457e-16,
+    "n_codes": 3515,
+    "phase": [
+      1.0,
+      -8.42671690620246e-17
+    ],
+    "seed": 20261104,
+    "max_branches": 1,
+    "target": "exp(-i alpha (3/4) #Q) per valid 48-bit code, #Q = number of type-Q links among the 12 (decoded independently of the circuit)"
+  },
+  "metrics": {
+    "logical": {
+      "cx": 24,
+      "depth": 3,
+      "n_rot": 12,
+      "t_fixed": 0,
+      "qubits": 48,
+      "ancilla": 0
+    },
+    "gates_lowered": {
+      "cx": 24,
+      "rz": 12
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 0,
+        "n_rot": 12,
+        "t_rot_pygridsynth": 528,
+        "t_total": 528,
+        "t_est": 478.35764566378015,
+        "t_qiskit": 516,
+        "cx_qiskit": 24,
+        "depth_qiskit": 118,
+        "synth": {
+          "n_rot": 12,
+          "t_rot": 528,
+          "error_bound_sum": 0.0012000000000000001,
+          "error_measured_sum": 0.00026189807386382304,
+          "t_gates_in_synthesised_circuit": 528,
+          "verdict": {
+            "method": "outer_electric_check",
+            "sampled": true,
+            "certified": false,
+            "ok": true,
+            "tolerances": {
+              "tol_err": 0.001200001,
+              "tol_gauss": 0.001200001
+            },
+            "max_error": 0.00025018653254842583,
+            "n_codes": 3515,
+            "phase": [
+              -0.9999999999178012,
+              -1.282175824023392e-05
+            ],
+            "seed": 20261104,
+            "max_branches": 79,
+            "target": "exp(-i alpha (3/4) #Q) per valid 48-bit code, #Q = number of type-Q links among the 12 (decoded independently of the circuit)"
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 34.507360219955444
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 0,
+        "n_rot": 12,
+        "t_rot_pygridsynth": 768,
+        "t_total": 768,
+        "t_est": 717.5364684956703,
+        "t_qiskit": 708,
+        "cx_qiskit": 24,
+        "depth_qiskit": 151,
+        "synth": {
+          "n_rot": 12,
+          "t_rot": 768,
+          "error_bound_sum": 1.2e-05,
+          "error_measured_sum": 4.5893634728340785e-06,
+          "t_gates_in_synthesised_circuit": 768,
+          "verdict": {
+            "method": "outer_electric_check",
+            "sampled": true,
+            "certified": false,
+            "ok": true,
+            "tolerances": {
+              "tol_err": 1.2001e-05,
+              "tol_gauss": 1.2001e-05
+            },
+            "max_error": 4.443024216021667e-06,
+            "n_codes": 3515,
+            "phase": [
+              0.999999999999974,
+              -2.28000747562159e-07
+            ],
+            "seed": 20261104,
+            "max_branches": 24,
+            "target": "exp(-i alpha (3/4) #Q) per valid 48-bit code, #Q = number of type-Q links among the 12 (decoded independently of the circuit)"
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 13.655957698822021
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 0,
+        "n_rot": 12,
+        "t_rot_pygridsynth": 984,
+        "t_total": 984,
+        "t_est": 956.7152913275603,
+        "t_qiskit": 984,
+        "cx_qiskit": 24,
+        "depth_qiskit": 214,
+        "synth": {
+          "n_rot": 12,
+          "t_rot": 984,
+          "error_bound_sum": 1.2000000000000002e-07,
+          "error_measured_sum": 4.041249175343641e-08,
+          "t_gates_in_synthesised_circuit": 984,
+          "verdict": {
+            "method": "outer_electric_check",
+            "sampled": true,
+            "certified": false,
+            "ok": true,
+            "tolerances": {
+              "tol_err": 1.21e-07,
+              "tol_gauss": 1.21e-07
+            },
+            "max_error": 1.2367683879470068e-08,
+            "n_codes": 3515,
+            "phase": [
+              -1.0,
+              2.2081270225682157e-10
+            ],
+            "seed": 20261104,
+            "max_branches": 13,
+            "target": "exp(-i alpha (3/4) #Q) per valid 48-bit code, #Q = number of type-Q links among the 12 (decoded independently of the circuit)"
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 13.396136999130249
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 0,
+        "n_rot": 12,
+        "t_rot_pygridsynth": 1248,
+        "t_total": 1248,
+        "t_est": 1195.8941141594505,
+        "t_qiskit": 1140,
+        "cx_qiskit": 24,
+        "depth_qiskit": 246,
+        "synth": {
+          "n_rot": 12,
+          "t_rot": 1248,
+          "error_bound_sum": 1.2e-09,
+          "error_measured_sum": 3.236125890232529e-10,
+          "t_gates_in_synthesised_circuit": 1248,
+          "verdict": {
+            "method": "outer_electric_check",
+            "sampled": true,
+            "certified": false,
+            "ok": true,
+            "tolerances": {
+              "tol_err": 2.2e-09,
+              "tol_gauss": 2.2e-09
+            },
+            "max_error": 9.352860133449982e-11,
+            "n_codes": 3515,
+            "phase": [
+              1.0,
+              1.9029251663352553e-13
+            ],
+            "seed": 20261104,
+            "max_branches": 13,
+            "target": "exp(-i alpha (3/4) #Q) per valid 48-bit code, #Q = number of type-Q links among the 12 (decoded independently of the circuit)"
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 17.17287302017212
+      }
+    ],
+    "macro": {
+      "depth": 3,
+      "depth_label": "depth of the circuit as built (macro gates such as rccx/mcx/crx counted as one layer each); the headline `logical.depth` is the depth of the level-0 lowered circuit (logical_metrics)",
+      "size": 36
+    },
+    "macro_counts": {
+      "cx": 24,
+      "p": 12
+    }
+  },
+  "files": {
+    "qpy": "results/rishon/UE_outer_row.qpy",
+    "sha256": "9567b2e3aa782e6fc839cbe6a7abe845eec4898b0871d59d994308577a710198",
+    "qasm3": "results/rishon/UE_outer_row.qasm3"
+  },
+  "extra": {
+    "register_variants": {
+      "jw_4_per_link": 48,
+      "codeword_3_per_link": 36,
+      "touched": 16
+    },
+    "physics": {
+      "dim": 38432,
+      "closed": 4352,
+      "u2_sector": 2192,
+      "inner_span_rank": 1296,
+      "bright_pairs": 81
+    },
+    "physics_detail": {
+      "n_u1_sectors": 431,
+      "type_patterns": 35073,
+      "kappa_multiset": {
+        "1": 32,
+        "2": 48,
+        "5.65685425": 1
+      },
+      "n_inner_codes": 1296,
+      "n_dark_codes": 990,
+      "inner_span_rank_by_corners": 1296,
+      "counts_by_fusion": {
+        "dim": 38432,
+        "closed": 4352,
+        "n_u1_sectors": 431,
+        "u2_sector": 2192,
+        "type_patterns": 35073
+      },
+      "coo_entries": 508688,
+      "max_components": 1296
+    },
+    "seconds": {
+      "verify_exact": 0.21956610679626465
+    },
+    "note": "U_E with the electric term of the 8 outer links (12 links in total): the outer qubits are CX targets that are restored, so `verify` (which refuses circuits touching the outer register) is not used; verification = sampled diagonal check against exp(-i alpha (3/4) #Q) on seeded valid 48-bit codes (not a certificate)"
+  }
+}
