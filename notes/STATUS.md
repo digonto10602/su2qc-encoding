@@ -16,7 +16,7 @@ Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 Acceptance tests locked as `acceptance-v4` (86 tests, M0–M2; v3 = prompts/003 Gauss rule, v4 = prompts/004 leak as amplitude). M3–M10 still per prompts/001.
 
 ## Current milestone / step
-M1 complete, tagged milestone-1; Report 1 = docs/report-1-twelve-qubit-general-circuit.md. Next: M2 (compression machinery + 12-qubit compression).
+M2 — compression machinery (step 2.1) and Lean track (step 2.L1) in parallel (two builders).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -24,6 +24,7 @@ M1 complete, tagged milestone-1; Report 1 = docs/report-1-twelve-qubit-general-c
 | — | — | — | — | — |
 
 ## Decisions
+- 2026-11-05 (Digonto): Lean 4 formal verification added to M2 (prompts/006): kernel-checked generic theorems + counts; per-circuit certificates via compiled checker ACCEPTED, labelled 'native-certified'; final best circuit: angle-linearity preferred, not required ('Lean: n_a' allowed). proposer.md got a Lean paragraph (coordinator edit).
 - 2026-11-04 (Digonto): restart from the plaquette note; old 2×2-lattice work archived (tag `archive-2x2-lattice`), reference paper kept in `refs/`.
 - 2026-11-04 (Digonto): "12-qubit" = Paulo's definition (3 qubits per inner link, $(j,m,m')$); the circuit changes only the 12 inner qubits but may read the outer links as controls; correctness on all 433 physical states. NOT the note's one-label-per-link register.
 - 2026-11-04 (Digonto): order of work = per encoding (general circuit → report → compress → report), 12-qubit first.
@@ -88,3 +89,4 @@ Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer
 - 2026-11-05: M1 audit fixes recheck PASS (reports/tests/023): N6 class-identity predicate, open-control gates exact, mcx bypass closed; evaluator follows gate definitions (matches QPY/QASM export); results unchanged numerically. Committed; results regenerated on the clean commit next.
 - 2026-11-05: results/twelve/* regenerated on clean commit a9702e5 (single provenance snapshot, git_dirty False for all three).
 - 2026-11-05: M1 benchmark (reports/benchmarks/002): no >10 % slowdown on calls >100 ms; physics unchanged; m0+m1 suite 200 s. Report 1 written; tag milestone-1.
+- 2026-11-05: planner prompts/006 + reports/research/004 + METHODS §11; re-locked acceptance-v6 (aee6057). Planner note: the '41 bright pairs, couplings 1, ½, ¼' (from Paulo's notebook block structure) was not reproduced on the 625-code inner operator (128 edges, all modulus ½; pairs/cliques structure) — certify whatever the exporter computes.
