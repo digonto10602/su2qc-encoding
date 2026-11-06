@@ -1,4 +1,4 @@
-M5 in progress (desktop track R, rishon QLM): gate tester full PASS (reports/tests/207), audit PASS WITH NOTES (reports/audits/200); builder fixing audit notes N4/N5/N7/N8; then step test, benchmark, tag milestone-5, Report 5.
+M5 done (milestone-5 a8f051e, Report 5 docs/report-5-rishon-general-circuit.md); M6 waiting for laptop milestone-2 bundle in ~/su2qc-sync/inbox/ (waiting since 2026-11-06T03:20; stop after 24 h).
 
 # Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)
 
@@ -6,6 +6,8 @@ Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-
 
 ## Current milestone / step
 M5 — plan `prompts/200-rishon-m5-plan.md` (acceptance-v8 after the prompts/201 test fix; m5 tests 34; plan in force stays prompts/200). Steps 5.0+5.1 PASS (reports/tests/200). Steps 5.2–5.4 PASS (reports/tests/201, 202). Steps 5.5+5.6 PASS (reports/tests/203). Steps 5.7+5.8 PASS (reports/tests/204). Steps 5.9+5.10 PASS (reports/tests/205, commit 8d92c67). Lean 5.L1–5.L3 PASS (reports/tests/206, commit 14acca7). Next: results regenerated in clean worktree `~/Projects/su2qc-rishon-regen` at b4c1917 (log `~/su2qc-sync/rishon-regen.log`), copy into `results/rishon/`, commit; then milestone gate. Lean steps run one builder per clone at a time (START_HERE §3 overrides the plan's parallel-builder note).
+
+**M5 complete 2026-11-06:** gate tester full PASS (207, 208), audit PASS WITH NOTES (audits/200), benchmark PASS (benchmarks/200), tag milestone-5 (a8f051e), Report 5 (eeee99b). Next: M6 (compression) needs the laptop's milestone-2 bundle; open M6 planner items: rccx ladder vs prune cap (204 N1), METHODS-rishon R6 wording, T1[step] slow marker (benchmark F1), plan errata (six → seven JW theorems; 4352-fold degeneracy), γ = 0 approval (audit N1), optional certified outer row (audit N5), Lean tie of certificate link matrices to JW.lean (206 N1).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
