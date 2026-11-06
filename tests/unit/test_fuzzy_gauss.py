@@ -80,3 +80,26 @@ def test_generator_hermitian_on_basis_states():
                     mij = gj[1][gj[0] == ki[0]].sum()
                     mji = gi[1][gi[0] == kj[0]].sum()
                     assert abs(mij - np.conj(mji)) < 1e-14
+
+
+def test_tail_head_tables_match_geometry():
+    """_TAIL/_HEAD (all 12 links) and _OUTER_NEAR/CORNER_ENDS agree with the project geometry (read-only reference)."""
+    from su2plaq.geometry import plaquette_diagram
+
+    d = plaquette_diagram()
+
+    def corner(l, role):
+        try:
+            return d.corner_of_end(l, role)
+        except ValueError:
+            return -1
+
+    tail = [corner(l, "out") for l in range(12)]
+    head = [corner(l, "in") for l in range(12)]
+    assert list(gz._TAIL) == tail
+    assert list(gz._HEAD) == head
+    for l in gz.OUTER:                      # exactly one end of an outer link sits at a corner
+        c, role = gz._OUTER_NEAR[l]
+        assert (tail[l], head[l]) == ((c, -1) if role == "out" else (-1, c))
+    for c, corner_geo in enumerate(d.corners):
+        assert sorted(gz.CORNER_ENDS[c]) == sorted(corner_geo.ends)

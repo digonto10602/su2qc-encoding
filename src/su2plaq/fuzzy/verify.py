@@ -147,6 +147,95 @@ def _row_keys(data_pos=None):
     return key
 
 
+class LayerMetadataError(ValueError):
+    """``qc.metadata['layers']`` does not describe the circuit (partition, register or outer-link violation)."""
+
+
+_OUTER_FIRST, _N_OUTER_LINKS = 16, 8
+_LAYER_KINDS = ("UE", "UK", "UB", "outer")
+
+
+def _phase_error(M, T) -> float:
+    """||M - e^{i phi} T||_2 for the best global phase phi."""
+    tr = np.vdot(T, M)
+    ph = tr / abs(tr) if abs(tr) > 1e-300 else 1.0
+    return float(np.linalg.norm(M - ph * T, 2))
+
+
+def validate_layers(qc, layers, alpha=None, kappa2=None, tol: float = 1e-10) -> list:
+    """Check that ``layers`` = [(kind, i0, i1)] describes `qc` and return it as a list of (kind, i0, i1) int tuples.
+
+    1. The ranges, in the listed order, partition ``range(len(qc.data))`` exactly (first i0 = 0, each i0 = previous i1, last i1 =
+       len(qc.data); no gap, no overlap, no instruction outside a range) and every kind is one of UE, UK, UB, outer.
+    2. Every instruction of an 'outer' range acts only on register 'o' (which must be qubits 16..47) and within one outer link
+       (nibble); one range = one link.  If `alpha` and `kappa2` are given, every outer link must appear and the product of all its
+       'outer' ranges must equal the one-link target UK_link(kappa2) UE_link(alpha) (K1, K2 commute) as a 16x16 operator up to a
+       phase (error <= tol); otherwise only the structure is checked (`_outer_block_commutator` always checks the blocks against the
+       gauge generators).
+    3. UE/UK ranges: every gate inside one inner link (qubits 0..15, one nibble); UB ranges: no gate on register 'o' (the column
+       check is made when the plaquette layer is built).
+    Any violation raises `LayerMetadataError`; nothing is repaired or skipped."""
+    from qiskit import QuantumCircuit
+    from qiskit.quantum_info import Operator
+
+    n = len(qc.data)
+    try:
+        lay = [(str(k), int(a), int(b)) for k, a, b in layers]
+    except (TypeError, ValueError) as exc:
+        raise LayerMetadataError(f"malformed layer list: {exc}") from exc
+    pos = 0
+    for kind, a, b in lay:
+        if kind not in _LAYER_KINDS:
+            raise LayerMetadataError(f"unknown layer kind {kind!r}")
+        if a != pos or b < a:
+            raise LayerMetadataError(f"layer ({kind}, {a}, {b}) does not continue the partition at instruction {pos}")
+        pos = b
+    if pos != n:
+        raise LayerMetadataError(f"layers cover instructions [0, {pos}) of a circuit with {n} instructions")
+
+    regs = {reg.name: [qc.find_bit(q).index for q in reg] for reg in qc.qregs}
+    outer = regs.get("o", [])
+    if outer and outer != list(range(_OUTER_FIRST, _OUTER_FIRST + 4 * _N_OUTER_LINKS)):
+        raise LayerMetadataError("register 'o' must be qubits 16..47")
+    oset = set(outer)
+    per_link: dict[int, QuantumCircuit] = {}
+    for kind, a, b in lay:
+        if kind == "outer":
+            link = None
+            for inst in qc.data[a:b]:
+                qs = [qc.find_bit(q).index for q in inst.qubits]
+                if not qs or not all(q in oset for q in qs):
+                    raise LayerMetadataError(f"outer range ({a}, {b}): gate {inst.operation.name} on {qs} is not inside register 'o'")
+                this = (qs[0] - _OUTER_FIRST) // 4
+                if any((q - _OUTER_FIRST) // 4 != this for q in qs) or (link is not None and this != link):
+                    raise LayerMetadataError(f"outer range ({a}, {b}) spans more than one outer link")
+                link = this
+                per_link.setdefault(this, QuantumCircuit(4)).append(inst.operation, [(q - _OUTER_FIRST) % 4 for q in qs])
+        elif kind in ("UE", "UK"):
+            for inst in qc.data[a:b]:
+                qs = [qc.find_bit(q).index for q in inst.qubits]
+                if not qs or max(qs) > 15 or any(q // 4 != qs[0] // 4 for q in qs):
+                    raise LayerMetadataError(f"layer {kind} ({a}, {b}): gate {inst.operation.name} on {qs} is not inside one inner link")
+        else:                                                                    # UB
+            for inst in qc.data[a:b]:
+                qs = [qc.find_bit(q).index for q in inst.qubits]
+                if any(q in oset for q in qs):
+                    raise LayerMetadataError(f"layer UB ({a}, {b}): gate {inst.operation.name} on {qs} touches register 'o'")
+    if alpha is not None and kappa2 is not None:
+        from su2plaq.fuzzy import targets as tg
+
+        if outer:
+            missing = sorted(set(range(_N_OUTER_LINKS)) - set(per_link))
+            if missing:
+                raise LayerMetadataError(f"outer links {missing} have no 'outer' range")
+        target = tg.UK_link(kappa2) @ tg.UE_link(alpha)
+        for link, blk in sorted(per_link.items()):
+            e = _phase_error(Operator(blk).data, target)
+            if e > tol:
+                raise LayerMetadataError(f"outer link {link}: block differs from UK(kappa2) UE(alpha) by {e:.2e} (> {tol:g})")
+    return lay
+
+
 class InnerAction:
     """The action of a step circuit on the 16 inner qubits as a function on 2^16 vectors, plus the ancilla leakage.
 
@@ -154,10 +243,13 @@ class InnerAction:
     is turned into its complete operator from its own gates: kinetic layers into the four 16x16 link blocks (Operator of the 4-qubit
     gate groups, nothing else may be touched), the plaquette layer into its complete 256x256 row-basis block by the exact sparse
     simulator (ancillas |0>; weight left outside the row space is the leak).  The layers are then applied in circuit order to dense
-    vectors (blocks certified on a complete basis, composition sampled).  Circuits without metadata are simulated densely with Aer."""
+    vectors (blocks certified on a complete basis, composition sampled).  `validate_layers` first checks that the metadata partitions the
+    instruction list exactly and that outer ranges / kinetic ranges touch only what they claim (`LayerMetadataError` otherwise: a
+    stale or tampered metadata fails loudly).  Circuits without metadata are simulated densely with Aer."""
 
-    def __init__(self, qc):
+    def __init__(self, qc, alpha=None, kappa2=None):
         self.qc = qc
+        self.alpha, self.kappa2 = alpha, kappa2                  # given: the outer blocks are checked against their targets
         layers = (qc.metadata or {}).get("layers")
         self.ops = []                          # ("kin", [M0..M3]) or ("ub", M256)
         self.leak = 0.0
@@ -178,6 +270,7 @@ class InnerAction:
         regs = {reg.name: [qc.find_bit(q).index for q in reg] for reg in qc.qregs}
         if regs.get("d", list(range(16))) != list(range(16)):
             raise ValueError("register 'd' must be the first 16 qubits")
+        layers = validate_layers(qc, layers, self.alpha, self.kappa2)     # raises LayerMetadataError: no silent pass
         sub, _, pos = _inner_part(qc)
         for kind, a, b in layers:
             if kind == "outer":
@@ -278,7 +371,7 @@ def verify_step_samples(qc, alpha, beta, kappa2, order, n_random: int = 32, n_ph
     states), 'n_inputs', 'leak', 'mode'}; see `InnerAction` for what is certified and what is sampled."""
     from su2plaq.fuzzy.targets import apply_step
 
-    act = InnerAction(qc)
+    act = InnerAction(qc, alpha, kappa2)
     inputs, states = _sample_inputs(n_random, n_phys, seed)
     outs = act(inputs)
     refs = [apply_step(v, alpha, beta, kappa2, order) for v in inputs]
@@ -347,7 +440,7 @@ def _outer_block_commutator(qc) -> float:
     return worst
 
 
-def gauss_residual_outputs(qc, states, _act=None) -> float:
+def gauss_residual_outputs(qc, states, _act=None, alpha=None, kappa2=None) -> float:
     """Gauss residual max_{c,A} ||G^A_c U psi|| over 48-qubit physical COO states `states = [(keys, amps)]`.
 
     Exact reduction (no 2^48 output is formed): the outer-link blocks U_out (gates on register 'o') are unitary, act on qubits
@@ -361,7 +454,7 @@ def gauss_residual_outputs(qc, states, _act=None) -> float:
     from su2plaq.fuzzy import gauss as gz
     from su2plaq.fuzzy import link as lk
 
-    act = _act or InnerAction(qc)
+    act = _act or InnerAction(qc, alpha, kappa2)
     comm = _outer_block_commutator(qc)
     worst = 0.0
     for keys, amps in states:

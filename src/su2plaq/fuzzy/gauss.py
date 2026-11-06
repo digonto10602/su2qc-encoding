@@ -16,9 +16,9 @@ import scipy.sparse as sp
 from su2plaq.fuzzy import link as _lk
 
 N_LINKS = 12
-# (tail corner, head corner); for outer links the far end is the free one (-1)
-_TAIL = [0, 1, 3, 0, -1, -1, 2, 2, -1, -1, -1, 3]
-_HEAD = [1, 2, 2, 3, 0, 0, -1, -1, 1, 1, -1, -1]
+# (tail corner, head corner); for outer links the far end is the free one (-1); same as su2plaq.geometry._LINKS (unit-tested)
+_TAIL = [0, 1, 3, 0, -1, -1, 1, -1, 2, 2, -1, 3]
+_HEAD = [1, 2, 2, 3, 0, 0, -1, 1, -1, -1, 3, -1]
 # near end (corner, role) of outer link ell = 4 + k: o0,o1 in at 0; o2 out, o3 in at 1; o4,o5 out at 2; o6 in, o7 out at 3
 _OUTER_NEAR = {4 + k: v for k, v in enumerate([(0, "in"), (0, "in"), (1, "out"), (1, "in"), (2, "out"), (2, "out"), (3, "in"), (3, "out")])}
 CORNER_ENDS: dict[int, list[tuple[int, str]]] = {
