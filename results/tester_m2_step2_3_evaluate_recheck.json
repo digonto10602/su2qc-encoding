@@ -1,0 +1,1726 @@
+{
+ "commit": "a2ec571 + uncommitted step-2.3 fix",
+ "bypass_audit_hook": {
+  "h_overwrite_result_files_then_exit": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/su2plaq-build-211adwmc/out.qpy'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/su2plaq-build-n90ftb6z/out.qpy'"
+   }
+  },
+  "h_sys_modules_tamper": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_gc_mutate_hook_closure": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 3.5,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 11.7,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "h_patch_isinstance": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'builtins' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracl",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_patch_realpath": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.3,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "h_reading_etc_passwd_allowed": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "h_ctypes_pythonapi": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not use ctypes.dlsym | /home/digimonk/anaconda3/envs/coding/lib/python3.12/ctypes/__init__.py\", line 39",
+    "t": 0.6,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_ctypes_loaded_by_numpy": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not use ctypes.dlopen | -build-17m0sgzg/program.py\", line 14, in build |     ct = bi[\"__import__\"](\"ctype",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_socket": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not use socket.__new__ | sp) |         ^^^^^^^^^^^^^ |   File \"/tmp/su2plaq-build-bfbhwzs_/program.py\", lin",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_os_mkdir": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not use os.mkdir | ent call last): |   File \"/home/digimonk/Projects/su2qc-encoding/src/su2plaq/compress/",
+    "t": 0.6,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_os_remove_existing": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not use os.remove |   File \"/home/digimonk/Projects/su2qc-encoding/src/su2plaq/compress/evaluate.py\", l",
+    "t": 0.6,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_subprocess": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not use subprocess.Popen |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^ |   File \"/home/digimonk/anaconda3/envs/c",
+    "t": 0.6,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_os_system": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not use os.system | File \"/home/digimonk/Projects/su2qc-encoding/src/su2plaq/compress/evaluate.py\", lin",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_sqlite3_c_level": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "OperationalError: table t already exists | .build(sp) |         ^^^^^^^^^^^^^ |   File \"/tmp/su2plaq-build-qkavsuwo/program.py\", line 14, in build",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "h_numpy_open_memmap": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.6,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_numpy_memmap": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_marshal_dump": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_pickle_dump": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_tempfile": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/su2plaq-build-4q8qng84/cwd/tmpep_358po' mode None) | r, prefix, suffix, fla",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_pathlib_io_open": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_os_open_wronly": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_io_open_append_rplus": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "h_io_open": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  }
+ },
+ "cases_rerun": {
+  "angle_hardcoded_nominal": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 3.8,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "alt_angles:error",
+    "msg": "",
+    "t": 11.6,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "angle_skeleton_different_gates": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "skeleton",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": false
+   }
+  },
+  "bypass_attr_builtins": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "bypass_builder_module_os": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "bypass_numpy_save": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "PermissionError: proposer programs may not write files (open '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "bypass_subclasses": {
+   "trial": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 1.3,
+    "err": 0.6250048292160191,
+    "leak": 0.0,
+    "gauss": 5.041095676159061e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 3.1,
+    "err": 0.6773232190804346,
+    "leak": 0.0,
+    "gauss": 5.410557748946589e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "cheat_subset_states": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 1.2045077887403776e-14,
+    "leak": 0.0,
+    "gauss": 6.170545761967547e-16,
+    "qubits": 30,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 2.1,
+    "err": 1.0000000000000087,
+    "leak": 0.0,
+    "gauss": 0.999999999999999,
+    "qubits": 30,
+    "skel": true
+   }
+  },
+  "dirty_ancilla": {
+   "trial": {
+    "valid": false,
+    "reason": "dirty_ancilla",
+    "msg": "",
+    "t": 1.3,
+    "err": 1.9999999999999998,
+    "leak": 0.9999999999999998,
+    "gauss": 5.095246377785861e-16,
+    "qubits": 29,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "dirty_ancilla",
+    "msg": "",
+    "t": 3.1,
+    "err": 2.0000000000000595,
+    "leak": 1.0,
+    "gauss": 5.095246377785861e-16,
+    "qubits": 29,
+    "skel": true
+   }
+  },
+  "disguised_custom_gate_named_h": {
+   "trial": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 1.3,
+    "err": 0.10040712424410661,
+    "leak": 0.0,
+    "gauss": 0.14943813247359938,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 3.1,
+    "err": 0.20681015774604944,
+    "leak": 0.0,
+    "gauss": 0.14943813247359952,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "disguised_cx_renamed_from_ccx": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "TypeError: This 'CCXGate' object is immutable. You can get a mutable version by calling 'to_mutable()'. | Traceback (most recent call last): |  ",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "disguised_hidden_t_in_custom": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3920171247368903e-15,
+    "leak": 0.0,
+    "gauss": 5.108929983010925e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.2,
+    "err": 1.206851117089158e-13,
+    "leak": 0.0,
+    "gauss": 5.613217783960923e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "disguised_native_mcx": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "disguised_renamed_class": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "TypeError: This 'HGate' object is immutable. You can get a mutable version by calling 'to_mutable()'. | Traceback (most recent call last): |   F",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "disguised_ry": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.19978121911714e-15,
+    "leak": 0.0,
+    "gauss": 5.109872329229954e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206838362062381e-13,
+    "leak": 0.0,
+    "gauss": 5.933464366067994e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "disguised_sx_pair": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 5.602692397102278e-15,
+    "leak": 0.0,
+    "gauss": 5.222180388738334e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.2328130750157897e-13,
+    "leak": 0.0,
+    "gauss": 5.31720336112929e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "disguised_unitary_named_x": {
+   "trial": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 1.4,
+    "err": 2.0,
+    "leak": 0.9999999999999999,
+    "gauss": 1.0000000000000024,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 3.3,
+    "err": 3.000000000000028,
+    "leak": 1.0,
+    "gauss": 1.0000000000000036,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "forbid_from_compress_import_evaluate": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'su2plaq.compress.evaluate' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2pl",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_from_numpy_lib_import_os": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.4,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "forbid_from_su2plaq_import_circuits": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'su2plaq' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_import": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/forbid_import.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/forbid_import.py'"
+   }
+  },
+  "builtins": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/builtins.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/builtins.py'"
+   }
+  },
+  "ctypes": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/ctypes.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/ctypes.py'"
+   }
+  },
+  "evaluator": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/evaluator.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/evaluator.py'"
+   }
+  },
+  "importlib": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/importlib.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/importlib.py'"
+   }
+  },
+  "io": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/io.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/io.py'"
+   }
+  },
+  "forbid_import_os": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'os' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle', 's",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "pathlib": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/pathlib.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/pathlib.py'"
+   }
+  },
+  "pickle": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/pickle.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/pickle.py'"
+   }
+  },
+  "qiskit_aer": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/qiskit_aer.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/qiskit_aer.py'"
+   }
+  },
+  "forbid_import_scipy": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "import of 'scipy' is not allowed (allowed: numpy, qiskit, standard maths modules and ['su2plaq.compress.builder', 'su2plaq.compress.oracle',",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "shutil": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/shutil.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/shutil.py'"
+   }
+  },
+  "socket": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/socket.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/socket.py'"
+   }
+  },
+  "su2plaq_compress_evaluate": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/su2plaq_compress_evaluate."
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/su2plaq_compress_evaluate."
+   }
+  },
+  "subprocess": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/subprocess.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/subprocess.py'"
+   }
+  },
+  "sys": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/sys.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/sys.py'"
+   }
+  },
+  "forbid_use_compile": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "use of 'compile' is not allowed",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_dunder_import": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "use of '__import__' is not allowed",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_eval": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "use of 'eval' is not allowed",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_exec": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "use of 'exec' is not allowed",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_getattr_builtins": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "AttributeError: 'dict' object has no attribute 'open' | Traceback (most recent call last): |   File \"/home/digimonk/Projects/su2qc-encoding/src/",
+    "t": 0.7,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "forbid_use_open": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "use of 'open' is not allowed",
+    "t": 0.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "good_UE": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.2,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "infinite_loop": {
+   "trial": {
+    "valid": false,
+    "reason": "build_timeout",
+    "msg": "build exceeded 8 s",
+    "t": 8.0,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "leak_1e-11": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.4,
+    "err": 1.0002770253738093e-11,
+    "leak": 1.0000053978148216e-11,
+    "gauss": 5.222180388738334e-16,
+    "qubits": 29,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 8.2,
+    "err": 1.0120738667570135e-11,
+    "leak": 1.0000053978148218e-11,
+    "gauss": 5.474255194514172e-16,
+    "qubits": 29,
+    "skel": true
+   }
+  },
+  "leak_1e-9": {
+   "trial": {
+    "valid": false,
+    "reason": "dirty_ancilla",
+    "msg": "",
+    "t": 1.3,
+    "err": 1.0000027613914189e-09,
+    "leak": 1.0000000189894305e-09,
+    "gauss": 5.222180388738334e-16,
+    "qubits": 29,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "dirty_ancilla",
+    "msg": "",
+    "t": 3.5,
+    "err": 1.0001207036650564e-09,
+    "leak": 1.0000000189894305e-09,
+    "gauss": 5.474255194514172e-16,
+    "qubits": 29,
+    "skel": true
+   }
+  },
+  "__pycache__": {
+   "trial": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/__pycache__.py'"
+   },
+   "full": {
+    "exception": "FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv/programs/__pycache__.py'"
+   }
+  },
+  "qubit_cap_alloc": {
+   "trial": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "128 qubits > cap 60",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "128 qubits > cap 60",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "qubit_cap_ancilla_tamper": {
+   "trial": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "528 qubits > cap 60",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "528 qubits > cap 60",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "qubit_cap_direct_qc": {
+   "trial": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "228 qubits > cap 60",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "228 qubits > cap 60",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "tamper_builder_monkeypatch_basis": {
+   "trial": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 1.4,
+    "err": 0.10484047713817844,
+    "leak": 0.09983341664682815,
+    "gauss": 0.09983464376659658,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 3.7,
+    "err": 0.19998213878542082,
+    "leak": 0.0998334166468282,
+    "gauss": 0.09983464376659736,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "tamper_class_swap": {
+   "trial": {
+    "valid": false,
+    "reason": "contract",
+    "msg": "build(spec) must return a su2plaq.compress.builder.Builder",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "tamper_ops_bigqubit": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "CircuitError: 'Index 300 out of range for size 28.' | 3.12/site-packages/qiskit/circuit/quantumcircuit.py\", line 2820, in _append_standard_gat",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "tamper_ops_mcx": {
+   "trial": {
+    "valid": false,
+    "reason": "build_error",
+    "msg": "TypeError: object of type 'int' has no len() |    ^^^^^^^^^^^ |   File \"/home/digimonk/Projects/su2qc-encoding/src/su2plaq/compress/builder.py\",",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": "same as trial"
+  },
+  "tamper_ops_ry": {
+   "trial": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 1.4,
+    "err": 0.16066705453755914,
+    "leak": 0.14943813247359922,
+    "gauss": 0.14943813247359938,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "leak",
+    "msg": "",
+    "t": 3.7,
+    "err": 0.29929754701914335,
+    "leak": 0.14943813247359922,
+    "gauss": 0.14943813247359952,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "tamper_peak_qubits": {
+   "trial": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "68 qubits > cap 60",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "max_qubits",
+    "msg": "68 qubits > cap 60",
+    "t": 1.1,
+    "err": null,
+    "leak": null,
+    "gauss": null,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "tamper_spec_in_builder": {
+   "trial": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 1.3,
+    "err": 0.6250048292160191,
+    "leak": 0.0,
+    "gauss": 5.041095676159061e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 3.1,
+    "err": 0.6773232190804346,
+    "leak": 0.0,
+    "gauss": 5.410557748946589e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "writes_outer": {
+   "trial": {
+    "valid": false,
+    "reason": "writes_outer",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "writes_outer",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_barrier_label": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.3,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_clbit_measure": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.1,
+    "err": Infinity,
+    "leak": Infinity,
+    "gauss": NaN,
+    "qubits": null,
+    "skel": true
+   }
+  },
+  "x_custom_identity_named_h": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_custom_identity_named_z_two": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_CX_named_cz_with_CZ": {
+   "trial": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 1.3,
+    "err": 0.5000000000000011,
+    "leak": 0.0,
+    "gauss": 0.7071067811865496,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "error",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.4142135623731227,
+    "leak": 0.0,
+    "gauss": 0.7071067811865502,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_CZ_named_cx_with_CZ": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.4,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_global_phase_free": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.789891200844728e-15,
+    "leak": 0.0,
+    "gauss": 5.311767472816653e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.3,
+    "err": 1.2069096993534925e-13,
+    "leak": 0.0,
+    "gauss": 5.452663891757675e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_hidden_Tgates_in_cx_named_custom": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3920171247368903e-15,
+    "leak": 0.0,
+    "gauss": 5.108929983010925e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.2,
+    "err": 1.206851117089158e-13,
+    "leak": 0.0,
+    "gauss": 5.613217783960923e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_mut_H_named_z_pair": {
+   "trial": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.742401988296986e-15,
+    "leak": 0.0,
+    "gauss": 5.251601356122266e-16,
+    "qubits": 28,
+    "skel": true
+   },
+   "full": {
+    "valid": true,
+    "reason": "ok",
+    "msg": "",
+    "t": 7.3,
+    "err": 1.2068473919906092e-13,
+    "leak": 0.0,
+    "gauss": 5.474255194514172e-16,
+    "qubits": 28,
+    "skel": true
+   }
+  },
+  "x_unitary_named_x_pair": {
+   "trial": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 1.3,
+    "err": 2.3889637160243724e-15,
+    "leak": 0.0,
+    "gauss": 5.139936187554463e-16,
+    "qubits": null,
+    "skel": true
+   },
+   "full": {
+    "valid": false,
+    "reason": "disallowed_gate",
+    "msg": "",
+    "t": 3.1,
+    "err": 1.206819430576674e-13,
+    "leak": 0.0,
+    "gauss": 5.302695275805847e-16,
+    "qubits": null,
+    "skel": true
+   }
+  }
+ },
+ "synth_cache2": {
+  "entry_format": [
+   "eps",
+   "sha256",
+   "theta",
+   "version",
+   "word"
+  ],
+  "n_files": 1,
+  "T_good": 64,
+  "cases": {
+   "garbage_text": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "empty_file": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "truncated_json": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "binary_junk": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "bad_checksum_word_tampered": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "wrong_checksum_literal": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "alphabet_violation_valid_checksum": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "garbage_word_valid_checksum": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "empty_word_valid_checksum": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "word_for_other_angle_valid_checksum": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "word_for_other_angle_old_checksum": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "other_version_entry": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "other_eps_field": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "other_theta_field": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "wrong_types": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "json_list": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   },
+   "old_txt_style_file_ignored": {
+    "returned_equals_good": true,
+    "T": 64,
+    "word_err": 4.218575483601993e-07,
+    "repaired": true
+   }
+  },
+  "n_json_before": 1,
+  "n_json_after_theta_eps_version_variants": 4,
+  "all_ok": true
+ },
+ "states": {
+  "full": {
+   "ref": 0.012381173420994936,
+   "got": 0.012381173420994956,
+   "leak": 0.0,
+   "n": 433,
+   "gauss": 0.002854752713418062
+  },
+  "first5": {
+   "n": 5,
+   "ref": 0.001781635617122528,
+   "got": 0.0017816356171226602,
+   "absdiff": 1.3227266504323154e-16,
+   "leak": 0.0
+  },
+  "rand64_s0": {
+   "n": 64,
+   "ref": 0.012249285083562652,
+   "got": 0.012249285083562897,
+   "absdiff": 2.445960101127298e-16,
+   "leak": 0.0
+  },
+  "rand10_s7": {
+   "n": 10,
+   "ref": 0.008003711202475032,
+   "got": 0.008003711202474883,
+   "absdiff": 1.491862189340054e-16,
+   "leak": 0.0
+  },
+  "single_200": {
+   "n": 1,
+   "ref": 4.502214819345756e-06,
+   "got": 4.502214819687987e-06,
+   "absdiff": 3.4223095684389124e-16,
+   "leak": 0.0
+  },
+  "dup_unsorted": {
+   "n": 3,
+   "ref": 0.009464774396116805,
+   "got": 0.009464774396117186,
+   "absdiff": 3.8163916471489756e-16,
+   "leak": 0.0
+  },
+  "last": {
+   "n": 1,
+   "ref": 8.37799004789866e-06,
+   "got": 8.377990048411973e-06,
+   "absdiff": 5.133121304314731e-16,
+   "leak": 0.0
+  },
+  "all": {
+   "n": 433,
+   "ref": 0.012381173420994936,
+   "got": 0.012381173420994956,
+   "absdiff": 2.0816681711721685e-17,
+   "leak": 0.0
+  },
+  "max_abs_diff": 5.133121304314731e-16,
+  "bad_[]": "ValueError",
+  "bad_[-1]": "ValueError",
+  "bad_[433]": "ValueError",
+  "bad_[0.5]": "ValueError"
+ },
+ "seeds": {
+  "states_test": 20261105,
+  "trial_seed": 0
+ }
+}

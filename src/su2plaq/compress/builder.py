@@ -106,7 +106,7 @@ class Builder:
             raise BuilderError(f"gate {name!r} takes {_ARITY[name]} qubit(s)"
                                f"{' and one angle' if name in _PARAMETRIC else ''}")
         for th in params:
-            if isinstance(th, bool) or not isinstance(th, (int, float)) or not math.isfinite(float(th)):
+            if isinstance(th, bool) or not isinstance(th, numbers.Real) or not math.isfinite(float(th)):
                 raise BuilderError(f"angle must be a finite real number, got {th!r}")
         self._check_qubits(qs)
         self._ops.append((name, tuple(float(x) for x in params), tuple(int(q) for q in qs)))

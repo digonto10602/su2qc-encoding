@@ -21,7 +21,7 @@ M2 — compression machinery (step 2.1) and Lean track (step 2.L1) in parallel (
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
 |---|---|---|---|---|
-| M2 2.3 evaluate robustness N1 file I/O, N2 SHA race, N4 synth-cache trust (reports/tests/027) | 1 | 0 | 0 | physics + target ids green |
+| — | — | — | — | — |
 
 ## Decisions
 - 2026-11-05 (Digonto): Lean 4 formal verification added to M2 (prompts/006): kernel-checked generic theorems + counts; per-circuit certificates via compiled checker ACCEPTED, labelled 'native-certified'; final best circuit: angle-linearity preferred, not required ('Lean: n_a' allowed). proposer.md got a Lean paragraph (coordinator edit).
@@ -33,6 +33,7 @@ M2 — compression machinery (step 2.1) and Lean track (step 2.L1) in parallel (
 - T-count rule: $T_{\rm total}=T_{\rm fixed}+\sum_{\rm rot}T_r(\varepsilon)$, $T_r\approx3\log_2(1/\varepsilon)$ (Ross–Selinger), measured with pygridsynth; the "$+3\ln\varepsilon$" form was wrong (sign, base, multiplicity).
 
 ## Known issues
+- Proposer program guard (audit hook) stops ordinary/accidental file writes but not deliberate in-process attacks (sqlite3, monkey-patching, gc tampering; reports/tests/029) — documented as not a sandbox; proposers are our own agents, and the guard hook limits their direct writes.
 - Benchmark 002 flags: Paulo-QPY evaluate peak RSS +33 % (1.1→1.5 GB) and warm logical_metrics/t_table +6 ms per call (program-order lower) — watch in M2.
 - M2 prerequisite (audit 003 N4): su2qc-trotter lean22/lean22_v2 apply the electric layer AFTER the plaquette (U_E U_B, opposite of our U_1); import only the plaquette part and prepend our build_UE.
 - Fixed prune cap TOL_PRUNE = 1e-12 rejects step order 2 at ε=1e-4 (max dropped 2.6e-12) although op_norm_error 5.8e-4 ≤ 1.4e-3 and dropped is already inside op_norm_error (reports/tests/020): RESOLVED: prompts/005, acceptance-v5, implemented (reports/tests/021).
@@ -95,3 +96,4 @@ Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer
 - 2026-11-05: M2 step 2.2 builder PASS (reports/tests/026): 189 adversarial checks; mcx chain exact k≤6 (CX 6+6(k−2), T 7+8(k−2)). Note for 2.3: evaluator must use qc.num_qubits and re-check gates itself. Desktop package START_HERE.md rewritten for two parallel tracks (spin network M3/M4 + rishon M5/M6) — rebuild package after the Lean commit.
 - 2026-11-05: M2 step 2.3 tester FAIL on robustness (reports/tests/027): proposer file I/O not blocked, SHA time-of-check race, corrupt synth-cache trusted; physics fine (--full timing 18–20 s, --trial 5–6 s on the step circuit). Builder attempt 1.
 - 2026-11-05: Lean steps 2.L2 + 2.L3 PASS (reports/tests/028): 26 generic theorems + 8 kernel-checked counts, standard axioms only; clean lake build 379 s, Counts.lean peak RSS 15.3 GB. Note for planner: Lean innerSumM over-counts per-outer states (support 3153 and max 17 still correct). Lean 2.L1–2.L3 committed.
+- 2026-11-05: M2 step 2.3 recheck PASS WITH NOTES (reports/tests/029): TOCTOU fixed, synth cache validated (17/17 corruption cases), file-write guard blocks all ordinary routes; --trial 4.8 s, --full 16 s on the step circuit. Committed. N6 (forged meta.json without out.qpy → uncaught FileNotFoundError) folded into 2.4.

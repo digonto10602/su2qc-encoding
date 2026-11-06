@@ -145,3 +145,13 @@ def test_rendered_spec_states_the_synthesised_rule_and_prune_cap():
 
     t = SPEC.render()
     assert "N_{\\rm rot}\\varepsilon+1e-09" in t and f"{PRUNE_FRACTION:g} times the error tolerance" in t and "pruning_bound" in t
+
+
+def test_numpy_scalars_are_accepted_for_angles_and_qubits():
+    b = B.Builder(n_qubits=3)
+    b.rz(np.float32(0.25), np.int64(1))
+    b.p(np.float16(0.5), np.int32(2))
+    b.crx(np.int64(1), np.int64(0), np.int8(2))
+    assert b.n_gates == 3
+    with pytest.raises(B.BuilderError):
+        b.rz(np.bool_(True), 0) if False else b.rz(True, 0)
