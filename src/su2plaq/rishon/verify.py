@@ -119,13 +119,17 @@ def _early(inner: Verdict | None, reason: str, t0: float, tols: dict, nread: int
 
 def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: int = 1, *, tol_err: float = 1e-10,
            tol_gauss: float | None = None, gauss: bool = True, gauss_sample: int = 256, seed: int = 20261104,
-           engine: str = "auto", cap: int = 5_000_000, target: np.ndarray | None = None) -> RishonVerdict:
+           engine: str = "auto", cap: int = 5_000_000, target: np.ndarray | None = None,
+           states=None) -> RishonVerdict:
     """Verify `qc` against the rishon inner target (kind, alpha, beta, order) or an explicit 1296x1296 `target`.
 
     1. outer qubits read by diagonal gates -> reason 'outer_read_unsupported' (the inner view is unsound, METHODS-rishon R6);
        an outer write / bad layout / disallowed gate is reported by the laptop `evaluate` ('writes_outer', ...).
     2. inner-block verdict = laptop `evaluate` on `enc.inner_view()` (all 38 432 physical states for outer-blind circuits).
-    3. sampled Gauss residual of the circuit outputs on 17 closed + `gauss_sample` seeded physical states (sparse engine)."""
+    3. sampled Gauss residual of the circuit outputs on 17 closed + `gauss_sample` seeded physical states (sparse engine).
+
+    `states` (M6 trial mode, prompts/203 section 2): optional subset of inner-code positions; only those columns are formed
+    (laptop `evaluate(states=...)`, phase / errors refer to them); use with `gauss=False`."""
     t0 = time.time()
     tg = TOL_GAUSS if tol_gauss is None else float(tol_gauss)
     tols = {"tol_err": tol_err, "tol_gauss": tg}
@@ -139,7 +143,7 @@ def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: i
                       f"outer qubits {sorted(read)} are read by the circuit; the block-wise path is M6")
     view = enc.inner_view()
     V = enc.inner_target(kind, alpha, beta, order) if target is None else np.asarray(target, dtype=np.complex128)
-    iv = evaluate(qc, view, V, tol_err=tol_err, tol_gauss=tg, gauss=False, engine=engine, cap=cap)
+    iv = evaluate(qc, view, V, tol_err=tol_err, tol_gauss=tg, gauss=False, engine=engine, cap=cap, states=states)
     if classify_error and (iv.ok or iv.reason not in _CLASSIFY_REASONS):
         raise RuntimeError(f"classify_outer_gates raised ({classify_error}) but evaluate returned reason "
                            f"{iv.reason!r} (ok={iv.ok}); expected one of {sorted(_CLASSIFY_REASONS)}")

@@ -1,21 +1,14 @@
 """Step 6.0 skeleton for prompts/203 §3: every public name of the rishon compression package exists; the unbuilt ones raise
-NotImplementedError whose message starts with "PENDING:".  Entries move out of PENDING as steps 6.1-6.4 / 6.L2-6.L4 build them."""
+NotImplementedError whose message starts with "PENDING:".  Entries move out of PENDING as steps 6.3-6.4 / 6.L2-6.L4 build them (6.1, 6.2 done; `general_circuit` and
+`general_program_path` were pulled forward into 6.2 because the evaluator acceptance tests build their programs with them)."""
 import importlib
 
 import numpy as np
 import pytest
 
-CALLS = {          # module -> {name: args}
-    "su2plaq.rishon.compress": {"code_hash": ()},
-    "su2plaq.rishon.compress.spec": {"register": (), "rishon_spec": (), "structure_facts": (), "write_structure_json": (),
-                                     "render_spec": (None,), "write_spec": (None,)},
-    "su2plaq.rishon.compress.oracle": {"target": (None,), "column": (None, 0), "element": (None, 0, 0), "codec": (None,),
-                                       "pairs": (None,), "closed_block": (None,), "main": ()},
-    "su2plaq.rishon.compress.evaluate": {"evaluate_circuit": (None, None), "evaluate_program": (None, None), "trial_states": (None,),
-                                         "verify_synthesised": (None, None), "main": ()},
-    "su2plaq.rishon.compress.baselines": {"general_circuit": (None,), "general_program_path": (None,), "qiskit_l3": (None,),
-                                          "qiskit_l3_whole": (None,), "polish": (None, None), "general_polished": (None,),
-                                          "import_seed": (None, "paulo34")},
+CALLS = {          # module -> {name: args}; built names (6.1: package, spec, oracle; 6.2: evaluate) have their own unit tests
+    "su2plaq.rishon.compress.baselines": {"qiskit_l3": (None,), "qiskit_l3_whole": (None,), "polish": (None, None),
+                                          "general_polished": (None,), "import_seed": (None, "paulo34")},
     "su2plaq.rishon.compress.round": {"run_round": ("step", 0, False), "certify_best": (), "main": ()},
     "su2plaq.rishon.compress.brief": {"make_ideation_brief": (), "make_brief": ("step", 1, "F"), "main": ()},
     "su2plaq.rishon.compress.run_candidate": {"main": ()},
@@ -45,5 +38,4 @@ def test_constants_classes_and_view_attributes():
     assert importlib.import_module("su2plaq.rishon.lean_cert").SCHEMA == "su2plaq-rishon-cert3-1"
     with pytest.raises(NotImplementedError, match="PENDING:"):
         importlib.import_module("su2plaq.rishon.lean_cert").Laurent3()
-    with pytest.raises(NotImplementedError, match="PENDING:"):
-        S.RishonCompressView().target("step", 0.37, 0.61)
+    assert S.RishonCompressView().target("UE", 0.37, None).shape == (1296, 1296)

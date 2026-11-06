@@ -201,7 +201,8 @@ class RishonEncoding(Encoding):
             f"**Outer controls `o[0..{self.n_outer - 1}]`.** Outer link k occupies qubits (16+4k..19+4k); the near end "
             "(at the plaquette corner) is free (empty, full, colour 1, colour 2), the far end is fixed by the link "
             f"type (A/B: empty/full; Q: colour 1). {outs}. The target never changes the outer register; a circuit may "
-            "read it (diagonal gates on those qubits only), never write it.\n\n"
+            "neither write it nor read it (the evaluator rejects an outer read as `outer_read_unsupported`, "
+            "METHODS-rishon R6, R10).\n\n"
             "**Physical states.** 38432 Gauss-law (SU(2)) states: products of corner singlet tensors over the 48-qubit "
             "occupation basis; closed sector 4352; unphysical inputs are don't-care. Ancillas must return to |0>.\n")
 
