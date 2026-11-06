@@ -1,18 +1,20 @@
 {
  "encoding": "fuzzy_link",
  "kind": "UE",
- "n_rounds": 1,
- "n_candidates": 3,
- "n_valid": 2,
- "global_best": "r00-seed-010",
+ "n_rounds": 3,
+ "n_candidates": 5,
+ "n_valid": 4,
+ "global_best": "r02-F2-001",
  "global_best_key": [
-  30,
+  12,
   644,
-  1511,
+  1183,
   4
  ],
  "best_by_family": {
-  "seed": "r00-seed-010"
+  "seed": "r00-seed-010",
+  "F1": "r01-F1-001",
+  "F2": "r02-F2-001"
  },
  "rows": [
   [
@@ -86,6 +88,34 @@
    "-"
   ],
   [
+   "best of family F1",
+   "4",
+   "13",
+   "0",
+   "10",
+   "644",
+   "597.947",
+   "1028",
+   "1161",
+   "valid (err 3.42653e-15, leak 0)",
+   "n_a",
+   "r01-F1-001 @ 2e7b07d"
+  ],
+  [
+   "best of family F2",
+   "4",
+   "12",
+   "0",
+   "10",
+   "644",
+   "597.947",
+   "1028",
+   "1183",
+   "valid (err 5.61492e-15, leak 0)",
+   "n_a",
+   "r02-F2-001 @ 6d221d5"
+  ],
+  [
    "best of family seed",
    "4",
    "30",
@@ -102,16 +132,16 @@
   [
    "GLOBAL BEST",
    "4",
-   "30",
+   "12",
    "0",
    "10",
    "644",
    "597.947",
    "1028",
-   "1511",
-   "valid (err 3.24551e-15, leak 0)",
+   "1183",
+   "valid (err 5.61492e-15, leak 0)",
    "n_a",
-   "r00-seed-010 @ 4f7126f"
+   "r02-F2-001 @ 6d221d5"
   ]
  ],
  "lineage": [
@@ -130,6 +160,24 @@
    "family": "seed",
    "round": 0,
    "cx": 30,
+   "t_eps": 644,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F1-001",
+   "parent": null,
+   "family": "F1",
+   "round": 1,
+   "cx": 13,
+   "t_eps": 644,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F2-001",
+   "parent": "r01-F1-001",
+   "family": "F2",
+   "round": 2,
+   "cx": 12,
    "t_eps": 644,
    "parent_known": true
   }
