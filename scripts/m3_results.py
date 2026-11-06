@@ -144,9 +144,11 @@ def _paulo_row(enc, out, grid) -> dict:
         "gauge_minus_codes": minus, "gauge_alignment": {"residual": res, "phase": [phase.real, phase.imag],
                                                         "inner_block_leak_max": float(leak.max()), "n_minus": len(minus)},
         "alpha_P": qc.metadata["alpha_P"], "source": qc.metadata["source"], "sha256": qc.metadata["sha256"],
-        "gauge_note": "the 15-qubit file equals exp(-i beta K) up to a real diagonal sign gauge D (one -1 per bright pair on the "
-                      "data codes listed in gauge_minus_codes): a basis-sign convention of the electric basis, METHODS-spinnet §1.3. "
-                      "The verdict above is for the target regauged with D; the ungauged route-B target is rejected."})
+        "gauge_note": "the 15-qubit file equals exp(-i beta K) up to the real diagonal sign gauge D with D = -1 exactly on the "
+                      "bright data codes with j_l = 1/2 (gauge_minus_codes = {8..15}, left link, file q[3]), i.e. the "
+                      "beta-independent centre-symmetry convention (-1)^(2 j_l) of one link's j = 1/2 states "
+                      "(METHODS-spinnet section 2): the verdict above is for the target regauged with D; the ungauged "
+                      "route-B target is rejected because the file is U_B(-beta) in route-B signs."})
     return row
 
 

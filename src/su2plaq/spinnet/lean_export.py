@@ -5,7 +5,7 @@ import pathlib
 
 from su2plaq._stub import todo
 from su2plaq.encodings.spinnet import SpinNet
-from su2plaq.spinnet.walk import GENERAL7, coupling_table, solve_angles
+from su2plaq.spinnet.walk import FRAME, GENERAL7, TARGET, coupling_table, mirror, solve_angles
 
 
 _BEGIN = "-- BEGIN generated"
@@ -49,6 +49,52 @@ def lean_literals(enc) -> dict:
             "codes": _lit(int(c) for c in enc.inner_codes())}
 
 
+def _lean_op(st) -> str:
+    """One GENERAL7 step as a Lean `Op` (rccx is read with Toffoli semantics, as in `classical_slots`)."""
+    name, args = st[0], [int(a) for a in st[1:]]
+    if name == "x" and len(args) == 1:
+        return f".x {args[0]}"
+    if name == "cx" and len(args) == 2:
+        return f".cx {args[0]} {args[1]}"
+    if name == "rccx" and len(args) == 3:
+        return f".ccx {args[0]} {args[1]} {args[2]}"
+    if name == "rz" and len(args) == 1:
+        if args[0] != TARGET:
+            raise ValueError(f"rz on wire {args[0]}, the Lean model assumes the frame target {TARGET}")
+        return f".rz {args[0]}"
+    raise ValueError(f"step {st!r} has no Lean model")
+
+
+def split_skeleton(steps=None):
+    """(compute, walk) of GENERAL7 = compute + walk + mirror(compute): compute = steps before the first rz, walk = the
+    rz / cx part up to the uncompute (ValueError if the tail is not exactly mirror(compute))."""
+    steps = GENERAL7[0] if steps is None else steps
+    first = next((i for i, s in enumerate(steps) if s[0] == "rz"), None)
+    if first is None:
+        raise ValueError("skeleton has no rz")
+    compute = list(steps[:first])
+    tail = mirror(compute)
+    if list(steps[len(steps) - len(tail):]) != tail:
+        raise ValueError("skeleton does not end with mirror(compute)")
+    return compute, list(steps[first:len(steps) - len(tail)])
+
+
+def _ops_literal(ops) -> str:
+    return "[" + ", ".join(_lean_op(s) for s in ops) + "]"
+
+
+def _model_lines() -> list:
+    compute, walk = split_skeleton()
+    return [
+        "/-- the CX frame of `build_walk` (`walk.FRAME`), in gate order -/",
+        "def frameCx : List (Nat × Nat) := [" + ", ".join(f"({int(a)}, {int(b)})" for a, b in FRAME) + "]",
+        "/-- flag computation of `GENERAL7` (compute half; ancillas `A=8, B=9, F=10, P=11, Q=12, G1=13, G2=14`) -/",
+        f"def flagOps : List Op := {_ops_literal(compute)}",
+        "/-- the phase walk of `GENERAL7` on the frame target: `rz`, then `rz` conjugated by `cx(F,·)`, `cx(G1,·)`, `cx(G2,·)` -/",
+        f"def walkOps : List Op := {_ops_literal(walk)}",
+    ]
+
+
 def _table_block(enc) -> str:
     lit = lean_literals(enc)
     return "\n".join([
@@ -59,12 +105,13 @@ def _table_block(enc) -> str:
         f"def couplingTable : List Int := {lit['coupling']}",
         "/-- `rz` angles of the phase walk in units of `beta / 2`, in gate order -/",
         f"def angleTable : List Int := {lit['angles']}",
+        *_model_lines(),
         _END,
     ])
 
 
 def write_lean_tables(path=None):
-    """Regenerate the table block of lean/Su2Plaq/SpinNet/Circuit.lean between the generated markers (ValueError if the
+    """Regenerate the table + circuit-model block (tables, frameCx, flagOps, walkOps) of lean/Su2Plaq/SpinNet/Circuit.lean between the generated markers (ValueError if the
     markers are missing); returns the path."""
     path = pathlib.Path(path) if path is not None else CIRCUIT_LEAN
     text = path.read_text()
