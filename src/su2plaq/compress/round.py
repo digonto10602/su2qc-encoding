@@ -126,9 +126,11 @@ def _record(label, e, r, parent_known=True) -> dict:
 
 
 def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False, root=None,
-              proposals: list[str] | None = None, lean: bool = False) -> dict:
+              proposals: list[str] | None = None, lean: bool = True) -> dict:
     """-> {"round","n_valid","n_invalid","best_key","entries":[ids],"lean_seconds"} (and writes the files listed in the module
-    docstring).  `lean=True`: certify the round's new global best with Lean (`su2plaq.lean.certify`, never changes validity)."""
+    docstring).  `lean=True` (default, prompts/006 §5): certify the round's new global best with Lean (`su2plaq.lean.certify`)
+    and check the `NNN-slug.lean` lemma files shipped next to evaluated programs (at most 5 per round, 120 s each); both are
+    informative, never change validity, and their wall time is `lean_seconds`.  `lean=False` skips them."""
     root = pathlib.Path(root) if root is not None else ROOT
     spec = default_spec(encoding, kind)
     archive = A.Archive.load(encoding, root=root, n_alt=len(spec.alt_angles), strict=True)
@@ -174,6 +176,7 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
                     fam, par = "unknown", None      # the failed contract is already in r.reason
                 results.append((pathlib.Path(path).stem, r, _rel(path, root), fam, None, par))
     ids, n_valid, n_invalid, invalid, records = [], 0, 0, [], []
+    lemma_seconds, n_lemma_files = 0.0, 0
     fdir = root / "results" / "compress" / encoding / "feedback"
     fdir.mkdir(parents=True, exist_ok=True)
     known_ids = {x.id for x in archive.entries()}
@@ -196,6 +199,12 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
             n_invalid += 1
             invalid.append({"id": e.id, "label": label, "reason": r.reason, "message": r.message})
         records.append((_record(label, e, r, parent_known), r, pp, label, fn))
+        if lean and evaluate and not pp.endswith(".circuit") and n_lemma_files < MAX_LEMMA_FILES:
+            lem, lsec = _check_lemmas(pp, root)
+            if lem is not None:
+                n_lemma_files += 1
+                records[-1][0]["lean_lemmas"] = lem
+                lemma_seconds += lsec
         if archive.entries() and any(x.id == e.id for x in archive.entries()):
             known_ids.add(e.id)
     best = archive.best()
@@ -219,6 +228,7 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
         e = next((x for x in archive.entries() if x.id == rec["id"]), None)
         if e is not None:
             rec["lean"] = e.lean
+    lean_seconds += lemma_seconds
     info = {"round": round, "n_valid": n_valid, "n_invalid": n_invalid, "best_key": list(best.key) if best else None,
             "entries": ids, "lean_seconds": lean_seconds}
     out = {**info, "encoding": encoding, "kind": kind, "provenance": provenance({"trial_seed": spec.trial_seed}),
@@ -229,6 +239,24 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
     rdir.mkdir(parents=True, exist_ok=True)
     (rdir / f"round-{round:03d}.json").write_text(json.dumps(out, indent=1, default=str))
     return info
+
+
+MAX_LEMMA_FILES = 5
+
+
+def _check_lemmas(program_path, root):
+    """(lemma-check dict, seconds) for the `.lean` file next to a program, or (None, 0.0) when there is none.  Informative only."""
+    f = pathlib.Path(program_path)
+    f = f if f.is_absolute() else (root / f if (root / f).exists() else ROOT / f)
+    t0 = time.time()
+    try:
+        from su2plaq.lean import lemmas
+
+        if lemmas.lemma_file_for(f) is None:
+            return None, 0.0
+        return lemmas.check_program_lemmas(f, timeout=120.0), time.time() - t0
+    except (ImportError, OSError, ValueError, RuntimeError, subprocess.SubprocessError) as exc:
+        return {"status": "failed", "message": f"{type(exc).__name__}: {exc}"}, time.time() - t0
 
 
 def _certify(circ, spec):
@@ -262,6 +290,24 @@ def _circuit_of(spec, program_path, label, fn, root):
         return None, f"{type(exc).__name__}: {exc}"
 
 
+def certify_best(encoding="twelve", kind="step", root=None) -> dict:
+    """Step 2.L8: Lean-certify the archive's current global best (rebuilt from its program file) and store the certificate on
+    the entry (`Entry.lean`).  Never changes validity; a failure is recorded, not hidden.  -> {"entry","lean","seconds"}."""
+    root = pathlib.Path(root) if root is not None else ROOT
+    spec = default_spec(encoding, kind)
+    archive = A.Archive.load(encoding, root=root, n_alt=len(spec.alt_angles), strict=True)
+    best = archive.best()
+    if best is None:
+        return {"entry": None, "lean": None, "seconds": 0.0}
+    circ, err = _circuit_of(spec, best.program_path, best.id, None, root)
+    if circ is None:
+        best.lean, sec = {"status": "failed", "reason": f"cannot rebuild the best circuit: {err}"}, 0.0
+    else:
+        best.lean, sec = _certify(circ, spec)
+    archive.save()
+    return {"entry": best.id, "lean": best.lean, "seconds": sec}
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="python -m su2plaq.compress.round")
     ap.add_argument("--encoding", default="twelve")
@@ -270,9 +316,15 @@ def main(argv=None) -> int:
     ap.add_argument("--round", type=int)
     ap.add_argument("--evaluate", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--lean", action="store_true", help="certify the round's new global best with Lean (slow)")
+    ap.add_argument("--lean", dest="lean", action="store_true", default=True,
+                    help="(default) certify the round's new global best with Lean and check shipped lemma files")
+    ap.add_argument("--no-lean", dest="lean", action="store_false", help="skip the Lean certificate and lemma checks")
     ap.add_argument("--root")
+    ap.add_argument("--certify-best", action="store_true", help="Lean-certify the archive's current best and store it (step 2.L8)")
     a = ap.parse_args(argv)
+    if a.certify_best:
+        print(json.dumps(certify_best(a.encoding, a.kind, a.root), indent=1, default=str))
+        return 0
     if a.seed == (a.round is not None):
         ap.error("give exactly one of --seed and --round r")
     rnd = 0 if a.seed else a.round

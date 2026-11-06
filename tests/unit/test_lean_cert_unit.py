@@ -132,7 +132,7 @@ def test_ue_certified_tampered_rejected_nonlinear_na(enc, tmp_path):
     p4 = tmp_path / "bad-qubit.json"
     p4.write_text(json.dumps(d3))
     r4 = C.check_certificate(p4)
-    assert r4.status == "rejected" and "out of range" in r4.reason
+    assert r4.status == "rejected" and ("out of range" in r4.reason or "bad qubits" in r4.reason)
 
 
 def test_not_certifiable_reasons(enc, tmp_path):
@@ -393,3 +393,49 @@ def test_n6_zero_denominator_is_rejected_not_raised(ue_cert, tmp_path):
         p.write_text(json.dumps(d))
         r = C.check_certificate(p)
         assert r.status == "rejected", (where, r.status, r.reason)
+
+
+# ---------------------------------------------------------------------------------------------- 2.L6 notes (tester 037)
+def test_note_n1_theorem_writer_refuses_malformed_metadata(ue_cert, tmp_path):
+    def refuse(d, what):
+        p = tmp_path / f"{what}.json"
+        p.write_text(json.dumps(d))
+        with pytest.raises(ValueError, match=what):
+            C.write_theorem_file(p, "bad_ok", tmp_path / f"{what}.lean")
+        assert C.check_certificate(p).status == "rejected"
+
+    d = json.loads(json.dumps(ue_cert)); del d["target"]["kind"]
+    refuse(d, "no valid kind")
+    d = json.loads(json.dumps(ue_cert)); d["phase"]["k"] = ["2"] + ["0"] * 7
+    refuse(d, "bad phase")
+    d = json.loads(json.dumps(ue_cert)); d["phase"]["m"] = [1.5, 0]
+    refuse(d, "bad phase")
+    d = json.loads(json.dumps(ue_cert)); d["gates"][0]["m"] = [-2, 0]       # a different angle, hash unchanged
+    refuse(d, "recorded program_sha256")
+    d = json.loads(json.dumps(ue_cert)); d["gates"][0]["q"] = [99]
+    refuse(d, "bad qubits")
+    d = json.loads(json.dumps(ue_cert)); d["base"]["d_beta"] = 0
+    refuse(d, "positive integer")
+    d = json.loads(json.dumps(ue_cert)); del d["states"]
+    refuse(d, "with states")
+
+
+def test_note_n2_zero_base_is_rejected_by_lean(ue_cert, tmp_path):
+    for key in ("d_alpha", "d_beta"):
+        d = json.loads(json.dumps(ue_cert))
+        d["base"][key] = 0
+        line, err = _lean_only(d, tmp_path, f"zero-{key}.json")
+        assert line.startswith("REJECT") and "positive multiple" in line, line
+
+
+def test_note_n3_spec_renders_fact_notes(tmp_path, monkeypatch):
+    from su2plaq.compress import spec as SP
+
+    f = tmp_path / "structure.json"
+    f.write_text(json.dumps({"facts": [
+        {"name": "card_supported_outer", "value": 3153, "proved_by": "decide", "theorem": "Su2Plaq.card_supported_outer",
+         "note": "outer m-patterns carrying a state (NOT dim S_o)"},
+        {"name": "x", "value": 1, "proved_by": "numerical"}, {"name": "y", "value": 2, "proved_by": "native"}]}))
+    monkeypatch.setattr(SP, "STRUCTURE_JSON", f)
+    text = SP.default_spec("twelve", "step").render()
+    assert "NOT dim S_o" in text and "`y` = 2 (proved by native)" in text and "`x`" not in text.split("Proved structure (Lean)")[1]

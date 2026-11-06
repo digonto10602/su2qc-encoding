@@ -79,7 +79,8 @@ def Cert.pinError (c : Cert) : Option String :=
     match Pins.targetBase c.kind c.order with
     | none => some s!"unknown target kind '{c.kind}' (order {c.order})"
     | some (ta, tb) =>
-      if ta == 0 || tb == 0 || c.dAlpha % ta != 0 || c.dBeta % tb != 0 then some "base is not a multiple of the target's base"
+      if ta == 0 || tb == 0 || c.dAlpha == 0 || c.dBeta == 0 || c.dAlpha % ta != 0 || c.dBeta % tb != 0 then
+        some "base must be a positive multiple of the target's base"
       else
         match c.targetText (c.dAlpha / ta) (c.dBeta / tb) with
         | .error e => some e

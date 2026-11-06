@@ -1,0 +1,176 @@
+{
+ "commit": "c4a9d2a+worktree",
+ "date": "2026-11-06",
+ "report": "reports/tests/038-m2-step-2l7-lean-rules-lemmas.md",
+ "fuzz": {
+  "seed": 20260606,
+  "circuits": 3000,
+  "n_qubits": 4,
+  "cancelled_gates": 10278,
+  "merges": 2513,
+  "max_abs_unitary_diff": 8.67e-16
+ },
+ "pair_max_err": 2.22e-16,
+ "unit": "394 passed in 424 s",
+ "acceptance_m2": "44 passed, 1 failed (test_archive_best_valid_and_not_worse_than_seed: evaluator hash), 1 deselected (archive_best_lean_status_recorded)",
+ "acceptance_m0_m1_not_slow": "54 passed",
+ "lemma_cases": "see report",
+ "round_scratch": {
+  "round0": {
+   "info": {
+    "round": 0,
+    "n_valid": 1,
+    "n_invalid": 0,
+    "best_key": [
+     296,
+     952,
+     1422,
+     50
+    ],
+    "entries": [
+     "r00-seed-001"
+    ],
+    "lean_seconds": 68.59180092811584
+   },
+   "wall": 96.84262871742249,
+   "best": "r00-seed-001",
+   "best_lean": "certified",
+   "cands": [
+    [
+     "r00-seed-001",
+     true,
+     "certified",
+     "failed"
+    ]
+   ],
+   "keys": [
+    [
+     "r00-seed-001",
+     true,
+     [
+      296,
+      952,
+      1422,
+      50
+     ],
+     "certified"
+    ]
+   ]
+  },
+  "round1": {
+   "info": {
+    "round": 1,
+    "n_valid": 1,
+    "n_invalid": 0,
+    "best_key": [
+     294,
+     952,
+     1421,
+     50
+    ],
+    "entries": [
+     "r01-seed-002"
+    ],
+    "lean_seconds": 48.68013405799866
+   },
+   "wall": 65.48746848106384,
+   "best": "r01-seed-002",
+   "best_lean": "certified",
+   "cands": [
+    [
+     "r01-seed-002",
+     true,
+     "certified",
+     "proved"
+    ]
+   ],
+   "keys": [
+    [
+     "r00-seed-001",
+     true,
+     [
+      296,
+      952,
+      1422,
+      50
+     ],
+     "certified"
+    ],
+    [
+     "r01-seed-002",
+     true,
+     [
+      294,
+      952,
+      1421,
+      50
+     ],
+     "certified"
+    ]
+   ]
+  },
+  "round2": {
+   "info": {
+    "round": 2,
+    "n_valid": 1,
+    "n_invalid": 0,
+    "best_key": [
+     294,
+     952,
+     1421,
+     50
+    ],
+    "entries": [
+     "r02-seed-003"
+    ],
+    "lean_seconds": 0.0
+   },
+   "wall": 8.19179105758667,
+   "best": "r01-seed-002",
+   "best_lean": "certified",
+   "cands": [
+    [
+     "r02-seed-003",
+     true,
+     null,
+     null
+    ]
+   ],
+   "keys": [
+    [
+     "r00-seed-001",
+     true,
+     [
+      296,
+      952,
+      1422,
+      50
+     ],
+     "certified"
+    ],
+    [
+     "r01-seed-002",
+     true,
+     [
+      294,
+      952,
+      1421,
+      50
+     ],
+     "certified"
+    ],
+    [
+     "r02-seed-003",
+     true,
+     [
+      296,
+      952,
+      1421,
+      50
+     ],
+     null
+    ]
+   ]
+  }
+ }
+}

@@ -39,7 +39,7 @@ def root(tmp_path_factory):
     d = tmp_path_factory.mktemp("loop")
     a = program(d, "F1", 1, summary="first")
     b = program(d, "F1", 2, sign="+", summary="wrong")
-    R.run_round("twelve", "UE", 1, evaluate=True, dry_run=True, root=d, proposals=[str(a), str(b)])
+    R.run_round("twelve", "UE", 1, evaluate=True, dry_run=True, root=d, proposals=[str(a), str(b)], lean=False)
     return d
 
 
@@ -166,12 +166,12 @@ def test_alternatives_never_list_a_missing_program_file_also_on_the_migration_br
 
 def test_program_header_parent_is_recorded_known_and_unknown(tmp_path):
     a = program(tmp_path, "F1", 1)
-    R.run_round("twelve", "UE", 1, evaluate=True, dry_run=True, root=tmp_path, proposals=[str(a)])
+    R.run_round("twelve", "UE", 1, evaluate=True, dry_run=True, root=tmp_path, proposals=[str(a)], lean=False)
     child = tmp_path / "compress" / "programs" / "twelve" / "F1" / "002-child.py"
     child.write_text(PROG.format(summary="child", disc="d", fam="F1", sign="-").replace("PARENT = None", 'PARENT = "r01-F1-001"'))
     orphan = tmp_path / "compress" / "programs" / "twelve" / "F1" / "003-orphan.py"
     orphan.write_text(PROG.format(summary="orphan", disc="d", fam="F1", sign="-").replace("PARENT = None", 'PARENT = "r09-X-001"'))
-    R.run_round("twelve", "UE", 2, evaluate=True, dry_run=True, root=tmp_path, proposals=[str(child), str(orphan)])
+    R.run_round("twelve", "UE", 2, evaluate=True, dry_run=True, root=tmp_path, proposals=[str(child), str(orphan)], lean=False)
     arch = A.Archive.load("twelve", root=tmp_path, n_alt=2, strict=True)
     by = {e.id: e for e in arch.entries()}
     assert by["r02-F1-002"].parent == "r01-F1-001" and by["r02-F1-003"].parent == "r09-X-001"      # unknown parent kept as declared
@@ -187,10 +187,10 @@ def test_programs_already_evaluated_are_not_proposed_again_valid_or_not(tmp_path
     good_p = program(tmp_path, "F1", 1)
     bad_p = program(tmp_path, "F1", 2, sign="+")
     assert R._proposals(R.default_spec("twelve", "UE"), tmp_path, A.Archive.load("twelve", root=tmp_path)) == [str(good_p), str(bad_p)]
-    R.run_round("twelve", "UE", 1, evaluate=True, dry_run=True, root=tmp_path)           # default proposals: both evaluated
+    R.run_round("twelve", "UE", 1, evaluate=True, dry_run=True, root=tmp_path, lean=False)           # default proposals: both evaluated
     arch = A.Archive.load("twelve", root=tmp_path, n_alt=2, strict=True)
     assert R._proposals(R.default_spec("twelve", "UE"), tmp_path, arch) == []
-    info = R.run_round("twelve", "UE", 2, evaluate=True, dry_run=True, root=tmp_path)
+    info = R.run_round("twelve", "UE", 2, evaluate=True, dry_run=True, root=tmp_path, lean=False)
     assert info["entries"] == [] and info["n_invalid"] == 0
     att = (tmp_path / "compress" / "attempts" / "twelve.jsonl").read_text().splitlines()
     assert len(att) == 2                                                                   # recorded once each

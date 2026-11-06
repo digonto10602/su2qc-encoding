@@ -424,13 +424,27 @@ _COUNT_FACTS = (("card_physical", 433, "the Gauss-law subspace has 433 states"),
                 ("dont_care_codes", 3471, "4^6 - 5^4 inner codes of the 12 qubits are not physical-link patterns"))
 
 
+_CERT_STATUS: dict = {}
+
+
+def _structure_certified() -> bool:
+    """Export the structure certificate and run the compiled checker (cached per checker / exporter fingerprint)."""
+    key = (C.checker_sha256(), C._exporter_sha())
+    if key not in _CERT_STATUS:
+        _CERT_STATUS[key] = check_structure(export_structure_certificate(STRUCTURE_CERT)).status == "certified"
+    return _CERT_STATUS[key]
+
+
 def structure_facts(certified: bool | None = None) -> dict:
     """{"facts": [{name, value, proved_by, theorem | certificate, note}], "symmetries": [...], "provenance": {...}}.
-    proved_by is "decide" (kernel-checked count), "native" (the exact structure certificate is accepted by the compiled Lean
-    checker; trust: compiler) or "numerical".  `certified=False` downgrades the native facts to numerical (used when the
-    structure certificate could not be accepted)."""
+    proved_by is "decide" (kernel-checked count), "native" (the exact structure certificate was accepted by the compiled Lean
+    checker; trust: compiler) or "numerical".  `certified=None` (default) exports and checks the structure certificate first
+    (cached) -- a fact is never labelled native without a checker run; pass the outcome of an earlier run to avoid re-checking
+    (`False` downgrades the native facts to numerical)."""
     dat = _data()
-    native = "native" if certified in (None, True) else "numerical"
+    if certified is None:                         # never label a fact native without running the checker
+        certified = _structure_certified()
+    native = "native" if certified else "numerical"
     cert_ref = "compress/lean/structure-cert.json (su2plaq_cert structure)"
     facts = []
     for name, value, note in _COUNT_FACTS:

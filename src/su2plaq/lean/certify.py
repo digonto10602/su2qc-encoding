@@ -403,14 +403,66 @@ def export_certificate(qc, enc, kind: str, alpha: float, beta: float, order: int
 
 
 # --------------------------------------------------------------------------------------------------------------------
+_ARITY = {"x": 1, "z": 1, "s": 1, "sdg": 1, "t": 1, "tdg": 1, "h": 1, "sx": 1, "rz": 1, "p": 1, "cx": 2, "cz": 2, "cp": 2,
+          "swap": 2, "ccx": 3, "ccz": 3}
+
+
+def _structure_problem(d: dict) -> str | None:
+    """Purely structural checks of a twelve-qubit circuit certificate (the Lean checker repeats them; failing here gives the
+    caller a reason before any Lean run): target kind, phase of the form omega^j z_alpha^a z_beta^b, positive base, gate list
+    (names, arities, distinct in-range qubits, integer exponents, even for rz) and its recorded hash."""
+    tgt = d.get("target")
+    if not isinstance(tgt, dict) or tgt.get("kind") not in ("UE", "UB", "step"):
+        return "target has no valid kind (UE, UB or step)"
+    if tgt.get("order", 1) not in (1, 2):
+        return "target order must be 1 or 2"
+    ph = d.get("phase")
+    if not isinstance(ph, dict) or not isinstance(ph.get("m"), list) or len(ph["m"]) != 2 or \
+            not all(isinstance(x, int) and not isinstance(x, bool) for x in ph["m"]):
+        return "bad phase: needs k and integer exponents m"
+    if not any(E.KNum.from_json(ph["k"]) == E.omega_power(j) for j in range(8)):
+        return "bad phase: k is not an eighth root of unity"
+    base = d.get("base")
+    if not isinstance(base, dict) or not all(isinstance(base.get(k), int) and base[k] > 0 for k in ("d_alpha", "d_beta")):
+        return "base must have positive integer d_alpha and d_beta"
+    n = d.get("n_qubits")
+    if not isinstance(n, int) or not N_DATA + N_OUTER <= n <= 62:
+        return "n_qubits must be between 28 and 62"
+    gates = d.get("gates")
+    if not isinstance(gates, list):
+        return "no gate list"
+    for i, g in enumerate(gates):
+        name = g.get("g")
+        if name not in _ARITY:
+            return f"gate {i}: unsupported gate {name!r}"
+        q = g.get("q")
+        if not isinstance(q, list) or len(q) != _ARITY[name] or len(set(q)) != len(q) or \
+                not all(isinstance(x, int) and 0 <= x < n for x in q):
+            return f"gate {i} ({name}): bad qubits"
+        m = g.get("m")
+        if name in _ANGLE_GATES:
+            if not isinstance(m, list) or len(m) != 2 or not all(isinstance(x, int) for x in m) or \
+                    (name == "rz" and any(x % 2 for x in m)):
+                return f"gate {i} ({name}): bad angle exponents"
+        elif m is not None:
+            return f"gate {i} ({name}): angle exponents on an angle-free gate"
+    if d.get("program_sha256") != hashlib.sha256(json.dumps(gates).encode()).hexdigest():
+        return "gate list does not match its recorded program_sha256"
+    return None
+
+
 def _exporter_mismatch(path) -> str | None:
     """Compare the trusted inputs of a twelve-qubit certificate -- the 433 states and the target blocks -- with the exact
-    data of the exporter (`exact.py`, cross-checked against the float code), entry by entry.  Returns a reason or None.
-    (The Lean checker itself verifies count, indices, normalisation and orthogonality of the states; this pins them.)"""
+    data of the exporter (`exact.py`, cross-checked against the float code), entry by entry, after the structural checks of
+    `_structure_problem`.  Returns a reason or None.  (The Lean checker itself verifies count, indices, normalisation and
+    orthogonality of the states and the SHA-256 pins; this refuses early and for the theorem-file writer.)"""
     try:
         d = json.loads(pathlib.Path(path).read_text())
         if not isinstance(d, dict) or d.get("n_data") != N_DATA or d.get("n_outer") != N_OUTER or "states" not in d:
-            return None
+            return "not a twelve-qubit circuit certificate with states (n_data 12, n_outer 16)"
+        why = _structure_problem(d)
+        if why is not None:
+            return why
         got_states = d["states"]
         exp = E.exact_encoded_states(_encoding())
         if len(got_states) != len(exp):
@@ -425,19 +477,18 @@ def _exporter_mismatch(path) -> str | None:
             have = {int(t["code"]): E.KNum.from_json(t["c"]) for t in st["terms"]}
             if len(have) != len(st["terms"]) or have != want:
                 return f"state {k} differs from the exact physical basis"
-        tgt = d.get("target")
-        if isinstance(tgt, dict) and "kind" in tgt:
-            kind, order = tgt["kind"], int(tgt.get("order", 1))
-            t_base = E.target_base(kind, order)
-            fa, fb = d["base"]["d_alpha"] // t_base[0], d["base"]["d_beta"] // t_base[1]
-            if d["base"]["d_alpha"] != fa * t_base[0] or d["base"]["d_beta"] != fb * t_base[1]:
-                return "base is not a multiple of the target's base"
-            want_blocks = [{"ks": list(b["ks"]), "entries": {(i, j): _scale_laurent(lp, fa, fb) for i, j, lp in b["entries"]}}
-                           for b in E.exact_target_blocks(kind, order)]
-            have_blocks = [{"ks": list(b["ks"]), "entries": {(int(e[0]), int(e[1])): E.Laurent.from_json(e[2])
-                                                              for e in b["entries"]}} for b in tgt["blocks"]]
-            if want_blocks != have_blocks:
-                return f"target blocks differ from the exact {kind} target"
+        tgt = d["target"]
+        kind, order = tgt["kind"], int(tgt.get("order", 1))
+        t_base = E.target_base(kind, order)
+        fa, fb = d["base"]["d_alpha"] // t_base[0], d["base"]["d_beta"] // t_base[1]
+        if d["base"]["d_alpha"] != fa * t_base[0] or d["base"]["d_beta"] != fb * t_base[1]:
+            return "base is not a multiple of the target's base"
+        want_blocks = [{"ks": list(b["ks"]), "entries": {(i, j): _scale_laurent(lp, fa, fb) for i, j, lp in b["entries"]}}
+                       for b in E.exact_target_blocks(kind, order)]
+        have_blocks = [{"ks": list(b["ks"]), "entries": {(int(e[0]), int(e[1])): E.Laurent.from_json(e[2])
+                                                          for e in b["entries"]}} for b in tgt["blocks"]]
+        if want_blocks != have_blocks:
+            return f"target blocks differ from the exact {kind} target"
     except E.ExactError as exc:
         return f"exporter data unavailable: {exc}"
     except (KeyError, TypeError, ValueError, AttributeError, IndexError, ZeroDivisionError, OverflowError) as exc:

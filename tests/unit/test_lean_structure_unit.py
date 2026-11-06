@@ -9,6 +9,7 @@ import pytest
 
 from su2plaq.lean import certify as C
 from su2plaq.lean import structure as S
+from su2plaq.lean.certify import LeanCert
 
 
 @pytest.fixture(scope="module")
@@ -143,3 +144,21 @@ def test_write_structure_json(tmp_path):
     assert doc["provenance"]["structure_certificate"]["status"] == "certified"
     by = {f["name"]: f for f in doc["facts"]}
     assert by["spectrum_multiplicities"]["proved_by"] == "native" and by["card_physical"]["value"] == 433
+
+
+def test_note_n4_facts_are_native_only_after_a_checker_run(monkeypatch):
+    monkeypatch.setattr(S, "_CERT_STATUS", {})
+    calls = []
+
+    def fake_check(path, timeout=900.0):
+        calls.append(path)
+        return LeanCert("rejected", "synthetic", str(path), 0.0, "")
+
+    monkeypatch.setattr(S, "check_structure", fake_check)
+    facts = S.structure_facts()                       # default: runs the checker (here: rejects)
+    assert calls and all(f["proved_by"] != "native" for f in facts["facts"])
+    assert any(f["proved_by"] == "decide" for f in facts["facts"])
+    n = len(calls)
+    S.structure_facts()                               # cached per checker fingerprint
+    assert len(calls) == n
+    assert all(f["proved_by"] == "native" for f in S.structure_facts(certified=True)["facts"] if "certificate" in f)

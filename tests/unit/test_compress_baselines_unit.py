@@ -193,7 +193,7 @@ def test_run_round_with_proposals_archives_logs_and_is_idempotent(tmp_path):
     f.write_text(PROG)
     bad = f.with_name("004-bad.py")
     bad.write_text(PROG.replace("-0.75", "+0.75"))
-    info = R.run_round("twelve", "UE", 1, evaluate=True, dry_run=True, root=tmp_path, proposals=[str(f), str(bad)])
+    info = R.run_round("twelve", "UE", 1, evaluate=True, dry_run=True, root=tmp_path, proposals=[str(f), str(bad)], lean=False)
     assert info["round"] == 1 and info["n_valid"] == 1 and info["n_invalid"] == 1 and info["entries"] == ["r01-F9-003"]
     rj = json.loads((tmp_path / "results" / "compress" / "twelve" / "round-001.json").read_text())
     assert rj["entries"] == ["r01-F9-003"] and rj["invalid"][0]["reason"] == "error" and "git_commit" in rj["provenance"]
@@ -205,7 +205,7 @@ def test_run_round_with_proposals_archives_logs_and_is_idempotent(tmp_path):
     arch = A.Archive.load("twelve", root=tmp_path)
     assert [e.id for e in arch.entries()] == ["r01-F9-003"] and arch.best().key[0] == 0
     # default proposals skip every program already evaluated, valid or not (recorded once, not re-evaluated each round)
-    info2 = R.run_round("twelve", "UE", 2, evaluate=True, dry_run=True, root=tmp_path)
+    info2 = R.run_round("twelve", "UE", 2, evaluate=True, dry_run=True, root=tmp_path, lean=False)
     assert info2["entries"] == [] and info2["n_invalid"] == 0 and info2["n_valid"] == 0
 
 
