@@ -34,6 +34,12 @@
   "tests/acceptance/m5/test_rishon_verify.py": "4e31c802266f4f66e70d5e07a07c0eb95f0a2b904594a66af9f7527b135785e1",
   "tests/acceptance/m5x/test_rishon_lean_exact.py": "36c7ac64e6ffcd3fb2e338e441b5987641517a2d173658e37e89e8c4004123e7",
   "tests/acceptance/m5x/test_rishon_outer_row.py": "d44b6e50412d370fbbe729e772ef4fb51cd210190a15657524dfc122b19b0ab3",
+  "tests/acceptance/m6/test_rishon_m6_evaluate.py": "488534bd5fa64f931dd0b2a4af8e45621c54e9032e3aced295534c1616e56a10",
+  "tests/acceptance/m6/test_rishon_m6_gate.py": "2451269862314f382eeda70931902d7b2b72be8a8fefc720ea65073fa1b448aa",
+  "tests/acceptance/m6/test_rishon_m6_lean.py": "a6a33472beacce277577278edbcd9fe942328745657b92f0ed806bfa258f485a",
+  "tests/acceptance/m6/test_rishon_m6_loop.py": "acf34803fb69daaaf4acff1c07973418b3f02ee98de2a03a5e81274cab985325",
+  "tests/acceptance/m6/test_rishon_m6_seeds.py": "eaf94704174620135ba234c45633d0733ad40606e7776281a1cb229c180b7e48",
+  "tests/acceptance/m6/test_rishon_m6_spec.py": "cd5862552ee10a6beb4149296d0d961ff9cb28f1108e3e1e51c87cbb420be608",
   "tools/check_lock.py": "10a9fb1b4049c34902753bdc91f329108e2eceb539704fe896d2c72ddb60ff1f",
   "tools/lock.py": "020880eb638fa9f4a3190165153d457a3bcc2521e48ad2bc8a8c2cc4c94af15e"
  },
@@ -42,6 +48,7 @@
   "m1",
   "m2",
   "m5",
-  "m5x"
+  "m5x",
+  "m6"
  ]
 }
