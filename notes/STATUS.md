@@ -21,9 +21,10 @@ M2 — compression machinery (step 2.1) and Lean track (step 2.L1) in parallel (
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
 |---|---|---|---|---|
-| — | — | — | — | — |
+| M2 2.4 archive: result-cache tampering trusted; insert accepts trial/contradictory entries; id path escape (reports/tests/030) | 1 | 0 | 0 | archive invariants otherwise verified (300 random sequences) |
 
 ## Decisions
+- 2026-11-05 (Digonto): desktop session (supremecommander) started from ~/su2qc-desktop-package (bundle at a2ec571) running spin network (M3/M4, branch m3-spin-network, numbers 100–199) and rishon (M5/M6, branch m5-rishon, numbers 200–299) in parallel; it needs a laptop bundle with tag milestone-2 in ~/su2qc-sync/inbox/ for M4/M6. Merge its outbox bundles back here at the end.
 - 2026-11-05 (Digonto): Lean 4 formal verification added to M2 (prompts/006): kernel-checked generic theorems + counts; per-circuit certificates via compiled checker ACCEPTED, labelled 'native-certified'; final best circuit: angle-linearity preferred, not required ('Lean: n_a' allowed). proposer.md got a Lean paragraph (coordinator edit).
 - 2026-11-04 (Digonto): restart from the plaquette note; old 2×2-lattice work archived (tag `archive-2x2-lattice`), reference paper kept in `refs/`.
 - 2026-11-04 (Digonto): "12-qubit" = Paulo's definition (3 qubits per inner link, $(j,m,m')$); the circuit changes only the 12 inner qubits but may read the outer links as controls; correctness on all 433 physical states. NOT the note's one-label-per-link register.
@@ -97,3 +98,4 @@ Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer
 - 2026-11-05: M2 step 2.3 tester FAIL on robustness (reports/tests/027): proposer file I/O not blocked, SHA time-of-check race, corrupt synth-cache trusted; physics fine (--full timing 18–20 s, --trial 5–6 s on the step circuit). Builder attempt 1.
 - 2026-11-05: Lean steps 2.L2 + 2.L3 PASS (reports/tests/028): 26 generic theorems + 8 kernel-checked counts, standard axioms only; clean lake build 379 s, Counts.lean peak RSS 15.3 GB. Note for planner: Lean innerSumM over-counts per-outer states (support 3153 and max 17 still correct). Lean 2.L1–2.L3 committed.
 - 2026-11-05: M2 step 2.3 recheck PASS WITH NOTES (reports/tests/029): TOCTOU fixed, synth cache validated (17/17 corruption cases), file-write guard blocks all ordinary routes; --trial 4.8 s, --full 16 s on the step circuit. Committed. N6 (forged meta.json without out.qpy → uncaught FileNotFoundError) folded into 2.4.
+- 2026-11-05: M2 step 2.4 tester FAIL (reports/tests/030) → builder attempt 1. Step 2.5 built: round-0 best = lean22_v2 plaquette + our U_E, CX 162, T(1e-6) 660 (general 294/952); qiskit_l3 windowed (whole-circuit L3 unsimulable) — tester running. acceptance-v7 (244f52f): planner fixed no-op in-place tampering in two locked tests (Digonto approved).
