@@ -1,0 +1,41 @@
+bringing up nodes...
+bringing up nodes...
+
+..................................                                       [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m5/test_rishon_algebra.py::test_M5_D1_link_algebra
+PASSED tests/acceptance/m5/test_rishon_algebra.py::test_M5_D1_string_free_and_sector
+PASSED tests/acceptance/m5/test_rishon_observables.py::test_M5_O1_closed_spectra
+PASSED tests/acceptance/m5/test_rishon_lean.py::test_M5_L3_hb_structure_certificate
+PASSED tests/acceptance/m5/test_rishon_lean.py::test_M5_L1_counts_kernel_checked
+PASSED tests/acceptance/m5/test_rishon_observables.py::test_M5_O1_observables_after_steps[0.91-0.23]
+PASSED tests/acceptance/m5/test_rishon_lean.py::test_M5_L2_jw_facts_kernel_checked
+PASSED tests/acceptance/m5/test_rishon_observables.py::test_M5_O1_observables_after_steps[0.37-0.61]
+PASSED tests/acceptance/m5/test_rishon_observables.py::test_M5_O1_observables_after_steps[1.7-1.0]
+PASSED tests/acceptance/m5/test_rishon_metrics.py::test_M5_T1_t_table_and_synth_verify[UE]
+PASSED tests/acceptance/m5/test_rishon_operators.py::test_M5_X1_plaquette_structure
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_B1_physical_with_outer_and_gauss
+PASSED tests/acceptance/m5/test_rishon_operators.py::test_M5_X1_bright_pairs_and_closed_block
+PASSED tests/acceptance/m5/test_rishon_results.py::test_M5_R1_results_files[UE]
+PASSED tests/acceptance/m5/test_rishon_results.py::test_M5_R1_observables_and_register_rows
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_B1_magnetic_inner_block[0.61]
+PASSED tests/acceptance/m5/test_rishon_physical.py::test_M5_C1_states_gauss_orthonormal
+PASSED tests/acceptance/m5/test_rishon_results.py::test_M5_R1_results_files[UB]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_B1_magnetic_inner_block[1.0]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_E1_electric_step[0.37]
+PASSED tests/acceptance/m5/test_rishon_operators.py::test_M5_X1_inner_target_properties[0.37-0.61]
+PASSED tests/acceptance/m5/test_rishon_operators.py::test_M5_X1_inner_target_properties[1.7-1.0]
+PASSED tests/acceptance/m5/test_rishon_physical.py::test_M5_C1_counts_two_routes
+PASSED tests/acceptance/m5/test_rishon_physical.py::test_M5_C1_inner_span_full
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_B1_magnetic_inner_block[0.23]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_B1_magnetic_inner_block[2.0]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_S1_step_orders[2]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_E1_electric_step[0.91]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_S1_step_orders[1]
+PASSED tests/acceptance/m5/test_rishon_results.py::test_M5_R1_results_files[step]
+PASSED tests/acceptance/m5/test_rishon_codec.py::test_M5_C1_encoding_codec_and_vectors
+PASSED tests/acceptance/m5/test_rishon_verify.py::test_M5_B1_verifier_sensitivity
+PASSED tests/acceptance/m5/test_rishon_metrics.py::test_M5_T1_t_table_and_synth_verify[UB]
+PASSED tests/acceptance/m5/test_rishon_metrics.py::test_M5_T1_t_table_and_synth_verify[step]
+34 passed in 840.63s (0:14:00)

@@ -1,0 +1,29 @@
+bringing up nodes...
+bringing up nodes...
+
+......................                                                   [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m1/test_twelve_paulo.py::test_M1_P2_port_reproduces_counts
+PASSED tests/acceptance/m1/test_twelve_results.py::test_M1_R1_results_files[UE]
+PASSED tests/acceptance/m1/test_twelve_results.py::test_M1_R1_results_files[UB]
+PASSED tests/acceptance/m1/test_twelve_results.py::test_M1_R1_results_files[step]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B3_gauss_outputs
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B4_outer_blind_and_clean
+PASSED tests/acceptance/m1/test_twelve_codec.py::test_M1_C1_codec_and_vectors
+PASSED tests/acceptance/m1/test_twelve_metrics.py::test_M1_T1_t_table_and_synth_verify[UE]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B1_magnetic_inner_block[2.0]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_S1_step_orders[1]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B2_physical_states
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_E1_electric_step[0.37]
+PASSED tests/acceptance/m1/test_evaluator_prune.py::test_M1_V1_pruning_cap_is_relative_to_tol_err
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B1_magnetic_inner_block[0.4]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_S1_step_orders[2]
+PASSED tests/acceptance/m1/test_evaluator_prune.py::test_M1_V2_pruning_bound_is_max_over_outer_groups
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_E1_electric_step[0.91]
+PASSED tests/acceptance/m1/test_twelve_metrics.py::test_M1_T1_t_table_and_synth_verify[UB]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B1_magnetic_inner_block[1.0]
+PASSED tests/acceptance/m1/test_twelve_metrics.py::test_M1_T1_t_table_and_synth_verify[step]
+PASSED tests/acceptance/m1/test_twelve_outer.py::test_M1_O1_outer_dont_care_table
+PASSED tests/acceptance/m1/test_twelve_paulo.py::test_M1_P1_paulo_qpy_verifies
+22 passed in 97.58s (0:01:37)
