@@ -151,3 +151,8 @@ def observable_rows(tab: dict) -> dict:
                     dev = max(dev, *(abs(v[k] - tab["closed_forms"][i][th][k]) for k in ("E_link", "P", "echo")))
     out["closed_forms_max_dev_n1"] = float(dev)
     return out
+
+
+def outer_electric_certify(qc, enc, alpha: float, tol_err: float = 1e-10) -> dict:
+    """Exhaustive per-link certificate of the outer electric row (prompts/202 section 1 O1; step O1)."""
+    raise NotImplementedError("prompts/202 step O1")

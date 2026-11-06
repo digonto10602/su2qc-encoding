@@ -251,6 +251,50 @@ def check_hb(lean_file, timeout=900) -> dict:
     return {"status": "certified", "axioms": axioms, "seconds": time.time() - t0, "detail": text[-500:]}
 
 
+# --- M5x (prompts/202 section 3): exact statements of the rishon encoding.  Stubs until steps W2/W3 build them. ----------
+RISHON_M5X_THEOREMS = (
+    "Su2Plaq.Rishon.hb_link_ops_from_jw", "Su2Plaq.Rishon.hb_link_ops_count", "Su2Plaq.Rishon.det_u_identity",
+    "Su2Plaq.Rishon.u_commute", "Su2Plaq.Rishon.corner_kernel_dims", "Su2Plaq.Rishon.card_inner_codes",
+    "Su2Plaq.Rishon.ue_gadget_sector", "Su2Plaq.Rishon.ue_gates_structure", "Su2Plaq.Rishon.ue_outer_gates_structure",
+    "Su2Plaq.Rishon.ue_exact_all_codes", "Su2Plaq.Rishon.corner_count_agree")
+_RISHON_LEAN_DIR = project.LEAN_DIR / "Su2Plaq" / "Rishon"
+HBLINK_LEAN: pathlib.Path = _RISHON_LEAN_DIR / "HBLink.lean"
+CORNER_KERNEL_LEAN: pathlib.Path = _RISHON_LEAN_DIR / "CornerKernel.lean"
+UE_SEMANTICS_LEAN: pathlib.Path = _RISHON_LEAN_DIR / "UESemantics.lean"
+BRIDGE_LEAN: pathlib.Path = _RISHON_LEAN_DIR / "Bridge.lean"
+UE_GATE_NAMES = ("x", "cx", "p")
+
+
+def ue_gate_ints(qc) -> list[tuple]:
+    """Program-order gate list of a build_UE circuit: ("x", q) | ("cx", c, t) | ("p", q, a), a = angle / (alpha/4) (step W3)."""
+    raise NotImplementedError("prompts/202 step W3")
+
+
+def ue_gate_literal(qc) -> str:
+    """Lean literal "[.cx 0 1, .p 1 (-3), ...]" of ue_gate_ints(qc) (step W3)."""
+    raise NotImplementedError("prompts/202 step W3")
+
+
+def write_lean_ue_gates(path=None) -> pathlib.Path:
+    """Regenerate the generated block of UESemantics.lean (step W3)."""
+    raise NotImplementedError("prompts/202 step W3")
+
+
+def lean_eval(body: str, imports: tuple[str, ...] = ("Su2Plaq.Rishon.UESemantics",), timeout: float = 300.0) -> str:
+    """Run `lake env lean` on imports + body and return stdout (step W2)."""
+    raise NotImplementedError("prompts/202 step W2")
+
+
+def lean_ue_gate_images(gate: tuple, n_qubits: int, alpha: float) -> np.ndarray:
+    """Complex (2^n, 2^n) matrix of one gate from the Lean semantics evaluated at z = exp(i alpha/4) (step W3)."""
+    raise NotImplementedError("prompts/202 step W3")
+
+
+def lean_corner_kernel_dims() -> list[int]:
+    """kerDim for the 81 corner end configurations, evaluated in Lean (step W2)."""
+    raise NotImplementedError("prompts/202 step W2")
+
+
 if __name__ == "__main__":      # python -m su2plaq.rishon.lean_export : regenerate the repo's generated Lean files
     for p in write_repo_hb_files():
         print(p)
