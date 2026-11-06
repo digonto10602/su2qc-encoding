@@ -1,0 +1,24 @@
+Command exited with non-zero status 1
+	Command being timed: "/home/digonto/anaconda3/envs/su2qc-coding/bin/python -m pytest -p no:cacheprovider -n 5 -q tests/acceptance/m4 -k G1 or G2 or G3 or L2 or L5 or R1 -rA --durations=0"
+	User time (seconds): 76.87
+	System time (seconds): 3.69
+	Percent of CPU this job got: 180%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:44.60
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 830968
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 935349
+	Voluntary context switches: 2587
+	Involuntary context switches: 10230
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 1640
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
