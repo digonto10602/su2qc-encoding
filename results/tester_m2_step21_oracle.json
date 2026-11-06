@@ -1,0 +1,151 @@
+{
+ "target_cases": [
+  [
+   "UE",
+   1,
+   0.37,
+   0.61,
+   0.0,
+   2.4593335810665945e-17
+  ],
+  [
+   "UE",
+   1,
+   0.91,
+   0.23,
+   0.0,
+   1.1136451098153042e-16
+  ],
+  [
+   "UE",
+   1,
+   1.7,
+   1.0,
+   0.0,
+   1.1143157325691604e-16
+  ],
+  [
+   "UE",
+   1,
+   0.123,
+   2.5,
+   0.0,
+   2.236688877053112e-16
+  ],
+  [
+   "UB",
+   1,
+   0.37,
+   0.61,
+   0.0,
+   2.220446049250313e-16
+  ],
+  [
+   "UB",
+   1,
+   0.91,
+   0.23,
+   0.0,
+   2.220446049250313e-16
+  ],
+  [
+   "UB",
+   1,
+   1.7,
+   1.0,
+   0.0,
+   6.661338147750939e-16
+  ],
+  [
+   "UB",
+   1,
+   0.123,
+   2.5,
+   0.0,
+   3.3306690738754696e-16
+  ],
+  [
+   "step",
+   1,
+   0.37,
+   0.61,
+   0.0,
+   4.442498431061077e-16
+  ],
+  [
+   "step",
+   1,
+   0.91,
+   0.23,
+   0.0,
+   3.33353739365142e-16
+  ],
+  [
+   "step",
+   1,
+   1.7,
+   1.0,
+   0.0,
+   6.661338147750939e-16
+  ],
+  [
+   "step",
+   1,
+   0.123,
+   2.5,
+   0.0,
+   4.441264192901362e-16
+  ],
+  [
+   "step",
+   2,
+   0.37,
+   0.61,
+   0.0,
+   2.371637227290513e-16
+  ],
+  [
+   "step",
+   2,
+   0.91,
+   0.23,
+   0.0,
+   3.334982079057029e-16
+  ],
+  [
+   "step",
+   2,
+   1.7,
+   1.0,
+   0.0,
+   8.884469646009044e-16
+  ],
+  [
+   "step",
+   2,
+   0.123,
+   2.5,
+   0.0,
+   4.441264904392214e-16
+  ]
+ ],
+ "target_maxdiff": 0.0,
+ "closed_block_vs_expm": 0.0,
+ "closed_block_vs_analytic": 2.220446049250313e-16,
+ "note_closed_block_vs_analytic": "corrected analytic formula U=(cos2b + i sin2b sx) diag(1,e^{-3ia}); first script run used a wrong sign",
+ "block_pattern_check": {
+  "keys_checked": 41,
+  "mismatch": 0
+ },
+ "codec_support_check": {
+  "states": 433,
+  "mismatch": 0
+ },
+ "sha256_default": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "provenance": {
+  "commit": "fb0678d (+uncommitted step 2.1 working tree)",
+  "scripts": "scratchpad indep1.py, indep2.py",
+  "seed": "none (deterministic); block keys sampled with random.seed(0)",
+  "python": "3.12.14 numpy 2.5.2 scipy 1.18"
+ }
+}

@@ -90,3 +90,4 @@ Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer
 - 2026-11-05: results/twelve/* regenerated on clean commit a9702e5 (single provenance snapshot, git_dirty False for all three).
 - 2026-11-05: M1 benchmark (reports/benchmarks/002): no >10 % slowdown on calls >100 ms; physics unchanged; m0+m1 suite 200 s. Report 1 written; tag milestone-1.
 - 2026-11-05: planner prompts/006 + reports/research/004 + METHODS §11; re-locked acceptance-v6 (aee6057). Planner note: the '41 bright pairs, couplings 1, ½, ¼' (from Paulo's notebook block structure) was not reproduced on the 625-code inner operator (128 edges, all modulus ½; pairs/cliques structure) — certify whatever the exporter computes.
+- 2026-11-05: M2 step 2.1 spec + oracle PASS (reports/tests/024); notes: spec should also state the synthesised-circuit rule and the prune cap (folded into 2.2).
