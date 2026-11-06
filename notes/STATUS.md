@@ -1,17 +1,22 @@
-M5 in progress (desktop track R, rishon QLM): plan prompts/200 locked as acceptance-v7; steps 5.0+5.1 done; 5.0–5.4 done; building step 5.5 (verifier, observables).
+M5 in progress (desktop track R, rishon QLM): plan prompts/200 locked as acceptance-v7; steps 5.0+5.1 done; 5.0–5.6 done; building steps 5.7+5.8 (U_B, step).
 
 # Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)
 
 Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 200–299. Cores 10–19, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-rishon.md`.
 
 ## Current milestone / step
-M5 — plan `prompts/200-rishon-m5-plan.md` (acceptance-v8 after the prompts/201 test fix; m5 tests 34; plan in force stays prompts/200). Steps 5.0+5.1 PASS (reports/tests/200). Steps 5.2–5.4 PASS (reports/tests/201, 202). Step 5.5 with builder. Lean steps 5.L1–5.L3 run after, one builder per clone at a time (START_HERE §3 overrides the plan's parallel-builder note).
+M5 — plan `prompts/200-rishon-m5-plan.md` (acceptance-v8 after the prompts/201 test fix; m5 tests 34; plan in force stays prompts/200). Steps 5.0+5.1 PASS (reports/tests/200). Steps 5.2–5.4 PASS (reports/tests/201, 202). Steps 5.5+5.6 PASS (reports/tests/203). Steps 5.7+5.8 with builder. Lean steps 5.L1–5.L3 run after, one builder per clone at a time (START_HERE §3 overrides the plan's parallel-builder note).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
 |---|---|---|---|---|
 
+## Pending notes
+- METHODS-rishon R6 wording (reports/tests/203 N3): bound written as squared norm but code uses block error + leak + dropped; amplitude drop is absolute (1e-14), not relative — next planner run.
+- Outer electric row writes outer qubits, so it is checked separately, not through `verify` (N1); report as separate row.
+
 ## Desktop log
+- 2026-11-06: M5 steps 5.5+5.6 PASS (reports/tests/203): verify sound — R6 argument checked on 72 independently built 48-qubit physical states (error equals verify's op_norm_error on 6 circuits); 36 adversarial circuits, 0 false accepts; build_UE 8 CX / 4 rot / depth 3 (outer row +16 CX, +8 rot), quartet phase exact; 36 observable numbers recomputed (≤ 3.2e-15).
 - 2026-11-06: M5 steps 5.3+5.4 PASS (reports/tests/202): W equals tester's own 16-mode JW construction exactly; H_B spectrum ±4√2(1) ±2(48) ±1(32) 0(1134); 81 bright pairs κ {1:32, 2:48, 4√2:1}; 990 isolated (dark) codes + 144 zero modes inside bright components = 1134; inner_target vs expm ≤ 8.3e-16; closed block eigenvalues match METHODS-rishon; 38 432 physical vectors Gauss 2.3e-16; codec test passes on acceptance-v8.
 - 2026-11-06: M5-C1 codec test defect (line 35 `(1 << 0)` on a type-A link was a no-op → contradicted line 33): Digonto approved the fix in chat; planner prompts/201 (one-off test fix; plan in force stays prompts/200) changed `(1 << 0)`→`(1 << 2)` twice + LOCK.json entry; re-locked acceptance-v8. Test now passes.
 - 2026-11-06: M5 step 5.2 PASS (reports/tests/201): 38 432 physical states by fusion, built basis, and two tester routes (Haar integral, brute-force corner kernels); closed 4352, 431 U(1) sectors, U(2) sector 2192; Gauss ≤ 2e-16 on all; Gram − 1 ≤ 8e-15; inner span rank 1296; build 2.3 s / 0.33 GB.
