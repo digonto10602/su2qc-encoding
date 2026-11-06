@@ -19,6 +19,10 @@ Numbers: float cross-checks of exact values use 1e-12 (exact rationals / q*sqrt(
 ~1e-15; same margin as every exact-vs-float check of M2/M3); eigenvalue binning 1e-9 (eigvalsh error ~1e-14 * ||H_B||);
 time limits: lean_eval 300 s per call (Mathlib-free #eval, measured <= 5 s), print_axioms 900 s (one Mathlib import,
 as M2/M3).  Prototype numbers: scratch/planner/lean/SpinNetExact.lean, 22 s / 1.9 GB for all theorems (reports/research/101).
+6j zero pattern (prompts/103): on {0, 1/2, 1}^6 the 6j symbol is non-zero exactly when the four triads (abc), (aef), (dbf),
+(dec) satisfy the triangle rule with integer sum -- 47 of the 729 tuples, no accidental zeros, smallest |6j| = 1/6
+(enumerated independently with sympy.physics.wigner.wigner_6j, scratch/planner/m3x_test_fix_probe.py); the Lean table is
+compared with sympy on those 47 tuples and must be exactly 0.0 (q = 0 in exact arithmetic) on the other 682.
 """
 import itertools
 import pathlib
@@ -38,8 +42,20 @@ BRIDGE_THEOREMS = ("tables_agree",)
 ALL_THEOREMS = tuple(NS + n for n in RECOUPLING_THEOREMS + SEMANTICS_THEOREMS + SPECTRUM_THEOREMS + BRIDGE_THEOREMS)
 MULTIPLICITIES = {-4: 16, -2: 96, -1: 16, 0: 177, 1: 16, 2: 96, 4: 16}      # 2 lambda -> multiplicity
 GATE_NAMES = ("x", "cx", "rccx", "h", "rz")
+N_SIXJ_NONZERO = 47          # non-zero 6j symbols on {0, 1/2, 1}^6 = triangle-admissible tuples (sympy enumeration, prompts/103)
 TOL_EXACT = 1e-12
 TOL_EIG = 1e-9
+
+
+def _triangle(a: int, b: int, c: int) -> bool:
+    """Triangle rule for doubled spins: |a - b| <= c <= a + b and a + b + c even (Edmonds section 6.1)."""
+    return abs(a - b) <= c <= a + b and (a + b + c) % 2 == 0
+
+
+def _sixj_admissible(args: tuple) -> bool:
+    """The four triads of {a b c; d e f} (Edmonds 6.3.7): (abc), (aef), (dbf), (dec)."""
+    a, b, c, d, e, f = args
+    return _triangle(a, b, c) and _triangle(a, e, f) and _triangle(d, b, f) and _triangle(d, e, c)
 
 
 def _lean_file(root: pathlib.Path, rel: str) -> pathlib.Path:
@@ -69,9 +85,10 @@ def _statement(src: str, short: str) -> str:
 
 
 def _codes_433(enc) -> set:
-    """The 433 physical codes y + 256 o of METHODS-spinnet section 1 from the route-B labels."""
+    """The 433 physical codes y + 256 o of METHODS-spinnet section 1 from the route-B labels (`SpinNet.labels` is a list
+    attribute of 433 ((j_0..j_11), (J_0..J_3)) tuples, as in m3/test_spinnet_codec.py; prompts/103)."""
     out = set()
-    for j, J in enc.labels():
+    for j, J in enc.labels:
         y = sum(int(j[l] == 0.5) << l for l in range(4)) + sum(int(J[c] == 1.0) << (4 + c) for c in range(4))
         o = sum(int(j[4 + k] == 0.5) << k for k in range(8))
         out.add(y + 256 * o)
@@ -82,7 +99,9 @@ def _codes_433(enc) -> set:
 def test_M3X_W1_recoupling_matches_wigner_and_codec(root):
     """Recoupling.lean exists, is Mathlib-free, contains the four theorem statements (no native_decide/sorry) and the
     exported tables verbatim; Lean's 6j (q*sqrt(r), Racah) agrees with su2plaq.su2.wigner.six_j on all 729 doubled-spin
-    argument tuples in {0, 1/2, 1}^6 to 1e-12; Lean's validCodes are the encoding's 47 sorted inner codes."""
+    argument tuples in {0, 1/2, 1}^6 to 1e-12; its non-zero entries are exactly the 47 triangle-admissible tuples (exact
+    0.0 elsewhere) and agree with sympy's wigner_6j (independent of the project) to 1e-12 there; Lean's validCodes are
+    the encoding's 47 sorted inner codes."""
     p = _lean_file(root, "Su2Plaq/SpinNet/Recoupling.lean")
     src = p.read_text()
     _no_native_no_sorry(src)
@@ -95,16 +114,32 @@ def test_M3X_W1_recoupling_matches_wigner_and_codec(root):
     lit = LE.lean_literals(enc)
     assert lit["coupling"] in src and lit["codes"] in src, "exported tables must appear verbatim in Recoupling.lean"
     six_j = api("su2plaq.su2.wigner:six_j")
+    from sympy import Rational
+    from sympy.physics.wigner import wigner_6j
     t0 = time.time()
     table = LE.lean_sixj_table()
     assert time.time() - t0 <= 300
     assert len(table) == 3 ** 6
     worst = 0.0
+    admissible = set()
     for args in itertools.product((0, 1, 2), repeat=6):
         ref = six_j(*(a / 2 for a in args))
         worst = max(worst, abs(table[args] - ref))
+        if _sixj_admissible(args):
+            admissible.add(args)
     assert worst <= TOL_EXACT, worst
-    assert sum(1 for v in table.values() if abs(v) > TOL_EXACT) >= 50       # the table is not trivially zero
+    # zero pattern = triangle rule, no accidental zeros for spins <= 1 (smallest non-zero |6j| is 1/6, eleven orders
+    # above TOL_EXACT); inadmissible tuples are exactly 0.0 because q = 0 in Lean's exact arithmetic
+    nonzero = {args for args, v in table.items() if abs(v) > TOL_EXACT}
+    assert len(admissible) == N_SIXJ_NONZERO
+    assert nonzero == admissible, (len(nonzero), sorted(nonzero ^ admissible)[:5])
+    assert all(table[args] == 0.0 for args in table if args not in admissible)
+    # independent reference (not the project's Racah code): sympy's exact wigner_6j on the 47 admissible tuples
+    worst_sympy = 0.0
+    for args in sorted(admissible):
+        ref = float(wigner_6j(*(Rational(a, 2) for a in args)).evalf(30))
+        worst_sympy = max(worst_sympy, abs(table[args] - ref))
+    assert worst_sympy <= TOL_EXACT, worst_sympy
     assert LE.lean_valid_codes() == [int(c) for c in enc.inner_codes()]
 
 
