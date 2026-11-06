@@ -147,7 +147,10 @@ def test_M6_K2_structure_facts_and_spec_text(root, tmp_path):
             assert "rishon-hb-structure" in str(by[name].get("certificate", "")), name
     hb = by["hb_bright_pairs"]["value"]
     assert hb["n_pairs"] == 81 and hb["dark_codes"] == 990 and hb["vectors"] == 162 and set(hb["kappa_multiset"].values()) == {32, 48, 1}
-    assert set(by["prune_rates"]["value"]) == {"ccx", "rccx"}
+    pr = by["prune_rates"]["value"]            # prompts/203 §13 E2: one rate per branching gate of the engine's lowering + the budget
+    assert {"per_branching_gate", "budget_at_cap", "branching", "engine_exact"} <= set(pr)
+    assert 1e-16 <= pr["per_branching_gate"] <= 1e-14 and pr["budget_at_cap"] == int(np.floor(1e-12 / pr["per_branching_gate"]))
+    assert "h" in pr["branching"] and "ccx" in pr["engine_exact"] and "cx" in pr["engine_exact"]
     p = S.write_structure_json(tmp_path / "rishon-structure.json")
     d = json.loads(pathlib.Path(p).read_text())
     assert {f["name"] for f in d["facts"]} >= set(REQUIRED_FACTS) and "provenance" in d

@@ -86,18 +86,25 @@ def test_M6_S3_round0_recorded(root):
     assert d["round"] == 0 and d["encoding"] == ENC and d["kind"] == KIND and "git_commit" in d["provenance"]
     by = {c["label"]: c for c in d["candidates"]}
     assert set(SEED_LABELS) <= set(by), sorted(by)
-    for lab in ("general", "general+polish", "qiskit_l3"):
+    for lab in ("general", "general+polish"):
         c = by[lab]
         assert c["valid"] and c["reason"] == "ok" and c["verdict"]["op_norm_error"] <= 1e-10 and c["verdict"]["certified"], lab
         assert c["mode"] == "full" and c["skeleton_equal"] and all(c["alt_ok"])
     assert tuple(by["general+polish"]["key"]) <= tuple(by["general"]["key"])
-    for lab in ("general-rccx", "general-mcx"):
+    # Exact circuits that the engine simulates through bare branching gates (h / sx / u after its lowering) accumulate a
+    # rounding-level pruning bound of ~5e-16 .. 1.1e-15 per branching gate over the 1296 inputs; above ~900-1900 of them the
+    # 1 % cap (prompts/005) rejects them as `pruning_bound` although block error + leak is ~1e-13 (prompts/203 §13 E2, METHODS-rishon
+    # R11).  The windowed Qiskit L3 row (ccx lowered to h/t/cx, ~3500 h) and the two ladder variants are therefore recorded as the
+    # evaluator judged them; a rejection must carry that reason and its true error, never another one.
+    for lab in ("qiskit_l3", "general-rccx", "general-mcx"):
         c = by[lab]
         assert c["reason"] in ("ok", "pruning_bound"), (lab, c["reason"])
-        assert c["valid"] == (c["reason"] == "ok")
-        if c["reason"] == "pruning_bound":
-            v = c["verdict"]
-            assert v["block_error"] + v["leak_amplitude"] <= 1e-10 and v["dropped_total"] > 1e-12
+        assert c["valid"] == (c["reason"] == "ok") and c["mode"] == "full"
+        v = c["verdict"]
+        if c["reason"] == "ok":
+            assert v["op_norm_error"] <= 1e-10 and v["certified"] and c["skeleton_equal"] and all(c["alt_ok"])
+        else:
+            assert v["block_error"] + v["leak_amplitude"] <= 1e-10 and v["dropped_total"] > 1e-12, (lab, v)
     ext = {x["source"]: x for x in d["external"]}
     assert set(ext) == EXTERNAL
     for s in ("paulo34", "lean22", "lean22_v2", "spinnet15"):
