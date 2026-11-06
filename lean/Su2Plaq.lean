@@ -10,3 +10,4 @@ import Su2Plaq.Structure.Counts
 import Su2Plaq.Structure.Commute
 import Su2Plaq.Rishon.Counts
 import Su2Plaq.Rishon.JW
+import Su2Plaq.Rishon.Bridge

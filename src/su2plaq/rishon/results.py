@@ -154,5 +154,68 @@ def observable_rows(tab: dict) -> dict:
 
 
 def outer_electric_certify(qc, enc, alpha: float, tol_err: float = 1e-10) -> dict:
-    """Exhaustive per-link certificate of the outer electric row (prompts/202 section 1 O1; step O1)."""
-    raise NotImplementedError("prompts/202 step O1")
+    """Exhaustive per-link certificate of the outer electric row (prompts/202 section 1 O1; METHODS-rishon R6).
+
+    The row is a tensor product of 12 per-link gadgets on disjoint qubits (link l = qubits 4l..4l+3).  Gates are partitioned
+    by link (a gate across links -> `cross_link_gate`; a circuit with qubits beyond the 12 links -> `ancilla_register`).  Per
+    link, V_l = exact 16 x 16 operator of the link's sub-circuit; T_l = diag over the 6 sector codes of
+    exp(-i (3/4) alpha [type Q]); phi_l = phase of conj(T_aa) V_aa at the anchor code a = the type-A sector code, whose
+    target phase is 1 (1 if the modulus is < 1e-300; DEVIATION from prompts/202 section 1, which fits the phase of
+    sum_s conj(T_ss) V_ss: any phi_l gives a valid bound, the anchor keeps a one-code phase error visible at full size
+    (1e-7 phase mutant -> 1e-7, as the locked test and the planner prototype) instead of halved by the fit);
+    eps_l = || V_l[:, sector] - exp(i phi_l) T_l ||_2 (the 16 x 6 block: includes leak out of the sector).  On every
+    superposition of valid 48-bit codes ||(prod V_l - exp(i sum phi) prod T_l) Psi|| <= sum eps_l = `error_bound`
+    (telescoping of a tensor product of unitaries).  Sector codes and link types come from `RishonLink`, not typed in.
+    Never raises on a syntactically valid circuit; an instruction that has no operator (measurement, classical bits)
+    gives reason `error` with the message in `detail`.  Barriers are ignored."""
+    from qiskit import QuantumCircuit
+    from qiskit.exceptions import QiskitError
+    from qiskit.quantum_info import Operator
+
+    from su2plaq.rishon.algebra import N_MODES, RishonLink
+
+    n_links = (enc.n_data + enc.n_outer) // N_MODES
+    base = {"certified": False, "ok": False, "method": "outer_electric_gadgets", "n_links": n_links, "link_errors": [],
+            "max_link_error": float("inf"), "error_bound": float("inf"), "phase": 1.0 + 0j, "gates_per_link": [],
+            "tol_err": tol_err,
+            "target": "exp(-i alpha (3/4) [type Q]) per link on the 6 sector codes; bound = sum over links (tensor product)"}
+    if qc.num_qubits != N_MODES * n_links:
+        return {**base, "reason": "ancilla_register"}
+    per_link = [[] for _ in range(n_links)]
+    for ins in qc.data:
+        if ins.operation.name == "barrier":
+            continue
+        if ins.clbits:
+            return {**base, "reason": "error", "detail": "classical bits are not supported"}
+        qs = [qc.find_bit(q).index for q in ins.qubits]
+        links = {q // N_MODES for q in qs}
+        if len(links) != 1:
+            return {**base, "reason": "cross_link_gate"}
+        l = links.pop()
+        per_link[l].append((ins.operation, [q - N_MODES * l for q in qs]))
+    counts = [len(g) for g in per_link]
+    rl = RishonLink()
+    sector = [int(s) for s in rl.sector]
+    tgt = np.array([np.exp(-0.75j * alpha * (rl.link_type(s) == "Q")) for s in sector])
+    anchor = [k for k, s in enumerate(sector) if rl.link_type(s) == "A"][0]
+    errs, phases = [], []
+    for l in range(n_links):
+        sub = QuantumCircuit(N_MODES)
+        for op, qs in per_link[l]:
+            sub.append(op, qs)
+        try:
+            V = Operator(sub).data[:, sector]
+        except QiskitError as e:
+            return {**base, "reason": "error", "detail": f"link {l}: {e}", "gates_per_link": counts}
+        z = np.conj(tgt[anchor]) * V[sector[anchor], anchor]
+        ph = z / abs(z) if abs(z) > 1e-300 else 1.0 + 0j
+        R = V.copy()
+        for k, s in enumerate(sector):
+            R[s, k] -= ph * tgt[k]
+        errs.append(float(np.linalg.norm(R, 2)))
+        phases.append(complex(ph))
+    bound = float(sum(errs))
+    certified = bool(bound <= tol_err)
+    return {**base, "certified": certified, "ok": certified, "reason": "ok" if certified else "error", "link_errors": errs,
+            "max_link_error": float(max(errs)), "error_bound": bound, "phase": complex(np.prod(phases)),
+            "gates_per_link": counts}

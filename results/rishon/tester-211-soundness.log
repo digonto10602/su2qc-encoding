@@ -1,0 +1,16 @@
+/home/digonto/Projects/su2qc-rishon/scratch/tester211/sound.py:54: RuntimeWarning: invalid value encountered in divide
+  print("anchor>=sum fraction:", float(np.mean(a >= s - 1e-15)), " count anchor<sum:", int(np.sum(a < s - 1e-15)), " min a/s:", float((a/s).min()), " max a/s", float((a/s).max()))
+/home/digonto/Projects/su2qc-rishon/scratch/tester211/sound.py:55: RuntimeWarning: invalid value encountered in divide
+  print("anchor/opt max:", float((a/o).max()), "sum/opt max:", float((s/o).max()))
+0 scale=2.86e-04 true_min=1.653e-03 {'anchor': ('2.427e-03', '1.908e-03'), 'sum': ('1.974e-03', '1.669e-03'), 'opt': ('1.966e-03', '1.661e-03')}
+1 scale=2.41e-01 true_min=1.227e+00 {'anchor': ('1.670e+00', '1.371e+00'), 'sum': ('1.497e+00', '1.292e+00'), 'opt': ('1.406e+00', '1.251e+00')}
+2 scale=1.03e-04 true_min=6.108e-04 {'anchor': ('7.130e-04', '6.462e-04'), 'sum': ('7.073e-04', '6.282e-04'), 'opt': ('6.820e-04', '6.242e-04')}
+3 scale=5.70e-06 true_min=6.736e-06 {'anchor': ('1.347e-05', '1.347e-05'), 'sum': ('7.285e-06', '7.285e-06'), 'opt': ('6.736e-06', '6.736e-06')}
+4 scale=4.88e-06 true_min=2.887e-05 {'anchor': ('3.861e-05', '3.099e-05'), 'sum': ('3.372e-05', '2.968e-05'), 'opt': ('3.261e-05', '2.890e-05')}
+5 scale=2.83e-06 true_min=1.503e-05 {'anchor': ('1.618e-05', '1.618e-05'), 'sum': ('1.600e-05', '1.600e-05'), 'opt': ('1.503e-05', '1.503e-05')}
+violations of bound >= actual error at chosen phase: 0
+anchor bound>=true_min*(1-1e-9)+1e-14 all: True  min bound/true: 0.0  max bound/true: 2.250582657065997
+sum bound>=true_min*(1-1e-9)+1e-14 all: True  min bound/true: 0.0  max bound/true: 2.0603994399482035
+opt bound>=true_min*(1-1e-9)+1e-14 all: False  min bound/true: 0.0  max bound/true: 1.9833162014069374
+anchor>=sum fraction: 0.9625  count anchor<sum: 3  min a/s: nan  max a/s nan
+anchor/opt max: nan sum/opt max: nan

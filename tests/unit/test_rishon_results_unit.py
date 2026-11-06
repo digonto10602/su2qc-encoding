@@ -66,6 +66,51 @@ def test_outer_electric_check_accepts_right_alpha_and_rejects_wrong(enc):
     assert inner_only["max_error"] > 1e-3
 
 
+def _ue_outer(alpha=0.37):
+    return C.build_UE(alpha, with_outer=True, include_outer_electric=True)
+
+
+def test_outer_electric_certify_accepts_and_is_alpha_sensitive(enc):
+    r = R.outer_electric_certify(_ue_outer(0.37), enc, 0.37)
+    assert r["certified"] and r["ok"] and r["reason"] == "ok" and r["n_links"] == 12 and r["gates_per_link"] == [3] * 12
+    assert len(r["link_errors"]) == 12 and r["error_bound"] == sum(r["link_errors"]) <= 1e-10
+    assert abs(abs(r["phase"]) - 1.0) < 1e-12
+    wrong = R.outer_electric_certify(_ue_outer(0.37), enc, 0.40)         # right circuit, wrong claimed alpha
+    assert not wrong["certified"] and wrong["error_bound"] > 1e-3 and wrong["reason"] == "error"
+    json.dumps(R._jsonable(r))                                           # JSON-able
+
+
+def test_outer_electric_certify_mutants(enc):
+    qc = _ue_outer(); qc.p(1e-7, 20)
+    r = R.outer_electric_certify(qc, enc, 0.37)
+    assert not r["certified"] and 0.9e-7 <= r["error_bound"] <= 1.1e-7 and r["max_link_error"] == r["link_errors"][5]
+    qc = _ue_outer(); qc.cx(3, 4)
+    r = R.outer_electric_certify(qc, enc, 0.37)
+    assert not r["certified"] and r["reason"] == "cross_link_gate"
+    qc = _ue_outer(); qc.x(18)
+    r = R.outer_electric_certify(qc, enc, 0.37)
+    assert not r["certified"] and not r["ok"] and r["reason"] == "error"
+    r = R.outer_electric_certify(C.build_UE(0.37, with_outer=True), enc, 0.37)          # outer row missing
+    assert not r["certified"] and r["error_bound"] > 1e-10
+    r = R.outer_electric_certify(C.build_UE(0.37), enc, 0.37)                           # 16 qubits: not the 48-qubit row
+    assert not r["certified"] and r["reason"] == "ancilla_register"
+
+
+def test_outer_electric_certify_ignores_barrier_and_reports_measure(enc):
+    qc = _ue_outer(); qc.barrier()
+    assert R.outer_electric_certify(qc, enc, 0.37)["certified"]
+    qc = _ue_outer(); qc.measure_all()
+    r = R.outer_electric_certify(qc, enc, 0.37)                          # never raises
+    assert not r["certified"] and r["reason"] == "error"
+
+
+def test_outer_electric_certify_agrees_with_sampled_check(enc):
+    for alpha in (0.37, 1.70):
+        qc = _ue_outer(alpha)
+        assert R.outer_electric_certify(qc, enc, alpha)["certified"]
+        assert R.outer_electric_check(qc, enc, alpha, n_codes=100)["max_error"] < 1e-12
+
+
 def test_observable_rows_flatten():
     tab = O.observables_table(angles=((0.37, 0.61),))
     d = R.observable_rows(tab)

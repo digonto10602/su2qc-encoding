@@ -4,10 +4,8 @@ import importlib
 
 import pytest
 
-PENDING: dict = {
-    "su2plaq.rishon.results": ["outer_electric_certify"],                               # M5x O1
-}
-ARGS = {"outer_electric_certify": (None, None, 0.1)}
+PENDING: dict = {}      # M5x O1 (outer_electric_certify) is built
+ARGS: dict = {}
 
 @pytest.mark.parametrize("mod,name", [(m, n) for m, ns in PENDING.items() for n in ns] or [(None, None)])
 def test_pending_names_raise(mod, name):
