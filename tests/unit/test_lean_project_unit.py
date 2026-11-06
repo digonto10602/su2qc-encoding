@@ -57,8 +57,6 @@ def test_print_axioms_real_and_unknown():
 
 def test_skeleton_stubs_raise():
     with pytest.raises(NotImplementedError):
-        certify.write_theorem_file("x.json", "t", "y.lean")
-    with pytest.raises(NotImplementedError):
         structure.structure_facts()
     with pytest.raises(NotImplementedError):
         lemmas.check_program_lemmas(pathlib.Path("x.py"))

@@ -196,3 +196,128 @@ def test_raw_export_reasons(tmp_path):
     qc = QuantumCircuit(2)
     qc.unitary(np.eye(4), [0, 1])
     assert C.export_raw_circuit(qc, tmp_path / "y.json", alpha=0.37, beta=0.61) == "unitary_gate"
+
+
+# ---------------------------------------------------------------------------------------------- hardening (tester N1-N4)
+@pytest.fixture(scope="module")
+def ue_cert(enc, tmp_path_factory):
+    out = tmp_path_factory.mktemp("ue")
+    r = C.certify_circuit_kind(build_UE(0.37, with_outer=True), enc, "UE", 0.37, 0.61, 1, out_dir=out)
+    assert r.status == "certified", (r.status, r.reason)
+    return json.loads(pathlib.Path(r.cert_path).read_text())
+
+
+def _lean_only(d, tmp_path, name):
+    """Run the Lean checker alone (no Python-side pinning) on a doctored certificate; (verdict line, stderr)."""
+    p = tmp_path / name
+    p.write_text(json.dumps(d))
+    r = C._run_checker(["check", str(p)], 300)
+    return r.stdout.strip(), r.stderr
+
+
+def test_n1_state_set_is_pinned(ue_cert, tmp_path):
+    d = json.loads(json.dumps(ue_cert))
+    # (a) 164-state subset with its blocks: Lean rejects on the count, the Python pinning too
+    cut = json.loads(json.dumps(d))
+    cut["states"] = cut["states"][:164]
+    cut["target"]["blocks"] = [b for b in cut["target"]["blocks"] if max(b["ks"]) < 164]
+    line, _ = _lean_only(cut, tmp_path, "cut.json")
+    assert line.startswith("REJECT") and "433" in line, line
+    (tmp_path / "cut-py.json").write_text(json.dumps(cut))
+    assert C.check_certificate(tmp_path / "cut-py.json").status == "rejected"
+    # (b) duplicate state index
+    dup = json.loads(json.dumps(d))
+    dup["states"][7]["k"] = 6
+    line, _ = _lean_only(dup, tmp_path, "dup.json")
+    assert line.startswith("REJECT") and "duplicate state index" in line, line
+    # (c) coefficient changed: not normalised
+    alt = json.loads(json.dumps(d))
+    alt["states"][5]["terms"][0]["c"][0] = "7/5"
+    line, _ = _lean_only(alt, tmp_path, "alt.json")
+    assert line.startswith("REJECT") and "normalised" in line or "orthogonal" in line, line
+    # (d) a sign flip keeps the norm of this state: the Python pinning against the exact basis catches it
+    flip = json.loads(json.dumps(d))
+    t = flip["states"][5]["terms"][0]["c"]
+    flip["states"][5]["terms"][0]["c"] = [("-" + x if x != "0" else x) for x in t]
+    (tmp_path / "flip.json").write_text(json.dumps(flip))
+    r = C.check_certificate(tmp_path / "flip.json")
+    assert r.status == "rejected" and "exact physical basis" in r.reason, (r.status, r.reason)
+    # (e) empty state, (f) a basis state listed twice
+    emp = json.loads(json.dumps(d))
+    emp["states"][3]["terms"] = []
+    line, _ = _lean_only(emp, tmp_path, "emp.json")
+    assert line.startswith("REJECT") and "empty" in line, line
+    twice = json.loads(json.dumps(d))
+    twice["states"][3]["terms"].append(dict(twice["states"][3]["terms"][0]))
+    line, _ = _lean_only(twice, tmp_path, "twice.json")
+    assert line.startswith("REJECT") and ("twice" in line or "normalised" in line), line
+
+
+def test_n2_out_of_range_target_row_rejects(ue_cert, tmp_path):
+    d = json.loads(json.dumps(ue_cert))
+    d["target"]["blocks"][0]["entries"][0][0] = 5            # row 5 in a block of one state
+    line, err = _lean_only(d, tmp_path, "row.json")
+    assert line.startswith("REJECT") and "outside a block" in line, line
+    assert "panic" not in err.lower() and "out of bounds" not in err.lower()
+    d = json.loads(json.dumps(ue_cert))
+    d["target"]["blocks"][0]["entries"][0][1] = 1000
+    line, err = _lean_only(d, tmp_path, "col.json")
+    assert line.startswith("REJECT") and "outside a block" in line
+
+
+def test_n3_angle_preference_follows_the_target(enc, tmp_path):
+    f = C._classify_angle
+    assert f(-0.375, 0.5, 0.25, "a") == (Fraction(-3, 4), 0)          # alpha/beta = 2: the angle is -3a/4 = -3b/2
+    assert f(-0.375, 0.5, 0.25, "b") == (0, Fraction(-3, 2))
+    assert f(-0.375, 0.5, 0.25, "ab") == (0, Fraction(-3, 2))         # step: both are target variables, smaller denominator
+    r = C.certify_circuit_kind(build_UE(0.5, with_outer=True), enc, "UE", 0.5, 0.25, 1, out_dir=tmp_path)
+    assert r.status == "certified", (r.status, r.reason)
+
+
+def test_n4_crx_family_is_lowered_exactly(tmp_path):
+    """crx / crz / rx lower to h, rz, cx (no u gate); the lowered gate list equals Qiskit's gate EXACTLY (no phase freedom)."""
+    a, b = 0.37, 0.61
+    qc = QuantumCircuit(4)
+    qc.h(0); qc.h(1); qc.sx(2)
+    qc.crx(2 * b, 0, 3); qc.crx(-b / 2, 1, 3); qc.crz(3 * a / 4, 2, 0); qc.rx(b, 2); qc.crx(a, 3, 1)
+    path = C.export_raw_circuit(qc, tmp_path / "crx.json", alpha=a, beta=b)
+    assert isinstance(path, pathlib.Path)
+    d = json.loads(path.read_text())
+    assert {g["g"] for g in d["gates"]} <= {"h", "sx", "rz", "cx"}
+    th = (a / d["base"]["d_alpha"], b / d["base"]["d_beta"])
+    batch = ss.run_batch(qc, np.arange(16, dtype=np.int64))
+    for col in range(16):
+        vec = np.zeros(16, dtype=complex)
+        for key, lp in C.checker_eval(path, col):
+            vec[key] += lp.evaluate(*th)
+        ref = np.zeros(16, dtype=complex)
+        sel = batch.cols == col
+        np.add.at(ref, batch.keys[sel], batch.amps[sel])
+        assert np.abs(vec - ref).max() < 1e-12
+
+
+def test_theorem_file_for_small_certificate(ue_cert, tmp_path):
+    """write_theorem_file -> `lake env lean` elaborates; axioms = standard + exactly one native_decide axiom, printed on ONE line
+    (the locked general-circuit test parses that line); a tampered certificate makes native_decide fail."""
+    from su2plaq.lean import project as P
+
+    cert = tmp_path / "ue.json"
+    cert.write_text(json.dumps(ue_cert, separators=(",", ":")))
+    f = C.write_theorem_file(cert, "ue_ok", tmp_path / "ue.lean")
+    text = f.read_text()
+    assert "native_decide" in text and "sorry" not in text
+    r = P.lake(["env", "lean", str(f)], timeout=900)
+    assert r.returncode == 0, r.stdout[-1500:] + r.stderr[-1500:]
+    lines = [ln for ln in r.stdout.splitlines() if "depends on axioms" in ln]
+    assert len(lines) == 1
+    ax = {a.strip(" ,[]'\"") for a in lines[0].split("axioms:")[1].split(",")} - {""}
+    extra = ax - P.STANDARD_AXIOMS
+    assert len(extra) == 1 and all(P.is_native_axiom(a) for a in extra), ax
+    bad = json.loads(json.dumps(ue_cert))
+    bad["phase"]["m"] = [1, 0]
+    cert.write_text(json.dumps(bad, separators=(",", ":")))
+    f2 = C.write_theorem_file(cert, "ue_bad", tmp_path / "ue_bad.lean")
+    r2 = P.lake(["env", "lean", str(f2)], timeout=900)
+    assert r2.returncode != 0
+    with pytest.raises(ValueError):
+        C.write_theorem_file(cert, "a_far_too_long_theorem_name", tmp_path / "x.lean")

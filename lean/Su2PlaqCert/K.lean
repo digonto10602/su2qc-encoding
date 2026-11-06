@@ -35,6 +35,8 @@ def add (x y : K) : K :=
   ⟨x.a + y.a, x.b + y.b, x.c + y.c, x.d + y.d, x.e + y.e, x.f + y.f, x.g + y.g, x.h + y.h⟩
 def neg (x : K) : K := ⟨-x.a, -x.b, -x.c, -x.d, -x.e, -x.f, -x.g, -x.h⟩
 def sub (x y : K) : K := add x (neg y)
+/-- Complex conjugation (`i ↦ -i`; `√2, √3, √6` are real). -/
+def conj (x : K) : K := ⟨x.a, -x.b, x.c, -x.d, x.e, -x.f, x.g, -x.h⟩
 def smul (r : Rat) (x : K) : K :=
   ⟨r * x.a, r * x.b, r * x.c, r * x.d, r * x.e, r * x.f, r * x.g, r * x.h⟩
 
@@ -60,13 +62,36 @@ def mulGen (x y : K) : K :=
   let (sa, sb, sc, sd) := mulG x.e x.f x.g x.h y.a y.b y.c y.d
   ⟨pa + 3 * qa, pb + 3 * qb, pc + 3 * qc, pd + 3 * qd, ra + sa, rb + sb, rc + sc, rd + sd⟩
 
+/-- No imaginary component (the element lies in `ℚ(√2, √3)`). -/
+def isReal (x : K) : Bool := x.b == 0 && x.d == 0 && x.f == 0 && x.h == 0
+
+/-- Product in `ℚ(√2)` with basis `(1, √2)`. -/
+def mulR (a c a' c' : Rat) : Rat × Rat := (a * a' + 2 * (c * c'), a * c' + c * a')
+
+/-- Product of two real elements of `ℚ(√2, √3)` (components `a, c, e, g`). -/
+def mulReal (x y : K) : K :=
+  let (pa, pc) := mulR x.a x.c y.a y.c
+  let (qa, qc) := mulR x.e x.g y.e y.g
+  let (ra, rc) := mulR x.a x.c y.e y.g
+  let (sa, sc) := mulR x.e x.g y.a y.c
+  ⟨pa + 3 * qa, 0, pc + 3 * qc, 0, ra + sa, 0, rc + sc, 0⟩
+
+/-- `u * v` for `u` without `√3`: `u (P + Q√3) = uP + uQ √3`. -/
+def mulQ (u v : K) : K :=
+  let (pa, pb, pc, pd) := mulG u.a u.b u.c u.d v.a v.b v.c v.d
+  let (qa, qb, qc, qd) := mulG u.a u.b u.c u.d v.e v.f v.g v.h
+  ⟨pa, pb, pc, pd, qa, qb, qc, qd⟩
+
 /-- Product with fast paths for rational factors and for elements without `√3` (same result as `mulGen`). -/
 def mul (x y : K) : K :=
   if y.isRat then smul y.a x
   else if x.isRat then smul x.a y
+  else if x.isReal && y.isReal then mulReal x y
   else if x.noSqrt3 && y.noSqrt3 then
     let (pa, pb, pc, pd) := mulG x.a x.b x.c x.d y.a y.b y.c y.d
     ⟨pa, pb, pc, pd, 0, 0, 0, 0⟩
+  else if y.noSqrt3 then mulQ y x
+  else if x.noSqrt3 then mulQ x y
   else mulGen x y
 
 instance : Add K := ⟨add⟩

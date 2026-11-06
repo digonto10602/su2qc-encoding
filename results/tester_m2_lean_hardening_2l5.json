@@ -1,0 +1,1141 @@
+{
+ "commit": "a1449ea (working tree dirty: 2.L4 hardening + 2.L5 uncommitted)",
+ "mode": "step",
+ "locks": "acceptance-v7",
+ "K_cases": 1200,
+ "Lp_cases": 120,
+ "lean_bad": 0,
+ "lowering_max_diff": 2.29e-16,
+ "theorem_gen_step_ok": {
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound",
+   "gen_step_ok._native.native_decide.ax_1_1"
+  ],
+  "elab_wall_s": 125,
+  "elab_user_s": 990,
+  "embedded_sha256": "cdfb402310ec38b8300b57e8fcfd44d43f7a70ce3f538587362e704560f83061",
+  "equals_fresh_export": true
+ },
+ "certs": {
+  "UE1": {
+   "status": "certified",
+   "reason": "",
+   "cert": "certs/UE-o1-07ceef1a44d2.json",
+   "total_s": 22.0,
+   "bare_check_s": 1.5,
+   "bare_out": "ACCEPT",
+   "n_gates": 4
+  },
+  "UB1": {
+   "status": "certified",
+   "reason": "",
+   "cert": "certs/UB-o1-8c144f51a29c.json",
+   "total_s": 52.6,
+   "bare_check_s": 40.7,
+   "bare_out": "ACCEPT",
+   "n_gates": 233
+  },
+  "step1": {
+   "status": "certified",
+   "reason": "",
+   "cert": "certs/step-o1-46d991552e2e.json",
+   "total_s": 45.5,
+   "bare_check_s": 41.4,
+   "bare_out": "ACCEPT",
+   "n_gates": 237
+  },
+  "step2": {
+   "status": "certified",
+   "reason": "",
+   "cert": "certs/step-o2-eef041f49ab9.json",
+   "total_s": 60.6,
+   "bare_check_s": 51.0,
+   "bare_out": "ACCEPT",
+   "n_gates": 241
+  }
+ },
+ "hunt_UE": [
+  {
+   "name": "UE baseline",
+   "expect": "ACCEPT",
+   "got": "ACCEPT",
+   "ok": true,
+   "out": "ACCEPT || py:certified"
+  },
+  {
+   "name": "UE gate1 angle m=[-2, 0]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 72 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE gate1 angle m=[-4, 0]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 72 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE gate1 angle m=[3, 0]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 72 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE gate1 angle m=[-3, 1]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 72 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE gate1 angle m=[0, -3]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 72 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE gate1 angle m=[-3, 0.0]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT Integer expected || py:rejected"
+  },
+  {
+   "name": "UE swap two commuting p gates (control)",
+   "expect": "ACCEPT",
+   "got": "ACCEPT",
+   "ok": true,
+   "out": "ACCEPT || py:certified"
+  },
+  {
+   "name": "UE missing gate",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 32 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE extra Z data qubit",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 72 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE extra Z on outer qubit (acts as sign on outer states)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 2 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE extra T on data",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 164 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE extra p(theta) on data (any angle)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 164 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE phase exponent [1, 0]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE phase exponent [0, 1]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE phase exponent [-1, 0]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE phase k=omega",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE phase k=-1",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE phase k=2 (|c|!=1)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "state term moved (code ^= 4)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 5 differs from the target || py:rejected"
+  },
+  {
+   "name": "state coefficient altered",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 5 is not normalised || py:rejected"
+  },
+  {
+   "name": "state term deleted",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 5 is not normalised || py:rejected"
+  },
+  {
+   "name": "state term duplicated (same code)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 5 lists a basis state twice || py:rejected"
+  },
+  {
+   "name": "two states swapped contents",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 3 differs from the target || py:rejected"
+  },
+  {
+   "name": "target exponent changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "target coefficient changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "target entry removed (V column zero)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 3 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE circuit vs UB target",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "UE circuit vs step target",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "two blocks cover the same state",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 is covered by two target blocks || py:rejected"
+  },
+  {
+   "name": "last block missing (uncovered state)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 432 is not covered by any target block || py:rejected"
+  },
+  {
+   "name": "block refers to nonexistent state",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT target block refers to state 999 (only 433 states) || py:rejected"
+  },
+  {
+   "name": "states list duplicated index k (hole)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT duplicate state index 11 || py:rejected"
+  },
+  {
+   "name": "last state dropped from states (block still refers)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT certificate has 432 states, the physical subspace has 433 || py:rejected"
+  },
+  {
+   "name": "[note] last state + its block both dropped (partial coverage)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT certificate has 432 states, the physical subspace has 433 || py:rejected"
+  },
+  {
+   "name": "empty states",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT certificate has 0 states, the physical subspace has 433 || py:rejected"
+  },
+  {
+   "name": "[note] target entry row index out of block range (ks[5]!)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT target entry index (5, 0) outside a block of size 1 || py:rejected"
+  },
+  {
+   "name": "malformed gate: cx qubit 99",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT gate qubit 99 out of range (n = 28) || py:rejected"
+  },
+  {
+   "name": "malformed gate: cx repeated qubit",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT gate with repeated qubit || py:rejected"
+  },
+  {
+   "name": "malformed gate: negative qubit",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT Natural number expected || py:rejected"
+  },
+  {
+   "name": "malformed gate: cx arity 1",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT gate Su2PlaqCert.GateKind.cx: wrong number of qubits || py:rejected"
+  },
+  {
+   "name": "malformed gate: h arity 2",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT gate Su2PlaqCert.GateKind.h: wrong number of qubits || py:rejected"
+  },
+  {
+   "name": "malformed gate: ccx repeated",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT gate with repeated qubit || py:rejected"
+  },
+  {
+   "name": "malformed gate: unknown gate",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT unsupported gate foo || py:rejected"
+  },
+  {
+   "name": "malformed gate: rz odd exponent",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT rz exponent vector must be even || py:rejected"
+  },
+  {
+   "name": "malformed gate: h with angle",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT angle exponent on an angle-free gate || py:rejected"
+  },
+  {
+   "name": "malformed gate: cx qubit 62 (n=44? n_qubits)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT gate qubit 62 out of range (n = 28) || py:rejected"
+  },
+  {
+   "name": "malformed gate: qubit 1.5",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT Natural number expected || py:rejected"
+  },
+  {
+   "name": "malformed gate: qubit string",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT Natural number expected || py:rejected"
+  },
+  {
+   "name": "malformed gate: missing q",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT property not found: q || py:rejected"
+  },
+  {
+   "name": "malformed gate: missing g",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT property not found: g || py:rejected"
+  },
+  {
+   "name": "N1 sign flip of state 7 (diagonal V: Lean may accept, py must reject)",
+   "expect": "ACCEPT",
+   "got": "ACCEPT",
+   "ok": true,
+   "out": "ACCEPT || py:rejected"
+  },
+  {
+   "name": "N1 state reduced to one term",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 3 is not normalised || py:rejected"
+  },
+  {
+   "name": "N1 empty state",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 3 is empty || py:rejected"
+  },
+  {
+   "name": "N1 434 states",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT certificate has 434 states, the physical subspace has 433 || py:rejected"
+  },
+  {
+   "name": "N1 zero-coefficient duplicate code",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 4 lists a basis state twice || py:rejected"
+  },
+  {
+   "name": "N1 two states with index 432 (432 missing -> k out of 433?)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT duplicate state index 432 || py:rejected"
+  },
+  {
+   "name": "N2 row index out of range (block size 1)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT target entry index (5, 0) outside a block of size 1 || py:rejected"
+  },
+  {
+   "name": "N2 col index out of range",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT target entry index (0, 5) outside a block of size 1 || py:rejected"
+  },
+  {
+   "name": "N2 empty block",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT empty target block || py:rejected"
+  },
+  {
+   "name": "huge exponent 1e30 on gate",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 164 differs from the target || py:rejected"
+  },
+  {
+   "name": "huge exponents (cancelling 1e30; should REJECT since != target)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 72 differs from the target || py:rejected"
+  },
+  {
+   "name": "huge phase exponent",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target || py:rejected"
+  },
+  {
+   "name": "n_qubits = 1e9",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT more than 62 qubits || py:rejected"
+  },
+  {
+   "name": "n_qubits = 63",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT more than 62 qubits || py:rejected"
+  },
+  {
+   "name": "n_qubits = 44 (correct; control)",
+   "expect": "ACCEPT",
+   "got": "ACCEPT",
+   "ok": true,
+   "out": "ACCEPT || py:certified"
+  },
+  {
+   "name": "n_qubits too small",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT register sizes exceed n_qubits || py:rejected"
+  },
+  {
+   "name": "state code 2^70",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state has support on an ancilla qubit || py:rejected"
+  },
+  {
+   "name": "state code on ancilla 2^30",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state has support on an ancilla qubit || py:rejected"
+  },
+  {
+   "name": "zero denominator",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT zero denominator in 1/0 || py:EXC:ZeroDivisionError"
+  },
+  {
+   "name": "non-numeric rational",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT bad rational abc || py:rejected"
+  },
+  {
+   "name": "K with 7 components",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT K element must have 8 components || py:rejected"
+  },
+  {
+   "name": "decimal rational 1.5",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT bad rational 1.5 || py:rejected"
+  },
+  {
+   "name": "unreduced rational 2/4 replacing state coeff (REJECT unless coeff==1/2)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 is not normalised || py:rejected"
+  },
+  {
+   "name": "wrong schema",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT unknown schema su2plaq-cert-2 || py:rejected"
+  },
+  {
+   "name": "no target",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT certificate has no target || py:rejected"
+  },
+  {
+   "name": "no phase (default c=1; UE phase is 1 -> ACCEPT)",
+   "expect": "ACCEPT",
+   "got": "ACCEPT",
+   "ok": true,
+   "out": "ACCEPT || py:certified"
+  },
+  {
+   "name": "no states",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT certificate has 0 states, the physical subspace has 433 || py:rejected"
+  },
+  {
+   "name": "no gates key",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT property not found: gates || py:rejected"
+  },
+  {
+   "name": "empty gate list (identity)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 16 differs from the target || py:rejected"
+  },
+  {
+   "name": "truncated JSON",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT json: offset 1044722: unexpected end of input || py:rejected"
+  },
+  {
+   "name": "empty file",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT json: offset 0: unexpected end of input || py:rejected"
+  },
+  {
+   "name": "not json",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT json: offset 0: unexpected input || py:rejected"
+  },
+  {
+   "name": "json null",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT object expected || py:rejected"
+  },
+  {
+   "name": "json []",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT object expected || py:rejected"
+  }
+ ],
+ "hunt_UB": [
+  {
+   "name": "swap non-commuting adjacent gates 469,470 (cx[8, 43],tdg[43])",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 9.5
+  },
+  {
+   "name": "swap non-commuting adjacent gates 588,589 (tdg[33],cx[29, 33])",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 9.9
+  },
+  {
+   "name": "swap non-commuting adjacent gates 545,546 (h[36],t[36])",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 9.2
+  },
+  {
+   "name": "swap non-commuting adjacent gates 547,548 (cx[0, 36],tdg[36])",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 8.5
+  },
+  {
+   "name": "swap non-commuting adjacent gates 278,279 (cx[47, 44],t[44])",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 88 differs from the target",
+   "sec": 20.8
+  },
+  {
+   "name": "swap COMMUTING adjacent gates 133,134 (control)",
+   "expect": "ACCEPT",
+   "got": "ACCEPT",
+   "ok": true,
+   "out": "ACCEPT",
+   "sec": 122.7
+  },
+  {
+   "name": "missing gate 395 (cz[45, 11])",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 16 differs from the target",
+   "sec": 12.3
+  },
+  {
+   "name": "missing gate 483 (tdg[46])",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 11.7
+  },
+  {
+   "name": "missing gate 173 (x[35])",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 8.7
+  },
+  {
+   "name": "missing gate 507 (tdg[41])",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 14.3
+  },
+  {
+   "name": "extra Z data q3",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 10.9
+  },
+  {
+   "name": "extra Z mid-circuit data q7",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 10.9
+  },
+  {
+   "name": "ancilla 40 left dirty",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 9.8
+  },
+  {
+   "name": "ancilla flipped mid-circuit never restored",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 10.0
+  },
+  {
+   "name": "gate 348 angle [0, 8] -> [0, 16]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 9.2
+  },
+  {
+   "name": "gate 348 angle [0, 8] -> [0, -8]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 6.0
+  },
+  {
+   "name": "gate 348 angle [0, 8] -> [2, 8]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 10.5
+  },
+  {
+   "name": "gate 350 angle [0, -8] -> [0, -16]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 9.7
+  },
+  {
+   "name": "gate 350 angle [0, -8] -> [0, 8]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 8.1
+  },
+  {
+   "name": "gate 350 angle [0, -8] -> [2, -8]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 9.3
+  },
+  {
+   "name": "gate 372 angle [0, 4] -> [0, 8]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 9.4
+  },
+  {
+   "name": "gate 372 angle [0, 4] -> [0, -4]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 9.0
+  },
+  {
+   "name": "gate 372 angle [0, 4] -> [2, 4]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 8.1
+  },
+  {
+   "name": "gate 374 angle [0, -4] -> [0, -8]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 8.4
+  },
+  {
+   "name": "gate 374 angle [0, -4] -> [0, 4]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 6.2
+  },
+  {
+   "name": "gate 374 angle [0, -4] -> [2, -4]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 6.4
+  },
+  {
+   "name": "gate 387 angle [0, 2] -> [0, 4]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 6.9
+  },
+  {
+   "name": "gate 387 angle [0, 2] -> [0, -2]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 7.2
+  },
+  {
+   "name": "gate 387 angle [0, 2] -> [2, 2]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 6.9
+  },
+  {
+   "name": "gate 389 angle [0, -2] -> [0, -4]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 6.2
+  },
+  {
+   "name": "gate 389 angle [0, -2] -> [0, 2]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 6.7
+  },
+  {
+   "name": "gate 389 angle [0, -2] -> [2, -2]",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 5.4
+  },
+  {
+   "name": "phase exponent alpha+1",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 5.5
+  },
+  {
+   "name": "phase exponent beta+1",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 6.2
+  },
+  {
+   "name": "UB circuit vs UE target",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 6.4
+  },
+  {
+   "name": "UB circuit vs step target",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 6.8
+  },
+  {
+   "name": "state term moved",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 100 differs from the target",
+   "sec": 14.3
+  },
+  {
+   "name": "target with z_beta -> 1/z_beta (U_B(-beta))",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 8.7
+  },
+  {
+   "name": "sign flip of state 0 (in a 2-block: flips sign of V off-diagonal)",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 0 differs from the target",
+   "sec": 5.7
+  },
+  {
+   "name": "partial coverage: 432 states",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT certificate has 432 states, the physical subspace has 433",
+   "sec": 1.0
+  },
+  {
+   "name": "duplicate state index",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT duplicate state index 11",
+   "sec": 0.7
+  },
+  {
+   "name": "altered state coefficient",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "out": "REJECT state 5 is not normalised",
+   "sec": 3.7
+  }
+ ],
+ "ambiguity": [
+  {
+   "alpha": 0.5,
+   "beta": 0.25,
+   "kind": "UE",
+   "status": "certified",
+   "reason": "",
+   "s": 31.3
+  },
+  {
+   "alpha": 0.5,
+   "beta": 0.25,
+   "kind": "UB",
+   "status": "certified",
+   "reason": "",
+   "s": 134.1
+  },
+  {
+   "alpha": 0.5,
+   "beta": 0.25,
+   "kind": "step",
+   "status": "rejected",
+   "reason": "state 0 differs from the target",
+   "s": 18.5
+  },
+  {
+   "alpha": 0.25,
+   "beta": 0.5,
+   "kind": "UE",
+   "status": "certified",
+   "reason": "",
+   "s": 11.1
+  },
+  {
+   "alpha": 0.25,
+   "beta": 0.5,
+   "kind": "UB",
+   "status": "certified",
+   "reason": "",
+   "s": 76.9
+  },
+  {
+   "alpha": 0.25,
+   "beta": 0.5,
+   "kind": "step",
+   "status": "rejected",
+   "reason": "state 0 differs from the target",
+   "s": 4.2
+  },
+  {
+   "alpha": 0.5,
+   "beta": 0.5,
+   "kind": "UE",
+   "status": "certified",
+   "reason": "",
+   "s": 3.5
+  },
+  {
+   "alpha": 0.5,
+   "beta": 0.5,
+   "kind": "UB",
+   "status": "certified",
+   "reason": "",
+   "s": 52.7
+  },
+  {
+   "alpha": 0.5,
+   "beta": 0.5,
+   "kind": "step",
+   "status": "rejected",
+   "reason": "state 0 differs from the target",
+   "s": 4.5
+  },
+  {
+   "alpha": 0.3,
+   "beta": 0.9,
+   "kind": "UE",
+   "status": "certified",
+   "reason": "",
+   "s": 3.8
+  },
+  {
+   "alpha": 0.3,
+   "beta": 0.9,
+   "kind": "UB",
+   "status": "certified",
+   "reason": "",
+   "s": 50.2
+  },
+  {
+   "alpha": 0.3,
+   "beta": 0.9,
+   "kind": "step",
+   "status": "rejected",
+   "reason": "state 0 differs from the target",
+   "s": 4.5
+  },
+  {
+   "alpha": 0.9,
+   "beta": 0.3,
+   "kind": "UE",
+   "status": "certified",
+   "reason": "",
+   "s": 3.6
+  },
+  {
+   "alpha": 0.9,
+   "beta": 0.3,
+   "kind": "UB",
+   "status": "certified",
+   "reason": "",
+   "s": 53.7
+  },
+  {
+   "alpha": 0.9,
+   "beta": 0.3,
+   "kind": "step",
+   "status": "certified",
+   "reason": "",
+   "s": 53.9
+  },
+  {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "kind": "UE",
+   "status": "certified",
+   "reason": "",
+   "s": 3.8
+  },
+  {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "kind": "UB",
+   "status": "certified",
+   "reason": "",
+   "s": 64.1
+  },
+  {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "kind": "step",
+   "status": "certified",
+   "reason": "",
+   "s": 61.4
+  }
+ ],
+ "theorem_route_doctored": "angle | 0 s | thm/angle.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \nextraZ | 0 s | thm/extraZ.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \nswap | 0 s | thm/swap.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \nphase | 0 s | thm/phase.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \ndirty | 0 s | thm/dirty.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \nsubset | 0 s | thm/subset.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \ndupidx | 0 s | thm/dupidx.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \ncoef | 0 s | thm/coef.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \nterm_deleted | 0 s | thm/term_deleted.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \nsignflip_block2 | 0 s | thm/signflip_block2.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \nsignflip_block1 | 0 s | 'gen_step_ok' depends on axioms: [propext, Classical.choice, Quot.sound, gen_step_ok._native.native_decide.ax_1_1] \ntarget | 0 s | thm/target.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \nstateterm | 0 s | thm/stateterm.lean:10:72: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false 'gen_step_ok' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] \nDONE\n"
+}

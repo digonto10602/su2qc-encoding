@@ -74,26 +74,31 @@ def _run_checker(args: list[str], timeout: float) -> subprocess.CompletedProcess
 
 # --------------------------------------------------------------------------------------------------------------------
 # angle recognition
-def _classify_angle(theta: float, alpha: float, beta: float):
+def _classify_angle(theta: float, alpha: float, beta: float, prefer: str = "ab"):
     """(r_alpha, r_beta) Fractions with theta = r_alpha*alpha + r_beta*beta, exactly one of them nonzero (or both zero);
-    None if theta is not a rational multiple (denominator <= 64) of alpha or beta.  At the nominal angles alpha/beta is
-    itself a ratio of small integers, so an angle can be both; the smaller denominator wins."""
+    None if theta is not a rational multiple (denominator <= 64) of alpha or beta.  At special angle pairs alpha/beta is
+    itself a ratio of small integers, so an angle can be both; `prefer` lists the variables of the target ("a" for U_E,
+    "b" for U_B, "ab" for the step) and is tried first, the smaller denominator breaking ties inside a group."""
     ra = E.rational_multiple(theta, alpha)
     rb = E.rational_multiple(theta, beta)
     if ra is not None and ra == 0:
         return (Fraction(0), Fraction(0))
-    cands = [(ra.denominator, 0, (ra, Fraction(0))) for ra in [ra] if ra is not None]
-    cands += [(rb.denominator, 1, (Fraction(0), rb)) for rb in [rb] if rb is not None]
-    if not cands:
-        return None
-    return min(cands)[2]
+    cands = []
+    if ra is not None:
+        cands.append((0 if "a" in prefer else 1, ra.denominator, 0, (ra, Fraction(0))))
+    if rb is not None:
+        cands.append((0 if "b" in prefer else 1, rb.denominator, 1, (Fraction(0), rb)))
+    return min(cands)[3] if cands else None
+
+
+_PREFER = {"UE": "a", "UB": "b", "step": "ab"}
 
 
 def _lcm(a: int, b: int) -> int:
     return a * b // math.gcd(a, b)
 
 
-def _gate_records(ops, perm, alpha, beta, base_min=(1, 1)):
+def _gate_records(ops, perm, alpha, beta, base_min=(1, 1), prefer: str = "ab"):
     """(gate records, base (d_alpha, d_beta), per-op exponent fractions) or a reason string (n_a)."""
     fr = []
     dA, dB = base_min
@@ -102,7 +107,7 @@ def _gate_records(ops, perm, alpha, beta, base_min=(1, 1)):
             return "unitary_gate"
         if name in _ANGLE_GATES:
             theta = float(payload[0])
-            r = _classify_angle(theta, alpha, beta)
+            r = _classify_angle(theta, alpha, beta, prefer)
             if r is None:
                 return f"non_linear_angle:{name}:{theta!r}"
             fr.append(r)
@@ -124,6 +129,81 @@ def _gate_records(ops, perm, alpha, beta, base_min=(1, 1)):
             rec["m"] = [int(ma), int(mb)]
         recs.append(rec)
     return recs, (dA, dB), fr
+
+
+def _h_matrix():
+    from qiskit.circuit.library import HGate
+
+    return np.asarray(HGate().to_matrix(), dtype=np.complex128)
+
+
+def _lower_standard(op, qs):
+    """Exact lowering (no global phase) of the standard rotation gates that `sparse_sim._translate` would turn into a matrix
+    gate `u`: crx(t) = H_t crz(t) H_t, crz(t) = cx, rz(-t/2), cx, rz(t/2) (circuit order), rx(t) = H rz(t) H.  Returns the
+    op list or None if `op` is not one of them."""
+    name = op.name
+    if name not in ("crx", "crz", "rx") or not ss_is_standard(op):
+        return None
+    th = float(op.params[0])
+    Hm = _h_matrix()
+    if name == "rx":
+        (t,) = qs
+        return [("h", (t,), Hm), ("rz", (t,), (th,)), ("h", (t,), Hm)]
+    c, t = qs
+    core = [("cx", (c, t), ()), ("rz", (t,), (-th / 2,)), ("cx", (c, t), ()), ("rz", (t,), (th / 2,))]
+    return core if name == "crz" else [("h", (t,), Hm)] + core + [("h", (t,), Hm)]
+
+
+def ss_is_standard(op) -> bool:
+    from su2plaq.evaluate import sparse_sim as ss
+
+    return ss.is_standard_gate(op)
+
+
+def _translate_export(qc):
+    """`sparse_sim._translate` with the exact lowering of crx / crz / rx (see `_lower_standard`) so that circuits using them
+    stay certifiable; everything else is translated exactly as the simulator does (program order, level-0 decompositions)."""
+    from su2plaq.evaluate import sparse_sim as ss
+
+    ss._reject_wide_mcx(qc)
+    ops: list = []
+    phase = float(qc.global_phase)
+
+    def emit(op, qs, depth):
+        nonlocal phase
+        name = op.name
+        if ss._is_barrier(op):
+            return
+        low = _lower_standard(op, qs)
+        if low is not None:
+            ops.extend(low)
+            return
+        if name in ss.SIM_BASIS and ss.is_standard_gate(op):
+            payload = (np.asarray(op.to_matrix(), dtype=np.complex128) if name in ss._BRANCH
+                       else tuple(float(x) for x in op.params))
+            ops.append((name, qs, payload))
+        elif ss.is_standard_gate(op):
+            local, ph = ss._decompose_local(op)
+            ops.extend((nm, tuple(qs[k] for k in lq), pl) for nm, lq, pl in local)
+            phase += ph
+        else:
+            d = getattr(op, "definition", None)
+            if d is None or depth > 30:
+                raise ValueError(f"custom gate {name!r} has no definition (or is nested too deeply)")
+            phase += float(d.global_phase)
+            for inst in d.data:
+                sq = tuple(qs[d.find_bit(q).index] for q in inst.qubits)
+                if inst.clbits or inst.operation.name in ("measure", "reset", "delay"):
+                    raise ValueError(f"gate {inst.operation.name!r} cannot be simulated")
+                emit(inst.operation, sq, depth + 1)
+
+    for inst in qc.data:
+        op = inst.operation
+        if inst.clbits or op.name in ("measure", "reset", "delay") or op.name.startswith("if_") or op.name in (
+                "for_loop", "while_loop", "switch_case"):
+            raise ValueError(f"gate {op.name!r} cannot be simulated (measure/reset/classical control/unsupported)")
+        emit(op, tuple(qc.find_bit(q).index for q in inst.qubits), 0)
+    return ops, phase
 
 
 def _perm_of(layout, n):
@@ -169,7 +249,7 @@ def export_raw_circuit(qc, out_path, *, alpha: float, beta: float) -> pathlib.Pa
     if n > 62:
         return "too_many_qubits"
     try:
-        ops, _gph = ss._translate(qc)
+        ops, _gph = _translate_export(qc)
     except ValueError as exc:
         return f"disallowed_gate:{exc}"
     res = _gate_records(ops, {q: q for q in range(n)}, alpha, beta)
@@ -244,6 +324,8 @@ def export_certificate(qc, enc, kind: str, alpha: float, beta: float, order: int
     n = qc.num_qubits
     if n > 62:
         return "too_many_qubits"
+    if kind not in _PREFER:
+        raise ValueError(f"unknown kind {kind!r}")
     try:
         layout = enc.layout_of(qc)
         perm = _perm_of(layout, n)
@@ -253,11 +335,11 @@ def export_certificate(qc, enc, kind: str, alpha: float, beta: float, order: int
     if n_cert > 62:
         return "too_many_qubits"
     try:
-        ops, gphase = ss._translate(qc)
+        ops, gphase = _translate_export(qc)
     except ValueError as exc:
         return f"disallowed_gate:{exc}"
     t_base = E.target_base(kind, order)
-    res = _gate_records(ops, perm, alpha, beta, base_min=t_base)
+    res = _gate_records(ops, perm, alpha, beta, base_min=t_base, prefer=_PREFER[kind])
     if isinstance(res, str):
         return res
     recs, base, fr = res
@@ -316,14 +398,60 @@ def export_certificate(qc, enc, kind: str, alpha: float, beta: float, order: int
     }
     out_path = pathlib.Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(cert))
+    out_path.write_text(json.dumps(cert, separators=(",", ":")))
     return out_path
 
 
 # --------------------------------------------------------------------------------------------------------------------
+def _exporter_mismatch(path) -> str | None:
+    """Compare the trusted inputs of a twelve-qubit certificate -- the 433 states and the target blocks -- with the exact
+    data of the exporter (`exact.py`, cross-checked against the float code), entry by entry.  Returns a reason or None.
+    (The Lean checker itself verifies count, indices, normalisation and orthogonality of the states; this pins them.)"""
+    try:
+        d = json.loads(pathlib.Path(path).read_text())
+        if not isinstance(d, dict) or d.get("n_data") != N_DATA or d.get("n_outer") != N_OUTER or "states" not in d:
+            return None
+        got_states = d["states"]
+        exp = E.exact_encoded_states(_encoding())
+        if len(got_states) != len(exp):
+            return f"certificate has {len(got_states)} states, the physical basis has {len(exp)}"
+        seen = set()
+        for st in got_states:
+            k = st["k"]
+            if k in seen or not 0 <= k < len(exp):
+                return f"bad or duplicate state index {k}"
+            seen.add(k)
+            want = {int(c): a for c, a in zip(exp[k]["codes"], exp[k]["amps"])}
+            have = {int(t["code"]): E.KNum.from_json(t["c"]) for t in st["terms"]}
+            if len(have) != len(st["terms"]) or have != want:
+                return f"state {k} differs from the exact physical basis"
+        tgt = d.get("target")
+        if isinstance(tgt, dict) and "kind" in tgt:
+            kind, order = tgt["kind"], int(tgt.get("order", 1))
+            t_base = E.target_base(kind, order)
+            fa, fb = d["base"]["d_alpha"] // t_base[0], d["base"]["d_beta"] // t_base[1]
+            if d["base"]["d_alpha"] != fa * t_base[0] or d["base"]["d_beta"] != fb * t_base[1]:
+                return "base is not a multiple of the target's base"
+            want_blocks = [{"ks": list(b["ks"]), "entries": {(i, j): _scale_laurent(lp, fa, fb) for i, j, lp in b["entries"]}}
+                           for b in E.exact_target_blocks(kind, order)]
+            have_blocks = [{"ks": list(b["ks"]), "entries": {(int(e[0]), int(e[1])): E.Laurent.from_json(e[2])
+                                                              for e in b["entries"]}} for b in tgt["blocks"]]
+            if want_blocks != have_blocks:
+                return f"target blocks differ from the exact {kind} target"
+    except E.ExactError as exc:
+        return f"exporter data unavailable: {exc}"
+    except (KeyError, TypeError, ValueError, AttributeError, IndexError) as exc:
+        return f"malformed certificate: {type(exc).__name__}: {exc}"
+    return None
+
+
 def check_certificate(path, timeout: float = 900.0) -> LeanCert:
-    """`su2plaq_cert check <path>`: ACCEPT -> certified, REJECT <reason> -> rejected, anything else -> failed."""
+    """Pin the trusted inputs against the exporter's exact data, then `su2plaq_cert check <path>`: ACCEPT -> certified,
+    REJECT <reason> -> rejected, anything else -> failed."""
     t0 = time.time()
+    why = _exporter_mismatch(path)
+    if why is not None:
+        return LeanCert("rejected", why, str(path), time.time() - t0, "")
     try:
         sha = checker_sha256()
         r = _run_checker(["check", str(path)], timeout)
@@ -373,7 +501,32 @@ def certify_circuit(qc, spec, out_dir=None, timeout: float = 900.0) -> LeanCert:
 
 
 def write_theorem_file(cert_path, theorem_name: str, out_path) -> pathlib.Path:
-    todo("lean.certify.write_theorem_file")      # step 2.L5
+    """Write `import Su2PlaqCert` + the certificate JSON as a Lean string literal + `theorem <name> :
+    Su2PlaqCert.checkJsonString certJson = true := by native_decide` + `#print axioms <name>` (standard axioms plus one
+    per-theorem `native_decide` axiom: compiler trust).  Elaborate with `cd lean && lake env lean <out_path>`."""
+    cert_path, out_path = pathlib.Path(cert_path), pathlib.Path(out_path)
+    text = cert_path.read_text()
+    d = json.loads(text)
+    if not theorem_name.replace("_", "").isalnum() or len(theorem_name) > 13:
+        # `#print axioms` prints one line only if the whole message fits in 120 columns: 92 + 2 * len(name)
+        raise ValueError(f"bad theorem name {theorem_name!r} (alphanumeric/underscore, at most 13 characters)")
+    lit = text.replace("\\", "\\\\").replace('"', '\\"')
+    if "\n" in lit or "\r" in lit:
+        raise ValueError("certificate JSON must be a single line")
+    prov = d.get("provenance", {})
+    head = (
+        "import Su2PlaqCert\n\n"
+        f"/-! Generated by `su2plaq.lean.certify.write_theorem_file` -- do not edit.\n"
+        f"circuit_id {d.get('circuit_id')}; git {prov.get('git_commit')}; exporter {prov.get('exporter_sha256')};\n"
+        f"certificate sha256 {hashlib.sha256(text.encode()).hexdigest()}; {len(d['gates'])} gates, {d['n_qubits']} qubits.\n"
+        "`native_decide` runs the compiled checker `Su2PlaqCert.checkJsonString` (trust: Lean compiler + checker source). -/\n\n"
+        "")
+    body = (f'def certJson : String := "{lit}"\n\n'
+            f"theorem {theorem_name} : Su2PlaqCert.checkJsonString certJson = true := by native_decide\n\n"
+            f"#print axioms {theorem_name}\n")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(head + body)
+    return out_path
 
 
 def checker_eval(cert_path, input_index: int, timeout: float = 900.0) -> list:

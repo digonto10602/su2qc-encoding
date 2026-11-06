@@ -43,6 +43,38 @@ def Cert.expected (c : Cert) (bi j : Nat) : State :=
   let phase := Lp.mono c.phaseExp c.phaseK
   State.normalize ((State.ofMap m).map fun (code, lp) => (code, Lp.mul phase lp))
 
+/-- Number of physical (Gauss-law) states of the 12-qubit encoding; the certificate must carry exactly these. -/
+def physicalDim : Nat := 433
+
+/-- Exact Gram matrix of the supplied states: orthonormal iff every diagonal entry is `1` and every off-diagonal entry is
+`0`.  (Together with the exporter-side comparison against the exact physical basis this pins the state set.) -/
+def Cert.gramError (c : Cert) : Option String :=
+  let byCode : Std.HashMap Nat (Array (Nat × K)) :=
+    (c.states.zipIdx.foldl (init := (∅ : Std.HashMap Nat (Array (Nat × K)))) fun acc (st, k) =>
+      st.foldl (init := acc) fun acc (code, a) =>
+        acc.insert code ((acc.getD code #[]).push (k, a)))
+  let gram : Std.HashMap Nat K :=
+    byCode.fold (init := (∅ : Std.HashMap Nat K)) fun acc _ lst =>
+      lst.foldl (init := acc) fun acc (k, a) =>
+        lst.foldl (init := acc) fun acc (k', a') =>
+          if k ≤ k' then
+            let key := k * c.states.size + k'
+            acc.insert key ((acc.getD key K.zero) + K.conj a * a')
+          else acc
+  let bad := gram.fold (init := (none : Option String)) fun r key v =>
+    match r with
+    | some _ => r
+    | none =>
+      let k := key / c.states.size
+      let k' := key % c.states.size
+      if k == k' then (if v == K.one then none else some s!"state {k} is not normalised")
+      else (if v.isZero then none else some s!"states {k} and {k'} are not orthogonal")
+  match bad with
+  | some e => some e
+  | none =>
+    let diag := (List.range c.states.size).all fun k => gram.contains (k * c.states.size + k)
+    if diag then none else some "a state has zero norm"
+
 /-- Structural validation of the certificate (before any gate is replayed). -/
 def Cert.validate (c : Cert) : Except String Unit := do
   if c.nQubits > 62 then throw "more than 62 qubits"
@@ -52,9 +84,38 @@ def Cert.validate (c : Cert) : Except String Unit := do
     for (code, _) in st do
       if code ≥ 2 ^ (c.nData + c.nOuter) then throw "state has support on an ancilla qubit"
   if !c.hasTarget then throw "certificate has no target"
-  if c.states.isEmpty then throw "certificate has no states"
+  if c.states.size != physicalDim then
+    throw s!"certificate has {c.states.size} states, the physical subspace has {physicalDim}"
+  for k in [0:c.states.size] do
+    let st := c.states[k]!
+    if st.isEmpty then throw s!"state {k} is empty"
+    let sorted := (st.map (·.1)).qsort (· < ·)
+    if sorted.zipIdx.any (fun (x, i) => i > 0 && x == sorted[i-1]!) then
+      throw s!"state {k} lists a basis state twice"
+  for b in c.blocks do
+    if b.ks.isEmpty then throw "empty target block"
+    for (i, j, _) in b.entries do
+      if i ≥ b.ks.size || j ≥ b.ks.size then throw s!"target entry index ({i}, {j}) outside a block of size {b.ks.size}"
+  match c.gramError with
+  | some e => throw e
+  | none => pure ()
 
-/-- `none` if accepted, otherwise the reason of the first violated state. -/
+/-- Check the states `lo ≤ k < hi`: the reason of the first violated one, or `none`. -/
+def Cert.checkRange (c : Cert) (pos : Array (Nat × Nat)) (lo hi : Nat) : Option String :=
+  let rec go (k : Nat) (fuel : Nat) : Option String :=
+    match fuel with
+    | 0 => none
+    | fuel + 1 =>
+      if k ≥ hi then none
+      else
+        let (bi, j) := pos[k]!
+        let out := runGates c.gates (c.stateOf k)
+        if out == c.expected bi j then go (k + 1) fuel
+        else some s!"state {k} differs from the target"
+  go lo (hi - lo + 1)
+
+/-- `none` if accepted, otherwise the reason of the first (lowest-index) violated state.  The states are independent, so
+they are checked in parallel chunks (`Task.spawn`, pure: the result does not depend on the schedule). -/
 def Cert.check (c : Cert) : Option String :=
   match c.validate with
   | .error e => some e
@@ -62,18 +123,24 @@ def Cert.check (c : Cert) : Option String :=
     match c.blockOf with
     | .error e => some e
     | .ok pos =>
-      let rec go (k : Nat) (fuel : Nat) : Option String :=
-        match fuel with
-        | 0 => none
-        | fuel + 1 =>
-          if k ≥ c.states.size then none
-          else
-            let (bi, j) := pos[k]!
-            let out := runGates c.gates (c.stateOf k)
-            if out == c.expected bi j then go (k + 1) fuel
-            else some s!"state {k} differs from the target"
-      go 0 (c.states.size + 1)
+      let n := c.states.size
+      let nChunks := n
+      let chunk := (n + nChunks - 1) / nChunks
+      let tasks := (List.range nChunks).map fun i =>
+        Task.spawn fun _ => c.checkRange pos (i * chunk) (min ((i + 1) * chunk) n)
+      tasks.foldl (fun r t => match r with
+        | some e => some e
+        | none => t.get) none
 
 def Cert.accepts (c : Cert) : Bool := (c.check).isNone
+
+/-- Parse and check a certificate given as JSON text (the statement proved by `lean/certs/*.lean` via `native_decide`). -/
+def checkJsonString (s : String) : Bool :=
+  match Lean.Json.parse s with
+  | .error _ => false
+  | .ok j =>
+    match parseCert j with
+    | .error _ => false
+    | .ok c => c.accepts
 
 end Su2PlaqCert

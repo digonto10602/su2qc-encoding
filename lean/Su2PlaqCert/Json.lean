@@ -101,8 +101,11 @@ def parseCert (j : Json) : Except String Cert := do
     | .ok s => do (← s.getArr?).mapM parseState
     | .error _ => pure #[]
   let mut states : Array (Array (Nat × K)) := Array.replicate sts.size #[]
+  let mut seen : Array Bool := Array.replicate sts.size false
   for (k, ts) in sts do
     if k ≥ sts.size then throw s!"state index {k} out of range"
+    if seen[k]! then throw s!"duplicate state index {k}"
+    seen := seen.set! k true
     states := states.set! k ts
   let blocks ← match j.getObjVal? "target" with
     | .ok t => do (← (← t.getObjVal? "blocks").getArr?).mapM parseBlock

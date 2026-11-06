@@ -1,0 +1,32 @@
+{
+ "circuit": "general_circuit(twelve, step)",
+ "n_qubits_circuit": 50,
+ "n_gates_circuit": 237,
+ "alpha": 0.37,
+ "beta": 0.61,
+ "order": 1,
+ "status": "certified",
+ "reason": "",
+ "cert_path": "/home/digimonk/Projects/su2qc-encoding/compress/lean/certs/step-o1-46d991552e2e.json",
+ "seconds_export_and_check": 82.63749361038208,
+ "checker_sha256": "9d72be9f9bd57a010eb962a710a99179eca7654bc9579fb884d478942a6fd443",
+ "theorem_file": "lean/certs/twelve-general-step.lean",
+ "theorem_name": "gen_step_ok",
+ "provenance": {
+  "git_commit": "a1449ea",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
+  "cpu_count": 12,
+  "seeds": {},
+  "timestamp_utc": "2026-11-06T05:20:36Z"
+ },
+ "seconds_total": 83.53549814224243
+}
