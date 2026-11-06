@@ -20,7 +20,11 @@ For the laptop session merging this branch. Lists every shared-file append, ever
 | first `lake build` (spinnet; rishon reused the copied `.lake`) | 2 min 15 s, peak RSS 15.7 GB |
 
 ## Shared-file appends
-(none yet)
+- `lean/Su2Plaq.lean`: two lines appended (step 3.L1/3.L2, commit after reports/tests/105):
+  ```
+  import Su2Plaq.SpinNet.Counts
+  import Su2Plaq.SpinNet.Circuit
+  ```
 
 ## Requested changes to laptop-owned files
 From `prompts/100-spinnet-m3-plan.md` §10 (not applied; M3 routes around 2; 1 and 3 are needed for M4):
