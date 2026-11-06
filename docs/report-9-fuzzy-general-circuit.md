@@ -70,7 +70,9 @@ Keys: `metrics.logical` and `metrics.macro_counts` of each file. "Qubits" counts
 | $U_B$ | 1718 | 16 | 1826 | 2646 | 23 (16 + 7 work) |
 | step, order 1 | 1862 | 56 | 1826 | 2690 | 23 |
 | step, order 2 | 2006 | 96 | 1826 | 2734 | 23 |
-| outer row (8 links; `outer_row.json`) | 288 | 80 | 0 | not reported | +32 outer data qubits ($16+32+7=55$ in total, from the register layout of `prompts/300` §2) |
+| outer row (8 links; `outer_row.json`) | 288 | 80 | 0 | not reported | +32 outer data qubits ($16+32+7=55$ in total: registers `d` = 16 inner data, `o` = 32 outer data, `w` = 7 work qubits of `build_step(with_outer=True)`; the M10 composer reports 55 qubits / 7 ancillas) |
+
+**Outer links are acted on (unlike the KS encodings).** In the fuzzy model $\mathcal K_1$ and $\mathcal K_2$ are not diagonal in the computational basis, so every outer link gets a real 4-qubit block $U_K(\kappa_2)U_E(\alpha)$ (once, full angles), not a phase. $U_B$ never reads or changes an outer qubit (nor a column qubit). For like-for-like comparisons with other encodings use the inner-only rows above and the outer row separately.
 
 - Per outer link (`outer_row.json`, `per_link`): $U_E$ has 18 CX, 6 rotations, depth 23; $U_K$ has 18 CX, 4 rotations, depth 22. Eight links give $8\times(18+18)=288$ CX and $8\times(6+4)=80$ rotations, and `build_step(with_outer=True)` adds exactly those increments (`consistency_with_build_step_with_outer`: `matches_totals` = true, largest commutator with the Gauss generators $1.0\times10^{-16}$).
 - Consistency of the sums: $1862=72+72+1718$ CX; $56=24+16+16$ rotations; order 2 has $2\cdot72+2\cdot72+1718=2006$ CX and $2\cdot24+2\cdot16+16=96$ rotations.
