@@ -23,4 +23,10 @@ For the laptop session merging this branch. Lists every shared-file append, ever
 (none yet)
 
 ## Requested changes to laptop-owned files
-(none yet)
+From the planner (prompts/200, reports/research/200):
+1. Per-circuit Lean checker (`Su2PlaqCert`, laptop steps 2.L4+): please accept a **third base angle** $e^{i\sqrt2\beta}$. The rishon $U_B$ contains the rotation angle $8\sqrt2\beta$ (the bright-pair coupling $4\sqrt2$ is intrinsic to the model), so without it $U_B$ and the step are reported `Lean: n_a`.
+2. New file outside the track's Lean folders: `lean/certs/rishon-hb-structure.lean` (native_decide structure certificate, prompts/006 folder rule for native certificates). Will be listed under shared-file appends when created.
+
+## Model decisions taken without Digonto (default; flagged for review)
+- SU(2) quantum link model with two fermionic rishons per link; SU(2) Gauss law only; **det coupling $\gamma=0$** (defined, not built). With $\gamma=0$ the U(1) charges are conserved (431 sectors; the U(2)-QLM sector has 2192 states). Adding the det term would be a third Trotter layer = a plan amendment.
+- Register 48 qubits (16 inert far-end qubits kept); the 36-qubit codeword variant is a register-size row only.
