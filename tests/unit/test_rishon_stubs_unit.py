@@ -5,14 +5,10 @@ import importlib
 import pytest
 
 PENDING = {
-    "su2plaq.rishon.observables": ["closed_spectra", "closed_forms", "observables_table", "observables"],
-    "su2plaq.rishon.verify": ["verify", "physical_cross_check"],
     "su2plaq.rishon.lean_export": ["export_hb_certificate", "write_hb_lean", "check_hb"],
-    "su2plaq.circuits.rishon": ["build_UE", "build_UB", "build_step", "pair_frames"],
+    "su2plaq.circuits.rishon": ["build_UB", "build_step", "pair_frames"],
 }
-ARGS = {"closed_forms": (0.1, 0.1), "observables": (0.1, 0.1),
-        "verify": (None, None, "UE", 0.1, 0.1), "physical_cross_check": (None, None, "UE", 0.1, 0.1),
-        "export_hb_certificate": ("x",), "write_hb_lean": ("x", "y"), "check_hb": ("x",), "build_UE": (0.1,),
+ARGS = {"export_hb_certificate": ("x",), "write_hb_lean": ("x", "y"), "check_hb": ("x",),
         "build_UB": (0.1,), "build_step": (0.1, 0.1), "pair_frames": (0.1,)}
 
 @pytest.mark.parametrize("mod,name", [(m, n) for m, ns in PENDING.items() for n in ns])

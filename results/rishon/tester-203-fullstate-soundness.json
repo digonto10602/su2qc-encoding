@@ -1,0 +1,83 @@
+{
+ "commit": "6da30dd",
+ "seed": 20261106,
+ "alpha": 0.37,
+ "n_states": 72,
+ "own_gauss_max_40": 4.672407723104781e-16,
+ "norm_dev": 4.440892098500626e-16,
+ "n_inner_AAAA_states": 6,
+ "type_examples": [
+  "AAAAAABAQQAB",
+  "ABAQQBABAABQ",
+  "AAAABBQQBAQQ",
+  "QAAQBAQBABAQ",
+  "BAQBABABQBAQ",
+  "AQQABAAQBAQB",
+  "QABQABAQABAQ",
+  "QAQQAABQQAAA",
+  "AAAABABBQQBB",
+  "AQABAABQQBQQ"
+ ],
+ "mutants": {
+  "UE_correct": {
+   "verify_ok": true,
+   "verify_reason": "ok",
+   "verify_op_norm_error": 1.1102230246251565e-16,
+   "verify_block": 1.1102230246251565e-16,
+   "verify_leak": 0.0,
+   "full_state_max_err": 2.2887833992611187e-16,
+   "worst_types": "AQAQQAQABQQB",
+   "sec": 0.2
+  },
+  "phase_1e-3_only_on_inner_AAAA": {
+   "verify_ok": false,
+   "verify_reason": "error",
+   "verify_op_norm_error": 0.0009992283536197333,
+   "verify_block": 0.0009992283536197333,
+   "verify_leak": 0.0,
+   "full_state_max_err": 0.0009992283536197691,
+   "worst_types": "AAAAABBBBBQQ",
+   "sec": 0.2
+  },
+  "phase_1e-6_only_on_inner_AAAA": {
+   "verify_ok": false,
+   "verify_reason": "error",
+   "verify_op_norm_error": 9.992283950534498e-07,
+   "verify_block": 9.992283950534498e-07,
+   "verify_leak": 0.0,
+   "full_state_max_err": 9.992283951519966e-07,
+   "worst_types": "AAAABAABQQQQ",
+   "sec": 0.2
+  },
+  "ccz_valid_codes_(0,1,4)": {
+   "verify_ok": false,
+   "verify_reason": "error",
+   "verify_op_norm_error": 2.0000000000000004,
+   "verify_block": 2.0000000000000004,
+   "verify_leak": 0.0,
+   "full_state_max_err": 2.000000000000001,
+   "worst_types": "AAQBABAAQAAQ",
+   "sec": 0.2
+  },
+  "link2_angle_off_by_1e-4": {
+   "verify_ok": false,
+   "verify_reason": "error",
+   "verify_op_norm_error": 4.999999999492593e-05,
+   "verify_block": 4.999999999492593e-05,
+   "verify_leak": 0.0,
+   "full_state_max_err": 4.999999999489067e-05,
+   "worst_types": "AQBQQAAQAQQB",
+   "sec": 0.2
+  },
+  "ccz_on_invalid_pattern_dontcare": {
+   "verify_ok": true,
+   "verify_reason": "ok",
+   "verify_op_norm_error": 1.1102230246251565e-16,
+   "verify_block": 1.1102230246251565e-16,
+   "verify_leak": 0.0,
+   "full_state_max_err": 2.2887833992611187e-16,
+   "worst_types": "AQAQQAQABQQB",
+   "sec": 0.3
+  }
+ }
+}
