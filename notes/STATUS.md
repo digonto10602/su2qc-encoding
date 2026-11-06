@@ -1,4 +1,4 @@
-M9 fuzzy: built, verified (tester part 1 PASS, audit PASS WITH NOTES fixed), results + Report 9 draft done; pending tester part 2 then tag milestone-9. M10: link unit 36->12 CX (rounds 1-2, stopped), U_B 1596->200 CX (round 1, F1); U_B round 2 running (3 proposers); next: round-1/2 tester verification, Report 10, outbox by 5 h 40.
+M9 fuzzy DONE (tag milestone-9: tests 300/301 PASS, audit PASS WITH NOTES, Report 9); M10 in progress: link unit 36->12 CX, U_B 1596->200 CX (round 1), round 2 evaluating; next: round 2 eval, maybe round 3, tester verify, Report 10, outbox by 5 h 40.
 
 # STATUS — branch m9-fuzzy (48-core machine, fuzzy encoding M9/M10)
 
