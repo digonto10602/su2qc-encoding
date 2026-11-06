@@ -1,11 +1,11 @@
-M3 in progress (desktop track S, spin network): steps 3.0+3.1 done; 3.0–3.7 + 3.L1/3.L2 done; milestone gate (tester full → auditor → benchmark) next; 3.L3 waits for the laptop checker.
+M3 done (milestone-3, Report 3); M4 waiting for laptop milestone-2 bundle in ~/su2qc-sync/inbox/ (waiting since 2026-11-06T03:20; stop after 24 h).
 
 # Desktop track S — spin network — branch `m3-spin-network` (clone `~/Projects/su2qc-spinnet`)
 
 Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 100–199. Cores 0–9, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-spinnet.md`.
 
 ## Current milestone / step
-M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Steps 3.0+3.1 PASS (reports/tests/100). Step 3.2 PASS (reports/tests/101). Steps 3.3–3.5 PASS (reports/tests/102). Steps 3.6, 3.7, 3.L1, 3.L2 PASS (reports/tests/103–105). Step 3.8: milestone gate. 3.L3 (native certificate) PENDING on the laptop's Su2PlaqCert checker (milestone-2 bundle).
+M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Steps 3.0+3.1 PASS (reports/tests/100). Step 3.2 PASS (reports/tests/101). Steps 3.3–3.5 PASS (reports/tests/102). Steps 3.6, 3.7, 3.L1, 3.L2 PASS (reports/tests/103–105). M3 gate done: tester full (reports/tests/106), audit PASS WITH NOTES (reports/audits/100; N1 → prompts/101 erratum, N2, N4 fixed d82a472; N3 → merge notes), benchmark (reports/benchmarks/100), tag milestone-3 (526503a), Report 3 (docs/report-3-spinnet-general-circuit.md). 3.L3 PENDING on the laptop's checker. While waiting for milestone-2: Lean/robustness work only (START_HERE §6).
 
 ## Pending notes
 - METHODS-spinnet §3: fallback decode must say "each end's $G^z$ eigenvalue $\pm\tfrac12$", not "$m=\pm\tfrac12$" (builder fix, reports/tests/100) — next planner run.
@@ -17,6 +17,7 @@ M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Steps
 |---|---|---|---|---|
 
 ## Desktop log
+- 2026-11-06: M3 gate complete → tag milestone-3; Report 3 written; outgoing bundle in ~/su2qc-sync/outbox/. Inbox empty → M4 waiting (watcher every 30 min).
 - 2026-11-06: M3 3.L1+3.L2 PASS (reports/tests/105): 12 count theorems + 5 circuit-structure theorems, axioms ⊆ {propext}; tables copied from Python are only checked for self-consistency with the Lean gate model; the 16/96/16/177/16/96/16 spectrum is NOT kernel-checked (pair-class counts only) — say so in Report 3. coupling_table now snaps to half-integers (raise if off > 1e-12); results regenerated on clean commit.
 - 2026-11-06: M3 step 3.7 PASS (reports/tests/104): results reproducible (all numeric fields identical on rerun), 133 numbers independently recomputed.
 - 2026-11-06: M3 step 3.6 PASS (reports/tests/103): spinnet_v2 vendored gate-for-gate (angles = −2× sibling's: Paulo normalisation × route-B gauge); exact on all 433 (≤ 3.4e-15); β=0.61 counts pairs9 34 CX/9 rot/24 T_fixed, flags4 44/4/48, flags5 42/5/40, flags6 36/6/32; T_total(1e-6) pairs9 576, flags4 298; sibling archive T at β=1 reproduced (600/352/416; flags4 296 vs archive 290, likely a post-synthesis T cancellation there); synthesised ε=1e-6 certified.
