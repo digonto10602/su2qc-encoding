@@ -1,11 +1,11 @@
-M3 in progress (desktop track S, spin network): steps 3.0+3.1 done; 3.0–3.5 done; building step 3.6 (spinnet_v2 seeds, T(ε) tables).
+M3 in progress (desktop track S, spin network): steps 3.0+3.1 done; 3.0–3.6 done; building step 3.7 (results script + JSON).
 
 # Desktop track S — spin network — branch `m3-spin-network` (clone `~/Projects/su2qc-spinnet`)
 
 Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 100–199. Cores 0–9, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-spinnet.md`.
 
 ## Current milestone / step
-M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Steps 3.0+3.1 PASS (reports/tests/100). Step 3.2 PASS (reports/tests/101). Steps 3.3–3.5 PASS (reports/tests/102). Step 3.6 with builder.
+M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Steps 3.0+3.1 PASS (reports/tests/100). Step 3.2 PASS (reports/tests/101). Steps 3.3–3.5 PASS (reports/tests/102). Step 3.6 PASS (reports/tests/103). Step 3.7 with builder, then 3.L1–3.L2.
 
 ## Pending notes
 - METHODS-spinnet §3: fallback decode must say "each end's $G^z$ eigenvalue $\pm\tfrac12$", not "$m=\pm\tfrac12$" (builder fix, reports/tests/100) — next planner run.
@@ -17,6 +17,7 @@ M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Steps
 |---|---|---|---|---|
 
 ## Desktop log
+- 2026-11-06: M3 step 3.6 PASS (reports/tests/103): spinnet_v2 vendored gate-for-gate (angles = −2× sibling's: Paulo normalisation × route-B gauge); exact on all 433 (≤ 3.4e-15); β=0.61 counts pairs9 34 CX/9 rot/24 T_fixed, flags4 44/4/48, flags5 42/5/40, flags6 36/6/32; T_total(1e-6) pairs9 576, flags4 298; sibling archive T at β=1 reproduced (600/352/416; flags4 296 vs archive 290, likely a post-synthesis T cancellation there); synthesised ε=1e-6 certified.
 - 2026-11-06: M3 steps 3.3–3.5 PASS (reports/tests/102): E1, B1 ×4, B2, B3, S1 ×2 green (T1 already green); Aer on all 433 states: U_E phase e^{−3iα/4} exact; U_B error ≤ 5.5e-15 at 4 β; steps ≤ 4.4e-15 at 3 angle pairs; wrong order / −β / reversed product rejected (≥ 0.5); Trotter slopes 1.98 (order 1), 2.98 (order 2). Counts: U_B 54 CX, 4 rot, 56 T_fixed, 7 anc, depth 67; step order 1/2: 54 CX, 8/12 rot. Two session crashes were OOM kills of the tester's verify script (dense Gauss product ~17–29 GB), fixed in the script; memory guard installed.
 - 2026-11-06: M3 step 3.2 PASS (reports/tests/101): P1 green — Paulo's 15-qubit file (68 CX, 64 T, 4 rot) valid on the open 433 states up to a sign gauge (all 8 bright pairs −1 ≡ β→−β): error 9.7e-15, leak 0, Gauss 5.4e-16, outer bits read 0; raw target rejected (0.19967 = 2 sin 2β at β=0.05). build_walk(GENERAL7) exact (≤ 2e-14) at β ∈ {0.4, 0.61, 1, 2}; angles (−7/2, −1, 3, 3/2)β; 54 CX, 4 rot, 56 T_fixed, 7 anc, depth 67.
 - 2026-11-06: M3 steps 3.0+3.1 PASS (reports/tests/100): C1, K1 green; fallback decode fixed by builder (prototype let 60–76 inadmissible codes overlap physical states up to 0.354; now Gram = 1 to 7.3e-15 on 12 032 codes, Gauss ≥ ½ on all 11 599 inadmissible); route B vs A after gauge 1.4e-15; unit 236/237 (laptop flake). Commit 33d7dba.
