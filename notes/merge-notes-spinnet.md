@@ -42,3 +42,6 @@ From `prompts/100-spinnet-m3-plan.md` §10 (not applied; M3 routes around 2; 1 a
 
 ## Observations on laptop-owned code
 - `tests/unit/test_results_unit.py::test_render_is_deterministic_and_contains_only_json_numbers` asserts `"c1" not in t_noq`, but the rendered table contains the git short hash; it fails whenever the hash contains "c1" (seen with `bd37c15`). Suggested fix: strip the commit field before the check, or test for `"| c1 "`.
+
+## Audit notes on laptop-owned code (reports/audits/100)
+- N3 (evaluator, laptop-owned): the span leak (amplitude left on valid-but-inadmissible codes) is not included in `op_norm_error`. For the spin-network encoding it is exactly computable: $3.15\cdot10^{-7}$ for synthesised $U_E$ and step at $\varepsilon=10^{-6}$. True totals stay inside the budget ($U_E$: $2.50\cdot10^{-6}\le4.0\cdot10^{-6}$), but the reported error is 13–15 % low, and the Gauss-based span-leak bound alone ($4.41\cdot10^{-6}$) would not certify $U_E$ at $10^{-6}$. Suggest: add the exact span leak to `op_norm_error` when the encoding can compute it (relates to audit 002 R1).
