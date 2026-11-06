@@ -2,7 +2,9 @@
 
 A proposer may ship `NNN-slug.lean` next to `NNN-slug.py`.  It is checked with `lake env lean` (cwd `lean/`, 120 s budget) and
 its theorems must depend on the standard axioms only.  Informative: the result never enters validity, ranking or the archive
-key.  Allowed imports: `Su2Plaq*`, `Su2PlaqCert*`, `Mathlib*`; `sorry`, `admit` and `native_decide` are refused.
+key.  Allowed imports: `Su2Plaq*`, `Su2PlaqCert*`, `Mathlib*`; `sorry`, `admit`, `native_decide`, `#eval`, `#exit`, `IO.*`,
+`run_cmd` / `run_tac`, `initialize`, elaborator extensions (`elab`, `macro`, `syntax`), axioms and `unsafe` are refused before Lean runs; a
+file with no theorem or lemma has status `none`.
 """
 from __future__ import annotations
 
@@ -17,7 +19,12 @@ from su2plaq.lean import project as P
 _THEOREM_RE = re.compile(r"^\s*(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+)?(?:theorem|lemma)\s+([A-Za-z_][\w.'!?]*)", re.M)
 _IMPORT_RE = re.compile(r"^\s*import\s+(\S+)", re.M)
 _ALLOWED_IMPORT = re.compile(r"^(Su2Plaq|Su2PlaqCert|Mathlib)(\.[\w.]+)?$")
-_NATIVE_RE = re.compile(r"\b(native_decide|implemented_by|extern|unsafe|opaque|axiom)\b|Lean\.ofReduceBool")
+# constructs that run code, declare axioms or extend the elaborator: refused (a lemma file must only state and prove)
+_FORBIDDEN_RE = re.compile(
+    r"#(eval|exit)\b"
+    r"|\b(native_decide|implemented_by|extern|unsafe|opaque|axiom|initialize|builtin_initialize|run_cmd|run_tac|run_elab|run_meta"
+    r"|elab|elab_rules|macro|macro_rules|syntax|declare_syntax_cat|command_elab|term_elab|tactic_elab|builtin_command_elab)\b"
+    r"|\bIO\.|\bIO\b|Lean\.ofReduceBool|\bBaseIO\b|\bEIO\b|\bunsafeCast\b")
 
 
 def lemma_file_for(program_path) -> pathlib.Path | None:
@@ -44,10 +51,14 @@ def check_program_lemmas(program_path, timeout: float = 120.0) -> dict:
     if P.no_sorry([f]):
         return _result("failed", f, seconds=time.time() - t0, message="the file contains sorry / admit")
     stripped = "\n".join(P._strip_lean_comments(text))
-    if _NATIVE_RE.search(stripped):
+    bad = _FORBIDDEN_RE.search(stripped)
+    if bad:
         return _result("failed", f, seconds=time.time() - t0,
-                       message="native_decide / axiom / unsafe / extern constructs are not accepted in lemma files")
+                       message=f"construct {bad.group(0)!r} is not accepted in lemma files (no #eval / #exit / IO / elaborator "
+                               "extensions / axioms / native_decide / unsafe)")
     names = _THEOREM_RE.findall(stripped)
+    if not names:
+        return _result("none", f, seconds=time.time() - t0, message="the lemma file contains no theorem or lemma")
     # elaborate a copy with `#print axioms` appended (inside lean/, so that `import Su2Plaq` resolves)
     tmp = P.LEAN_DIR / f"Lemma_{os.getpid()}_{abs(hash(str(f))) % 10**8}.lean"
     tmp.write_text(text.rstrip() + "\n\n" + "".join(f"#print axioms {n}\n" for n in names))

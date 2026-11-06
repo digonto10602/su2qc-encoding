@@ -126,20 +126,20 @@ noncomputable def Rz (θ : ℝ) : Matrix (Fin 2) (Fin 2) ℂ :=
 noncomputable def Rx (θ : ℝ) : Matrix (Fin 2) (Fin 2) ℂ :=
   !![(Real.cos (θ / 2) : ℂ), -Complex.I * Real.sin (θ / 2); -Complex.I * Real.sin (θ / 2), (Real.cos (θ / 2) : ℂ)]
 
-private theorem sqrt2_mul_inv : ((Real.sqrt 2 : ℝ) : ℂ)⁻¹ * ((Real.sqrt 2 : ℝ) : ℂ)⁻¹ = 1 / 2 := by
+theorem sqrt2_mul_inv' : ((Real.sqrt 2 : ℝ) : ℂ)⁻¹ * ((Real.sqrt 2 : ℝ) : ℂ)⁻¹ = 1 / 2 := by
   have h : ((Real.sqrt 2 : ℝ) : ℂ) * ((Real.sqrt 2 : ℝ) : ℂ) = 2 := by
     rw [← Complex.ofReal_mul, Real.mul_self_sqrt (by norm_num)]; norm_num
   rw [← mul_inv, h, one_div]
 
 theorem h_z_h : Hd * Zm * Hd = Xm := by
-  have h := sqrt2_mul_inv
+  have h := sqrt2_mul_inv'
   ext i j
   fin_cases i <;> fin_cases j <;>
     simp [Hd, Zm, Xm, Matrix.mul_apply, Fin.sum_univ_two, Matrix.vecHead, Matrix.vecTail] <;>
     linear_combination (2 : ℂ) * h
 
 theorem h_rz_h (θ : ℝ) : Hd * Rz θ * Hd = Rx θ := by
-  have h := sqrt2_mul_inv
+  have h := sqrt2_mul_inv'
   have e1 : Complex.exp (((-(θ / 2) : ℝ) : ℂ) * Complex.I) = Real.cos (θ / 2) - Real.sin (θ / 2) * Complex.I := by
     rw [Complex.exp_mul_I, ← Complex.ofReal_cos, ← Complex.ofReal_sin, Real.cos_neg, Real.sin_neg]
     push_cast; ring

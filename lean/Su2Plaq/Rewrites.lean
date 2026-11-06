@@ -157,6 +157,24 @@ theorem diag_sq_of (d : Q n → ℂ) (h : ∀ s, d s * d s = 1) : diagonal d * d
   have : (fun s => d s * d s) = fun _ => (1 : ℂ) := funext h
   rw [this]; exact Matrix.diagonal_one
 
+theorem czDiag_comm (a b : Fin n) : czDiag a b = czDiag b a := by
+  funext s; simp [czDiag, Bool.and_comm]
+
+theorem cczDiag_perm (a b c : Fin n) :
+    cczDiag a b c = cczDiag a c b ∧ cczDiag a b c = cczDiag b a c ∧ cczDiag a b c = cczDiag b c a ∧
+    cczDiag a b c = cczDiag c a b ∧ cczDiag a b c = cczDiag c b a := by
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩ <;> funext s <;> simp only [cczDiag] <;> cases s a <;> cases s b <;> cases s c <;> rfl
+
+theorem swapFun_comm (a b : Fin n) : swapFun a b = swapFun b a := by
+  funext s i
+  by_cases hab : a = b
+  · subst hab; rfl
+  · by_cases ha : i = a
+    · subst ha; simp [swapFun, hab]
+    · by_cases hb : i = b
+      · subst hb; simp [swapFun, hab, ha]
+      · simp [swapFun, ha, hb]
+
 theorem cz_cz (a b : Fin n) : diagonal (czDiag a b) * diagonal (czDiag a b) = 1 :=
   diag_sq_of _ fun s => by unfold czDiag; split_ifs <;> norm_num
 
@@ -166,19 +184,31 @@ theorem ccz_ccz (a b c : Fin n) : diagonal (cczDiag a b c) * diagonal (cczDiag a
 end BitModel
 
 /-- The self-inverse part of the polish pass: every gate pair that `compress.passes.polish` cancels multiplies to the identity
-(`x x`, `z z`, `h h`, `s sdg`, `sdg s`, `t tdg`, `tdg t`, `cx cx`, `cz cz`, `swap swap`, `ccx ccx`, `ccz ccz`, `ch ch`, `rccx rccx`). -/
+(`x x`, `z z`, `h h`, `s sdg`, `sdg s`, `t tdg`, `tdg t`, `cx cx`, `cz cz`, `swap swap`, `ccx ccx`, `ccz ccz`, `ch ch`, `rccx rccx`;
+the symmetric gates `cz`, `swap`, `ccz` also with the qubits in any order, as the pass cancels them). -/
 theorem cancel_inverse_pairs :
     (Xm * Xm = 1 ∧ Zm * Zm = 1 ∧ Hd * Hd = 1 ∧ Sg * Sdg = 1 ∧ Sdg * Sg = 1 ∧ Tg * Tdg = 1 ∧ Tdg * Tg = 1)
     ∧ (∀ {n : ℕ} (c t : Fin n) (h : c ≠ t), perm (cxE c t h) * perm (cxE c t h) = 1)
-    ∧ (∀ {n : ℕ} (a b : Fin n), diagonal (czDiag a b) * diagonal (czDiag a b) = 1)
-    ∧ (∀ {n : ℕ} (a b : Fin n), perm (swapE a b) * perm (swapE a b) = 1)
+    ∧ (∀ {n : ℕ} (a b : Fin n), diagonal (czDiag a b) * diagonal (czDiag a b) = 1
+        ∧ diagonal (czDiag a b) * diagonal (czDiag b a) = 1)
+    ∧ (∀ {n : ℕ} (a b : Fin n), perm (swapE a b) * perm (swapE a b) = 1 ∧ perm (swapE a b) * perm (swapE b a) = 1)
     ∧ (∀ {n : ℕ} (a b c : Fin n) (hac : a ≠ c) (hbc : b ≠ c), perm (ccxE a b c hac hbc) * perm (ccxE a b c hac hbc) = 1)
-    ∧ (∀ {n : ℕ} (a b c : Fin n), diagonal (cczDiag a b c) * diagonal (cczDiag a b c) = 1)
+    ∧ (∀ {n : ℕ} (a b c : Fin n), diagonal (cczDiag a b c) * diagonal (cczDiag a b c) = 1
+        ∧ diagonal (cczDiag a b c) * diagonal (cczDiag a c b) = 1 ∧ diagonal (cczDiag a b c) * diagonal (cczDiag b a c) = 1
+        ∧ diagonal (cczDiag a b c) * diagonal (cczDiag b c a) = 1 ∧ diagonal (cczDiag a b c) * diagonal (cczDiag c a b) = 1
+        ∧ diagonal (cczDiag a b c) * diagonal (cczDiag c b a) = 1)
     ∧ cgate Hd * cgate Hd = 1
     ∧ RCCX * RCCX = 1 := by
   refine ⟨⟨Xm_mul_self, Zm_mul_self, Hd_mul_self, ?_, ?_, ?_, ?_⟩, fun c t h => cx_involutive c t h,
-    fun a b => cz_cz a b, fun a b => perm_sq _ (swapFun_swapFun a b),
-    fun a b c hac hbc => perm_sq _ (ccxFun_ccxFun a b c hac hbc), fun a b c => ccz_ccz a b c,
+    fun a b => ⟨cz_cz a b, by rw [czDiag_comm b a]; exact cz_cz a b⟩,
+    fun a b => ⟨perm_sq _ (swapFun_swapFun a b), by
+      have : swapE b a = swapE a b := Equiv.ext fun s => (swapFun_comm b a ▸ rfl : swapFun b a s = swapFun a b s)
+      rw [this]; exact perm_sq _ (swapFun_swapFun a b)⟩,
+    fun a b c hac hbc => perm_sq _ (ccxFun_ccxFun a b c hac hbc),
+    fun a b c => by
+      obtain ⟨h1, h2, h3, h4, h5⟩ := cczDiag_perm a b c
+      refine ⟨ccz_ccz a b c, ?_, ?_, ?_, ?_, ?_⟩ <;> [rw [← h1]; rw [← h2]; rw [← h3]; rw [← h4]; rw [← h5]] <;>
+        exact ccz_ccz a b c,
     cgate_mul_self_of _ Hd_mul_self, ?_⟩
   · simp only [Sg, Sdg, Pg_mul, add_neg_cancel, Pg_zero]
   · simp only [Sg, Sdg, Pg_mul, neg_add_cancel, Pg_zero]

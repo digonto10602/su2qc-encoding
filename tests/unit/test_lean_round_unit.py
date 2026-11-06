@@ -42,3 +42,23 @@ def test_certify_best_after_a_lean_free_round(tmp_path):
     assert out["lean"]["status"] == "certified", out
     best = A.Archive.load("twelve", root=tmp_path).best()
     assert best.lean["status"] == "certified" and best.valid
+
+
+def test_certify_best_does_not_erase_a_certificate_after_a_crash(tmp_path, monkeypatch):
+    prog = _program(tmp_path, with_lemma=False)
+    R.run_round("twelve", "step", 0, evaluate=True, dry_run=True, root=tmp_path, proposals=[str(prog)], lean=False)
+    arc = A.Archive.load("twelve", root=tmp_path)
+    arc.best().lean = {"status": "certified", "reason": "", "cert_path": "x", "seconds": 1.0, "checker_sha256": "abc"}
+    arc.save()
+    monkeypatch.setattr(R, "_certify", lambda circ, spec: ({"status": "failed", "reason": "RuntimeError: transient"}, 0.5))
+    out = R.certify_best("twelve", "step", root=tmp_path)
+    assert out["kept_previous"] is True and out["attempt"]["status"] == "failed"
+    assert A.Archive.load("twelve", root=tmp_path).best().lean["status"] == "certified"
+    line = (tmp_path / "results" / "compress" / "twelve" / "lean-attempts.jsonl").read_text().strip().splitlines()
+    assert len(line) == 1 and json.loads(line[0])["attempt"]["reason"].endswith("transient")
+    # a real rejection is a finding and does replace the old status; a fresh certificate replaces too
+    monkeypatch.setattr(R, "_certify", lambda circ, spec: ({"status": "rejected", "reason": "state 3 differs"}, 0.5))
+    R.certify_best("twelve", "step", root=tmp_path)
+    assert A.Archive.load("twelve", root=tmp_path).best().lean["status"] == "rejected"
+    monkeypatch.setattr(R, "_certify", lambda circ, spec: ({"status": "certified", "reason": ""}, 0.5))
+    assert R.certify_best("twelve", "step", root=tmp_path)["lean"]["status"] == "certified"

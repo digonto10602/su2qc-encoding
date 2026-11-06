@@ -222,7 +222,8 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
                            "tolerances": sv["tolerances"], "op_norm_error": sv["verdict"].op_norm_error,
                            "certified": sv["verdict"].certified, "reason": sv["verdict"].reason}
             if lean:
-                best.lean, lean_seconds = _certify(circ, spec)
+                new_lean, lean_seconds = _certify(circ, spec)
+                _store_lean(best, new_lean, root, encoding, f"round {round}")
     archive.save()
     for rec, *_ in records:               # records carry the final lean status
         e = next((x for x in archive.entries() if x.id == rec["id"]), None)
@@ -257,6 +258,21 @@ def _check_lemmas(program_path, root):
         return lemmas.check_program_lemmas(f, timeout=120.0), time.time() - t0
     except (ImportError, OSError, ValueError, RuntimeError, subprocess.SubprocessError) as exc:
         return {"status": "failed", "message": f"{type(exc).__name__}: {exc}"}, time.time() - t0
+
+
+def _store_lean(entry, new: dict, root, encoding: str, why: str = "") -> None:
+    """Record `new` as `entry.lean` unless that would replace an existing `certified` status by a `failed` / `not_run` one (a `rejected` verdict is a finding and is recorded) (a transient
+    crash must not erase a certificate): then the old status stays and the failed attempt goes to
+    results/compress/<encoding>/lean-attempts.jsonl."""
+    old = entry.lean
+    if isinstance(old, dict) and old.get("status") == "certified" and new.get("status") in ("failed", "not_run"):
+        d = pathlib.Path(root) / "results" / "compress" / encoding
+        d.mkdir(parents=True, exist_ok=True)
+        with open(d / "lean-attempts.jsonl", "a") as fh:
+            fh.write(json.dumps({"entry": entry.id, "kept": old.get("status"), "attempt": new, "why": why,
+                                 "written_utc": _utc()}, default=str) + "\n")
+        return
+    entry.lean = new
 
 
 def _certify(circ, spec):
@@ -301,11 +317,14 @@ def certify_best(encoding="twelve", kind="step", root=None) -> dict:
         return {"entry": None, "lean": None, "seconds": 0.0}
     circ, err = _circuit_of(spec, best.program_path, best.id, None, root)
     if circ is None:
-        best.lean, sec = {"status": "failed", "reason": f"cannot rebuild the best circuit: {err}"}, 0.0
+        new, sec = {"status": "failed", "reason": f"cannot rebuild the best circuit: {err}"}, 0.0
     else:
-        best.lean, sec = _certify(circ, spec)
+        new, sec = _certify(circ, spec)
+    before = best.lean
+    _store_lean(best, new, root, encoding, "certify_best")
     archive.save()
-    return {"entry": best.id, "lean": best.lean, "seconds": sec}
+    return {"entry": best.id, "lean": best.lean, "attempt": new, "kept_previous": before is not None and best.lean is before,
+            "seconds": sec}
 
 
 def main(argv=None) -> int:

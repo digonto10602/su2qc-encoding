@@ -64,6 +64,10 @@ def test_polish_rules_table_and_theorems():
 
     assert set(rules.LEAN_RULES) == {"cancel_inverse_pairs", "merge_adjacent_rotations"}
     assert all(v.startswith("Su2Plaq.") and v.split(".")[-1] == k for k, v in rules.LEAN_RULES.items())
+    src = (project.LEAN_DIR / "Su2Plaq" / "Rewrites.lean").read_text()
+    for needle in ("diagonal (czDiag a b) * diagonal (czDiag b a) = 1", "perm (swapE a b) * perm (swapE b a) = 1",
+                   "diagonal (cczDiag a b c) * diagonal (cczDiag c b a) = 1"):
+        assert needle in src, needle                 # the symmetric-pair cases the pass cancels
     ax = project.print_axioms(sorted(rules.LEAN_RULES.values()), timeout=600)
     for n, a in ax.items():
         assert a <= project.STANDARD_AXIOMS, (n, sorted(a))
@@ -92,3 +96,29 @@ def test_program_lemma_files(tmp_path):
     assert run("import Su2Plaq\ntheorem t (p : Prop) : p ∨ ¬p := Classical.em p\n")["status"] == "proved"
     assert run("import Su2Plaq\naxiom bad : (2 : Nat) = 3\ntheorem t : (2 : Nat) = 3 := bad\n")["status"] == "failed"
     assert not list((project.LEAN_DIR).glob("Lemma_*.lean"))
+
+
+def test_lemma_files_with_side_effects_or_no_theorem(tmp_path):
+    from su2plaq.lean import lemmas
+
+    prog = tmp_path / "002-y.py"
+    prog.write_text("# program\n")
+    lem = tmp_path / "002-y.lean"
+    victim = tmp_path / "pwned.txt"
+
+    def run(text):
+        lem.write_text(text)
+        return lemmas.check_program_lemmas(prog, timeout=120)
+
+    base = "import Su2Plaq\ntheorem t : (2 : Nat) + 2 = 4 := by decide\n"
+    for bad in (f'#eval IO.FS.writeFile "{victim}" "x"', "#exit", "run_cmd pure ()", "run_tac pure ()", "initialize foo : IO.Ref Nat <- IO.mkRef 0",
+                "elab \"evil\" : command => pure ()", "macro \"m\" : term => `(1)", "unsafe def u : Nat := 1", "axiom ax : False"):
+        r = run(base + bad + "\n")
+        assert r["status"] == "failed" and "not accepted" in r["message"], (bad, r)
+        assert not victim.exists()
+    # words inside comments and identifiers are fine
+    assert run("import Su2Plaq\n-- #eval IO.println in a comment\ntheorem eval_io_ok : (1 : Nat) = 1 := rfl\n")["status"] == "proved"
+    # a file without theorem / lemma is not 'proved'
+    r = run("import Su2Plaq\n\ndef foo : Nat := 3\n")
+    assert r["status"] == "none" and "no theorem" in r["message"]
+    assert run("import Su2Plaq\n")["status"] == "none"
