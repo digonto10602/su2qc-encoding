@@ -1,0 +1,29 @@
+{
+ "ops": {
+  "rccx": 1620,
+  "x": 1224,
+  "cx": 1118,
+  "ch": 202,
+  "cz": 200,
+  "crx": 81,
+  "ccx": 54,
+  "h": 34,
+  "z": 16
+ },
+ "cx": 6866,
+ "t_fixed": 7262,
+ "ok": false,
+ "reason": "pruning_bound",
+ "op_norm_error": 2.6235479385349343e-12,
+ "block_error": 3.425156659230155e-13,
+ "dropped_total": 2.2810322726119188e-12,
+ "leak": 0.0,
+ "dirty": 0.0,
+ "cap": 1e-12,
+ "loose_tol_1e-8": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 2.6235479385349343e-12,
+  "dropped_total": 2.2810322726119188e-12
+ }
+}

@@ -1,9 +1,16 @@
-"""48-qubit rishon circuits (prompts/200 §2.5; METHODS-rishon R7). `build_UE` (5.6); the rest in 5.7-5.8."""
+"""48-qubit rishon circuits (prompts/200 §2.5; METHODS-rishon R7). `build_UE` (5.6), `build_UB`/`pair_frames` (5.7), `build_step` (5.8)."""
 from __future__ import annotations
 
-from su2plaq._stub import todo
-
 N_DATA, N_OUTER = 16, 32
+
+
+def _emit_ue(qc, alpha: float, n_links: int = 4) -> None:
+    """CX(L1 -> L2), p(-3 alpha/4) on L2, CX on each of the first `n_links` links."""
+    for link in range(n_links):
+        l1, l2 = 4 * link, 4 * link + 1
+        qc.cx(l1, l2)
+        qc.p(-0.75 * alpha, l2)
+        qc.cx(l1, l2)
 
 
 def build_UE(alpha: float, with_outer: bool = False, include_outer_electric: bool = False):
@@ -23,24 +30,144 @@ def build_UE(alpha: float, with_outer: bool = False, include_outer_electric: boo
         raise ValueError("include_outer_electric needs with_outer=True")
     regs = [QuantumRegister(N_DATA, "d")] + ([QuantumRegister(N_OUTER, "o")] if with_outer else [])
     qc = QuantumCircuit(*regs, name="UE")
-    n_links = 4 + (8 if include_outer_electric else 0)
-    lam = -0.75 * alpha
-    for link in range(n_links):
-        l1, l2 = 4 * link, 4 * link + 1
-        qc.cx(l1, l2)
-        qc.p(lam, l2)
-        qc.cx(l1, l2)
+    _emit_ue(qc, alpha, 4 + (8 if include_outer_electric else 0))
     qc.metadata = {"kind": "UE", "alpha": alpha}
     return qc
 
 
-def build_UB(beta: float, with_outer: bool = False):
-    todo("circuits.rishon.build_UB")
+def _registers(with_outer: bool, n_anc: int, name: str):
+    from qiskit import QuantumCircuit, QuantumRegister
+
+    regs = [QuantumRegister(N_DATA, "d")]
+    if with_outer:
+        regs.append(QuantumRegister(N_OUTER, "o"))
+    if n_anc:
+        regs.append(QuantumRegister(n_anc, "anc"))
+    qc = QuantumCircuit(*regs, name=name)
+    anc0 = N_DATA + (N_OUTER if with_outer else 0)
+    return qc, list(range(anc0, anc0 + n_anc))
 
 
-def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = False):
-    todo("circuits.rishon.build_step")
+def _n_ancillas() -> int:
+    from su2plaq.rishon.frames import designs
+
+    return max(max(len(d["controls"]) - 1, 1) for d in designs())
 
 
 def pair_frames(beta: float) -> list[dict]:
-    todo("circuits.rishon.pair_frames")
+    """Design data of the 81 bright pairs of U_B(beta) = prod_p exp(i kappa_p beta (|u_p><v_p| + h.c.)) (METHODS-rishon R7).
+
+    Per pair: "kappa" (eigenvalue of the operator, not typed in), "pivot" (target qubit j of the rotation), "controls" (qubits
+    that must be 0), "frame_gates" (list of (gate name, qubits) of the frame F_p, applied in this order, undone in reverse
+    order), "sign" (+-1: the relative sign of the images of u_p and v_p), "angle" = -2 sign kappa beta (the Rx angle) and
+    "angle_over_beta".  Everything is solved from `operators.bright_pairs()` at every call; the frame does not depend on beta.
+    """
+    from su2plaq.rishon.frames import designs
+
+    out = []
+    for d in designs():
+        ratio = -2.0 * d["sign"] * d["kappa"]
+        out.append({**d, "frame_gates": list(d["frame_gates"]), "controls": list(d["controls"]),
+                    "angle_over_beta": ratio, "angle": ratio * float(beta)})
+    return out
+
+
+_SELF_INVERSE = {"x": 1, "z": 1, "h": 1, "cx": 1, "cz": 1, "ch": 1, "ccx": 2, "ccz": 3}   # name -> number of symmetric leading qubits
+_SYMMETRIC = {"z", "cz", "ccz"}
+
+
+def _cancel_adjacent(ops: list) -> list:
+    """Remove pairs of identical self-inverse gates (x, z, h, cx, cz, ch, ccx, ccz) with nothing in between on their qubits
+    (exact; parameterised gates are never touched)."""
+    alive = [True] * len(ops)
+    stacks: dict[int, list[int]] = {}
+    for idx, (name, qs, params) in enumerate(ops):
+        key = (name, frozenset(qs) if name in _SYMMETRIC else qs)
+        if name in _SELF_INVERSE and not params:
+            tops = {stacks[q][-1] if stacks.get(q) else None for q in qs}
+            if len(tops) == 1 and None not in tops:
+                k = next(iter(tops))
+                n2, q2, p2 = ops[k]
+                if (n2, frozenset(q2) if n2 in _SYMMETRIC else q2) == key and not p2:
+                    for q in qs:
+                        stacks[q].pop()
+                    alive[k] = alive[idx] = False
+                    continue
+        for q in qs:
+            stacks.setdefault(q, []).append(idx)
+    return [op for op, a in zip(ops, alive) if a]
+
+
+def _pair_ops(f: dict, anc: list[int]) -> list:
+    j, ctrl, theta = f["pivot"], f["controls"], f["angle"]
+    ops = [(n, tuple(q), ()) for n, q in f["frame_gates"]]
+    ops += [("x", (c,), ()) for c in ctrl]
+    if len(ctrl) == 1:
+        ops.append(("crx", (ctrl[0], j), (theta,)))
+    else:
+        chain = [(ctrl[0], ctrl[1], anc[0])] + [(anc[i - 2], ctrl[i], anc[i - 1]) for i in range(2, len(ctrl))]
+        ops += [("ccx", c, ()) for c in chain]
+        ops.append(("crx", (anc[len(ctrl) - 2], j), (theta,)))
+        ops += [("ccx", c, ()) for c in reversed(chain)]
+    ops += [("x", (c,), ()) for c in ctrl]
+    ops += [(n, tuple(q), ()) for n, q in reversed(f["frame_gates"])]
+    return ops
+
+
+def _emit_ub(qc, beta: float, anc: list[int]) -> dict:
+    """Append U_B(beta) to `qc` (data qubits 0..15, ancillas `anc`, all clean before and after); returns metadata.
+    The 81 pair blocks commute; consecutive blocks share Hadamard/CX/X structure and adjacent identical self-inverse gates
+    are cancelled (exact, angle-independent)."""
+    frames = pair_frames(beta)
+    ops = []
+    for f in sorted(frames, key=lambda f: (tuple(f["controls"]), f["pivot"], tuple(f["frame_gates"]))):   # blocks commute
+        ops += _pair_ops(f, anc)
+    n_before = len(ops)
+    ops = _cancel_adjacent(ops)
+    for name, qs, params in ops:
+        getattr(qc, name)(*params, *qs)
+    hist: dict[str, int] = {}
+    for f in frames:
+        key = f"{abs(f['angle_over_beta']):.12g}"
+        hist[key] = hist.get(key, 0) + 1
+    return {"n_pairs": len(frames), "angle_over_beta_abs_counts": hist, "pivots": sorted({f["pivot"] for f in frames}),
+            "n_controls": sorted({len(f["controls"]) for f in frames}), "gates_before_cancel": n_before,
+            "gates_after_cancel": len(ops)}
+
+
+def build_UB(beta: float, with_outer: bool = False):
+    """Magnetic step U_B(beta) = exp(-i beta H_B^inner) as 81 commuting two-level rotations (METHODS-rishon R7).
+
+    Pair p: F_p (Clifford-type frame, X/CX/Z/CZ/H and j-controlled versions) maps the bright vectors u_p, v_p of
+    H_B^in = -sum_p kappa_p (|u_p><v_p| + h.c.) to two computational codes that differ in the pivot bit j only; then
+    Rx(-2 s_p kappa_p beta) on j controlled on the (zero) bits that separate that pair from the images of every other valid
+    code (rccx chain on clean ancillas, mirrored uncompute), then F_p^dagger.  The angles are 2 beta (x32), 4 beta (x48) and
+    8 sqrt(2) beta (x1) (kappa = 1, 2, 4 sqrt 2), signs from the operator.  Registers d (+ o), then ancillas `anc`;
+    metadata {"kind": "UB", "beta": beta, "n_pairs": 81, ...}."""
+    n_anc = _n_ancillas()
+    qc, anc = _registers(with_outer, n_anc, "UB")
+    meta = _emit_ub(qc, float(beta), anc)
+    qc.metadata = {"kind": "UB", "beta": float(beta), **meta}
+    return qc
+
+
+def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = False):
+    """One Trotter step on d (+ o) and the U_B ancillas: order 1 = U_B(beta) U_E(alpha) (electric layer applied first),
+    order 2 = U_E(alpha/2) U_B(beta) U_E(alpha/2)  (prompts/200 METHODS §2).  metadata {"kind": "step", ...}."""
+    if order not in (1, 2):
+        raise ValueError(f"step order must be 1 or 2, got {order}")
+    n_anc = _n_ancillas()
+    qc, anc = _registers(with_outer, n_anc, f"step{order}")
+
+    def electric(a):
+        _emit_ue(qc, a)
+
+    if order == 1:
+        electric(float(alpha))
+        meta = _emit_ub(qc, float(beta), anc)
+    else:
+        electric(float(alpha) / 2)
+        meta = _emit_ub(qc, float(beta), anc)
+        electric(float(alpha) / 2)
+    qc.metadata = {"kind": "step", "alpha": float(alpha), "beta": float(beta), "order": order, **meta}
+    return qc
