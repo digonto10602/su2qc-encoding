@@ -1,0 +1,7 @@
+{"commit":"8e71c38","branch":"m9-fuzzy","lock":"acceptance-v10","seed_spot_checks":20261106,
+ "step1":"LOCK OK; acceptance-check PASS (0.05 s)",
+ "step2":{"cmd":"pytest -n 16 tests/unit","passed":453,"failed":0,"wall_s":109},
+ "step3":{"cmd":"pytest -n 16 tests/acceptance/m0 m1 m2","passed":102,"failed":0,"pending":0,"wall_s":109},
+ "step4":{"cmd":"pytest -n 8 tests/acceptance/m9 -k 'not S1 and not R1 and not T1 and not shared_table_file'","passed":13,"failed":0,"wall_s":1362.8,"max_rss_kB_main":5493420},
+ "step5":{"cmd":"pytest -n 1 test_fuzzy_circuits.py -k S1","passed":5,"failed":0,"wall_s":283.6,"max_rss_kB":134808548},
+ "spot_a":"results/tester_logs/spot_a.json","spot_b":"results/tester_logs/spot_b_r*_o*.json","spot_c":"results/tester_logs/spot_c.json"}
