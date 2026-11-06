@@ -27,7 +27,10 @@ ALTS = ((0.91, 0.23), (1.70, 1.00))
 SEED_LABELS = {"general", "general+polish", "qiskit_l3", "spinnet_v2_pairs9", "spinnet_v2_flags4", "spinnet_v2_flags5",
                "spinnet_v2_flags6"}
 PAULO_BETA = 0.05                 # alpha_P = 0.1, beta = alpha_P / 2 (METHODS-spinnet §5)
-PAULO_N_MINUS = 8                 # M3-P1 locked measurement: one -1 per bright pair (gauge_minus_codes = {8..15})
+PAULO_N_MINUS = 8                 # M3-P1 locked measurement: one -1 per bright pair over the 47 INNER codes (gauge_minus_codes = {8..15})
+PAULO_MINUS_CODES = list(range(8, 16))   # the bright data codes with bit 3 set (j_l = 1/2 on the left link; METHODS-spinnet §5)
+PAULO_N_MINUS_STATES = 128        # over the 433 STATES the sign is inherited from the data code: 128 states carry one of the
+                                  # 8 minus codes (prompts/104 §11 erratum E2; measured, and re-derived in S6 from the codes)
 
 
 # ---------------------------------------------------------------------------------------------------- helpers
@@ -274,7 +277,19 @@ def test_M4_S6_external_seeds_paulo15_and_spinnet_v2(tmp_path):
     seed = L.import_seed(spec, "paulo15")
     assert isinstance(seed, L.SeedCircuit) and seed.fixed_angle and not seed.can_be_parent and seed.kind == "UB"
     assert abs(seed.beta - PAULO_BETA) <= 1e-15 and seed.gauge is not None and len(seed.gauge) == 433
-    assert set(np.sign(np.asarray(seed.gauge)).tolist()) <= {-1.0, 1.0} and int((np.asarray(seed.gauge) < 0).sum()) == PAULO_N_MINUS
+    g = np.asarray(seed.gauge, dtype=float)
+    assert set(np.sign(g).tolist()) <= {-1.0, 1.0} and np.abs(np.abs(g) - 1).max() <= 1e-12
+    # the gauge is the M3-P1 diagonal over the 47 inner codes (one -1 per bright pair) inherited by every state through its
+    # data code: minus data codes == {8..15}, the sign is a function of the data code only, and the number of -1 entries equals
+    # the number of states whose data code is a bright code with bit 3 set (erratum E2; the old "8 negatives over 433" was wrong)
+    codes = [int(c[0]) for c in _enc().physical_vectors().codes]
+    assert len(codes) == 433
+    minus_codes = sorted({c & 0xFF for c, s in zip(codes, g) if s < 0})
+    plus_codes = {c & 0xFF for c, s in zip(codes, g) if s > 0}
+    assert minus_codes == PAULO_MINUS_CODES and not (set(minus_codes) & plus_codes), minus_codes
+    assert len(minus_codes) == PAULO_N_MINUS
+    n_bright_bit3 = sum(1 for c in codes if ((c >> 3) & 1) and not ((c >> 4) & 0xF))
+    assert int((g < 0).sum()) == n_bright_bit3 == PAULO_N_MINUS_STATES
     r = L.evaluate_seed(spec, seed, mode="trial")
     assert r.valid and r.reason == "ok" and r.verdict.op_norm_error <= 1e-10 and r.verdict.gauss_residual <= 1e-10, (r.reason, r.message)
     raw = spec.with_angles(spec.alpha, PAULO_BETA)
