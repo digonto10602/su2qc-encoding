@@ -1,0 +1,189 @@
+{
+ "id": "r01-F4-001",
+ "program_path": "compress/programs/twelve/F4/001-spectral-frame.py",
+ "program_sha256": "15d0709c4cc2282824fb8abccd429c34a6c965a699b930e3c6b64d0d3d9eacb3",
+ "parent": null,
+ "family": "F4",
+ "round": 1,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  126,
+  1254,
+  2579,
+  34
+ ],
+ "cell": [
+  55,
+  82
+ ],
+ "metrics_raw": {
+  "cx": 126,
+  "t_fixed": 112,
+  "n_rot": 18,
+  "t_eps": 1254,
+  "t_estimate": {
+   "1e-06": 1188.3047027435055,
+   "1e-10": 1905.8411712391758
+  },
+  "t_measured": {
+   "1e-06": 1254,
+   "1e-10": 1968
+  },
+  "synth_error_bound": 1.8e-05,
+  "depth": 169,
+  "depth_ct": 2579,
+  "qubits": 34,
+  "gates": {
+   "cx": 126,
+   "h": 114,
+   "t": 56,
+   "tdg": 56,
+   "x": 28,
+   "s": 24,
+   "sdg": 24,
+   "rz": 18,
+   "z": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.1356961193640924e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   2.953757331104376e-16
+  ],
+  "outer_bits_read": 8,
+  "n_blocks": 256,
+  "gauss_residual": 7.640349246885061e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.0006102888014328e-13,
+  "block_error": 1.3508583056265959e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 55.906859397888184,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.3508583056265959e-14,
+   "max_dropped_l2": 5.652425658247883e-15,
+   "max_span_leak": 4.9960036108132044e-15,
+   "op_norm_error_inner_span": null
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.0562324402509298e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -4.9229288851739594e-17
+   ],
+   "outer_bits_read": 8,
+   "n_blocks": 256,
+   "gauss_residual": 7.37026825030419e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 9.12141786356761e-14,
+   "block_error": 1.4409065389416875e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 55.77643418312073,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.4409065389416875e-14,
+    "max_dropped_l2": 4.7302598282469536e-15,
+    "max_span_leak": 6.106226635438361e-15,
+    "op_norm_error_inner_span": null
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.259854819860065e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -2.092244776198934e-16
+   ],
+   "outer_bits_read": 8,
+   "n_blocks": 256,
+   "gauss_residual": 7.36309913426775e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.095335537437013e-13,
+   "block_error": 1.6451928242305195e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 55.92043972015381,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.6451928242305195e-14,
+    "max_dropped_l2": 6.2659230580118355e-15,
+    "max_span_leak": 7.105427357601002e-15,
+    "op_norm_error_inner_span": null
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: A 2-CX corner frame U=[HSH_A,HS_B; CX(B>A); THS_A,HTH_B; CX(B>A); S,H_B] maps the same-type partner map to X_A and the diff-type one to Z_A; with CH(t->A) and padding CX(j_B->A) interleaved with the chain fold, H_B = kappa(t)*g*X_F exactly on all 433 states, kappa=-2 (n1=0), (-1)^t0 (n1=2), +1/2 (n1=4).",
+  "DISCOVERY: In that padded frame a same-type corner's dark (inner J=1) codes are 10/11/01 vs bright 00; one AND of the two outer q_m bits (the parallel branch) makes dark a single leg bit A, so dark_c = (not t_c) and A_c (4 corners -> 2 pairwise NORs a,b).",
+  "DISCOVERY: The eigenphase beta*kappa(t)*a*b over (a,b,t1,t2,t0) has minimum Walsh support 14 (MILP over the free values), Gray-walked with 20 CX."
+ ],
+ "summary": "Spectral frame: 2-CX corner frames + type-controlled CH + padding put every bright pair on one flip qubit F (H_B = kappa(t) g X_F), outer-AND dark bits, pairwise NOR flags, 14-term exact Walsh phase polynomial of the 7-point spectrum on F.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "84a20af",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 168.91889309883118,
+ "written_utc": "2026-11-06T10:40:41Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.8e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

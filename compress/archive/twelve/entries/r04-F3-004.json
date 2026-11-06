@@ -1,0 +1,189 @@
+{
+ "id": "r04-F3-004",
+ "program_path": "compress/programs/twelve/F3/004-inwalk-pa-clean-frame.py",
+ "program_sha256": "231d57277ba3d31bdc91454d3715829cd64fa659c353b446a216a629de72ce3d",
+ "parent": "r03-F3-003",
+ "family": "F3",
+ "round": 4,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  111,
+  912,
+  1664,
+  32
+ ],
+ "cell": [
+  54,
+  78
+ ],
+ "metrics_raw": {
+  "cx": 111,
+  "t_fixed": 104,
+  "n_rot": 13,
+  "t_eps": 912,
+  "t_estimate": {
+   "1e-06": 881.3311742036428,
+   "1e-10": 1399.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 912,
+   "1e-10": 1456
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 140,
+  "depth_ct": 1664,
+  "qubits": 32,
+  "gates": {
+   "h": 128,
+   "cx": 111,
+   "t": 52,
+   "tdg": 52,
+   "s": 32,
+   "sdg": 32,
+   "x": 24,
+   "rz": 13,
+   "z": 12
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 8.48534747339282e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.2819525901159787e-17
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 7.894497640785698e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 7.044063824137897e-14,
+  "block_error": 1.4412836492549233e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 1.823352575302124,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.4412836492549233e-14,
+   "max_dropped_l2": 4.113646368820543e-15,
+   "max_span_leak": 4.884981308350689e-15,
+   "op_norm_error_inner_span": null
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.537856663447064e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -9.025369622818945e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 7.440083179665056e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.032182932482783e-14,
+   "block_error": 1.505673730964281e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.8391830921173096,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.505673730964281e-14,
+    "max_dropped_l2": 4.159848627506143e-15,
+    "max_span_leak": 6.5503158452884236e-15,
+    "op_norm_error_inner_span": null
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.71562470260834e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -9.435613696583439e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 8.154897974818032e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.930475805031215e-14,
+   "block_error": 1.7851488975771236e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.829766035079956,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7851488975771236e-14,
+    "max_dropped_l2": 3.895912820422542e-15,
+    "max_span_leak": 7.66053886991358e-15,
+    "op_norm_error_inner_span": null
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: F2/F4's in-walk pair AND composes with the 5-CX clean frame and its sign pattern kappa = 2, -(-1)^{t2}, -1/2: the unique Walsh support of size <= 10 (9 terms, every pa/pb term carries t) has 10-toggle cycles with pa (or pb) toggled twice and L = pb (or pa, or z), so walk + fix = 8 + 2*3 + 1 = 15 is the floor (exhaustive over the support, both in-walk choices and all block paths); no cycle has L = {t}, so the free fix Z(t2) via b2 t2 = t2 is out of reach in this frame.",
+  "DISCOVERY: At walk time each corner's legs (X-flipped frame) are |11> (same type, bright), |00> or the singlet (|01>-|10>)/sqrt2 (diff type) and |00>, |01>, |10> (dark); separating same from diff on one qubit needs the observable (XX+YY-Z1-Z2)/2, which has operator-Schmidt rank 4, so no <= 1-CX leg map gives a type proxy and the t2 copy into the corner-2 flag ancilla (2 CX) stays.",
+  "DISCOVERY: Both pair ANDs in-walk (cycle 0, t, pa t, pa z t, pa pb z t, pa pb t, pb t, pb z t, z with pa and pb toggled twice each) costs 6 linear + 4 rccx = 18 CX but leaves the cubic residual (-1)^(b0 b2 (b1 ^ b3)) (8-CX fix rccx(b0, b2) + 2 CZ + rccx), 26 CX against 15 + 6 for one stored pair AND."
+ ],
+ "summary": "r03-F3-003 (5-CX clean corner frame, in-place bright flags, 9-term Walsh rotation of F=j_r over (pa, pb, z, t2)) with the pair AND pa = b0 & b1 never stored: in the 10-toggle Gray cycle pa toggles exactly twice, both toggles are rccx(b0, b1, F) and the straddled Margolus residual (-1)^(b0 pb) is cancelled by one CZ (walk 15 CX, storage -6): CX 111.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "3f90240",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 6.760688781738281,
+ "written_utc": "2026-11-06T15:36:10Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.3e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

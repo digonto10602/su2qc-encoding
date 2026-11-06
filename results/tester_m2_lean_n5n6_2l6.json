@@ -1,0 +1,1907 @@
+{
+ "commit": "3576705",
+ "dirty": true,
+ "machine": "12 cores, load avg up to 32 (shared)",
+ "seeds": {
+  "sha_test": 20261105,
+  "n5_shuffles": "Random(1),Random(2)",
+  "struct_tamper_shuffle": "Random(5)",
+  "numpy_checks": "default_rng(7) negative control"
+ },
+ "commands": "see reports/tests/037",
+ "acceptance_lock": "acceptance-v7",
+ "sha256": {
+  "n_messages": 618,
+  "bad": [],
+  "max_len": 5000001
+ },
+ "n5_circuit_cert_hunt": [
+  {
+   "name": "ctl_UE_unchanged",
+   "expect": "ACCEPT",
+   "lean": "ACCEPT",
+   "lean_reason": "ACCEPT",
+   "py": "certified",
+   "py_reason": "",
+   "thm": "wrote",
+   "ok": true,
+   "s": 62.1
+  },
+  {
+   "name": "ctl_UE_shuffled_term_and_state_order",
+   "expect": "ACCEPT",
+   "lean": "ACCEPT",
+   "lean_reason": "ACCEPT",
+   "py": "certified",
+   "py_reason": "",
+   "thm": "wrote",
+   "ok": true,
+   "s": 37.9
+  },
+  {
+   "name": "A1_fake_computational_basis_states",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 1 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 0.4
+  },
+  {
+   "name": "A2_fake_states_shifted_codes",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 0 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 0.4
+  },
+  {
+   "name": "A3_physical_rotated_90deg_pair",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 0 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 8.5
+  },
+  {
+   "name": "B1_swap_contents_of_states_0_1",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 0 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 8.4
+  },
+  {
+   "name": "B2_swap_k_fields_of_states_0_1",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 1 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 8.7
+  },
+  {
+   "name": "B3_reverse_all_states_renumbered",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 0 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 9.1
+  },
+  {
+   "name": "B4_random_permutation_of_all_states",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 0 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 8.3
+  },
+  {
+   "name": "C1_state5_replaced_by_copy_of_state6",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states 5 and 6 are not orthogonal",
+   "py": "rejected",
+   "py_reason": "state 5 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 9.4
+  },
+  {
+   "name": "C2_state0_sign_flipped",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 0 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 8.4
+  },
+  {
+   "name": "C2_state50_sign_flipped",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 50 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 11.6
+  },
+  {
+   "name": "C2_state200_sign_flipped",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 200 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 9.2
+  },
+  {
+   "name": "C2_state432_sign_flipped",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 432 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 18.9
+  },
+  {
+   "name": "C3_state50_times_i",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 50 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 9.4
+  },
+  {
+   "name": "C4_state7_term_deleted",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT state 7 is not normalised",
+   "py": "rejected",
+   "py_reason": "state 7 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 7.8
+  },
+  {
+   "name": "C5_zero_coefficient_term_added",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+   "py": "rejected",
+   "py_reason": "state 7 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 5.6
+  },
+  {
+   "name": "ctl_C6_term_order_rotated",
+   "expect": "ACCEPT",
+   "lean": "ACCEPT",
+   "lean_reason": "ACCEPT",
+   "py": "certified",
+   "py_reason": "",
+   "thm": "wrote",
+   "ok": true,
+   "s": 21.5
+  },
+  {
+   "name": "C7_432_states",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT certificate has 432 states, the physical subspace has 433",
+   "py": "rejected",
+   "py_reason": "certificate has 432 states, the physical basis has 433",
+   "thm": "refused",
+   "ok": true,
+   "s": 1.9
+  },
+  {
+   "name": "C8_434_states",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT certificate has 434 states, the physical subspace has 433",
+   "py": "rejected",
+   "py_reason": "certificate has 434 states, the physical basis has 433",
+   "thm": "refused",
+   "ok": true,
+   "s": 2.3
+  },
+  {
+   "name": "D1_UE_blocks_labelled_UB",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT target differs from the pinned exact UB target (SHA-256)",
+   "py": "rejected",
+   "py_reason": "target blocks differ from the exact UB target",
+   "thm": "refused",
+   "ok": true,
+   "s": 67.2
+  },
+  {
+   "name": "D2_UE_blocks_labelled_step1",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT target differs from the pinned exact step target (SHA-256)",
+   "py": "rejected",
+   "py_reason": "target blocks differ from the exact step target",
+   "thm": "refused",
+   "ok": true,
+   "s": 22.0
+  },
+  {
+   "name": "D3_UE_blocks_labelled_step2",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT base is not a multiple of the target's base",
+   "py": "rejected",
+   "py_reason": "base is not a multiple of the target's base",
+   "thm": "refused",
+   "ok": true,
+   "s": 12.8
+  },
+  {
+   "name": "D4_UB_blocks_kind_UE",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT target differs from the pinned exact UE target (SHA-256)",
+   "py": "rejected",
+   "py_reason": "target blocks differ from the exact UE target",
+   "thm": "refused",
+   "ok": true,
+   "s": 16.6
+  },
+  {
+   "name": "D5_UB_blocks_kind_UB_UE_circuit",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT target differs from the pinned exact UB target (SHA-256)",
+   "py": "rejected",
+   "py_reason": "target blocks differ from the exact UB target",
+   "thm": "refused",
+   "ok": true,
+   "s": 19.2
+  },
+  {
+   "name": "D6_unknown_kind",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT unknown target kind 'bogus' (order 1)",
+   "py": "rejected",
+   "py_reason": "malformed certificate: ValueError: unknown kind 'bogus'",
+   "thm": "refused",
+   "ok": true,
+   "s": 25.6
+  },
+  {
+   "name": "D7_no_kind",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT unknown target kind '' (order 1)",
+   "py": "rejected",
+   "py_reason": "unknown target kind '' (order 1)",
+   "thm": "wrote",
+   "ok": false,
+   "s": 35.6
+  },
+  {
+   "name": "D8_one_target_coefficient_changed",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT target differs from the pinned exact UE target (SHA-256)",
+   "py": "rejected",
+   "py_reason": "target blocks differ from the exact UE target",
+   "thm": "refused",
+   "ok": true,
+   "s": 15.8
+  },
+  {
+   "name": "D9_two_target_blocks_swapped",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT target differs from the pinned exact UE target (SHA-256)",
+   "py": "rejected",
+   "py_reason": "target blocks differ from the exact UE target",
+   "thm": "refused",
+   "ok": true,
+   "s": 23.6
+  },
+  {
+   "name": "D10_base_doubled_exponents_not_scaled",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT target exponent not divisible by the base ratio",
+   "py": "rejected",
+   "py_reason": "target blocks differ from the exact UE target",
+   "thm": "refused",
+   "ok": true,
+   "s": 15.8
+  },
+  {
+   "name": "D11_beta_base_tripled_not_scaled",
+   "expect": "REJECT",
+   "lean": "ACCEPT",
+   "lean_reason": "ACCEPT",
+   "py": "certified",
+   "py_reason": "",
+   "thm": "wrote",
+   "ok": false,
+   "s": 40.5
+  },
+  {
+   "name": "ctl_E1_legit_rescale_base_x2",
+   "expect": "ACCEPT",
+   "lean": "ACCEPT",
+   "lean_reason": "ACCEPT",
+   "py": "certified",
+   "py_reason": "",
+   "thm": "wrote",
+   "ok": true,
+   "s": 36.2
+  },
+  {
+   "name": "N6_state_coeff",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT zero denominator in 1/0",
+   "py": "rejected",
+   "py_reason": "malformed certificate: ZeroDivisionError: Fraction(1, 0)",
+   "thm": "refused",
+   "ok": true,
+   "s": 0.8
+  },
+  {
+   "name": "N6_target_coeff",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT zero denominator in 1/0",
+   "py": "rejected",
+   "py_reason": "malformed certificate: ZeroDivisionError: Fraction(1, 0)",
+   "thm": "refused",
+   "ok": true,
+   "s": 9.2
+  },
+  {
+   "name": "N6_phase",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT zero denominator in 1/0",
+   "py": "rejected",
+   "py_reason": "zero denominator in 1/0",
+   "thm": "wrote",
+   "ok": false,
+   "s": 20.1
+  },
+  {
+   "name": "N6_zero_over_zero",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT zero denominator in 0/0",
+   "py": "rejected",
+   "py_reason": "malformed certificate: ZeroDivisionError: Fraction(0, 0)",
+   "thm": "refused",
+   "ok": true,
+   "s": 0.8
+  },
+  {
+   "name": "N6_neg_denominator",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT bad rational 1/-2",
+   "py": "rejected",
+   "py_reason": "malformed certificate: ValueError: Invalid literal for Fraction: '1/-2'",
+   "thm": "refused",
+   "ok": true,
+   "s": 0.6
+  },
+  {
+   "name": "N6_spaces",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT bad rational 1 /2",
+   "py": "rejected",
+   "py_reason": "state 3 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 0.4
+  },
+  {
+   "name": "N6_double_slash",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT bad rational 1/2/3",
+   "py": "rejected",
+   "py_reason": "malformed certificate: ValueError: Invalid literal for Fraction: '1/2/3'",
+   "thm": "refused",
+   "ok": true,
+   "s": 0.5
+  },
+  {
+   "name": "N6_empty_string",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT bad rational",
+   "py": "rejected",
+   "py_reason": "malformed certificate: ValueError: Invalid literal for Fraction: ''",
+   "thm": "refused",
+   "ok": true,
+   "s": 0.8
+  },
+  {
+   "name": "N6_float_number",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT String expected",
+   "py": "rejected",
+   "py_reason": "state 3 differs from the exact physical basis",
+   "thm": "refused",
+   "ok": true,
+   "s": 0.7
+  },
+  {
+   "name": "N6_huge_exp_gate",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT state 164 differs from the target",
+   "py": "rejected",
+   "py_reason": "state 164 differs from the target",
+   "thm": "wrote",
+   "ok": false,
+   "s": 18.9
+  },
+  {
+   "name": "N6_base_zero",
+   "expect": "REJECT",
+   "lean": "REJECT",
+   "lean_reason": "REJECT target exponent not divisible by the base ratio",
+   "py": "rejected",
+   "py_reason": "target blocks differ from the exact UE target",
+   "thm": "refused",
+   "ok": true,
+   "s": 15.6
+  },
+  {
+   "name": "N6_base_zero_beta",
+   "expect": "REJECT",
+   "lean": "ACCEPT",
+   "lean_reason": "ACCEPT",
+   "py": "certified",
+   "py_reason": "",
+   "thm": "wrote",
+   "ok": false,
+   "s": 18.5
+  }
+ ],
+ "structure_tamper_hunt": [
+  {
+   "name": "ctl_unchanged",
+   "expect": "ACCEPT",
+   "got": "ACCEPT",
+   "ok": true,
+   "reason": "ACCEPT",
+   "rc": 0,
+   "err": "",
+   "s": 86.7
+  },
+  {
+   "name": "ctl_states_list_shuffled_k_kept",
+   "expect": "ACCEPT",
+   "got": "ACCEPT",
+   "ok": true,
+   "reason": "ACCEPT",
+   "rc": 0,
+   "err": "",
+   "s": 87.6
+  },
+  {
+   "name": "K1_bright_coupling_2_to_1_everywhere",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT H_B[0,352] differs from D K_inner D inside an outer block",
+   "rc": 1,
+   "err": "",
+   "s": 38.6
+  },
+  {
+   "name": "K2_bright_coupling_2_to_1_kinner_only",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT H_B[0,352] differs from D K_inner D inside an outer block",
+   "rc": 1,
+   "err": "",
+   "s": 47.3
+  },
+  {
+   "name": "K3_bright_coupling_half_to_1_everywhere",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT H_B[88,204] differs from D K_inner D inside an outer block",
+   "rc": 1,
+   "err": "",
+   "s": 48.5
+  },
+  {
+   "name": "K4_kinner_asymmetric_one_entry",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT H_B[0,352] differs from D K_inner D inside an outer block",
+   "rc": 1,
+   "err": "",
+   "s": 48.0
+  },
+  {
+   "name": "K5_sign_flip_bright_entry_both",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT H_B[74,223] differs from D K_inner D inside an outer block",
+   "rc": 1,
+   "err": "",
+   "s": 47.2
+  },
+  {
+   "name": "K6_dark_rows_4_8_made_bright_consistently",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT K_inner does not conserve J_c",
+   "rc": 1,
+   "err": "",
+   "s": 40.1
+  },
+  {
+   "name": "K7_dark_rows_4_8_made_bright_kinner_only",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT K_inner has entries outside the bright pairs",
+   "rc": 1,
+   "err": "",
+   "s": 42.4
+  },
+  {
+   "name": "K8_dark_row_removed_from_list",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT bright pairs and dark rows do not partition the inner labels",
+   "rc": 1,
+   "err": "",
+   "s": 42.6
+  },
+  {
+   "name": "K9_bright_row_listed_dark",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT a dark row of K_inner is not zero",
+   "rc": 1,
+   "err": "",
+   "s": 47.3
+  },
+  {
+   "name": "K10_bright_pair_dropped",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT K_inner has entries outside the bright pairs",
+   "rc": 1,
+   "err": "",
+   "s": 49.9
+  },
+  {
+   "name": "K11_bright_pair_duplicated",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT K_inner has entries outside the bright pairs",
+   "rc": 1,
+   "err": "",
+   "s": 48.9
+  },
+  {
+   "name": "K12_bright_pair_indices_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT a bright pair does not match K_inner",
+   "rc": 1,
+   "err": "",
+   "s": 46.7
+  },
+  {
+   "name": "K13_dark_row_duplicated",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT bright pairs and dark rows do not partition the inner labels",
+   "rc": 1,
+   "err": "",
+   "s": 41.0
+  },
+  {
+   "name": "K14_gauge_flip_one_state",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT H_B[1,353] differs from D K_inner D inside an outer block",
+   "rc": 1,
+   "err": "",
+   "s": 42.2
+  },
+  {
+   "name": "K15_gauge_zero",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT gauge must be +-1 on every state",
+   "rc": 1,
+   "err": "",
+   "s": 33.6
+  },
+  {
+   "name": "K16_gauge_flip_all_ctl",
+   "expect": "ACCEPT",
+   "got": "ACCEPT",
+   "ok": true,
+   "reason": "ACCEPT",
+   "rc": 0,
+   "err": "",
+   "s": 56.5
+  },
+  {
+   "name": "S1_mult_-2_16_to_17",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT spectrum multiplicities differ: recomputed [(-2, 16), (-1, 96), (-1/2, 16), (0, 177), (1/2, 16), (1, 96), (2, 16)]",
+   "rc": 1,
+   "err": "",
+   "s": 48.2
+  },
+  {
+   "name": "S2_mult_0_177_to_176_and_half_16_to_17",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT spectrum multiplicities differ: recomputed [(-2, 16), (-1, 96), (-1/2, 16), (0, 177), (1/2, 16), (1, 96), (2, 16)]",
+   "rc": 1,
+   "err": "",
+   "s": 42.2
+  },
+  {
+   "name": "S3_mult_swap_-1_and_1_ctl",
+   "expect": "ACCEPT",
+   "got": "ACCEPT",
+   "ok": true,
+   "reason": "ACCEPT",
+   "rc": 0,
+   "err": "",
+   "s": 51.1
+  },
+  {
+   "name": "S4_two_mults_swapped_96_16",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT spectrum multiplicities differ: recomputed [(-2, 16), (-1, 96), (-1/2, 16), (0, 177), (1/2, 16), (1, 96), (2, 16)]",
+   "rc": 1,
+   "err": "",
+   "s": 40.7
+  },
+  {
+   "name": "S5_eigenvalue_label_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT spectrum multiplicities differ: recomputed [(-2, 16), (-1, 96), (-1/2, 16), (0, 177), (1/2, 16), (1, 96), (2, 16)]",
+   "rc": 1,
+   "err": "",
+   "s": 38.8
+  },
+  {
+   "name": "S6_entry_dropped",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT spectrum multiplicities differ: recomputed [(-2, 16), (-1, 96), (-1/2, 16), (0, 177), (1/2, 16), (1, 96), (2, 16)]",
+   "rc": 1,
+   "err": "",
+   "s": 38.2
+  },
+  {
+   "name": "S7_mult_+2_16_to_15",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT spectrum multiplicities differ: recomputed [(-2, 16), (-1, 96), (-1/2, 16), (0, 177), (1/2, 16), (1, 96), (2, 16)]",
+   "rc": 1,
+   "err": "",
+   "s": 38.8
+  },
+  {
+   "name": "Y1_identity_sign_flip_one",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT symmetry identity does not commute with H_B",
+   "rc": 1,
+   "err": "",
+   "s": 52.7
+  },
+  {
+   "name": "Y2_C4_sign_flip_one",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT symmetry C4 does not commute with H_B",
+   "rc": 1,
+   "err": "",
+   "s": 54.4
+  },
+  {
+   "name": "Y3_C4_perm_two_entries_swapped",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT symmetry C4 does not commute with H_B",
+   "rc": 1,
+   "err": "",
+   "s": 55.4
+  },
+  {
+   "name": "Y4_reflect_x_perm_duplicate_entry",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT symmetry reflect_x: not a signed permutation",
+   "rc": 1,
+   "err": "",
+   "s": 57.7
+  },
+  {
+   "name": "Y5_reflect_x_sign_zero",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT symmetry reflect_x: not a signed permutation",
+   "rc": 1,
+   "err": "",
+   "s": 52.4
+  },
+  {
+   "name": "Y6_reflect_diag_perm_truncated",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT symmetry reflect_diag: not a signed permutation",
+   "rc": 1,
+   "err": "",
+   "s": 52.7
+  },
+  {
+   "name": "Y7_cc_replaced_by_non_symmetry_swap",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT symmetry cc does not commute with H_B",
+   "rc": 1,
+   "err": "",
+   "s": 51.5
+  },
+  {
+   "name": "Y8_C4^2_perm_out_of_range",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT symmetry C4^2: not a signed permutation",
+   "rc": 1,
+   "err": "",
+   "s": 47.7
+  },
+  {
+   "name": "Y9_identity_sign_flip_on_bright_state",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT symmetry identity does not commute with H_B",
+   "rc": 1,
+   "err": "",
+   "s": 47.9
+  },
+  {
+   "name": "G1_one_term_sign_flipped_in_multi_term_state",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 1: Gauss law fails at corner 3",
+   "rc": 1,
+   "err": "",
+   "s": 3.7
+  },
+  {
+   "name": "G2_one_term_code_digit_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 1: Gauss law fails at corner 3",
+   "rc": 1,
+   "err": "",
+   "s": 3.8
+  },
+  {
+   "name": "G3_one_term_deleted",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 1 is not normalised",
+   "rc": 1,
+   "err": "",
+   "s": 4.0
+  },
+  {
+   "name": "G4_state_replaced_by_copy_of_other",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT states 5 and 6 are not orthogonal",
+   "rc": 1,
+   "err": "",
+   "s": 3.4
+  },
+  {
+   "name": "G5_state_removed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT expected 433 states, found 432",
+   "rc": 1,
+   "err": "",
+   "s": 0.7
+  },
+  {
+   "name": "G6_state_coefficient_scaled",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 1 is not normalised",
+   "rc": 1,
+   "err": "",
+   "s": 3.5
+  },
+  {
+   "name": "G7_state1_replaced_by_non_gauss_basis_vector",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 1: link spins differ from its label",
+   "rc": 1,
+   "err": "",
+   "s": 4.0
+  },
+  {
+   "name": "G8_state1_digit0_m_shifted",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 1: link spins differ from its label",
+   "rc": 1,
+   "err": "",
+   "s": 3.3
+  },
+  {
+   "name": "L1_label_J2_corner0_wrong",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 1: inner-pair spin at corner 0 differs from its label",
+   "rc": 1,
+   "err": "",
+   "s": 9.2
+  },
+  {
+   "name": "L2_label_j2_link_wrong",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 3: link spins differ from its label",
+   "rc": 1,
+   "err": "",
+   "s": 4.2
+  },
+  {
+   "name": "L3_label_J2_corner3_wrong_other_state",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 200: inner-pair spin at corner 3 differs from its label",
+   "rc": 1,
+   "err": "",
+   "s": 12.6
+  },
+  {
+   "name": "L4_inner_label_list_entry_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 72: inner label is not in the list",
+   "rc": 1,
+   "err": "",
+   "s": 21.0
+  },
+  {
+   "name": "L5_inner_label_removed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 432: inner label is not in the list",
+   "rc": 1,
+   "err": "",
+   "s": 20.8
+  },
+  {
+   "name": "O1_3153_to_3152",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT outer support differs: 3153 patterns, max 17 states",
+   "rc": 1,
+   "err": "",
+   "s": 43.8
+  },
+  {
+   "name": "O2_max_17_to_16",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT outer support differs: 3153 patterns, max 17 states",
+   "rc": 1,
+   "err": "",
+   "s": 42.2
+  },
+  {
+   "name": "O3_max_17_to_18",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT outer support differs: 3153 patterns, max 17 states",
+   "rc": 1,
+   "err": "",
+   "s": 39.5
+  },
+  {
+   "name": "O4_max_17_to_9_dimS_histogram_confusion",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT outer support differs: 3153 patterns, max 17 states",
+   "rc": 1,
+   "err": "",
+   "s": 42.2
+  },
+  {
+   "name": "I1_edges_128_to_127",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT inner operator has 128 edges, claimed 127",
+   "rc": 1,
+   "err": "",
+   "s": 41.6
+  },
+  {
+   "name": "I2_edge_modulus_half_to_one",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT edge moduli of the inner operator differ from the claim",
+   "rc": 1,
+   "err": "",
+   "s": 38.4
+  },
+  {
+   "name": "I3_edge_moduli_extra_value",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT edge moduli of the inner operator differ from the claim",
+   "rc": 1,
+   "err": "",
+   "s": 42.8
+  },
+  {
+   "name": "I4_component_17_to_16",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT component sizes of the inner operator differ: [(17, 1), (5, 16), (4, 8), (1, 464), (2, 16)]",
+   "rc": 1,
+   "err": "",
+   "s": 39.6
+  },
+  {
+   "name": "I5_component_count_464_to_465",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT component sizes of the inner operator differ: [(17, 1), (5, 16), (4, 8), (1, 464), (2, 16)]",
+   "rc": 1,
+   "err": "",
+   "s": 39.5
+  },
+  {
+   "name": "I6_spectrum_543_to_542_plus_24_to_25",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT inner operator spectrum differs: [(-2, 1), (-1, 24), (-1/2, 16), (0, 543), (1/2, 16), (1, 24), (2, 1)]",
+   "rc": 1,
+   "err": "",
+   "s": 41.4
+  },
+  {
+   "name": "I7_spectrum_plus2_1_to_2",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT inner operator spectrum differs: [(-2, 1), (-1, 24), (-1/2, 16), (0, 543), (1/2, 16), (1, 24), (2, 1)]",
+   "rc": 1,
+   "err": "",
+   "s": 38.1
+  },
+  {
+   "name": "I8_u_paulo_entry_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT Paulo's link operators are not V U V^T",
+   "rc": 1,
+   "err": "",
+   "s": 5.4
+  },
+  {
+   "name": "I9_v_paulo_sign_flip",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT Paulo's link operators are not V U V^T",
+   "rc": 1,
+   "err": "",
+   "s": 6.4
+  },
+  {
+   "name": "I10_v_paulo_not_perm",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT the Paulo adapter is not a signed permutation matrix",
+   "rc": 1,
+   "err": "",
+   "s": 3.1
+  },
+  {
+   "name": "C1_corner_dim_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT corner 0: Casimir kernel dimension differs from the claim",
+   "rc": 1,
+   "err": "",
+   "s": 26.8
+  },
+  {
+   "name": "C2_corner_dim_zero_to_one",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT corner 0: Casimir kernel dimension differs from the claim",
+   "rc": 1,
+   "err": "",
+   "s": 20.5
+  },
+  {
+   "name": "C3_corner_dim_dropped",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT corner kernel dimensions give 315 states, not 433",
+   "rc": 1,
+   "err": "",
+   "s": 20.3
+  },
+  {
+   "name": "C4_corner_role_flipped",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 164: Gauss law fails at corner 0",
+   "rc": 1,
+   "err": "",
+   "s": 1.8
+  },
+  {
+   "name": "C5_corner_link_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT state 2: Gauss law fails at corner 1",
+   "rc": 1,
+   "err": "",
+   "s": 1.7
+  },
+  {
+   "name": "A1_u_link_entry_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT link operators are not covariant: [L_a,U_ij] = -(T_a U)_ij or [R_a,U_ij] = (U T_a)_ij fails",
+   "rc": 1,
+   "err": "",
+   "s": 1.3
+  },
+  {
+   "name": "A2_gens_L_entry_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT left generators do not satisfy the su(2) relations",
+   "rc": 1,
+   "err": "",
+   "s": 1.3
+  },
+  {
+   "name": "A3_gens_R_entry_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT right generators do not satisfy the su(2) relations",
+   "rc": 1,
+   "err": "",
+   "s": 1.3
+  },
+  {
+   "name": "A4_spin_half_entry_changed",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT spin-1/2 matrices do not satisfy [S_x,S_y] = i S_z",
+   "rc": 1,
+   "err": "",
+   "s": 1.4
+  },
+  {
+   "name": "A5_schema_wrong",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT unknown schema su2plaq-structure-2",
+   "rc": 1,
+   "err": "",
+   "s": 0.1
+  },
+  {
+   "name": "A6_missing_field",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT property not found: inner625",
+   "rc": 1,
+   "err": "",
+   "s": 0.2
+  },
+  {
+   "name": "N6_zero_denominator_in_state",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT zero denominator in 1/0",
+   "rc": 1,
+   "err": "",
+   "s": 0.3
+  },
+  {
+   "name": "N6_zero_denominator_in_u_link",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT zero denominator in 3/0",
+   "rc": 1,
+   "err": "",
+   "s": 0.3
+  },
+  {
+   "name": "N6_zero_denominator_in_k_inner",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT zero denominator in 2/0",
+   "rc": 1,
+   "err": "",
+   "s": 0.3
+  },
+  {
+   "name": "N6_zero_denominator_in_spectrum",
+   "expect": "REJECT",
+   "got": "REJECT",
+   "ok": true,
+   "reason": "REJECT zero denominator in 1/0",
+   "rc": 1,
+   "err": "",
+   "s": 0.2
+  }
+ ],
+ "independent_numpy": {
+  "inner625": {
+   "n_edges": 128,
+   "n_diag": 0,
+   "edge_moduli": [
+    0.5
+   ],
+   "component_sizes": [
+    [
+     1,
+     464
+    ],
+    [
+     2,
+     16
+    ],
+    [
+     4,
+     8
+    ],
+    [
+     5,
+     16
+    ],
+    [
+     17,
+     1
+    ]
+   ],
+   "spectrum": {
+    "-2": 1,
+    "-1": 24,
+    "-0.5": 16,
+    "0": 543,
+    "0.5": 16,
+    "1": 24,
+    "2": 1
+   },
+   "hermitian_err": 0.0,
+   "n_eig_outside": 0
+  },
+  "inner625_matches_cert": true,
+  "HB_spectrum": {
+   "-2": 16,
+   "-1": 96,
+   "-0.5": 16,
+   "0": 177,
+   "0.5": 16,
+   "1": 96,
+   "2": 16
+  },
+  "labels_match_project": true,
+  "symmetries": [
+   {
+    "name": "identity",
+    "res_HB": 0.0,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": true
+   },
+   {
+    "name": "cc",
+    "res_HB": 0.0,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": true
+   },
+   {
+    "name": "C4",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     1,
+     2,
+     3,
+     0,
+     7,
+     6,
+     9,
+     8,
+     11,
+     10,
+     5,
+     4
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "C4*cc",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     1,
+     2,
+     3,
+     0,
+     7,
+     6,
+     9,
+     8,
+     11,
+     10,
+     5,
+     4
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "C4^2",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     2,
+     3,
+     0,
+     1,
+     8,
+     9,
+     10,
+     11,
+     4,
+     5,
+     6,
+     7
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "C4^2*cc",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     2,
+     3,
+     0,
+     1,
+     8,
+     9,
+     10,
+     11,
+     4,
+     5,
+     6,
+     7
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "C4^3",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     3,
+     0,
+     1,
+     2,
+     11,
+     10,
+     5,
+     4,
+     7,
+     6,
+     9,
+     8
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "C4^3*cc",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     3,
+     0,
+     1,
+     2,
+     11,
+     10,
+     5,
+     4,
+     7,
+     6,
+     9,
+     8
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "reflect_x",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     0,
+     3,
+     2,
+     1,
+     6,
+     7,
+     4,
+     5,
+     10,
+     11,
+     8,
+     9
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "reflect_x*cc",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     0,
+     3,
+     2,
+     1,
+     6,
+     7,
+     4,
+     5,
+     10,
+     11,
+     8,
+     9
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "reflect_y",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     2,
+     1,
+     0,
+     3,
+     10,
+     11,
+     8,
+     9,
+     6,
+     7,
+     4,
+     5
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "reflect_y*cc",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     2,
+     1,
+     0,
+     3,
+     10,
+     11,
+     8,
+     9,
+     6,
+     7,
+     4,
+     5
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "reflect_diag",
+    "res_HB": 2.7755575615628914e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     3,
+     2,
+     1,
+     0,
+     5,
+     4,
+     11,
+     10,
+     9,
+     8,
+     7,
+     6
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "reflect_diag*cc",
+    "res_HB": 2.7755575615628914e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     3,
+     2,
+     1,
+     0,
+     5,
+     4,
+     11,
+     10,
+     9,
+     8,
+     7,
+     6
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "reflect_antidiag",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     1,
+     0,
+     3,
+     2,
+     9,
+     8,
+     7,
+     6,
+     5,
+     4,
+     11,
+     10
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   },
+   {
+    "name": "reflect_antidiag*cc",
+    "res_HB": 8.881784197001252e-16,
+    "res_HE": 0.0,
+    "res_HEouter": 0.0,
+    "unitary_err": 0.0,
+    "link_perm": [
+     1,
+     0,
+     3,
+     2,
+     9,
+     8,
+     7,
+     6,
+     5,
+     4,
+     11,
+     10
+    ],
+    "link_perm_is_perm": true,
+    "maps_corner_structure": true,
+    "perm_is_identity": false
+   }
+  ],
+  "distinct_signed_perms": [
+   [
+    "identity",
+    "cc"
+   ],
+   [
+    "C4",
+    "C4*cc"
+   ],
+   [
+    "C4^2",
+    "C4^2*cc"
+   ],
+   [
+    "C4^3",
+    "C4^3*cc"
+   ],
+   [
+    "reflect_x",
+    "reflect_x*cc"
+   ],
+   [
+    "reflect_y",
+    "reflect_y*cc"
+   ],
+   [
+    "reflect_diag",
+    "reflect_diag*cc"
+   ],
+   [
+    "reflect_antidiag",
+    "reflect_antidiag*cc"
+   ]
+  ],
+  "closed_under_composition": false,
+  "negctl_sign_flip_res": 3.999999999999999,
+  "negctl_swap_res": 2.0000000000000004,
+  "outer": {
+   "n_keys": 3153,
+   "max_states": 17,
+   "hist_states_per_outer": [
+    [
+     1,
+     976
+    ],
+    [
+     2,
+     1073
+    ],
+    [
+     3,
+     392
+    ],
+    [
+     4,
+     320
+    ],
+    [
+     5,
+     280
+    ],
+    [
+     8,
+     64
+    ],
+    [
+     9,
+     32
+    ],
+    [
+     17,
+     16
+    ]
+   ],
+   "hist_dim_S_o_nonzero": [
+    [
+     1,
+     976
+    ],
+    [
+     2,
+     1073
+    ],
+    [
+     3,
+     392
+    ],
+    [
+     4,
+     320
+    ],
+    [
+     5,
+     280
+    ],
+    [
+     8,
+     64
+    ],
+    [
+     9,
+     32
+    ],
+    [
+     17,
+     16
+    ]
+   ],
+   "n_dim_S_o_nonzero": 3153
+  }
+ },
+ "structure_json_check": {
+  "disk_checker_sha_matches_current_binary": true,
+  "schema_errors": [],
+  "fact_names": [
+   "card_physical",
+   "card_link_patterns",
+   "card_two_or_more",
+   "card_closed",
+   "far_end_weighted",
+   "card_supported_outer",
+   "max_states_per_outer",
+   "dont_care_codes",
+   "spectrum_multiplicities",
+   "k_inner_bright_pairs",
+   "k_inner_dark_rows",
+   "dark_labels",
+   "inner625_components",
+   "outer_support_table"
+  ],
+  "rejected": {
+   "native_left": [],
+   "decide": [
+    "card_physical",
+    "card_link_patterns",
+    "card_two_or_more",
+    "card_closed",
+    "far_end_weighted",
+    "card_supported_outer",
+    "max_states_per_outer",
+    "dont_care_codes"
+   ],
+   "numerical": [
+    "spectrum_multiplicities",
+    "k_inner_bright_pairs",
+    "k_inner_dark_rows",
+    "dark_labels",
+    "inner625_components",
+    "outer_support_table"
+   ],
+   "prov": {
+    "status": "rejected",
+    "reason": "forced",
+    "seconds": 0.0
+   }
+  },
+  "failed": {
+   "native_left": [],
+   "decide": [
+    "card_physical",
+    "card_link_patterns",
+    "card_two_or_more",
+    "card_closed",
+    "far_end_weighted",
+    "card_supported_outer",
+    "max_states_per_outer",
+    "dont_care_codes"
+   ],
+   "numerical": [
+    "spectrum_multiplicities",
+    "k_inner_bright_pairs",
+    "k_inner_dark_rows",
+    "dark_labels",
+    "inner625_components",
+    "outer_support_table"
+   ],
+   "prov": {
+    "status": "failed",
+    "reason": "forced",
+    "seconds": 0.0
+   }
+  },
+  "structure_facts_default_proved_by_spectrum": [
+   "native"
+  ]
+ },
+ "bypass_theorem_elaboration": [
+  "A1_fake_computational_basis_states | 6 s | A1_fake_computational_basis_states.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "B1_swap_contents_of_states_0_1 | 57 s | B1_swap_contents_of_states_0_1.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "C2_state50_sign_flipped | 63 s | C2_state50_sign_flipped.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "C3_state50_times_i | 64 s | C3_state50_times_i.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "ctl_E1_legit_rescale_base_x2 | 70 s | 'bypass' depends on axioms: [propext, Classical.choice, Quot.sound, bypass._native.native_decide.ax_1_1]",
+  "ctl_UE_unchanged | 62 s | 'bypass' depends on axioms: [propext, Classical.choice, Quot.sound, bypass._native.native_decide.ax_1_1]",
+  "D11_beta_base_tripled_not_scaled | 44 s | 'bypass' depends on axioms: [propext, Classical.choice, Quot.sound, bypass._native.native_decide.ax_1_1]",
+  "D1_UE_blocks_labelled_UB | 20 s | D1_UE_blocks_labelled_UB.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "D4_UB_blocks_kind_UE | 20 s | D4_UB_blocks_kind_UE.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "D7_no_kind | 21 s | D7_no_kind.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "D8_one_target_coefficient_changed | 21 s | D8_one_target_coefficient_changed.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "N6_huge_exp_gate | 21 s | N6_huge_exp_gate.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "N6_phase | 3 s | N6_phase.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "N6_state_coeff | 2 s | N6_state_coeff.lean:10:67: error: Tactic `native_decide` evaluated that the proposition   Su2PlaqCert.checkJsonString certJson = true is false",
+  "DONE"
+ ]
+}

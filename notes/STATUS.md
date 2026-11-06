@@ -1,4 +1,5 @@
-M5 done (milestone-5, Report 5) and M5x done (milestone-5x); laptop milestone-2 bundle arrived 2026-11-06T14:12 and is fetched as laptop-master (5111d69); merge (conflict-free preview) waits for the running projection-check builder, then full suite and M6 planner.
+M5 done (milestone-5, Report 5) and M5x done (milestone-5x); laptop milestone-2 (5111d69) merged 2026-11-06T14:55; M6 next: full suite of the merge + tester check of the KS projection side task, planner for M6.
+- 2026-11-06T14:55 merged laptop master 5111d69 (tag milestone-2, bundle laptop-milestone-2-20261106-1211) with --no-ff; no conflicts; our STATUS kept; LOCK.json regenerated with tools/lock.py (identical to the auto-merged one, LOCK OK); laptop acceptance-v7 fetched as tag laptop-acceptance-v7 (name clash with ours).
 - 2026-11-06T14:20 side task (Digonto): rishon→KS projection check of the full step circuit; builder running (scripts/rx_ks_projection.py → results/rishon/ks_projection.json), tester next.
 
 # Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)

@@ -1,0 +1,189 @@
+{
+ "id": "r01-F1-001",
+ "program_path": "compress/programs/twelve/F1/001-involution-frame.py",
+ "program_sha256": "5c992a210da8741297edd446981a7a69103ba9657a8848cf8a59d607fa7dd7cd",
+ "parent": null,
+ "family": "F1",
+ "round": 1,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  146,
+  754,
+  1168,
+  36
+ ],
+ "cell": [
+  57,
+  76
+ ],
+ "metrics_raw": {
+  "cx": 146,
+  "t_fixed": 128,
+  "n_rot": 10,
+  "t_eps": 754,
+  "t_estimate": {
+   "1e-06": 725.9470570797253,
+   "1e-10": 1124.5784284662086
+  },
+  "t_measured": {
+   "1e-06": 754,
+   "1e-10": 1170
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 106,
+  "depth_ct": 1168,
+  "qubits": 36,
+  "gates": {
+   "cx": 146,
+   "h": 90,
+   "t": 64,
+   "tdg": 64,
+   "x": 38,
+   "s": 16,
+   "sdg": 16,
+   "rz": 10,
+   "z": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.0528275501162772e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -6.563905180231933e-17
+  ],
+  "outer_bits_read": 8,
+  "n_blocks": 256,
+  "gauss_residual": 7.996303780726207e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 9.385249808647043e-14,
+  "block_error": 1.1430256925157293e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 80.83851933479309,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.1430256925157293e-14,
+   "max_dropped_l2": 5.469344307451826e-15,
+   "max_span_leak": 3.1086244689504383e-15,
+   "op_norm_error_inner_span": null
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.055497086642111e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -7.384393327760925e-17
+   ],
+   "outer_bits_read": 8,
+   "n_blocks": 256,
+   "gauss_residual": 8.104668180292734e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 9.399319421894479e-14,
+   "block_error": 1.1556514445266312e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 78.49178051948547,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.1556514445266312e-14,
+    "max_dropped_l2": 4.828447668672234e-15,
+    "max_span_leak": 3.219646771412954e-15,
+    "op_norm_error_inner_span": null
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.0999473159912439e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.1076589991641398e-16
+   ],
+   "outer_bits_read": 8,
+   "n_blocks": 256,
+   "gauss_residual": 8.183924561510609e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 9.74936660879703e-14,
+   "block_error": 1.2501065511154081e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 79.23285174369812,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.2501065511154081e-14,
+    "max_dropped_l2": 5.451605587996366e-15,
+    "max_span_leak": 4.884981308350689e-15,
+    "op_norm_error_inner_span": null
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: After the per-link relabel (legs ^= j on corners 0,2 legs; q0 ^= j_b, q9 ^= j_l for corners 1,3) the corner frame C0 = H_A CX_AB CH_BA CX_AB maps (vac, bond) to Z_A-partners with B=0, and CH(t->A) C0 does the same for the diff pair: the same-vs-diff frames differ by one t-controlled Hadamard (anticommuting partner involutions), so the frame costs 4 CX per corner.",
+  "DISCOVERY: The pair-relation sign of the frame differs from the true coupling sign only on the n1=2 patterns t=(001),(110) (u=t0^t1=0, v=t1^t2=1); folding that sign into the angle gives a 6-term Walsh multiplexer on (g, z, t1, u) with no constant term (8 CX).",
+  "DISCOVERY: A leg-only (outer-linear) marker cannot flag all dark corners: vac and one parallel triplet share the leg code, so each corner needs one AND of its two outer m bits (literal pattern (1,1) for corners 0,2, (1,0)/(0,1) for corners 1,3)."
+ ],
+ "summary": "F1 involution frame: per-corner frame CH(t->A).H_A.CX.CH.CX (4 CX) turns every bright pair into X_F (x) prod_c Z_{A_c}; dark flag from the frame marker B_c gated by t_c-bar plus one outer m-AND per corner (reads only the 8 outer m bits); one 6-term multiplexed Rz on F (gzu/t flags).",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "84a20af",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 241.5307581424713,
+ "written_utc": "2026-11-06T10:40:40Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9.999999999999999e-06
+ },
+ "lean": null,
+ "mode": "full"
+}

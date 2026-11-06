@@ -1,0 +1,377 @@
+{
+ "seed": 20261105,
+ "random_sequences": {
+  "trials": 300,
+  "insert_ok": 3456,
+  "refused": 2705,
+  "elite_mismatch": 0,
+  "best_mismatch": 0,
+  "fam_mismatch": 0,
+  "changed_on_refusal": 0,
+  "roundtrip_mismatch": 0,
+  "bytes_unstable_entries": 0,
+  "ties": 0
+ },
+ "index_bytes_identical_across_saves": false,
+ "index_equal_except_timestamp": true,
+ "insert_probes": {
+  "control_valid_entry(expect True)": [
+   true,
+   null,
+   1
+  ],
+  "trial_mode": [
+   false,
+   "mode 'trial' is not 'full'",
+   0
+  ],
+  "skeleton_equal_False": [
+   false,
+   "skeleton differs between the angle pairs",
+   0
+  ],
+  "verdict_nominal_not_ok": [
+   false,
+   "nominal verdict empty, not ok, or not certified",
+   0
+  ],
+  "verdict_nominal_ok_not_certified": [
+   false,
+   "nominal verdict empty, not ok, or not certified",
+   0
+  ],
+  "verdict_nominal_empty": [
+   false,
+   "nominal verdict empty, not ok, or not certified",
+   0
+  ],
+  "verdict_nominal_ok_without_certified_field": [
+   true,
+   null,
+   1
+  ],
+  "alt_not_ok": [
+   false,
+   "an alternate-angle verdict is empty, not ok, or not certified",
+   0
+  ],
+  "alt_not_certified": [
+   false,
+   "an alternate-angle verdict is empty, not ok, or not certified",
+   0
+  ],
+  "alt_empty_dict": [
+   false,
+   "an alternate-angle verdict is empty, not ok, or not certified",
+   0
+  ],
+  "alt_count_0_with_n_alt2": [
+   false,
+   "expected 2 alternate-angle verdicts, got 0",
+   0
+  ],
+  "alt_count_1_with_n_alt2": [
+   false,
+   "expected 2 alternate-angle verdicts, got 1",
+   0
+  ],
+  "alt_count_3_with_n_alt2": [
+   false,
+   "expected 2 alternate-angle verdicts, got 3",
+   0
+  ],
+  "alt_count_0_with_n_alt0(default)": [
+   true,
+   null,
+   1
+  ],
+  "cell_inconsistent_with_key": [
+   false,
+   "key / cell do not match the metrics",
+   0
+  ],
+  "key_inconsistent_with_metrics(lower key)": [
+   false,
+   "key / cell do not match the metrics",
+   0
+  ],
+  "metrics_missing_field": [
+   false,
+   "metrics incomplete",
+   0
+  ],
+  "metrics_empty": [
+   false,
+   "metrics incomplete",
+   0
+  ],
+  "metrics_string_values": [
+   false,
+   "metrics not numeric or not finite",
+   0
+  ],
+  "metrics_negative": [
+   false,
+   "metrics not numeric or not finite",
+   0
+  ],
+  "metrics_bool": [
+   false,
+   "key not finite",
+   0
+  ],
+  "key_with_numpy_int64": [
+   true,
+   null,
+   1
+  ],
+  "numpy_metrics_and_key": [
+   true,
+   null,
+   1
+  ],
+  "id='../../../escape'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id='r01-F1-001/../../x'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id='r01-F1-0 01'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id=''": [
+   false,
+   "bad id",
+   0
+  ],
+  "id='r01-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id='/abs/path'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id='r01-F1-001\\n'": [
+   true,
+   null,
+   1
+  ],
+  "id='R01-F1-001'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id='r01..F1'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id='r1-F1-001'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id='r01-F1-001.json'": [
+   true,
+   null,
+   1
+  ],
+  "id='..'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id='r01-F1-001\\x00x'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id='r01-\u00e9'": [
+   false,
+   "bad id",
+   0
+  ],
+  "id_non_str": [
+   false,
+   "bad id",
+   0
+  ]
+ },
+ "path_traversal_save_via_private_dict": "raises ValueError: entry '../../../escape' no longer satisfies the archive rules (bad id)",
+ "save_of_mutated_entry": "raises ValueError",
+ "save_after_inplace_mutation": "raises ValueError",
+ "load_attacks": {
+  "control_unmodified": {
+   "loaded": [
+    "r01-F1-001"
+   ],
+   "best": "r01-F1-001",
+   "rejected": []
+  },
+  "valid_false": {
+   "loaded": [],
+   "best": null,
+   "rejected": [
+    [
+     "r01-F1-001.json",
+     "not valid"
+    ]
+   ]
+  },
+  "forged_better_key_only": {
+   "loaded": [],
+   "best": null,
+   "rejected": [
+    [
+     "r01-F1-001.json",
+     "key / cell do not match the metrics"
+    ]
+   ]
+  },
+  "new_file_fully_consistent_forgery(expected accepted: files are not authenticated)": {
+   "loaded": [
+    "r01-F1-001",
+    "r99-F1-777"
+   ],
+   "best": "r99-F1-777",
+   "rejected": []
+  },
+  "file_name_not_id": {
+   "loaded": [],
+   "best": null,
+   "rejected": [
+    [
+     "r01-F1-001.json",
+     "file name does not match the entry id"
+    ]
+   ]
+  },
+  "trial_mode_file": {
+   "loaded": [],
+   "best": null,
+   "rejected": [
+    [
+     "r01-F1-001.json",
+     "mode 'trial' is not 'full'"
+    ]
+   ]
+  },
+  "alt_removed_n_alt2": {
+   "loaded": [],
+   "best": null,
+   "rejected": [
+    [
+     "r01-F1-001.json",
+     "expected 2 alternate-angle verdicts, got 0"
+    ]
+   ]
+  },
+  "alt_removed_n_alt0_default": {
+   "loaded": [
+    "r01-F1-001"
+   ],
+   "best": "r01-F1-001",
+   "rejected": []
+  },
+  "verdict_flipped": {
+   "loaded": [],
+   "best": null,
+   "rejected": [
+    [
+     "r01-F1-001.json",
+     "nominal verdict empty, not ok, or not certified"
+    ]
+   ]
+  },
+  "garbage_file": {
+   "loaded": [],
+   "best": null,
+   "rejected": [
+    [
+     "r01-F1-001.json",
+     "unreadable entry (JSONDecodeError: Expecting value"
+    ]
+   ]
+  },
+  "missing_field": {
+   "loaded": [],
+   "best": null,
+   "rejected": [
+    [
+     "r01-F1-001.json",
+     "unreadable entry (TypeError: Entry.__init__() miss"
+    ]
+   ]
+  },
+  "id_with_traversal_inside_file": {
+   "loaded": [],
+   "best": null,
+   "rejected": [
+    [
+     "r01-F1-001.json",
+     "file name does not match the entry id"
+    ]
+   ]
+  },
+  "metrics_changed_key_not": {
+   "loaded": [],
+   "best": null,
+   "rejected": [
+    [
+     "r01-F1-001.json",
+     "key / cell do not match the metrics"
+    ]
+   ]
+  }
+ },
+ "atomic": {
+  "cases": 16,
+  "killed": 16,
+  "bad": 0,
+  "detail_first": [
+   {
+    "mode": "kill_in_write",
+    "k": 1,
+    "killed": true,
+    "index_parses": true,
+    "partial_final_files": [],
+    "load_ok": true,
+    "n_loaded": 6,
+    "index_n": 6,
+    "index_unchanged": true
+   },
+   {
+    "mode": "kill_in_write",
+    "k": 2,
+    "killed": true,
+    "index_parses": true,
+    "partial_final_files": [],
+    "load_ok": true,
+    "n_loaded": 6,
+    "index_n": 6,
+    "index_unchanged": true
+   },
+   {
+    "mode": "kill_in_write",
+    "k": 3,
+    "killed": true,
+    "index_parses": true,
+    "partial_final_files": [],
+    "load_ok": true,
+    "n_loaded": 6,
+    "index_n": 6,
+    "index_unchanged": true
+   }
+  ],
+  "index_vs_entries_inconsistent_after_kill": 2
+ }
+}

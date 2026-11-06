@@ -102,7 +102,9 @@ class TaskSpec:
             if f.get("proved_by") == "numerical":
                 continue
             ref = f.get("theorem") or f.get("certificate")
-            lines.append(f"- `{f['name']}` = {f['value']} (proved by {f['proved_by']}{', ' + str(ref) if ref else ''})")
+            note = f.get("note")
+            lines.append(f"- `{f['name']}` = {f['value']} (proved by {f['proved_by']}{', ' + str(ref) if ref else ''})"
+                         + (f" -- {note}" if note else ""))
         body = "\n".join(lines) if lines else "(no machine-proved facts recorded)"
         return head + ("Machine-checked facts about the problem (Lean 4); the numerical evaluator remains ground truth.\n\n"
                        + body + "\n")

@@ -1,4 +1,6 @@
 import Su2PlaqCert.K
+import Su2PlaqCert.Sha256
+import Su2PlaqCert.Pins
 import Su2PlaqCert.Laurent
 import Su2PlaqCert.State
 import Su2PlaqCert.Gates

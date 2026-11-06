@@ -1,0 +1,280 @@
+{
+ "round": 5,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  111,
+  912,
+  1663,
+  31
+ ],
+ "entries": [
+  "r05-F2-005",
+  "r05-F3-005",
+  "r05-F4-005"
+ ],
+ "lean_seconds": 352.125146150589,
+ "encoding": "twelve",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "d05f973",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
+  "cpu_count": 12,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T18:01:26Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "005-outer-t2-peephole",
+   "id": "r05-F2-005",
+   "family": "F2",
+   "program_sha256": "4f7fcb1eab11fc709a1e44eb0fdafe9a5f7cd9d48365aea6642cd280170cef92",
+   "program_path": "compress/programs/twelve/F2/005-outer-t2-peephole.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    111,
+    912,
+    1663,
+    31
+   ],
+   "cell": [
+    54,
+    78
+   ],
+   "metrics": {
+    "cx": 111,
+    "t_fixed": 104,
+    "n_rot": 13,
+    "t_eps": 912,
+    "t_estimate": {
+     "1e-06": 881.3311742036428,
+     "1e-10": 1399.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 912,
+     "1e-10": 1456
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 145,
+    "depth_ct": 1663,
+    "qubits": 31,
+    "gates": {
+     "h": 118,
+     "cx": 111,
+     "t": 52,
+     "tdg": 52,
+     "sdg": 36,
+     "s": 22,
+     "x": 19,
+     "rz": 13,
+     "z": 11
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.0044392193329395e-13,
+    "block_error": 1.3608476427073498e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 7.148071168125942e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "physical"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r04-F2-004",
+   "parent_known": true,
+   "git_commit": "d05f973",
+   "summary": "Parent datapath (5-CX clean corner frame, in-place flags, in-walk pa, 9-term Walsh walk, CX 111) with t2 read from the corner-2 outer j bits inside the walk (Gauss law t2 = q21 ^ q23), so corner 2's flag sits in place on q8 and the t2 copy ancilla disappears (31 qubits), plus a 1q peephole and corner-2-before-corner-1 scheduling (depth_CT 1663); no CX gain: a numerical corner-gadget search with outer m/j reads found no 7-CX corner.",
+   "lean": {
+    "status": "certified",
+    "reason": "",
+    "cert_path": "/home/digimonk/Projects/su2qc-encoding/compress/lean/certs/step-o1-ca5c0f1a907a.json",
+    "seconds": 352.1219890117645,
+    "checker_sha256": "befbd27e3ed4e8229f11320189441597e04c89c7bf7746cf93f1c55de261bfd5",
+    "theorem_path": null,
+    "axioms": []
+   },
+   "round": 5,
+   "mode": "full"
+  },
+  {
+   "label": "005-nopb-inwalk-b2b3-walk",
+   "id": "r05-F3-005",
+   "family": "F3",
+   "program_sha256": "785913dba07d46b217f49906c748026b592867cb0a9c9812ab6e240b25d6daae",
+   "program_path": "compress/programs/twelve/F3/005-nopb-inwalk-b2b3-walk.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    112,
+    1112,
+    2177,
+    31
+   ],
+   "cell": [
+    54,
+    80
+   ],
+   "metrics": {
+    "cx": 112,
+    "t_fixed": 96,
+    "n_rot": 16,
+    "t_eps": 1112,
+    "t_estimate": {
+     "1e-06": 1052.7152913275604,
+     "1e-10": 1690.5254855459339
+    },
+    "t_measured": {
+     "1e-06": 1112,
+     "1e-10": 1760
+    },
+    "synth_error_bound": 1.6e-05,
+    "depth": 135,
+    "depth_ct": 2177,
+    "qubits": 31,
+    "gates": {
+     "h": 122,
+     "cx": 112,
+     "t": 48,
+     "tdg": 48,
+     "s": 32,
+     "sdg": 32,
+     "x": 24,
+     "rz": 16,
+     "z": 13
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 8.155297748629694e-14,
+    "block_error": 1.432068726020829e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 8.783664017490233e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "physical"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r04-F3-004",
+   "parent_known": true,
+   "git_commit": "d05f973",
+   "summary": "Different datapath, no pb register: r04-F3-004's corner pipeline (5-CX clean frames, in-place flags, z, t2 copy) but the pair AND p = b2 & b3 is toggled inside the walk by rccx(b2, b3, F) while b0, b1 stay separate walk registers (b1 ^= b0 before the walk); kappa*g has a 12-term Walsh support over (p, b0, b0^b1, z, t2) once the don't-cares b_c >= t_c and the Gauss rule 'opposite diff corners leave at most one dark corner' are used; the 12-node cycle costs 14 CX + 2 rccx and its straddled Margolus residual is (-1)^(b2 t2) = Z(t2) (no fix CX): CX 112 (one above r04-F3-004's 111), 31 qubits.",
+   "lean": null,
+   "round": 5,
+   "mode": "full"
+  },
+  {
+   "label": "005-sched-heads-under-electric",
+   "id": "r05-F4-005",
+   "family": "F4",
+   "program_sha256": "43d02e768894d11d1b74dd6d8df07bfc578e0232d54c338e59c0b80b2d7a80d5",
+   "program_path": "compress/programs/twelve/F4/005-sched-heads-under-electric.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    111,
+    912,
+    1672,
+    32
+   ],
+   "cell": [
+    54,
+    78
+   ],
+   "metrics": {
+    "cx": 111,
+    "t_fixed": 104,
+    "n_rot": 13,
+    "t_eps": 912,
+    "t_estimate": {
+     "1e-06": 881.3311742036428,
+     "1e-10": 1399.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 912,
+     "1e-10": 1456
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 138,
+    "depth_ct": 1672,
+    "qubits": 32,
+    "gates": {
+     "h": 128,
+     "cx": 111,
+     "t": 52,
+     "tdg": 52,
+     "s": 32,
+     "sdg": 32,
+     "x": 24,
+     "rz": 13,
+     "z": 12
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 2.0989323625620635e-13,
+    "block_error": 1.2178989947332722e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 7.172279192459191e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r04-F4-004",
+   "parent_known": true,
+   "git_commit": "d05f973",
+   "summary": "Same gates as r04-F4-004 (5-CX clean corner frames, 8-CX no-outer-read plumbing, pb stored, 9-term Walsh walk of F = j_b over (pa, pb, z, t2) with pa toggled in-walk, 4 electric phases; CX 111, 13 rotations) rescheduled for depth: the leg-only heads of all four corner frames run under the 167-layer electric rotations, t3 and t2 are formed together before the corner-3/2 frame tails, so depth_CT drops from 1694 to 1672 at equal CX and T.",
+   "lean": null,
+   "round": 5,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r05-F2-005",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 13,
+  "t_total": 912,
+  "tolerances": {
+   "tol_err": 1.3001e-05,
+   "tol_gauss": 1.3001e-05
+  },
+  "op_norm_error": 3.7323664977464676e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 526.6802730560303,
+ "written_utc": "2026-11-06T18:01:26Z"
+}

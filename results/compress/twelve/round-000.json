@@ -1,0 +1,486 @@
+{
+ "round": 0,
+ "n_valid": 5,
+ "n_invalid": 0,
+ "best_key": [
+  162,
+  660,
+  1029,
+  35
+ ],
+ "entries": [
+  "r00-seed-000",
+  "r00-seed-010",
+  "r00-seed-qiskit_l3",
+  "r00-seed-001",
+  "r00-seed-002"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "twelve",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "a4c28a6",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
+  "cpu_count": 12,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T06:11:28Z"
+ },
+ "evaluator_sha256": "810e86f2640d4f76b5434e511ff41ccd7c54cce284ad217a11971c8b2d2e26d7",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "invalid": [],
+ "external": [
+  {
+   "source": "qiskit_l3_whole",
+   "valid": false,
+   "reason": "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "metrics": {
+    "cx": 290,
+    "t_fixed": 294,
+    "n_rot": 10,
+    "t_eps": 891.9470570797253,
+    "t_estimate": {
+     "1e-06": 891.9470570797253,
+     "1e-10": 1290.5784284662086
+    },
+    "t_measured": null,
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 268,
+    "depth_ct": 268,
+    "qubits": 50,
+    "gates": {
+     "cx": 290,
+     "h": 174,
+     "t": 141,
+     "tdg": 137,
+     "x": 44,
+     "rz": 43,
+     "sdg": 7,
+     "s": 6
+    },
+    "measured": false
+   }
+  },
+  {
+   "source": "paulo34",
+   "fixed_angle": true,
+   "kind": "UB",
+   "valid": true,
+   "reason": "ok",
+   "metrics": {
+    "cx": 294,
+    "t_fixed": 1162,
+    "n_rot": 0,
+    "t_eps": 1162.0,
+    "t_estimate": {
+     "1e-06": 1162.0,
+     "1e-10": 1162.0
+    },
+    "t_measured": null,
+    "synth_error_bound": 0.0,
+    "depth": 2549,
+    "depth_ct": 2549,
+    "qubits": 50,
+    "gates": {
+     "h": 1155,
+     "t": 1027,
+     "s": 504,
+     "cx": 294,
+     "tdg": 135,
+     "sdg": 92
+    },
+    "measured": false
+   },
+   "op_norm_error": 1.0755864434755643e-05,
+   "certified": true,
+   "message": "fixed angle beta=1.0, kind UB; synthesised tolerance 1.60e-05 (<= 16 rotations)"
+  },
+  {
+   "source": "spinnet15",
+   "reason": "spinnet15 is Paulo's 15-qubit spin-network circuit: it acts on route-B labels (a different encoding), not on the 12-qubit electric-basis codes; it is handled by the spin-network encoding (M3)"
+  }
+ ],
+ "candidates": [
+  {
+   "label": "general",
+   "id": "r00-seed-000",
+   "family": "seed",
+   "program_sha256": "21874db4838605485056abbc85490273bd886dd4524876d2924541750b193bd1",
+   "program_path": "compress/programs/twelve/seed/000-general.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    294,
+    952,
+    1421,
+    50
+   ],
+   "cell": [
+    65,
+    79
+   ],
+   "metrics": {
+    "cx": 294,
+    "t_fixed": 312,
+    "n_rot": 10,
+    "t_eps": 952,
+    "t_estimate": {
+     "1e-06": 909.9470570797253,
+     "1e-10": 1308.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 952,
+     "1e-10": 1352
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 292,
+    "depth_ct": 1421,
+    "qubits": 50,
+    "gates": {
+     "cx": 294,
+     "h": 178,
+     "t": 160,
+     "tdg": 152,
+     "x": 50,
+     "rz": 10,
+     "sdg": 8,
+     "s": 8,
+     "z": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 2.68813143571731e-13,
+    "block_error": 1.220835210546178e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 3.908513313125536e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "a4c28a6",
+   "summary": "the reference circuit of the twelve encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "general+polish",
+   "id": "r00-seed-010",
+   "family": "seed",
+   "program_sha256": "e2037b877d3f0072188c96b3592f4ad5f413ba378d66ab19198e6cb832bf3b8e",
+   "program_path": "compress/programs/twelve/seed/010-general_polish.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    294,
+    952,
+    1421,
+    50
+   ],
+   "cell": [
+    65,
+    79
+   ],
+   "metrics": {
+    "cx": 294,
+    "t_fixed": 312,
+    "n_rot": 10,
+    "t_eps": 952,
+    "t_estimate": {
+     "1e-06": 909.9470570797253,
+     "1e-10": 1308.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 952,
+     "1e-10": 1352
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 292,
+    "depth_ct": 1421,
+    "qubits": 50,
+    "gates": {
+     "cx": 294,
+     "h": 178,
+     "t": 160,
+     "tdg": 152,
+     "x": 50,
+     "rz": 10,
+     "sdg": 8,
+     "s": 8,
+     "z": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 2.68813143571731e-13,
+    "block_error": 1.220835210546178e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 3.908513313125536e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "a4c28a6",
+   "summary": "the reference circuit after the deterministic polish passes.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "qiskit_l3",
+   "id": "r00-seed-qiskit_l3",
+   "family": "seed",
+   "program_sha256": "",
+   "program_path": "compress/programs/twelve/seed/qiskit_l3.circuit",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    290,
+    918,
+    1387,
+    50
+   ],
+   "cell": [
+    65,
+    78
+   ],
+   "metrics": {
+    "cx": 290,
+    "t_fixed": 302,
+    "n_rot": 10,
+    "t_eps": 918,
+    "t_estimate": {
+     "1e-06": 899.9470570797253,
+     "1e-10": 1298.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 918,
+     "1e-10": 1310
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 269,
+    "depth_ct": 1387,
+    "qubits": 50,
+    "gates": {
+     "cx": 290,
+     "h": 182,
+     "t": 145,
+     "tdg": 141,
+     "x": 46,
+     "rz": 41,
+     "sdg": 8,
+     "s": 7,
+     "z": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 3.6112988721954986e-13,
+    "block_error": 1.2265990077073727e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 1.2746948296626722e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "a4c28a6",
+   "summary": "",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "lean22_v2",
+   "id": "r00-seed-001",
+   "family": "seed",
+   "program_sha256": "c97f0c643c33a409172481645828663a2fb4b1559a301bf3f4d1b730aeddf54c",
+   "program_path": "compress/programs/twelve/seed/001-lean22_v2.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    162,
+    660,
+    1029,
+    35
+   ],
+   "cell": [
+    58,
+    74
+   ],
+   "metrics": {
+    "cx": 162,
+    "t_fixed": 160,
+    "n_rot": 8,
+    "t_eps": 660,
+    "t_estimate": {
+     "1e-06": 638.3576456637802,
+     "1e-10": 957.2627427729669
+    },
+    "t_measured": {
+     "1e-06": 660,
+     "1e-10": 986
+    },
+    "synth_error_bound": 8e-06,
+    "depth": 260,
+    "depth_ct": 1029,
+    "qubits": 35,
+    "gates": {
+     "cx": 162,
+     "h": 138,
+     "t": 80,
+     "tdg": 80,
+     "x": 60,
+     "sdg": 40,
+     "s": 40,
+     "z": 14,
+     "rz": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 2.1387676028228162e-13,
+    "block_error": 1.2210813429157947e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 8.633103705055785e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "a4c28a6",
+   "summary": "su2qc-trotter lean22_v2 plaquette (vendored, plaquette only) behind our electric layer.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "lean22",
+   "id": "r00-seed-002",
+   "family": "seed",
+   "program_sha256": "d01e7d2ac747513988269e91f2e501b7423832976930513c334f95eb77bf6fdc",
+   "program_path": "compress/programs/twelve/seed/002-lean22.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    210,
+    704,
+    1148,
+    38
+   ],
+   "cell": [
+    61,
+    75
+   ],
+   "metrics": {
+    "cx": 210,
+    "t_fixed": 192,
+    "n_rot": 8,
+    "t_eps": 704,
+    "t_estimate": {
+     "1e-06": 670.3576456637802,
+     "1e-10": 989.2627427729669
+    },
+    "t_measured": {
+     "1e-06": 704,
+     "1e-10": 1026
+    },
+    "synth_error_bound": 8e-06,
+    "depth": 360,
+    "depth_ct": 1148,
+    "qubits": 38,
+    "gates": {
+     "h": 386,
+     "cx": 210,
+     "sdg": 184,
+     "s": 184,
+     "t": 96,
+     "tdg": 96,
+     "x": 40,
+     "rz": 8,
+     "z": 6
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 2.960078479349324e-13,
+    "block_error": 1.2932032376137643e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 1.1600307436734885e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "a4c28a6",
+   "summary": "su2qc-trotter lean22 plaquette (vendored, plaquette only) behind our electric layer.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r00-seed-001",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 8,
+  "t_total": 660,
+  "tolerances": {
+   "tol_err": 8.001e-06,
+   "tol_gauss": 8.001e-06
+  },
+  "op_norm_error": 2.988949496067383e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 163.82205724716187,
+ "written_utc": "2026-11-06T06:11:28Z"
+}

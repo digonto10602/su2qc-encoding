@@ -338,7 +338,10 @@ def _simulate(qcr, d, engine, cap):
 
 def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
              tol_gauss: float | None = None, gauss: bool = True,
-             method: str = "auto", engine: str = "auto", cap: int = 5_000_000) -> Verdict:
+             method: str = "auto", engine: str = "auto", cap: int = 5_000_000, states=None) -> Verdict:
+    """`states`: optional subset of physical-state indices (the 'trial' mode of the compression loop): only the columns of
+    A = <psi_k'|U|psi_k> for k in the subset are formed (rows run over all physical states), the phase, block error, leak
+    amplitude and Gauss residual refer to those inputs, and the inner-span fast path is not used."""
     t0 = time.time()
     tg = TOL_GAUSS if tol_gauss is None else float(tol_gauss)
     tols = {"tol_err": tol_err, "tol_gauss": tg}
@@ -352,6 +355,20 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
     if V.shape != (dim, dim):
         raise ValueError(f"target must be {dim}x{dim}, got {V.shape}")
     n_data = d["n_data"]
+    if states is None:
+        cols = np.arange(dim)
+        insub = None
+    else:
+        arr = np.asarray(states)
+        if arr.size and arr.dtype.kind not in "iu":
+            raise ValueError("states must be integer physical-state indices")
+        cols = np.unique(arr.astype(np.int64))
+        if len(cols) == 0 or cols[0] < 0 or cols[-1] >= dim:
+            raise ValueError("states must be a non-empty subset of the physical state indices")
+        if method == "inner_span":
+            raise ValueError("method 'inner_span' cannot be combined with a state subset")
+        insub = np.zeros(dim, dtype=bool)
+        insub[cols] = True
     try:
         layout = enc.layout_of(qc)
         perm = _canonical_perm(layout, n_data, qc.num_qubits)
@@ -371,7 +388,7 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
     R = sorted(read)
     if method == "inner_span" and R:
         raise ValueError("method 'inner_span' requires that no outer qubit is read")
-    use_method = ("physical" if R else "inner_span") if method == "auto" else method
+    use_method = ("physical" if (R or states is not None) else "inner_span") if method == "auto" else method
     # groups of outer patterns by the values of the read bits
     o_vals = d["o_vals"]
     r_of_o = np.zeros(len(o_vals), dtype=np.int64)
@@ -409,13 +426,20 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
             M_first = M
         Ms = sp.csr_matrix(M) if np.count_nonzero(M) < 0.3 * M.size else M
         for oi in np.flatnonzero(r_of_o == r):
-            ks, P = d["ks"][oi], d["Psi"][oi]
-            Om = Ms @ P
-            A[np.ix_(ks, ks)] += P.conj().T @ Om
+            ks_all, P_all = d["ks"][oi], d["Psi"][oi]
+            if insub is None:
+                ks, P, Pin = ks_all, P_all, P_all
+            else:
+                sel = np.flatnonzero(insub[ks_all])
+                if sel.size == 0:
+                    continue
+                ks, P, Pin = ks_all[sel], P_all, P_all[:, sel]
+            Om = Ms @ Pin
+            A[np.ix_(ks_all, ks)] += P.conj().T @ Om
             w_code[ks] += np.sum(np.abs(Om) ** 2, axis=0)
             for Xm, wv in ((Xa, w_anc), (Xi, w_inv)):
                 if Xm is not None:
-                    XP = Xm @ P
+                    XP = Xm @ Pin
                     wv[ks] += np.sum(np.abs(XP) ** 2, axis=0)
                     XX[np.ix_(ks, ks)] += XP.conj().T @ XP
                     have_x = True
@@ -432,10 +456,11 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
                     out_codes[k].append(d["inner"][nz] | o_code)
                     out_amps[k].append(col[nz])
     # 4: phase and error
-    tr = np.trace(V.conj().T @ A)
+    A_c, V_c = A[:, cols], V[:, cols]
+    tr = np.vdot(V_c, A_c)                      # tr(V^dag A) over the selected inputs
     phase = tr / abs(tr) if abs(tr) > 1e-300 else 1.0 + 0j
     phi = float(np.angle(phase))
-    Dm = A - phase * V
+    Dm = A_c - phase * V_c
     err_phys = float(np.linalg.norm(Dm, 2))
     if use_method == "inner_span":
         # the inner-span error is only meaningful for targets that act on the inner links alone, so it bounds but never
@@ -446,16 +471,16 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
         err_inner = None
         err = err_phys
     # 5: leak amplitude (prompts/004): sparse = exact ||X||_2, aer_mps = certified bound sqrt(max_o W_o); no subtraction
-    A2 = np.sum(np.abs(A) ** 2, axis=0)
-    span_leak = np.maximum(0.0, w_code - A2)  # code-space weight outside the physical span (diagnostic; Gauss check bounds it)
+    A2 = np.sum(np.abs(A_c) ** 2, axis=0)
+    span_leak = np.maximum(0.0, w_code[cols] - A2)  # code-space weight outside the physical span (diagnostic; Gauss check bounds it)
     if eng_used == "aer_mps":
         leak_amp = float(np.sqrt(maxW))
         max_leak, dirty, inv_max = maxW, maxW_anc, maxW_inv
         leak = w_inputs
     else:
-        leak_amp = float(np.sqrt(max(np.linalg.eigvalsh((XX + XX.conj().T) / 2)[-1], 0.0))) if have_x else 0.0
-        leak = w_anc + w_inv                    # per physical state ||X psi_k||^2, summed directly
-        max_leak, dirty, inv_max = float(leak.max()), float(w_anc.max()), float(w_inv.max())
+        leak_amp = float(np.sqrt(max(np.linalg.eigvalsh((XX[np.ix_(cols, cols)] + XX[np.ix_(cols, cols)].conj().T) / 2)[-1], 0.0))) if have_x else 0.0
+        leak = (w_anc + w_inv)[cols]            # per selected physical state ||X psi_k||^2, summed directly
+        max_leak, dirty, inv_max = float(leak.max()), float(w_anc[cols].max()), float(w_inv[cols].max())
     err_total = err + dropped_total + leak_amp
     # 6: Gauss
     gres = float("nan")
@@ -464,14 +489,14 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
         from su2plaq.exact.physical import gauss_residuals_coo
 
         kl, al = [], []
-        for k in range(dim):
+        for k in cols:
             if out_codes[k]:
                 keys, amps = enc.decode_state(np.concatenate(out_codes[k]), np.concatenate(out_amps[k]))
                 kl.append(keys)
                 al.append(amps)
         gk = gauss_residuals_coo(enc.basis, kl, al) if kl else np.zeros(0)
         gres = float(gk.max()) if kl else 0.0
-        gstates = [k for k in range(dim) if out_codes[k]]
+        gstates = [int(k) for k in cols if out_codes[k]]
     # verdict
     acc = MPS_ACCURACY if eng_used == "aer_mps" else 0.0
     tmin = min(tol_err, tg) if gauss else tol_err
@@ -493,18 +518,18 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
         if eng_used == "aer_mps":
             failing = [(f"inner_code_index {int(c)}", float(np.sqrt(leak[c]))) for c in np.argsort(-leak)[:10]]
         else:
-            failing = [(int(k), float(np.sqrt(leak[k]))) for k in np.argsort(-leak)[:10]]
+            failing = [(int(cols[k]), float(np.sqrt(leak[k]))) for k in np.argsort(-leak)[:10]]
     elif reason == "gauss":
         failing = [(int(gstates[i]), float(gk[i])) for i in np.argsort(-gk)[:10] if gk[i] > tg]
     elif reason == "pruning_bound":
         failing = [("dropped_total", float(dropped_total)), ("prune_cap", float(PRUNE_FRACTION * tol_err))]
     else:
         worst = np.argsort(-colerr)[:10]
-        failing = [(int(k), float(colerr[k])) for k in worst if colerr[k] > 0]
+        failing = [(int(cols[k]), float(colerr[k])) for k in worst if colerr[k] > 0]
     return Verdict(ok=reason == "ok", reason=reason, op_norm_error=err_total, max_leak=max_leak, dirty_ancilla=dirty,
                    phase=complex(phase), outer_bits_read=len(R), n_blocks=len(groups), gauss_residual=gres,
                    method=use_method, engine=eng_used or "sparse", seconds=time.time() - t0, failing_inputs=failing,
-                   n_inputs=dim, dropped_total=dropped_total, engine_accuracy=acc, certified=certified, tolerances=tols,
+                   n_inputs=len(cols), dropped_total=dropped_total, engine_accuracy=acc, certified=certified, tolerances=tols,
                    block_error=err, leak_amplitude=leak_amp,
                    extra={"op_norm_error_physical": err_phys, "max_dropped_l2": dropped_max, "max_span_leak": float(span_leak.max()),
                           "op_norm_error_inner_span": err_inner})
