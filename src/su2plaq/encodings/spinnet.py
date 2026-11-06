@@ -20,6 +20,7 @@ from su2plaq.exact.compare import gauge_align
 from su2plaq.exact.operators import h_magnetic_phys
 from su2plaq.exact.physical import physical_basis
 from su2plaq.exact.spinnet import K_inner, h_electric_6j, h_magnetic_phys_6j, inner_labels, labels as route_b_labels
+from su2plaq.spinnet import paulo
 from su2plaq.su2.algebra import LinkSpace
 
 if TYPE_CHECKING:
@@ -334,8 +335,7 @@ class SpinNet(Encoding):
     def import_map(self, source: str) -> dict | str:
         """Mapping of an external circuit onto this encoding's frame (data 0..7, outer 8..15, ancillas from 16)."""
         if source == "paulo15":
-            qubit_map = {**{q: q for q in range(4)}, **{12 + c: 4 + c for c in range(4)}, **{16 + a: 16 + a for a in range(7)}}
-            qubit_map_open = {**{q: q for q in range(4)}, **{12 + c: 4 + c for c in range(4)}, **{16 + a: 8 + a for a in range(7)}}
+            qubit_map, qubit_map_open = dict(paulo.QUBIT_MAP), dict(paulo.QUBIT_MAP_OPEN)      # single definition: spinnet/paulo.py
 
             def angles(alpha, beta):          # fixed: the file is exp(+i alpha_P Re Tr U_P) at alpha_P = 0.1
                 return {"kind": "UB", "beta": PAULO_ALPHA_P / 2, "alpha_P": PAULO_ALPHA_P}

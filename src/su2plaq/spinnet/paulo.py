@@ -14,7 +14,6 @@ from qiskit import QuantumCircuit, QuantumRegister
 GATES_FILE = pathlib.Path(__file__).resolve().parents[3] / "refs" / "paulo" / "spin_network_plaquette3.gates.txt"
 SHA256 = "e4b8687f1aa5995fd975770eac0c65c8ec667e71f723fad3b3825190c693a504"   # refs/paulo/SOURCE.md
 FILE_ALPHA_P = 0.1
-N_FILE_QUBITS = 23
 N_ANCILLA = 7
 
 # file qubit -> frame qubit, with the outer register present (ancillas stay at 16..22) and without it (ancillas 8..14)
