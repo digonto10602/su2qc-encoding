@@ -1,4 +1,4 @@
-M5 done (milestone-5 a8f051e, Report 5); M6 waiting for laptop milestone-2 bundle in ~/su2qc-sync/inbox/ (waiting since 2026-11-06T03:20; stop after 24 h); meanwhile M5x wait-time Lean/robustness work (prompts/202, acceptance-v9): W0–W4 + O1 done; M5x gate next.
+M5 done (milestone-5, Report 5) and M5x wait-time Lean/robustness work done (milestone-5x); M6 waiting for laptop milestone-2 bundle in ~/su2qc-sync/inbox/ (waiting since 2026-11-06T03:20; stop after 24 h).
 
 # Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)
 
