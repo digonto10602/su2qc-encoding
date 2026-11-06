@@ -1,0 +1,61 @@
+{
+ "commit": "9bbc4d8",
+ "prompt": "prompts/202-rishon-m5x-wait-robustness.md",
+ "mode": "full",
+ "seed": "none (m5x O1 sample seed 20261104 inside tests)",
+ "suites": {
+  "m0": {
+   "passed": 34,
+   "failed": 0,
+   "wall_s": 12.26
+  },
+  "m1": {
+   "passed": 22,
+   "failed": 0,
+   "wall_s": 98.27
+  },
+  "m5": {
+   "passed": 34,
+   "failed": 0,
+   "wall_s": 839.28
+  },
+  "m5x": {
+   "passed": 6,
+   "failed": 0,
+   "wall_s": 9.98
+  },
+  "unit": {
+   "passed": 329,
+   "failed": 0,
+   "wall_s": 104.03
+  },
+  "m2": {
+   "passed": 7,
+   "failed": 39,
+   "pending_expected": 39,
+   "other": 0,
+   "wall_s": 3.65
+  }
+ },
+ "lock": "acceptance-v9 PASS, LOCK OK",
+ "lake_build_Su2Plaq": {
+  "wall_s": 4.2,
+  "rss_gb": 1.01,
+  "counts_olean_mtime_unchanged": "2026-11-05 23:54:26 -0500"
+ },
+ "axioms": {
+  "m5x_and_m5_theorems": 20,
+  "nonstandard": 0
+ },
+ "cert_native_axiom": "rishon_hb_structure._native.native_decide.ax_1_1",
+ "peak_single_process_rss_gb": {
+  "m0": 0.65,
+  "m1": 1.6,
+  "m5x": 6.82,
+  "m5": 6.81,
+  "unit": 6.82,
+  "m2": 6.82,
+  "lake_axioms_file": 6.82
+ },
+ "summed_rss_sampled_peak_gb": 12.75
+}

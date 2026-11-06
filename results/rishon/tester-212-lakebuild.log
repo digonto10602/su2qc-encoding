@@ -1,0 +1,119 @@
+⚠ [9082/9095] Replayed Su2Plaq.Evaluator
+warning: Su2Plaq/Evaluator.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [9083/9095] Replayed Su2Plaq.Gauss
+warning: Su2Plaq/Gauss.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [9084/9095] Replayed Su2Plaq.Aer
+warning: Su2Plaq/Aer.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [9085/9095] Replayed Su2Plaq.Synthesis
+warning: Su2Plaq/Synthesis.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [9086/9095] Replayed Su2Plaq.Gates
+warning: Su2Plaq/Gates.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: Su2Plaq/Gates.lean:31:44: This simp argument is unused:
+  Matrix.of_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [e, Matrix.mulVec_single, ctrl, mul_one, Finset.sum_apply, Pi.smul_apply, Pi.single_apply,
+    Prod.mk.injEq, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Su2Plaq/Gates.lean:31:61: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [e, Matrix.mulVec_single, ctrl, Matrix.of_apply, Finset.sum_apply, Pi.smul_apply, Pi.single_apply,
+    Prod.mk.injEq, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Su2Plaq/Gates.lean:35:10: This simp argument is unused:
+  Finset.sum_ite_eq'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Su2Plaq/Gates.lean:99:0: automatically included section variable(s) unused in theorem `Su2Plaq.mono_isHermitian`:
+  [Fintype σ]
+  [Fintype τ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype σ] [Fintype τ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Su2Plaq/Gates.lean:109:15: This simp argument is unused:
+  eq_self_iff_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_true, ← h', hφ, star_star]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Su2Plaq/Gates.lean:109:53: This simp argument is unused:
+  star_star
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [eq_self_iff_true, ite_true, ← h', hφ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Su2Plaq/Gates.lean:161:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Su2Plaq/Gates.lean:161:6: Unused tactic linter: `linear_combination (2 * s * Complex.I) * h` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Su2Plaq/Gates.lean:220:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: Su2Plaq/Gates.lean:223:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: Su2Plaq/Gates.lean:224:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: Su2Plaq/Gates.lean:227:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+⚠ [9087/9095] Replayed Su2Plaq.Bits
+warning: Su2Plaq/Bits.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [9088/9095] Replayed Su2Plaq.Peephole
+warning: Su2Plaq/Peephole.lean:37:23: This simp argument is unused:
+  Function.update_of_ne hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [cxFun, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Su2Plaq/Peephole.lean:65:22: This simp argument is unused:
+  h2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [cxFun, hi', hct, h1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Su2Plaq/Peephole.lean:65:26: This simp argument is unused:
+  hct
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [cxFun, hi', h2, h1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Su2Plaq/Peephole.lean:67:21: This simp argument is unused:
+  h1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [cxFun, hi, hc't', h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Su2Plaq/Peephole.lean:67:25: This simp argument is unused:
+  hc't'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [cxFun, hi, h1, h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [9090/9095] Replayed Su2Plaq.Structure.Counts
+warning: Su2Plaq/Structure/Counts.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [9091/9095] Replayed Su2Plaq.Structure.Commute
+warning: Su2Plaq/Structure/Commute.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (9095 jobs).
