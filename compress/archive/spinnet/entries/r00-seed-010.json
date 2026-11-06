@@ -1,0 +1,182 @@
+{
+ "id": "r00-seed-010",
+ "program_path": "compress/programs/spinnet/seed/010-general_polish.py",
+ "program_sha256": "373ee92523e941d7ec981073da1a0a44b7d7c13a91749688e981772205a1a55f",
+ "parent": null,
+ "family": "seed",
+ "round": 0,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  54,
+  566,
+  861,
+  23
+ ],
+ "cell": [
+  46,
+  73
+ ],
+ "metrics_raw": {
+  "cx": 54,
+  "t_fixed": 56,
+  "n_rot": 8,
+  "t_eps": 566,
+  "t_estimate": {
+   "1e-06": 534.3576456637802,
+   "1e-10": 853.2627427729669
+  },
+  "t_measured": {
+   "1e-06": 566,
+   "1e-10": 884
+  },
+  "synth_error_bound": 8e-06,
+  "depth": 67,
+  "depth_ct": 861,
+  "qubits": 23,
+  "gates": {
+   "cx": 54,
+   "h": 30,
+   "t": 28,
+   "tdg": 28,
+   "x": 16,
+   "rz": 8
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.229760974694126e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.9999999999999999,
+   6.563905180231888e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.300424800310707e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 8.107734967189246e-15,
+  "block_error": 4.189874779752014e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.24719452857971191,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 3.7583399254768075e-15,
+   "max_dropped_l2": 2.1627850860448225e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 4.189874779752014e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.143136891868367e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -4.102440737644933e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.405215745588179e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 8.128105578754451e-15,
+   "block_error": 3.303263339929219e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2386462688446045,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.303263339929219e-15,
+    "max_dropped_l2": 2.392564403561889e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.3032633399292164e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.5769971861959752e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -4.922928885173916e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.233232634728414e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.0633295593190855e-14,
+   "block_error": 5.136676268768898e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2527031898498535,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 5.008745006115796e-15,
+    "max_dropped_l2": 2.1898644510090967e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 5.136676268768898e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [],
+ "summary": "the reference circuit after the deterministic polish passes.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "2fd5b3d",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 1.46268892288208,
+ "written_utc": "2026-11-06T21:47:17Z",
+ "git_dirty": false,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 8e-06
+ },
+ "lean": null,
+ "mode": "full"
+}

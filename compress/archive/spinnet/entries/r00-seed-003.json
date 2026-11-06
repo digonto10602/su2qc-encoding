@@ -1,0 +1,182 @@
+{
+ "id": "r00-seed-003",
+ "program_path": "compress/programs/spinnet/seed/003-spinnet_v2_flags5.py",
+ "program_sha256": "b7e46f8434b6b976bd9d1e2b173d1e309e818d6b8f5f653adf09405ef879803c",
+ "parent": null,
+ "family": "seed",
+ "round": 0,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  42,
+  606,
+  1009,
+  19
+ ],
+ "cell": [
+  43,
+  73
+ ],
+ "metrics_raw": {
+  "cx": 42,
+  "t_fixed": 40,
+  "n_rot": 9,
+  "t_eps": 606,
+  "t_estimate": {
+   "1e-06": 578.1523513717527,
+   "1e-10": 936.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 606,
+   "1e-10": 976
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 67,
+  "depth_ct": 1009,
+  "qubits": 19,
+  "gates": {
+   "cx": 42,
+   "h": 22,
+   "t": 20,
+   "tdg": 20,
+   "x": 12,
+   "rz": 9
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 8.785820495268871e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -3.281952590115943e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.571892919244074e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 5.407175426863215e-15,
+  "block_error": 3.3786450684056564e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.2434086799621582,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 3.3786450684056564e-15,
+   "max_dropped_l2": 1.3778191740439218e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 3.3752090468033696e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.391418553741602e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -8.204881475289862e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.447805103250969e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.4228987698990385e-15,
+   "block_error": 2.9685197838425628e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.24753451347351074,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.8656875759348198e-15,
+    "max_dropped_l2": 1.1104685682896596e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.9685197838425628e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.13195429184256e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -5.333172958938406e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.790547498447947e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.802493466458322e-15,
+   "block_error": 4.5170494519672775e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.22525429725646973,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 4.5170494519672775e-15,
+    "max_dropped_l2": 1.3688618532329376e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 4.449654785434796e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [],
+ "summary": "the vendored su2qc-trotter spinnet_v2 flags5 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "2fd5b3d",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 1.5944468975067139,
+ "written_utc": "2026-11-06T21:47:17Z",
+ "git_dirty": false,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9e-06
+ },
+ "lean": null,
+ "mode": "full"
+}
