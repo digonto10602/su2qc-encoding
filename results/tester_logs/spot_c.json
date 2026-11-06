@@ -1,0 +1,103 @@
+{
+ "UE": {
+  "raw_ops": {
+   "cx": 72,
+   "rz": 24,
+   "h": 8
+  },
+  "whole_transpile_cx": 72,
+  "whole_transpile_T": 0,
+  "whole_transpile_nrot": 24,
+  "whole_transpile_tfixed": 0,
+  "project_cx": 72,
+  "project_nrot": 24,
+  "project_tfixed": 0,
+  "hand_cx": 72,
+  "hand_T_from_ccx": 0,
+  "qubits": 16
+ },
+ "UK": {
+  "raw_ops": {
+   "cx": 72,
+   "h": 16,
+   "rz": 16
+  },
+  "whole_transpile_cx": 72,
+  "whole_transpile_T": 0,
+  "whole_transpile_nrot": 16,
+  "whole_transpile_tfixed": 0,
+  "project_cx": 72,
+  "project_nrot": 16,
+  "project_tfixed": 0,
+  "hand_cx": 72,
+  "hand_T_from_ccx": 0,
+  "qubits": 16
+ },
+ "UB": {
+  "raw_ops": {
+   "ccx": 246,
+   "x": 176,
+   "cx": 158,
+   "ch": 52,
+   "cz": 16,
+   "crx": 8,
+   "p": 8
+  },
+  "whole_transpile_cx": 1718,
+  "whole_transpile_T": 1826,
+  "whole_transpile_nrot": 16,
+  "whole_transpile_tfixed": 1826,
+  "project_cx": 1718,
+  "project_nrot": 16,
+  "project_tfixed": 1826,
+  "hand_cx": 1770,
+  "hand_T_from_ccx": 1722,
+  "qubits": 23
+ },
+ "step1": {
+  "raw_ops": {
+   "cx": 302,
+   "ccx": 246,
+   "x": 176,
+   "ch": 52,
+   "rz": 40,
+   "h": 24,
+   "cz": 16,
+   "crx": 8,
+   "p": 8
+  },
+  "whole_transpile_cx": 1862,
+  "whole_transpile_T": 1826,
+  "whole_transpile_nrot": 56,
+  "whole_transpile_tfixed": 1826,
+  "project_cx": 1862,
+  "project_nrot": 56,
+  "project_tfixed": 1826,
+  "hand_cx": 1914,
+  "hand_T_from_ccx": 1722,
+  "qubits": 23
+ },
+ "step2": {
+  "raw_ops": {
+   "cx": 446,
+   "ccx": 246,
+   "x": 176,
+   "rz": 80,
+   "ch": 52,
+   "h": 48,
+   "cz": 16,
+   "crx": 8,
+   "p": 8
+  },
+  "whole_transpile_cx": 2006,
+  "whole_transpile_T": 1826,
+  "whole_transpile_nrot": 96,
+  "whole_transpile_tfixed": 1826,
+  "project_cx": 2006,
+  "project_nrot": 96,
+  "project_tfixed": 1826,
+  "hand_cx": 2058,
+  "hand_T_from_ccx": 1722,
+  "qubits": 23
+ }
+}

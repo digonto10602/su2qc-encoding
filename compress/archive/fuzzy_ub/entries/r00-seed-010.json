@@ -1,0 +1,188 @@
+{
+ "id": "r00-seed-010",
+ "program_path": "compress/programs/fuzzy_ub/seed/010-general_polish.py",
+ "program_sha256": "97be59fb8a8bb2a44eefc6d6970e82f4d9df5b7ab50cf72b5c5921bf9fb99afa",
+ "parent": null,
+ "family": "seed",
+ "round": 0,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  1596,
+  2682,
+  4912,
+  15
+ ],
+ "cell": [
+  85,
+  91
+ ],
+ "metrics_raw": {
+  "cx": 1596,
+  "t_fixed": 1686,
+  "n_rot": 16,
+  "t_eps": 2682,
+  "t_estimate": {
+   "1e-06": 2642.7152913275604,
+   "1e-10": 3280.525485545934
+  },
+  "t_measured": {
+   "1e-06": 2682,
+   "1e-10": 3354
+  },
+  "synth_error_bound": 1.6e-05,
+  "depth": 2487,
+  "depth_ct": 4912,
+  "qubits": 15,
+  "gates": {
+   "cx": 1596,
+   "t": 956,
+   "tdg": 730,
+   "h": 604,
+   "x": 110,
+   "s": 52,
+   "sdg": 52,
+   "rz": 16,
+   "z": 8
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 3.8119937001713985e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   2.150010990387749e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.855356208868351e-14,
+  "block_error": 1.9566374913030475e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.10486674308776855,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9566374913030475e-14,
+   "max_dropped_l2": 1.7283205157746945e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.9566374913030475e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.2845150788210564e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    1.9935741403656822e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.9003995410726137e-14,
+   "block_error": 1.3841155377484425e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.08408045768737793,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.3841155377484425e-14,
+    "max_dropped_l2": 2.0004653528438574e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.3841155377484425e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.9087517472209424e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    2.2796662029267183e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.9679759512745708e-14,
+   "block_error": 1.9407757959463713e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.08388376235961914,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.9407757959463713e-14,
+    "max_dropped_l2": 2.0885818074836585e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.9407757959463713e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [],
+ "summary": "the reference circuit after the deterministic polish passes.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "4f7126f",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "prudence x86_64 cpus=48",
+ "wall_s": 0.9473118782043457,
+ "written_utc": "2026-11-06T19:50:08Z",
+ "git_dirty": false,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.6e-05
+ },
+ "lean": {
+  "status": "n_a",
+  "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+ },
+ "mode": "full"
+}

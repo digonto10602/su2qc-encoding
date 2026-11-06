@@ -1,0 +1,185 @@
+{
+ "encoding": "fuzzy_link",
+ "kind": "UE",
+ "n_rounds": 3,
+ "n_candidates": 5,
+ "n_valid": 4,
+ "global_best": "r02-F2-001",
+ "global_best_key": [
+  12,
+  644,
+  1183,
+  4
+ ],
+ "best_by_family": {
+  "seed": "r00-seed-010",
+  "F1": "r01-F1-001",
+  "F2": "r02-F2-001"
+ },
+ "rows": [
+  [
+   "general",
+   "4",
+   "36",
+   "0",
+   "10",
+   "644",
+   "597.947",
+   "1028",
+   "1515",
+   "valid (err 3.41658e-15, leak 0)",
+   "not_run",
+   "r00-seed-000 @ 4f7126f"
+  ],
+  [
+   "general + polish",
+   "4",
+   "30",
+   "0",
+   "10",
+   "644",
+   "597.947",
+   "1028",
+   "1511",
+   "valid (err 3.24551e-15, leak 0)",
+   "n_a",
+   "r00-seed-010 @ 4f7126f"
+  ],
+  [
+   "Qiskit L3 (windows of 32)",
+   "4",
+   "24",
+   "3",
+   "13",
+   "780.331",
+   "780.331",
+   "1298.55",
+   "53",
+   "invalid: skeleton",
+   "not_run",
+   "r00-seed-qiskit_l3 @ 4f7126f"
+  ],
+  [
+   "Qiskit L3 (whole circuit; counts only)",
+   "4",
+   "24",
+   "3",
+   "13",
+   "n/a (unverifiable)",
+   "780.331",
+   "n/a (unverifiable)",
+   "n/a (unverifiable)",
+   "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "n_a",
+   "-"
+  ],
+  [
+   "spinnet15 (not applicable)",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "spinnet15: not applicable to the fuzzy encoding",
+   "n_a",
+   "-"
+  ],
+  [
+   "best of family F1",
+   "4",
+   "13",
+   "0",
+   "10",
+   "644",
+   "597.947",
+   "1028",
+   "1161",
+   "valid (err 3.42653e-15, leak 0)",
+   "n_a",
+   "r01-F1-001 @ 2e7b07d"
+  ],
+  [
+   "best of family F2",
+   "4",
+   "12",
+   "0",
+   "10",
+   "644",
+   "597.947",
+   "1028",
+   "1183",
+   "valid (err 5.61492e-15, leak 0)",
+   "n_a",
+   "r02-F2-001 @ 6d221d5"
+  ],
+  [
+   "best of family seed",
+   "4",
+   "30",
+   "0",
+   "10",
+   "644",
+   "597.947",
+   "1028",
+   "1511",
+   "valid (err 3.24551e-15, leak 0)",
+   "n_a",
+   "r00-seed-010 @ 4f7126f"
+  ],
+  [
+   "GLOBAL BEST",
+   "4",
+   "12",
+   "0",
+   "10",
+   "644",
+   "597.947",
+   "1028",
+   "1183",
+   "valid (err 5.61492e-15, leak 0)",
+   "n_a",
+   "r02-F2-001 @ 6d221d5"
+  ]
+ ],
+ "lineage": [
+  {
+   "id": "r00-seed-000",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 36,
+   "t_eps": 644,
+   "parent_known": true
+  },
+  {
+   "id": "r00-seed-010",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 30,
+   "t_eps": 644,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F1-001",
+   "parent": null,
+   "family": "F1",
+   "round": 1,
+   "cx": 13,
+   "t_eps": 644,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F2-001",
+   "parent": "r01-F1-001",
+   "family": "F2",
+   "round": 2,
+   "cx": 12,
+   "t_eps": 644,
+   "parent_known": true
+  }
+ ]
+}

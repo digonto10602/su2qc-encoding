@@ -1,0 +1,181 @@
+{
+ "commit": "b4c5c18",
+ "mode": "full round 3",
+ "seed_step": 20261104,
+ "entries": [
+  {
+   "unit": "fuzzy_ub",
+   "id": "r03-F1-003",
+   "valid": true,
+   "key": [
+    164,
+    2920,
+    7222,
+    14
+   ],
+   "program": "compress/programs/fuzzy_ub/F1/003-fredkin7-merged-group.py",
+   "sha_match": true,
+   "unit_err": [
+    2.3603540199898415e-14,
+    3.0111833786071874e-14,
+    2.308533753142415e-14
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    2.0453800038075045e-14,
+    1.669619258003166e-14,
+    1.9716122028154772e-14
+   ],
+   "max_err": 2.0453800038075045e-14,
+   "leak": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "skeleton_equal": true,
+   "counts_nominal": {
+    "cx": 164,
+    "n_rot": 44,
+    "t_fixed": 112,
+    "qubits": 14
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 164,
+    "n_rot": 44,
+    "t_fixed": 112,
+    "qubits": 14
+   },
+   "wall_s": 75.61006546020508
+  },
+  {
+   "unit": "fuzzy_ub",
+   "id": "r03-F2-003",
+   "valid": true,
+   "key": [
+    165,
+    2914,
+    7221,
+    14
+   ],
+   "program": "compress/programs/fuzzy_ub/F2/003-merged-group-fredkin7-resynth.py",
+   "sha_match": true,
+   "unit_err": [
+    2.7389704684899855e-14,
+    3.32691703972367e-14,
+    2.7386395043402398e-14
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    2.1855300124423293e-14,
+    1.8711801723299727e-14,
+    2.1197280598524995e-14
+   ],
+   "max_err": 2.1855300124423293e-14,
+   "leak": [
+    6.217511558099871e-15,
+    6.924312987026355e-15,
+    6.194390511199123e-15
+   ],
+   "skeleton_equal": true,
+   "counts_nominal": {
+    "cx": 165,
+    "n_rot": 44,
+    "t_fixed": 106,
+    "qubits": 14
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 165,
+    "n_rot": 44,
+    "t_fixed": 106,
+    "qubits": 14
+   },
+   "wall_s": 83.9094934463501
+  },
+  {
+   "unit": "fuzzy_ub",
+   "id": "r03-F3-003",
+   "valid": true,
+   "key": [
+    151,
+    1902,
+    4682,
+    13
+   ],
+   "program": "compress/programs/fuzzy_ub/F3/003-r-fold-sectors-1-5.py",
+   "sha_match": true,
+   "unit_err": [
+    1.97777139236274e-14,
+    2.3018845231004893e-14,
+    1.9766655795983685e-14
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    1.963940628896614e-14,
+    1.433846598006259e-14,
+    1.9189980994349397e-14
+   ],
+   "max_err": 1.963940628896614e-14,
+   "leak": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "skeleton_equal": true,
+   "counts_nominal": {
+    "cx": 151,
+    "n_rot": 28,
+    "t_fixed": 118,
+    "qubits": 13
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 151,
+    "n_rot": 28,
+    "t_fixed": 118,
+    "qubits": 13
+   },
+   "wall_s": 36.54477024078369
+  }
+ ]
+}

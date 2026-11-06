@@ -1,0 +1,152 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 3.9849740671801316e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   8.188922786824508e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 2.2261705883464172e-14,
+  "block_error": 1.7588034788337147e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.5667002201080322,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.7588034788337147e-14,
+   "max_dropped_l2": 2.2195355579453007e-15,
+   "max_span_leak": 3.3306690738754696e-16,
+   "op_norm_error_inner_span": 1.7588034788337147e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 2.746160745369478e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    2.528401736204082e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.5714255008569192e-14,
+   "block_error": 1.1747352445125591e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.06484150886535645,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.1747352445125591e-14,
+    "max_dropped_l2": 1.6430484380822997e-15,
+    "max_span_leak": 3.3306690738754696e-16,
+    "op_norm_error_inner_span": 1.1747352445125591e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.650732599746691e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    6.024607857398499e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.9270096879211367e-14,
+   "block_error": 1.7237229118255543e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.06540989875793457,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7237229118255543e-14,
+    "max_dropped_l2": 2.0236380873379004e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.7237229118255543e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 200,
+  "t_fixed": 112,
+  "n_rot": 58,
+  "t_eps": 3804,
+  "t_estimate": {
+   "1e-06": 3580.0929310624065,
+   "1e-10": 5892.154885104011
+  },
+  "t_measured": {
+   "1e-06": 3804,
+   "1e-10": 6144
+  },
+  "synth_error_bound": 5.8e-05,
+  "depth": 238,
+  "depth_ct": 9501,
+  "qubits": 16,
+  "gates": {
+   "cx": 200,
+   "h": 72,
+   "t": 60,
+   "rz": 58,
+   "tdg": 52,
+   "x": 2
+  },
+  "measured": true
+ },
+ "program_sha256": "adc8faafb630a97b1c211637ee52d4698e3520461f306e4d48da78d3bb6bf06e",
+ "wall_s": 1.448521375656128,
+ "discoveries": [
+  "DISCOVERY: every parity sector p of fuzzy_ub becomes sigma*c*X_f (x) (Bell projectors) under some f-controlled permutation of the four q2 wires; a DP over sector order and (branch0, branch1) layouts gives 8 Fredkins total (sectors 4,6,2,3,7 share one layout).",
+  "DISCOVERY: keep a 6-ancilla one-hot of the parity p alive for the whole circuit (partly in place on the p_t/p_l wires, 24 CX each way); each rank-4 sector then is a 3-control R_x = 8-CX Gray-code phase polynomial with angles +-beta (Lean-friendly)."
+ ],
+ "summary": "parity frame + f-controlled qubit-permutation frames (8 Fredkins total, DP-optimal over sector order) + Bell decode + per-sector Gray-code C^3-R_x phase polynomials on a persistent sector one-hot; 200 CX."
+}

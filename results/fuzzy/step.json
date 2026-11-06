@@ -1,0 +1,814 @@
+{
+  "schema_version": 1,
+  "encoding": "fuzzy",
+  "circuit_id": "step",
+  "kind": "step",
+  "params": {
+    "alpha": 0.37,
+    "beta": 0.61,
+    "kappa2": 0.185,
+    "r": 1.0,
+    "order": 1
+  },
+  "provenance": {
+    "git_commit": "8e71c38",
+    "git_dirty": true,
+    "versions": {
+      "python": "3.12.14",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+    "cpu_count": 48,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "step_samples": 20261104
+    },
+    "timestamp_utc": "2026-11-06T19:12:30Z",
+    "provenance_captured_at": "2026-11-06T19:12:30Z"
+  },
+  "verification": {
+    "ok": true,
+    "reason": "ok",
+    "op_norm_error": 1.0460098385370535e-14,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": null,
+    "outer_bits_read": 0,
+    "n_blocks": null,
+    "gauss_residual": 5.158721846354126e-15,
+    "method": "blocks_certified_composition_sampled",
+    "engine": "layers",
+    "engine_accuracy": null,
+    "certified": false,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "dropped_total": 0.0,
+    "block_error": 1.0460098385370535e-14,
+    "leak_amplitude": 0.0,
+    "seconds": 70.1776111125946,
+    "n_inputs": 40,
+    "failing_inputs": [],
+    "extra": {
+      "scope": "blocks_certified_composition_sampled",
+      "mode": "layers"
+    }
+  },
+  "metrics": {
+    "logical": {
+      "cx": 1862,
+      "depth": 2690,
+      "n_rot": 56,
+      "t_fixed": 1826,
+      "qubits": 23,
+      "ancilla": 7
+    },
+    "gates_lowered": {
+      "cx": 1862,
+      "t": 1036,
+      "tdg": 790,
+      "h": 668,
+      "x": 176,
+      "rz": 64,
+      "s": 52,
+      "sdg": 52
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 1826,
+        "n_rot": 56,
+        "t_rot_pygridsynth": 2256,
+        "t_total": 4082,
+        "t_est": 4058.3356797643073,
+        "t_qiskit": 3888,
+        "cx_qiskit": 1794,
+        "depth_qiskit": 5159,
+        "synth": {
+          "n_rot": 56,
+          "t_rot": 2256,
+          "error_bound_sum": 0.0056,
+          "error_measured_sum": 0.001775889737746222,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 0.0005564455913932048,
+            "block_error": 0.0005564455913932048,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": 0.00031643551188091114,
+            "method": "blocks_certified_composition_sampled",
+            "engine": "layers",
+            "certified": false,
+            "tolerances": {
+              "tol_err": 0.005600001,
+              "tol_gauss": 0.005600001
+            },
+            "n_inputs": 20,
+            "seconds": 18.909828662872314,
+            "extra": {
+              "scope": "blocks_certified_composition_sampled",
+              "mode": "layers"
+            }
+          },
+          "seconds": 19.003014087677002
+        }
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 1826,
+        "n_rot": 56,
+        "t_rot_pygridsynth": 3572,
+        "t_total": 5398,
+        "t_est": 5174.503519646461,
+        "t_qiskit": 5178,
+        "cx_qiskit": 1794,
+        "depth_qiskit": 6506,
+        "synth": {
+          "n_rot": 56,
+          "t_rot": 3572,
+          "error_bound_sum": 5.599999999999999e-05,
+          "error_measured_sum": 2.4563063570196767e-05,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 7.554026096547155e-06,
+            "block_error": 7.554026096547155e-06,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": 2.7264322812431505e-06,
+            "method": "blocks_certified_composition_sampled",
+            "engine": "layers",
+            "certified": false,
+            "tolerances": {
+              "tol_err": 5.6001e-05,
+              "tol_gauss": 5.6001e-05
+            },
+            "n_inputs": 20,
+            "seconds": 17.390329360961914,
+            "extra": {
+              "scope": "blocks_certified_composition_sampled",
+              "mode": "layers"
+            }
+          },
+          "seconds": 17.49617910385132
+        }
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 1826,
+        "n_rot": 56,
+        "t_rot_pygridsynth": 4684,
+        "t_total": 6510,
+        "t_est": 6290.671359528615,
+        "t_qiskit": 6234,
+        "cx_qiskit": 1794,
+        "depth_qiskit": 7837,
+        "synth": {
+          "n_rot": 56,
+          "t_rot": 4684,
+          "error_bound_sum": 5.6e-07,
+          "error_measured_sum": 2.2152146828314177e-07,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 4.1710645395491904e-08,
+            "block_error": 4.1710645395491904e-08,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": 2.5447285861721638e-08,
+            "method": "blocks_certified_composition_sampled",
+            "engine": "layers",
+            "certified": false,
+            "tolerances": {
+              "tol_err": 5.61e-07,
+              "tol_gauss": 5.61e-07
+            },
+            "n_inputs": 20,
+            "seconds": 17.55033016204834,
+            "extra": {
+              "scope": "blocks_certified_composition_sampled",
+              "mode": "layers"
+            }
+          },
+          "seconds": 17.657925367355347
+        }
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 1826,
+        "n_rot": 56,
+        "t_rot_pygridsynth": 5780,
+        "t_total": 7606,
+        "t_est": 7406.839199410769,
+        "t_qiskit": 7364,
+        "cx_qiskit": 1794,
+        "depth_qiskit": 9008,
+        "synth": {
+          "n_rot": 56,
+          "t_rot": 5780,
+          "error_bound_sum": 5.6000000000000005e-09,
+          "error_measured_sum": 9.836162636324647e-10,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 2.5517108002586983e-10,
+            "block_error": 2.5517108002586983e-10,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": 8.947135330677053e-11,
+            "method": "blocks_certified_composition_sampled",
+            "engine": "layers",
+            "certified": false,
+            "tolerances": {
+              "tol_err": 6.6e-09,
+              "tol_gauss": 6.6e-09
+            },
+            "n_inputs": 20,
+            "seconds": 18.648151636123657,
+            "extra": {
+              "scope": "blocks_certified_composition_sampled",
+              "mode": "layers"
+            }
+          },
+          "seconds": 18.772094249725342
+        }
+      }
+    ],
+    "macro_counts": {
+      "cx": 302,
+      "ccx": 246,
+      "x": 176,
+      "ch": 52,
+      "rz": 40,
+      "h": 24,
+      "cz": 16,
+      "crx": 8,
+      "p": 8
+    }
+  },
+  "files": {
+    "qpy": "results/fuzzy/step.qpy",
+    "sha256": "715d59b1c95d06773aa8bd7a5e5f33c7e1f90a8a224f50fa4b7681ae819abde2",
+    "qasm3": "results/fuzzy/step.qasm3"
+  },
+  "extra": {
+    "verification_scope": "blocks_certified_composition_sampled",
+    "order": 1,
+    "outer_row": {
+      "n_outer_links": 8,
+      "totals": {
+        "cx": 288,
+        "n_rot": 80,
+        "t_fixed": 0,
+        "t_table": [
+          {
+            "eps": 0.0001,
+            "t_rot_pygridsynth": 3168,
+            "t_total": 3168,
+            "t_qiskit": 3168,
+            "cx_qiskit": 224
+          },
+          {
+            "eps": 1e-06,
+            "t_rot_pygridsynth": 5152,
+            "t_total": 5152,
+            "t_qiskit": 5104,
+            "cx_qiskit": 224
+          },
+          {
+            "eps": 1e-08,
+            "t_rot_pygridsynth": 6720,
+            "t_total": 6720,
+            "t_qiskit": 6576,
+            "cx_qiskit": 224
+          },
+          {
+            "eps": 1e-10,
+            "t_rot_pygridsynth": 8224,
+            "t_total": 8224,
+            "t_qiskit": 8128,
+            "cx_qiskit": 224
+          }
+        ]
+      },
+      "consistency_with_build_step_with_outer": {
+        "cx_increment": 288,
+        "n_rot_increment": 80,
+        "t_fixed_increment": 0,
+        "max_commutator_with_gauss_generators": 1.013001938233668e-16,
+        "matches_totals": true
+      },
+      "file": "results/fuzzy/outer_row.json"
+    },
+    "order2": {
+      "params": {
+        "alpha": 0.37,
+        "beta": 0.61,
+        "kappa2": 0.185,
+        "r": 1.0,
+        "order": 2
+      },
+      "verification": {
+        "ok": true,
+        "reason": "ok",
+        "op_norm_error": 1.6552046578434014e-14,
+        "max_leak": 0.0,
+        "dirty_ancilla": 0.0,
+        "phase": null,
+        "outer_bits_read": 0,
+        "n_blocks": null,
+        "gauss_residual": 5.169911989121527e-15,
+        "method": "blocks_certified_composition_sampled",
+        "engine": "layers",
+        "engine_accuracy": null,
+        "certified": false,
+        "tolerances": {
+          "tol_err": 1e-10,
+          "tol_gauss": 1e-10
+        },
+        "dropped_total": 0.0,
+        "block_error": 1.6552046578434014e-14,
+        "leak_amplitude": 0.0,
+        "seconds": 71.41438817977905,
+        "n_inputs": 40,
+        "failing_inputs": [],
+        "extra": {
+          "scope": "blocks_certified_composition_sampled",
+          "mode": "layers"
+        }
+      },
+      "metrics": {
+        "logical": {
+          "cx": 2006,
+          "depth": 2734,
+          "n_rot": 96,
+          "t_fixed": 1826,
+          "qubits": 23,
+          "ancilla": 7
+        },
+        "gates_lowered": {
+          "cx": 2006,
+          "t": 1036,
+          "tdg": 790,
+          "h": 692,
+          "x": 176,
+          "rz": 104,
+          "s": 52,
+          "sdg": 52
+        },
+        "t_table": [
+          {
+            "eps": 0.0001,
+            "t_fixed": 1826,
+            "n_rot": 96,
+            "t_rot_pygridsynth": 4096,
+            "t_total": 5922,
+            "t_est": 5652.861165310242,
+            "t_qiskit": 5584,
+            "cx_qiskit": 1890,
+            "depth_qiskit": 6131,
+            "synth": {
+              "n_rot": 96,
+              "t_rot": 4096,
+              "error_bound_sum": 0.009600000000000001,
+              "error_measured_sum": 0.004184257109599156,
+              "verdict": {
+                "ok": true,
+                "reason": "ok",
+                "op_norm_error": 0.0008774425007222571,
+                "block_error": 0.0008774425007222571,
+                "leak_amplitude": 0.0,
+                "max_leak": 0.0,
+                "dirty_ancilla": 0.0,
+                "gauss_residual": 0.0003576324768023926,
+                "method": "blocks_certified_composition_sampled",
+                "engine": "layers",
+                "certified": false,
+                "tolerances": {
+                  "tol_err": 0.009600001,
+                  "tol_gauss": 0.009600001
+                },
+                "n_inputs": 20,
+                "seconds": 19.85063099861145,
+                "extra": {
+                  "scope": "blocks_certified_composition_sampled",
+                  "mode": "layers"
+                }
+              },
+              "seconds": 19.97700595855713
+            }
+          },
+          {
+            "eps": 1e-06,
+            "t_fixed": 1826,
+            "n_rot": 96,
+            "t_rot_pygridsynth": 5956,
+            "t_total": 7782,
+            "t_est": 7566.291747965362,
+            "t_qiskit": 7586,
+            "cx_qiskit": 1890,
+            "depth_qiskit": 7669,
+            "synth": {
+              "n_rot": 96,
+              "t_rot": 5956,
+              "error_bound_sum": 9.599999999999999e-05,
+              "error_measured_sum": 3.0140913894361127e-05,
+              "verdict": {
+                "ok": true,
+                "reason": "ok",
+                "op_norm_error": 6.81441683356272e-06,
+                "block_error": 6.81441683356272e-06,
+                "leak_amplitude": 0.0,
+                "max_leak": 0.0,
+                "dirty_ancilla": 0.0,
+                "gauss_residual": 2.0739309047935e-06,
+                "method": "blocks_certified_composition_sampled",
+                "engine": "layers",
+                "certified": false,
+                "tolerances": {
+                  "tol_err": 9.6001e-05,
+                  "tol_gauss": 9.6001e-05
+                },
+                "n_inputs": 20,
+                "seconds": 20.433724880218506,
+                "extra": {
+                  "scope": "blocks_certified_composition_sampled",
+                  "mode": "layers"
+                }
+              },
+              "seconds": 20.56425952911377
+            }
+          },
+          {
+            "eps": 1e-08,
+            "t_fixed": 1826,
+            "n_rot": 96,
+            "t_rot_pygridsynth": 7660,
+            "t_total": 9486,
+            "t_est": 9479.722330620483,
+            "t_qiskit": 9186,
+            "cx_qiskit": 1890,
+            "depth_qiskit": 9266,
+            "synth": {
+              "n_rot": 96,
+              "t_rot": 7660,
+              "error_bound_sum": 9.600000000000001e-07,
+              "error_measured_sum": 3.0760582362354354e-07,
+              "verdict": {
+                "ok": true,
+                "reason": "ok",
+                "op_norm_error": 4.299279677858532e-08,
+                "block_error": 4.299279677858532e-08,
+                "leak_amplitude": 0.0,
+                "max_leak": 0.0,
+                "dirty_ancilla": 0.0,
+                "gauss_residual": 1.583460953261244e-08,
+                "method": "blocks_certified_composition_sampled",
+                "engine": "layers",
+                "certified": false,
+                "tolerances": {
+                  "tol_err": 9.610000000000002e-07,
+                  "tol_gauss": 9.610000000000002e-07
+                },
+                "n_inputs": 20,
+                "seconds": 18.48183012008667,
+                "extra": {
+                  "scope": "blocks_certified_composition_sampled",
+                  "mode": "layers"
+                }
+              },
+              "seconds": 18.6276593208313
+            }
+          },
+          {
+            "eps": 1e-10,
+            "t_fixed": 1826,
+            "n_rot": 96,
+            "t_rot_pygridsynth": 10020,
+            "t_total": 11846,
+            "t_est": 11393.152913275604,
+            "t_qiskit": 11476,
+            "cx_qiskit": 1890,
+            "depth_qiskit": 11242,
+            "synth": {
+              "n_rot": 96,
+              "t_rot": 10020,
+              "error_bound_sum": 9.6e-09,
+              "error_measured_sum": 3.0489996347438493e-09,
+              "verdict": {
+                "ok": true,
+                "reason": "ok",
+                "op_norm_error": 4.752236300549428e-10,
+                "block_error": 4.752236300549428e-10,
+                "leak_amplitude": 0.0,
+                "max_leak": 0.0,
+                "dirty_ancilla": 0.0,
+                "gauss_residual": 1.1207153536768033e-10,
+                "method": "blocks_certified_composition_sampled",
+                "engine": "layers",
+                "certified": false,
+                "tolerances": {
+                  "tol_err": 1.06e-08,
+                  "tol_gauss": 1.06e-08
+                },
+                "n_inputs": 20,
+                "seconds": 19.60297989845276,
+                "extra": {
+                  "scope": "blocks_certified_composition_sampled",
+                  "mode": "layers"
+                }
+              },
+              "seconds": 19.778064966201782
+            }
+          }
+        ],
+        "macro_counts": {
+          "cx": 446,
+          "ccx": 246,
+          "x": 176,
+          "rz": 80,
+          "ch": 52,
+          "h": 48,
+          "cz": 16,
+          "crx": 8,
+          "p": 8
+        }
+      },
+      "files": {
+        "qpy": "results/fuzzy/step_order2.qpy",
+        "sha256": "007dc10b7430aa8537dffb6e22ae2bf142b85ce207f430cea33b9245ba7ae413",
+        "qasm3": "results/fuzzy/step_order2.qasm3"
+      }
+    },
+    "alternates": [
+      {
+        "params": {
+          "alpha": 0.91,
+          "beta": 0.23,
+          "kappa2": 0.455,
+          "r": 1.0
+        },
+        "step_order1": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.2216338396097848e-14,
+            "block_error": 1.2216338396097848e-14,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": 5.160391437388266e-15,
+            "method": "blocks_certified_composition_sampled",
+            "engine": "layers",
+            "certified": false,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "n_inputs": 40,
+            "seconds": 73.04655003547668,
+            "extra": {
+              "scope": "blocks_certified_composition_sampled",
+              "mode": "layers"
+            }
+          },
+          "logical": {
+            "cx": 1862,
+            "depth": 2690,
+            "n_rot": 56,
+            "t_fixed": 1826,
+            "qubits": 23,
+            "ancilla": 7
+          },
+          "seconds": 73.0842833518982
+        },
+        "step_order2": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.9402453762702456e-14,
+            "block_error": 1.9402453762702456e-14,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": 5.241174620154627e-15,
+            "method": "blocks_certified_composition_sampled",
+            "engine": "layers",
+            "certified": false,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "n_inputs": 40,
+            "seconds": 39.95695662498474,
+            "extra": {
+              "scope": "blocks_certified_composition_sampled",
+              "mode": "layers"
+            }
+          },
+          "logical": {
+            "cx": 2006,
+            "depth": 2734,
+            "n_rot": 96,
+            "t_fixed": 1826,
+            "qubits": 23,
+            "ancilla": 7
+          },
+          "seconds": 39.99505925178528
+        }
+      },
+      {
+        "params": {
+          "alpha": 1.7,
+          "beta": 1.0,
+          "kappa2": 0.85,
+          "r": 1.0
+        },
+        "step_order1": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.2614210145561069e-14,
+            "block_error": 1.2614210145561069e-14,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": 5.163135537539254e-15,
+            "method": "blocks_certified_composition_sampled",
+            "engine": "layers",
+            "certified": false,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "n_inputs": 40,
+            "seconds": 77.03782081604004,
+            "extra": {
+              "scope": "blocks_certified_composition_sampled",
+              "mode": "layers"
+            }
+          },
+          "logical": {
+            "cx": 1862,
+            "depth": 2690,
+            "n_rot": 56,
+            "t_fixed": 1826,
+            "qubits": 23,
+            "ancilla": 7
+          },
+          "seconds": 77.07338428497314
+        },
+        "step_order2": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.429766935325785e-14,
+            "block_error": 1.429766935325785e-14,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": 5.174999400343545e-15,
+            "method": "blocks_certified_composition_sampled",
+            "engine": "layers",
+            "certified": false,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "n_inputs": 40,
+            "seconds": 42.04907202720642,
+            "extra": {
+              "scope": "blocks_certified_composition_sampled",
+              "mode": "layers"
+            }
+          },
+          "logical": {
+            "cx": 2006,
+            "depth": 2734,
+            "n_rot": 96,
+            "t_fixed": 1826,
+            "qubits": 23,
+            "ancilla": 7
+          },
+          "seconds": 42.08681678771973
+        }
+      },
+      {
+        "params": {
+          "alpha": 0.37,
+          "beta": 0.61,
+          "kappa2": 0.0,
+          "r": 0.0
+        },
+        "step_order1": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.081325200995776e-14,
+            "block_error": 1.081325200995776e-14,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": 5.1650465912372995e-15,
+            "method": "blocks_certified_composition_sampled",
+            "engine": "layers",
+            "certified": false,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "n_inputs": 40,
+            "seconds": 61.62399673461914,
+            "extra": {
+              "scope": "blocks_certified_composition_sampled",
+              "mode": "layers"
+            }
+          },
+          "logical": {
+            "cx": 1862,
+            "depth": 2690,
+            "n_rot": 40,
+            "t_fixed": 1826,
+            "qubits": 23,
+            "ancilla": 7
+          },
+          "seconds": 61.67333173751831
+        },
+        "step_order2": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.5463897593701703e-14,
+            "block_error": 1.5463897593701703e-14,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": 5.1728190100972655e-15,
+            "method": "blocks_certified_composition_sampled",
+            "engine": "layers",
+            "certified": false,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "n_inputs": 40,
+            "seconds": 42.91183519363403,
+            "extra": {
+              "scope": "blocks_certified_composition_sampled",
+              "mode": "layers"
+            }
+          },
+          "logical": {
+            "cx": 2006,
+            "depth": 2734,
+            "n_rot": 64,
+            "t_fixed": 1826,
+            "qubits": 23,
+            "ancilla": 7
+          },
+          "seconds": 42.95105695724487
+        }
+      }
+    ],
+    "trotter_order1_vs_order2_isolated_plaquette": 1.4773130032355548,
+    "verification_note": "UE/UK layers and the plaquette layer are taken from the circuit's own gates (UB layer: complete 256x256 row block by the exact sparse simulator, weight outside the row space = leak); the composition is checked on seeded random product states and physical-state components against targets.apply_step; block_error = err - leak_amplitude.",
+    "lean": {
+      "method": "static scan by scripts/m9_results.py; lake build / #print axioms are run by the Lean gate, not here",
+      "files": {
+        "Counts.lean": {
+          "sha256": "e3671f25a4b6865c032eeb88c98678c274e32ce1e35387d0572c9de2fed66383",
+          "lines": 81,
+          "theorems": 5,
+          "sorry": 0,
+          "native_decide": 0,
+          "axiom_declarations": 0,
+          "print_axioms_lines": 0,
+          "olean_built": true
+        },
+        "Link.lean": {
+          "sha256": "992ce64337b066323fe0b8dc551671fc17917fcf0fbd1f02442590f451577aab",
+          "lines": 325,
+          "theorems": 18,
+          "sorry": 0,
+          "native_decide": 0,
+          "axiom_declarations": 0,
+          "print_axioms_lines": 0,
+          "olean_built": true
+        }
+      },
+      "clean": true
+    },
+    "seconds_total": 121.84908437728882
+  }
+}

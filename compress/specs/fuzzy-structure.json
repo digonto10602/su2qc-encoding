@@ -1,0 +1,62 @@
+{
+ "schema": "fuzzy-structure-1",
+ "facts": [
+  {
+   "name": "card_isolated_plaquette",
+   "value": 50,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.Fuzzy.count_isolated_plaquette",
+   "note": "physical states of the isolated fuzzy plaquette"
+  },
+  {
+   "name": "card_outer_vacuum",
+   "value": 12800,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.Fuzzy.count_outer_vacuum",
+   "note": "outer-vacuum sector"
+  },
+  {
+   "name": "card_fixed_far_end",
+   "value": 101197218,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.Fuzzy.count_fixed_far_end",
+   "note": "twelve links, far end of each outer link fixed"
+  },
+  {
+   "name": "card_far_end_weighted",
+   "value": 6767266914,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.Fuzzy.count_far_end_weighted",
+   "note": "far-end weighted count"
+  },
+  {
+   "name": "K1_spectrum",
+   "value": "{0^2, (3/2)^8, 2^6}",
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.Fuzzy.K1_spectrum",
+   "note": "link kinetic operator K1 (fuzzy_link unit)"
+  },
+  {
+   "name": "K2_spectrum",
+   "value": "{-4, (-2)^4, 0^6, 2^4, 4}",
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.Fuzzy.K2_spectrum",
+   "note": "link kinetic operator K2 (fuzzy_link unit); [K1, K2] = 0 (K1_K2_commute)"
+  },
+  {
+   "name": "K1_K2_joint_eigenphases",
+   "value": "(K1,K2) in {(0,-4),(0,4),(3/2,-2),(3/2,2),(2,0)} (+ multiplicities)",
+   "proved_by": "numerical",
+   "note": "5 joint eigenphases of the link block"
+  },
+  {
+   "name": "square_sector_singular_values",
+   "value": "{16, 0^12}, {4, 0^15}, {1^16} per parity sector",
+   "proved_by": "numerical",
+   "note": "U_B unit: 8 parity sectors, Clifford fixed unitaries (F5)"
+  }
+ ],
+ "provenance": {
+  "source": "lean/Su2Plaq/Fuzzy/{Counts,Link}.lean and METHODS-fuzzy F5, F9; written by compress_hook"
+ }
+}

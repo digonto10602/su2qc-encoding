@@ -1,0 +1,153 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.303427793416913e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.1758717310112164e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.540640930409815e-14,
+  "block_error": 1.7627868630070982e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.5482378005981445,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.7627868630070982e-14,
+   "max_dropped_l2": 4.646856902711238e-15,
+   "max_span_leak": 3.3306690738754696e-16,
+   "op_norm_error_inner_span": 1.7627868630070982e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 2.98105880692365e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    1.0446352066021506e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.917717670466098e-14,
+   "block_error": 1.0633411364575519e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.05952000617980957,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.0633411364575519e-14,
+    "max_dropped_l2": 2.2480231124346693e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.0633411364575519e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.755938108736944e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    4.765454745673924e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.059523918226345e-14,
+   "block_error": 1.6964141905105987e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.05909085273742676,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.6964141905105987e-14,
+    "max_dropped_l2": 5.094527766765057e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.6964141905105987e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 172,
+  "t_fixed": 96,
+  "n_rot": 44,
+  "t_eps": 2904,
+  "t_estimate": {
+   "1e-06": 2726.967051150791,
+   "1e-10": 4480.945085251318
+  },
+  "t_measured": {
+   "1e-06": 2904,
+   "1e-10": 4672
+  },
+  "synth_error_bound": 4.4e-05,
+  "depth": 196,
+  "depth_ct": 7206,
+  "qubits": 14,
+  "gates": {
+   "cx": 172,
+   "h": 58,
+   "t": 52,
+   "tdg": 44,
+   "rz": 44,
+   "x": 2
+  },
+  "measured": true
+ },
+ "program_sha256": "166e6a0f53b39b1d9c44fecf1168520330aff8befc62e41d027a3fd637a54f56",
+ "wall_s": 1.5918471813201904,
+ "discoveries": [
+  "DISCOVERY: sectors 2,3,6,7 are exactly the t=1 parity sectors and share one frame; on that frame their four C^k-R_x merge into one 12-term phase polynomial (16-CX closed walk) over x=t&~l, y=t&l, r, w01=fl0&fl1, w23=fl2&fl3, fitted exactly on the reachable domain (x,y exclusive), so the one-hot needs no r-split for t=1 (saves 16 CX).",
+  "DISCOVERY: in that merged polynomial the bare w01, w23 and constant Walsh terms of sectors 2,3,7,6 cancel exactly (angles 8b,-16b,8b,-4b), the merge is lossless.",
+  "DISCOVERY: the last frame (0 3)(1 3)(2 3) equals (1 2)(0 3)(1 3) (time order); starting it with cswap(2,1) cancels the final Bell-decoder CX(q2^r->q2^t) against the Fredkin's first CX (-2 CX)."
+ ],
+ "summary": "parent r01-F1-001 frames, but the t=1 sectors 2,3,6,7 (one shared layout) get pair-AND ancillas w01,w23 and ONE merged phase polynomial on f over x=t~l, y=tl, r, w01, w23 (one-hot NOT split by r for t=1: 4 ancillas, 32 CX one-hot round trip); final frame re-factored to start with (1 2) so its CX cancels the last Bell-decoder CX; 172 CX."
+}

@@ -1,0 +1,263 @@
+{
+ "encoding": "fuzzy_ub",
+ "kind": "UB",
+ "n_rounds": 4,
+ "n_candidates": 12,
+ "n_valid": 11,
+ "global_best": "r03-F3-003",
+ "global_best_key": [
+  151,
+  1902,
+  4682,
+  13
+ ],
+ "best_by_family": {
+  "seed": "r00-seed-010",
+  "F1": "r03-F1-003",
+  "F2": "r03-F2-003",
+  "F3": "r03-F3-003"
+ },
+ "rows": [
+  [
+   "general",
+   "15",
+   "1718",
+   "1826",
+   "16",
+   "2822",
+   "2782.72",
+   "3494",
+   "4916",
+   "valid (err 3.81199e-14, leak 0)",
+   "not_run",
+   "r00-seed-000 @ 4f7126f"
+  ],
+  [
+   "general + polish",
+   "15",
+   "1596",
+   "1686",
+   "16",
+   "2682",
+   "2642.72",
+   "3354",
+   "4912",
+   "valid (err 3.81199e-14, leak 0)",
+   "n_a",
+   "r00-seed-010 @ 4f7126f"
+  ],
+  [
+   "Qiskit L3 (windows of 32)",
+   "15",
+   "1629",
+   "1758",
+   "40",
+   "4149.79",
+   "4149.79",
+   "5744.31",
+   "2779",
+   "invalid: pruning_bound",
+   "not_run",
+   "r00-seed-qiskit_l3 @ 4f7126f"
+  ],
+  [
+   "Qiskit L3 (whole circuit; counts only)",
+   "15",
+   "1627",
+   "1742",
+   "40",
+   "n/a (unverifiable)",
+   "4133.79",
+   "n/a (unverifiable)",
+   "n/a (unverifiable)",
+   "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "n_a",
+   "-"
+  ],
+  [
+   "spinnet15 (not applicable)",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "spinnet15: not applicable to the fuzzy encoding",
+   "n_a",
+   "-"
+  ],
+  [
+   "best of family F1",
+   "14",
+   "164",
+   "112",
+   "44",
+   "2920",
+   "2742.97",
+   "4688",
+   "7222",
+   "valid (err 6.91307e-14, leak 0)",
+   "not_run",
+   "r03-F1-003 @ ebd52e9"
+  ],
+  [
+   "best of family F2",
+   "14",
+   "165",
+   "106",
+   "44",
+   "2914",
+   "2736.97",
+   "4682",
+   "7221",
+   "valid (err 7.17291e-14, leak 0)",
+   "not_run",
+   "r03-F2-003 @ ebd52e9"
+  ],
+  [
+   "best of family F3",
+   "13",
+   "151",
+   "118",
+   "28",
+   "1902",
+   "1792.25",
+   "3030",
+   "4682",
+   "valid (err 6.4319e-14, leak 0)",
+   "n_a",
+   "r03-F3-003 @ ebd52e9"
+  ],
+  [
+   "best of family seed",
+   "15",
+   "1596",
+   "1686",
+   "16",
+   "2682",
+   "2642.72",
+   "3354",
+   "4912",
+   "valid (err 3.81199e-14, leak 0)",
+   "n_a",
+   "r00-seed-010 @ 4f7126f"
+  ],
+  [
+   "GLOBAL BEST",
+   "13",
+   "151",
+   "118",
+   "28",
+   "1902",
+   "1792.25",
+   "3030",
+   "4682",
+   "valid (err 6.4319e-14, leak 0)",
+   "n_a",
+   "r03-F3-003 @ ebd52e9"
+  ]
+ ],
+ "lineage": [
+  {
+   "id": "r00-seed-000",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 1718,
+   "t_eps": 2822,
+   "parent_known": true
+  },
+  {
+   "id": "r00-seed-010",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 1596,
+   "t_eps": 2682,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F1-001",
+   "parent": null,
+   "family": "F1",
+   "round": 1,
+   "cx": 200,
+   "t_eps": 3804,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F2-001",
+   "parent": null,
+   "family": "F2",
+   "round": 1,
+   "cx": 268,
+   "t_eps": 1276,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F3-001",
+   "parent": null,
+   "family": "F3",
+   "round": 1,
+   "cx": 390,
+   "t_eps": 1392,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F1-002",
+   "parent": "r01-F1-001",
+   "family": "F1",
+   "round": 2,
+   "cx": 172,
+   "t_eps": 2904,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F2-002",
+   "parent": "r01-F1-001",
+   "family": "F2",
+   "round": 2,
+   "cx": 172,
+   "t_eps": 2916,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F3-002",
+   "parent": "r01-F3-001",
+   "family": "F3",
+   "round": 2,
+   "cx": 192,
+   "t_eps": 3820,
+   "parent_known": true
+  },
+  {
+   "id": "r03-F1-003",
+   "parent": "r02-F1-002",
+   "family": "F1",
+   "round": 3,
+   "cx": 164,
+   "t_eps": 2920,
+   "parent_known": true
+  },
+  {
+   "id": "r03-F2-003",
+   "parent": "r02-F2-002",
+   "family": "F2",
+   "round": 3,
+   "cx": 165,
+   "t_eps": 2914,
+   "parent_known": true
+  },
+  {
+   "id": "r03-F3-003",
+   "parent": "r02-F1-002",
+   "family": "F3",
+   "round": 3,
+   "cx": 151,
+   "t_eps": 1902,
+   "parent_known": true
+  }
+ ]
+}

@@ -1,0 +1,155 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 6.913069635670847e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   5.662586502082477e-16,
+   1.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.9606754156553486e-14,
+  "block_error": 1.9523942200154978e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.5989899635314941,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9523942200154978e-14,
+   "max_dropped_l2": 6.2543603023841815e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.9499114402712562e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.3191701269636534e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    6.433531594506218e-16,
+    1.0
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.7619680256222845e-14,
+   "block_error": 1.5572021013413692e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.08040571212768555,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.5572021013413692e-14,
+    "max_dropped_l2": 3.860560733110879e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.5571549901409744e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.196004554061963e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    6.002561642575946e-16,
+    1.0
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.2804685335735164e-14,
+   "block_error": 1.9155360204884472e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.07863354682922363,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.9155360204884472e-14,
+    "max_dropped_l2": 6.427159436951e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.9115805348077348e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 164,
+  "t_fixed": 112,
+  "n_rot": 44,
+  "t_eps": 2920,
+  "t_estimate": {
+   "1e-06": 2742.967051150791,
+   "1e-10": 4496.945085251318
+  },
+  "t_measured": {
+   "1e-06": 2920,
+   "1e-10": 4688
+  },
+  "synth_error_bound": 4.4e-05,
+  "depth": 229,
+  "depth_ct": 7222,
+  "qubits": 14,
+  "gates": {
+   "cx": 164,
+   "h": 114,
+   "t": 65,
+   "tdg": 47,
+   "rz": 44,
+   "s": 29,
+   "z": 16,
+   "sdg": 11,
+   "x": 2
+  },
+  "measured": true
+ },
+ "program_sha256": "1787bb90402ec88ac79ee609b3f942e49e7c44d1857f97c1167a04f4ae430b6e",
+ "wall_s": 1.7447781562805176,
+ "discoveries": [
+  "DISCOVERY: the 7-CX Clifford+T Fredkin combines with the decoder cancellation of r02-F1-002: Fredkin is self-inverse, so its dagger form starts with cx(q2^j -> q2^i) and the -1 CX cancellation still applies (6 CX for that swap), 62 -> 54 CX on the frames.",
+  "DISCOVERY: replacing the Toffoli of a Fredkin by rccx (5-CX relative-phase Fredkin) leaves a diagonal residue with >= 3 two/three-body parities (f^a, a^b, f^a^b) whose correction costs >= 3 CX even after cancelling against the Fredkin tail, so it never beats 7 CX; qiskit level-3 resynthesis of the beta-free runs between rz finds nothing further."
+ ],
+ "summary": "parent r02-F1-002 (frames, merged t=1 group phase polynomial, Bell-decoder/Fredkin CX cancellation) with every one of the 8 f-controlled q2 swaps emitted as the 7-CX Clifford+T Fredkin of r02-F3-002 (its dagger form where the first CX is cancelled against the last Bell-decoder CX); 164 CX."
+}
