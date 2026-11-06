@@ -1,0 +1,596 @@
+[
+ {
+  "id": "M0_none",
+  "desc": "no mutation (control)",
+  "wall_s": 23.4,
+  "peak_rss_gb": 1.11,
+  "returncode": 0,
+  "failed": [],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "ub_exact_all_codes",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "",
+  "stderr_tail": "1114944\n"
+ },
+ {
+  "id": "B1_rz_sign",
+  "desc": "builder: rz sign flipped in applyBasis",
+  "wall_s": 19.9,
+  "peak_rss_gb": 1.12,
+  "returncode": 1,
+  "failed": [
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/B1_rz_sign/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1116420\n"
+ },
+ {
+  "id": "B2_one_angle",
+  "desc": "builder: one ubGates angle .rz 0 (-7) -> (-6)",
+  "wall_s": 19.8,
+  "peak_rss_gb": 1.12,
+  "returncode": 1,
+  "failed": [
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/B2_one_angle/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1117224\n"
+ },
+ {
+  "id": "B3_eig_signs",
+  "desc": "builder: eigenvalue signs swapped in eigsOf",
+  "wall_s": 19.0,
+  "peak_rss_gb": 0.99,
+  "returncode": 1,
+  "failed": [
+   "eig_blocks"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "ub_exact_all_codes",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/B3_eig_signs/Mut.lean:363:2: error: Tactic `decide` proved that the proposition\n  (blocks.all fun ob =>\n      (eigsOf ob.snd).all fun e =>\n        (e.snd.fst == 0 || ob.snd.contains (e.fst ^^^ 15)) &&\n          ob.snd.all fun t => hvAt ob.fst e t == e.snd.snd * vecAt e t) =\n    true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n989680\n"
+ },
+ {
+  "id": "T1_racah_sign",
+  "desc": "6j: Racah alternating sign removed",
+  "wall_s": 21.8,
+  "peak_rss_gb": 1.13,
+  "returncode": 0,
+  "failed": [],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "ub_exact_all_codes",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "",
+  "stderr_tail": "1127428\n"
+ },
+ {
+  "id": "T2_one_F_value",
+  "desc": "one F-symbol value negated: F^{1 1/2 1/2}_{1/2 ...} i.e. fsym with (j1,j2,j12)=(2,1,1) gets -1",
+  "wall_s": 21.9,
+  "peak_rss_gb": 1.13,
+  "returncode": 0,
+  "failed": [],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "ub_exact_all_codes",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "",
+  "stderr_tail": "1128988\n"
+ },
+ {
+  "id": "T2b_F_J12_value",
+  "desc": "one F-symbol value negated: (J,jp,jn)=(1/2,0,1/2) i.e. fsym (1,0,1,..)",
+  "wall_s": 23.2,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "he proposition\n  (validCodes.all fun y =>\n      validCodes.all fun y' =>\n        match kEntry? y' y with\n        | some k =>\n          { num := 2 * k.num, den := k.den }.beq { num := if (y' == y ^^^ 15) = true then twoKlit y else 0, den := 1 }\n        | none => false) =\n    true\nis false\n/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/T2b_F_J12_value/Mut.lean:311:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1126172\n"
+ },
+ {
+  "id": "T2c_F_J0_value",
+  "desc": "one F-symbol value negated: J=0 corner with jp=jn=1/2 (fsym (0,1,1,1,J'=?,..))",
+  "wall_s": 18.3,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "the proposition\n  (validCodes.all fun y =>\n      validCodes.all fun y' =>\n        match kEntry? y' y with\n        | some k =>\n          { num := 2 * k.num, den := k.den }.beq { num := if (y' == y ^^^ 15) = true then twoKlit y else 0, den := 1 }\n        | none => false) =\n    true\nis false\n/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/T2c_F_J0_value/Mut.lean:311:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1133844\n"
+ },
+ {
+  "id": "T3_F_phase_drops_J",
+  "desc": "F phase exponent loses the J term",
+  "wall_s": 22.2,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "proposition\n  (validCodes.all fun y =>\n      validCodes.all fun y' =>\n        match kEntry? y' y with\n        | some k =>\n          { num := 2 * k.num, den := k.den }.beq { num := if (y' == y ^^^ 15) = true then twoKlit y else 0, den := 1 }\n        | none => false) =\n    true\nis false\n/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/T3_F_phase_drops_J/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1125444\n"
+ },
+ {
+  "id": "T4_dim_factor",
+  "desc": "F sqrt((2j12+1)(2j23+1)) -> (2j12+1) only",
+  "wall_s": 28.9,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": " the proposition\n  (validCodes.all fun y =>\n      validCodes.all fun y' =>\n        match kEntry? y' y with\n        | some k =>\n          { num := 2 * k.num, den := k.den }.beq { num := if (y' == y ^^^ 15) = true then twoKlit y else 0, den := 1 }\n        | none => false) =\n    true\nis false\n/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/T4_dim_factor/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1129580\n"
+ },
+ {
+  "id": "T5_codec_corner",
+  "desc": "codec: corner 0 visits (r,b) instead of (l,b)",
+  "wall_s": 16.4,
+  "peak_rss_gb": 1.16,
+  "returncode": 1,
+  "failed": [
+   "blocks_cover",
+   "card_states_exact",
+   "coupling_from_6j",
+   "eig_count",
+   "eig_mult",
+   "k_from_6j_full",
+   "ub_exact_all_codes",
+   "valid_codes_from_codec"
+  ],
+  "passed": [
+   "k_matching",
+   "ub_h_count",
+   "eig_blocks"
+  ],
+  "other_errors": [],
+  "tail": "d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/T5_codec_corner/Mut.lean:365:82: error: Tactic `decide` proved that the proposition\n  (List.map (fun ob => (eigsOf ob.snd).length) blocks).sum = 433\nis false\n/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/T5_codec_corner/Mut.lean:370:42: error: Tactic `decide` proved that the proposition\n  List.map (fun l => (List.map (fun ob => (List.filter (fun e => e.snd.snd == l) (eigsOf ob.snd)).length) blocks).sum)\n      [-4, -2, -1, 0, 1, 2, 4] =\n    [16, 96, 16, 177, 16, 96, 16]\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1157328\n"
+ },
+ {
+  "id": "T6_K_sign",
+  "desc": "K = +(P+P^T) instead of -(P+P^T)",
+  "wall_s": 17.5,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "that the proposition\n  (validCodes.all fun y =>\n      validCodes.all fun y' =>\n        match kEntry? y' y with\n        | some k =>\n          { num := 2 * k.num, den := k.den }.beq { num := if (y' == y ^^^ 15) = true then twoKlit y else 0, den := 1 }\n        | none => false) =\n    true\nis false\n/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/T6_K_sign/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1129720\n"
+ },
+ {
+  "id": "G1_qubit_index",
+  "desc": "gate qubit index: first .cx 14 0 -> .cx 14 1",
+  "wall_s": 19.3,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/G1_qubit_index/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1131856\n"
+ },
+ {
+  "id": "G2_rccx_target",
+  "desc": "gate qubit index: .rccx 6 7 9 -> .rccx 6 7 10 (first)",
+  "wall_s": 19.1,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/G2_rccx_target/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1125320\n"
+ },
+ {
+  "id": "G3_drop_gate",
+  "desc": "dropped last gate .cx 1 3",
+  "wall_s": 20.4,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/G3_drop_gate/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1132876\n"
+ },
+ {
+  "id": "G4_drop_uncompute",
+  "desc": "dropped one uncompute gate .rccx 4 5 8 (second occurrence)",
+  "wall_s": 19.5,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/G4_drop_uncompute/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1126736\n"
+ },
+ {
+  "id": "G5_h_sign",
+  "desc": "h: sign of the |1> branch dropped",
+  "wall_s": 20.3,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/G5_h_sign/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1128632\n"
+ },
+ {
+  "id": "G6_rccx_phase_conj",
+  "desc": "RCCX relative phases conjugated (i <-> -i)",
+  "wall_s": 23.9,
+  "peak_rss_gb": 1.13,
+  "returncode": 0,
+  "failed": [],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "ub_exact_all_codes",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "",
+  "stderr_tail": "1128752\n"
+ },
+ {
+  "id": "G7_rccx_toffoli",
+  "desc": "RCCX as plain Toffoli (all relative phases 1)",
+  "wall_s": 23.7,
+  "peak_rss_gb": 1.12,
+  "returncode": 0,
+  "failed": [],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "ub_exact_all_codes",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "",
+  "stderr_tail": "1122732\n"
+ },
+ {
+  "id": "G8_target_sign",
+  "desc": "target sign of the off-diagonal flipped",
+  "wall_s": 22.0,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "ub_exact_all_codes"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/G8_target_sign/Mut.lean:310:2: error: Tactic `decide` proved that the proposition\n  (validCodes.all fun y => runGates ubGates [(y, [(0, 1, 0)])] == target y ((twoK? y).getD 999)) = true\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1126304\n"
+ },
+ {
+  "id": "S1_multiplicity",
+  "desc": "eig_mult: 16 -> 15 / 177 -> 178 in expected list",
+  "wall_s": 24.0,
+  "peak_rss_gb": 1.12,
+  "returncode": 1,
+  "failed": [
+   "eig_mult"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "ub_exact_all_codes",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/S1_multiplicity/Mut.lean:370:42: error: Tactic `decide` proved that the proposition\n  List.map (fun l => (List.map (fun ob => (List.filter (fun e => e.snd.snd == l) (eigsOf ob.snd)).length) blocks).sum)\n      [-4, -2, -1, 0, 1, 2, 4] =\n    [15, 96, 16, 178, 16, 96, 16]\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1122340\n"
+ },
+ {
+  "id": "S2_all_plus",
+  "desc": "eigsOf: both partners get the + vector (duplicate vectors)",
+  "wall_s": 24.1,
+  "peak_rss_gb": 1.13,
+  "returncode": 1,
+  "failed": [
+   "eig_mult"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "ub_exact_all_codes",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count"
+  ],
+  "other_errors": [],
+  "tail": "/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/S2_all_plus/Mut.lean:370:42: error: Tactic `decide` proved that the proposition\n  List.map (fun l => (List.map (fun ob => (List.filter (fun e => e.snd.snd == l) (eigsOf ob.snd)).length) blocks).sum)\n      [-4, -2, -1, 0, 1, 2, 4] =\n    [16, 96, 16, 177, 16, 96, 16]\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1127676\n"
+ },
+ {
+  "id": "S3_fuse",
+  "desc": "states: fuse(1/2,1/2) = {0,1/2} instead of {0,1}",
+  "wall_s": 18.0,
+  "peak_rss_gb": 1.12,
+  "returncode": 1,
+  "failed": [
+   "blocks_cover",
+   "card_states_exact",
+   "eig_count",
+   "eig_mult"
+  ],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "ub_exact_all_codes",
+   "eig_blocks"
+  ],
+  "other_errors": [],
+  "tail": "op-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/S3_fuse/Mut.lean:365:82: error: Tactic `decide` proved that the proposition\n  (List.map (fun ob => (eigsOf ob.snd).length) blocks).sum = 433\nis false\n/tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/mut2/S3_fuse/Mut.lean:370:42: error: Tactic `decide` proved that the proposition\n  List.map (fun l => (List.map (fun ob => (List.filter (fun e => e.snd.snd == l) (eigsOf ob.snd)).length) blocks).sum)\n      [-4, -2, -1, 0, 1, 2, 4] =\n    [16, 96, 16, 177, 16, 96, 16]\nis false\n",
+  "stderr_tail": "Command exited with non-zero status 1\n1123580\n"
+ },
+ {
+  "id": "S4_hb2_block",
+  "desc": "hb2 ignores the outer block (couples different o)",
+  "wall_s": 23.0,
+  "peak_rss_gb": 1.12,
+  "returncode": 0,
+  "failed": [],
+  "passed": [
+   "valid_codes_from_codec",
+   "k_matching",
+   "coupling_from_6j",
+   "k_from_6j_full",
+   "ub_h_count",
+   "ub_exact_all_codes",
+   "card_states_exact",
+   "blocks_cover",
+   "eig_blocks",
+   "eig_count",
+   "eig_mult"
+  ],
+  "other_errors": [],
+  "tail": "",
+  "stderr_tail": "1122584\n"
+ }
+]
