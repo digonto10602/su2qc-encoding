@@ -14,7 +14,9 @@ export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 - `lake build -j 24` is not accepted by this lake (unknown option -j); used `LEAN_NUM_THREADS=24 lake build`.
 
 ## Shared-file appends (to merge by hand)
-(none yet)
+- `lean/Su2Plaq.lean`: appended `import Su2Plaq.Fuzzy.Counts` and `import Su2Plaq.Fuzzy.Link`.
+- `tests/acceptance/LOCK.json`: m9 added via `python tools/lock.py m9` (acceptance-v8); then hashes of m9/test_fuzzy_circuits.py and m9/test_fuzzy_observables.py updated BY HAND (tools/lock.py refuses re-lock) after Digonto approved prompts/301 (acceptance-v9; v10 = same content, JSON indent restored to 1). Tags acceptance-v8..v10 exist on this branch only — they will collide with laptop/desktop acceptance-vN numbering: rename on merge (e.g. acceptance-fuzzy-v8..v10).
+- Lean `Su2Plaq/Fuzzy/Link.lean` takes ~6 min to build (kernel decide on 16x16 Gaussian-integer matrices).
 
 ## Laptop-owned files that would need changes (diffs)
 (none yet)
