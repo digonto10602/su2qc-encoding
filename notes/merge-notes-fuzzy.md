@@ -56,3 +56,4 @@ round.py:    _certify: skip with status n_a when not getattr(enc, "lean_certifia
 base.py:     NOMINAL_ANGLES["fuzzy_ub"] = NOMINAL_ANGLES["fuzzy_link"] = (0.37, 0.61)
 ```
 
+- Suggested laptop diff (cliffordt.synthesize should carry qc.metadata['layers'] remapped to new instruction ranges; would cut T1[step] from 27 min to seconds) — see builder note in STATUS/Report 9.
