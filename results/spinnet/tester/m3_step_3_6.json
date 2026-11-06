@@ -1,0 +1,221 @@
+{
+ "commit": "ed7d630",
+ "seed": 12345,
+ "gates": {
+  "rccx_herm": 0.0,
+  "rccx_sq_minus_I": 0.0,
+  "rc3x_herm": 2.0,
+  "rc3x_sq_minus_I": 2.0,
+  "rc3x_dg_times_rc3x_minus_I": 6.661338147750939e-16
+ },
+ "records": [
+  {
+   "name": "pairs9 b=0.23 (11q, 47 inner runs)",
+   "leak": 5.390591370594287e-16,
+   "dirty": 2.233181393797005e-31,
+   "gauss": 1.1280665479614042e-15,
+   "unitarity": 3.739620332949681e-15,
+   "err[routeB]": 1.7642430978218463e-15,
+   "err[routeA_ungauged]": 0.45595504707037693,
+   "err[routeB(-b)]": 0.8878962139310397,
+   "err[routeB(b/2)]": 0.2294933767873275
+  },
+  {
+   "name": "pairs9 b=0.61 (11q, 47 inner runs)",
+   "leak": 8.13973015922556e-16,
+   "dirty": 2.1768988536699057e-31,
+   "gauss": 1.1280665479614036e-15,
+   "unitarity": 3.247393544239528e-15,
+   "err[routeB]": 1.7326642316467182e-15,
+   "err[routeA_ungauged]": 1.1457349202009628,
+   "err[routeB(-b)]": 1.878198712638135,
+   "err[routeB(b/2)]": 0.6005863504185228
+  },
+  {
+   "name": "pairs9 b=1.0 (11q, 47 inner runs)",
+   "leak": 7.149744808451122e-16,
+   "dirty": 2.406974712421688e-31,
+   "gauss": 1.1280665479614042e-15,
+   "unitarity": 2.8975910671151534e-15,
+   "err[routeB]": 1.7220947251637455e-15,
+   "err[routeA_ungauged]": 1.682941969615794,
+   "err[routeB(-b)]": 1.8185948536513628,
+   "err[routeB(b/2)]": 0.9588510772084055
+  },
+  {
+   "name": "pairs9 b=0.61 with_outer (19q, all 433)",
+   "leak": 7.1624765920522745e-16,
+   "dirty": 2.052708666342734e-31,
+   "gauss": 1.128066547961404e-15,
+   "unitarity": 3.1086244689504427e-15,
+   "err[routeB]": 1.6839261351669066e-15,
+   "outer_qubits_touched": [],
+   "max_dev_vs_no_outer": 4.446837454707717e-16,
+   "num_qubits": 19
+  },
+  {
+   "name": "flags4 b=0.23 (11q, 47 inner runs)",
+   "leak": 4.2418453429890046e-16,
+   "dirty": 4.083255944548954e-31,
+   "gauss": 1.1280665479614026e-15,
+   "unitarity": 6.661338147750947e-15,
+   "err[routeB]": 3.33502545023464e-15,
+   "err[routeA_ungauged]": 0.45595504707037643,
+   "err[routeB(-b)]": 0.8878962139310388,
+   "err[routeB(b/2)]": 0.22949337678732704
+  },
+  {
+   "name": "flags4 b=0.61 (11q, 47 inner runs)",
+   "leak": 4.442669174121805e-16,
+   "dirty": 4.312636844080032e-31,
+   "gauss": 1.1280665479614026e-15,
+   "unitarity": 5.995204332975846e-15,
+   "err[routeB]": 3.2904423874379595e-15,
+   "err[routeA_ungauged]": 1.1457349202009615,
+   "err[routeB(-b)]": 1.8781987126381332,
+   "err[routeB(b/2)]": 0.6005863504185209
+  },
+  {
+   "name": "flags4 b=1.0 (11q, 47 inner runs)",
+   "leak": 1.5575279212204052e-15,
+   "dirty": 3.2883607578896197e-31,
+   "gauss": 1.1280665479614032e-15,
+   "unitarity": 5.577305435352422e-15,
+   "err[routeB]": 3.3892242686035457e-15,
+   "err[routeA_ungauged]": 1.682941969615792,
+   "err[routeB(-b)]": 1.8185948536513616,
+   "err[routeB(b/2)]": 0.9588510772084047
+  },
+  {
+   "name": "flags4 b=0.61 with_outer (19q, all 433)",
+   "leak": 7.446088640444999e-16,
+   "dirty": 3.845036517465102e-31,
+   "gauss": 1.1280665479614022e-15,
+   "unitarity": 6.66133814775094e-15,
+   "err[routeB]": 3.3381613034027286e-15,
+   "outer_qubits_touched": [],
+   "max_dev_vs_no_outer": 8.994964280273772e-16,
+   "num_qubits": 19
+  },
+  {
+   "name": "flags5 b=0.23 (11q, 47 inner runs)",
+   "leak": 7.061741399107157e-16,
+   "dirty": 4.710420062965405e-31,
+   "gauss": 1.1280665479614028e-15,
+   "unitarity": 5.101119918729923e-15,
+   "err[routeB]": 2.5352331655241864e-15,
+   "err[routeA_ungauged]": 0.455955047070377,
+   "err[routeB(-b)]": 0.8878962139310392,
+   "err[routeB(b/2)]": 0.22949337678732729
+  },
+  {
+   "name": "flags5 b=0.61 (11q, 47 inner runs)",
+   "leak": 9.65632404337266e-16,
+   "dirty": 3.8078450449780267e-31,
+   "gauss": 1.1280665479614028e-15,
+   "unitarity": 4.978194350303792e-15,
+   "err[routeB]": 2.605185726927322e-15,
+   "err[routeA_ungauged]": 1.1457349202009626,
+   "err[routeB(-b)]": 1.878198712638134,
+   "err[routeB(b/2)]": 0.6005863504185225
+  },
+  {
+   "name": "flags5 b=1.0 (11q, 47 inner runs)",
+   "leak": 8.256734706616004e-16,
+   "dirty": 4.171451401745772e-31,
+   "gauss": 1.1280665479614024e-15,
+   "unitarity": 4.9311304148506916e-15,
+   "err[routeB]": 2.8655113077751547e-15,
+   "err[routeA_ungauged]": 1.682941969615794,
+   "err[routeB(-b)]": 1.8185948536513612,
+   "err[routeB(b/2)]": 0.9588510772084049
+  },
+  {
+   "name": "flags5 b=0.61 with_outer (19q, all 433)",
+   "leak": 1.1321007605686668e-15,
+   "dirty": 4.6737113275040085e-31,
+   "gauss": 1.1280665479614028e-15,
+   "unitarity": 5.329070518200754e-15,
+   "err[routeB]": 2.6821334496564336e-15,
+   "outer_qubits_touched": [],
+   "max_dev_vs_no_outer": 6.706030031053747e-16,
+   "num_qubits": 19
+  },
+  {
+   "name": "flags6 b=0.23 (11q, 47 inner runs)",
+   "leak": 5.070320041210058e-16,
+   "dirty": 3.0773895992797234e-31,
+   "gauss": 1.1280665479614036e-15,
+   "unitarity": 3.981439507748768e-15,
+   "err[routeB]": 2.0736438978642983e-15,
+   "err[routeA_ungauged]": 0.45595504707037704,
+   "err[routeB(-b)]": 0.8878962139310401,
+   "err[routeB(b/2)]": 0.22949337678732795
+  },
+  {
+   "name": "flags6 b=0.61 (11q, 47 inner runs)",
+   "leak": 4.872396483751797e-16,
+   "dirty": 4.556322492741385e-31,
+   "gauss": 1.1280665479614036e-15,
+   "unitarity": 4.080355988959377e-15,
+   "err[routeB]": 1.9767082391907222e-15,
+   "err[routeA_ungauged]": 1.1457349202009621,
+   "err[routeB(-b)]": 1.8781987126381352,
+   "err[routeB(b/2)]": 0.6005863504185235
+  },
+  {
+   "name": "flags6 b=1.0 (11q, 47 inner runs)",
+   "leak": 8.089331670426179e-16,
+   "dirty": 3.2037763395465903e-31,
+   "gauss": 1.1280665479614034e-15,
+   "unitarity": 4.279582997352195e-15,
+   "err[routeB]": 2.1978747133166965e-15,
+   "err[routeA_ungauged]": 1.6829419696157928,
+   "err[routeB(-b)]": 1.8185948536513612,
+   "err[routeB(b/2)]": 0.9588510772084065
+  },
+  {
+   "name": "flags6 b=0.61 with_outer (19q, all 433)",
+   "leak": 2.998994518414325e-16,
+   "dirty": 3.8656859582163154e-31,
+   "gauss": 1.128066547961403e-15,
+   "unitarity": 3.996802888650565e-15,
+   "err[routeB]": 2.031484447572108e-15,
+   "outer_qubits_touched": [],
+   "max_dev_vs_no_outer": 6.875672862712418e-16,
+   "num_qubits": 19
+  }
+ ],
+ "gauge_align": {
+  "pairs9": {
+   "err_vs_routeA_ungauged": 1.1457349202009628,
+   "gauge_align_resid": 1.6003078784402869e-15,
+   "D_is_enc_gauge": true
+  },
+  "flags4": {
+   "err_vs_routeA_ungauged": 1.1457349202009615,
+   "gauge_align_resid": 3.0033509636136736e-15,
+   "D_is_enc_gauge": true
+  },
+  "flags5": {
+   "err_vs_routeA_ungauged": 1.1457349202009626,
+   "gauge_align_resid": 2.456063988444734e-15,
+   "D_is_enc_gauge": true
+  },
+  "flags6": {
+   "err_vs_routeA_ungauged": 1.1457349202009621,
+   "gauge_align_resid": 2.110873886243244e-15,
+   "D_is_enc_gauge": true
+  }
+ },
+ "negative": {
+  "pairs9_circuit_with_minus_beta_vs_target_plus_beta": 1.878198712638135,
+  "flags4_circuit_with_minus_beta_vs_target_plus_beta": 1.8781987126381334,
+  "flags4_plain_rc3x_uncompute": {
+   "err": 1.9999999999999998,
+   "leak": 4.442669174121805e-16,
+   "dirty": 4.312636844080032e-31
+  },
+  "pairs9_one_step_dropped": "rejected by solver: skeleton does not reproduce the coupling table: residual 9.78e-01"
+ }
+}

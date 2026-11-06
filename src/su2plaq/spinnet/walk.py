@@ -96,9 +96,11 @@ def mirror(steps) -> list:
     return [(inv.get(s[0], s[0]),) + tuple(s[1:]) for s in reversed(steps) if s[0] != "rz"]
 
 
-def build_walk(steps, table, beta: float, n_anc: int, frame=FRAME, with_outer: bool = False, name: str = "UB"):
+def build_walk(steps, table, beta: float, n_anc: int, frame=FRAME, with_outer: bool = False, name: str = "UB",
+               expand: bool = False):
     """frame; h(TARGET); steps; h(TARGET); frame^-1 as a QuantumCircuit (registers d, [o], a); every rz angle is solved
-    from `table` (ValueError if the skeleton cannot reproduce it, residual > 1e-9)."""
+    from `table` (ValueError if the skeleton cannot reproduce it, residual > 1e-9).  expand=True writes rc3x / rc3x_dg as
+    the h / t / tdg / cx definitions of RC3XGate() / RC3XGate().inverse() instead of the composite gates."""
     theta, res = solve_angles(steps, table, beta, frame)
     if res > 1e-9:
         raise ValueError(f"skeleton does not reproduce the coupling table: residual {res:.2e}")
@@ -121,10 +123,13 @@ def build_walk(steps, table, beta: float, n_anc: int, frame=FRAME, with_outer: b
             qc.x(Q(st[1]))
         elif op == "rccx":
             qc.rccx(*[Q(i) for i in st[1:]])
-        elif op == "rc3x":
-            qc.append(RC3XGate(), [Q(i) for i in st[1:]])
-        elif op == "rc3x_dg":
-            qc.append(RC3XGate().inverse(), [Q(i) for i in st[1:]])
+        elif op in ("rc3x", "rc3x_dg"):
+            gate = RC3XGate() if op == "rc3x" else RC3XGate().inverse()
+            qubits = [Q(i) for i in st[1:]]
+            if expand:
+                qc.compose(gate.definition, qubits=qubits, inplace=True)
+            else:
+                qc.append(gate, qubits)
         elif op == "rz":
             qc.rz(float(next(angles)), Q(st[1]))
         else:

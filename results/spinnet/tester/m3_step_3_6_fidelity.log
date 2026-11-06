@@ -1,0 +1,351 @@
+{
+ "commit": "ed7d630",
+ "skeletons": {
+  "pairs9": {
+   "sib_wires_ints_anc": [
+    [
+     4,
+     5,
+     6,
+     7
+    ],
+    [
+     8,
+     9,
+     10
+    ]
+   ],
+   "steps_equal_after_rccx_dg_to_rccx": true,
+   "n_steps_sib_ours": [
+    37,
+    37
+   ],
+   "frame_equal": true,
+   "rc3x_dg_positions_equal": true,
+   "n_rccx_dg_sib": 3,
+   "sib_gate_names": [
+    "cx",
+    "h",
+    "rz",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "ours_expanded_names": [
+    "cx",
+    "h",
+    "rz",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "n_gates_sib_ours": [
+    93,
+    93
+   ],
+   "gate_names_qubits_identical": true,
+   "rz_angles_sib_ours_beta2": [
+    [
+     0.25000000000000006,
+     -0.49999999999999933
+    ],
+    [
+     -0.25000000000000033,
+     0.49999999999999933
+    ],
+    [
+     0.7500000000000007,
+     -1.5000000000000004
+    ],
+    [
+     -0.7500000000000012,
+     1.5000000000000013
+    ],
+    [
+     0.2500000000000007,
+     -0.5000000000000009
+    ],
+    [
+     0.5,
+     -1.0000000000000007
+    ],
+    [
+     -0.7500000000000002,
+     1.5000000000000004
+    ],
+    [
+     0.7500000000000002,
+     -1.5
+    ],
+    [
+     -0.7500000000000004,
+     1.5000000000000004
+    ]
+   ],
+   "rz_angle_abs_equal": false,
+   "rz_angle_sign_flip_all": false,
+   "rz_angle_same_all": false,
+   "ours_metrics_beta0.61": {
+    "cx": 34,
+    "n_rot": 9,
+    "t_fixed": 24,
+    "ancilla": 3,
+    "depth": 38
+   },
+   "sib_metrics": {
+    "cx": 34,
+    "t_fixed": 24,
+    "n_rot": 9
+   }
+  },
+  "flags4": {
+   "sib_wires_ints_anc": [
+    [
+     4,
+     5,
+     6,
+     7
+    ],
+    [
+     8,
+     9,
+     10
+    ]
+   ],
+   "steps_equal_after_rccx_dg_to_rccx": true,
+   "n_steps_sib_ours": [
+    28,
+    28
+   ],
+   "frame_equal": true,
+   "rc3x_dg_positions_equal": true,
+   "n_rccx_dg_sib": 4,
+   "sib_gate_names": [
+    "cx",
+    "h",
+    "rz",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "ours_expanded_names": [
+    "cx",
+    "h",
+    "rz",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "n_gates_sib_ours": [
+    134,
+    134
+   ],
+   "gate_names_qubits_identical": true,
+   "rz_angles_sib_ours_beta2": [
+    [
+     2.500000000000001,
+     -4.9999999999999964
+    ],
+    [
+     -1.5000000000000004,
+     2.9999999999999982
+    ],
+    [
+     -2.0000000000000004,
+     3.9999999999999973
+    ],
+    [
+     1.0000000000000004,
+     -2.0000000000000013
+    ]
+   ],
+   "rz_angle_abs_equal": false,
+   "rz_angle_sign_flip_all": false,
+   "rz_angle_same_all": false,
+   "ours_metrics_beta0.61": {
+    "cx": 44,
+    "n_rot": 4,
+    "t_fixed": 48,
+    "ancilla": 3,
+    "depth": 60
+   },
+   "sib_metrics": {
+    "cx": 44,
+    "t_fixed": 48,
+    "n_rot": 4
+   }
+  },
+  "flags5": {
+   "sib_wires_ints_anc": [
+    [
+     4,
+     5,
+     6,
+     7
+    ],
+    [
+     8,
+     9,
+     10
+    ]
+   ],
+   "steps_equal_after_rccx_dg_to_rccx": true,
+   "n_steps_sib_ours": [
+    31,
+    31
+   ],
+   "frame_equal": true,
+   "rc3x_dg_positions_equal": true,
+   "n_rccx_dg_sib": 3,
+   "sib_gate_names": [
+    "cx",
+    "h",
+    "rz",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "ours_expanded_names": [
+    "cx",
+    "h",
+    "rz",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "n_gates_sib_ours": [
+    121,
+    121
+   ],
+   "gate_names_qubits_identical": true,
+   "rz_angles_sib_ours_beta2": [
+    [
+     1.2500000000000007,
+     -2.5000000000000004
+    ],
+    [
+     1.0000000000000013,
+     -2.0000000000000036
+    ],
+    [
+     -2.2500000000000018,
+     4.5000000000000036
+    ],
+    [
+     -0.750000000000001,
+     1.500000000000001
+    ],
+    [
+     0.7500000000000002,
+     -1.5000000000000004
+    ]
+   ],
+   "rz_angle_abs_equal": false,
+   "rz_angle_sign_flip_all": false,
+   "rz_angle_same_all": false,
+   "ours_metrics_beta0.61": {
+    "cx": 42,
+    "n_rot": 5,
+    "t_fixed": 40,
+    "ancilla": 3,
+    "depth": 67
+   },
+   "sib_metrics": {
+    "cx": 42,
+    "t_fixed": 40,
+    "n_rot": 5
+   }
+  },
+  "flags6": {
+   "sib_wires_ints_anc": [
+    [
+     4,
+     5,
+     6,
+     7
+    ],
+    [
+     8,
+     9,
+     10
+    ]
+   ],
+   "steps_equal_after_rccx_dg_to_rccx": true,
+   "n_steps_sib_ours": [
+    30,
+    30
+   ],
+   "frame_equal": true,
+   "rc3x_dg_positions_equal": true,
+   "n_rccx_dg_sib": 2,
+   "sib_gate_names": [
+    "cx",
+    "h",
+    "rz",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "ours_expanded_names": [
+    "cx",
+    "h",
+    "rz",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "n_gates_sib_ours": [
+    104,
+    104
+   ],
+   "gate_names_qubits_identical": true,
+   "rz_angles_sib_ours_beta2": [
+    [
+     -0.24999999999999928,
+     0.5000000000000002
+    ],
+    [
+     0.7500000000000003,
+     -1.5000000000000016
+    ],
+    [
+     -0.7500000000000002,
+     1.5000000000000013
+    ],
+    [
+     -0.7500000000000007,
+     1.5000000000000004
+    ],
+    [
+     1.5000000000000013,
+     -3.0000000000000036
+    ],
+    [
+     -0.500000000000001,
+     1.0000000000000004
+    ]
+   ],
+   "rz_angle_abs_equal": false,
+   "rz_angle_sign_flip_all": false,
+   "rz_angle_same_all": false,
+   "ours_metrics_beta0.61": {
+    "cx": 36,
+    "n_rot": 6,
+    "t_fixed": 32,
+    "ancilla": 3,
+    "depth": 51
+   },
+   "sib_metrics": {
+    "cx": 36,
+    "t_fixed": 32,
+    "n_rot": 6
+   }
+  }
+ },
+ "sibling_json_variants": [
+  "A_plaq",
+  "A_step",
+  "B_plaq",
+  "B_step"
+ ]
+}

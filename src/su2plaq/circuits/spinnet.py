@@ -1,14 +1,13 @@
 """16-qubit spin-network circuits (prompts/100 §2; docs/METHODS-spinnet.md §4).  Register order: d (8), then o (8) if
-with_outer, then ancillas.  build_UE / build_UB / build_step (steps 3.3-3.5); paulo_circuit (3.2); trotter_v2 stub (3.6)."""
+with_outer, then ancillas.  build_UE / build_UB / build_step (steps 3.3-3.5); paulo_circuit (3.2); trotter_v2_circuit (3.6)."""
 from __future__ import annotations
 
 import functools
 
 from qiskit import QuantumCircuit, QuantumRegister
 
-from su2plaq._stub import todo
 from su2plaq.encodings.spinnet import SpinNet
-from su2plaq.spinnet import paulo
+from su2plaq.spinnet import paulo, trotter_v2
 from su2plaq.spinnet.walk import FRAME, GENERAL7, TARGET, angle_fractions, build_walk, coupling_table, solve_angles
 
 N_DATA, N_OUTER = 8, 8
@@ -75,5 +74,14 @@ def paulo_circuit(with_outer: bool = False):
 
 
 def trotter_v2_circuit(skeleton: str, beta: float, with_outer: bool = False):
-    """Vendored spinnet_v2 skeleton ("pairs9", "flags4", "flags5", "flags6") with angles solved from K."""
-    return todo("circuits.spinnet.trotter_v2_circuit")
+    """Vendored su2qc-trotter spinnet_v2 skeleton ("pairs9", "flags4", "flags5", "flags6") with angles solved from K in
+    route-B gauge; rc3x / rc3x_dg (true inverse) expanded to h / t / tdg / cx.  Registers d, [o], a[3]."""
+    if skeleton not in trotter_v2.SKELETONS:
+        raise ValueError(f"unknown spinnet_v2 skeleton {skeleton!r}; known: {sorted(trotter_v2.SKELETONS)}")
+    steps, n_anc, frame = trotter_v2.SKELETONS[skeleton]
+    qc = build_walk(steps, _table(), beta, n_anc, frame=frame, with_outer=with_outer, name=f"UB_{skeleton}", expand=True)
+    theta, _ = solve_angles(steps, _table(), beta, frame)
+    qc.metadata = {"kind": "UB", "beta": beta, "skeleton": skeleton, "source": trotter_v2.SOURCE,
+                   "angles": [float(t) for t in theta],
+                   "angle_fractions": [str(f) for f in angle_fractions(steps, _table(), frame)]}
+    return qc
