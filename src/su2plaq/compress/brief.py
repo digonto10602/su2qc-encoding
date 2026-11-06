@@ -64,6 +64,24 @@ def _structure_pointer(root: pathlib.Path) -> str:
             "of the specification)" if f.exists() else "pending: `compress/lean/structure.json` has not been generated yet")
 
 
+def _diverse(ranked: list, own_family: str, n: int = 3) -> list:
+    """Alternatives for diversity: the best elite of each OTHER family first (cheapest first), then the next best elites from other
+    MAP-Elites cells (the archive's elites are one per cell) until `n`."""
+    out, fams = [], set()
+    for e in ranked:
+        if e.family != own_family and e.family not in fams:
+            out.append(e)
+            fams.add(e.family)
+        if len(out) == n:
+            return out
+    for e in ranked:
+        if e not in out:
+            out.append(e)
+        if len(out) == n:
+            break
+    return out
+
+
 def make_ideation_brief(encoding, kind, root=None) -> pathlib.Path:
     """Ideation session: the specification only (no seeds, as in Gu et al.); output `compress/ideation/<encoding>.md` with at most
     5 families, each one datapath idea."""
@@ -88,12 +106,13 @@ def make_brief(encoding, kind, round: int, family: str, root=None) -> pathlib.Pa
     spec = _spec_file(encoding, kind, root)
     arch = A.Archive.load(encoding, root=root, n_alt=len(default_spec(encoding, kind).alt_angles), strict=True)
     parent = arch.family_best(family) if family != "seed" else None
-    elites = [e for e in sorted(arch.elites().values(), key=lambda x: (tuple(x.key), x.id)) if parent is None or e.id != parent.id]
-    elites = [e for e in elites if (root / e.program_path).exists() or (ROOT / e.program_path).exists()]   # real program files only
-    alts = elites[:3]
+    has_file = lambda e: (root / e.program_path).exists() or (ROOT / e.program_path).exists()    # real program files only
+    ranked = [e for e in sorted(arch.elites().values(), key=lambda x: (tuple(x.key), x.id))
+              if (parent is None or e.id != parent.id) and has_file(e)]
+    alts = _diverse(ranked, parent.family if parent is not None else family)
     gb = arch.best()
-    if round % 3 == 0 and gb is not None and gb not in alts and (parent is None or gb.id != parent.id):
-        alts = alts[:2] + [gb]          # migration: every third round the global best is offered as an alternative
+    if round % 3 == 0 and gb is not None and has_file(gb) and (parent is None or gb.id != parent.id) and gb not in alts:
+        alts = (alts[:2] if len(alts) >= 3 else alts) + [gb]          # migration: every third round the global best is offered
     lines = [f"# Brief: `{encoding}` / `{kind}`, round {round}, family `{family}`\n",
              f"**Task.** {TASK_LINE}.\n",
              f"- Task specification: `{_rel(spec, root)}`",

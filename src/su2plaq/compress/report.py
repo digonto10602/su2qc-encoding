@@ -69,7 +69,8 @@ def report_table(encoding, kind, root=None) -> str:
     rounds = [json.loads(f.read_text()) for f in sorted(rdir.glob("round-*.json"))]
     records = [dict(rec, round=r["round"]) for r in rounds for rec in r.get("candidates", [])]
     externals = [x for r in rounds if r["round"] == 0 for x in r.get("external", [])]
-    valid = [r for r in records if r.get("valid") and r.get("key")]
+    archived = {i for r in rounds for i in r.get("entries", [])}                     # what was actually archived
+    valid = [r for r in records if r.get("valid") and r.get("key") and r["id"] in archived]
     rows, names = [], {"general": "general", "general+polish": "general + polish", "qiskit_l3": "Qiskit L3 (windows of 32)"}
     seen = set()
     for r in records:
@@ -83,9 +84,9 @@ def report_table(encoding, kind, root=None) -> str:
     for x in externals:
         if x["source"] == "qiskit_l3_whole":
             m = x.get("metrics")
-            rows.append(["Qiskit L3 (whole circuit; counts only, unverifiable)", *( [m.get("qubits"), m.get("cx"), m.get("t_fixed"), m.get("n_rot"),
-                         m.get("t_eps"), (m.get("t_estimate") or {}).get("1e-06"), (m.get("t_estimate") or {}).get("1e-10"), m.get("depth_ct")]
-                         if m else ["-"] * 8), x.get("reason", ""), "n_a", "-"])
+            na = "n/a (unverifiable)"
+            rows.append(["Qiskit L3 (whole circuit; counts only)", *([m.get("qubits"), m.get("cx"), m.get("t_fixed"), m.get("n_rot"), na,
+                         (m.get("t_estimate") or {}).get("1e-06"), na, na] if m else ["-"] * 8), x.get("reason", ""), "n_a", "-"])
         else:
             rows.append(_row_external(x))
     best_by_family = {}
@@ -108,7 +109,7 @@ def report_table(encoding, kind, root=None) -> str:
             f"{'ok' if s['ok'] else 'FAILED'} (eps {s['eps']:g}, {s['n_rot']} rotations, T {s['t_total']}, error {_f(s['op_norm_error'])} <= "
             f"{_f(s['tolerances']['tol_err'])})" if s.get("n_rot") is not None else f"not run ({s.get('error')})"))
     text = "\n".join(lines) + "\n"
-    lineage = [{"id": r["id"], "parent": r.get("parent"), "family": r["family"], "round": r["round"], "cx": r["key"][0], "t_eps": r["key"][1]}
+    lineage = [{"id": r["id"], "parent": r.get("parent"), "family": r["family"], "round": r["round"], "cx": r["key"][0], "t_eps": r["key"][1], "parent_known": r.get("parent_known", True)}
                for r in valid]
     summary = {"encoding": encoding, "kind": kind, "n_rounds": len(rounds), "n_candidates": len(records), "n_valid": len(valid),
                "global_best": gbest["id"] if gbest else None, "global_best_key": gbest["key"] if gbest else None,

@@ -90,8 +90,20 @@ def _log_attempt(root, encoding, rec: dict, discoveries: list, ident: str):
                 fh.write(f"- {ident}: {line}\n")
 
 
-def _proposals(spec: TaskSpec, root: pathlib.Path, archive: A.Archive) -> list[str]:
+def _seen_shas(root: pathlib.Path, encoding: str, archive: A.Archive) -> set:
+    """sha256 of every program already evaluated: archived ones and the attempts log (valid or not), so that a rejected program is
+    recorded once and not re-evaluated every round."""
     seen = {e.program_sha256 for e in archive.entries()}
+    f = root / "compress" / "attempts" / f"{encoding}.jsonl"
+    if f.exists():
+        for line in f.read_text().splitlines():
+            if line.strip():
+                seen.add(json.loads(line).get("program_sha256"))
+    return seen
+
+
+def _proposals(spec: TaskSpec, root: pathlib.Path, archive: A.Archive) -> list[str]:
+    seen = _seen_shas(root, spec.encoding, archive)
     out = []
     base = root / "compress" / "programs" / spec.encoding
     if base.is_dir():
@@ -102,14 +114,14 @@ def _proposals(spec: TaskSpec, root: pathlib.Path, archive: A.Archive) -> list[s
     return out
 
 
-def _record(label, e, r) -> dict:
+def _record(label, e, r, parent_known=True) -> dict:
     """One candidate as plain data (everything `report.py` shows comes from here)."""
     v = e.verdict_nominal or {}
-    return {"label": label, "id": e.id, "family": e.family, "program_path": e.program_path, "valid": e.valid, "reason": e.reason,
+    return {"label": label, "id": e.id, "family": e.family, "program_sha256": e.program_sha256, "program_path": e.program_path, "valid": e.valid, "reason": e.reason,
             "key": list(e.key) if e.valid else None, "cell": list(e.cell) if e.cell else None, "metrics": e.metrics_raw,
             "verdict": {k: v.get(k) for k in ("ok", "op_norm_error", "block_error", "leak_amplitude", "gauss_residual", "certified",
                                               "engine", "method")},
-            "alt_ok": [bool(a.get("ok")) for a in e.verdicts_alt], "skeleton_equal": e.skeleton_equal, "parent": e.parent,
+            "alt_ok": [bool(a.get("ok")) for a in e.verdicts_alt], "skeleton_equal": e.skeleton_equal, "parent": e.parent, "parent_known": parent_known,
             "git_commit": e.git_commit, "summary": e.summary, "lean": e.lean, "round": e.round, "mode": e.mode}
 
 
@@ -134,7 +146,7 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
                     alts = [fn(spec.with_angles(a, b)) for a, b in spec.alt_angles]
                     r = E.evaluate_circuit(fn(spec), spec, "full", alt_circuits=alts)
                     pp = f"compress/programs/{encoding}/seed/{label}.circuit"
-                results.append((label, r, pp, BL.SEED_FAMILY, fn))
+                results.append((label, r, pp, BL.SEED_FAMILY, fn, None))
             try:      # the whole-circuit L3 transpile: counts only (the sparse engine cannot verify it)
                 from su2plaq.compress.metrics import metrics
 
@@ -156,29 +168,36 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
             for path in paths:
                 r = E.evaluate_program(path, spec, "full", cache=not dry_run, root=root)
                 try:
-                    fam = E.B.parse_program_header(pathlib.Path(path).read_text())["family"]
+                    hdr = E.B.parse_program_header(pathlib.Path(path).read_text())
+                    fam, par = hdr["family"], hdr["parent"]
                 except (E.B.BuilderError, OSError, UnicodeDecodeError):
-                    fam = "unknown"      # the failed contract is already in r.reason
-                results.append((pathlib.Path(path).stem, r, _rel(path, root), fam, None))
+                    fam, par = "unknown", None      # the failed contract is already in r.reason
+                results.append((pathlib.Path(path).stem, r, _rel(path, root), fam, None, par))
     ids, n_valid, n_invalid, invalid, records = [], 0, 0, [], []
     fdir = root / "results" / "compress" / encoding / "feedback"
     fdir.mkdir(parents=True, exist_ok=True)
-    for label, r, pp, fam, fn in results:
-        e = A.entry_from_result(r, program_path=pp, family=fam, round=round, parent=None)
+    known_ids = {x.id for x in archive.entries()}
+    for label, r, pp, fam, fn, par in results:
+        # PARENT of the program header: recorded as declared; `parent_known` says whether it names an existing entry
+        e = A.entry_from_result(r, program_path=pp, family=fam, round=round, parent=par)
+        parent_known = par is None or par in known_ids
         if pp.endswith(".circuit"):          # a circuit-valued baseline without a program file is named after its label
             e.id = f"r{round:02d}-{fam}-{label.replace('+', '_')}"
         if e.id in {x.id for x in archive.entries()}:
             e.id = f"{e.id}-{r.program_sha256[:6] or int(time.time())}"
         (fdir / f"{e.id}.json").write_text(json.dumps(E.result_to_dict(r), indent=1))
         _log_attempt(root, encoding, {"id": e.id, "round": round, "family": fam, "valid": r.valid, "reason": r.reason,
-                                      "key": list(e.key), "summary": r.summary, "written_utc": e.written_utc}, r.discoveries, e.id)
+                                      "key": list(e.key), "summary": r.summary, "written_utc": e.written_utc, "program_sha256": r.program_sha256,
+                                      "parent": par, "parent_known": parent_known}, r.discoveries, e.id)
         if archive.insert(e):
             ids.append(e.id)
             n_valid += 1
         else:
             n_invalid += 1
             invalid.append({"id": e.id, "label": label, "reason": r.reason, "message": r.message})
-        records.append((_record(label, e, r), r, pp, label, fn))
+        records.append((_record(label, e, r, parent_known), r, pp, label, fn))
+        if archive.entries() and any(x.id == e.id for x in archive.entries()):
+            known_ids.add(e.id)
     best = archive.best()
     synth_check, lean_seconds = None, 0.0
     best_here = next((x for x in records if best is not None and x[0]["id"] == best.id), None)

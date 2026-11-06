@@ -204,9 +204,9 @@ def test_run_round_with_proposals_archives_logs_and_is_idempotent(tmp_path):
     assert "diagonal in the j bits" in (tmp_path / "compress" / "discoveries" / "twelve.md").read_text()
     arch = A.Archive.load("twelve", root=tmp_path)
     assert [e.id for e in arch.entries()] == ["r01-F9-003"] and arch.best().key[0] == 0
-    # default proposals skip programs that are already archived
+    # default proposals skip every program already evaluated, valid or not (recorded once, not re-evaluated each round)
     info2 = R.run_round("twelve", "UE", 2, evaluate=True, dry_run=True, root=tmp_path)
-    assert info2["entries"] == [] and info2["n_invalid"] == 1          # only the (still invalid) 004 program is re-evaluated
+    assert info2["entries"] == [] and info2["n_invalid"] == 0 and info2["n_valid"] == 0
 
 
 def test_round_cli_argument_check():
