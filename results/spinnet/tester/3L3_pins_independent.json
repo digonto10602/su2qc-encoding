@@ -1,0 +1,47 @@
+{
+ "spinnet-UB-o1-458a39365261.json": {
+  "kind": "UB",
+  "order": 1,
+  "base": {
+   "d_alpha": 4,
+   "d_beta": 4
+  },
+  "err_vs_expm_6j": 1.4988010832439613e-15,
+  "err_vs_routeA": 1.1657341758564144e-15,
+  "states_sha_indep": "2a8bc36ea05801931aa1b6373ff862bff40a927224b5a1335f6f9310fcea65c4"
+ },
+ "spinnet-UE-o1-df0c79b22d3f.json": {
+  "kind": "UE",
+  "order": 1,
+  "base": {
+   "d_alpha": 4,
+   "d_beta": 4
+  },
+  "err_vs_expm_6j": 1.5700924586837752e-16,
+  "err_vs_routeA": null,
+  "states_sha_indep": "2a8bc36ea05801931aa1b6373ff862bff40a927224b5a1335f6f9310fcea65c4"
+ },
+ "spinnet-step-o1-b0a415d9322f.json": {
+  "kind": "step",
+  "order": 1,
+  "base": {
+   "d_alpha": 4,
+   "d_beta": 4
+  },
+  "err_vs_expm_6j": 1.838220912863728e-15,
+  "err_vs_routeA": null,
+  "states_sha_indep": "2a8bc36ea05801931aa1b6373ff862bff40a927224b5a1335f6f9310fcea65c4"
+ },
+ "spinnet-step-o2-c9d917b7e937.json": {
+  "kind": "step",
+  "order": 2,
+  "base": {
+   "d_alpha": 8,
+   "d_beta": 4
+  },
+  "err_vs_expm_6j": 1.835701398292856e-15,
+  "err_vs_routeA": null,
+  "states_sha_indep": "2a8bc36ea05801931aa1b6373ff862bff40a927224b5a1335f6f9310fcea65c4"
+ },
+ "_states_sha_pin_match": true
+}

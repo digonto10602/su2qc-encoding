@@ -1,5 +1,8 @@
-M3 done (milestone-3, Report 3); laptop milestone-2 (5111d69) merged 2026-11-06T14:25; M4 next: full-suite check of the merge, then planner for M4.
+M3 done (milestone-3, Report 3) incl. step 3.L3 native certificate (reports/tests/109); laptop milestone-2 merged; M4 plan prompts/104 locked (acceptance-v10); M4 step 4.0 next.
 - 2026-11-06T14:25 merged laptop master 5111d69 (tag milestone-2, bundle laptop-milestone-2-20261106-1211) with --no-ff; no conflicts; our STATUS kept; LOCK.json regenerated with tools/lock.py (identical to the auto-merged one, LOCK OK); laptop acceptance-v7 fetched as tag laptop-acceptance-v7 (name clash with ours).
+- 2026-11-06T14:45 tester full after merge FAIL 618/619 (reports/tests/108): M3-L3 now un-pended by laptop checker -> step 3.L3 builder attempt 1; acceptance-check needs a new acceptance tag after merge (do it together with m4 lock).
+- 2026-11-06T15:20 planner M4 -> prompts/104, reports/research/102, tests/acceptance/m4 (17 tests); locked acceptance-v10 (acceptance-check PASS). Counters reset. Plan §9 decisions taken by default (Digonto may override): keep lakefile [[lean_exe]] append (listed in merge notes); final-best angle-linearity n_a not reject; no ~/.claude/agents/proposer.md edit, coordinator names the candidate command in every proposer prompt; flags5/flags6 included as seeds.
+- 2026-11-06T16:30 step 3.L3 tester PASS (reports/tests/109): 640 passed; own checker su2plaq_cert_spinnet (laptop's pins twelve); 93/103 wrong-circuit probes rejected, rest correctly certified/n_a; pins match independent route-B target to 1.8e-15. Plan §10 diffs copied into merge notes.
 
 # Desktop track S — spin network — branch `m3-spin-network` (clone `~/Projects/su2qc-spinnet`)
 

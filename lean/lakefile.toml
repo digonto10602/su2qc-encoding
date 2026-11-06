@@ -18,3 +18,9 @@ precompileModules = true
 [[lean_exe]]
 name = "su2plaq_cert"
 root = "Su2PlaqCert.Main"
+
+# SHARED APPEND (track S, prompts/100 step 3.L3): checker for the spin-network encoding (pins its own 433 unit-code states and
+# route-B targets; reuses Su2PlaqCert.Check/Json/Gates read-only).  Sources: Su2PlaqCert/SpinNet/.
+[[lean_exe]]
+name = "su2plaq_cert_spinnet"
+root = "Su2PlaqCert.SpinNet.Main"

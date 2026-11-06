@@ -1,0 +1,111 @@
+OK  baseline step o1                                 certified 
+[(0, 'p', [0]), (1, 'p', [1]), (2, 'p', [2]), (3, 'p', [3]), (4, 'cx', [1, 3]), (5, 'cx', [0, 1]), (6, 'cx', [0, 2]), (7, 'h', [0]), (8, 'x', [4]), (9, 'x', [5]), (10, 'x', [6]), (11, 'x', [7]), (12, 'rccx', [4, 5, 16]), (13, 'rccx', [6, 7, 17]), (14, 'rccx', [16, 17, 18]), (15, 'x', [2]), (16, 'x', [3]), (17, 'rccx', [2, 3, 19]), (18, 'rccx', [18, 19, 20]), (19, 'x', [1]), (20, 'rccx', [20, 1, 21]), (21, 'x', [1]), (22, 'rccx', [20, 1, 22]), (23, 'rz', [0]), (24, 'cx', [18, 0]), (25, 'rz', [0]), (26, 'cx', [18, 0]), (27, 'cx', [21, 0]), (28, 'rz', [0]), (29, 'cx', [21, 0]), (30, 'cx', [22, 0]), (31, 'rz', [0]), (32, 'cx', [22, 0]), (33, 'rccx', [20, 1, 22]), (34, 'x', [1]), (35, 'rccx', [20, 1, 21]), (36, 'x', [1]), (37, 'rccx', [18, 19, 20]), (38, 'rccx', [2, 3, 19]), (39, 'x', [3]), (40, 'x', [2]), (41, 'rccx', [16, 17, 18]), (42, 'rccx', [6, 7, 17]), (43, 'rccx', [4, 5, 16]), (44, 'x', [7]), (45, 'x', [6]), (46, 'x', [5]), (47, 'x', [4]), (48, 'h', [0]), (49, 'cx', [0, 2]), (50, 'cx', [0, 1]), (51, 'cx', [1, 3])]
+OK  rz sign flip at gate 23                          rejected  state 0 differs from the target
+OK  rz sign flip at gate 25                          rejected  state 0 differs from the target
+OK  rz sign flip at gate 28                          rejected  state 0 differs from the target
+OK  rz sign flip at gate 31                          rejected  state 0 differs from the target
+OK  all 4 rz flipped (beta -> -beta)                 rejected  state 0 differs from the target
+OK  all 4 p (U_E) flipped (alpha -> -alpha)          rejected  state 0 differs from the target
+OK  rz x2 (still linear) gate 23                     rejected  state 0 differs from the target
+OK  rz x2 (still linear) gate 25                     rejected  state 0 differs from the target
+OK  rz perturbed rel 1e-10                           n_a       non_linear_angle:rz:-2.1350000002134997
+OK  rz perturbed rel 1e-13                           certified 
+OK  cx reversed at gate 4                            rejected  state 16 differs from the target
+OK  cx reversed at gate 5                            rejected  state 72 differs from the target
+OK  cx reversed at gate 6                            rejected  state 32 differs from the target
+OK  cx reversed at gate 24                           rejected  state 0 differs from the target
+OK  cx reversed at gate 26                           rejected  state 0 differs from the target
+OK  cx reversed at gate 27                           rejected  state 0 differs from the target
+OK  cx reversed at gate 29                           rejected  state 0 differs from the target
+OK  cx reversed at gate 30                           rejected  state 0 differs from the target
+OK  cx reversed at gate 32                           rejected  state 0 differs from the target
+OK  cx reversed at gate 49                           rejected  state 0 differs from the target
+OK  cx reversed at gate 50                           rejected  state 0 differs from the target
+OK  cx reversed at gate 51                           rejected  state 0 differs from the target
+OK  drop gate 0 p[0]                                 rejected  state 164 differs from the target
+OK  drop gate 1 p[1]                                 rejected  state 72 differs from the target
+OK  drop gate 2 p[2]                                 rejected  state 0 differs from the target
+OK  drop gate 3 p[3]                                 rejected  state 0 differs from the target
+OK  drop gate 4 cx[1, 3]                             rejected  state 72 differs from the target
+OK  drop gate 5 cx[0, 1]                             rejected  state 164 differs from the target
+OK  drop gate 6 cx[0, 2]                             rejected  state 164 differs from the target
+OK  drop gate 7 h[0]                                 rejected  state 0 differs from the target
+OK  drop gate 8 x[4]                                 rejected  state 0 differs from the target
+OK  drop gate 9 x[5]                                 rejected  state 0 differs from the target
+OK  drop gate 10 x[6]                                rejected  state 0 differs from the target
+OK  drop gate 11 x[7]                                rejected  state 0 differs from the target
+OK  drop gate 12 rccx[4, 5, 16]                      rejected  state 0 differs from the target
+OK  drop gate 13 rccx[6, 7, 17]                      rejected  state 0 differs from the target
+OK  drop gate 14 rccx[16, 17, 18]                    rejected  state 0 differs from the target
+OK  drop gate 15 x[2]                                rejected  state 0 differs from the target
+OK  drop gate 16 x[3]                                rejected  state 0 differs from the target
+OK  drop gate 17 rccx[2, 3, 19]                      rejected  state 0 differs from the target
+OK  drop gate 18 rccx[18, 19, 20]                    rejected  state 0 differs from the target
+OK  drop gate 19 x[1]                                rejected  state 0 differs from the target
+OK  drop gate 20 rccx[20, 1, 21]                     rejected  state 0 differs from the target
+OK  drop gate 21 x[1]                                rejected  state 0 differs from the target
+OK  drop gate 22 rccx[20, 1, 22]                     rejected  state 88 differs from the target
+OK  drop gate 23 rz[0]                               rejected  state 0 differs from the target
+OK  drop gate 24 cx[18, 0]                           rejected  state 0 differs from the target
+OK  drop gate 25 rz[0]                               rejected  state 0 differs from the target
+OK  drop gate 26 cx[18, 0]                           rejected  state 0 differs from the target
+OK  drop gate 27 cx[21, 0]                           rejected  state 0 differs from the target
+OK  drop gate 28 rz[0]                               rejected  state 0 differs from the target
+OK  drop gate 29 cx[21, 0]                           rejected  state 0 differs from the target
+OK  drop gate 30 cx[22, 0]                           rejected  state 88 differs from the target
+OK  drop gate 31 rz[0]                               rejected  state 0 differs from the target
+OK  drop gate 32 cx[22, 0]                           rejected  state 88 differs from the target
+OK  drop gate 33 rccx[20, 1, 22]                     rejected  state 88 differs from the target
+OK  drop gate 34 x[1]                                rejected  state 0 differs from the target
+OK  drop gate 35 rccx[20, 1, 21]                     rejected  state 0 differs from the target
+OK  drop gate 36 x[1]                                rejected  state 0 differs from the target
+OK  drop gate 37 rccx[18, 19, 20]                    rejected  state 0 differs from the target
+OK  drop gate 38 rccx[2, 3, 19]                      rejected  state 0 differs from the target
+OK  drop gate 39 x[3]                                rejected  state 0 differs from the target
+OK  drop gate 40 x[2]                                rejected  state 0 differs from the target
+OK  drop gate 41 rccx[16, 17, 18]                    rejected  state 0 differs from the target
+OK  drop gate 42 rccx[6, 7, 17]                      rejected  state 0 differs from the target
+OK  drop gate 43 rccx[4, 5, 16]                      rejected  state 0 differs from the target
+OK  drop gate 44 x[7]                                rejected  state 0 differs from the target
+OK  drop gate 45 x[6]                                rejected  state 0 differs from the target
+OK  drop gate 46 x[5]                                rejected  state 0 differs from the target
+OK  drop gate 47 x[4]                                rejected  state 0 differs from the target
+OK  drop gate 48 h[0]                                rejected  state 0 differs from the target
+OK  drop gate 49 cx[0, 2]                            rejected  state 0 differs from the target
+OK  drop gate 50 cx[0, 1]                            rejected  state 0 differs from the target
+OK  drop gate 51 cx[1, 3]                            rejected  state 0 differs from the target
+OK  global_phase += 0.3 (circuit property)           certified 
+BAD rz(0.3) on clean ancilla (non-linear phase)      certified 
+OK  rz(beta/2) on clean ancilla (linear phase)       certified 
+OK  p(0.3) on data qubit 1 (relative phase)          rejected  state 0 differs from the target
+OK  p(beta) on data qubit 1 (relative phase, linear) rejected  state 0 differs from the target
+OK  X on clean ancilla at end (dirty ancilla)        rejected  state 0 differs from the target
+OK  extra H on data qubit 0 (leak)                   rejected  state 0 differs from the target
+OK  order-1 circuit claimed order 2                  rejected  state 0 differs from the target
+OK  order-2 circuit claimed order 1                  rejected  state 0 differs from the target
+OK  order-2 circuit claimed order 2 (control)        certified 
+OK  UB circuit control                               certified 
+OK  UE circuit control                               certified 
+OK  UB circuit claimed step                          rejected  state 0 differs from the target
+OK  UE circuit claimed step                          rejected  state 0 differs from the target
+OK  step circuit claimed UB                          rejected  state 0 differs from the target
+OK  step circuit claimed UE                          rejected  state 0 differs from the target
+OK  UB circuit claimed UE                            rejected  state 0 differs from the target
+OK  step(0.37,0.61) claimed (0.74,0.61)              rejected  state 0 differs from the target
+OK  step(0.37,0.61) claimed (0.37,1.22)              rejected  state 0 differs from the target
+OK  step(0.37,0.61) claimed (0.61,0.37)              rejected  state 0 differs from the target
+OK  step(0.61,0.37) claimed (0.37,0.61)              rejected  state 0 differs from the target
+OK  UB.UE composed vs step target (order of product) rejected  state 0 differs from the target
+OK  UE then UB composed (the other order) claimed step certified 
+OK  sign flip on exactly state k=0 (code 0)          rejected  state 0 differs from the target
+      mentions state 0 : True
+OK  sign flip on exactly state k=1 (code 49152)      rejected  state 1 differs from the target
+      mentions state 1 : True
+OK  sign flip on exactly state k=216 (code 42245)    rejected  state 100 differs from the target
+      mentions state 216 : False
+OK  sign flip on exactly state k=431 (code 65407)    rejected  state 431 differs from the target
+      mentions state 431 : True
+OK  sign flip on exactly state k=432 (code 65535)    rejected  state 432 differs from the target
+      mentions state 432 : True
+SUMMARY 102 / 103 as expected
+finished

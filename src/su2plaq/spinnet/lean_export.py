@@ -1,14 +1,21 @@
 """Lean tables and the native certificate exporter for the spin-network general circuit (steps 3.L2 / 3.L3)."""
 from __future__ import annotations
 
+import hashlib
+import json
 import math
+import os
 import pathlib
+import subprocess
 import tempfile
+import time
 from fractions import Fraction
 
 import numpy as np
 
-from su2plaq._stub import todo
+from su2plaq.lean import certify as C
+from su2plaq.lean import exact as E
+from su2plaq.lean import pins as PN
 from su2plaq.lean import project
 from su2plaq.encodings.spinnet import SpinNet
 from su2plaq.spinnet.walk import FRAME, GENERAL7, TARGET, coupling_table, mirror, solve_angles
@@ -324,11 +331,342 @@ def lean_gate_images(gate: tuple, n_qubits: int, beta: float) -> np.ndarray:
     return mat
 
 
-def export_certificate(qc, enc, kind, alpha, beta, order, out_path):
-    """prompts/006 §4 JSON certificate (schema su2plaq-cert-1)."""
-    return todo("lean_export.export_certificate")
+# ---------------------------------------------------------------------------------------------------------------------
+# Native certificate (step 3.L3): exact route-B data over K = Q(i, sqrt2, sqrt3), the laptop's JSON schema su2plaq-cert-1
+# (prompts/006 section 4), checked by the spin-network checker `su2plaq_cert_spinnet` (lean/Su2PlaqCert/SpinNet/, which
+# reuses the laptop's replay/compare code and pins its own states/targets).  Exporter helpers of su2plaq.lean.certify /
+# .exact / .pins are used read-only.
+ROOT = pathlib.Path(__file__).resolve().parents[3]
+CERT_DIR = ROOT / "results" / "spinnet" / "certs"
+SPIN_PINS_FILE = ROOT / "lean" / "Su2PlaqCert" / "SpinNet" / "Pins.lean"
+CHECKER_TARGET = "su2plaq_cert_spinnet"
+N_DATA, N_OUTER = 8, 8                  # canonical frame: data i -> i, outer j -> 8 + j, ancilla k -> 16 + k (= the circuit's own)
+SPIN_TARGETS = (("UE", 1), ("UB", 1), ("step", 1), ("step", 2))
+_CERT_TOL = 1e-12
+_PREFER = {"UE": "a", "UB": "b", "step": "ab"}
+_EXACT_CACHE: dict = {}
+_BUILT = False
+
+
+def target_base(kind: str, order: int = 1) -> tuple:
+    """(d_alpha, d_beta): theta_alpha = alpha / d_alpha, theta_beta = beta / d_beta of `exact_target_blocks`
+    (z_beta = exp(i beta / 4) makes every eigenvalue lambda in {0, +-1/2, +-1, +-2} of H_B an integer exponent -4 lambda)."""
+    return (8 if (kind == "step" and order == 2) else 4, 4)
+
+
+def exact_states(enc) -> list:
+    """The 433 physical states as exact K-vectors in the form of `su2plaq.lean.exact.exact_encoded_states`: unit vectors
+    [{"codes": int64[1], "amps": [K(1)]}] indexed by the label index k."""
+    return [{"codes": np.array([int(c[0])], dtype=np.int64), "amps": [E.K_ONE]} for c in enc.physical_vectors().codes]
+
+
+def _exact_hb(enc) -> dict:
+    """{(i, j): K} nonzero entries of the route-B H_B^phys (433 x 433): couplings are recognised as rationals of denominator
+    <= 2 within 1e-12 (they are -2, -1/2, 1), raising otherwise; the matrix must be real symmetric."""
+    HB = enc.h_magnetic()
+    if np.abs(HB.imag).max() > _CERT_TOL or np.abs(HB - HB.T).max() > _CERT_TOL:
+        raise E.ExactError("H_B^phys is not real symmetric")
+    out = {}
+    for i, j in zip(*np.nonzero(np.abs(HB) > _CERT_TOL)):
+        x = float(HB[i, j].real)
+        q = Fraction(x).limit_denominator(2)
+        if abs(x - float(q)) > _CERT_TOL:
+            raise E.ExactError(f"H_B[{i},{j}] = {x!r} is not a rational with denominator <= 2")
+        out[(int(i), int(j))] = E.KNum(q)
+    return out
+
+
+def _blocks_of(n: int, H: dict) -> list:
+    """Connected components of the graph of H (sorted index lists, ordered by their smallest index)."""
+    parent = list(range(n))
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+    for (i, j) in H:
+        parent[find(i)] = find(j)
+    groups: dict = {}
+    for k in range(n):
+        groups.setdefault(find(k), []).append(k)
+    return sorted(groups.values(), key=lambda g: g[0])
+
+
+def _n_inner_half(enc) -> list:
+    """Number of inner links with j = 1/2 for every state k (bits 0-3 of its code); cross-checked against the float H_E."""
+    codes = [int(c[0]) for c in enc.physical_vectors().codes]
+    nel = [bin(c & 0xF).count("1") for c in codes]
+    err = float(np.abs(enc.h_electric() - 0.75 * np.array(nel)).max())
+    if err > _CERT_TOL:
+        raise E.ExactError(f"inner electric energy differs from 3/4 x #(j=1/2 inner links) by {err}")
+    return nel
+
+
+def exact_target_blocks(enc, kind: str, order: int = 1) -> list:
+    """Exact route-B target in blocks [{"ks": [...], "entries": [(i, j, Laurent)]}], V[ks[i], ks[j]] a Laurent polynomial in
+    (z_alpha, z_beta) over K with base `target_base(kind, order)`: U_E = diag(z_alpha^{-3 n}) (n = number of inner links with
+    j = 1/2, z_alpha = exp(i alpha / 4)); U_B = sum_lambda P_lambda z_beta^{-4 lambda} from the exact spectral projectors of
+    each connected block of H_B^phys (K = Q(i, sqrt 2, sqrt 3)); step = U_B U_E (order 1) or U_E(alpha/2) U_B U_E(alpha/2)
+    (order 2, d_alpha = 8).  Cross-checked against `enc.target` at (0.37, 0.61) (<= 1e-12 per entry)."""
+    if kind not in ("UE", "UB", "step"):
+        raise ValueError(f"unknown target kind {kind!r}")
+    if kind == "step" and order not in (1, 2):
+        raise ValueError(f"order must be 1 or 2, got {order}")
+    order = order if kind == "step" else 1
+    key = (enc.name, kind, order)
+    if key in _EXACT_CACHE:
+        return _EXACT_CACHE[key]
+    n = len(enc.labels)
+    nel = _n_inner_half(enc)
+    blocks = []
+    if kind == "UE":
+        for k in range(n):
+            blocks.append({"ks": [k], "entries": [(0, 0, E.Laurent.mono((-3 * nel[k], 0), E.K_ONE))]})
+    else:
+        H = _exact_hb(enc)
+        for ks in _blocks_of(n, H):
+            pos = {k: i for i, k in enumerate(ks)}
+            Hb = [[E.KNum(0) for _ in ks] for _ in ks]
+            for (i, j), v in H.items():
+                if i in pos:
+                    Hb[pos[i]][pos[j]] = v
+            proj = E.spectral_projectors(Hb)
+            ents = []
+            for i, ki in enumerate(ks):
+                for j, kj in enumerate(ks):
+                    lp = E.Laurent()
+                    for lam, P in proj.items():
+                        if not P[i][j].is_zero():
+                            lp = lp + E.Laurent.mono((0, int(-4 * lam)), P[i][j])
+                    if lp:
+                        if kind == "step":
+                            lp = lp.shift((-3 * nel[kj], 0) if order == 1 else (-3 * (nel[ki] + nel[kj]), 0))
+                        ents.append((i, j, lp))
+            blocks.append({"ks": list(ks), "entries": ents})
+    al, be = 0.37, 0.61
+    dA, dB = target_base(kind, order)
+    Vf = enc.target(kind, al, be, order)
+    Vd = np.zeros_like(Vf)
+    for blk in blocks:
+        for i, j, lp in blk["entries"]:
+            Vd[blk["ks"][i], blk["ks"][j]] = lp.evaluate(al / dA, be / dB)
+    err = float(np.abs(Vd - Vf).max())
+    if err > _CERT_TOL:
+        raise E.ExactError(f"exact {kind} target deviates from the float target by {err}")
+    _EXACT_CACHE[key] = blocks
+    return blocks
+
+
+def laurent_target_matrix(enc, kind: str, alpha: float, beta: float, order: int = 1) -> np.ndarray:
+    """Dense 433 x 433 evaluation of `exact_target_blocks` at (alpha, beta) (for the numerical self-check against
+    `enc.target`)."""
+    dA, dB = target_base(kind, order)
+    V = np.zeros((len(enc.labels),) * 2, dtype=complex)
+    for blk in exact_target_blocks(enc, kind, order):
+        for i, j, lp in blk["entries"]:
+            V[blk["ks"][i], blk["ks"][j]] = lp.evaluate(alpha / dA, beta / dB)
+    return V
+
+
+# ----- pins of the Lean checker (lean/Su2PlaqCert/SpinNet/Pins.lean)
+def compute_pins(enc=None) -> dict:
+    enc = enc or SpinNet()
+    return {"states": PN.sha(PN.states_text(exact_states(enc))),
+            "targets": {f"{kind}:{order}": PN.sha(PN.target_text(exact_target_blocks(enc, kind, order)))
+                        for kind, order in SPIN_TARGETS}}
+
+
+def render_pins_lean(p: dict) -> str:
+    t = p["targets"]
+    return f'''/-!
+# Su2PlaqCert.SpinNet.Pins — fingerprints of the exporter's exact spin-network data (GENERATED by
+`python -c "from su2plaq.spinnet.lean_export import write_pins; write_pins()"`; do not edit)
+
+SHA-256 of the canonical text of the 433 exact physical states (unit vectors on the data|outer integer) and of the exact
+route-B targets of U_E, U_B and the step (orders 1, 2) at their own base `(d_alpha, d_beta)`.  Same canonical text as
+`Su2PlaqCert.Cert.statesText` / `targetText`; see `Su2PlaqCert.SpinNet.pinError`.
+-/
+namespace Su2PlaqCert.SpinNet.Pins
+
+def statesSha256 : String := "{p["states"]}"
+
+/-- `(d_alpha, d_beta)` of the exact targets. -/
+def targetBase (kind : String) (order : Nat) : Option (Nat × Nat) :=
+  match kind, order with
+  | "UE", _ => some (4, 4)
+  | "UB", _ => some (4, 4)
+  | "step", 1 => some (4, 4)
+  | "step", 2 => some (8, 4)
+  | _, _ => none
+
+def targetSha256 (kind : String) (order : Nat) : Option String :=
+  match kind, order with
+  | "UE", _ => some "{t["UE:1"]}"
+  | "UB", _ => some "{t["UB:1"]}"
+  | "step", 1 => some "{t["step:1"]}"
+  | "step", 2 => some "{t["step:2"]}"
+  | _, _ => none
+
+end Su2PlaqCert.SpinNet.Pins
+'''
+
+
+def write_pins(path=None) -> pathlib.Path:
+    path = pathlib.Path(path) if path is not None else SPIN_PINS_FILE
+    path.write_text(render_pins_lean(compute_pins()))
+    return path
+
+
+# ----- export
+def export_certificate(qc, enc, kind, alpha, beta, order, out_path, *, verdict_phases=None):
+    """prompts/006 section 4 JSON certificate (schema su2plaq-cert-1) of `qc` against the exact route-B target (kind, order):
+    gates via `sparse_sim._translate` (program order, angle exponents of the gate's own angle in units of
+    alpha / d_alpha, beta / d_beta), states = the 433 unit codes (K-coefficient 1), target blocks = exact Laurent
+    polynomials over K with base `target_base`, phase c = omega^j z_alpha^a z_beta^b fitted from the float simulation at
+    three angle pairs.  Returns the path or an n_a reason string (`non_linear_angle:<gate>:<theta>`, `unitary_gate`,
+    `phase_not_in_K`, `too_many_qubits`, ...).  `verdict_phases` (float evaluator phases at the nominal pair) are only
+    cross-checked."""
+    from su2plaq.encodings.base import ALT_ANGLES
+    from su2plaq.evaluate import sparse_sim as ss
+
+    t0 = time.time()
+    n = qc.num_qubits
+    if n > 62:
+        return "too_many_qubits"
+    if kind not in _PREFER:
+        raise ValueError(f"unknown kind {kind!r}")
+    try:
+        layout = enc.layout_of(qc)
+        perm = {q: i for i, q in enumerate(layout.data)}
+        perm.update({q: N_DATA + j for j, q in enumerate(layout.outer)})
+        perm.update({q: N_DATA + N_OUTER + k for k, q in enumerate(layout.ancilla)})
+        if sorted(perm) != list(range(n)):
+            raise ValueError("layout does not partition the circuit's qubits")
+    except ValueError as exc:
+        return f"bad_layout:{exc}"
+    n_cert = N_DATA + N_OUTER + len(layout.ancilla)
+    if n_cert > 62:
+        return "too_many_qubits"
+    try:
+        ops, gphase = C._translate_export(qc)
+    except ValueError as exc:
+        return f"disallowed_gate:{exc}"
+    t_base = target_base(kind, order)
+    res = C._gate_records(ops, perm, alpha, beta, base_min=t_base, prefer=_PREFER[kind])
+    if isinstance(res, str):
+        return res
+    recs, base, fr = res
+    fa, fb = base[0] // t_base[0], base[1] // t_base[1]
+    states = exact_states(enc)
+    blocks = [{"ks": b["ks"], "entries": [(i, j, C._scale_laurent(lp, fa, fb)) for i, j, lp in b["entries"]]}
+              for b in exact_target_blocks(enc, kind, order)]
+    pairs = [(alpha, beta)] + [tuple(p) for p in ALT_ANGLES]
+    diag = {}
+    for b in blocks:
+        for i, j, lp in b["entries"]:
+            if i == j:
+                diag[b["ks"][i]] = lp
+    nom_mag = {k: abs(lp.evaluate(alpha / base[0], beta / base[1])) for k, lp in diag.items()}
+    cand = [k for k in sorted(nom_mag, key=lambda k: -nom_mag[k]) if nom_mag[k] > 0.5][:3]
+    if not cand:
+        return "phase_not_in_K"
+    ops_canon = [(nm, tuple(perm[q] for q in qs), pl) for nm, qs, pl in ops]
+    cs, spread = [], 0.0
+    try:
+        for (al, be) in pairs:
+            ops_f = []
+            for (nm, qs, pl), r in zip(ops_canon, fr):
+                ops_f.append((nm, qs, (float(r[0]) * al + float(r[1]) * be,)) if r is not None else (nm, qs, pl))
+            c, sp_ = C._float_phase(ops_f, n_cert, states, diag, cand, (al, be), base)
+            cs.append(c)
+            spread = max(spread, sp_)
+    except ss.SimCapExceeded:
+        return "unsimulable"
+    unit = all(abs(abs(c) - 1) < 1e-7 for c in cs) and spread < 1e-7
+    fit = C._fit_phase([c / abs(c) for c in cs], pairs, base) if unit else None
+    if fit is None:
+        if unit:
+            return "phase_not_in_K"
+        fit = (0, 0, 0)          # the circuit is not the target up to a phase: let the exact checker reject it
+    j_, a_, b_ = fit
+    residual = None
+    if verdict_phases:
+        residual = float(abs(cs[0] / abs(cs[0]) * np.exp(1j * gphase) - verdict_phases[0]))
+    gates_hash = hashlib.sha256(json.dumps(recs).encode()).hexdigest()
+    cert = {
+        "schema": "su2plaq-cert-1", "circuit_id": f"spinnet-{kind}-o{order}-{gates_hash[:12]}", "program_sha256": gates_hash,
+        "n_qubits": n_cert, "n_data": N_DATA, "n_outer": N_OUTER, "base": {"d_alpha": base[0], "d_beta": base[1]},
+        "gates": recs,
+        "states": [{"k": k, "label": str(enc.labels[k]),
+                    "terms": [{"code": int(c), "c": a.to_json()} for c, a in zip(st["codes"], st["amps"])]}
+                   for k, st in enumerate(states)],
+        "target": {"kind": kind, "order": order,
+                   "blocks": [{"ks": b["ks"], "entries": [[i, j, lp.to_json()] for i, j, lp in b["entries"]]}
+                              for b in blocks]},
+        "phase": {"k": E.omega_power(j_).to_json(), "m": [a_, b_]},
+        "provenance": {"git_commit": C._git_commit(), "encoding": enc.name, "alpha_nominal": alpha, "beta_nominal": beta,
+                       "float_phase_spread": spread, "float_phase_cross_check": residual,
+                       "exporter": "su2plaq.spinnet.lean_export", "export_seconds": time.time() - t0},
+    }
+    out_path = pathlib.Path(out_path)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(cert, separators=(",", ":")))
+    return out_path
+
+
+# ----- check
+def checker_exe() -> pathlib.Path:
+    """Compiled spin-network checker; `lake build su2plaq_cert_spinnet` (a no-op when up to date) once per process."""
+    global _BUILT
+    exe = project.LEAN_DIR / ".lake" / "build" / "bin" / CHECKER_TARGET
+    if not _BUILT or not exe.exists():
+        r = project.build(CHECKER_TARGET, timeout=1800)
+        if not r["ok"]:
+            raise RuntimeError("cannot build the spin-network Lean checker:\n" + r["stderr"][-2000:] + r["stdout"][-2000:])
+        _BUILT = True
+    return exe
+
+
+def check_certificate(path, timeout: float = 900.0) -> dict:
+    """`su2plaq_cert_spinnet check <path>`: ACCEPT -> certified, REJECT <reason> -> rejected, anything else -> failed."""
+    t0 = time.time()
+    try:
+        exe = checker_exe()
+        sha = hashlib.sha256(exe.read_bytes()).hexdigest()
+        r = subprocess.run([str(exe), "check", str(path)], capture_output=True, text=True, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return {"status": "failed", "reason": f"timeout after {timeout}s", "seconds": time.time() - t0, "checker_sha256": ""}
+    except (RuntimeError, OSError) as exc:
+        return {"status": "failed", "reason": str(exc), "seconds": time.time() - t0, "checker_sha256": ""}
+    line = r.stdout.strip().splitlines()[0] if r.stdout.strip() else ""
+    dt = time.time() - t0
+    if line == "ACCEPT":
+        return {"status": "certified", "reason": "", "seconds": dt, "checker_sha256": sha}
+    if line.startswith("REJECT"):
+        return {"status": "rejected", "reason": line[len("REJECT"):].strip(), "seconds": dt, "checker_sha256": sha}
+    return {"status": "failed", "reason": f"checker output {line!r} stderr {r.stderr.strip()[-300:]!r}", "seconds": dt,
+            "checker_sha256": sha}
 
 
 def certify(qc, enc, kind, alpha, beta, order, out_dir=None, timeout: float = 900.0) -> dict:
-    """Run the laptop's checker on the exported certificate."""
-    return todo("lean_export.certify")
+    """Export + check: {"status": "certified"|"rejected"|"n_a"|"failed", "reason", "cert_path", "seconds", "axioms": [],
+    "check_seconds", "checker_sha256"}.  The checker is a compiled executable (computable Lean code, no kernel axiom is
+    involved: `axioms` is empty); `n_a` carries the exporter's reason (angles that are not rational multiples of
+    alpha / beta, unitary gates, ...).  Certificates go to results/spinnet/certs/<circuit_id>.json by default."""
+    t0 = time.time()
+    out_dir = pathlib.Path(out_dir) if out_dir is not None else CERT_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+    tmp = out_dir / f"spinnet-{kind}-o{order}-pending-{os.getpid()}-{abs(hash(id(qc))) % 10**8}.json"
+    try:
+        res = export_certificate(qc, enc, kind, alpha, beta, order, tmp)
+    except E.ExactError as exc:
+        return {"status": "failed", "reason": f"exact export failed: {exc}", "cert_path": None,
+                "seconds": time.time() - t0, "axioms": []}
+    if isinstance(res, str):
+        return {"status": "n_a", "reason": res, "cert_path": None, "seconds": time.time() - t0, "axioms": []}
+    final = out_dir / (json.loads(res.read_text())["circuit_id"] + ".json")
+    res.replace(final)
+    out = check_certificate(final, timeout=timeout)
+    return {"status": out["status"], "reason": out["reason"], "cert_path": str(final), "seconds": time.time() - t0,
+            "axioms": [], "check_seconds": out["seconds"], "checker_sha256": out["checker_sha256"]}
