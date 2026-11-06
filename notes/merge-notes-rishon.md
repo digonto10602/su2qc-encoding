@@ -44,3 +44,19 @@ From the planner (prompts/200, reports/research/200):
 
 ## Tag-name clash warning
 Both desktop clones and the laptop create `acceptance-vN` tags independently (both desktop clones started at acceptance-v6 → each made its own acceptance-v7; rishon also acceptance-v8). The outgoing bundles carry only the branch and the `milestone-N` tag, not the `acceptance-v*` tags, so nothing collides on fetch. At merge time, re-lock with `tools/lock.py` and create the next `acceptance-vN` on the merged master.
+
+## M6 requested changes to laptop-owned files (copied from prompts/203-rishon-m6-plan.md §9, 2026-11-06)
+1. `lean/Su2PlaqCert/Check.lean`: `physicalDim` from the certificate (`c.states.size`) instead of the constant 433, so a 1296-state inner-view certificate can be checked by the laptop executable.
+2. `lean/Su2PlaqCert/Laurent.lean` + `Gates.lean` + `Json.lean` + `src/su2plaq/lean/{exact,certify}.py`: a third base angle `d_gamma` with $z_\gamma=e^{i\sqrt2\beta/d_\gamma}$ (exponent triples). With 1 + 2 the track checker of §3.2 becomes redundant and can be retired.
+3. `src/su2plaq/evaluate/evaluator.py::evaluate`: keyword `prune_fraction: float = PRUNE_FRACTION` (one line: `if dropped_total > prune_fraction * tol_err:`), so an encoding-specific cap can be set by a planner without touching the constant (only used if D2 = 10 %).
+4. `src/su2plaq/compress/spec.py`: `register_encoding(name, factory)` and `default_spec` reading `NOMINAL_ANGLES` through a getter, replacing the hard-coded `"twelve"` branch:
+   ```python
+   _FACTORIES = {"twelve": lambda: __import__("su2plaq.encodings.twelve", fromlist=["TwelveQubit"]).TwelveQubit()}
+   def register_encoding(name: str, factory) -> None: _FACTORIES[name] = factory
+   def get_encoding(name):  # as before, but `if name not in _FACTORIES: raise ValueError(...)` and `_ENCODINGS[name] = _FACTORIES[name]()`
+   ```
+   `src/su2plaq/encodings/base.py`: `NOMINAL_ANGLES` documented as extensible (we insert `"rishon": (0.37, 0.61)` at runtime).
+5. `src/su2plaq/compress/evaluate.py`: the worker entry point should import a per-encoding registration hook (e.g. `importlib.import_module(f"su2plaq.encodings.{spec.encoding}")` before building), so that our worker copy can be retired.
+6. New folder `results/compress/rishon/` (round JSON, feedback, summary) — same layout as `results/compress/twelve/`.
+7. Shared-file appends made by this milestone: `lean/lakefile.toml` (`[[lean_exe]] name = "su2plaq_rishon_cert"`, `root = "Su2PlaqCert.Rishon.Main"`), `lean/Su2PlaqCert.lean` (`import Su2PlaqCert.Rishon.Check3`), `.gitignore` (nothing new expected; `compress/lean/certs/*.json` already ignored).
+
