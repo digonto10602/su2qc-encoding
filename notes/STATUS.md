@@ -1,4 +1,4 @@
-M9 fuzzy: all modules built and committed (link/plaquette/targets, codec/Gauss/counts, verify, circuits incl. exact U_B with 16 crx + Clifford, observables, Lean link algebra + counts); in progress: approved fix of 2 locked tests (prompts/301) and results script/T tables (9.7); next: re-lock, tester full, auditor, Report 9.
+M9 fuzzy: code, tester part 1 PASS, audit PASS WITH NOTES (NB-1/NB-2 fixed); pending: results/T tables (9.7), tester part 2, Report 9, tag milestone-9. M10: plan prompts/302 locked (acceptance-v11), step 10.0 hook+seeds in progress; next: ideation + rounds until 5 h 15.
 
 # STATUS — branch m9-fuzzy (48-core machine, fuzzy encoding M9/M10)
 

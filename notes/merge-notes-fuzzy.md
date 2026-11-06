@@ -25,3 +25,34 @@ export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 - notes/STATUS.md on this branch is the fuzzy session's; the laptop's copy at branch point is preserved as notes/STATUS-laptop-at-branch-point.md (drop on merge).
 - Repo-local git identity set to master's author (pichka_commander <mdhabibeislam.digonto@gmail.com>); host had no global git identity.
 - Digonto's uploaded `fuzzy-hamiltonian.pdf` saved as refs/fuzzy/fuzzy-hamiltonian-digonto.pdf; being checked against the paper/plan before the planner run.
+
+## M10 laptop diff (from prompts/302 §2, verbatim)
+## 2. Hook (our file `src/su2plaq/fuzzy/compress_hook.py`) and the laptop diff
+Monkey-patch, nothing in `src/su2plaq/compress/*` edited. `install()` (idempotent):
+```
+spec._ENCODINGS["fuzzy_ub"/"fuzzy_link"] = FuzzyUBTask()/FuzzyLinkTask(); spec.get_encoding = evaluate.get_encoding = baselines.get_encoding = oracle.get_encoding = wrapper
+base.NOMINAL_ANGLES[...] = (0.37, 0.61)
+evaluator.evaluate = wrapper: for FuzzyBlockEncoding targets force gauss=False, set gauss_residual=0.0; for FuzzyLinkTask refuse num_qubits > 4 (Verdict reason "max_qubits" via evaluator._early)
+baselines.general_circuit = dispatch (fuzzy_ub: build_UB remapped to the 8-qubit frame + 'anc'(7), p(-pi) -> z [exact; _fit_angles needs angle-linear gates]; fuzzy_link: link_UE(alpha) + link_UK(spec.beta))
+baselines.import_seed = reason strings for fuzzy encodings ("not applicable to the fuzzy encoding"); qiskit_l3_whole works through general_circuit
+round._certify = returns {"status": "n_a", ...} for fuzzy specs
+spec.STRUCTURE_JSON = ROOT/"compress/specs/fuzzy-structure.json" (written by the hook: M9 Lean facts — counts 50/12800/101197218/6767266914, K1/K2 spectra, square spectrum/blocks; proved_by "decide"/"numerical")
+os.environ["SU2PLAQ_FUZZY_HOOK"]="1"; os.environ["PYTHONPATH"] += ":" + ROOT/"src/su2plaq/fuzzy/sitehook"   # the evaluate worker subprocess (python -m su2plaq.compress.evaluate --worker) inherits os.environ and imports sitehook/sitecustomize.py, which calls install() when the variable is set — so Builder(spec) resolves the fuzzy encodings inside the sandbox
+```
+Verified in the prototype (all but the sitehook and `_certify` lines): trial/full/polish/render/perturbation behave as for `twelve`.
+`FuzzyUBTask` / `FuzzyLinkTask` subclass `verify.FuzzyBlockEncoding` and add `name`, `registers` (`d` + `row_b..row_l` for UB),
+`basis` (labels `code0..`), `target(kind, alpha, beta, order)`, `describe()` (states the fuzzy operator, the frame, "spec.beta =
+kappa2" for the link, and the proposer commands via `scripts/m10_round.py`), `import_map -> "n_a"`.
+
+**Diff the laptop needs (coordinator copies to `notes/merge-notes-fuzzy.md`)** — replaces the monkey-patches by hooks:
+```
+spec.py:     _ENCODING_FACTORIES: dict[str, callable] = {"twelve": lambda: TwelveQubit()}; def register_encoding(name, factory); get_encoding uses it
+             TaskSpec.render(): task sentence from enc.task_text(kind, order) when the encoding defines it; n_phys from len(enc.basis.labels) only if basis else 2**n_data
+             STRUCTURE_JSON -> enc.structure_json (attribute, default the twelve file)
+evaluate.py: _one_verdict: gauss=getattr(enc, "gauss_in_loop", True); max_qubits from enc.peak_qubit_cap(spec) when defined
+baselines.py: general_circuit / import_seed dispatch on getattr(enc, "compress_general", None) / getattr(enc, "compress_seeds", None)
+round.py:    _certify: skip with status n_a when not getattr(enc, "lean_certifiable", True)
+             worker: `python -m su2plaq.compress.evaluate --worker` imports the modules named in env SU2PLAQ_COMPRESS_HOOKS before load_program
+base.py:     NOMINAL_ANGLES["fuzzy_ub"] = NOMINAL_ANGLES["fuzzy_link"] = (0.37, 0.61)
+```
+
