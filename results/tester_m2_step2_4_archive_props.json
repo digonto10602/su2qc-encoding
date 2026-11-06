@@ -1,0 +1,73 @@
+{
+ "seed": 20261105,
+ "random_sequences": {
+  "trials": 300,
+  "insert_ok": 3456,
+  "refused": 2705,
+  "elite_mismatch": 0,
+  "best_mismatch": 0,
+  "fam_mismatch": 0,
+  "changed_on_refusal": 0,
+  "roundtrip_mismatch": 0,
+  "bytes_unstable_entries": 0,
+  "ties": 0
+ },
+ "index_bytes_identical_across_saves": false,
+ "index_equal_except_timestamp": true,
+ "insert_probes": {
+  "trial_mode_valid_entry": true,
+  "skeleton_equal_False_but_valid_ok": true,
+  "verdict_nominal_not_ok": true,
+  "verdict_nominal_empty": true,
+  "cell_inconsistent_with_key": true,
+  "numpy_int64_key": false,
+  "negative_cx_t": true,
+  "path_traversal_id": true
+ },
+ "path_traversal_save": [
+  "/tmp/tmp37ndxg9v/compress/escape.json"
+ ],
+ "load_accepts_tampered_invalid_entry": true,
+ "load_accepts_handwritten_best": "r99-F1-777",
+ "atomic": {
+  "cases": 16,
+  "killed": 16,
+  "bad": 0,
+  "detail_first": [
+   {
+    "mode": "kill_in_write",
+    "k": 1,
+    "killed": true,
+    "index_parses": true,
+    "partial_final_files": [],
+    "load_ok": true,
+    "n_loaded": 6,
+    "index_n": 6,
+    "index_unchanged": true
+   },
+   {
+    "mode": "kill_in_write",
+    "k": 2,
+    "killed": true,
+    "index_parses": true,
+    "partial_final_files": [],
+    "load_ok": true,
+    "n_loaded": 6,
+    "index_n": 6,
+    "index_unchanged": true
+   },
+   {
+    "mode": "kill_in_write",
+    "k": 3,
+    "killed": true,
+    "index_parses": true,
+    "partial_final_files": [],
+    "load_ok": true,
+    "n_loaded": 6,
+    "index_n": 6,
+    "index_unchanged": true
+   }
+  ],
+  "index_vs_entries_inconsistent_after_kill": 2
+ }
+}

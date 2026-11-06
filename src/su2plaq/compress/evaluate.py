@@ -75,6 +75,8 @@ class ProgramResult:
     summary: str
     mode: str = "full"
     message: str = ""
+    spec_sha256: str = ""
+    seeds: dict = field(default_factory=dict)
 
 
 # --------------------------------------------------------------------------------------------- program loading
@@ -193,6 +195,12 @@ def _classify(verdict, violations) -> tuple[bool, str]:
     return True, "ok"
 
 
+def _seeds(spec: TaskSpec) -> dict:
+    from su2plaq.metrics.logical import SEED
+
+    return {"trial_seed": spec.trial_seed, "transpiler_logical": SEED, "clifford_t_pass_manager": 12345, "gridsynth": 0}
+
+
 def evaluate_circuit(qc, spec: TaskSpec, mode: str = "full", alt_circuits=None, *, program_sha256: str = "",
                      summary: str = "", discoveries=(), t0: float | None = None) -> ProgramResult:
     """Same checks for an already-built circuit.  `alt_circuits`: the circuits built at spec.alt_angles (full mode, from
@@ -200,7 +208,8 @@ def evaluate_circuit(qc, spec: TaskSpec, mode: str = "full", alt_circuits=None, 
     if mode not in ("trial", "full"):
         raise ValueError(f"mode must be 'trial' or 'full', got {mode!r}")
     t0 = time.time() if t0 is None else t0
-    base = dict(program_sha256=program_sha256, summary=summary, discoveries=list(discoveries), mode=mode)
+    base = dict(program_sha256=program_sha256, summary=summary, discoveries=list(discoveries), mode=mode,
+                spec_sha256=spec.sha256(), seeds=_seeds(spec))
 
     def result(valid, reason, verdict=None, alts=(), skel=True, met=None, message=""):
         return ProgramResult(valid, reason, verdict, list(alts), skel, met, wall_s=time.time() - t0, message=message, **base)
@@ -264,23 +273,130 @@ def _build_in_subprocess(source: bytes, specs: list[TaskSpec], timeout: float):
                            capture_output=True, text=True, timeout=timeout, env=env, cwd=str(work))
         if not meta.exists():
             raise RuntimeError(f"build worker failed (exit {p.returncode}): {p.stderr.strip()[-800:]}")
-        m = json.loads(meta.read_text())
+        try:
+            m = json.loads(meta.read_text())
+        except (OSError, ValueError) as exc:
+            raise RuntimeError(f"build worker wrote an unreadable meta file: {exc}") from exc
+        if not isinstance(m, dict):
+            raise RuntimeError("build worker wrote a malformed meta file")
         if "error" in m:
-            raise (ContractError if m.get("kind") == "contract" else RuntimeError)(m["error"])
-        with open(out, "rb") as fh:
-            circuits = qpy.load(fh)
-        return circuits, m["discoveries"]
+            raise (ContractError if m.get("kind") == "contract" else RuntimeError)(str(m["error"])[:2000])
+        # the worker's word is not trusted beyond what the parent can check: the circuit file must exist and parse, and the
+        # circuits themselves (not the meta) are what gets evaluated
+        if not out.exists():
+            raise RuntimeError(f"build worker exited (code {p.returncode}) without writing the circuits")
+        try:
+            with open(out, "rb") as fh:
+                circuits = qpy.load(fh)
+        except Exception as exc:   # noqa: BLE001 - any QPY failure of a worker-written file is a build failure
+            raise RuntimeError(f"build worker wrote an unreadable circuit file: {type(exc).__name__}: {exc}") from exc
+        from qiskit import QuantumCircuit
+
+        if len(circuits) != len(specs) or not all(isinstance(c, QuantumCircuit) for c in circuits):
+            raise RuntimeError("build worker returned the wrong number of circuits")
+        disc = m.get("discoveries")
+        disc = [[str(x)[:500] for x in lines][:B.MAX_DISCOVERIES] if isinstance(lines, list) else []
+                for lines in (disc if isinstance(disc, list) else [])]
+        disc += [[] for _ in range(len(specs) - len(disc))]
+        return circuits, disc
 
 
-def evaluate_program(path, spec: TaskSpec, mode: str = "full") -> ProgramResult:
-    t0 = time.time()
+def result_from_dict(d: dict) -> ProgramResult:
+    """Inverse of `result_to_dict` (used by the result cache)."""
+    from su2plaq.evaluate.evaluator import Verdict
+
+    def verdict(v):
+        if v is None:
+            return None
+        v = dict(v)
+        v["phase"] = complex(*v["phase"]) if isinstance(v.get("phase"), list) else complex(v.get("phase", 1.0))
+        v["failing_inputs"] = [tuple(x) for x in v.get("failing_inputs", [])]
+        keys = set(Verdict.__dataclass_fields__)
+        return Verdict(**{k: x for k, x in v.items() if k in keys})
+
+    return ProgramResult(valid=d["valid"], reason=d["reason"], verdict=verdict(d["verdict"]),
+                         verdicts_alt=[verdict(v) for v in d["verdicts_alt"]], skeleton_equal=d["skeleton_equal"],
+                         metrics=d["metrics"], program_sha256=d["program_sha256"], wall_s=d["wall_s"],
+                         discoveries=list(d["discoveries"]), summary=d["summary"], mode=d.get("mode", "full"),
+                         message=d.get("message", ""), spec_sha256=d.get("spec_sha256", ""), seeds=d.get("seeds", {}))
+
+
+def evaluate_program(path, spec: TaskSpec, mode: str = "full", *, cache: bool = False, root=None) -> ProgramResult:
+    """`cache=True` (full mode only): a result for the same (evaluator code hash, program sha256, spec sha256) under
+    <root>/compress/cache/ is returned instead of re-evaluating, and a fresh full result is stored there (any edit of an
+    evaluator source file changes the code hash, so a stale entry can never be hit)."""
     path = pathlib.Path(path)
     source = path.read_bytes()
     sha = hashlib.sha256(source).hexdigest()
+    cpath = None
+    if cache and mode == "full":
+        from su2plaq.compress import provenance as P
+
+        ev_sha = P.code_hash()
+        cpath = P.cache_path(ev_sha, sha, spec.sha256(), root=root)
+        if cpath.exists():
+            cached = _read_cache(cpath, ev_sha, sha, spec.sha256())
+            if cached is not None:
+                return cached          # otherwise: unreadable / tampered / foreign entry -> re-evaluate and overwrite
+    r = _evaluate_program_bytes(source, sha, spec, mode)
+    if cpath is not None and r.reason not in ("eval_budget", "build_timeout"):
+        try:
+            cpath.parent.mkdir(parents=True, exist_ok=True)
+            tmp = cpath.with_suffix(".tmp")
+            tmp.write_text(_cache_blob(result_to_dict(r), ev_sha, sha, spec.sha256()))
+            tmp.replace(cpath)
+        except OSError:
+            pass
+    return r
+
+
+def _canonical(obj) -> str:
+    return json.dumps(obj, sort_keys=True, separators=(",", ":"), default=str)
+
+
+def _cache_blob(payload: dict, evaluator_sha: str, program_sha: str, spec_sha: str) -> str:
+    """Cache file content: {meta, payload, checksum}; checksum = sha256 of the canonical JSON of (meta, payload).  This is an
+    integrity check against stale / copied / hand-edited entries, not a MAC: someone who can write the cache and knows this
+    code can forge it; the archive's own rules (full mode, ok AND certified, key recomputed from the metrics) are a second line."""
+    meta = {"evaluator_sha256": evaluator_sha, "program_sha256": program_sha, "spec_sha256": spec_sha}
+    return json.dumps({"meta": meta, "payload": payload,
+                       "checksum": hashlib.sha256(_canonical({"meta": meta, "payload": payload}).encode()).hexdigest()})
+
+
+def _consistent(r: ProgramResult) -> bool:
+    """A result may claim `valid` only if its own fields say so."""
+    if not r.valid:
+        return True
+    v = r.verdict
+    return (r.reason == "ok" and r.mode == "full" and v is not None and v.ok and v.certified and r.skeleton_equal
+            and all(a.ok and a.certified for a in r.verdicts_alt) and bool(r.metrics))
+
+
+def _read_cache(cpath: pathlib.Path, evaluator_sha: str, program_sha: str, spec_sha: str):
+    """The cached ProgramResult, or None if the entry is unreadable, its checksum fails, its meta / payload identify another
+    (evaluator code, program, spec), or the result contradicts itself."""
+    try:
+        d = json.loads(cpath.read_text())
+        meta, payload = d["meta"], d["payload"]
+        if d["checksum"] != hashlib.sha256(_canonical({"meta": meta, "payload": payload}).encode()).hexdigest():
+            return None
+        if (meta != {"evaluator_sha256": evaluator_sha, "program_sha256": program_sha, "spec_sha256": spec_sha}
+                or payload.get("program_sha256") != program_sha or payload.get("spec_sha256") != spec_sha
+                or payload.get("mode") != "full"):
+            return None
+        r = result_from_dict(payload)
+        return r if _consistent(r) else None
+    except (OSError, ValueError, KeyError, TypeError, AttributeError):
+        return None
+
+
+def _evaluate_program_bytes(source: bytes, sha: str, spec: TaskSpec, mode: str) -> ProgramResult:
+    t0 = time.time()
     summary, discoveries = "", []
 
     def fail(reason, message=""):
-        return ProgramResult(False, reason, None, [], True, None, sha, time.time() - t0, discoveries, summary, mode, message)
+        return ProgramResult(False, reason, None, [], True, None, sha, time.time() - t0, discoveries, summary, mode, message,
+                             spec_sha256=spec.sha256(), seeds=_seeds(spec))
 
     try:
         header = _scan_source(source.decode())
@@ -307,6 +423,7 @@ def result_to_dict(r: ProgramResult) -> dict:
     from su2plaq.results.store import _jsonable, verdict_to_dict
 
     return _jsonable({"valid": r.valid, "reason": r.reason, "mode": r.mode, "message": r.message,
+                      "spec_sha256": r.spec_sha256, "seeds": r.seeds,
                       "verdict": verdict_to_dict(r.verdict) if r.verdict is not None else None,
                       "verdicts_alt": [verdict_to_dict(v) for v in r.verdicts_alt], "skeleton_equal": r.skeleton_equal,
                       "metrics": r.metrics, "program_sha256": r.program_sha256, "wall_s": r.wall_s,

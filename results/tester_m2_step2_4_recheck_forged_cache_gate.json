@@ -1,0 +1,88 @@
+{
+ "honest_bad_result": {
+  "valid": false,
+  "reason": "error",
+  "metrics_keys": [
+   "cx",
+   "depth",
+   "depth_ct",
+   "gates",
+   "measured",
+   "n_rot",
+   "qubits",
+   "synth_error_bound",
+   "t_eps",
+   "t_estimate",
+   "t_fixed"
+  ]
+ },
+ "forged_cache_returned": {
+  "valid": true,
+  "reason": "ok",
+  "n_alt": 2,
+  "metrics": {
+   "cx": 0,
+   "t_eps": 1,
+   "depth_ct": 1,
+   "qubits": 1
+  }
+ },
+ "entry": {
+  "key": [
+   0,
+   1,
+   1,
+   1
+  ],
+  "cell": [
+   0,
+   8
+  ],
+  "valid": true,
+  "skeleton": true,
+  "verdict_nominal_keys": [
+   "block_error",
+   "certified",
+   "dirty_ancilla",
+   "dropped_total",
+   "engine",
+   "engine_accuracy",
+   "extra",
+   "failing_inputs",
+   "gauss_residual",
+   "leak_amplitude",
+   "max_leak",
+   "method",
+   "n_blocks",
+   "n_inputs",
+   "ok",
+   "op_norm_error",
+   "outer_bits_read",
+   "phase",
+   "reason",
+   "seconds",
+   "tolerances"
+  ],
+  "alt": 2
+ },
+ "entry_problem": null,
+ "archive_insert_accepts": true,
+ "archive_rejected": [],
+ "gate": {
+  "fresh_valid": false,
+  "fresh_reason": "error",
+  "recorded_key": [
+   0,
+   1,
+   1,
+   1
+  ],
+  "fresh_key": [
+   0,
+   239.1788228318901,
+   1,
+   28
+  ],
+  "caught": true
+ }
+}

@@ -379,3 +379,135 @@ def test_states_must_be_integer_indices():
     for bad in ([0.5], np.array([1.0, 2.0])):
         with pytest.raises(ValueError):
             ev.evaluate(qc, enc, oracle.target(STEP), states=bad)
+
+
+# ------------------------------------------------------------------------------------------------ N6 (forged meta) and the cache
+def test_forged_meta_and_exit_is_a_build_error_not_an_exception(tmp_path):
+    body = '''import su2plaq.compress.builder as BB
+
+
+def build(spec):
+    # impersonate a successful worker: write the (whitelisted) meta file and exit without any circuit file
+    meta = BB.pathlib.sys.argv[5]
+    BB.pathlib.Path(meta).write_text('{"discoveries": [[], [], []]}')
+    BB.pathlib.os._exit(0)
+'''
+    f = tmp_path / "forge.py"
+    f.write_text('"""SUMMARY: forge.\n"""\nFAMILY = "F0"\nPARENT = None\n\nfrom su2plaq.compress.builder import Builder\n' + body)
+    r = E.evaluate_program(f, UE, "trial")
+    assert not r.valid and r.reason == "build_error" and r.verdict is None and "without writing" in r.message
+
+
+def test_worker_output_checks(tmp_path, monkeypatch):
+    # malformed meta, wrong circuit count, missing circuit file: all build_error
+    import subprocess as sp
+
+    real_run = sp.run
+
+    def fake_run_factory(mutate):
+        def run(cmd, **kw):
+            p = real_run(cmd, **kw)
+            out, meta = pathlib.Path(cmd[-2]), pathlib.Path(cmd[-1])
+            mutate(out, meta)
+            return p
+        return run
+
+    good = write(tmp_path, UE_BODY.format(sign="-"))
+    for name, mutate in {"missing circuits": lambda o, m: o.unlink(), "meta not json": lambda o, m: m.write_text("not json"),
+                         "meta not a dict": lambda o, m: m.write_text("[1]"), "corrupt qpy": lambda o, m: o.write_bytes(b"junk")}.items():
+        monkeypatch.setattr(E.subprocess, "run", fake_run_factory(mutate))
+        r = E.evaluate_program(good, UE, "trial")
+        assert not r.valid and r.reason == "build_error", name
+    monkeypatch.undo()
+    assert E.evaluate_program(good, UE, "trial").valid
+
+
+def test_program_result_cache_is_keyed_by_code_hash(tmp_path, monkeypatch):
+    good = write(tmp_path, UE_BODY.format(sign="-"))
+    r1 = E.evaluate_program(good, UE, "full", cache=True, root=tmp_path)
+    cached = list((tmp_path / "compress" / "cache").rglob("*.json"))
+    assert len(cached) == 1 and r1.valid
+    calls = []
+    real = E._evaluate_program_bytes
+    monkeypatch.setattr(E, "_evaluate_program_bytes", lambda *a, **k: calls.append(1) or real(*a, **k))
+    r2 = E.evaluate_program(good, UE, "full", cache=True, root=tmp_path)
+    assert not calls and r2.valid and r2.program_sha256 == r1.program_sha256 and r2.verdict.op_norm_error == r1.verdict.op_norm_error
+    assert len(r2.verdicts_alt) == 2 and r2.metrics["t_eps"] == r1.metrics["t_eps"] and r2.spec_sha256 == UE.sha256()
+    # another evaluator code hash (any source edit) never hits the old entry
+    monkeypatch.setattr(P, "code_hash", lambda files=None: "f" * 64)
+    E.evaluate_program(good, UE, "full", cache=True, root=tmp_path)
+    assert calls == [1]
+    # trial results are not cached
+    E.evaluate_program(good, UE, "trial", cache=True, root=tmp_path)
+    assert len(list((tmp_path / "compress" / "cache").rglob("*.json"))) == 2
+
+
+# ------------------------------------------------------------------------------------------------ tester 030: cache integrity
+def _cache_file(root):
+    files = list((root / "compress" / "cache").rglob("*.json"))
+    assert len(files) == 1
+    return files[0]
+
+
+@pytest.mark.parametrize("tamper", ["flip valid", "zero metrics", "bad checksum", "other program sha", "other evaluator meta",
+                                    "claim valid with wrong verdict", "trial mode", "garbage"])
+def test_tampered_cache_entries_are_ignored_and_the_program_is_reevaluated(tmp_path, tamper):
+    bad = write(tmp_path, UE_BODY.format(sign="+"), name="002-wrong.py")         # an INVALID program
+    r0 = E.evaluate_program(bad, UE, "full", cache=True, root=tmp_path)
+    assert not r0.valid
+    cf = _cache_file(tmp_path)
+    d = json.loads(cf.read_text())
+    p = d["payload"]
+    if tamper == "flip valid":
+        p["valid"], p["reason"] = True, "ok"
+    elif tamper == "zero metrics":
+        p["valid"], p["reason"], p["metrics"] = True, "ok", {"cx": 0, "t_eps": 0, "depth_ct": 0, "qubits": 0, "t_fixed": 0}
+    elif tamper == "bad checksum":
+        d["checksum"] = "0" * 64
+    elif tamper == "other program sha":
+        p["program_sha256"] = "1" * 64
+    elif tamper == "other evaluator meta":
+        d["meta"]["evaluator_sha256"] = "2" * 64
+    elif tamper == "claim valid with wrong verdict":
+        p["valid"], p["reason"] = True, "ok"           # verdict stays the failing one
+        d["checksum"] = E.hashlib.sha256(E._canonical({"meta": d["meta"], "payload": p}).encode()).hexdigest()   # even a re-signed lie
+    elif tamper == "trial mode":
+        p["mode"] = "trial"
+    if tamper != "garbage":
+        if tamper not in ("bad checksum", "claim valid with wrong verdict"):
+            d["checksum"] = E.hashlib.sha256(E._canonical({"meta": d["meta"], "payload": p}).encode()).hexdigest()   # re-signed
+        cf.write_text(json.dumps(d))
+    else:
+        cf.write_text("{ not json")
+    calls = []
+    real = E._evaluate_program_bytes
+    E._evaluate_program_bytes = lambda *a, **k: calls.append(1) or real(*a, **k)
+    try:
+        r = E.evaluate_program(bad, UE, "full", cache=True, root=tmp_path)
+    finally:
+        E._evaluate_program_bytes = real
+    assert calls == [1] and not r.valid and r.reason == r0.reason       # never served from the tampered entry
+    again = json.loads(cf.read_text())                                  # and the entry was repaired
+    assert again["payload"]["valid"] is False and again["payload"]["program_sha256"] == r0.program_sha256
+
+
+def test_cache_entry_of_another_program_is_not_served(tmp_path):
+    good_p = write(tmp_path, UE_BODY.format(sign="-"), name="001-good.py")
+    bad_p = write(tmp_path, UE_BODY.format(sign="+"), name="002-wrong.py")
+    E.evaluate_program(good_p, UE, "full", cache=True, root=tmp_path)
+    good_cache = _cache_file(tmp_path)
+    E.evaluate_program(bad_p, UE, "full", cache=True, root=tmp_path)
+    files = sorted((tmp_path / "compress" / "cache").rglob("*.json"))
+    assert len(files) == 2
+    bad_cf = [f for f in files if f != good_cache][0]
+    bad_cf.write_text(good_cache.read_text())                           # copy the GOOD program's entry onto the bad one's path
+    r = E.evaluate_program(bad_p, UE, "full", cache=True, root=tmp_path)
+    assert not r.valid
+
+
+def test_an_untampered_cache_entry_is_still_served(tmp_path, monkeypatch):
+    good_p = write(tmp_path, UE_BODY.format(sign="-"))
+    r1 = E.evaluate_program(good_p, UE, "full", cache=True, root=tmp_path)
+    monkeypatch.setattr(E, "_evaluate_program_bytes", lambda *a, **k: pytest.fail("re-evaluated"))
+    r2 = E.evaluate_program(good_p, UE, "full", cache=True, root=tmp_path)
+    assert r2.valid and r2.verdict.op_norm_error == r1.verdict.op_norm_error

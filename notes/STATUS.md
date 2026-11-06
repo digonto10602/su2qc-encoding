@@ -21,7 +21,7 @@ M2 — compression machinery (step 2.1) and Lean track (step 2.L1) in parallel (
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
 |---|---|---|---|---|
-| M2 2.4 archive: result-cache tampering trusted; insert accepts trial/contradictory entries; id path escape (reports/tests/030) | 1 | 0 | 0 | archive invariants otherwise verified (300 random sequences) |
+| — | — | — | — | — |
 
 ## Decisions
 - 2026-11-05 (Digonto): desktop session (supremecommander) started from ~/su2qc-desktop-package (bundle at a2ec571) running spin network (M3/M4, branch m3-spin-network, numbers 100–199) and rishon (M5/M6, branch m5-rishon, numbers 200–299) in parallel; it needs a laptop bundle with tag milestone-2 in ~/su2qc-sync/inbox/ for M4/M6. Merge its outbox bundles back here at the end.
@@ -101,3 +101,4 @@ Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer
 - 2026-11-05: M2 step 2.4 tester FAIL (reports/tests/030) → builder attempt 1. Step 2.5 built: round-0 best = lean22_v2 plaquette + our U_E, CX 162, T(1e-6) 660 (general 294/952); qiskit_l3 windowed (whole-circuit L3 unsimulable) — tester running. acceptance-v7 (244f52f): planner fixed no-op in-place tampering in two locked tests (Digonto approved).
 - 2026-11-05: Lean step 2.L4 PASS (reports/tests/031): exact checker (ℚ(i,√2,√3) × Laurent), ~130 mutated certificates rejected; correct UE/UB/step certified (UE 24 s). Hardening to do in 2.L5: N1 require all 433 states once + orthonormal (doctored subset accepted), N2 out-of-range target row must reject, N3 prefer target's own angle variable, N4 lower crx to h/rz/cx in the exporter. Committed.
 - 2026-11-05: M2 step 2.5 baselines PASS (reports/tests/032): round-0 seeds general 294/952, qiskit_l3 (windowed) 290/918, lean22 210/704, lean22_v2 162/660 (CX/T at 1e-6), all valid at nominal+alt angles; lean22_v2 vendored identical to su2qc-trotter 35b8b62c; Paulo external row 294/1162. Notes for 2.6: bare except in round._circuit_of; archive paths not relocatable; Report 2 must state windowed L3 + 'up to global phase' for Clifford+T. Committed (archive/evaluate 2.4 fixes still under recheck).
+- 2026-11-05: M2 step 2.4 recheck PASS WITH NOTES (reports/tests/033): cache tampering detected (consistent forgery trusted by design, caught by gate re-evaluation from source); archive insert/load/save rules enforced. Minor for 2.6: id regex `$` → fullmatch; missing 'certified' field must not count as certified; cached t_estimate keys as str. Committed.

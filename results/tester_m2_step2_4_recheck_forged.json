@@ -1,0 +1,226 @@
+{
+ "n6_meta_forged_exit0/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker exited (code 0) without writing the circuits",
+  "disc": 0
+ },
+ "n6_meta_forged_exit0/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker exited (code 0) without writing the circuits",
+  "disc": 0
+ },
+ "meta_forged_exit0_trial_count/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker exited (code 0) without writing the circuits",
+  "disc": 0
+ },
+ "meta_forged_exit0_trial_count/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker exited (code 0) without writing the circuits",
+  "disc": 0
+ },
+ "meta_garbage_exit0/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker wrote an unreadable meta file: Expecting value: line 1 column 1 (char 0)",
+  "disc": 0
+ },
+ "meta_garbage_exit0/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker wrote an unreadable meta file: Expecting value: line 1 column 1 (char 0)",
+  "disc": 0
+ },
+ "meta_list_exit0/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker wrote a malformed meta file",
+  "disc": 0
+ },
+ "meta_list_exit0/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker wrote a malformed meta file",
+  "disc": 0
+ },
+ "meta_discoveries_wrong_type/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker exited (code 0) without writing the circuits",
+  "disc": 0
+ },
+ "meta_discoveries_wrong_type/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker exited (code 0) without writing the circuits",
+  "disc": 0
+ },
+ "meta_error_key_contract/trial": {
+  "valid": false,
+  "reason": "contract",
+  "verdict_none": true,
+  "msg": "x",
+  "disc": 0
+ },
+ "meta_error_key_contract/full": {
+  "valid": false,
+  "reason": "contract",
+  "verdict_none": true,
+  "msg": "x",
+  "disc": 0
+ },
+ "meta_error_huge/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "disc": 0
+ },
+ "meta_error_huge/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "disc": 0
+ },
+ "qpy_garbage_meta_ok/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker wrote an unreadable circuit file: QiskitError: \"The QPY format version being ",
+  "disc": 0
+ },
+ "qpy_garbage_meta_ok/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker wrote an unreadable circuit file: QiskitError: \"The QPY format version being ",
+  "disc": 0
+ },
+ "qpy_empty_file/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker wrote an unreadable circuit file: error: unpack requires a buffer of 7 bytes",
+  "disc": 0
+ },
+ "qpy_empty_file/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker wrote an unreadable circuit file: error: unpack requires a buffer of 7 bytes",
+  "disc": 0
+ },
+ "qpy_huge_discoveries_strings/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker exited (code 0) without writing the circuits",
+  "disc": 0
+ },
+ "qpy_huge_discoveries_strings/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker exited (code 0) without writing the circuits",
+  "disc": 0
+ },
+ "no_files_exit0/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker failed (exit 0): ",
+  "disc": 0
+ },
+ "no_files_exit0/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker failed (exit 0): ",
+  "disc": 0
+ },
+ "no_files_exit3/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker failed (exit 3): ",
+  "disc": 0
+ },
+ "no_files_exit3/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker failed (exit 3): ",
+  "disc": 0
+ },
+ "meta_symlink_dir/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "PermissionError: proposer programs may not use os.remove ncoding/src/su2plaq/compress/eval",
+  "disc": 0
+ },
+ "meta_symlink_dir/full": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "PermissionError: proposer programs may not use os.remove ncoding/src/su2plaq/compress/eval",
+  "disc": 0
+ },
+ "legit_then_overwrite_meta_with_forged_error/trial": {
+  "valid": true,
+  "reason": "ok",
+  "verdict_none": false,
+  "msg": "",
+  "disc": 0
+ },
+ "legit_then_overwrite_meta_with_forged_error/full": {
+  "valid": true,
+  "reason": "ok",
+  "verdict_none": false,
+  "msg": "",
+  "disc": 0
+ },
+ "qpy_forged_native_mcx_circuit/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker returned the wrong number of circuits",
+  "disc": 0
+ },
+ "qpy_forged_native_mcx_circuit/full": {
+  "valid": false,
+  "reason": "disallowed_gate",
+  "verdict_none": false,
+  "msg": "",
+  "disc": 0
+ },
+ "qpy_forged_identity_circuits/trial": {
+  "valid": false,
+  "reason": "build_error",
+  "verdict_none": true,
+  "msg": "build worker returned the wrong number of circuits",
+  "disc": 0
+ },
+ "qpy_forged_identity_circuits/full": {
+  "valid": false,
+  "reason": "error",
+  "verdict_none": false,
+  "msg": "",
+  "disc": 0
+ }
+}
