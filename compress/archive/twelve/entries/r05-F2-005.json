@@ -187,11 +187,13 @@
  "lean": {
   "status": "certified",
   "reason": "",
-  "cert_path": "/home/digimonk/Projects/su2qc-encoding/compress/lean/certs/step-o1-ca5c0f1a907a.json",
-  "seconds": 352.1219890117645,
+  "cert_path": "compress/lean/certs/step-o1-ca5c0f1a907a.json",
+  "seconds": 351.06041502952576,
   "checker_sha256": "befbd27e3ed4e8229f11320189441597e04c89c7bf7746cf93f1c55de261bfd5",
   "theorem_path": null,
-  "axioms": []
+  "axioms": [],
+  "program_file_sha256": "4f7fcb1eab11fc709a1e44eb0fdafe9a5f7cd9d48365aea6642cd280170cef92",
+  "gates_sha256": "ca5c0f1a907a36618492da21e8d029a117622c5726acc1d65f1eb90adf7e55d1"
  },
  "mode": "full"
 }
