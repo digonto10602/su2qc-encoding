@@ -37,6 +37,8 @@ From the planner (prompts/200, reports/research/200):
 
 ## Model decisions taken without Digonto (default; flagged for review)
 - SU(2) quantum link model with two fermionic rishons per link; SU(2) Gauss law only; **det coupling $\gamma=0$** (defined, not built). With $\gamma=0$ the U(1) charges are conserved (431 sectors; the U(2)-QLM sector has 2192 states). Adding the det term would be a third Trotter layer = a plan amendment.
+  Audit 200 N1: with $\gamma=0$ the dynamics is U(2)-invariant, not the SU(2) QLM proper (Wiese arXiv:1305.1602 §4.3); the reference vacuum sits in U(1) sector $(2,2,2,2)$. Counts, $U_E$, $U_B$ and gate counts do not depend on $\gamma$; vacuum degeneracy, the closed-sector zero levels and the echo do (one-step echo $5.6\times10^{-4}\to7.8\times10^{-3}$ at $\gamma\,dt=0.3$). Needs Digonto's approval.
+- Comparison rishon vs KS at equal $\beta$ (audit 200 N2) is a convention choice; the rishon plaquette operator has norm $2\sqrt2$ (KS 1), so the rishon rotation runs $2\sqrt2$ times faster.
 - Register 48 qubits (16 inert far-end qubits kept); the 36-qubit codeword variant is a register-size row only.
 
 ## Tag-name clash warning
