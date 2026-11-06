@@ -25,6 +25,7 @@ For the laptop session merging this branch. Lists every shared-file append, ever
   import Su2Plaq.SpinNet.Counts
   import Su2Plaq.SpinNet.Circuit
   ```
+- `lean/Su2Plaq.lean`: one more line appended (prompts/102 W4, reports/tests/107): `import Su2Plaq.SpinNet.Bridge` (pulls in SpinNet.Recoupling, Semantics, Spectrum; all Mathlib-free except Bridge).
 
 ## Requested changes to laptop-owned files
 From `prompts/100-spinnet-m3-plan.md` §10 (not applied; M3 routes around 2; 1 and 3 are needed for M4):
