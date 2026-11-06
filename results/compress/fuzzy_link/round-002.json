@@ -1,0 +1,128 @@
+{
+ "round": 2,
+ "n_valid": 1,
+ "n_invalid": 0,
+ "best_key": [
+  12,
+  644,
+  1183,
+  4
+ ],
+ "entries": [
+  "r02-F2-001"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "fuzzy_link",
+ "kind": "UE",
+ "provenance": {
+  "git_commit": "6d221d5",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "cpu_count": 48,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T20:06:56Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "fc43837d40f618f4f5b76afb67a12831100928d86da03a1c5d8e22029cee97d9",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "001-plane_bfs_frame_fusion12",
+   "id": "r02-F2-001",
+   "family": "F2",
+   "program_sha256": "f39cd2dced08584ba26abf20b829232483880e3e59b299857adf090ff68c6dc1",
+   "program_path": "compress/programs/fuzzy_link/F2/001-plane_bfs_frame_fusion12.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "cell": [
+    29,
+    74
+   ],
+   "metrics": {
+    "cx": 12,
+    "t_fixed": 0,
+    "n_rot": 10,
+    "t_eps": 644,
+    "t_estimate": {
+     "1e-06": 597.9470570797253,
+     "1e-10": 996.5784284662087
+    },
+    "t_measured": {
+     "1e-06": 644,
+     "1e-10": 1028
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 37,
+    "depth_ct": 1183,
+    "qubits": 4,
+    "gates": {
+     "h": 22,
+     "cx": 12,
+     "rz": 10,
+     "s": 9,
+     "x": 1,
+     "z": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.614918919956449e-15,
+    "block_error": 4.356938608277579e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F1-001",
+   "parent_known": true,
+   "git_commit": "6d221d5",
+   "summary": "frame and parity network fused into one 12-CX Clifford path found by meet-in-the-middle BFS over 4-qubit Clifford cosets modulo single-qubit Cliffords (each qubit = one hyperbolic plane of Paulis); the 10 commuting Pauli rotations (6 at +-alpha/4, 4 at +-2 kappa2) are applied whenever a plane contains a target Pauli; 12 CX, 10 rotations.",
+   "lean": {
+    "status": "n_a",
+    "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+   },
+   "round": 2,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r02-F2-001",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 10,
+  "t_total": 644,
+  "tolerances": {
+   "tol_err": 1.0001e-05,
+   "tol_gauss": 1.0001e-05
+  },
+  "op_norm_error": 2.383599415913014e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 1.0852720737457275,
+ "written_utc": "2026-11-06T20:06:56Z"
+}
