@@ -7,6 +7,7 @@ import json
 import pathlib
 
 import numpy as np
+import pytest
 
 from tests.acceptance._api import api
 
@@ -176,5 +177,11 @@ def test_M6_K3_builder_registers_and_cap():
     qc = b.circuit()
     assert qc.num_qubits == 50 and [r.name for r in qc.qregs][:2] == ["d", "o"]
     assert spec.peak_qubit_cap() == 80
-    hdr = B.parse_program_header('"""SUMMARY: s\nDISCOVERY: d\n"""\nFAMILY = "seed"\nPARENT = None\n')
-    assert hdr["family"] == "seed" and hdr["parent"] is None and hdr["discoveries"] == ["d"]
+    # the program contract the seed programs must satisfy (prompts/002 §2.10): SUMMARY docstring, DISCOVERY lines, FAMILY,
+    # PARENT and `def build(spec)`; the laptop parser rejects a source without build (prompts/203 erratum E1)
+    header = '"""SUMMARY: s\nDISCOVERY: d\n"""\nFAMILY = "seed"\nPARENT = None\n'
+    hdr = B.parse_program_header(header + "\n\ndef build(spec):\n    return Builder(spec)\n")
+    # the laptop parser keeps the whole `DISCOVERY: ...` line (that is how compress/discoveries/<enc>.md records them)
+    assert hdr["family"] == "seed" and hdr["parent"] is None and hdr["discoveries"] == ["DISCOVERY: d"] and hdr["summary"] == "s"
+    with pytest.raises(B.BuilderError):
+        B.parse_program_header(header)

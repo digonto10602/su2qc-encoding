@@ -26,9 +26,14 @@ def _program(kind) -> pathlib.Path:
 
 
 def _cli(root, args, timeout):
+    """Run the CLI in a subprocess.  A stub (NotImplementedError) in the child cannot reach the conftest PENDING hook, so it
+    is reported as `PENDING:` here (prompts/203 erratum E1); any other non-zero exit is a real failure."""
+    api("su2plaq.rishon.compress.run_candidate:main")          # PENDING when the module / entry point does not exist
     t0 = time.time()
     p = subprocess.run([sys.executable, "-m", "su2plaq.rishon.compress.run_candidate", *args], cwd=root, capture_output=True,
                        text=True, env={**os.environ, "PYTHONPATH": str(root / "src")}, timeout=timeout + 60)
+    if p.returncode != 0 and "NotImplementedError" in p.stderr:
+        pytest.fail(f"PENDING: run_candidate CLI is a stub: {p.stderr.strip().splitlines()[-1]}", pytrace=False)
     return p, time.time() - t0
 
 
