@@ -1,4 +1,4 @@
-M9 fuzzy: setup done (env, Lean, baseline m0/m1 green); planner run for M9 plan + locked tests in progress; next: lock m9, then build loop.
+M9 fuzzy: setup done (env, Lean, baseline m0/m1 green), Hamiltonian decisions recorded (K_2 included, g^2/4); planner writing prompts/300 + tests/acceptance/m9; next: lock m9, then build loop.
 
 # STATUS — branch m9-fuzzy (48-core machine, fuzzy encoding M9/M10)
 
