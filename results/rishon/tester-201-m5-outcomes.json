@@ -1,0 +1,67 @@
+{
+ "passed": [
+  "test_rishon_algebra::test_M5_D1_link_algebra",
+  "test_rishon_physical::test_M5_C1_counts_two_routes",
+  "test_rishon_physical::test_M5_C1_inner_span_full",
+  "test_rishon_physical::test_M5_C1_states_gauss_orthonormal",
+  "test_rishon_algebra::test_M5_D1_string_free_and_sector"
+ ],
+ "pending": {
+  "rishon.observables.closed_spectra is not built yet": [
+   "test_rishon_observables::test_M5_O1_closed_spectra"
+  ],
+  "circuits.rishon.build_UB is not built yet": [
+   "test_rishon_metrics::test_M5_T1_t_table_and_synth_verify[UB]",
+   "test_rishon_circuits::test_M5_B1_magnetic_inner_block[0.61]",
+   "test_rishon_circuits::test_M5_B1_magnetic_inner_block[1.0]",
+   "test_rishon_circuits::test_M5_B1_physical_with_outer_and_gauss",
+   "test_rishon_circuits::test_M5_B1_magnetic_inner_block[2.0]",
+   "test_rishon_circuits::test_M5_B1_magnetic_inner_block[0.23]"
+  ],
+  "circuits.rishon.build_step is not built yet": [
+   "test_rishon_circuits::test_M5_S1_step_orders[2]",
+   "test_rishon_metrics::test_M5_T1_t_table_and_synth_verify[step]",
+   "test_rishon_circuits::test_M5_S1_step_orders[1]"
+  ],
+  "Su2Plaq/Rishon/Counts.lean": [
+   "test_rishon_lean::test_M5_L1_counts_kernel_checked"
+  ],
+  "circuits.rishon.build_UE is not built yet": [
+   "test_rishon_circuits::test_M5_E1_electric_step[0.37]",
+   "test_rishon_metrics::test_M5_T1_t_table_and_synth_verify[UE]",
+   "test_rishon_circuits::test_M5_E1_electric_step[0.91]"
+  ],
+  "Su2PlaqCert/Rishon/HB.lean": [
+   "test_rishon_lean::test_M5_L3_hb_structure_certificate"
+  ],
+  "Su2Plaq/Rishon/JW.lean": [
+   "test_rishon_lean::test_M5_L2_jw_facts_kernel_checked"
+  ],
+  "rishon.observables.observables is not built yet": [
+   "test_rishon_observables::test_M5_O1_observables_after_steps[0.37-0.61]",
+   "test_rishon_observables::test_M5_O1_observables_after_steps[0.91-0.23]",
+   "test_rishon_observables::test_M5_O1_observables_after_steps[1.7-1.0]"
+  ],
+  "rishon.operators.plaquette_W_inner is not built yet": [
+   "test_rishon_operators::test_M5_X1_plaquette_structure"
+  ],
+  "RishonEncoding.inner_codes is not built yet": [
+   "test_rishon_codec::test_M5_C1_encoding_codec_and_vectors"
+  ],
+  "rishon.operators.h_magnetic_inner is not built yet": [
+   "test_rishon_operators::test_M5_X1_bright_pairs_and_closed_block",
+   "test_rishon_operators::test_M5_X1_inner_target_properties[0.37-0.61]",
+   "test_rishon_operators::test_M5_X1_inner_target_properties[1.7-1.0]"
+  ],
+  "missing": [
+   "test_rishon_results::test_M5_R1_results_files[step]",
+   "test_rishon_results::test_M5_R1_observables_and_register_rows",
+   "test_rishon_results::test_M5_R1_results_files[UE]",
+   "test_rishon_results::test_M5_R1_results_files[UB]"
+  ],
+  "rishon.verify.verify is not built yet": [
+   "test_rishon_verify::test_M5_B1_verifier_sensitivity"
+  ]
+ },
+ "other": []
+}

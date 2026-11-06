@@ -1,14 +1,20 @@
 """Rishon inner operators on the 1296 valid 16-bit codes (prompts/200 §2.3; METHODS-rishon R4).
-Stubs (step 5.0); built in step 5.3."""
+Stubs (step 5.0); built in step 5.3 (`inner_codes` already built in step 5.2 for the inner span)."""
 from __future__ import annotations
+
+import itertools
 
 import numpy as np
 
 from su2plaq._stub import todo
+from su2plaq.rishon.algebra import RishonLink
 
 
 def inner_codes() -> np.ndarray:
-    todo("rishon.operators.inner_codes")
+    """Sorted int64 16-bit data codes with two rishons on each of the four inner links (6^4 = 1296)."""
+    sector = RishonLink().sector
+    codes = [sum(int(s) << (4 * l) for l, s in enumerate(cfg)) for cfg in itertools.product(sector, repeat=4)]
+    return np.array(sorted(codes), dtype=np.int64)
 
 
 def plaquette_W_inner() -> np.ndarray:
