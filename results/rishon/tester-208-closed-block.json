@@ -1,0 +1,224 @@
+{
+ "commit": "b2e258f",
+ "seed": null,
+ "n_vac_codes": 16,
+ "codes_with_HE_zero": 16,
+ "HE_zero_equals_vac": true,
+ "loop_norm_before": 4.0,
+ "loop_support": 16,
+ "loop_overlap_with_vac": 0.0,
+ "W_on_vac": [
+  {
+   "k": 0,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 1,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 2,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 3,
+   "W_norm": 0.0,
+   "Wdag_norm": 4.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 4.0
+  },
+  {
+   "k": 4,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 5,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 6,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 7,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 8,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 9,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 10,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 11,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 12,
+   "W_norm": 4.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 4.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 13,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 14,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  },
+  {
+   "k": 15,
+   "W_norm": 0.0,
+   "Wdag_norm": 0.0,
+   "W_overlap_loop": 0.0,
+   "Wdag_overlap_loop": 0.0
+  }
+ ],
+ "gram_dev": 0.0,
+ "by_g2": {
+  "0.5": {
+   "span_invariance_residual": 0.0,
+   "own_eigs": [
+    -10.944921598668428,
+    -5.342948306008566e-16,
+    11.69492159866843
+   ],
+   "own_mult": [
+    1,
+    15,
+    1
+   ],
+   "block_diff_vs_prod": 0.0,
+   "prod_closed_spectra_eigs_diff": 4.986751752274661e-16,
+   "prod_mult": [
+    1,
+    15,
+    1
+   ],
+   "json_eigs_diff": 4.986751752274661e-16,
+   "json_mult": [
+    1,
+    15,
+    1
+   ],
+   "formula_diff": 1.7763568394002505e-15,
+   "full_unsorted_eig_diff": 0.0,
+   "all_ok": true
+  },
+  "1.0": {
+   "span_invariance_residual": 0.0,
+   "own_eigs": [
+    -4.956356105256663,
+    0.0,
+    6.456356105256665
+   ],
+   "own_mult": [
+    1,
+    15,
+    1
+   ],
+   "block_diff_vs_prod": 0.0,
+   "prod_closed_spectra_eigs_diff": 8.800830434789001e-17,
+   "prod_mult": [
+    1,
+    15,
+    1
+   ],
+   "json_eigs_diff": 8.800830434789001e-17,
+   "json_mult": [
+    1,
+    15,
+    1
+   ],
+   "formula_diff": 1.7763568394002505e-15,
+   "full_unsorted_eig_diff": 0.0,
+   "all_ok": true
+  },
+  "2.0": {
+   "span_invariance_residual": 0.0,
+   "own_eigs": [
+    -1.7015621187164243,
+    -2.5071158799190585e-16,
+    4.701562118716424
+   ],
+   "own_mult": [
+    1,
+    15,
+    1
+   ],
+   "block_diff_vs_prod": 0.0,
+   "prod_closed_spectra_eigs_diff": 2.339974821257788e-16,
+   "prod_mult": [
+    1,
+    15,
+    1
+   ],
+   "json_eigs_diff": 2.339974821257788e-16,
+   "json_mult": [
+    1,
+    15,
+    1
+   ],
+   "formula_diff": 2.5071158799190585e-16,
+   "full_unsorted_eig_diff": 0.0,
+   "all_ok": true
+  }
+ },
+ "invariance_firing": {
+  "vac_k(k=5) <-> outside code, 1e-3": "ValueError: the closed sector (16 vacuum codes, loop) is not invariant under H",
+  "loop_support_code <-> outside code, 1e-3": "ValueError: the closed sector (16 vacuum codes, loop) is not invariant under H",
+  "vacA <-> outside code, 1e-3": "ValueError: the closed sector (16 vacuum codes, loop) is not invariant under H",
+  "in-sector coupling vac1<->vac2 (should not raise)": {
+   "raised": false,
+   "offdiag_in_block": 0.5
+  }
+ },
+ "all_ok": true
+}

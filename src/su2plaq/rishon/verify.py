@@ -108,6 +108,9 @@ def _gauss_sample(qc, enc, gauss_sample: int, seed: int, cap: int) -> tuple[floa
     return float(res.max()), len(ids)
 
 
+_CLASSIFY_REASONS = frozenset({"bad_layout", "writes_outer", "disallowed_gate"})
+
+
 def _early(inner: Verdict | None, reason: str, t0: float, tols: dict, nread: int = 0, msg: str = "") -> RishonVerdict:
     inf = float("inf")
     return RishonVerdict(False, reason, False, inf, inf, inf, inf, inf, inf, 1.0 + 0j, float("nan"), 0, nread,
@@ -126,16 +129,20 @@ def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: i
     t0 = time.time()
     tg = TOL_GAUSS if tol_gauss is None else float(tol_gauss)
     tols = {"tol_err": tol_err, "tol_gauss": tg}
+    classify_error = ""
     try:
         read = classify_outer_gates(qc, enc.layout_of(qc))
-    except ValueError:
-        read = set()    # bad layout / outer write / disallowed gate: `evaluate` below returns the matching reason
+    except ValueError as e:     # incl. OuterWriteError: bad layout / outer write / disallowed gate
+        read, classify_error = set(), f"{type(e).__name__}: {e}"    # recorded; `evaluate` below must reject (asserted)
     if read:
         return _early(None, "outer_read_unsupported", t0, tols, len(read),
                       f"outer qubits {sorted(read)} are read by the circuit; the block-wise path is M6")
     view = enc.inner_view()
     V = enc.inner_target(kind, alpha, beta, order) if target is None else np.asarray(target, dtype=np.complex128)
     iv = evaluate(qc, view, V, tol_err=tol_err, tol_gauss=tg, gauss=False, engine=engine, cap=cap)
+    if classify_error and (iv.ok or iv.reason not in _CLASSIFY_REASONS):
+        raise RuntimeError(f"classify_outer_gates raised ({classify_error}) but evaluate returned reason "
+                           f"{iv.reason!r} (ok={iv.ok}); expected one of {sorted(_CLASSIFY_REASONS)}")
     gres, gstates, reason = float("nan"), 0, iv.reason
     simulated = np.isfinite(iv.op_norm_error)
     if gauss and simulated:
@@ -156,7 +163,8 @@ def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: i
                          gauss_states=gstates, outer_bits_read=iv.outer_bits_read, method="inner_block",
                          engine=iv.engine, seconds=time.time() - t0, tolerances=dict(iv.tolerances),
                          failing_inputs=failing, inner_verdict=iv,
-                         extra={"inner_method": iv.method, "gauss_sample": gauss_sample, "seed": seed})
+                         extra={"inner_method": iv.method, "gauss_sample": gauss_sample, "seed": seed,
+                                **({"classify_error": classify_error} if classify_error else {})})
 
 
 def physical_cross_check(qc, enc, kind, alpha, beta, order=1, states: list[int] | None = None) -> dict:

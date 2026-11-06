@@ -28,13 +28,14 @@ def _group(ev: np.ndarray, tol: float = 1e-9) -> tuple[list[float], list[int]]:
 
 
 def closed_spectra(g2_list=(0.5, 1.0, 2.0)) -> dict:
-    """Closed-sector spectra of H(g2).  Rishon: per outer singlet choice the 17 closed states = the 3x3 bright block of
-    `operators.closed_block` plus the 14 remaining vacua (energy 0).  KS: the 2x2 block `ks_closed_block`.
+    """Closed-sector spectra of H(g2).  Rishon: per outer singlet choice the 17 closed states (16 vacuum codes + loop) are diagonalised
+    as the full block `operators.closed_block_full` (its 3x3 bright part is `operators.closed_block`; the 14 remaining levels
+    are whatever the model gives, not typed in).  KS: the 2x2 block `ks_closed_block`.
     -> {"rishon": {g2: {"eigenvalues", "multiplicities"}}, "ks": {...}}."""
     out: dict = {"rishon": {}, "ks": {}}
     for g2 in g2_list:
         g2 = float(g2)
-        ev = np.concatenate([np.linalg.eigvalsh(_ops.closed_block(g2)), np.zeros(14)])
+        ev = np.linalg.eigvalsh(_ops.closed_block_full(g2))
         vals, mult = _group(ev)
         out["rishon"][g2] = {"eigenvalues": vals, "multiplicities": mult}
         vals, mult = _group(np.linalg.eigvalsh(ks_closed_block(g2)))

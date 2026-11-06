@@ -70,3 +70,23 @@ def test_build_UE_matches_diagonal_target():
     M, leak = ss.encoded_block(b, codes, len(codes), (1 << 16) - 1)
     assert leak.max() <= 1e-20
     assert np.abs(M - inner_target("UE", 0.91, None)).max() <= 1e-12     # no global phase needed: p-gates are diagonal
+
+
+def test_classify_error_is_recorded_not_swallowed(enc):
+    """An outer write makes classify_outer_gates raise; the message is recorded in the verdict and evaluate's reason holds."""
+    qc = QuantumCircuit(QuantumRegister(16, "d"), QuantumRegister(32, "o"))
+    qc.x(20)
+    v = V.verify(qc, enc, "UE", 0.0, None)
+    assert v.reason == "writes_outer" and not v.ok
+    assert v.extra["classify_error"].startswith("OuterWriteError:")
+    ok = V.verify(QuantumCircuit(QuantumRegister(16, "d")), enc, "UE", 0.0, None, gauss=False)
+    assert ok.ok and "classify_error" not in ok.extra
+
+
+def test_classify_error_without_matching_reject_raises(enc, monkeypatch):
+    """If classify raises but evaluate would accept, verify must fail loudly instead of accepting."""
+    def boom(qc, layout):
+        raise ValueError("synthetic")
+    monkeypatch.setattr(V, "classify_outer_gates", boom)
+    with pytest.raises(RuntimeError, match="synthetic"):
+        V.verify(QuantumCircuit(QuantumRegister(16, "d")), enc, "UE", 0.0, None, gauss=False)

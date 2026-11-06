@@ -263,6 +263,31 @@ def closed_block(g2: float) -> np.ndarray:
     return (B @ H @ B.T).astype(np.complex128)
 
 
+def closed_block_full(g2: float) -> np.ndarray:
+    """17x17 closed-sector block of H(g2) = (g2/2) H_E + H_B^in / g2 in the basis (the 16 vacuum codes {A,B}^4, loop).
+
+    The 16 vacuum codes are the inner codes with every link in A or B (all link heights 0 or 2, j = 0 on every link).
+    The block is computed from the full 1296-dim operators; the span must be invariant under H and orthonormal, otherwise
+    ValueError (so a term that couples the closed sector to other states, e.g. a determinant term, is not hidden)."""
+    _, _, _, _, loop, ln = _closed()
+    codes = inner_codes()
+    vac = [sum((CODE_A if (k >> l) & 1 == 0 else CODE_B) << (4 * l) for l in range(_N_INNER)) for k in range(1 << _N_INNER)]
+    idx = [int(np.searchsorted(codes, c)) for c in vac]
+    if any(codes[i] != c for i, c in zip(idx, vac)):
+        raise ValueError("a vacuum code is not an inner code")
+    B = np.zeros((len(idx) + 1, len(codes)))
+    for r, i in enumerate(idx):
+        B[r, i] = 1.0
+    B[-1] = ln
+    if np.abs(B @ B.T - np.eye(len(B))).max() > 1e-12:
+        raise ValueError("the closed-sector basis (16 vacuum codes, loop) is not orthonormal")
+    H = 0.5 * g2 * np.diag(_HE()) + h_magnetic_inner().real / g2
+    HB_ = H @ B.T
+    if np.abs(HB_ - B.T @ (B @ HB_)).max() > 1e-10:
+        raise ValueError("the closed sector (16 vacuum codes, loop) is not invariant under H")
+    return (B @ HB_).astype(np.complex128)
+
+
 def det_term_inner() -> np.ndarray:
     """sum over the four inner links of (det U_l + h.c.) on the inner codes (gamma = 0 in M5: defined, not used)."""
     det = _sector_ops()["det"]

@@ -141,7 +141,7 @@ def build_UB(beta: float, with_outer: bool = False):
     Pair p: F_p (Clifford-type frame, X/CX/Z/CZ/H and j-controlled versions) maps the bright vectors u_p, v_p of
     H_B^in = -sum_p kappa_p (|u_p><v_p| + h.c.) to two computational codes that differ in the pivot bit j only; then
     Rx(-2 s_p kappa_p beta) on j controlled on the (zero) bits that separate that pair from the images of every other valid
-    code (rccx chain on clean ancillas, mirrored uncompute), then F_p^dagger.  The angles are 2 beta (x32), 4 beta (x48) and
+    code (Toffoli `ccx` ladder on clean ancillas, mirrored uncompute; the relative-phase `rccx` variant was evaluated and rejected by the prune cap, reports/tests/204 N1), then F_p^dagger.  The angles are 2 beta (x32), 4 beta (x48) and
     8 sqrt(2) beta (x1) (kappa = 1, 2, 4 sqrt 2), signs from the operator.  Registers d (+ o), then ancillas `anc`;
     metadata {"kind": "UB", "beta": beta, "n_pairs": 81, ...}."""
     n_anc = _n_ancillas()
