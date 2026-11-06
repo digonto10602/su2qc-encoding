@@ -1,21 +1,23 @@
-M5 in progress (desktop track R, rishon QLM): plan prompts/200 locked as acceptance-v7; steps 5.0+5.1 done; 5.0–5.6 done; building steps 5.7+5.8 (U_B, step).
+M5 in progress (desktop track R, rishon QLM): plan prompts/200 locked as acceptance-v7; steps 5.0+5.1 done; 5.0–5.8 done; building steps 5.9+5.10 (metrics, results).
 
 # Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)
 
 Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 200–299. Cores 10–19, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-rishon.md`.
 
 ## Current milestone / step
-M5 — plan `prompts/200-rishon-m5-plan.md` (acceptance-v8 after the prompts/201 test fix; m5 tests 34; plan in force stays prompts/200). Steps 5.0+5.1 PASS (reports/tests/200). Steps 5.2–5.4 PASS (reports/tests/201, 202). Steps 5.5+5.6 PASS (reports/tests/203). Steps 5.7+5.8 with builder. Lean steps 5.L1–5.L3 run after, one builder per clone at a time (START_HERE §3 overrides the plan's parallel-builder note).
+M5 — plan `prompts/200-rishon-m5-plan.md` (acceptance-v8 after the prompts/201 test fix; m5 tests 34; plan in force stays prompts/200). Steps 5.0+5.1 PASS (reports/tests/200). Steps 5.2–5.4 PASS (reports/tests/201, 202). Steps 5.5+5.6 PASS (reports/tests/203). Steps 5.7+5.8 PASS (reports/tests/204). Steps 5.9+5.10 with builder, then Lean 5.L1–5.L3. Lean steps 5.L1–5.L3 run after, one builder per clone at a time (START_HERE §3 overrides the plan's parallel-builder note).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
 |---|---|---|---|---|
 
 ## Pending notes
+- reports/tests/204 N1 (planner matter, for M6 or a plan addendum): the rccx control ladder is physically exact (block error 3.4e-13) but rejected only because the sparse engine's pruning bound (2.3e-12) exceeds the 1e-12 cap; it would cut U_B CX 10 094 → 6 866 (−32 %) and T_fixed 10 218 → 7 262. The prune cap, not physics, decides the gate choice. N2: headroom to the prune cap only 2.6–3.3×. N3: report depth as the lowered `logical_metrics` depth (13 682), not the macro depth (2402).
 - METHODS-rishon R6 wording (reports/tests/203 N3): bound written as squared norm but code uses block error + leak + dropped; amplitude drop is absolute (1e-14), not relative — next planner run.
 - Outer electric row writes outer qubits, so it is checked separately, not through `verify` (N1); report as separate row.
 
 ## Desktop log
+- 2026-11-06: M5 steps 5.7+5.8 PASS (reports/tests/204): U_B vs expm(−iβH_B) on the full 1296 block ≤ 1.6e-14 at 4 β, global phase 1, ancillas clean; crx angles/β = 2 (×32), 4 (×48), 8√2 (×1) = 2κ; steps ≤ 1.7e-14, wrong order rejected; counts U_B 10 094 CX, 162 rot, T_fixed 10 218, 26 qubits (10 anc), lowered depth 13 682; steps 10 102/10 110 CX. T1 ×3 pass (slow: 941/1102 s contended).
 - 2026-11-06: M5 steps 5.5+5.6 PASS (reports/tests/203): verify sound — R6 argument checked on 72 independently built 48-qubit physical states (error equals verify's op_norm_error on 6 circuits); 36 adversarial circuits, 0 false accepts; build_UE 8 CX / 4 rot / depth 3 (outer row +16 CX, +8 rot), quartet phase exact; 36 observable numbers recomputed (≤ 3.2e-15).
 - 2026-11-06: M5 steps 5.3+5.4 PASS (reports/tests/202): W equals tester's own 16-mode JW construction exactly; H_B spectrum ±4√2(1) ±2(48) ±1(32) 0(1134); 81 bright pairs κ {1:32, 2:48, 4√2:1}; 990 isolated (dark) codes + 144 zero modes inside bright components = 1134; inner_target vs expm ≤ 8.3e-16; closed block eigenvalues match METHODS-rishon; 38 432 physical vectors Gauss 2.3e-16; codec test passes on acceptance-v8.
 - 2026-11-06: M5-C1 codec test defect (line 35 `(1 << 0)` on a type-A link was a no-op → contradicted line 33): Digonto approved the fix in chat; planner prompts/201 (one-off test fix; plan in force stays prompts/200) changed `(1 << 0)`→`(1 << 2)` twice + LOCK.json entry; re-locked acceptance-v8. Test now passes.
