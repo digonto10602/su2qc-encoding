@@ -23,6 +23,7 @@ The scripts are in the session scratchpad `aud/a1.py`–`a4.py`. All runs used p
 | A6 | `build_step` `metadata['layers']`: does it cover every instruction contiguously (orders 1 and 2, with and without outer links)? | Yes: 872/872, 1288/1288, 1080/1080 and 1496/1496 instructions, contiguous. |
 | A7 | **Tamper test**: append `rz(1.0)` on qubit 0 and `cx(3,7)` after the layers of `build_step(order=1)`, then run `verify_step_samples` | **Passes**: err $1.05\times10^{-14}$, gauss $5\times10^{-15}$. See ISSUE 1. |
 | A8 | Tamper test: relabel the `UK` layer as `"outer"` | Detected at $r=1$ (err 0.99). It would not be detected at $r=0$ or for gates on inner qubits inside an outer range. |
+| A9 | Order-2 `build_step` ($r=1$) with the metadata removed, simulated as a whole circuit through the Aer fallback (3 random states and 1 physical state) | err $1.2\times10^{-14}$, gauss $5.5\times10^{-15}$, leak 0. This independently confirms the delivered circuit. |
 
 The tester's spot check (b) simulated the whole 23-qubit `build_step` circuit in Qiskit `Statevector`, with no layer metadata, against `apply_step`, for all four (order, $r$) cases. It found errors of at most $7.5\times10^{-15}$. The **delivered** step circuits are therefore correct independently of ISSUE 1.
 
