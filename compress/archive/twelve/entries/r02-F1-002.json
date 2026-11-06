@@ -1,0 +1,189 @@
+{
+ "id": "r02-F1-002",
+ "program_path": "compress/programs/twelve/F1/002-zfree-walsh-pair-frame.py",
+ "program_sha256": "5c1e97cf15c110cc84108df32b6ac968592030aeb53e07750fc820faa00b9fbb",
+ "parent": "r01-F2-001",
+ "family": "F1",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  124,
+  1114,
+  2195,
+  35
+ ],
+ "cell": [
+  55,
+  80
+ ],
+ "metrics_raw": {
+  "cx": 124,
+  "t_fixed": 104,
+  "n_rot": 16,
+  "t_eps": 1114,
+  "t_estimate": {
+   "1e-06": 1060.7152913275604,
+   "1e-10": 1698.5254855459339
+  },
+  "t_measured": {
+   "1e-06": 1114,
+   "1e-10": 1754
+  },
+  "synth_error_bound": 1.6e-05,
+  "depth": 142,
+  "depth_ct": 2195,
+  "qubits": 35,
+  "gates": {
+   "h": 142,
+   "cx": 124,
+   "t": 52,
+   "tdg": 52,
+   "s": 44,
+   "sdg": 44,
+   "x": 32,
+   "rz": 16,
+   "z": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 8.267583109944028e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   9.845857770347947e-17
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 1.0668366030924275e-15,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.731972510679534e-14,
+  "block_error": 1.535610599264494e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 3.3145511150360107,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.535610599264494e-14,
+   "max_dropped_l2": 4.177448895073178e-15,
+   "max_span_leak": 3.552713678800501e-15,
+   "op_norm_error_inner_span": null
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.241467929190433e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -3.281952590115984e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 8.670841378091097e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.538698522106464e-14,
+   "block_error": 1.7027694070839687e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.7943415641784668,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7027694070839687e-14,
+    "max_dropped_l2": 4.278809551155217e-15,
+    "max_span_leak": 5.551115123125783e-15,
+    "op_norm_error_inner_span": null
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.9738908842647e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -6.153661106467465e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 7.647120722787626e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.136959041007402e-14,
+   "block_error": 1.836931843257298e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.7829606533050537,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.836931843257298e-14,
+    "max_dropped_l2": 4.17136354213207e-15,
+    "max_span_leak": 6.772360450213455e-15,
+    "op_norm_error_inner_span": null
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: g*kappa(t) (kappa = 2, -1, 1/2 for n1 = 0, 2, 4; free at g=0, n1=4) has minimum Walsh support 11 in every basis of the three type bits, but its cheapest closed Gray walk is 16 CX when the controls are three pure corner types and 12 CX once one control is a pair sum (t1^t3); a CX before/after the multiplexer makes the z-free rotation 14 CX vs 16 for the z flag (5+5) plus 6-CX mux; an exhaustive fold search shows a fold leaving a non-pure basis costs 1 CX more (9 vs 8), and two pair sums plus a type (for z) cost 10.",
+  "DISCOVERY: NOT corners need two j-controlled operations (the relabel is not removable in the W + controlled-slot family): there the diff partners map |00> -> |10> and |01> -> |00> with one common phase, so Omega_11^-1 Omega_10 squares to a non-identity on |01> and cannot be one W-conjugated reflection; on the copy corners a single jA fix plus two t-controlled 1q gates also fails in every order (fix first forces the same-type and diff partner maps to coincide; otherwise the flag code cannot be avoided).",
+  "DISCOVERY: Numerically (least squares over all 1q layers, 512 skeletons) no corner frame [3-CX leg unitary + 2 controlled 1q slots from t, not-t, jA, jB] gives partner equality plus a single-AND t-preloaded flag (residual floor 1.35), so the F2 corner (6 CX + rccx) is locally optimal in that family."
+ ],
+ "summary": "F2 pair frame (2-CX leg frame, C_t(H) C_jA(X) C_t(YH) per corner, t-preloaded rccx bright flags, 3-rccx AND) without the z flag: U_B is one 11-term Walsh multiplexed X rotation of F over (g, t1, t2, t1^t3), Gray-walked with 12 CX plus one CX(t1->t3) before and after (CX 124, reads 2 outer bits).",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "afa1865",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 9.91240668296814,
+ "written_utc": "2026-11-06T14:12:34Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.6e-05
+ },
+ "lean": null,
+ "mode": "full"
+}
