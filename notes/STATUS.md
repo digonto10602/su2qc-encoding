@@ -1,4 +1,4 @@
-M9 fuzzy: setup done (env, Lean, baseline m0/m1 green), Hamiltonian decisions recorded (K_2 included, g^2/4); planner writing prompts/300 + tests/acceptance/m9; next: lock m9, then build loop.
+M9 fuzzy: plan prompts/300 written and tests locked (acceptance-v8, 28 m9 tests); 4 builders running (link/plaquette/targets, codec/Gauss/counts, Lean, verify+circuits); next: observables + step + results, tester, audit.
 
 # STATUS — branch m9-fuzzy (48-core machine, fuzzy encoding M9/M10)
 
@@ -9,7 +9,7 @@ Brief: `/home/digonto/Projects/su2qc-fuzzy-package/START_HERE.md` (6 h hard limi
 M9: fuzzy gauge theory (arXiv:2308.05253v4) general one-Trotter-step circuit, verified, CNOT/T counts, Lean. M10 (compression) only if > 2 h remain after M9.
 
 ## Plan in force
-prompts/001 §3 M9 (until prompts/300 exists).
+prompts/300-fuzzy-m9-plan.md (locked acceptance-v8).
 
 ## Current milestone / step
 M9 — planner (prompts/300, docs/METHODS-fuzzy.md, reports/research/300, tests/acceptance/m9).
