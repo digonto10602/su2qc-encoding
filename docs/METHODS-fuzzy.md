@@ -105,9 +105,14 @@ At coupling $g^2$ (nominal $g^2=2\alpha/dt$ with $dt=\sqrt{2\alpha\beta}$ ⇒ $g
    $|\Omega\rangle=\bigotimes_\ell\tfrac12\mathbb 1$ (all outer links in the $\Psi=\tfrac12\mathbb 1$ copy) by $H$; KS: the 2×2 block
    $\begin{pmatrix}0&-2/g^2\\-2/g^2&3g^2/2\end{pmatrix}$ (METHODS §4).
 3. $\langle\mathrm{Re\,Tr}\,U_P\rangle(t)=\langle\Omega|e^{iHt}\,\tfrac12(\square+\square^\dagger)\,e^{-iHt}|\Omega\rangle$ (fuzzy: $\square$; KS: $\mathrm{Re\,Tr}\,W$)
-   at $t=dt$, tabulated against $\beta$ at fixed $g^2$. (After one Trotter step from the vacuum both theories give exactly
-   $\langle\mathrm{Re\,Tr}U_P\rangle=\langle\Omega|{\rm ReTr}U_P|\Omega\rangle=0$ because $U_B$ commutes with the plaquette and the
-   kinetic layers act as phases on the vacuum — a shared identity, tested.)
+   at $t=dt$, tabulated against $\beta$ at fixed $g^2$. (After one **first-order** Trotter step $U_BU_KU_E$ from the vacuum both
+   theories give exactly $\langle\mathrm{Re\,Tr}U_P\rangle=\langle\Omega|{\rm ReTr}U_P|\Omega\rangle=0$ because $U_B$ commutes with
+   the plaquette and the kinetic layers act as phases on the vacuum — a shared identity, tested at $r=1$ and $r=0$. For the
+   symmetric order-2 step the outer kinetic half-layers act on $U_B|\Omega\rangle$ and the value is $O(\alpha\beta)$, not zero:
+   measured $0.0348$ ($r=0$) / $-0.362$ ($r=1$) at nominal, $0.0147\to0.0037$ ($r=0$) under $(0.05,0.05)\to(0.025,0.025)$,
+   ratio $\approx4$; tested as nonzero with ratio in $[3,5]$ — prompts/301.)
+   Closed-sector facts (verified numerically, prompts/301): basis vector 0 is $\Omega$, $\dim=12$ ($r=1$), $9$ ($r=0$);
+   $\langle\Omega|H|\Omega\rangle=-4rg^2$ (four inner links, $-rg^2$ each from $\kappa_2\mathcal K_2$); $E_0=-5.839<-4g^2$ at $r=1$.
 4. Loschmidt echo $L(t)=|\langle\Omega|e^{-iHt}|\Omega\rangle|^2$ on a $t$ grid, computed in the closed sector.
 Fuzzy rows at $r=1$ and $r=0$; KS row from the 2×2 block.
 
