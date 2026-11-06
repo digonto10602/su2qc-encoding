@@ -1,0 +1,189 @@
+{
+ "id": "r02-F2-002",
+ "program_path": "compress/programs/fuzzy_ub/F2/002-partial-onehot-pair-walsh.py",
+ "program_sha256": "bc7911b97529c6c0291d13b84ccf7bd4033aed637e756cb8aed17c3e05a269c6",
+ "parent": "r01-F1-001",
+ "family": "F2",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  172,
+  2916,
+  7263,
+  15
+ ],
+ "cell": [
+  59,
+  92
+ ],
+ "metrics_raw": {
+  "cx": 172,
+  "t_fixed": 116,
+  "n_rot": 44,
+  "t_eps": 2916,
+  "t_estimate": {
+   "1e-06": 2746.967051150791,
+   "1e-10": 4500.945085251318
+  },
+  "t_measured": {
+   "1e-06": 2916,
+   "1e-10": 4692
+  },
+  "synth_error_bound": 4.4e-05,
+  "depth": 251,
+  "depth_ct": 7263,
+  "qubits": 15,
+  "gates": {
+   "cx": 172,
+   "h": 116,
+   "t": 68,
+   "tdg": 48,
+   "rz": 44,
+   "s": 34,
+   "z": 16,
+   "sdg": 8,
+   "x": 2
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.786493728531765e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -7.893741765724455e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.8232398283050016e-14,
+  "block_error": 1.9632539002267642e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.08394789695739746,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9632539002267642e-14,
+   "max_dropped_l2": 3.70173064912554e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.9632539002267642e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.2404841870826e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -7.627532670108955e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.6887666975700236e-14,
+   "block_error": 1.551717489512576e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1322929859161377,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.551717489512576e-14,
+    "max_dropped_l2": 3.3667180969561234e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.551717489512576e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.821949104757123e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -7.56227683784563e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.9077988428943476e-14,
+   "block_error": 1.9141502618627753e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.08197402954101562,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.9141502618627753e-14,
+    "max_dropped_l2": 3.5225595526433734e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.9141502618627753e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: sectors {2,3} and {6,7} differ only in p_r and share the frame rho=(3,0,1,2) with decoded pairs (0,1),(2,3); leaving their (t,l) one-hot lines unsplit by p_r (-16 CX) and doing one Walsh-Gray R_x per pair over (line&w23 | line, p_r, w01) costs 16 CX rotations + 18 CX ANDs for all four sectors.",
+  "DISCOVERY: exhaustive DP over sector order and relative f-controlled q2 permutations (2 valid rho per sector, 8 for p3, 1 for p6) shows 8 Fredkins is minimal, also with the {2,3,6,7} block forced; no rho is shared by sectors 0&1 or 4&5.",
+  "DISCOVERY: level-3 resynthesis of the beta-free segments saves 1 CX per Fredkin (8->7); 4-CX relative-phase Toffolis in paired same-wire Fredkins do not cancel (error ~1)."
+ ],
+ "summary": "F1 datapath (parity frame, 8 Fredkin q2-permutation frames, Bell decode) with a partial sector one-hot: (t,l) lines of the same-frame sector pairs {2,3},{6,7} are not split by p_r; each pair is one Walsh-Gray R_x over (line&w23 or line, p_r, w01) with shared Bell-pair ANDs; beta-free segments re-synthesised (7-CX Fredkins).",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "f5df3ea",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "prudence x86_64 cpus=48",
+ "wall_s": 3.485361099243164,
+ "written_utc": "2026-11-06T20:29:21Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 4.4e-05
+ },
+ "lean": null,
+ "mode": "full"
+}
