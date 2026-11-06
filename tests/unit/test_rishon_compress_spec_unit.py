@@ -93,6 +93,11 @@ def test_render_and_write(tmp_path):
     sp = _spec()
     t = S.render_spec(sp)
     assert t == S.render_spec(sp) and "433" not in t and "12-qubit" not in t and "1296" in t and "38432" in t
+    assert t.count("outer register") == 2 and t.count("neither write it nor read it") == 1           # no repeated sentence
+    assert "not a validity verdict" in t and "reports/tests/215" in t
+    n_ccx, n_rccx = S.prune_budget(sp)
+    assert f"{n_ccx} `ccx` or {n_rccx} `rccx`" in t and n_ccx <= 1e-12 / S.PRUNE_RATES["ccx"] and n_rccx <= 1e-12 / S.PRUNE_RATES["rccx"]
+    assert n_ccx >= 0.95 * 1e-12 / S.PRUNE_RATES["ccx"] and n_rccx >= 0.95 * 1e-12 / S.PRUNE_RATES["rccx"] and (n_ccx, n_rccx) == (4700, 710)
     assert t.count("Proved structure (Lean)") == 1 and "Proved structure (Lean)" in t and "4\\sqrt2" in t and "outer_read_unsupported" in t
     p = S.write_spec(sp, tmp_path / "x" / "rishon-step.md")
     assert p.read_text() == t
@@ -125,3 +130,10 @@ def test_oracle_functions_and_cli(capsys):
     assert ro.main(["--kind", "UB", "--beta", "0.2"]) == 0 and "unitary" in capsys.readouterr().out
     assert ro.main(["--codec", "--state", "0", "--block", "--element", "2", "2", "--column", "1", "--top", "2"]) == 0
     assert "State 0" in capsys.readouterr().out and UB.shape == (1296, 1296)
+
+
+def test_committed_spec_files_equal_the_renderer():
+    root = S._default_root()
+    for kind in ("step",):
+        assert (root / "compress" / "specs" / f"rishon-{kind}.md").read_text() == S.render_spec(_spec(kind))
+    assert json.loads((root / "compress" / "specs" / "rishon-structure.json").read_text()) == S.structure_facts()

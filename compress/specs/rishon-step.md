@@ -24,7 +24,7 @@ The other 10 of 16 link patterns are unused (don't-care). 1296 valid inner codes
 
 **State indexing.** Inner codes 0..1295 in sorted code order (the 6^4 = 1296 valid inner codes are the single-code input states of the evaluator, outer bits 0); `oracle --codec --state k` prints the code of state k and the link types of b, r, t, l.
 
-**The outer register may be neither read nor written** (reading is not supported by the evaluator: `outer_read_unsupported`; writing is `writes_outer`); it is in the register because the machinery fixes `d` + `o`, and it counts in the key's qubit component (48 + ancillas).
+Writing the outer register is rejected as `writes_outer`. The outer qubits are in the layout because the machinery fixes `d` + `o`; they count in the key's qubit component (48 + ancillas).
 
 ## Target structure (exact)
 
@@ -36,7 +36,7 @@ Gates `cx cz h p rz s sdg t tdg x z` and macros `ccx ccz ch cp crx crz rccx swap
 
 ## Correctness
 
-`op_norm_error` = block error + leak amplitude + certified pruning bound must be at most 1e-10 after one global phase; `dropped_total` must be at most 1e-12 (**prune cap** = 0.01 x tolerance; measured on this task the sparse engine's pruning bound grows by about 2.1e-16 per `ccx` and 1.4e-15 per `rccx`, so the cap allows roughly 4800 `ccx` or 710 `rccx`; the uncompressed general circuit with `rccx` ladders is rejected as `pruning_bound` by this rule alone); Gauss residual of the outputs on 273 sampled physical states (17 closed + 256 seeded) at most 1e-10; identical skeleton at the three angle pairs; evaluation wall at most 300 s and at most 5000000 stored amplitudes; synthesised re-verification of the round's best at $\varepsilon=1e-06$ with $N_{\rm rot}\varepsilon+1e-09$. The evaluator is ground truth.
+`op_norm_error` = block error + leak amplitude + certified pruning bound must be at most 1e-10 after one global phase; `dropped_total` must be at most 1e-12 (**prune cap** = 0.01 x tolerance; measured on this task the sparse engine's pruning bound grows by about 2.1e-16 per `ccx` and 1.4e-15 per `rccx`, so the cap allows at most about 4700 `ccx` or 710 `rccx` (cap / rate, rounded down to two digits); the uncompressed general circuit with `rccx` ladders is rejected as `pruning_bound` by this rule alone); Gauss residual of the outputs on 273 sampled physical states (17 closed + 256 seeded) at most 1e-10; identical skeleton at the three angle pairs; evaluation wall at most 300 s and at most 5000000 stored amplitudes; synthesised re-verification of the round's best at $\varepsilon=1e-06$ with $N_{\rm rot}\varepsilon+1e-09$. The evaluator is ground truth.
 
 ## Cost
 
@@ -70,7 +70,7 @@ Numerical structure (not proved in Lean):
 
 ## Tools
 
-`python -m su2plaq.rishon.compress.run_candidate <program.py> --kind step --trial` (seconds; 64 inner codes, nominal angles, T estimate) or `--full`.
+`python -m su2plaq.rishon.compress.run_candidate <program.py> --kind step --trial` (seconds; 64 of the 1296 inner codes, nominal angles, no Gauss sample, T estimate) or `--full`. **A trial `valid` is not a validity verdict**: it can miss a wrong controlled rotation that acts on few codes (reports/tests/215: most single-gate errors passed it); only `--full` (all codes, three angle pairs, Gauss sample) decides, so run `--full` before you finish.
 `python -m su2plaq.rishon.compress.oracle --kind step [--column j] [--element i j] [--codec [--state k]] [--pairs [--closed]] [--block]` prints the exact target (matrix column, element, codec, bright pairs, closed 3x3 block).
 
 Program contract: ONE file `compress/programs/rishon/<family>/NNN-slug.py` whose docstring starts with `SUMMARY: ...` followed by at most 3 `DISCOVERY: ...` lines, with `FAMILY = "..."`, `PARENT = "..." | None` and `def build(spec) -> Builder`; imports: numpy, standard maths modules, qiskit and `su2plaq.compress.{oracle,builder,spec}` only.

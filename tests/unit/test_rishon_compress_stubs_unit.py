@@ -1,17 +1,12 @@
 """Step 6.0 skeleton for prompts/203 §3: every public name of the rishon compression package exists; the unbuilt ones raise
-NotImplementedError whose message starts with "PENDING:".  Entries move out of PENDING as steps 6.3-6.4 / 6.L2-6.L4 build them (6.1, 6.2 done; `general_circuit` and
+NotImplementedError whose message starts with "PENDING:".  Entries move out of PENDING as steps 6.L2-6.L4 build them (6.1-6.4 done; `general_circuit` and
 `general_program_path` were pulled forward into 6.2 because the evaluator acceptance tests build their programs with them)."""
 import importlib
 
 import numpy as np
 import pytest
 
-CALLS = {          # module -> {name: args}; built names (6.1: package, spec, oracle; 6.2: evaluate) have their own unit tests
-    "su2plaq.rishon.compress.baselines": {"qiskit_l3": (None,), "qiskit_l3_whole": (None,), "polish": (None, None),
-                                          "general_polished": (None,), "import_seed": (None, "paulo34")},
-    "su2plaq.rishon.compress.round": {"run_round": ("step", 0, False), "certify_best": (), "main": ()},
-    "su2plaq.rishon.compress.brief": {"make_ideation_brief": (), "make_brief": ("step", 1, "F"), "main": ()},
-    "su2plaq.rishon.compress.run_candidate": {"main": ()},
+CALLS = {          # module -> {name: args}; built names (6.1: package, spec, oracle; 6.2: evaluate; 6.3: baselines; 6.4: round, brief, run_candidate) have their own unit tests
     "su2plaq.rishon.lean_cert": {"recognise_angle": (1.0, 0.37, 0.61), "export_raw_circuit": (None, "x"),
                                  "certify_circuit_kind": (None, "UE", 0.37, 0.61, 1), "check_theorem_file": ("x",),
                                  "export_inner_certificate": (None, "UE", 0.37, 0.61, 1, "x"), "check_inner_certificate": ("x",),

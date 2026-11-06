@@ -334,6 +334,22 @@ def _default_root() -> pathlib.Path:
 
 
 # ------------------------------------------------------------------------------------------------ spec text
+def prune_budget(spec) -> tuple[int, int]:
+    """(ccx, rccx): how many AND gates of each kind the prune cap (PRUNE_FRACTION x tol_err) allows at the measured PRUNE_RATES, rounded
+    DOWN to two significant digits.  The single source of the numbers in the proposers' spec text (METHODS-rishon R11 quotes the
+    conservative round figures 4500 ccx / 700 rccx, which are below these)."""
+    from su2plaq.evaluate.evaluator import PRUNE_FRACTION
+
+    cap = PRUNE_FRACTION * spec.tol_err
+
+    def down(x: float) -> int:
+        n = int(x)
+        step = 10 ** max(len(str(n)) - 2, 0)
+        return n // step * step
+
+    return down(cap / PRUNE_RATES["ccx"]), down(cap / PRUNE_RATES["rccx"])
+
+
 def _fmt_num(x: float) -> str:
     return f"{x:g}"
 
@@ -401,8 +417,7 @@ def render_spec(spec) -> str:
     kap = ", ".join(f"{_kappa_tex(k)}\\ (\\times{n})" for k, n in hb["kappa_multiset"].items())
     alph = ", ".join("\\pm" + _alphabet_tex(a) for a in by["amplitude_alphabet"]["value"])
     cap = PRUNE_FRACTION * spec.tol_err
-    n_ccx = int(float(f"{cap / PRUNE_RATES['ccx']:.2g}"))
-    n_rccx = int(float(f"{cap / PRUNE_RATES['rccx']:.2g}"))
+    n_ccx, n_rccx = prune_budget(spec)
     slack = synth_tolerances(0, spec.eps)["tol_err"]
     n_closed, n_sample = _gauss_count()
     alts = ", ".join(f"({a:g}, {b:g})" for a, b in spec.alt_angles)
@@ -419,9 +434,8 @@ def render_spec(spec) -> str:
         f"gate skeleton (gate names and qubits; angles may differ), at {alts}. Invalid codes are don't-care. Every ancilla must "
         "return to $|0\\rangle$. Angles must be computed from the spec's `alpha`/`beta` (and the oracle), never typed in.\n\n"
         f"## Registers\n\n{view.describe()}\n"
-        f"**The outer register may be neither read nor written** (reading is not supported by the evaluator: "
-        f"`outer_read_unsupported`; writing is `writes_outer`); it is in the register because the machinery fixes `d` + `o`, and it "
-        f"counts in the key's qubit component ({view.n_data + view.n_outer} + ancillas).\n\n"
+        f"Writing the outer register is rejected as `writes_outer`. The outer qubits are in the layout because the machinery fixes "
+        f"`d` + `o`; they count in the key's qubit component ({view.n_data + view.n_outer} + ancillas).\n\n"
         f"## Target structure (exact)\n\n$U_E^{{\\rm in}}=\\mathrm{{diag}}(e^{{-i{_casimir_tex()}\\alpha\\,\\#Q}})$ with $\\#Q$ the number "
         f"of inner links in a quartet state (`1010`, `0110`, `1001`, `0101`); "
         f"$U_B^{{\\rm in}}=\\prod_{{p=1}}^{{{hb['n_pairs']}}}\\exp\\big(i\\beta\\kappa_p(|u_p\\rangle\\langle v_p|+{{\\rm h.c.}})\\big)$ with "
@@ -437,7 +451,7 @@ def render_spec(spec) -> str:
         f"## Correctness\n\n`op_norm_error` = block error + leak amplitude + certified pruning bound must be at most {spec.tol_err:g} "
         f"after one global phase; `dropped_total` must be at most {cap:g} (**prune cap** = {PRUNE_FRACTION:g} x tolerance; measured on "
         f"this task the sparse engine's pruning bound grows by about {PRUNE_RATES['ccx']:.1e} per `ccx` and {PRUNE_RATES['rccx']:.1e} "
-        f"per `rccx`, so the cap allows roughly {n_ccx} `ccx` or {n_rccx} `rccx`; the uncompressed general circuit with `rccx` "
+        f"per `rccx`, so the cap allows at most about {n_ccx} `ccx` or {n_rccx} `rccx` (cap / rate, rounded down to two digits); the uncompressed general circuit with `rccx` "
         f"ladders is rejected as `pruning_bound` by this rule alone); Gauss residual of the outputs on {n_closed + n_sample} sampled "
         f"physical states ({n_closed} closed + {n_sample} seeded) at most {spec.tol_gauss:g}; identical skeleton at the three angle "
         f"pairs; evaluation wall at most {spec.eval_budget_s:g} s and at most {spec.support_cap} stored amplitudes; synthesised "
@@ -453,8 +467,10 @@ def render_spec(spec) -> str:
         "Informative only: Lean never changes validity.\n\n"
         f"{_structure_section(facts)}\n"
         "## Tools\n\n"
-        f"`python -m su2plaq.rishon.compress.run_candidate <program.py> {tool} --trial` (seconds; {spec.trial_inputs} inner codes, "
-        "nominal angles, T estimate) or `--full`.\n"
+        f"`python -m su2plaq.rishon.compress.run_candidate <program.py> {tool} --trial` (seconds; {spec.trial_inputs} of the "
+        f"{n_inner} inner codes, nominal angles, no Gauss sample, T estimate) or `--full`. **A trial `valid` is not a validity "
+        "verdict**: it can miss a wrong controlled rotation that acts on few codes "
+        "(reports/tests/215: most single-gate errors passed it); only `--full` (all codes, three angle pairs, Gauss sample) decides, so run `--full` before you finish.\n"
         f"`python -m su2plaq.rishon.compress.oracle {tool} [--column j] [--element i j] [--codec [--state k]] [--pairs [--closed]] "
         "[--block]` prints the exact target (matrix column, element, codec, bright pairs, closed 3x3 block).\n\n"
         "Program contract: ONE file `compress/programs/rishon/<family>/NNN-slug.py` whose docstring starts with `SUMMARY: ...` "
