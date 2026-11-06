@@ -1,0 +1,282 @@
+{
+ "round": 0,
+ "n_valid": 2,
+ "n_invalid": 1,
+ "best_key": [
+  30,
+  644,
+  1511,
+  4
+ ],
+ "entries": [
+  "r00-seed-000",
+  "r00-seed-010"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "fuzzy_link",
+ "kind": "UE",
+ "provenance": {
+  "git_commit": "4f7126f",
+  "git_dirty": false,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "cpu_count": 48,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T19:49:49Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "fc43837d40f618f4f5b76afb67a12831100928d86da03a1c5d8e22029cee97d9",
+ "invalid": [
+  {
+   "id": "r00-seed-qiskit_l3",
+   "label": "qiskit_l3",
+   "reason": "skeleton",
+   "message": ""
+  }
+ ],
+ "external": [
+  {
+   "source": "qiskit_l3_whole",
+   "valid": false,
+   "reason": "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "metrics": {
+    "cx": 24,
+    "t_fixed": 3,
+    "n_rot": 13,
+    "t_eps": 780.3311742036428,
+    "t_estimate": {
+     "1e-06": 780.3311742036428,
+     "1e-10": 1298.5519570060715
+    },
+    "t_measured": null,
+    "synth_error_bound": 1.3e-05,
+    "depth": 53,
+    "depth_ct": 53,
+    "qubits": 4,
+    "gates": {
+     "rz": 31,
+     "cx": 24,
+     "h": 22,
+     "sdg": 1
+    },
+    "measured": false
+   }
+  },
+  {
+   "source": "spinnet15",
+   "reason": "spinnet15: not applicable to the fuzzy encoding"
+  }
+ ],
+ "candidates": [
+  {
+   "label": "general",
+   "id": "r00-seed-000",
+   "family": "seed",
+   "program_sha256": "ef20c27efdad20b80e979e9e2eec16417311d7cbc0438727f945ecb71b785623",
+   "program_path": "compress/programs/fuzzy_link/seed/000-general-ue.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    36,
+    644,
+    1515,
+    4
+   ],
+   "cell": [
+    41,
+    74
+   ],
+   "metrics": {
+    "cx": 36,
+    "t_fixed": 0,
+    "n_rot": 10,
+    "t_eps": 644,
+    "t_estimate": {
+     "1e-06": 597.9470570797253,
+     "1e-10": 996.5784284662087
+    },
+    "t_measured": {
+     "1e-06": 644,
+     "1e-10": 1028
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 44,
+    "depth_ct": 1515,
+    "qubits": 4,
+    "gates": {
+     "cx": 36,
+     "rz": 10,
+     "h": 6
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 3.416575735113511e-15,
+    "block_error": 3.1406723384861315e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "4f7126f",
+   "summary": "the reference circuit of the fuzzy_link encoding (UE) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "general+polish",
+   "id": "r00-seed-010",
+   "family": "seed",
+   "program_sha256": "cc676861dbf6326454404adf9e28a9c103da97f128500317c564f946f7fb4653",
+   "program_path": "compress/programs/fuzzy_link/seed/010-general_polish.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    30,
+    644,
+    1511,
+    4
+   ],
+   "cell": [
+    39,
+    74
+   ],
+   "metrics": {
+    "cx": 30,
+    "t_fixed": 0,
+    "n_rot": 10,
+    "t_eps": 644,
+    "t_estimate": {
+     "1e-06": 597.9470570797253,
+     "1e-10": 996.5784284662087
+    },
+    "t_measured": {
+     "1e-06": 644,
+     "1e-10": 1028
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 40,
+    "depth_ct": 1511,
+    "qubits": 4,
+    "gates": {
+     "cx": 30,
+     "rz": 10,
+     "h": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 3.245505411835618e-15,
+    "block_error": 2.836640251699893e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "4f7126f",
+   "summary": "the reference circuit after the deterministic polish passes.",
+   "lean": {
+    "status": "n_a",
+    "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+   },
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "qiskit_l3",
+   "id": "r00-seed-qiskit_l3",
+   "family": "seed",
+   "program_sha256": "",
+   "program_path": "compress/programs/fuzzy_link/seed/qiskit_l3.circuit",
+   "valid": false,
+   "reason": "skeleton",
+   "key": null,
+   "cell": null,
+   "metrics": {
+    "cx": 24,
+    "t_fixed": 3,
+    "n_rot": 13,
+    "t_eps": 780.3311742036428,
+    "t_estimate": {
+     "1e-06": 780.3311742036428,
+     "1e-10": 1298.5519570060715
+    },
+    "t_measured": null,
+    "synth_error_bound": 1.3e-05,
+    "depth": 53,
+    "depth_ct": 53,
+    "qubits": 4,
+    "gates": {
+     "rz": 31,
+     "cx": 24,
+     "h": 22,
+     "sdg": 1
+    },
+    "measured": false
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 8.810102368182257e-15,
+    "block_error": 4.363468620410379e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [],
+   "skeleton_equal": false,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "4f7126f",
+   "summary": "",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r00-seed-010",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 10,
+  "t_total": 644,
+  "tolerances": {
+   "tol_err": 1.0001e-05,
+   "tol_gauss": 1.0001e-05
+  },
+  "op_norm_error": 3.393938563084276e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 2.5238492488861084,
+ "written_utc": "2026-11-06T19:49:49Z"
+}

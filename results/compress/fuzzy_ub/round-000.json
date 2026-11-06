@@ -1,0 +1,304 @@
+{
+ "round": 0,
+ "n_valid": 2,
+ "n_invalid": 1,
+ "best_key": [
+  1596,
+  2682,
+  4912,
+  15
+ ],
+ "entries": [
+  "r00-seed-000",
+  "r00-seed-010"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "fuzzy_ub",
+ "kind": "UB",
+ "provenance": {
+  "git_commit": "4f7126f",
+  "git_dirty": false,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "cpu_count": 48,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T19:50:09Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "invalid": [
+  {
+   "id": "r00-seed-qiskit_l3",
+   "label": "qiskit_l3",
+   "reason": "pruning_bound",
+   "message": ""
+  }
+ ],
+ "external": [
+  {
+   "source": "qiskit_l3_whole",
+   "valid": false,
+   "reason": "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "metrics": {
+    "cx": 1627,
+    "t_fixed": 1742,
+    "n_rot": 40,
+    "t_eps": 4133.788228318901,
+    "t_estimate": {
+     "1e-06": 4133.788228318901,
+     "1e-10": 5728.313713864834
+    },
+    "t_measured": null,
+    "synth_error_bound": 3.9999999999999996e-05,
+    "depth": 2776,
+    "depth_ct": 2776,
+    "qubits": 15,
+    "gates": {
+     "cx": 1627,
+     "h": 854,
+     "t": 738,
+     "tdg": 722,
+     "rz": 570,
+     "x": 109,
+     "s": 48,
+     "sdg": 33,
+     "z": 4
+    },
+    "measured": false
+   }
+  },
+  {
+   "source": "spinnet15",
+   "reason": "spinnet15: not applicable to the fuzzy encoding"
+  }
+ ],
+ "candidates": [
+  {
+   "label": "general",
+   "id": "r00-seed-000",
+   "family": "seed",
+   "program_sha256": "d833379123ca52b4595313db93eba0971bdabf1140c59c2ef81d3555fdfd7b09",
+   "program_path": "compress/programs/fuzzy_ub/seed/000-general-ub.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    1718,
+    2822,
+    4916,
+    15
+   ],
+   "cell": [
+    85,
+    91
+   ],
+   "metrics": {
+    "cx": 1718,
+    "t_fixed": 1826,
+    "n_rot": 16,
+    "t_eps": 2822,
+    "t_estimate": {
+     "1e-06": 2782.7152913275604,
+     "1e-10": 3420.525485545934
+    },
+    "t_measured": {
+     "1e-06": 2822,
+     "1e-10": 3494
+    },
+    "synth_error_bound": 1.6e-05,
+    "depth": 2646,
+    "depth_ct": 4916,
+    "qubits": 15,
+    "gates": {
+     "cx": 1718,
+     "t": 1036,
+     "tdg": 790,
+     "h": 644,
+     "x": 176,
+     "s": 52,
+     "sdg": 52,
+     "rz": 16,
+     "z": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 3.8119937001713985e-14,
+    "block_error": 1.9566374913030475e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "4f7126f",
+   "summary": "the reference circuit of the fuzzy_ub encoding (UB) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "general+polish",
+   "id": "r00-seed-010",
+   "family": "seed",
+   "program_sha256": "97be59fb8a8bb2a44eefc6d6970e82f4d9df5b7ab50cf72b5c5921bf9fb99afa",
+   "program_path": "compress/programs/fuzzy_ub/seed/010-general_polish.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    1596,
+    2682,
+    4912,
+    15
+   ],
+   "cell": [
+    85,
+    91
+   ],
+   "metrics": {
+    "cx": 1596,
+    "t_fixed": 1686,
+    "n_rot": 16,
+    "t_eps": 2682,
+    "t_estimate": {
+     "1e-06": 2642.7152913275604,
+     "1e-10": 3280.525485545934
+    },
+    "t_measured": {
+     "1e-06": 2682,
+     "1e-10": 3354
+    },
+    "synth_error_bound": 1.6e-05,
+    "depth": 2487,
+    "depth_ct": 4912,
+    "qubits": 15,
+    "gates": {
+     "cx": 1596,
+     "t": 956,
+     "tdg": 730,
+     "h": 604,
+     "x": 110,
+     "s": 52,
+     "sdg": 52,
+     "rz": 16,
+     "z": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 3.8119937001713985e-14,
+    "block_error": 1.9566374913030475e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "4f7126f",
+   "summary": "the reference circuit after the deterministic polish passes.",
+   "lean": {
+    "status": "n_a",
+    "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+   },
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "qiskit_l3",
+   "id": "r00-seed-qiskit_l3",
+   "family": "seed",
+   "program_sha256": "",
+   "program_path": "compress/programs/fuzzy_ub/seed/qiskit_l3.circuit",
+   "valid": false,
+   "reason": "pruning_bound",
+   "key": null,
+   "cell": null,
+   "metrics": {
+    "cx": 1629,
+    "t_fixed": 1758,
+    "n_rot": 40,
+    "t_eps": 4149.788228318901,
+    "t_estimate": {
+     "1e-06": 4149.788228318901,
+     "1e-10": 5744.313713864834
+    },
+    "t_measured": null,
+    "synth_error_bound": 3.9999999999999996e-05,
+    "depth": 2779,
+    "depth_ct": 2779,
+    "qubits": 15,
+    "gates": {
+     "cx": 1629,
+     "h": 932,
+     "t": 752,
+     "tdg": 725,
+     "rz": 582,
+     "x": 145,
+     "s": 48,
+     "sdg": 33,
+     "z": 3
+    },
+    "measured": false
+   },
+   "verdict": {
+    "ok": false,
+    "op_norm_error": 1.3254731294940036e-12,
+    "block_error": 9.386445910605107e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "4f7126f",
+   "summary": "",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r00-seed-010",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 16,
+  "t_total": 2682,
+  "tolerances": {
+   "tol_err": 1.6000999999999998e-05,
+   "tol_gauss": 1.6000999999999998e-05
+  },
+  "op_norm_error": 5.716546889506063e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 7.93683385848999,
+ "written_utc": "2026-11-06T19:50:09Z"
+}

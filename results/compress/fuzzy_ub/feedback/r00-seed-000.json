@@ -1,0 +1,152 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 3.8119937001713985e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   2.150010990387749e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.855356208868351e-14,
+  "block_error": 1.9566374913030475e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.1272876262664795,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9566374913030475e-14,
+   "max_dropped_l2": 1.7283205157746945e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.9566374913030475e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.2845150788210564e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    1.9935741403656822e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.9003995410726137e-14,
+   "block_error": 1.3841155377484425e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.08800029754638672,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.3841155377484425e-14,
+    "max_dropped_l2": 2.0004653528438574e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.3841155377484425e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.9087517472209424e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    2.2796662029267183e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.9679759512745708e-14,
+   "block_error": 1.9407757959463713e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.08869314193725586,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.9407757959463713e-14,
+    "max_dropped_l2": 2.0885818074836585e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.9407757959463713e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 1718,
+  "t_fixed": 1826,
+  "n_rot": 16,
+  "t_eps": 2822,
+  "t_estimate": {
+   "1e-06": 2782.7152913275604,
+   "1e-10": 3420.525485545934
+  },
+  "t_measured": {
+   "1e-06": 2822,
+   "1e-10": 3494
+  },
+  "synth_error_bound": 1.6e-05,
+  "depth": 2646,
+  "depth_ct": 4916,
+  "qubits": 15,
+  "gates": {
+   "cx": 1718,
+   "t": 1036,
+   "tdg": 790,
+   "h": 644,
+   "x": 176,
+   "s": 52,
+   "sdg": 52,
+   "rz": 16,
+   "z": 8
+  },
+  "measured": true
+ },
+ "program_sha256": "d833379123ca52b4595313db93eba0971bdabf1140c59c2ef81d3555fdfd7b09",
+ "wall_s": 0.9752452373504639,
+ "discoveries": [],
+ "summary": "the reference circuit of the fuzzy_ub encoding (UB) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta."
+}
