@@ -43,8 +43,8 @@
   "meta": {
     "KS_routeA_vs_routeB_HB_gauge_residual": 2.6645352591003757e-15,
     "KS_HB_phys_leak": 1.1102230246251565e-15,
-    "KS_circuit_minus_exact_op_norm_phase_fitted": 1.607019760251503e-14,
-    "KS_circuit_unitarity_dev": 3.1966401868945376e-14,
+    "KS_circuit_minus_exact_op_norm_phase_fitted": 1.6070197602509818e-14,
+    "KS_circuit_unitarity_dev": 3.196640186894536e-14,
     "det_U_B_A_element": [
       2.0,
       0.0
@@ -93,19 +93,19 @@
         "gauge_is_pm1_real": true,
         "spectra_vs_KS_by_g2": {
           "0.5": {
-            "max_abs_diff_R_vs_KS": 1.509903313490213e-14,
-            "max_abs_diff_R_vs_KS_with_cHB": 1.509903313490213e-14
+            "max_abs_diff_R_vs_KS": 1.5987211554602254e-14,
+            "max_abs_diff_R_vs_KS_with_cHB": 1.5987211554602254e-14
           },
           "1.0": {
-            "max_abs_diff_R_vs_KS": 6.494804694057166e-15,
-            "max_abs_diff_R_vs_KS_with_cHB": 6.494804694057166e-15
+            "max_abs_diff_R_vs_KS": 7.993605777301127e-15,
+            "max_abs_diff_R_vs_KS_with_cHB": 7.993605777301127e-15
           },
           "2.0": {
-            "max_abs_diff_R_vs_KS": 7.549516567451064e-15,
-            "max_abs_diff_R_vs_KS_with_cHB": 7.549516567451064e-15
+            "max_abs_diff_R_vs_KS": 8.43769498715119e-15,
+            "max_abs_diff_R_vs_KS_with_cHB": 8.43769498715119e-15
           }
         },
-        "spectra_match_helper_max": 1.509903313490213e-14,
+        "spectra_match_helper_max": 1.5987211554602254e-14,
         "norm_HB_R": 2.000000000000001,
         "norm_HB_KS": 2.000000000000001,
         "frobenius_ratio_R_over_KS": 1.0,
@@ -124,56 +124,56 @@
           "n_states": 433,
           "n_sv_below_1_minus_1e-9": 176,
           "n_basis_columns_with_unit_norm_1e-9": 177,
-          "sv_min": 0.5077343097370137,
-          "sv_max": 0.999999999999963,
-          "leak_op_norm": 0.8615137089540709,
-          "one_minus_sv_min": 0.4922656902629863,
+          "sv_min": 0.5077343097370135,
+          "sv_max": 0.9999999999999629,
+          "leak_op_norm": 0.861513708954071,
+          "one_minus_sv_min": 0.4922656902629865,
           "V*C*CV_minus_I_max": 8.626432901503058e-14,
           "vs_KS_exact_nominal": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162368,
-            "op_norm_after_gauge": 1.9904120121517073,
-            "op_norm_after_gauge_phase_fitted": 1.990412012151708,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016236,
+            "op_norm_after_gauge": 1.9904120121517077,
+            "op_norm_after_gauge_phase_fitted": 1.9904120121517084,
             "max_abs_after_gauge": 1.2962570001727696,
             "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446226
           },
           "vs_KS_exact_rescaled_beta_c_beta": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162368,
-            "op_norm_after_gauge": 1.9904120121517073,
-            "op_norm_after_gauge_phase_fitted": 1.990412012151708,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016236,
+            "op_norm_after_gauge": 1.9904120121517077,
+            "op_norm_after_gauge_phase_fitted": 1.9904120121517084,
             "max_abs_after_gauge": 1.2962570001727696,
             "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446226
           },
           "vs_KS_circuit": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162225,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162228,
             "op_norm_after_gauge": 1.9904120121516935,
-            "op_norm_after_gauge_phase_fitted": 1.9904120121516944,
+            "op_norm_after_gauge_phase_fitted": 1.9904120121516933,
             "max_abs_after_gauge": 1.2962570001727638,
-            "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446226
+            "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446221
           },
           "max_abs_element_between_KS_HB_components": 1.2537889777296476e-16,
-          "eig_modulus_min": 0.6116264043510693,
-          "eig_modulus_max": 0.9999999999999712
+          "eig_modulus_min": 0.6116264043510675,
+          "eig_modulus_max": 0.9999999999999785
         },
-        "circuit_minus_exact_rishon_projected_op_norm": 4.595975226977767e-14,
+        "circuit_minus_exact_rishon_projected_op_norm": 4.595975226977763e-14,
         "exact_rishon_nominal": {
           "n_states": 433,
           "n_sv_below_1_minus_1e-9": 176,
           "n_basis_columns_with_unit_norm_1e-9": 177,
-          "sv_min": 0.5077343097370346,
+          "sv_min": 0.5077343097370347,
           "sv_max": 1.0000000000000009,
-          "leak_op_norm": 0.8615137089541056,
-          "one_minus_sv_min": 0.4922656902629654,
+          "leak_op_norm": 0.8615137089541051,
+          "one_minus_sv_min": 0.4922656902629653,
           "vs_KS_exact_nominal": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016267,
-            "op_norm_after_gauge": 1.9904120121517452,
-            "op_norm_after_gauge_phase_fitted": 1.990412012151746,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162654,
+            "op_norm_after_gauge": 1.9904120121517457,
+            "op_norm_after_gauge_phase_fitted": 1.9904120121517455,
             "max_abs_after_gauge": 1.2962570001728053,
             "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446235
           },
           "vs_KS_exact_rescaled_beta_c_beta": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016267,
-            "op_norm_after_gauge": 1.9904120121517452,
-            "op_norm_after_gauge_phase_fitted": 1.990412012151746,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162654,
+            "op_norm_after_gauge": 1.9904120121517457,
+            "op_norm_after_gauge_phase_fitted": 1.9904120121517455,
             "max_abs_after_gauge": 1.2962570001728053,
             "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446235
           }
@@ -184,44 +184,44 @@
         "rows": [
           {
             "beta": 0.61,
-            "leak": 0.8615137089541056,
-            "sv_min": 0.5077343097370346,
+            "leak": 0.8615137089541051,
+            "sv_min": 0.5077343097370347,
             "diff_vs_KS_rescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016267,
-              "op_norm_after_gauge": 1.9904120121517452,
-              "op_norm_after_gauge_phase_fitted": 1.990412012151746,
+              "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162654,
+              "op_norm_after_gauge": 1.9904120121517457,
+              "op_norm_after_gauge_phase_fitted": 1.9904120121517455,
               "max_abs_after_gauge": 1.2962570001728053,
               "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446235
             },
             "diff_vs_KS_beta_unrescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016267,
-              "op_norm_after_gauge": 1.9904120121517452,
-              "op_norm_after_gauge_phase_fitted": 1.990412012151746,
+              "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162654,
+              "op_norm_after_gauge": 1.9904120121517457,
+              "op_norm_after_gauge_phase_fitted": 1.9904120121517455,
               "max_abs_after_gauge": 1.2962570001728053,
               "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446235
             },
-            "leak_over_beta": 1.4123175556624683,
-            "mismatch_rescaled_over_beta2": 5.34913198643307
+            "leak_over_beta": 1.4123175556624674,
+            "mismatch_rescaled_over_beta2": 5.349131986433071
           },
           {
             "beta": 0.3,
-            "leak": 0.999890239384224,
-            "sv_min": 0.014815842337155685,
+            "leak": 0.9998902393842242,
+            "sv_min": 0.014815842337155686,
             "diff_vs_KS_rescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.5164572561324774,
+              "op_norm_ungauged_D_identity_phase_fitted": 1.5164572561324776,
               "op_norm_after_gauge": 0.9986862200113409,
-              "op_norm_after_gauge_phase_fitted": 0.9986862200113406,
+              "op_norm_after_gauge_phase_fitted": 0.9986862200113412,
               "max_abs_after_gauge": 0.9512603665243575,
-              "eigenphase_matching_max_chord_polar_unitary": 0.116045256118002
+              "eigenphase_matching_max_chord_polar_unitary": 0.11604525611800309
             },
             "diff_vs_KS_beta_unrescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.5164572561324774,
+              "op_norm_ungauged_D_identity_phase_fitted": 1.5164572561324776,
               "op_norm_after_gauge": 0.9986862200113409,
-              "op_norm_after_gauge_phase_fitted": 0.9986862200113406,
+              "op_norm_after_gauge_phase_fitted": 0.9986862200113412,
               "max_abs_after_gauge": 0.9512603665243575,
-              "eigenphase_matching_max_chord_polar_unitary": 0.116045256118002
+              "eigenphase_matching_max_chord_polar_unitary": 0.11604525611800309
             },
-            "leak_over_beta": 3.33296746461408,
+            "leak_over_beta": 3.3329674646140806,
             "mismatch_rescaled_over_beta2": 11.096513555681566
           },
           {
@@ -229,18 +229,18 @@
             "leak": 0.5040169909658001,
             "sv_min": 0.8636937378595382,
             "diff_vs_KS_rescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 0.46218325799592536,
+              "op_norm_ungauged_D_identity_phase_fitted": 0.4621832579959254,
               "op_norm_after_gauge": 0.13646300024497252,
               "op_norm_after_gauge_phase_fitted": 0.13646300024497252,
               "max_abs_after_gauge": 0.1358451631446267,
-              "eigenphase_matching_max_chord_polar_unitary": 0.0014775824143739265
+              "eigenphase_matching_max_chord_polar_unitary": 0.0014775824143744296
             },
             "diff_vs_KS_beta_unrescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 0.46218325799592536,
+              "op_norm_ungauged_D_identity_phase_fitted": 0.4621832579959254,
               "op_norm_after_gauge": 0.13646300024497252,
               "op_norm_after_gauge_phase_fitted": 0.13646300024497252,
               "max_abs_after_gauge": 0.1358451631446267,
-              "eigenphase_matching_max_chord_polar_unitary": 0.0014775824143739265
+              "eigenphase_matching_max_chord_polar_unitary": 0.0014775824143744296
             },
             "leak_over_beta": 5.040169909658001,
             "mismatch_rescaled_over_beta2": 13.646300024497249
@@ -248,33 +248,33 @@
           {
             "beta": 0.03,
             "leak": 0.1580556181698613,
-            "sv_min": 0.9874302109845248,
+            "sv_min": 0.9874302109845247,
             "diff_vs_KS_rescaled": {
               "op_norm_ungauged_D_identity_phase_fitted": 0.12612603174276085,
-              "op_norm_after_gauge": 0.012571049872752016,
-              "op_norm_after_gauge_phase_fitted": 0.012571049872751915,
+              "op_norm_after_gauge": 0.012571049872752014,
+              "op_norm_after_gauge_phase_fitted": 0.012571049872751903,
               "max_abs_after_gauge": 0.012566013095747326,
-              "eigenphase_matching_max_chord_polar_unitary": 1.2170626619736136e-05
+              "eigenphase_matching_max_chord_polar_unitary": 1.2170626619785217e-05
             },
             "diff_vs_KS_beta_unrescaled": {
               "op_norm_ungauged_D_identity_phase_fitted": 0.12612603174276085,
-              "op_norm_after_gauge": 0.012571049872752016,
-              "op_norm_after_gauge_phase_fitted": 0.012571049872751915,
+              "op_norm_after_gauge": 0.012571049872752014,
+              "op_norm_after_gauge_phase_fitted": 0.012571049872751903,
               "max_abs_after_gauge": 0.012566013095747326,
-              "eigenphase_matching_max_chord_polar_unitary": 1.2170626619736136e-05
+              "eigenphase_matching_max_chord_polar_unitary": 1.2170626619785217e-05
             },
             "leak_over_beta": 5.268520605662044,
-            "mismatch_rescaled_over_beta2": 13.967833191946685
+            "mismatch_rescaled_over_beta2": 13.967833191946683
           }
         ],
         "slopes": {
           "leak": [
-            -0.2098907703472299,
+            -0.20989077034723094,
             0.6235462134106153,
             0.9631970014207613
           ],
           "mismatch_vs_KS_rescaled": [
-            0.9717897088860609,
+            0.9717897088860612,
             1.8117284308150838,
             1.9806568450932573
           ],
@@ -294,7 +294,7 @@
           ]
         }
       },
-      "seconds": 27.156018257141113
+      "seconds": 126.90326356887817
     },
     "minus": {
       "variant": "minus",
@@ -329,19 +329,19 @@
         "gauge_is_pm1_real": true,
         "spectra_vs_KS_by_g2": {
           "0.5": {
-            "max_abs_diff_R_vs_KS": 1.509903313490213e-14,
-            "max_abs_diff_R_vs_KS_with_cHB": 1.509903313490213e-14
+            "max_abs_diff_R_vs_KS": 1.5987211554602254e-14,
+            "max_abs_diff_R_vs_KS_with_cHB": 1.5987211554602254e-14
           },
           "1.0": {
-            "max_abs_diff_R_vs_KS": 6.494804694057166e-15,
-            "max_abs_diff_R_vs_KS_with_cHB": 6.494804694057166e-15
+            "max_abs_diff_R_vs_KS": 7.993605777301127e-15,
+            "max_abs_diff_R_vs_KS_with_cHB": 7.993605777301127e-15
           },
           "2.0": {
-            "max_abs_diff_R_vs_KS": 7.549516567451064e-15,
-            "max_abs_diff_R_vs_KS_with_cHB": 7.549516567451064e-15
+            "max_abs_diff_R_vs_KS": 8.43769498715119e-15,
+            "max_abs_diff_R_vs_KS_with_cHB": 8.43769498715119e-15
           }
         },
-        "spectra_match_helper_max": 1.509903313490213e-14,
+        "spectra_match_helper_max": 1.5987211554602254e-14,
         "norm_HB_R": 2.000000000000001,
         "norm_HB_KS": 2.000000000000001,
         "frobenius_ratio_R_over_KS": 1.0,
@@ -360,55 +360,55 @@
           "n_states": 433,
           "n_sv_below_1_minus_1e-9": 176,
           "n_basis_columns_with_unit_norm_1e-9": 177,
-          "sv_min": 0.5077343097370137,
-          "sv_max": 0.999999999999963,
-          "leak_op_norm": 0.8615137089540709,
-          "one_minus_sv_min": 0.4922656902629863,
+          "sv_min": 0.5077343097370135,
+          "sv_max": 0.9999999999999629,
+          "leak_op_norm": 0.861513708954071,
+          "one_minus_sv_min": 0.4922656902629865,
           "V*C*CV_minus_I_max": 8.626432901503058e-14,
           "vs_KS_exact_nominal": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016236,
-            "op_norm_after_gauge": 1.9904120121517073,
-            "op_norm_after_gauge_phase_fitted": 1.990412012151708,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162365,
+            "op_norm_after_gauge": 1.9904120121517077,
+            "op_norm_after_gauge_phase_fitted": 1.9904120121517084,
             "max_abs_after_gauge": 1.2962570001727696,
             "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446226
           },
           "vs_KS_exact_rescaled_beta_c_beta": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016236,
-            "op_norm_after_gauge": 1.9904120121517073,
-            "op_norm_after_gauge_phase_fitted": 1.990412012151708,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162365,
+            "op_norm_after_gauge": 1.9904120121517077,
+            "op_norm_after_gauge_phase_fitted": 1.9904120121517084,
             "max_abs_after_gauge": 1.2962570001727696,
             "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446226
           },
           "vs_KS_circuit": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162232,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162219,
             "op_norm_after_gauge": 1.9904120121516935,
-            "op_norm_after_gauge_phase_fitted": 1.990412012151694,
+            "op_norm_after_gauge_phase_fitted": 1.9904120121516933,
             "max_abs_after_gauge": 1.2962570001727638,
-            "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446226
+            "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446221
           },
           "max_abs_element_between_KS_HB_components": 1.2537889777296476e-16,
-          "eig_modulus_min": 0.6116264043510693,
-          "eig_modulus_max": 0.9999999999999712
+          "eig_modulus_min": 0.6116264043510675,
+          "eig_modulus_max": 0.9999999999999785
         },
-        "circuit_minus_exact_rishon_projected_op_norm": 4.595975226977767e-14,
+        "circuit_minus_exact_rishon_projected_op_norm": 4.595975226977763e-14,
         "exact_rishon_nominal": {
           "n_states": 433,
           "n_sv_below_1_minus_1e-9": 176,
           "n_basis_columns_with_unit_norm_1e-9": 177,
-          "sv_min": 0.5077343097370346,
+          "sv_min": 0.5077343097370347,
           "sv_max": 1.0000000000000009,
-          "leak_op_norm": 0.8615137089541056,
-          "one_minus_sv_min": 0.4922656902629654,
+          "leak_op_norm": 0.8615137089541051,
+          "one_minus_sv_min": 0.4922656902629653,
           "vs_KS_exact_nominal": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162663,
-            "op_norm_after_gauge": 1.9904120121517461,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016266,
+            "op_norm_after_gauge": 1.9904120121517457,
             "op_norm_after_gauge_phase_fitted": 1.990412012151746,
             "max_abs_after_gauge": 1.2962570001728053,
             "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446235
           },
           "vs_KS_exact_rescaled_beta_c_beta": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162663,
-            "op_norm_after_gauge": 1.9904120121517461,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016266,
+            "op_norm_after_gauge": 1.9904120121517457,
             "op_norm_after_gauge_phase_fitted": 1.990412012151746,
             "max_abs_after_gauge": 1.2962570001728053,
             "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446235
@@ -420,45 +420,45 @@
         "rows": [
           {
             "beta": 0.61,
-            "leak": 0.8615137089541056,
-            "sv_min": 0.5077343097370346,
+            "leak": 0.8615137089541051,
+            "sv_min": 0.5077343097370347,
             "diff_vs_KS_rescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162663,
-              "op_norm_after_gauge": 1.9904120121517461,
+              "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016266,
+              "op_norm_after_gauge": 1.9904120121517457,
               "op_norm_after_gauge_phase_fitted": 1.990412012151746,
               "max_abs_after_gauge": 1.2962570001728053,
               "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446235
             },
             "diff_vs_KS_beta_unrescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.7959856390162663,
-              "op_norm_after_gauge": 1.9904120121517461,
+              "op_norm_ungauged_D_identity_phase_fitted": 1.795985639016266,
+              "op_norm_after_gauge": 1.9904120121517457,
               "op_norm_after_gauge_phase_fitted": 1.990412012151746,
               "max_abs_after_gauge": 1.2962570001728053,
               "eigenphase_matching_max_chord_polar_unitary": 1.8720009146446235
             },
-            "leak_over_beta": 1.4123175556624683,
-            "mismatch_rescaled_over_beta2": 5.349131986433072
+            "leak_over_beta": 1.4123175556624674,
+            "mismatch_rescaled_over_beta2": 5.349131986433071
           },
           {
             "beta": 0.3,
-            "leak": 0.999890239384224,
-            "sv_min": 0.014815842337155685,
+            "leak": 0.9998902393842242,
+            "sv_min": 0.014815842337155686,
             "diff_vs_KS_rescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.5164572561324778,
-              "op_norm_after_gauge": 0.9986862200113409,
-              "op_norm_after_gauge_phase_fitted": 0.9986862200113406,
+              "op_norm_ungauged_D_identity_phase_fitted": 1.5164572561324774,
+              "op_norm_after_gauge": 0.9986862200113411,
+              "op_norm_after_gauge_phase_fitted": 0.998686220011341,
               "max_abs_after_gauge": 0.9512603665243575,
-              "eigenphase_matching_max_chord_polar_unitary": 0.11604525611800222
+              "eigenphase_matching_max_chord_polar_unitary": 0.11604525611800309
             },
             "diff_vs_KS_beta_unrescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.5164572561324778,
-              "op_norm_after_gauge": 0.9986862200113409,
-              "op_norm_after_gauge_phase_fitted": 0.9986862200113406,
+              "op_norm_ungauged_D_identity_phase_fitted": 1.5164572561324774,
+              "op_norm_after_gauge": 0.9986862200113411,
+              "op_norm_after_gauge_phase_fitted": 0.998686220011341,
               "max_abs_after_gauge": 0.9512603665243575,
-              "eigenphase_matching_max_chord_polar_unitary": 0.11604525611800222
+              "eigenphase_matching_max_chord_polar_unitary": 0.11604525611800309
             },
-            "leak_over_beta": 3.33296746461408,
-            "mismatch_rescaled_over_beta2": 11.096513555681566
+            "leak_over_beta": 3.3329674646140806,
+            "mismatch_rescaled_over_beta2": 11.096513555681568
           },
           {
             "beta": 0.1,
@@ -469,14 +469,14 @@
               "op_norm_after_gauge": 0.13646300024497252,
               "op_norm_after_gauge_phase_fitted": 0.13646300024497252,
               "max_abs_after_gauge": 0.1358451631446267,
-              "eigenphase_matching_max_chord_polar_unitary": 0.0014775824143739265
+              "eigenphase_matching_max_chord_polar_unitary": 0.0014775824143744296
             },
             "diff_vs_KS_beta_unrescaled": {
               "op_norm_ungauged_D_identity_phase_fitted": 0.46218325799592536,
               "op_norm_after_gauge": 0.13646300024497252,
               "op_norm_after_gauge_phase_fitted": 0.13646300024497252,
               "max_abs_after_gauge": 0.1358451631446267,
-              "eigenphase_matching_max_chord_polar_unitary": 0.0014775824143739265
+              "eigenphase_matching_max_chord_polar_unitary": 0.0014775824143744296
             },
             "leak_over_beta": 5.040169909658001,
             "mismatch_rescaled_over_beta2": 13.646300024497249
@@ -484,34 +484,34 @@
           {
             "beta": 0.03,
             "leak": 0.1580556181698613,
-            "sv_min": 0.9874302109845248,
+            "sv_min": 0.9874302109845247,
             "diff_vs_KS_rescaled": {
               "op_norm_ungauged_D_identity_phase_fitted": 0.12612603174276085,
-              "op_norm_after_gauge": 0.012571049872752016,
-              "op_norm_after_gauge_phase_fitted": 0.012571049872751915,
+              "op_norm_after_gauge": 0.012571049872752014,
+              "op_norm_after_gauge_phase_fitted": 0.012571049872751903,
               "max_abs_after_gauge": 0.012566013095747326,
-              "eigenphase_matching_max_chord_polar_unitary": 1.2170626619736136e-05
+              "eigenphase_matching_max_chord_polar_unitary": 1.2170626619785217e-05
             },
             "diff_vs_KS_beta_unrescaled": {
               "op_norm_ungauged_D_identity_phase_fitted": 0.12612603174276085,
-              "op_norm_after_gauge": 0.012571049872752016,
-              "op_norm_after_gauge_phase_fitted": 0.012571049872751915,
+              "op_norm_after_gauge": 0.012571049872752014,
+              "op_norm_after_gauge_phase_fitted": 0.012571049872751903,
               "max_abs_after_gauge": 0.012566013095747326,
-              "eigenphase_matching_max_chord_polar_unitary": 1.2170626619736136e-05
+              "eigenphase_matching_max_chord_polar_unitary": 1.2170626619785217e-05
             },
             "leak_over_beta": 5.268520605662044,
-            "mismatch_rescaled_over_beta2": 13.967833191946685
+            "mismatch_rescaled_over_beta2": 13.967833191946683
           }
         ],
         "slopes": {
           "leak": [
-            -0.2098907703472299,
+            -0.20989077034723094,
             0.6235462134106153,
             0.9631970014207613
           ],
           "mismatch_vs_KS_rescaled": [
-            0.9717897088860615,
-            1.8117284308150838,
+            0.9717897088860609,
+            1.811728430815084,
             1.9806568450932573
           ],
           "betas_pairs": [
@@ -530,7 +530,7 @@
           ]
         }
       },
-      "seconds": 26.26833438873291
+      "seconds": 81.95103788375854
     },
     "A": {
       "variant": "A",
@@ -565,22 +565,22 @@
         "gauge_is_pm1_real": false,
         "spectra_vs_KS_by_g2": {
           "0.5": {
-            "max_abs_diff_R_vs_KS": 1.9999999999999956,
-            "max_abs_diff_R_vs_KS_with_cHB": 3.134098034669427
+            "max_abs_diff_R_vs_KS": 1.9999999999999962,
+            "max_abs_diff_R_vs_KS_with_cHB": 3.1340980346694245
           },
           "1.0": {
-            "max_abs_diff_R_vs_KS": 0.9999999999999966,
-            "max_abs_diff_R_vs_KS_with_cHB": 1.1545472790328024
+            "max_abs_diff_R_vs_KS": 0.9999999999999964,
+            "max_abs_diff_R_vs_KS_with_cHB": 1.154547279032803
           },
           "2.0": {
-            "max_abs_diff_R_vs_KS": 0.4999999999999989,
-            "max_abs_diff_R_vs_KS_with_cHB": 0.6524390243902427
+            "max_abs_diff_R_vs_KS": 0.49999999999999867,
+            "max_abs_diff_R_vs_KS_with_cHB": 0.6524390243902423
           }
         },
-        "spectra_match_helper_max": 1.9999999999999956,
+        "spectra_match_helper_max": 1.9999999999999962,
         "norm_HB_R": 2.0,
         "norm_HB_KS": 2.000000000000001,
-        "frobenius_ratio_R_over_KS": 0.6246950475544241
+        "frobenius_ratio_R_over_KS": 0.6246950475544242
       },
       "check2_HB_leakage": {
         "op_norm_(1-P)HB_P": 5.656854249492386,
@@ -595,42 +595,42 @@
           "n_states": 433,
           "n_sv_below_1_minus_1e-9": 80,
           "n_basis_columns_with_unit_norm_1e-9": 353,
-          "sv_min": 0.3436457463160317,
+          "sv_min": 0.34364574631603173,
           "sv_max": 0.9999999999999618,
-          "leak_op_norm": 0.9390993563190307,
-          "one_minus_sv_min": 0.6563542536839684,
+          "leak_op_norm": 0.9390993563190312,
+          "one_minus_sv_min": 0.6563542536839683,
           "V*C*CV_minus_I_max": 8.69304631215469e-14,
           "vs_KS_exact_nominal": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.9684127190710612,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.9684127190710607,
             "eigenphase_matching_max_chord_polar_unitary": 1.6405726405166
           },
           "vs_KS_exact_rescaled_beta_c_beta": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.9532954134000882,
-            "eigenphase_matching_max_chord_polar_unitary": 1.8874937008692068
+            "op_norm_ungauged_D_identity_phase_fitted": 1.9532954134000877,
+            "eigenphase_matching_max_chord_polar_unitary": 1.8874937008692065
           },
           "vs_KS_circuit": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.9684127190710474,
-            "eigenphase_matching_max_chord_polar_unitary": 1.6405726405165997
+            "op_norm_ungauged_D_identity_phase_fitted": 1.968412719071047,
+            "eigenphase_matching_max_chord_polar_unitary": 1.6405726405166
           },
           "max_abs_element_between_KS_HB_components": 1.2312437787146742e-16,
-          "eig_modulus_min": 0.3436457463160314,
-          "eig_modulus_max": 0.9999999999999641
+          "eig_modulus_min": 0.34364574631603156,
+          "eig_modulus_max": 0.9999999999999647
         },
-        "circuit_minus_exact_rishon_projected_op_norm": 4.3490747069393214e-14,
+        "circuit_minus_exact_rishon_projected_op_norm": 4.349074706939326e-14,
         "exact_rishon_nominal": {
           "n_states": 433,
           "n_sv_below_1_minus_1e-9": 80,
           "n_basis_columns_with_unit_norm_1e-9": 353,
           "sv_min": 0.3436457463160466,
           "sv_max": 1.0000000000000007,
-          "leak_op_norm": 0.9390993563190683,
+          "leak_op_norm": 0.9390993563190679,
           "one_minus_sv_min": 0.6563542536839534,
           "vs_KS_exact_nominal": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.968412719071098,
-            "eigenphase_matching_max_chord_polar_unitary": 1.6405726405165981
+            "op_norm_ungauged_D_identity_phase_fitted": 1.9684127190710994,
+            "eigenphase_matching_max_chord_polar_unitary": 1.640572640516598
           },
           "vs_KS_exact_rescaled_beta_c_beta": {
-            "op_norm_ungauged_D_identity_phase_fitted": 1.9532954134001237,
+            "op_norm_ungauged_D_identity_phase_fitted": 1.9532954134001232,
             "eigenphase_matching_max_chord_polar_unitary": 1.8874937008692054
           }
         }
@@ -640,75 +640,75 @@
         "rows": [
           {
             "beta": 0.61,
-            "leak": 0.9390993563190683,
+            "leak": 0.9390993563190679,
             "sv_min": 0.3436457463160466,
             "diff_vs_KS_rescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.9532954134001237,
+              "op_norm_ungauged_D_identity_phase_fitted": 1.9532954134001232,
               "eigenphase_matching_max_chord_polar_unitary": 1.8874937008692054
             },
             "diff_vs_KS_beta_unrescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.968412719071098,
-              "eigenphase_matching_max_chord_polar_unitary": 1.6405726405165981
+              "op_norm_ungauged_D_identity_phase_fitted": 1.9684127190710994,
+              "eigenphase_matching_max_chord_polar_unitary": 1.640572640516598
             },
-            "leak_over_beta": 1.5395071415066692,
-            "mismatch_rescaled_over_beta2": 5.249382997581628
+            "leak_over_beta": 1.5395071415066688,
+            "mismatch_rescaled_over_beta2": 5.249382997581627
           },
           {
             "beta": 0.3,
             "leak": 0.9920397960418632,
             "sv_min": 0.1259247516146787,
             "diff_vs_KS_rescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 1.1312139849256513,
+              "op_norm_ungauged_D_identity_phase_fitted": 1.1312139849256515,
               "eigenphase_matching_max_chord_polar_unitary": 1.9066289106958412
             },
             "diff_vs_KS_beta_unrescaled": {
               "op_norm_ungauged_D_identity_phase_fitted": 1.2482334552762873,
-              "eigenphase_matching_max_chord_polar_unitary": 1.5624369321070017
+              "eigenphase_matching_max_chord_polar_unitary": 1.562436932107002
             },
             "leak_over_beta": 3.306799320139544,
-            "mismatch_rescaled_over_beta2": 12.569044276951681
+            "mismatch_rescaled_over_beta2": 12.569044276951685
           },
           {
             "beta": 0.1,
             "leak": 0.5359945922932859,
             "sv_min": 0.8442214146966152,
             "diff_vs_KS_rescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 0.21907173851547213,
-              "eigenphase_matching_max_chord_polar_unitary": 0.18024292364594413
+              "op_norm_ungauged_D_identity_phase_fitted": 0.21907173851547207,
+              "eigenphase_matching_max_chord_polar_unitary": 0.18024292364594507
             },
             "diff_vs_KS_beta_unrescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 0.29887626494719877,
-              "eigenphase_matching_max_chord_polar_unitary": 0.09995833854135788
+              "op_norm_ungauged_D_identity_phase_fitted": 0.2988762649471987,
+              "eigenphase_matching_max_chord_polar_unitary": 0.09995833854135808
             },
             "leak_over_beta": 5.359945922932859,
-            "mismatch_rescaled_over_beta2": 21.90717385154721
+            "mismatch_rescaled_over_beta2": 21.907173851547203
           },
           {
             "beta": 0.03,
             "leak": 0.16889221267412166,
             "sv_min": 0.9856345268394565,
             "diff_vs_KS_rescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 0.06584175968800327,
-              "eigenphase_matching_max_chord_polar_unitary": 0.05413972721966669
+              "op_norm_ungauged_D_identity_phase_fitted": 0.0658417596880032,
+              "eigenphase_matching_max_chord_polar_unitary": 0.054139727219667096
             },
             "diff_vs_KS_beta_unrescaled": {
-              "op_norm_ungauged_D_identity_phase_fitted": 0.0899696280753209,
-              "eigenphase_matching_max_chord_polar_unitary": 0.029998875012657248
+              "op_norm_ungauged_D_identity_phase_fitted": 0.08996962807532087,
+              "eigenphase_matching_max_chord_polar_unitary": 0.029998875012656617
             },
             "leak_over_beta": 5.629740422470722,
-            "mismatch_rescaled_over_beta2": 73.15751076444808
+            "mismatch_rescaled_over_beta2": 73.15751076444799
           }
         ],
         "slopes": {
           "leak": [
-            -0.07727737979524041,
+            -0.077277379795241,
             0.5603789050907234,
             0.9592104998116349
           ],
           "mismatch_vs_KS_rescaled": [
-            0.7696838436425244,
-            1.4942918676629935,
-            0.9984818280309958
+            0.7696838436425236,
+            1.494291867662994,
+            0.9984818280309964
           ],
           "betas_pairs": [
             [
@@ -726,12 +726,12 @@
           ]
         }
       },
-      "seconds": 12.844192743301392
+      "seconds": 36.720966815948486
     }
   },
   "provenance": {
-    "git_commit": "9583d4d",
-    "git_dirty": true,
+    "git_commit": "a5d8121",
+    "git_dirty": false,
     "versions": {
       "python": "3.12.16",
       "numpy": "2.5.2",
@@ -745,10 +745,10 @@
     "seeds": {
       "none_random": 0
     },
-    "timestamp_utc": "2026-11-06T19:27:49Z",
+    "timestamp_utc": "2026-11-06T19:37:09Z",
     "host": "SupremeCommander",
-    "wall_seconds": 69.75120615959167,
-    "peak_rss_mb": 3120.16015625,
-    "command": "PYTHONPATH=src taskset -c 10-19 python scripts/rx_ks_projection.py"
+    "wall_seconds": 255.42653608322144,
+    "peak_rss_mb": 3123.19921875,
+    "command": "PYTHONPATH=src taskset -c 10-19 python scripts/m5_ks_projection.py"
   }
 }

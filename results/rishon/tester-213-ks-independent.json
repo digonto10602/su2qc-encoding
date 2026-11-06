@@ -1,0 +1,270 @@
+{
+ "commit": "a5d8121",
+ "group_sizes_are_2^n0": true,
+ "n_groups": 433,
+ "sum_sizes": 38432,
+ "closure_identity_checks": 307520,
+ "closure_identity_max_amp_diff": 0.0,
+ "n_outer_patterns": 32256,
+ "results": {
+  "rishon_inner_HB": {
+   "hermitian_resid": 0.0,
+   "top_eig": 5.656854249492378,
+   "bottom_eig": -5.656854249492376,
+   "4sqrt2": 5.656854249492381,
+   "max_diff_vs_library_h_magnetic_inner": 0.0,
+   "max_diff_vs_library_h_electric_inner": 0.0
+  },
+  "KS_HB_hermitian_resid": 0.0,
+  "KS_HB_norm": 2.0000000000000018,
+  "variants": {
+   "plus": {
+    "V_dagV_minus_1": 3.219646771412954e-15,
+    "trace_P_on_physical = sum_s <psi_s|P|psi_s> = sum 2^-n0": 433.0,
+    "HE": {
+     "max_offdiag": 3.7383730728378887e-16,
+     "diag_minus_KS": 9.325873406851315e-15
+    },
+    "HB_hermitian": 4.440892098500626e-16,
+    "c_modulus_lsq": 0.9999999999999991,
+    "modulus_residual": 4.440892098500626e-16,
+    "support_equal": true,
+    "gauge": {
+     "residual_HR_minus_c_D_HK_D": 4.440892098500626e-16,
+     "n_KS_graph_components": 305,
+     "max_imag_of_entry_ratio": 0.0
+    },
+    "norm_P_HB_P": 2.0000000000000004,
+    "leak_HB_gram_sqrt_lmax": 5.291502622129188,
+    "leak_HB_lmax": 28.000000000000064,
+    "leak_HB_lmin": -2.6645352591003757e-15,
+    "leak_HB_explicit_residual_norm": 5.291502622129187,
+    "steps": [
+     {
+      "beta": 0.61,
+      "leak_from_W": 0.8615137089541051,
+      "sv_min": 0.5077343097370346,
+      "leak_explicit_residual": 0.861513708954105,
+      "mismatch_op_gauged": 1.9904120121517461,
+      "mismatch_op_ungauged": 1.7959856390162652,
+      "mismatch_over_beta2": 5.349131986433072,
+      "leak_over_beta": 1.4123175556624674,
+      "predicted_half_leakHB2_beta2": 5.209400000000012
+     },
+     {
+      "beta": 0.3,
+      "leak_from_W": 0.9998902393842242,
+      "sv_min": 0.014815842337155213,
+      "mismatch_op_gauged": 0.9986862200113413,
+      "mismatch_op_ungauged": 1.5164572561324774,
+      "mismatch_over_beta2": 11.09651355568157,
+      "leak_over_beta": 3.3329674646140806,
+      "predicted_half_leakHB2_beta2": 1.260000000000003
+     },
+     {
+      "beta": 0.1,
+      "leak_from_W": 0.5040169909658019,
+      "sv_min": 0.8636937378595371,
+      "mismatch_op_gauged": 0.13646300024497357,
+      "mismatch_op_ungauged": 0.4621832579959259,
+      "mismatch_over_beta2": 13.646300024497354,
+      "leak_over_beta": 5.040169909658019,
+      "predicted_half_leakHB2_beta2": 0.14000000000000037
+     },
+     {
+      "beta": 0.03,
+      "leak_from_W": 0.15805561816988345,
+      "sv_min": 0.9874302109845211,
+      "leak_explicit_residual": 0.15805561816986044,
+      "mismatch_op_gauged": 0.012571049872755577,
+      "mismatch_op_ungauged": 0.1261260317427626,
+      "mismatch_over_beta2": 13.96783319195064,
+      "leak_over_beta": 5.268520605662782,
+      "predicted_half_leakHB2_beta2": 0.01260000000000003
+     }
+    ],
+    "slopes_log_log": {
+     "leak": [
+      -0.20989077034723094,
+      0.623546213410612,
+      0.9631970014206477
+     ],
+     "mismatch": [
+      0.9717897088860609,
+      1.8117284308150772,
+      1.9806568450930286
+     ]
+    }
+   },
+   "minus": {
+    "V_dagV_minus_1": 3.219646771412954e-15,
+    "trace_P_on_physical = sum_s <psi_s|P|psi_s> = sum 2^-n0": 433.0,
+    "HE": {
+     "max_offdiag": 3.7383730728378887e-16,
+     "diag_minus_KS": 9.325873406851315e-15
+    },
+    "HB_hermitian": 4.440892098500626e-16,
+    "c_modulus_lsq": 0.9999999999999991,
+    "modulus_residual": 4.440892098500626e-16,
+    "support_equal": true,
+    "gauge": {
+     "residual_HR_minus_c_D_HK_D": 4.440892098500626e-16,
+     "n_KS_graph_components": 305,
+     "max_imag_of_entry_ratio": 0.0
+    },
+    "norm_P_HB_P": 2.0000000000000004,
+    "leak_HB_gram_sqrt_lmax": 5.291502622129188,
+    "leak_HB_lmax": 28.000000000000064,
+    "leak_HB_lmin": -2.6645352591003757e-15,
+    "steps": [
+     {
+      "beta": 0.61,
+      "leak_from_W": 0.8615137089541051,
+      "sv_min": 0.5077343097370345,
+      "mismatch_op_gauged": 1.9904120121517461,
+      "mismatch_op_ungauged": 1.7959856390162647,
+      "mismatch_over_beta2": 5.349131986433072,
+      "leak_over_beta": 1.4123175556624674,
+      "predicted_half_leakHB2_beta2": 5.209400000000012
+     },
+     {
+      "beta": 0.3,
+      "leak_from_W": 0.9998902393842242,
+      "sv_min": 0.014815842337155213,
+      "mismatch_op_gauged": 0.9986862200113413,
+      "mismatch_op_ungauged": 1.5164572561324785,
+      "mismatch_over_beta2": 11.09651355568157,
+      "leak_over_beta": 3.3329674646140806,
+      "predicted_half_leakHB2_beta2": 1.260000000000003
+     },
+     {
+      "beta": 0.1,
+      "leak_from_W": 0.5040169909658019,
+      "sv_min": 0.8636937378595371,
+      "mismatch_op_gauged": 0.13646300024497357,
+      "mismatch_op_ungauged": 0.462183257995926,
+      "mismatch_over_beta2": 13.646300024497354,
+      "leak_over_beta": 5.040169909658019,
+      "predicted_half_leakHB2_beta2": 0.14000000000000037
+     },
+     {
+      "beta": 0.03,
+      "leak_from_W": 0.15805561816988345,
+      "sv_min": 0.9874302109845211,
+      "mismatch_op_gauged": 0.012571049872755577,
+      "mismatch_op_ungauged": 0.1261260317427626,
+      "mismatch_over_beta2": 13.96783319195064,
+      "leak_over_beta": 5.268520605662782,
+      "predicted_half_leakHB2_beta2": 0.01260000000000003
+     }
+    ],
+    "slopes_log_log": {
+     "leak": [
+      -0.20989077034723094,
+      0.623546213410612,
+      0.9631970014206477
+     ],
+     "mismatch": [
+      0.9717897088860609,
+      1.8117284308150772,
+      1.9806568450930286
+     ]
+    }
+   },
+   "A": {
+    "V_dagV_minus_1": 2.6645352591003757e-15,
+    "trace_P_on_physical = sum_s <psi_s|P|psi_s> = sum 2^-n0": 433.0,
+    "HE": {
+     "max_offdiag": 4.080721946239548e-16,
+     "diag_minus_KS": 9.325873406851315e-15
+    },
+    "HB_hermitian": 4.930380657631324e-32,
+    "c_modulus_lsq": 0.19512195121951195,
+    "modulus_residual": 1.804878048780488,
+    "support_equal": false,
+    "gauge": {
+     "residual_HR_minus_c_D_HK_D": 1.804878048780488,
+     "n_KS_graph_components": 417,
+     "max_imag_of_entry_ratio": 0.0
+    },
+    "norm_P_HB_P": 2.0,
+    "leak_HB_gram_sqrt_lmax": 5.656854249492386,
+    "leak_HB_lmax": 32.000000000000064,
+    "leak_HB_lmin": -1.3322676295501878e-15,
+    "steps": [
+     {
+      "beta": 0.61,
+      "leak_from_W": 0.939099356319068,
+      "sv_min": 0.34364574631604666,
+      "mismatch_op_gauged": 1.953295413400124,
+      "mismatch_op_ungauged": 1.953295413400124,
+      "mismatch_over_beta2": 5.249382997581629,
+      "leak_over_beta": 1.539507141506669,
+      "predicted_half_leakHB2_beta2": 5.953600000000011
+     },
+     {
+      "beta": 0.3,
+      "leak_from_W": 0.9920397960418631,
+      "sv_min": 0.12592475161467934,
+      "mismatch_op_gauged": 1.1312139849256515,
+      "mismatch_op_ungauged": 1.1312139849256515,
+      "mismatch_over_beta2": 12.569044276951685,
+      "leak_over_beta": 3.3067993201395436,
+      "predicted_half_leakHB2_beta2": 1.4400000000000028
+     },
+     {
+      "beta": 0.1,
+      "leak_from_W": 0.5359945922932865,
+      "sv_min": 0.8442214146966147,
+      "mismatch_op_gauged": 0.18024292364594374,
+      "mismatch_op_ungauged": 0.18024292364594374,
+      "mismatch_over_beta2": 18.02429236459437,
+      "leak_over_beta": 5.359945922932865,
+      "predicted_half_leakHB2_beta2": 0.16000000000000036
+     },
+     {
+      "beta": 0.03,
+      "leak_from_W": 0.16889221267412166,
+      "sv_min": 0.9856345268394565,
+      "mismatch_op_gauged": 0.05413972721966642,
+      "mismatch_op_ungauged": 0.05413972721966642,
+      "mismatch_over_beta2": 60.15525246629603,
+      "leak_over_beta": 5.629740422470722,
+      "predicted_half_leakHB2_beta2": 0.014400000000000029
+     }
+    ],
+    "slopes_log_log": {
+     "leak": [
+      -0.07727737979524071,
+      0.5603789050907223,
+      0.9592104998116356
+     ],
+     "mismatch": [
+      0.7696838436425241,
+      1.6718738358208125,
+      0.9989737864279113
+     ]
+    }
+   }
+  },
+  "closed_pair": {
+   "eig_top": 5.656854249492378,
+   "eig_bottom": -5.656854249492378,
+   "n_eig_equal_top": 1,
+   "weight_of_Qtilde_on_all-Q-inner_codes": 1.0,
+   "||H Qtilde||^2": 32.00000000000001,
+   "||P H Qtilde||^2 (inner P)": 3.999999999999993,
+   "||(1-P)H Qtilde||^2": 27.999999999999993,
+   "Qtilde_is_P_fixed": 4.288499690662056e-16,
+   "|<sigma-vec|phi>|^2 = ||P phi||^2": 0.12499999999999967,
+   "KS_top_eig": 2.0000000000000018,
+   "rishon_closed_angle_4sqrt2_beta": 3.450681092190352,
+   "KS_closed_angle_2beta": 1.22,
+   "leak_of_Qtilde_after_UB_numeric": 0.2845440636303564,
+   "leak_of_Qtilde_after_UB_formula_sin(theta)*sqrt(1-|P phi|^2)": 0.2845440636303564
+  }
+ },
+ "wall_seconds": 150.92085003852844,
+ "peak_rss_mb": 797.5078125,
+ "seed": "none (deterministic)"
+}

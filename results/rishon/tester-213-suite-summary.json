@@ -1,0 +1,15 @@
+{
+ "commit": "a5d8121", "date": "2026-11-06", "mode": "full", "prompt_in_force": "prompts/202",
+ "env": "su2qc-coding; PYTHONPATH=src taskset -c 10-19 (m5: 10-13 -n 4; others 14-19 -n 6); OMP/OPENBLAS/MKL threads 1; no random seeds (deterministic suites)",
+ "suites": {
+  "tests/unit": {"passed": 520, "failed": 0, "wall_s": 350},
+  "tests/acceptance/m0": {"passed": 34, "failed": 0, "wall_s": 21},
+  "tests/acceptance/m1": {"passed": 22, "failed": 0, "wall_s": 156},
+  "tests/acceptance/m2": {"passed": 46, "failed": 0, "wall_s": 208},
+  "tests/acceptance/m5": {"passed": 34, "failed": 0, "wall_s": 1096, "T1_UB_s": 517.6, "T1_step_s": 506.0},
+  "tests/acceptance/m5x": {"passed": 6, "failed": 0, "wall_s": 7}
+ },
+ "lean": {"build_wall_s": [10.5, 6.7], "build_peak_rss_GB": [6.92, 6.83], "counts_olean_mtime_unchanged": "2026-11-05 23:54:26.301842497 -0500", "no_build_replay_rc": 0},
+ "acceptance_check": "FAIL as expected: differs from acceptance-v9 in LOCK.json, m2/test_compress_machinery.py, m2/test_lean_formal.py (laptop-approved change); m0-m2 blobs identical to 5111d69 and laptop-acceptance-v7; tools/check_lock.py LOCK OK",
+ "peak_rss_GB": {"m5_pytest_4_workers_sum": 10.85, "unit_m0_m1_m2_m5x_sum": 13.66, "single_process_max": 6.96, "ks_rerun_script": 3.20, "tester_independent_script": 0.82}
+}
