@@ -57,3 +57,11 @@ base.py:     NOMINAL_ANGLES["fuzzy_ub"] = NOMINAL_ANGLES["fuzzy_link"] = (0.37, 
 ```
 
 - Suggested laptop diff (cliffordt.synthesize should carry qc.metadata['layers'] remapped to new instruction ranges; would cut T1[step] from 27 min to seconds) — see builder note in STATUS/Report 9.
+
+## Tags on this branch (rename on merge if they collide)
+- acceptance-v8 (m9 lock), v9 (prompts/301 test fixes, approved by Digonto), v10 (LOCK.json indent restored), v11 (m10 lock).
+- milestone-9 (M9 gate: tests 300/301, audit 300), milestone-10 (M10 gate: tests 302/303, audit 301).
+## Open items for the laptop
+- Audit 301 A1 (hook records per-unit Gauss residual 0.0 when not computed -> 'not checked'), A2 (random-angle validity check in G1).
+- Suggested laptop diff: cliffordt.synthesize should carry qc.metadata['layers'] (T1[step] 27 min -> seconds).
+- results/compress/twelve/summary.json is rewritten by m2 tests as a side effect (left untracked here).

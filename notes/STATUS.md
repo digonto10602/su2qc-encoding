@@ -1,4 +1,4 @@
-M9 fuzzy DONE (milestone-9); M10 loop DONE (3 U_B rounds, 2 link rounds): U_B 1718->151 CX, link 36->12 CX, inner step 1862->199 CX (all-12-links step 2150->295 CX, verified 1.7e-14); Report 10 drafted; pending: final M10 tester + auditor, then tag milestone-10 and final outbox (by 5 h 40).
+M9 and M10 fuzzy DONE (tags milestone-9, milestone-10; Reports 9 and 10): step 1862->199 CX inner-only (2150->295 with outer links), U_B 1718->151, link 36->12; unfinished: more U_B rounds (still improving), Lean per-circuit certificates (n_a), audit notes A1/A2; next: merge bundle on laptop per notes/merge-notes-fuzzy.md.
 
 # STATUS — branch m9-fuzzy (48-core machine, fuzzy encoding M9/M10)
 
