@@ -5,12 +5,9 @@ import importlib
 import pytest
 
 PENDING: dict = {
-    "su2plaq.rishon.lean_export": ["ue_gate_ints", "ue_gate_literal", "write_lean_ue_gates", "lean_eval",
-                                   "lean_ue_gate_images", "lean_corner_kernel_dims"],   # M5x W2/W3 (prompts/202)
     "su2plaq.rishon.results": ["outer_electric_certify"],                               # M5x O1
 }
-ARGS = {"ue_gate_ints": (None,), "ue_gate_literal": (None,), "lean_eval": ("",), "lean_ue_gate_images": (("x", 0), 1, 0.1),
-        "outer_electric_certify": (None, None, 0.1)}
+ARGS = {"outer_electric_certify": (None, None, 0.1)}
 
 @pytest.mark.parametrize("mod,name", [(m, n) for m, ns in PENDING.items() for n in ns] or [(None, None)])
 def test_pending_names_raise(mod, name):

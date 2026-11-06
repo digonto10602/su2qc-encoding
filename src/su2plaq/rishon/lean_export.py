@@ -251,7 +251,7 @@ def check_hb(lean_file, timeout=900) -> dict:
     return {"status": "certified", "axioms": axioms, "seconds": time.time() - t0, "detail": text[-500:]}
 
 
-# --- M5x (prompts/202 section 3): exact statements of the rishon encoding.  Stubs until steps W2/W3 build them. ----------
+# --- M5x (prompts/202 section 3): exact statements of the rishon encoding.  W2/W3 exports below. ----------
 RISHON_M5X_THEOREMS = (
     "Su2Plaq.Rishon.hb_link_ops_from_jw", "Su2Plaq.Rishon.hb_link_ops_count", "Su2Plaq.Rishon.det_u_identity",
     "Su2Plaq.Rishon.u_commute", "Su2Plaq.Rishon.corner_kernel_dims", "Su2Plaq.Rishon.card_inner_codes",
@@ -266,33 +266,127 @@ UE_GATE_NAMES = ("x", "cx", "p")
 
 
 def ue_gate_ints(qc) -> list[tuple]:
-    """Program-order gate list of a build_UE circuit: ("x", q) | ("cx", c, t) | ("p", q, a), a = angle / (alpha/4) (step W3)."""
-    raise NotImplementedError("prompts/202 step W3")
+    """Program-order gate list of a build_UE circuit: ("x", q) | ("cx", c, t) | ("p", q, a).
+
+    q = qc.find_bit(.).index; a = angle / (alpha/4) with alpha = qc.metadata["alpha"], an integer within 1e-9.
+    ValueError for a gate outside UE_GATE_NAMES, qc.num_qubits not in (16, 48), a missing/zero alpha, a non-integer a."""
+    if qc.num_qubits not in (16, 48):
+        raise ValueError(f"expected a 16- or 48-qubit build_UE circuit, got {qc.num_qubits} qubits")
+    alpha = (qc.metadata or {}).get("alpha")
+    if alpha is None or float(alpha) == 0.0:
+        raise ValueError("circuit metadata carries no non-zero 'alpha'")
+    unit = float(alpha) / 4.0
+    out: list[tuple] = []
+    for ins in qc.data:
+        name = ins.operation.name
+        if name not in UE_GATE_NAMES:
+            raise ValueError(f"gate {name!r} is outside the build_UE gate set {UE_GATE_NAMES}")
+        qs = [int(qc.find_bit(q).index) for q in ins.qubits]
+        if name == "p":
+            a = float(ins.operation.params[0]) / unit
+            if abs(a - round(a)) > 1e-9:
+                raise ValueError(f"p angle is {a!r} x alpha/4, not an integer")
+            out.append(("p", qs[0], int(round(a))))
+        else:
+            out.append((name, *qs))
+    return out
+
+
+def _gate_lit(g: tuple) -> str:
+    return f".{g[0]} " + " ".join(_lit(int(v)) for v in g[1:])
 
 
 def ue_gate_literal(qc) -> str:
-    """Lean literal "[.cx 0 1, .p 1 (-3), ...]" of ue_gate_ints(qc) (step W3)."""
-    raise NotImplementedError("prompts/202 step W3")
+    """Lean literal "[.cx 0 1, .p 1 (-3), ...]" of ue_gate_ints(qc) (negative integers in parentheses)."""
+    return "[" + ", ".join(_gate_lit(g) for g in ue_gate_ints(qc)) + "]"
+
+
+_GEN_BEGIN = "-- BEGIN generated exact"
+_GEN_END = "-- END generated exact"
 
 
 def write_lean_ue_gates(path=None) -> pathlib.Path:
-    """Regenerate the generated block of UESemantics.lean (step W3)."""
-    raise NotImplementedError("prompts/202 step W3")
+    """Regenerate the block between the BEGIN/END generated-exact markers of UESemantics.lean:
+    ueGates := ue_gate_literal(build_UE(1.0)); ueOuterGates := ue_gate_literal(build_UE(1.0, with_outer=True,
+    include_outer_electric=True)).  ValueError if the markers are missing."""
+    from su2plaq.circuits.rishon import build_UE
+
+    p = pathlib.Path(path) if path is not None else UE_SEMANTICS_LEAN
+    text = p.read_text()
+    b = text.find(_GEN_BEGIN)
+    e = text.find(_GEN_END)
+    if b < 0 or e < b:
+        raise ValueError(f"{p}: generated-exact markers missing")
+    e_end = text.find("\n", e)
+    e_end = len(text) if e_end < 0 else e_end
+    block = (f"{_GEN_BEGIN} (su2plaq.rishon.lean_export.write_lean_ue_gates; do not edit by hand)\n"
+             f"def ueGates : List Gate := {ue_gate_literal(build_UE(1.0))}\n"
+             "def ueOuterGates : List Gate := "
+             f"{ue_gate_literal(build_UE(1.0, with_outer=True, include_outer_electric=True))}\n"
+             f"{_GEN_END}")
+    p.write_text(text[:b] + block + text[e_end:])
+    return p
 
 
 def lean_eval(body: str, imports: tuple[str, ...] = ("Su2Plaq.Rishon.UESemantics",), timeout: float = 300.0) -> str:
-    """Run `lake env lean` on imports + body and return stdout (step W2)."""
-    raise NotImplementedError("prompts/202 step W2")
+    """Write `import <m>` lines + body to a temporary .lean file, run `lake env lean <abs path>` in lean/, return stdout.
+
+    RuntimeError (stdout + stderr) on a non-zero exit; the imported modules must be built (`lake build <module>`)."""
+    import tempfile
+
+    text = "".join(f"import {m}\n" for m in imports) + "\n" + body + "\n"
+    with tempfile.TemporaryDirectory(prefix="su2plaq_lean_eval_") as td:
+        f = pathlib.Path(td) / "Eval.lean"
+        f.write_text(text)
+        r = project.lake(["env", "lean", str(f.resolve())], timeout=timeout)
+    if r.returncode != 0 or ": error" in r.stdout:
+        raise RuntimeError(f"lean exited with {r.returncode}\n{r.stdout}\n{r.stderr}")
+    return r.stdout
+
+
+def _lean_gate_term(gate: tuple) -> str:
+    if gate[0] == "x":
+        return f"Gate.x {int(gate[1])}"
+    if gate[0] == "cx":
+        return f"Gate.cx {int(gate[1])} {int(gate[2])}"
+    if gate[0] == "p":
+        return f"Gate.p {int(gate[1])} {_lit(int(gate[2]))}"
+    raise ValueError(f"unknown gate {gate!r}")
 
 
 def lean_ue_gate_images(gate: tuple, n_qubits: int, alpha: float) -> np.ndarray:
-    """Complex (2^n, 2^n) matrix of one gate from the Lean semantics evaluated at z = exp(i alpha/4) (step W3)."""
-    raise NotImplementedError("prompts/202 step W3")
+    """Complex (2^n, 2^n) matrix of one gate from the Lean semantics evaluated at z = exp(i alpha/4).
+
+    Column i is `applyBasis gate i [(0, 1, 0)]` (a sum of Gaussian-integer Laurent terms `(e, re, im) z^e` per image
+    basis state), little-endian, computed by `lean_eval` on `Su2Plaq.Rishon.UESemantics`."""
+    dim = 1 << int(n_qubits)
+    body = ("open Su2Plaq.Rishon\n"
+            "#eval show IO Unit from do\n"
+            f"  for i in List.range {dim} do\n"
+            f"    for q in applyBasis ({_lean_gate_term(gate)}) i one do\n"
+            "      for t in q.2 do\n"
+            "        IO.println s!\"{i} {q.1} {t.1} {t.2.1} {t.2.2}\"")
+    out = lean_eval(body)
+    z = np.exp(1j * float(alpha) / 4.0)
+    M = np.zeros((dim, dim), dtype=complex)
+    for line in out.splitlines():
+        if not line.strip():
+            continue
+        col, row, e, re_, im_ = (int(v) for v in line.split())
+        M[row, col] += complex(re_, im_) * z ** e
+    return M
 
 
 def lean_corner_kernel_dims() -> list[int]:
-    """kerDim for the 81 corner end configurations, evaluated in Lean (step W2)."""
-    raise NotImplementedError("prompts/202 step W2")
+    """kerDim for the 81 corner end configurations, evaluated in Lean (m = sum_e m_e 3^e; 0 empty, 1 full, 2 one rishon)."""
+    out = lean_eval("open Su2Plaq.Rishon\n#eval (List.range 81).map kerDim", imports=("Su2Plaq.Rishon.CornerKernel",))
+    m = re.search(r"\[(.*)\]", out, re.S)
+    if m is None:
+        raise RuntimeError(f"unexpected Lean output: {out!r}")
+    dims = [int(v) for v in re.findall(r"\d+", m.group(1))]
+    if len(dims) != 81:
+        raise RuntimeError(f"expected 81 kernel dimensions, got {len(dims)}")
+    return dims
 
 
 if __name__ == "__main__":      # python -m su2plaq.rishon.lean_export : regenerate the repo's generated Lean files
