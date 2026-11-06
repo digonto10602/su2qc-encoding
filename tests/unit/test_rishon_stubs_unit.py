@@ -4,13 +4,13 @@ import importlib
 
 import pytest
 
-PENDING = {
-    "su2plaq.rishon.lean_export": ["export_hb_certificate", "write_hb_lean", "check_hb"],
-}
-ARGS = {"export_hb_certificate": ("x",), "write_hb_lean": ("x", "y"), "check_hb": ("x",)}
+PENDING: dict = {}      # lean_export built in 5.L3
+ARGS = {}
 
-@pytest.mark.parametrize("mod,name", [(m, n) for m, ns in PENDING.items() for n in ns])
+@pytest.mark.parametrize("mod,name", [(m, n) for m, ns in PENDING.items() for n in ns] or [(None, None)])
 def test_pending_names_raise(mod, name):
+    if mod is None:
+        return      # nothing pending
     fn = getattr(importlib.import_module(mod), name)
     with pytest.raises(NotImplementedError):
         fn(*ARGS.get(name, ()))

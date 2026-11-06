@@ -1,0 +1,263 @@
+bringing up nodes...
+bringing up nodes...
+
+..................................FFFFFFFFFFFFFFFFFFFFFFFFFFF...FFFF.... [ 56%]
+FF.....................................................                  [100%]
+=================================== FAILURES ===================================
+____________________ test_evaluator_accepts_general_circuit ____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+_____________________ test_evaluator_accepts_global_phase ______________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+______________________ test_evaluator_rejects_wrong_gate _______________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+_____________________ test_evaluator_rejects_dirty_ancilla _____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+__________________ test_evaluator_rejects_small_ancilla_leak ___________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+______________________ test_evaluator_rejects_angle_error ______________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+________________________ test_evaluator_rejects_partial ________________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+evaluate_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: evaluate_circuit is not built yet
+____________________ test_evaluator_rejects_control_change _____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+_____________________ test_metrics_match_qiskit_count_ops ______________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+___________________ test_t_eps_in_ross_selinger_band[0.0001] ___________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+gridsynth_T is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: gridsynth_T is not built yet
+___________________ test_t_eps_in_ross_selinger_band[1e-06] ____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+gridsynth_T is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: gridsynth_T is not built yet
+___________________ test_t_eps_in_ross_selinger_band[1e-08] ____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+gridsynth_T is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: gridsynth_T is not built yet
+___________________________ test_t_eps_deterministic ___________________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+gridsynth_T is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: gridsynth_T is not built yet
+___________________________ test_t_estimate_formula ____________________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+______________________ test_archive_roundtrip_and_elites _______________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+Archive.load is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: Archive.load is not built yet
+_________________________ test_archive_rejects_invalid _________________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+Archive.load is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: Archive.load is not built yet
+________________________ test_cache_keyed_by_code_hash _________________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+code_hash is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: code_hash is not built yet
+_______________________ test_entry_has_provenance_fields _______________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+_______________________ test_polish_valid_and_not_worse ________________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+________________________ test_qiskit_l3_baseline_valid _________________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+qiskit_l3 is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: qiskit_l3 is not built yet
+______________________ test_seed_import_declared[paulo34] ______________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+import_seed is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: import_seed is not built yet
+_____________________ test_seed_import_declared[lean22_v2] _____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+import_seed is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: import_seed is not built yet
+_____________________ test_seed_import_declared[spinnet15] _____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+import_seed is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: import_seed is not built yet
+___________________ test_skeleton_angle_independent_general ____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+____________________ test_run_candidate_cli_trial_and_full _____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+________________________ test_round_dry_run_end_to_end _________________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+________________________ test_report_table_from_results ________________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+_________________ test_lean_checker_semantics_match_sparse_sim _________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+lean.certify.export_raw_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: lean.certify.export_raw_circuit is not built yet
+_________________ test_lean_certificate_small_accept_reject_na _________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+lean.certify.certify_circuit_kind is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: lean.certify.certify_circuit_kind is not built yet
+_____________________ test_polish_rules_are_lean_certified _____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet
+_______________________ test_program_lemma_file_checked ________________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+general_program_path is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_program_path is not built yet
+_____________________ test_structure_json_and_spec_section _____________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+lean.structure.structure_facts is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: lean.structure.structure_facts is not built yet
+______________________ test_symmetry_candidates_verified _______________________
+[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+lean.structure.symmetry_candidates is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: lean.structure.symmetry_candidates is not built yet
+=========================== short test summary info ============================
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_accepts_general_circuit
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_accepts_global_phase
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_wrong_gate
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_dirty_ancilla
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_small_ancilla_leak
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_angle_error
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_partial
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_control_change
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_metrics_match_qiskit_count_ops
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_t_eps_in_ross_selinger_band[0.0001]
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_t_eps_in_ross_selinger_band[1e-06]
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_t_eps_in_ross_selinger_band[1e-08]
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_t_eps_deterministic
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_t_estimate_formula
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_archive_roundtrip_and_elites
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_archive_rejects_invalid
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_cache_keyed_by_code_hash
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_entry_has_provenance_fields
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_polish_valid_and_not_worse
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_qiskit_l3_baseline_valid
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_seed_import_declared[paulo34]
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_seed_import_declared[lean22_v2]
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_seed_import_declared[spinnet15]
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_skeleton_angle_independent_general
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_run_candidate_cli_trial_and_full
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_round_dry_run_end_to_end
+FAILED tests/acceptance/m2/test_compress_machinery.py::test_report_table_from_results
+FAILED tests/acceptance/m2/test_lean_formal.py::test_lean_checker_semantics_match_sparse_sim
+FAILED tests/acceptance/m2/test_lean_formal.py::test_lean_certificate_small_accept_reject_na
+FAILED tests/acceptance/m2/test_lean_formal.py::test_polish_rules_are_lean_certified
+FAILED tests/acceptance/m2/test_lean_formal.py::test_program_lemma_file_checked
+FAILED tests/acceptance/m2/test_lean_structure.py::test_structure_json_and_spec_section
+FAILED tests/acceptance/m2/test_lean_structure.py::test_symmetry_candidates_verified
+33 failed, 94 passed in 2513.99s (0:41:53)
+Command exited with non-zero status 1
+	Command being timed: "taskset -c 10-19 python -m pytest tests/acceptance -m not slow -n 3 -q -p no:cacheprovider"
+	User time (seconds): 3730.37
+	System time (seconds): 44.74
+	Percent of CPU this job got: 150%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 41:54.36
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6816328
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 13374889
+	Voluntary context switches: 87827
+	Involuntary context switches: 44068
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 304
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

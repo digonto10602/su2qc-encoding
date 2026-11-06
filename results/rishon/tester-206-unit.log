@@ -1,0 +1,63 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [ 23%]
+.............................................................F.......... [ 46%]
+........................................................................ [ 70%]
+........................................................................ [ 93%]
+....................                                                     [100%]
+=================================== FAILURES ===================================
+_________ test_render_is_deterministic_and_contains_only_json_numbers __________
+[gw0] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+
+tmp_path = PosixPath('/tmp/pytest-of-digonto/pytest-211/popen-gw0/test_render_is_deterministic_a0')
+
+    def test_render_is_deterministic_and_contains_only_json_numbers(tmp_path):
+        ver = verdict_to_dict(_verdict())
+        mets = {"logical": {"cx": 123, "depth": 7, "n_rot": 2, "t_fixed": 11, "qubits": 5, "ancilla": 1},
+                "t_table": [{"eps": 1e-6, "t_fixed": 11, "n_rot": 2, "t_rot_pygridsynth": 126, "t_total": 137, "t_est": 130.7}]}
+        paths = [save_result(tmp_path / f"{i}.json", encoding="twelve", circuit_id=f"c{i}", kind="UB", params={"beta": 0.5},
+                             verification=ver, metrics=mets) for i in range(2)]
+        t = render(paths)
+        assert t == render(paths) and "c0" in t and "c1" in t and "137" in t and "123" in t and "130.7" in t
+        t_noq = render(paths[:1])
+>       assert "c1" not in t_noq
+E       AssertionError: assert 'c1' not in '### Verific... | - | - |\n'
+E         
+E         'c1' is contained here:
+E           | yes | b4c1917* |
+E         ?           ++
+E           
+E           ### Logical metrics
+E           | circuit | CX | depth | N_rot | T_fixed | qubits | ancilla |...
+E         
+E         ...Full output truncated, use '-vv' to show
+
+tests/unit/test_results_unit.py:47: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_results_unit.py::test_render_is_deterministic_and_contains_only_json_numbers
+1 failed, 307 passed in 322.21s (0:05:22)
+Command exited with non-zero status 1
+	Command being timed: "taskset -c 10-19 python -m pytest tests/unit -n 4 -q -p no:cacheprovider"
+	User time (seconds): 881.26
+	System time (seconds): 31.69
+	Percent of CPU this job got: 282%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 5:22.62
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6814088
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 3040569
+	Voluntary context switches: 32066
+	Involuntary context switches: 55623
+	Swaps: 0
+	File system inputs: 760
+	File system outputs: 3224
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

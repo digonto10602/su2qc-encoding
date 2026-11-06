@@ -8,3 +8,5 @@ import Su2Plaq.Peephole
 import Su2Plaq.Rewrites
 import Su2Plaq.Structure.Counts
 import Su2Plaq.Structure.Commute
+import Su2Plaq.Rishon.Counts
+import Su2Plaq.Rishon.JW
