@@ -1,0 +1,197 @@
+{
+ "id": "r01-F2-001",
+ "program_path": "compress/programs/twelve/F2/001-pair-frame-2cx.py",
+ "program_sha256": "37e6e5d968dddeb58dcb1307bc0d923c9d03a6a63ae570e2e12ec0b96baadeb7",
+ "parent": null,
+ "family": "F2",
+ "round": 1,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  126,
+  738,
+  1226,
+  36
+ ],
+ "cell": [
+  55,
+  76
+ ],
+ "metrics_raw": {
+  "cx": 126,
+  "t_fixed": 112,
+  "n_rot": 10,
+  "t_eps": 738,
+  "t_estimate": {
+   "1e-06": 709.9470570797253,
+   "1e-10": 1108.5784284662086
+  },
+  "t_measured": {
+   "1e-06": 738,
+   "1e-10": 1154
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 130,
+  "depth_ct": 1226,
+  "qubits": 36,
+  "gates": {
+   "h": 146,
+   "cx": 126,
+   "t": 56,
+   "tdg": 56,
+   "s": 44,
+   "sdg": 44,
+   "x": 40,
+   "rz": 10,
+   "z": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 8.42948468414216e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.281952590115983e-17
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 1.049127715398514e-15,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.824974121340838e-14,
+  "block_error": 1.604510562801321e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 1.780318260192871,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.604510562801321e-14,
+   "max_dropped_l2": 4.2591530522098274e-15,
+   "max_span_leak": 3.9968028886505635e-15,
+   "op_norm_error_inner_span": null
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.752746106843167e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    3.281952590115984e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 7.714976664338495e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.02925363823396e-14,
+   "block_error": 1.723492468609207e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.7816479206085205,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.723492468609207e-14,
+    "max_dropped_l2": 4.4408940313142016e-15,
+    "max_span_leak": 5.440092820663267e-15,
+    "op_norm_error_inner_span": null
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.967035223060575e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -7.794637401525459e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 7.88931181902037e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.114327071152525e-14,
+   "block_error": 1.8527081519080494e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.7834160327911377,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8527081519080494e-14,
+    "max_dropped_l2": 4.7701349358008066e-15,
+    "max_span_leak": 6.772360450213455e-15,
+    "op_norm_error_inner_span": null
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: the leg map |00>->|00>, Psi- -> |10>, Psi+ -> |01>, |11> -> -|11> (equal to CX(a,b) CH(b,a) CX(a,b) on all bright legs) has Weyl point (pi/8, pi/8, 0) and the 2-CX, 2-T circuit S_a (HSdgH)^2 CX(a,b) (HTH_a, T_b) CX(a,b) (HSH)^2 S_a: one CX less per corner and side.",
+  "DISCOVERY: in that frame same-type bright legs are |00>, dark legs are basis states != |00>, and with C_t(H) CX(jA,a) C_t(YH) the diff legs never hit |01>, so bright_c = t ^ (~a)(~b ^ t) costs 1 CX + 1 rccx; a CX-only flag is impossible (the frame images of |00>, Psi-, Psi+, |11> are four basis states with XOR 0).",
+  "DISCOVERY: an X on leg a of corner 0 between the frame and the type gates flips only the diff partner sign there, so kappa = -1 for every n1=2 pair (2 for n1=0, 1/2 for n1=4, 0 dark) and the Walsh mux over (g, z=[all types equal], t) needs 6 CX; a chain fold q11=t3, q8=t2, q5=t1 gives three corner types without outer reads."
+ ],
+ "summary": "F2 pair frame: per corner a 2-CX leg frame + type-selected C_{jA}(X) makes both partners of every bright pair equal except the flip bit F=j_b; one rccx per corner leaves the bright flag; U_B = one (g, z, t)-multiplexed X rotation of F (6 Rz), U_E = 4 phases.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "84a20af",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 6.5810816287994385,
+ "written_utc": "2026-11-06T10:40:40Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9.999999999999999e-06
+ },
+ "lean": {
+  "status": "certified",
+  "reason": "",
+  "cert_path": "/home/digimonk/Projects/su2qc-encoding/compress/lean/certs/step-o1-d8909cbbbc88.json",
+  "seconds": 85.24397397041321,
+  "checker_sha256": "befbd27e3ed4e8229f11320189441597e04c89c7bf7746cf93f1c55de261bfd5",
+  "theorem_path": null,
+  "axioms": []
+ },
+ "mode": "full"
+}
