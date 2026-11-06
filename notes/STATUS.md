@@ -1,17 +1,18 @@
-M3 in progress (desktop track S, spin network): environment set up and baseline green; planner running for M3.
+M3 in progress (desktop track S, spin network): plan prompts/100 locked as acceptance-v7; building step 3.0+3.1.
 
 # Desktop track S — spin network — branch `m3-spin-network` (clone `~/Projects/su2qc-spinnet`)
 
 Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 100–199. Cores 0–9, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-spinnet.md`.
 
 ## Current milestone / step
-M3 — step 0: planner (prompts/100).
+M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Step 3.0+3.1 (stubs, codec) with builder.
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
 |---|---|---|---|---|
 
 ## Desktop log
+- 2026-11-06: planner prompts/100 + reports/research/100 + docs/METHODS-spinnet.md + tests/acceptance/m3 (24 tests, all PENDING); locked acceptance-v7 (a3bfda5). Findings: general U_B prototype 54 CX, 4 rotations (−7/2, −1, 3, 3/2)β, 56 T_fixed, exact 1.4e-14; Paulo's 15-qubit file valid on the open 433 states up to a per-pair sign gauge (err 9.8e-15); spinnet_v2 pairs9 34 CX/9 rot, flags4 44 CX/4 rot. Laptop-owned diffs wanted → merge notes.
 - 2026-11-05: desktop setup done (`~/su2qc-sync/setup-log.md`); baseline on fresh clone: m0+m1 56/56 incl. slow, unit 216/216, lock PASS acceptance-v6.
 
 ---

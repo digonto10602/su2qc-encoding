@@ -23,4 +23,15 @@ For the laptop session merging this branch. Lists every shared-file append, ever
 (none yet)
 
 ## Requested changes to laptop-owned files
-(none yet)
+From `prompts/100-spinnet-m3-plan.md` §10 (not applied; M3 routes around 2; 1 and 3 are needed for M4):
+1. `src/su2plaq/encodings/base.py`: add `NOMINAL_ANGLES["spinnet"] = (0.37, 0.61)` (used by `compress.spec.default_spec("spinnet", …)`).
+   ```diff
+   +    "spinnet": (0.37, 0.61),
+   ```
+2. `src/su2plaq/evaluate/evaluator.py::inner_target`: dispatch to `enc.inner_target(kind, alpha, beta, order)` when the encoding defines it.
+   ```diff
+    def inner_target(enc, kind, alpha, beta, order=1):
+   +    if hasattr(enc, "inner_target"):
+   +        return enc.inner_target(kind, alpha, beta, order)
+   ```
+3. `src/su2plaq/compress/baselines.py::import_seed`: add sources `"paulo15"` and `"spinnet_v2"` via `SpinNet.import_map` (M4 round-0 seeds).
