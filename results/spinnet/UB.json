@@ -1,0 +1,1024 @@
+{
+  "schema_version": 1,
+  "encoding": "spinnet",
+  "circuit_id": "UB",
+  "kind": "UB",
+  "params": {
+    "alpha": null,
+    "beta": 0.61,
+    "order": 1
+  },
+  "provenance": {
+    "git_commit": "0d75ba0",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "cpu_count": 20,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "trial_subset": 0
+    },
+    "timestamp_utc": "2026-11-06T07:21:10Z",
+    "provenance_captured_at": "2026-11-06T07:21:10Z",
+    "host": "SupremeCommander",
+    "command": "python scripts/m3_results.py",
+    "quick": false,
+    "wall_seconds": 8.567858934402466,
+    "peak_rss_mb": 291.68359375
+  },
+  "verification": {
+    "ok": true,
+    "reason": "ok",
+    "op_norm_error": 1.0241655583865579e-14,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      -6.838344467737562e-19
+    ],
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 5.410557748946589e-16,
+    "method": "inner_span",
+    "engine": "sparse",
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "dropped_total": 6.8926868688493345e-15,
+    "block_error": 3.3489687150162437e-15,
+    "leak_amplitude": 0.0,
+    "seconds": 0.17074990272521973,
+    "n_inputs": 433,
+    "extra": {
+      "op_norm_error_physical": 2.939750312750366e-15,
+      "max_dropped_l2": 2.0855022129995628e-15,
+      "max_span_leak": 0.0,
+      "op_norm_error_inner_span": 3.3489687150162437e-15
+    }
+  },
+  "metrics": {
+    "logical": {
+      "cx": 54,
+      "depth": 67,
+      "n_rot": 4,
+      "t_fixed": 56,
+      "qubits": 15,
+      "ancilla": 7
+    },
+    "gates_lowered": {
+      "cx": 54,
+      "h": 30,
+      "t": 28,
+      "tdg": 28,
+      "x": 16,
+      "rz": 4
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 56,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 174,
+        "t_total": 230,
+        "t_est": 215.4525485545934,
+        "t_qiskit": 225,
+        "cx_qiskit": 54,
+        "depth_qiskit": 477,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 174,
+          "error_bound_sum": 0.0004,
+          "error_measured_sum": 0.00013148077404183042,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 0.00010088609933187444,
+            "max_leak": 2.8197988075549293e-10,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.7071004046476731,
+              0.70711315766792
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.28085841456928e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 0.00040000100000000003,
+              "tol_gauss": 0.00040000100000000003
+            },
+            "dropped_total": 6.803566696523146e-15,
+            "block_error": 8.409384275379693e-05,
+            "leak_amplitude": 1.6792256571273943e-05,
+            "seconds": 0.19626688957214355,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 8.409384275369595e-05,
+              "max_dropped_l2": 2.0676995369199006e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 8.409384275379693e-05
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 56,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 254,
+        "t_total": 310,
+        "t_est": 295.1788228318901,
+        "t_qiskit": 308,
+        "cx_qiskit": 54,
+        "depth_qiskit": 682,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 254,
+          "error_bound_sum": 4e-06,
+          "error_measured_sum": 1.4602671575718669e-06,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.3031907744611765e-06,
+            "max_leak": 1.7910495892984617e-13,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.7071067369417392,
+              -0.7071068254313531
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.460164424183067e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 4.0009999999999995e-06,
+              "tol_gauss": 4.0009999999999995e-06
+            },
+            "dropped_total": 6.419950356163744e-15,
+            "block_error": 8.79982829871529e-07,
+            "leak_amplitude": 4.232079381696971e-07,
+            "seconds": 0.2000434398651123,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 8.799828297577194e-07,
+              "max_dropped_l2": 1.997856420626625e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 8.79982829871529e-07
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 56,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 340,
+        "t_total": 396,
+        "t_est": 374.9050971091868,
+        "t_qiskit": 389,
+        "cx_qiskit": 54,
+        "depth_qiskit": 895,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 340,
+          "error_bound_sum": 4e-08,
+          "error_measured_sum": 1.5147012679504985e-08,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.53816449014222e-08,
+            "max_leak": 4.7362047144827286e-17,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              -6.797558343898929e-10,
+              0.9999999999999999
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.410557748946589e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 4.1e-08,
+              "tol_gauss": 4.1e-08
+            },
+            "dropped_total": 6.645744732273532e-15,
+            "block_error": 8.499629308805392e-09,
+            "leak_amplitude": 6.882008946872075e-09,
+            "seconds": 0.20676445960998535,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 8.499629308805392e-09,
+              "max_dropped_l2": 2.0623277572411705e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 8.499629297012163e-09
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 56,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 412,
+        "t_total": 468,
+        "t_est": 454.63137138648347,
+        "t_qiskit": 462,
+        "cx_qiskit": 54,
+        "depth_qiskit": 1076,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 412,
+          "error_bound_sum": 4e-10,
+          "error_measured_sum": 8.191756389844293e-11,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 7.427281379938676e-11,
+            "max_leak": 7.371337613928389e-23,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.707106781183516,
+              0.707106781189579
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.338891568193822e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1.4000000000000001e-09,
+              "tol_gauss": 1.4000000000000001e-09
+            },
+            "dropped_total": 6.246645280584166e-15,
+            "block_error": 6.568091772384849e-11,
+            "leak_amplitude": 8.585649430257674e-12,
+            "seconds": 0.2107999324798584,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 6.568077515875042e-11,
+              "max_dropped_l2": 2.0686323117039548e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 6.568091772384849e-11
+            }
+          }
+        }
+      }
+    ],
+    "macro_counts": {
+      "x": 16,
+      "rccx": 14,
+      "cx": 12,
+      "rz": 4,
+      "h": 2
+    }
+  },
+  "files": {
+    "qpy": "results/spinnet/UB.qpy",
+    "sha256": "53efe342e72c5b1ed468b8b2f4dad8b2cf083b79e2bbda7ff960e2f9494fdf16",
+    "qasm3": "results/spinnet/UB.qasm3"
+  },
+  "extra": {
+    "physics": {
+      "n_physical_states": 433,
+      "n_inner_codes": 47,
+      "n_bright_codes": 16,
+      "n_dark_codes": 31,
+      "n_bright_pairs": 8,
+      "coupling_values_per_pair": {
+        "-2.0": 1,
+        "-0.5": 1,
+        "1.0": 6
+      },
+      "n_gauge_minus_433": 64,
+      "gauge_residual": 2.6645352591003757e-15,
+      "n_outer_patterns_with_states": 128,
+      "states_per_outer_pattern_histogram": {
+        "2": 41,
+        "3": 52,
+        "4": 8,
+        "5": 22,
+        "9": 4,
+        "17": 1
+      },
+      "max_states_per_outer_pattern": 17,
+      "closed_pattern_states": 2,
+      "target_cross_pattern_max_abs": 0.0,
+      "target_same_pattern_vs_inner_block_max_dev": 2.744954172210482e-17,
+      "partner_rule": "partner = code XOR 0b1111 (corner bits unchanged)"
+    },
+    "comparison": {
+      "paulo15": {
+        "label": "Paulo 15-qubit file (alpha_P = 0.1)",
+        "beta": 0.05,
+        "verification": {
+          "ok": true,
+          "reason": "ok",
+          "op_norm_error": 9.733607918616853e-15,
+          "max_leak": 0.0,
+          "dirty_ancilla": 0.0,
+          "phase": [
+            1.0,
+            3.0621841405438986e-18
+          ],
+          "outer_bits_read": 0,
+          "n_blocks": 1,
+          "gauss_residual": 5.410557748946589e-16,
+          "method": "physical",
+          "engine": "sparse",
+          "engine_accuracy": 0.0,
+          "certified": true,
+          "tolerances": {
+            "tol_err": 1e-10,
+            "tol_gauss": 1e-10
+          },
+          "dropped_total": 6.725594473071768e-15,
+          "block_error": 3.008013445545084e-15,
+          "leak_amplitude": 0.0,
+          "seconds": 0.16748571395874023,
+          "n_inputs": 433,
+          "extra": {
+            "op_norm_error_physical": 3.008013445545084e-15,
+            "max_dropped_l2": 2.235551043660808e-15,
+            "max_span_leak": 0.0,
+            "op_norm_error_inner_span": null
+          }
+        },
+        "logical": {
+          "cx": 68,
+          "depth": 90,
+          "n_rot": 4,
+          "t_fixed": 64,
+          "qubits": 15,
+          "ancilla": 7
+        },
+        "t_table_pygridsynth": [
+          {
+            "eps": 1e-06,
+            "t_fixed": 64,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 252,
+            "t_total": 316,
+            "t_est": 303.1788228318901,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          }
+        ],
+        "t_table_pygridsynth_grid": [
+          {
+            "eps": 0.0001,
+            "t_fixed": 64,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 170,
+            "t_total": 234,
+            "t_est": 223.4525485545934,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-06,
+            "t_fixed": 64,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 252,
+            "t_total": 316,
+            "t_est": 303.1788228318901,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-08,
+            "t_fixed": 64,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 328,
+            "t_total": 392,
+            "t_est": 382.9050971091868,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-10,
+            "t_fixed": 64,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 414,
+            "t_total": 478,
+            "t_est": 462.63137138648347,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          }
+        ],
+        "qiskit_clifford_t_eps_1e-6": {
+          "t": 316,
+          "cx": 68,
+          "depth": 733,
+          "qubits": 15,
+          "seed": 12345,
+          "optimization_level": 3
+        },
+        "files": {
+          "qpy": "results/spinnet/UB_paulo15.qpy",
+          "sha256": "cbfeb0977ec867f60439b9dbe29ee4ffb8d3a8d25474a1853cdadc3a6ff932ba",
+          "qasm3": "results/spinnet/UB_paulo15.qasm3"
+        },
+        "verification_ungauged_route_b_target": {
+          "ok": false,
+          "reason": "error",
+          "op_norm_error": 0.19966683329366303,
+          "max_leak": 0.0,
+          "dirty_ancilla": 0.0,
+          "phase": [
+            1.0,
+            2.250289221648113e-18
+          ],
+          "outer_bits_read": 0,
+          "n_blocks": 1,
+          "gauss_residual": 5.410557748946589e-16,
+          "method": "physical",
+          "engine": "sparse",
+          "engine_accuracy": 0.0,
+          "certified": true,
+          "tolerances": {
+            "tol_err": 1e-10,
+            "tol_gauss": 1e-10
+          },
+          "dropped_total": 6.725594473071768e-15,
+          "block_error": 0.1996668332936563,
+          "leak_amplitude": 0.0,
+          "seconds": 0.1705155372619629,
+          "n_inputs": 433,
+          "failing_inputs": [
+            [
+              0,
+              0.1996668332936562
+            ],
+            [
+              397,
+              0.1996668332936562
+            ],
+            [
+              379,
+              0.1996668332936562
+            ],
+            [
+              371,
+              0.1996668332936562
+            ],
+            [
+              389,
+              0.1996668332936562
+            ],
+            [
+              385,
+              0.1996668332936562
+            ],
+            [
+              409,
+              0.1996668332936562
+            ],
+            [
+              401,
+              0.1996668332936562
+            ],
+            [
+              352,
+              0.1996668332936562
+            ],
+            [
+              355,
+              0.1996668332936562
+            ]
+          ],
+          "extra": {
+            "op_norm_error_physical": 0.1996668332936563,
+            "max_dropped_l2": 2.235551043660808e-15,
+            "max_span_leak": 0.0,
+            "op_norm_error_inner_span": null
+          }
+        },
+        "gauge_minus_codes": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "gauge_alignment": {
+          "residual": 2.8865960477134483e-15,
+          "phase": [
+            1.0,
+            2.79151107069589e-18
+          ],
+          "inner_block_leak_max": 0.0,
+          "n_minus": 8
+        },
+        "alpha_P": 0.1,
+        "source": "/home/digonto/Projects/su2qc-spinnet/refs/paulo/spin_network_plaquette3.gates.txt",
+        "sha256": "e4b8687f1aa5995fd975770eac0c65c8ec667e71f723fad3b3825190c693a504",
+        "gauge_note": "the 15-qubit file equals exp(-i beta K) up to a real diagonal sign gauge D (one -1 per bright pair on the data codes listed in gauge_minus_codes): a basis-sign convention of the electric basis, METHODS-spinnet \u00a71.3. The verdict above is for the target regauged with D; the ungauged route-B target is rejected."
+      },
+      "spinnet_v2": {
+        "pairs9": {
+          "label": "spinnet_v2 pairs9 skeleton",
+          "beta": 0.61,
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 8.217476282673193e-15,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.9999999999999999,
+              1.4929720058833663e-17
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.410557748946589e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "dropped_total": 6.072124186081984e-15,
+            "block_error": 2.145352096591209e-15,
+            "leak_amplitude": 0.0,
+            "seconds": 0.16537070274353027,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 1.519140002175842e-15,
+              "max_dropped_l2": 1.4281865724140501e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 2.145352096591209e-15
+            }
+          },
+          "logical": {
+            "cx": 34,
+            "depth": 38,
+            "n_rot": 9,
+            "t_fixed": 24,
+            "qubits": 11,
+            "ancilla": 3
+          },
+          "t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 24,
+              "n_rot": 9,
+              "t_rot_pygridsynth": 552,
+              "t_total": 576,
+              "t_est": 562.1523513717527,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ],
+          "t_table_pygridsynth_grid": [
+            {
+              "eps": 0.0001,
+              "t_fixed": 24,
+              "n_rot": 9,
+              "t_rot_pygridsynth": 384,
+              "t_total": 408,
+              "t_est": 382.7682342478351,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            },
+            {
+              "eps": 1e-06,
+              "t_fixed": 24,
+              "n_rot": 9,
+              "t_rot_pygridsynth": 552,
+              "t_total": 576,
+              "t_est": 562.1523513717527,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            },
+            {
+              "eps": 1e-08,
+              "t_fixed": 24,
+              "n_rot": 9,
+              "t_rot_pygridsynth": 750,
+              "t_total": 774,
+              "t_est": 741.5364684956702,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            },
+            {
+              "eps": 1e-10,
+              "t_fixed": 24,
+              "n_rot": 9,
+              "t_rot_pygridsynth": 936,
+              "t_total": 960,
+              "t_est": 920.9205856195879,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ],
+          "qiskit_clifford_t_eps_1e-6": {
+            "t": 570,
+            "cx": 34,
+            "depth": 1413,
+            "qubits": 11,
+            "seed": 12345,
+            "optimization_level": 3
+          },
+          "files": {
+            "qpy": "results/spinnet/UB_pairs9.qpy",
+            "sha256": "87ca2e672be982ab9c54e8576ce49d772b508517cb97742ec5ab0378e80d13e0",
+            "qasm3": "results/spinnet/UB_pairs9.qasm3"
+          },
+          "source": "su2qc-trotter spinnet_v2: /home/digimonk/Projects/su2qc-trotter/src/su2trotter/designs/spinnet_v2.py (sibling checkout ~/Projects/siblings/su2qc-trotter/src/su2trotter/designs/spinnet_v2.py); sibling results commit feadc42 (docs/compression/results_spinnet_v2.json, 2026-10-28); skeleton lists vendored, rccx_dg written as rccx (self-inverse), angles re-solved from our K in route-B gauge"
+        },
+        "flags4": {
+          "label": "spinnet_v2 flags4 skeleton",
+          "beta": 0.61,
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 8.0917786189073e-15,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              -2.7475474346237654e-17
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.410557748946589e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "dropped_total": 4.520763017151313e-15,
+            "block_error": 3.5710156017559864e-15,
+            "leak_amplitude": 0.0,
+            "seconds": 0.18901801109313965,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 3.314863874568928e-15,
+              "max_dropped_l2": 1.230898282440655e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 3.5710156017559864e-15
+            }
+          },
+          "logical": {
+            "cx": 44,
+            "depth": 60,
+            "n_rot": 4,
+            "t_fixed": 48,
+            "qubits": 11,
+            "ancilla": 3
+          },
+          "t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 48,
+              "n_rot": 4,
+              "t_rot_pygridsynth": 250,
+              "t_total": 298,
+              "t_est": 287.1788228318901,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ],
+          "t_table_pygridsynth_grid": [
+            {
+              "eps": 0.0001,
+              "t_fixed": 48,
+              "n_rot": 4,
+              "t_rot_pygridsynth": 174,
+              "t_total": 222,
+              "t_est": 207.4525485545934,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            },
+            {
+              "eps": 1e-06,
+              "t_fixed": 48,
+              "n_rot": 4,
+              "t_rot_pygridsynth": 250,
+              "t_total": 298,
+              "t_est": 287.1788228318901,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            },
+            {
+              "eps": 1e-08,
+              "t_fixed": 48,
+              "n_rot": 4,
+              "t_rot_pygridsynth": 338,
+              "t_total": 386,
+              "t_est": 366.9050971091868,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            },
+            {
+              "eps": 1e-10,
+              "t_fixed": 48,
+              "n_rot": 4,
+              "t_rot_pygridsynth": 416,
+              "t_total": 464,
+              "t_est": 446.63137138648347,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ],
+          "qiskit_clifford_t_eps_1e-6": {
+            "t": 290,
+            "cx": 44,
+            "depth": 741,
+            "qubits": 11,
+            "seed": 12345,
+            "optimization_level": 3
+          },
+          "files": {
+            "qpy": "results/spinnet/UB_flags4.qpy",
+            "sha256": "a6f691b87099d4db843efe448bee1fd5c218f13196d5491fce52b1fc3387b044",
+            "qasm3": "results/spinnet/UB_flags4.qasm3"
+          },
+          "source": "su2qc-trotter spinnet_v2: /home/digimonk/Projects/su2qc-trotter/src/su2trotter/designs/spinnet_v2.py (sibling checkout ~/Projects/siblings/su2qc-trotter/src/su2trotter/designs/spinnet_v2.py); sibling results commit feadc42 (docs/compression/results_spinnet_v2.json, 2026-10-28); skeleton lists vendored, rccx_dg written as rccx (self-inverse), angles re-solved from our K in route-B gauge"
+        }
+      },
+      "ours_beta_0_61": {
+        "label": "ours, general7 skeleton at the nominal beta",
+        "beta": 0.61,
+        "verification": {
+          "ok": true,
+          "reason": "ok",
+          "op_norm_error": 1.0241655583865579e-14,
+          "max_leak": 0.0,
+          "dirty_ancilla": 0.0,
+          "phase": [
+            1.0,
+            -6.838344467737562e-19
+          ],
+          "outer_bits_read": 0,
+          "n_blocks": 1,
+          "gauss_residual": 5.410557748946589e-16,
+          "method": "inner_span",
+          "engine": "sparse",
+          "engine_accuracy": 0.0,
+          "certified": true,
+          "tolerances": {
+            "tol_err": 1e-10,
+            "tol_gauss": 1e-10
+          },
+          "dropped_total": 6.8926868688493345e-15,
+          "block_error": 3.3489687150162437e-15,
+          "leak_amplitude": 0.0,
+          "seconds": 0.17074990272521973,
+          "n_inputs": 433,
+          "extra": {
+            "op_norm_error_physical": 2.939750312750366e-15,
+            "max_dropped_l2": 2.0855022129995628e-15,
+            "max_span_leak": 0.0,
+            "op_norm_error_inner_span": 3.3489687150162437e-15
+          }
+        },
+        "logical": {
+          "cx": 54,
+          "depth": 67,
+          "n_rot": 4,
+          "t_fixed": 56,
+          "qubits": 15,
+          "ancilla": 7
+        },
+        "t_table_pygridsynth": [
+          {
+            "eps": 1e-06,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 254,
+            "t_total": 310,
+            "t_est": 295.1788228318901,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          }
+        ],
+        "t_table_pygridsynth_grid": [
+          {
+            "eps": 0.0001,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 174,
+            "t_total": 230,
+            "t_est": 215.4525485545934,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-06,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 254,
+            "t_total": 310,
+            "t_est": 295.1788228318901,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-08,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 340,
+            "t_total": 396,
+            "t_est": 374.9050971091868,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-10,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 412,
+            "t_total": 468,
+            "t_est": 454.63137138648347,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          }
+        ],
+        "qiskit_clifford_t_eps_1e-6": {
+          "t": 308,
+          "cx": 54,
+          "depth": 682,
+          "qubits": 15,
+          "seed": 12345,
+          "optimization_level": 3
+        },
+        "files": {
+          "qpy": "results/spinnet/UB.qpy",
+          "sha256": "53efe342e72c5b1ed468b8b2f4dad8b2cf083b79e2bbda7ff960e2f9494fdf16",
+          "qasm3": "results/spinnet/UB.qasm3"
+        }
+      },
+      "ours_beta_0_05": {
+        "label": "ours, general7 skeleton at Paulo's beta",
+        "beta": 0.05,
+        "verification": {
+          "ok": true,
+          "reason": "ok",
+          "op_norm_error": 8.605412351747395e-15,
+          "max_leak": 0.0,
+          "dirty_ancilla": 0.0,
+          "phase": [
+            1.0,
+            -4.7653234019833666e-18
+          ],
+          "outer_bits_read": 0,
+          "n_blocks": 1,
+          "gauss_residual": 5.410557748946589e-16,
+          "method": "inner_span",
+          "engine": "sparse",
+          "engine_accuracy": 0.0,
+          "certified": true,
+          "tolerances": {
+            "tol_err": 1e-10,
+            "tol_gauss": 1e-10
+          },
+          "dropped_total": 6.051759316736615e-15,
+          "block_error": 2.5536530350107796e-15,
+          "leak_amplitude": 0.0,
+          "seconds": 0.16655898094177246,
+          "n_inputs": 433,
+          "extra": {
+            "op_norm_error_physical": 2.5536530350107796e-15,
+            "max_dropped_l2": 1.9791475164283738e-15,
+            "max_span_leak": 0.0,
+            "op_norm_error_inner_span": 2.553653035010779e-15
+          }
+        },
+        "logical": {
+          "cx": 54,
+          "depth": 67,
+          "n_rot": 4,
+          "t_fixed": 56,
+          "qubits": 15,
+          "ancilla": 7
+        },
+        "t_table_pygridsynth": [
+          {
+            "eps": 1e-06,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 248,
+            "t_total": 304,
+            "t_est": 295.1788228318901,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          }
+        ],
+        "t_table_pygridsynth_grid": [
+          {
+            "eps": 0.0001,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 166,
+            "t_total": 222,
+            "t_est": 215.4525485545934,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-06,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 248,
+            "t_total": 304,
+            "t_est": 295.1788228318901,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-08,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 332,
+            "t_total": 388,
+            "t_est": 374.9050971091868,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          },
+          {
+            "eps": 1e-10,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 412,
+            "t_total": 468,
+            "t_est": 454.63137138648347,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          }
+        ],
+        "qiskit_clifford_t_eps_1e-6": {
+          "t": 293,
+          "cx": 54,
+          "depth": 657,
+          "qubits": 15,
+          "seed": 12345,
+          "optimization_level": 3
+        },
+        "files": {
+          "qpy": "results/spinnet/UB_beta_0_05.qpy",
+          "sha256": "3e8030b58238798d86224789cc5f28a512dc77c90ac3c4be961ecf41610508c2",
+          "qasm3": "results/spinnet/UB_beta_0_05.qasm3"
+        }
+      },
+      "eps_per_rotation": 1e-06,
+      "qiskit_seed": 12345,
+      "note": "Like-for-like at the same per-rotation eps = 1e-6: pygridsynth sums (plain per-rotation synthesis of each logical circuit) and the Qiskit Clifford+T pass manager (seed 12345, level 3) on the lowered circuit. Paulo's file is run at its own angle (beta = alpha_P / 2 = 0.05); 'ours_beta_0_05' is our circuit at that beta, 'ours_beta_0_61' at the nominal beta; spinnet_v2 skeletons are at beta = 0.61 with angles solved from K in route-B gauge. The accuracy budgets are n_rot * eps with each circuit's own n_rot, so T counts are not a same-accuracy comparison. The route-A/B sign difference of Paulo's file is a basis-sign convention (gauge_minus_codes)."
+    }
+  }
+}

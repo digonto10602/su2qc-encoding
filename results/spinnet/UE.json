@@ -1,0 +1,470 @@
+{
+  "schema_version": 1,
+  "encoding": "spinnet",
+  "circuit_id": "UE",
+  "kind": "UE",
+  "params": {
+    "alpha": 0.37,
+    "beta": null,
+    "order": 1
+  },
+  "provenance": {
+    "git_commit": "0d75ba0",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "cpu_count": 20,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "trial_subset": 0
+    },
+    "timestamp_utc": "2026-11-06T07:21:10Z",
+    "provenance_captured_at": "2026-11-06T07:21:10Z",
+    "host": "SupremeCommander",
+    "command": "python scripts/m3_results.py",
+    "quick": false,
+    "wall_seconds": 8.567858934402466,
+    "peak_rss_mb": 291.68359375
+  },
+  "verification": {
+    "ok": true,
+    "reason": "ok",
+    "op_norm_error": 4.440909640681155e-16,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      1.2482234156210711e-18
+    ],
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 5.302695275805847e-16,
+    "method": "inner_span",
+    "engine": "sparse",
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "dropped_total": 0.0,
+    "block_error": 4.440909640681155e-16,
+    "leak_amplitude": 0.0,
+    "seconds": 0.15132975578308105,
+    "n_inputs": 433,
+    "extra": {
+      "op_norm_error_physical": 1.1102230246251565e-16,
+      "max_dropped_l2": 0.0,
+      "max_span_leak": 0.0,
+      "op_norm_error_inner_span": 4.440909640681155e-16
+    }
+  },
+  "metrics": {
+    "logical": {
+      "cx": 0,
+      "depth": 1,
+      "n_rot": 4,
+      "t_fixed": 0,
+      "qubits": 8,
+      "ancilla": 0
+    },
+    "gates_lowered": {
+      "rz": 4
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 0,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 176,
+        "t_total": 176,
+        "t_est": 159.4525485545934,
+        "t_qiskit": 172,
+        "cx_qiskit": 0,
+        "depth_qiskit": 116,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 176,
+          "error_bound_sum": 0.0004,
+          "error_measured_sum": 8.729935795460768e-05,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 0.0001255268619573366,
+            "max_leak": 3.6943972685761737e-10,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              -0.9999999998193729,
+              -1.90066890896072e-05
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 3.397792145555364e-05,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 0.00040000100000000003,
+              "tol_gauss": 0.00040000100000000003
+            },
+            "dropped_total": 1.662505556080157e-14,
+            "block_error": 0.00010630604700331576,
+            "leak_amplitude": 1.9220814937395797e-05,
+            "seconds": 0.2011854648590088,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 9.738665455134846e-05,
+              "max_dropped_l2": 2.4250135881122433e-15,
+              "max_span_leak": 3.6943970105340895e-10,
+              "op_norm_error_inner_span": 0.00010630604700331576
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 0,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 256,
+        "t_total": 256,
+        "t_est": 239.1788228318901,
+        "t_qiskit": 236,
+        "cx_qiskit": 0,
+        "depth_qiskit": 149,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 256,
+          "error_bound_sum": 4e-06,
+          "error_measured_sum": 1.5297878242780261e-06,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 2.1830629739161192e-06,
+            "max_leak": 9.940823562659999e-14,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.9999999999999429,
+              -3.379831912043839e-07
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.573605092228289e-07,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 4.0009999999999995e-06,
+              "tol_gauss": 4.0009999999999995e-06
+            },
+            "dropped_total": 1.25555827482879e-12,
+            "block_error": 1.867771002308989e-06,
+            "leak_amplitude": 3.1529071604885545e-07,
+            "seconds": 0.18880128860473633,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 1.7317614404272887e-06,
+              "max_dropped_l2": 1.8314199793962364e-13,
+              "max_span_leak": 9.947598300641403e-14,
+              "op_norm_error_inner_span": 1.867771002308989e-06
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 0,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 328,
+        "t_total": 328,
+        "t_est": 318.9050971091868,
+        "t_qiskit": 328,
+        "cx_qiskit": 0,
+        "depth_qiskit": 212,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 328,
+          "error_bound_sum": 4e-08,
+          "error_measured_sum": 1.3470830584478804e-08,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 2.0499620033295075e-08,
+            "max_leak": 4.49104920009888e-17,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              -1.0,
+              3.27273155134281e-10
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 1.18467428159728e-08,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 4.1e-08,
+              "tol_gauss": 4.1e-08
+            },
+            "dropped_total": 3.191491949927016e-16,
+            "block_error": 1.3798090634824593e-08,
+            "leak_amplitude": 6.701529079321286e-09,
+            "seconds": 0.19011592864990234,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 1.6768174543763438e-09,
+              "max_dropped_l2": 4.655270017573048e-17,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 1.3798090634824593e-08
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 0,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 416,
+        "t_total": 416,
+        "t_est": 398.63137138648347,
+        "t_qiskit": 380,
+        "cx_qiskit": 0,
+        "depth_qiskit": 244,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 416,
+          "error_bound_sum": 4e-10,
+          "error_measured_sum": 1.0787086300775098e-10,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.6216014018046335e-10,
+            "max_leak": 2.9082514798317303e-21,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              3.479936841938169e-13
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 9.533378601010525e-11,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1.4000000000000001e-09,
+              "tol_gauss": 1.4000000000000001e-09
+            },
+            "dropped_total": 2.0667230131699553e-20,
+            "block_error": 1.0823193344168125e-10,
+            "leak_amplitude": 5.392820671811487e-11,
+            "seconds": 0.1978929042816162,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 1.868334944466315e-12,
+              "max_dropped_l2": 3.014698487042586e-21,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 1.0823193344168125e-10
+            }
+          }
+        }
+      }
+    ],
+    "macro_counts": {
+      "p": 4
+    }
+  },
+  "files": {
+    "qpy": "results/spinnet/UE.qpy",
+    "sha256": "9096f91dbd2ca343752bf281843e3e9b72643180aa42bcbdca7bae0436a061a3",
+    "qasm3": "results/spinnet/UE.qasm3"
+  },
+  "extra": {
+    "physics": {
+      "n_physical_states": 433,
+      "n_inner_codes": 47,
+      "n_bright_codes": 16,
+      "n_dark_codes": 31,
+      "n_bright_pairs": 8,
+      "coupling_values_per_pair": {
+        "-2.0": 1,
+        "-0.5": 1,
+        "1.0": 6
+      },
+      "n_gauge_minus_433": 64,
+      "gauge_residual": 2.6645352591003757e-15,
+      "n_outer_patterns_with_states": 128,
+      "states_per_outer_pattern_histogram": {
+        "2": 41,
+        "3": 52,
+        "4": 8,
+        "5": 22,
+        "9": 4,
+        "17": 1
+      },
+      "max_states_per_outer_pattern": 17,
+      "closed_pattern_states": 2,
+      "target_cross_pattern_max_abs": 0.0,
+      "target_same_pattern_vs_inner_block_max_dev": 2.744954172210482e-17,
+      "partner_rule": "partner = code XOR 0b1111 (corner bits unchanged)"
+    },
+    "outer_electric_row": {
+      "verification": {
+        "ok": true,
+        "reason": "ok",
+        "op_norm_error": 5.4672143489065705e-16,
+        "max_leak": 0.0,
+        "dirty_ancilla": 0.0,
+        "phase": [
+          1.0,
+          3.864983245603836e-16
+        ],
+        "outer_bits_read": 8,
+        "n_blocks": 128,
+        "gauss_residual": 5.592593521511171e-16,
+        "method": "physical",
+        "engine": "sparse",
+        "engine_accuracy": 0.0,
+        "certified": true,
+        "tolerances": {
+          "tol_err": 1e-10,
+          "tol_gauss": 1e-10
+        },
+        "dropped_total": 0.0,
+        "block_error": 5.4672143489065705e-16,
+        "leak_amplitude": 0.0,
+        "seconds": 0.16756725311279297,
+        "n_inputs": 433,
+        "extra": {
+          "op_norm_error_physical": 5.4672143489065705e-16,
+          "max_dropped_l2": 0.0,
+          "max_span_leak": 0.0,
+          "op_norm_error_inner_span": null
+        }
+      },
+      "metrics": {
+        "logical": {
+          "cx": 0,
+          "depth": 1,
+          "n_rot": 12,
+          "t_fixed": 0,
+          "qubits": 16,
+          "ancilla": 0
+        },
+        "gates_lowered": {
+          "rz": 12
+        },
+        "t_table": [
+          {
+            "eps": 0.0001,
+            "t_fixed": 0,
+            "n_rot": 12,
+            "t_rot_pygridsynth": 528,
+            "t_total": 528,
+            "t_est": 478.35764566378015,
+            "t_qiskit": 516,
+            "cx_qiskit": 0,
+            "depth_qiskit": 116,
+            "synth": {
+              "n_rot": 12,
+              "t_rot": 528,
+              "error_bound_sum": 0.0012000000000000001,
+              "error_measured_sum": 0.00026189807386382304,
+              "verdict": {
+                "evaluable": false,
+                "reason": "writes_outer",
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
+              }
+            }
+          },
+          {
+            "eps": 1e-06,
+            "t_fixed": 0,
+            "n_rot": 12,
+            "t_rot_pygridsynth": 768,
+            "t_total": 768,
+            "t_est": 717.5364684956703,
+            "t_qiskit": 708,
+            "cx_qiskit": 0,
+            "depth_qiskit": 149,
+            "synth": {
+              "n_rot": 12,
+              "t_rot": 768,
+              "error_bound_sum": 1.2e-05,
+              "error_measured_sum": 4.5893634728340785e-06,
+              "verdict": {
+                "evaluable": false,
+                "reason": "writes_outer",
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
+              }
+            }
+          },
+          {
+            "eps": 1e-08,
+            "t_fixed": 0,
+            "n_rot": 12,
+            "t_rot_pygridsynth": 984,
+            "t_total": 984,
+            "t_est": 956.7152913275603,
+            "t_qiskit": 984,
+            "cx_qiskit": 0,
+            "depth_qiskit": 212,
+            "synth": {
+              "n_rot": 12,
+              "t_rot": 984,
+              "error_bound_sum": 1.2000000000000002e-07,
+              "error_measured_sum": 4.041249175343641e-08,
+              "verdict": {
+                "evaluable": false,
+                "reason": "writes_outer",
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
+              }
+            }
+          },
+          {
+            "eps": 1e-10,
+            "t_fixed": 0,
+            "n_rot": 12,
+            "t_rot_pygridsynth": 1248,
+            "t_total": 1248,
+            "t_est": 1195.8941141594505,
+            "t_qiskit": 1140,
+            "cx_qiskit": 0,
+            "depth_qiskit": 244,
+            "synth": {
+              "n_rot": 12,
+              "t_rot": 1248,
+              "error_bound_sum": 1.2e-09,
+              "error_measured_sum": 3.236125890232529e-10,
+              "verdict": {
+                "evaluable": false,
+                "reason": "writes_outer",
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
+              }
+            }
+          }
+        ],
+        "macro_counts": {
+          "p": 12
+        }
+      },
+      "files": {
+        "qpy": "results/spinnet/UE_outer_row.qpy",
+        "sha256": "de7bdb8ed4dd5147d02da59d7732ec97c623fb4ccfd6948771783ce27f32b0ee",
+        "qasm3": "results/spinnet/UE_outer_row.qasm3"
+      }
+    },
+    "note": "outer_electric_row: the same step with 8 extra p(-3 alpha/4) on the outer j-qubits (include_outer_electric); not evaluable synthesised (writes_outer); bound 12 eps"
+  }
+}
