@@ -10,6 +10,7 @@ M5 — plan `prompts/200-rishon-m5-plan.md` (acceptance-v7, m5 tests 34). Steps 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
 |---|---|---|---|---|
+| M5-C1 `test_rishon_codec.py::test_M5_C1_encoding_codec_and_vectors` | 1 | 0 | 0 | **BLOCKED — locked-test defect, waiting for Digonto (global stop rule: an agent believes a locked test is wrong).** Line 35 `enc.decode(va \| outer \| (1 << 0)) is None` and the `decode_state(va \| outer \| 1)` raises-check: link b in `va` is type A = 0b0011, bit 0 already set, so the input equals the one asserted valid on line 33 — contradictory, unsatisfiable. Proposed fix (planner, then re-lock): `(1 << 0)` → `(1 << 2)` and `\| 1` → `\| (1 << 2)`; with it the test passes (builder, scratchpad copy). Other M5 steps continue. |
 
 ## Desktop log
 - 2026-11-06: M5 step 5.2 PASS (reports/tests/201): 38 432 physical states by fusion, built basis, and two tester routes (Haar integral, brute-force corner kernels); closed 4352, 431 U(1) sectors, U(2) sector 2192; Gauss ≤ 2e-16 on all; Gram − 1 ≤ 8e-15; inner span rank 1296; build 2.3 s / 0.33 GB.
