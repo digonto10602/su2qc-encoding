@@ -14,6 +14,7 @@ import hashlib
 import inspect
 import itertools
 import json
+import math
 import pathlib
 import re
 from fractions import Fraction
@@ -28,9 +29,14 @@ from su2plaq.rishon import physical as _phys
 
 RISHON_NOMINAL = _ENC_NOMINAL       # = encodings.rishon.RISHON_NOMINAL = (0.37, 0.61)
 
-# measured growth of the sparse engine's certified pruning bound per AND gate, Frobenius over the 1296 inputs
-# (research 202 section 3, scratch/planner/proto_m6_prune_ladder.py; METHODS-rishon R11): a measured input, not derived here
-PRUNE_RATES = {"ccx": 2.1e-16, "rccx": 1.4e-15}
+# measured growth of the sparse engine's certified pruning bound per BRANCHING gate of its own lowering (h, sx, u; ch, crx, rccx count 2;
+# macro ccx/ccz and every permutation/phase gate count 0), Frobenius over the 1296 inputs, worst measured rate over the circuits of the
+# table in prompts/203 section 13 E2 (planner, scratchpad/proto_prune_h.py; METHODS-rishon R11): a measured input, not derived here.
+# Re-measure with the same prototype if the engine's pruning (PRUNE_REL, coalescing) changes.
+PRUNE_RATE_PER_BRANCHING_GATE = 1.1e-15
+PRUNE_BRANCHING = ["h", "sx", "u", "ch (2)", "crx (2)", "rccx (2)", "crz (0)", "cp (0)"]
+PRUNE_ENGINE_EXACT = ["x", "z", "s", "sdg", "t", "tdg", "p", "rz", "cx", "cz", "cp", "swap", "ccx", "ccz"]
+PRUNE_PROVENANCE = "prompts/203 §13 E2 table"
 
 _STATE_INDEXING = ("**State indexing.** Inner codes 0..1295 in sorted code order (the 6^4 = 1296 valid inner codes are the "
                    "single-code input states of the evaluator, outer bits 0); `oracle --codec --state k` prints the code of "
@@ -302,10 +308,15 @@ def _structure_facts_cached() -> dict:
                   "note": "the inner components of the physical states span all 1296 inner codes (R6 item 1: inner-block soundness)"})
     facts.append({"name": "u1_sectors", "value": int(cbf["n_u1_sectors"]), "proved_by": "numerical",
                   "note": "distinct U(1) charge sectors of the physical states (corner occupation quartets)"})
-    facts.append({"name": "prune_rates", "value": dict(PRUNE_RATES), "proved_by": "numerical",
-                  "summary": "growth of the sparse engine's certified pruning bound per AND gate: "
-                             + ", ".join(f"{k} {v:.1e}" for k, v in PRUNE_RATES.items()),
-                  "note": "measured, research 202 section 3 (METHODS-rishon R11)"})
+    budget = prune_budget(rishon_spec())
+    facts.append({"name": "prune_rates",
+                  "value": {"per_branching_gate": PRUNE_RATE_PER_BRANCHING_GATE, "budget_at_cap": budget,
+                            "branching": list(PRUNE_BRANCHING), "engine_exact": list(PRUNE_ENGINE_EXACT),
+                            "provenance": PRUNE_PROVENANCE},
+                  "proved_by": "numerical",
+                  "summary": f"growth of the sparse engine's certified pruning bound: {PRUNE_RATE_PER_BRANCHING_GATE:.1e} per branching gate "
+                             f"of its lowering (budget at the cap: {budget} branching gates; macro ccx/ccz and permutation/phase gates cost 0)",
+                  "note": "measured, prompts/203 section 13 E2 (METHODS-rishon R11)"})
     lean_files = sorted(str(p.relative_to(ROOT)) for p in (LEAN_DIR / "Su2Plaq" / "Rishon").glob("*.lean")) + [_HB_CERT]
     prov = {"generator": "su2plaq.rishon.compress.spec.structure_facts", "plan": "prompts/203", "methods": "docs/METHODS-rishon.md R12",
             "lean_sources": {f: hashlib.sha256((ROOT / f).read_bytes()).hexdigest() for f in lean_files}}
@@ -334,20 +345,12 @@ def _default_root() -> pathlib.Path:
 
 
 # ------------------------------------------------------------------------------------------------ spec text
-def prune_budget(spec) -> tuple[int, int]:
-    """(ccx, rccx): how many AND gates of each kind the prune cap (PRUNE_FRACTION x tol_err) allows at the measured PRUNE_RATES, rounded
-    DOWN to two significant digits.  The single source of the numbers in the proposers' spec text (METHODS-rishon R11 quotes the
-    conservative round figures 4500 ccx / 700 rccx, which are below these)."""
+def prune_budget(spec) -> int:
+    """How many branching gates of the engine's lowering the prune cap (PRUNE_FRACTION x tol_err) allows at the measured
+    PRUNE_RATE_PER_BRANCHING_GATE: floor(cap / rate).  The single source of the number in the proposers' spec text."""
     from su2plaq.evaluate.evaluator import PRUNE_FRACTION
 
-    cap = PRUNE_FRACTION * spec.tol_err
-
-    def down(x: float) -> int:
-        n = int(x)
-        step = 10 ** max(len(str(n)) - 2, 0)
-        return n // step * step
-
-    return down(cap / PRUNE_RATES["ccx"]), down(cap / PRUNE_RATES["rccx"])
+    return int(math.floor(PRUNE_FRACTION * spec.tol_err / PRUNE_RATE_PER_BRANCHING_GATE))
 
 
 def _fmt_num(x: float) -> str:
@@ -417,7 +420,7 @@ def render_spec(spec) -> str:
     kap = ", ".join(f"{_kappa_tex(k)}\\ (\\times{n})" for k, n in hb["kappa_multiset"].items())
     alph = ", ".join("\\pm" + _alphabet_tex(a) for a in by["amplitude_alphabet"]["value"])
     cap = PRUNE_FRACTION * spec.tol_err
-    n_ccx, n_rccx = prune_budget(spec)
+    n_budget = prune_budget(spec)
     slack = synth_tolerances(0, spec.eps)["tol_err"]
     n_closed, n_sample = _gauss_count()
     alts = ", ".join(f"({a:g}, {b:g})" for a, b in spec.alt_angles)
@@ -450,9 +453,11 @@ def render_spec(spec) -> str:
         "(`su2plaq.compress.oracle`, `su2plaq.compress.spec.get_encoding(\"rishon\")`, numpy).\n\n"
         f"## Correctness\n\n`op_norm_error` = block error + leak amplitude + certified pruning bound must be at most {spec.tol_err:g} "
         f"after one global phase; `dropped_total` must be at most {cap:g} (**prune cap** = {PRUNE_FRACTION:g} x tolerance; measured on "
-        f"this task the sparse engine's pruning bound grows by about {PRUNE_RATES['ccx']:.1e} per `ccx` and {PRUNE_RATES['rccx']:.1e} "
-        f"per `rccx`, so the cap allows at most about {n_ccx} `ccx` or {n_rccx} `rccx` (cap / rate, rounded down to two digits); the uncompressed general circuit with `rccx` "
-        f"ladders is rejected as `pruning_bound` by this rule alone); Gauss residual of the outputs on {n_closed + n_sample} sampled "
+        f"this task the engine's certified pruning bound grows by about {PRUNE_RATE_PER_BRANCHING_GATE:.1e} per branching gate of its lowering "
+        f"(h, sx, u; ch, crx and rccx count 2; macro ccx/ccz and all permutation/phase gates count 0), so the cap allows about {n_budget} "
+        "branching gates; exact circuits above that are rejected as `pruning_bound` - the uncompressed circuit in bare h/t form, its "
+        "rccx-ladder variants and its Qiskit L3 transpile all are); "
+        f"Gauss residual of the outputs on {n_closed + n_sample} sampled "
         f"physical states ({n_closed} closed + {n_sample} seeded) at most {spec.tol_gauss:g}; identical skeleton at the three angle "
         f"pairs; evaluation wall at most {spec.eval_budget_s:g} s and at most {spec.support_cap} stored amplitudes; synthesised "
         f"re-verification of the round's best at $\\varepsilon={spec.eps:g}$ with $N_{{\\rm rot}}\\varepsilon+{slack:g}$. "

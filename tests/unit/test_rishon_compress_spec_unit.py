@@ -95,9 +95,12 @@ def test_render_and_write(tmp_path):
     assert t == S.render_spec(sp) and "433" not in t and "12-qubit" not in t and "1296" in t and "38432" in t
     assert t.count("outer register") == 2 and t.count("neither write it nor read it") == 1           # no repeated sentence
     assert "not a validity verdict" in t and "reports/tests/215" in t
-    n_ccx, n_rccx = S.prune_budget(sp)
-    assert f"{n_ccx} `ccx` or {n_rccx} `rccx`" in t and n_ccx <= 1e-12 / S.PRUNE_RATES["ccx"] and n_rccx <= 1e-12 / S.PRUNE_RATES["rccx"]
-    assert n_ccx >= 0.95 * 1e-12 / S.PRUNE_RATES["ccx"] and n_rccx >= 0.95 * 1e-12 / S.PRUNE_RATES["rccx"] and (n_ccx, n_rccx) == (4700, 710)
+    nb = S.prune_budget(sp)
+    assert isinstance(nb, int) and nb == int(np.floor(1e-12 / S.PRUNE_RATE_PER_BRANCHING_GATE))
+    assert f"allows about {nb} branching gates" in t and "ccx/ccz and all permutation/phase gates count 0" in t and "Qiskit L3" in t
+    pr = {f["name"]: f for f in S.structure_facts()["facts"]}["prune_rates"]["value"]
+    assert pr["per_branching_gate"] == S.PRUNE_RATE_PER_BRANCHING_GATE and pr["budget_at_cap"] == nb
+    assert {"per_branching_gate", "budget_at_cap", "branching", "engine_exact", "provenance"} == set(pr) and "E2" in pr["provenance"]
     assert t.count("Proved structure (Lean)") == 1 and "Proved structure (Lean)" in t and "4\\sqrt2" in t and "outer_read_unsupported" in t
     p = S.write_spec(sp, tmp_path / "x" / "rishon-step.md")
     assert p.read_text() == t

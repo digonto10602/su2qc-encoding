@@ -642,12 +642,39 @@
   {
    "name": "prune_rates",
    "value": {
-    "ccx": 2.1e-16,
-    "rccx": 1.4e-15
+    "per_branching_gate": 1.1e-15,
+    "budget_at_cap": 909,
+    "branching": [
+     "h",
+     "sx",
+     "u",
+     "ch (2)",
+     "crx (2)",
+     "rccx (2)",
+     "crz (0)",
+     "cp (0)"
+    ],
+    "engine_exact": [
+     "x",
+     "z",
+     "s",
+     "sdg",
+     "t",
+     "tdg",
+     "p",
+     "rz",
+     "cx",
+     "cz",
+     "cp",
+     "swap",
+     "ccx",
+     "ccz"
+    ],
+    "provenance": "prompts/203 \u00a713 E2 table"
    },
    "proved_by": "numerical",
-   "summary": "growth of the sparse engine's certified pruning bound per AND gate: ccx 2.1e-16, rccx 1.4e-15",
-   "note": "measured, research 202 section 3 (METHODS-rishon R11)"
+   "summary": "growth of the sparse engine's certified pruning bound: 1.1e-15 per branching gate of its lowering (budget at the cap: 909 branching gates; macro ccx/ccz and permutation/phase gates cost 0)",
+   "note": "measured, prompts/203 section 13 E2 (METHODS-rishon R11)"
   }
  ],
  "provenance": {
