@@ -1,0 +1,152 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 2.960078479349324e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   0.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 1.1600307436734885e-15,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.6668752417355595e-13,
+  "block_error": 1.2932032376137643e-13,
+  "leak_amplitude": 0.0,
+  "seconds": 3.3172056674957275,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 3.69246831305656e-14,
+   "max_dropped_l2": 8.290261306020854e-15,
+   "max_span_leak": 5.662137425588298e-15,
+   "op_norm_error_inner_span": 1.2932032376137643e-13
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.070809407526143e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -3.199903775363151e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 1.1772012960763489e-15,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.7723575467719155e-13,
+   "block_error": 1.2984518607542274e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.8591670989990234,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.7535599772215455e-14,
+    "max_dropped_l2": 8.98468759573549e-15,
+    "max_span_leak": 5.995204332975845e-15,
+    "op_norm_error_inner_span": 1.2984518607542274e-13
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 2.943237939705263e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.476878665552223e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 1.1390781375892002e-15,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.6455430912008032e-13,
+   "block_error": 1.2976948485044598e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.7568769454956055,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.7029074244098275e-14,
+    "max_dropped_l2": 8.79993291053741e-15,
+    "max_span_leak": 4.551914400963142e-15,
+    "op_norm_error_inner_span": 1.2976948485044598e-13
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 210,
+  "t_fixed": 192,
+  "n_rot": 8,
+  "t_eps": 704,
+  "t_estimate": {
+   "1e-06": 670.3576456637802,
+   "1e-10": 989.2627427729669
+  },
+  "t_measured": {
+   "1e-06": 704,
+   "1e-10": 1026
+  },
+  "synth_error_bound": 8e-06,
+  "depth": 360,
+  "depth_ct": 1148,
+  "qubits": 38,
+  "gates": {
+   "h": 386,
+   "cx": 210,
+   "sdg": 184,
+   "s": 184,
+   "t": 96,
+   "tdg": 96,
+   "x": 40,
+   "rz": 8,
+   "z": 6
+  },
+  "measured": true
+ },
+ "program_sha256": "d01e7d2ac747513988269e91f2e501b7423832976930513c334f95eb77bf6fdc",
+ "wall_s": 10.972271203994751,
+ "discoveries": [],
+ "summary": "su2qc-trotter lean22 plaquette (vendored, plaquette only) behind our electric layer."
+}
