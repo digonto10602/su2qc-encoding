@@ -1,4 +1,4 @@
-M5 in progress (desktop track R, rishon QLM): all steps 5.0–5.10 and Lean 5.L1–5.L3 PASS; results regenerated on clean commit (f1cafdc); milestone gate step 1 (tester full, reports/tests/207) running.
+M5 in progress (desktop track R, rishon QLM): gate step 1 tester full PASS (reports/tests/207); gate step 2 auditor (reports/audits/200) running; then benchmark, tag milestone-5, Report 5.
 
 # Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)
 
