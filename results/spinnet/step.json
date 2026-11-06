@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "7a716fc",
+    "git_commit": "d82a472",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -26,13 +26,13 @@
       "clifford_t_pass_manager": 12345,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-06T07:40:28Z",
-    "provenance_captured_at": "2026-11-06T07:40:28Z",
+    "timestamp_utc": "2026-11-06T08:04:43Z",
+    "provenance_captured_at": "2026-11-06T08:04:43Z",
     "host": "SupremeCommander",
     "command": "python scripts/m3_results.py",
     "quick": false,
-    "wall_seconds": 8.596943855285645,
-    "peak_rss_mb": 291.3671875
+    "wall_seconds": 8.564181327819824,
+    "peak_rss_mb": 291.515625
   },
   "verification": {
     "ok": true,
@@ -58,7 +58,7 @@
     "dropped_total": 7.314471127660585e-15,
     "block_error": 4.151696870714565e-15,
     "leak_amplitude": 0.0,
-    "seconds": 0.16787314414978027,
+    "seconds": 0.16688323020935059,
     "n_inputs": 433,
     "extra": {
       "op_norm_error_physical": 3.711752925647263e-15,
@@ -124,7 +124,7 @@
             "dropped_total": 1.2809077710481467e-13,
             "block_error": 0.00015397195814574922,
             "leak_amplitude": 2.5522923177371808e-05,
-            "seconds": 0.23018741607666016,
+            "seconds": 0.22882652282714844,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 0.00014917213329380385,
@@ -174,7 +174,7 @@
             "dropped_total": 2.1929409012046588e-12,
             "block_error": 1.8534370823859617e-06,
             "leak_amplitude": 5.277434924466636e-07,
-            "seconds": 0.23655343055725098,
+            "seconds": 0.23636674880981445,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.503831243128469e-06,
@@ -224,7 +224,7 @@
             "dropped_total": 7.560978753286117e-15,
             "block_error": 1.7176973056114712e-08,
             "leak_amplitude": 9.60585904529707e-09,
-            "seconds": 0.24697089195251465,
+            "seconds": 0.2465364933013916,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 8.172369475112709e-09,
@@ -274,7 +274,7 @@
             "dropped_total": 7.082917374658484e-15,
             "block_error": 1.27928980550196e-10,
             "leak_amplitude": 5.4607350060879305e-11,
-            "seconds": 0.2609546184539795,
+            "seconds": 0.26048755645751953,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 6.604504423240825e-11,
@@ -359,7 +359,7 @@
         "dropped_total": 7.373846432435259e-15,
         "block_error": 4.0327919791605394e-15,
         "leak_amplitude": 0.0,
-        "seconds": 0.167222261428833,
+        "seconds": 0.16718697547912598,
         "n_inputs": 433,
         "extra": {
           "op_norm_error_physical": 3.890940447495737e-15,
@@ -425,7 +425,7 @@
                 "dropped_total": 1.299085771526826e-13,
                 "block_error": 0.00037366183406289044,
                 "leak_amplitude": 0.0001879173092287953,
-                "seconds": 0.24715852737426758,
+                "seconds": 0.24495482444763184,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 0.00010354794338187165,
@@ -475,7 +475,7 @@
                 "dropped_total": 9.989103690203146e-13,
                 "block_error": 2.935645903716021e-06,
                 "leak_amplitude": 4.512641532612825e-07,
-                "seconds": 0.2600984573364258,
+                "seconds": 0.2584402561187744,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 2.905904763415298e-06,
@@ -525,7 +525,7 @@
                 "dropped_total": 8.787930940972937e-15,
                 "block_error": 3.6273124288543404e-08,
                 "leak_amplitude": 1.721129567326549e-08,
-                "seconds": 0.2813596725463867,
+                "seconds": 0.27977561950683594,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 1.410621108057937e-08,
@@ -575,7 +575,7 @@
                 "dropped_total": 7.14935200142969e-15,
                 "block_error": 3.275934978275464e-10,
                 "leak_amplitude": 1.709046797500255e-10,
-                "seconds": 0.29805421829223633,
+                "seconds": 0.2981882095336914,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 6.378073612573534e-11,

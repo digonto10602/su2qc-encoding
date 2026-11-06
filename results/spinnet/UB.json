@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "7a716fc",
+    "git_commit": "d82a472",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -26,13 +26,13 @@
       "clifford_t_pass_manager": 12345,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-06T07:40:28Z",
-    "provenance_captured_at": "2026-11-06T07:40:28Z",
+    "timestamp_utc": "2026-11-06T08:04:43Z",
+    "provenance_captured_at": "2026-11-06T08:04:43Z",
     "host": "SupremeCommander",
     "command": "python scripts/m3_results.py",
     "quick": false,
-    "wall_seconds": 8.596943855285645,
-    "peak_rss_mb": 291.3671875
+    "wall_seconds": 8.564181327819824,
+    "peak_rss_mb": 291.515625
   },
   "verification": {
     "ok": true,
@@ -58,7 +58,7 @@
     "dropped_total": 6.695928414167411e-15,
     "block_error": 4.15001871659611e-15,
     "leak_amplitude": 0.0,
-    "seconds": 0.17153573036193848,
+    "seconds": 0.1717228889465332,
     "n_inputs": 433,
     "extra": {
       "op_norm_error_physical": 3.65186667140949e-15,
@@ -124,7 +124,7 @@
             "dropped_total": 6.803566696523146e-15,
             "block_error": 8.409384275379693e-05,
             "leak_amplitude": 1.6792256571273943e-05,
-            "seconds": 0.19615387916564941,
+            "seconds": 0.1953902244567871,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 8.409384275369595e-05,
@@ -174,7 +174,7 @@
             "dropped_total": 6.419950356163744e-15,
             "block_error": 8.79982829871529e-07,
             "leak_amplitude": 4.232079381696971e-07,
-            "seconds": 0.20070195198059082,
+            "seconds": 0.20013642311096191,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 8.799828297577194e-07,
@@ -224,7 +224,7 @@
             "dropped_total": 6.645744732273532e-15,
             "block_error": 8.499629308805392e-09,
             "leak_amplitude": 6.882008946872075e-09,
-            "seconds": 0.2076115608215332,
+            "seconds": 0.2066338062286377,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 8.499629308805392e-09,
@@ -274,7 +274,7 @@
             "dropped_total": 6.246645280584166e-15,
             "block_error": 6.568091772384849e-11,
             "leak_amplitude": 8.585649430257674e-12,
-            "seconds": 0.2121729850769043,
+            "seconds": 0.21208906173706055,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 6.568077515875042e-11,
@@ -356,7 +356,7 @@
           "dropped_total": 6.725594473071768e-15,
           "block_error": 3.008013445545084e-15,
           "leak_amplitude": 0.0,
-          "seconds": 0.16654181480407715,
+          "seconds": 0.16620421409606934,
           "n_inputs": 433,
           "extra": {
             "op_norm_error_physical": 3.008013445545084e-15,
@@ -469,7 +469,7 @@
           "dropped_total": 6.725594473071768e-15,
           "block_error": 0.1996668332936563,
           "leak_amplitude": 0.0,
-          "seconds": 0.16829180717468262,
+          "seconds": 0.16875052452087402,
           "n_inputs": 433,
           "failing_inputs": [
             [
@@ -542,7 +542,7 @@
         "alpha_P": 0.1,
         "source": "/home/digonto/Projects/su2qc-spinnet/refs/paulo/spin_network_plaquette3.gates.txt",
         "sha256": "e4b8687f1aa5995fd975770eac0c65c8ec667e71f723fad3b3825190c693a504",
-        "gauge_note": "the 15-qubit file equals exp(-i beta K) up to a real diagonal sign gauge D (one -1 per bright pair on the data codes listed in gauge_minus_codes): a basis-sign convention of the electric basis, METHODS-spinnet \u00a71.3. The verdict above is for the target regauged with D; the ungauged route-B target is rejected."
+        "gauge_note": "the 15-qubit file equals exp(-i beta K) up to the real diagonal sign gauge D with D = -1 exactly on the bright data codes with j_l = 1/2 (gauge_minus_codes = {8..15}, left link, file q[3]), i.e. the beta-independent centre-symmetry convention (-1)^(2 j_l) of one link's j = 1/2 states (METHODS-spinnet section 2): the verdict above is for the target regauged with D; the ungauged route-B target is rejected because the file is U_B(-beta) in route-B signs."
       },
       "spinnet_v2": {
         "pairs9": {
@@ -572,7 +572,7 @@
             "dropped_total": 4.885109772790279e-15,
             "block_error": 3.0148358610773768e-15,
             "leak_amplitude": 0.0,
-            "seconds": 0.16673827171325684,
+            "seconds": 0.16729283332824707,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 2.5544799069029984e-15,
@@ -690,7 +690,7 @@
             "dropped_total": 4.5831237559916e-15,
             "block_error": 4.587535271422856e-15,
             "leak_amplitude": 0.0,
-            "seconds": 0.1890568733215332,
+            "seconds": 0.1886425018310547,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 4.232498931360639e-15,
@@ -809,7 +809,7 @@
           "dropped_total": 6.695928414167411e-15,
           "block_error": 4.15001871659611e-15,
           "leak_amplitude": 0.0,
-          "seconds": 0.17153573036193848,
+          "seconds": 0.1717228889465332,
           "n_inputs": 433,
           "extra": {
             "op_norm_error_physical": 3.65186667140949e-15,
@@ -926,7 +926,7 @@
           "dropped_total": 5.965040190852723e-15,
           "block_error": 2.4424958099341208e-15,
           "leak_amplitude": 0.0,
-          "seconds": 0.1666710376739502,
+          "seconds": 0.16663026809692383,
           "n_inputs": 433,
           "extra": {
             "op_norm_error_physical": 2.4424958099341204e-15,
