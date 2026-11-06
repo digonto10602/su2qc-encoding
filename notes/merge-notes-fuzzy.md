@@ -21,3 +21,5 @@ export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 
 ## Other
 - notes/STATUS.md on this branch is the fuzzy session's; the laptop's copy at branch point is preserved as notes/STATUS-laptop-at-branch-point.md (drop on merge).
+- Repo-local git identity set to master's author (pichka_commander <mdhabibeislam.digonto@gmail.com>); host had no global git identity.
+- Digonto's uploaded `fuzzy-hamiltonian.pdf` saved as refs/fuzzy/fuzzy-hamiltonian-digonto.pdf; being checked against the paper/plan before the planner run.
