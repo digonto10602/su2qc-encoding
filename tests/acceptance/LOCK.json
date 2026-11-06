@@ -32,6 +32,8 @@
   "tests/acceptance/m5/test_rishon_physical.py": "fc0ad1d3de0be7c559c7b1c378f9b67f2efdf8eddd2b4287e019c3b323b05911",
   "tests/acceptance/m5/test_rishon_results.py": "df19b52d730f48a9b81b35f67314e2ad8aaf94c61fce4d0747db760fb0ec7aba",
   "tests/acceptance/m5/test_rishon_verify.py": "4e31c802266f4f66e70d5e07a07c0eb95f0a2b904594a66af9f7527b135785e1",
+  "tests/acceptance/m5x/test_rishon_lean_exact.py": "36c7ac64e6ffcd3fb2e338e441b5987641517a2d173658e37e89e8c4004123e7",
+  "tests/acceptance/m5x/test_rishon_outer_row.py": "d44b6e50412d370fbbe729e772ef4fb51cd210190a15657524dfc122b19b0ab3",
   "tools/check_lock.py": "10a9fb1b4049c34902753bdc91f329108e2eceb539704fe896d2c72ddb60ff1f",
   "tools/lock.py": "020880eb638fa9f4a3190165153d457a3bcc2521e48ad2bc8a8c2cc4c94af15e"
  },
@@ -39,6 +41,7 @@
   "m0",
   "m1",
   "m2",
-  "m5"
+  "m5",
+  "m5x"
  ]
 }
