@@ -1,0 +1,532 @@
+{
+ "wall_seed_round_s": 9.561195850372314,
+ "info": {
+  "round": 0,
+  "n_valid": 7,
+  "n_invalid": 0,
+  "best_key": [
+   34,
+   832,
+   1597,
+   19
+  ],
+  "entries": [
+   "r00-seed-000",
+   "r00-seed-001",
+   "r00-seed-002",
+   "r00-seed-003",
+   "r00-seed-004",
+   "r00-seed-010",
+   "r00-seed-011"
+  ],
+  "lean_seconds": 0.0,
+  "external": [
+   "qiskit_l3_whole",
+   "paulo15"
+  ]
+ },
+ "round_keys": [
+  "best_key",
+  "candidates",
+  "encoding",
+  "entries",
+  "evaluator_sha256",
+  "external",
+  "invalid",
+  "kind",
+  "lean_seconds",
+  "n_invalid",
+  "n_valid",
+  "provenance",
+  "round",
+  "spec_sha256",
+  "spinnet",
+  "synthesis_verification",
+  "wall_s",
+  "written_utc"
+ ],
+ "cand_keys": [
+  "alt_ok",
+  "cell",
+  "family",
+  "git_commit",
+  "id",
+  "key",
+  "label",
+  "lean",
+  "metrics",
+  "mode",
+  "parent",
+  "parent_known",
+  "program_path",
+  "program_sha256",
+  "reason",
+  "round",
+  "skeleton_equal",
+  "summary",
+  "valid",
+  "verdict"
+ ],
+ "cands": [
+  {
+   "label": "general",
+   "id": "r00-seed-000",
+   "family": "seed",
+   "valid": true,
+   "key": [
+    54,
+    566,
+    861,
+    23
+   ],
+   "cell": [
+    46,
+    73
+   ],
+   "parent": null,
+   "round": 0,
+   "mode": "full",
+   "skeleton_equal": true,
+   "alt_ok": [
+    true,
+    true
+   ],
+   "program_path": "compress/programs/spinnet/seed/000-general.py",
+   "lean": null
+  },
+  {
+   "label": "spinnet_v2_pairs9",
+   "id": "r00-seed-001",
+   "family": "seed",
+   "valid": true,
+   "key": [
+    34,
+    832,
+    1597,
+    19
+   ],
+   "cell": [
+    41,
+    77
+   ],
+   "parent": null,
+   "round": 0,
+   "mode": "full",
+   "skeleton_equal": true,
+   "alt_ok": [
+    true,
+    true
+   ],
+   "program_path": "compress/programs/spinnet/seed/001-spinnet_v2_pairs9.py",
+   "lean": null
+  },
+  {
+   "label": "spinnet_v2_flags4",
+   "id": "r00-seed-002",
+   "family": "seed",
+   "valid": true,
+   "key": [
+    44,
+    554,
+    869,
+    19
+   ],
+   "cell": [
+    43,
+    72
+   ],
+   "parent": null,
+   "round": 0,
+   "mode": "full",
+   "skeleton_equal": true,
+   "alt_ok": [
+    true,
+    true
+   ],
+   "program_path": "compress/programs/spinnet/seed/002-spinnet_v2_flags4.py",
+   "lean": null
+  },
+  {
+   "label": "spinnet_v2_flags5",
+   "id": "r00-seed-003",
+   "family": "seed",
+   "valid": true,
+   "key": [
+    42,
+    606,
+    1009,
+    19
+   ],
+   "cell": [
+    43,
+    73
+   ],
+   "parent": null,
+   "round": 0,
+   "mode": "full",
+   "skeleton_equal": true,
+   "alt_ok": [
+    true,
+    true
+   ],
+   "program_path": "compress/programs/spinnet/seed/003-spinnet_v2_flags5.py",
+   "lean": null
+  },
+  {
+   "label": "spinnet_v2_flags6",
+   "id": "r00-seed-004",
+   "family": "seed",
+   "valid": true,
+   "key": [
+    36,
+    658,
+    1120,
+    19
+   ],
+   "cell": [
+    41,
+    74
+   ],
+   "parent": null,
+   "round": 0,
+   "mode": "full",
+   "skeleton_equal": true,
+   "alt_ok": [
+    true,
+    true
+   ],
+   "program_path": "compress/programs/spinnet/seed/004-spinnet_v2_flags6.py",
+   "lean": null
+  },
+  {
+   "label": "general+polish",
+   "id": "r00-seed-010",
+   "family": "seed",
+   "valid": true,
+   "key": [
+    54,
+    566,
+    861,
+    23
+   ],
+   "cell": [
+    46,
+    73
+   ],
+   "parent": null,
+   "round": 0,
+   "mode": "full",
+   "skeleton_equal": true,
+   "alt_ok": [
+    true,
+    true
+   ],
+   "program_path": "compress/programs/spinnet/seed/010-general_polish.py",
+   "lean": null
+  },
+  {
+   "label": "qiskit_l3",
+   "id": "r00-seed-011",
+   "family": "seed",
+   "valid": true,
+   "key": [
+    54,
+    566,
+    861,
+    23
+   ],
+   "cell": [
+    46,
+    73
+   ],
+   "parent": null,
+   "round": 0,
+   "mode": "full",
+   "skeleton_equal": true,
+   "alt_ok": [
+    true,
+    true
+   ],
+   "program_path": "compress/programs/spinnet/seed/011-qiskit_l3.py",
+   "lean": null
+  }
+ ],
+ "external": [
+  {
+   "source": "qiskit_l3_whole",
+   "valid": false,
+   "reason": "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "metrics": {
+    "cx": 54,
+    "t_fixed": 56,
+    "n_rot": 8,
+    "t_eps": 534.3576456637802,
+    "depth_ct": 67,
+    "qubits": 23
+   }
+  },
+  {
+   "source": "paulo15",
+   "fixed_angle": true,
+   "kind": "UB",
+   "beta": 0.05,
+   "valid": true,
+   "reason": "ok",
+   "op_norm_error": 9.61272771348275e-15,
+   "leak_amplitude": 0.0,
+   "gauss_residual": 5.410557748946589e-16,
+   "certified": true,
+   "message": "fixed angle beta=0.05, kind UB; exact-angle tolerances 1e-10; target regauged with the sign gauge D (n_minus 8 inner codes with -1: [8, 9, 10, 11, 12, 13, 14, 15])",
+   "gauge_minus_codes": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "n_minus": 8,
+   "metrics": {
+    "cx": 68,
+    "t_fixed": 64,
+    "n_rot": 4,
+    "t_eps": 316,
+    "depth_ct": 726,
+    "qubits": 23
+   }
+  }
+ ],
+ "synth": {
+  "entry": "r00-seed-001",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 13,
+  "t_total": 832,
+  "tolerances": {
+   "tol_err": 1.3001e-05,
+   "tol_gauss": 1.3001e-05
+  },
+  "op_norm_error": 5.062300439437067e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "spinnet_key": {
+  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "shim": [
+   "build_in_subprocess",
+   "certify",
+   "encoding"
+  ]
+ },
+ "lean_seconds": 0.0,
+ "attempts": [
+  [
+   "r00-seed-000",
+   0,
+   "seed",
+   true,
+   [
+    54,
+    566,
+    861,
+    23
+   ]
+  ],
+  [
+   "r00-seed-001",
+   0,
+   "seed",
+   true,
+   [
+    34,
+    832,
+    1597,
+    19
+   ]
+  ],
+  [
+   "r00-seed-002",
+   0,
+   "seed",
+   true,
+   [
+    44,
+    554,
+    869,
+    19
+   ]
+  ],
+  [
+   "r00-seed-003",
+   0,
+   "seed",
+   true,
+   [
+    42,
+    606,
+    1009,
+    19
+   ]
+  ],
+  [
+   "r00-seed-004",
+   0,
+   "seed",
+   true,
+   [
+    36,
+    658,
+    1120,
+    19
+   ]
+  ],
+  [
+   "r00-seed-010",
+   0,
+   "seed",
+   true,
+   [
+    54,
+    566,
+    861,
+    23
+   ]
+  ],
+  [
+   "r00-seed-011",
+   0,
+   "seed",
+   true,
+   [
+    54,
+    566,
+    861,
+    23
+   ]
+  ]
+ ],
+ "feedback": [
+  "r00-seed-000.json",
+  "r00-seed-001.json",
+  "r00-seed-002.json",
+  "r00-seed-003.json",
+  "r00-seed-004.json",
+  "r00-seed-010.json",
+  "r00-seed-011.json"
+ ],
+ "archive_files": [
+  "compress/archive/spinnet/entries/r00-seed-000.json",
+  "compress/archive/spinnet/entries/r00-seed-001.json",
+  "compress/archive/spinnet/entries/r00-seed-002.json",
+  "compress/archive/spinnet/entries/r00-seed-003.json",
+  "compress/archive/spinnet/entries/r00-seed-004.json",
+  "compress/archive/spinnet/entries/r00-seed-010.json",
+  "compress/archive/spinnet/entries/r00-seed-011.json",
+  "compress/archive/spinnet/index.json"
+ ],
+ "archive_entries": [
+  [
+   "r00-seed-000",
+   "seed",
+   true,
+   [
+    54,
+    566,
+    861,
+    23
+   ],
+   "compress/programs/spinnet/seed/000-general.py",
+   0
+  ],
+  [
+   "r00-seed-001",
+   "seed",
+   true,
+   [
+    34,
+    832,
+    1597,
+    19
+   ],
+   "compress/programs/spinnet/seed/001-spinnet_v2_pairs9.py",
+   0
+  ],
+  [
+   "r00-seed-002",
+   "seed",
+   true,
+   [
+    44,
+    554,
+    869,
+    19
+   ],
+   "compress/programs/spinnet/seed/002-spinnet_v2_flags4.py",
+   0
+  ],
+  [
+   "r00-seed-003",
+   "seed",
+   true,
+   [
+    42,
+    606,
+    1009,
+    19
+   ],
+   "compress/programs/spinnet/seed/003-spinnet_v2_flags5.py",
+   0
+  ],
+  [
+   "r00-seed-004",
+   "seed",
+   true,
+   [
+    36,
+    658,
+    1120,
+    19
+   ],
+   "compress/programs/spinnet/seed/004-spinnet_v2_flags6.py",
+   0
+  ],
+  [
+   "r00-seed-010",
+   "seed",
+   true,
+   [
+    54,
+    566,
+    861,
+    23
+   ],
+   "compress/programs/spinnet/seed/010-general_polish.py",
+   0
+  ],
+  [
+   "r00-seed-011",
+   "seed",
+   true,
+   [
+    54,
+    566,
+    861,
+    23
+   ],
+   "compress/programs/spinnet/seed/011-qiskit_l3.py",
+   0
+  ]
+ ],
+ "archive_best": [
+  "r00-seed-001",
+  [
+   34,
+   832,
+   1597,
+   19
+  ]
+ ],
+ "maxrss_gb": 0.274208
+}

@@ -1,6 +1,7 @@
-"""Unit tests for su2plaq.spinnet.loop (M4 steps 4.0 / 4.1; prompts/104 §2): interface stubs, shim, facts, spec text, worker."""
+"""Unit tests for su2plaq.spinnet.loop (M4 steps 4.0-4.3; prompts/104 §2): interface, shim, facts, spec text, worker, seeds, rounds, CLI."""
 import dataclasses
 import json
+import numpy as np
 import pathlib
 import re
 import subprocess
@@ -37,23 +38,6 @@ def test_seed_circuit_dataclass_fields():
     f = {x.name: x for x in dataclasses.fields(L.SeedCircuit)}
     assert list(f) == ["qc", "source", "fixed_angle", "alpha", "beta", "kind", "can_be_parent", "gauge"]
     assert f["gauge"].default is None
-
-
-@pytest.mark.parametrize("call", [
-    lambda sp: L.import_seed(sp, "paulo15"),
-    lambda sp: L.seed_program_source(sp, "spinnet_v2:pairs9"),
-    lambda sp: L.evaluate_seed(sp, None),
-    lambda sp: L.seed_round(dry_run=True),
-    lambda sp: L.run_round(1, dry_run=True),
-    lambda sp: L.make_ideation_brief(),
-    lambda sp: L.make_brief(1, "F1"),
-    lambda sp: L.report_table(),
-    lambda sp: L.certify_best(),
-    lambda sp: L.main(["seed"]),
-])
-def test_later_steps_are_stubs_that_raise_not_implemented(sp, call):
-    with pytest.raises(NotImplementedError):
-        call(sp)
 
 
 # ------------------------------------------------------------------------------------------------------- shim (4.1)
@@ -196,3 +180,168 @@ def test_worker_cli_builds_the_general_program_in_a_subprocess(sp, tmp_path):
 def test_worker_cli_usage_error():
     with pytest.raises(SystemExit):
         L.main(["--worker", "only-one-argument"])
+
+
+# ------------------------------------------------------------------------------------------------------ seeds (4.2)
+def test_ub_exact_semantics_fact_does_not_leak_the_reference_circuit_size():
+    note = next(f["note"] for f in L.structure_facts()["facts"] if f["name"] == "ub_exact_semantics")
+    assert "reference U_B circuit" in note and "48" not in note and "48-gate" not in L.render_spec()
+
+
+def test_import_seed_paulo15_gauge_is_a_state_vector_with_eight_minus_inner_codes(sp):
+    seed = L.import_seed(sp, "paulo15")
+    g = np.asarray(seed.gauge)
+    assert g.shape == (433,) and set(g.tolist()) == {-1.0, 1.0}
+    assert L.gauge_minus_codes(g) == list(range(8, 16))                      # M3-P1: one -1 per bright pair, codes 8..15
+    assert int((g < 0).sum()) == 128                                           # every state whose data code is in 8..15 (all outer patterns)
+    assert seed.fixed_angle and not seed.can_be_parent and seed.kind == "UB" and seed.alpha is None and abs(seed.beta - 0.05) < 1e-15
+
+
+def test_import_seed_reasons_and_errors(sp):
+    for src in ("paulo34", "lean22", "lean22_v2"):
+        assert isinstance(L.import_seed(sp, src), str)
+    with pytest.raises(ValueError):
+        L.import_seed(sp, "spinnet_v2:nope")
+    with pytest.raises(ValueError):
+        L.import_seed(sp, "unknown")
+    ue = dataclasses.replace(sp, kind="UE")
+    assert isinstance(L.import_seed(ue, "spinnet_v2:pairs9"), str)
+
+
+@pytest.mark.parametrize("skel, cx", [("pairs9", 34), ("flags4", 44)])
+def test_v2_seed_evaluates_with_alternate_angles_and_its_program_is_angle_linear(sp, skel, cx):
+    seed = L.import_seed(sp, f"spinnet_v2:{skel}")
+    r = L.evaluate_seed(sp, seed, "full")
+    assert r.valid and r.skeleton_equal and len(r.verdicts_alt) == 2 and r.metrics["cx"] == cx
+    src = L.seed_program_source(sp, f"spinnet_v2:{skel}")
+    assert src.lstrip().startswith('"""SUMMARY:') and "spec.beta" in src and "spec.alpha" in src
+    with pytest.raises(ValueError):
+        L.seed_program_source(sp, "paulo15")
+
+
+def test_evaluate_seed_paulo15_exact_tolerance_and_raw_target_rejected(sp):
+    seed = L.import_seed(sp, "paulo15")
+    r = L.evaluate_seed(sp, seed, "full")
+    assert r.valid and r.verdict.op_norm_error <= 1e-10 and "n_minus 8" in r.message and r.metrics["cx"] == 68
+    no_gauge = dataclasses.replace(seed, gauge=np.ones(433))
+    assert not L.evaluate_seed(sp, no_gauge, "full").valid                      # the raw route-B target is rejected
+    with pytest.raises(ValueError):
+        L.evaluate_seed(sp, dataclasses.replace(seed, gauge=None), "full")
+
+
+def test_linear_in_angles_recovers_the_l3_skeleton_where_the_laptop_fit_points_fail(sp):
+    from su2plaq.compress import baselines as BL
+
+    fn = lambda s: L._qiskit_l3(L._reference_circuit(s))
+    with pytest.raises(ValueError):
+        BL.program_source(fn, sp, summary="x")                                  # (0,0) deletes the rotations: skeleton differs
+    lin = L._linear_in_angles(fn, sp)
+    for a, b in ((0.37, 0.61), (0.91, 0.23), (0.7, 0.9)):
+        s = sp.with_angles(a, b)
+        got = [(i.operation.name, [x for x in i.operation.params]) for i in lin(s).data]
+        ref = [(i.operation.name, [x for x in i.operation.params]) for i in fn(s).data]
+        assert [n for n, _ in got] == [n for n, _ in ref]
+        assert np.allclose([p for _, ps in got for p in ps], [p for _, ps in ref for p in ps], atol=1e-10)
+    assert BL.program_source(lin, sp, summary="x").lstrip().startswith('"""SUMMARY:')
+
+
+def test_linear_in_angles_refuses_a_nonlinear_angle(sp):
+    from su2plaq.circuits import spinnet as C
+
+    def fn(s):
+        qc = C.build_UE(s.alpha ** 2, with_outer=True)
+        return qc
+    with pytest.raises(ValueError):
+        L._linear_in_angles(fn, sp)
+
+
+# ----------------------------------------------------------------------------------------------- rounds, briefs, CLI (4.3)
+@pytest.fixture(scope="module")
+def round0(tmp_path_factory):
+    root = tmp_path_factory.mktemp("round0")
+    info = L.seed_round(root=root, lean=False, dry_run=True)
+    return root, info
+
+
+def test_seed_round_writes_labels_external_rows_and_our_key(round0):
+    root, info = round0
+    d = json.loads((root / "results" / "compress" / "spinnet" / "round-000.json").read_text())
+    assert [c["label"] for c in d["candidates"]] == [lab for lab, _ in L._SEED_FILES]
+    assert info["n_valid"] == 7 and info["external"] == ["qiskit_l3_whole", "paulo15"]
+    p = d["external"][1]
+    assert p["beta"] == 0.05 and p["n_minus"] == 8 and p["gauge_minus_codes"] == list(range(8, 16)) and p["valid"] and p["certified"]
+    assert d["spinnet"] == {"code_sha256": L.code_hash(), "shim": sorted(L.INSTALLED)}
+    assert tuple(info["best_key"]) == min(tuple(c["key"]) for c in d["candidates"])
+
+
+def test_seed_programs_are_immutable_once_written(round0):
+    root, _ = round0
+    f = root / "compress" / "programs" / "spinnet" / "seed" / "011-qiskit_l3.py"
+    text = f.read_text() + "# marker\n"
+    f.write_text(text)
+    progs = L.seed_programs(L.spec(), root)
+    assert dict(progs)["qiskit_l3"].read_text() == text
+
+
+def test_briefs_name_our_commands_and_the_spec_file_is_ours(round0):
+    root, _ = round0
+    b = L.make_brief(2, "F3", root=root).read_text()
+    assert "python -m su2plaq.spinnet.loop candidate <program.py> --trial" in b and "python -m su2plaq.spinnet.loop oracle" in b
+    assert "su2plaq.compress.run_candidate" not in b and "su2plaq.compress.oracle" not in b and "structure.json" not in b
+    assert "Proved structure (Lean)" in b
+    ib = L.make_ideation_brief(root=root).read_text()
+    assert "su2plaq.spinnet.loop oracle" in ib and "su2plaq.compress.oracle" not in ib and "compress/ideation/spinnet.md" in ib
+    assert (root / "compress" / "specs" / "spinnet-step.md").read_text() == L.render_spec()
+
+
+def test_brief_rewrite_refuses_a_changed_laptop_text(tmp_path):
+    with pytest.raises(RuntimeError, match="laptop module shape changed"):
+        L._rewrite_text("nothing to rewrite here", tmp_path, False)
+    with pytest.raises(RuntimeError, match="laptop module shape changed"):
+        L._rewrite_text("nothing to rewrite here", tmp_path, True)
+
+
+def test_report_and_run_round_one_annotation(round0, tmp_path):
+    root, _ = round0
+    text = L.report_table(root=root)
+    assert "paulo15" in text and (root / "results" / "compress" / "spinnet" / "summary.json").exists()
+    gp = L.general_program_path(L.spec(), root=root)
+    info = L.run_round(1, dry_run=True, root=root, proposals=[str(gp)], lean=False)
+    assert info["round"] == 1
+    d = json.loads((root / "results" / "compress" / "spinnet" / "round-001.json").read_text())
+    assert d["spinnet"]["code_sha256"] == L.code_hash()
+
+
+def test_certify_best_goes_through_the_laptop_with_the_shim(round0, monkeypatch):
+    from su2plaq.spinnet import lean_export
+
+    root, _ = round0
+    calls = []
+    monkeypatch.setattr(lean_export, "certify", lambda qc, enc, kind, a, b, order, **kw: (calls.append(kind) or
+                                                                                           {"status": "not_run", "reason": "stub"}))
+    out = L.certify_best(root=root)
+    assert calls == ["step"] and out["lean"]["status"] == "not_run" and out["entry"].startswith("r00-seed-")
+
+
+def test_cli_oracle_and_usage_errors(capsys, tmp_path):
+    assert L.main(["oracle"]) == 0
+    assert "target step order 1" in capsys.readouterr().out
+    with pytest.raises(SystemExit):
+        L.main([])
+    with pytest.raises(SystemExit):
+        L.main(["no-such-command"])
+
+
+def test_cli_candidate_trial_on_the_general_program(sp, tmp_path, capsys):
+    gp = L.general_program_path(sp, root=tmp_path)
+    assert L.main(["candidate", str(gp), "--trial"]) == 0
+    assert capsys.readouterr().out.startswith("valid: ok")
+
+
+def test_cli_brief_ideation_report_and_seed_dispatch(round0, capsys):
+    root, _ = round0
+    assert L.main(["brief", "--round", "1", "--family", "F1", "--root", str(root)]) == 0
+    assert L.main(["ideation", "--root", str(root)]) == 0
+    assert L.main(["report", "--root", str(root)]) == 0
+    out = capsys.readouterr().out
+    assert "round-001-F1.md" in out and "ideation.md" in out and "GLOBAL BEST" in out

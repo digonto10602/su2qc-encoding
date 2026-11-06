@@ -1,0 +1,39 @@
+bringing up nodes...
+bringing up nodes...
+
+.........                                                                [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m2/test_lean_formal.py::test_archive_best_lean_status_recorded
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C6_jmax1_count_slow
+PASSED tests/acceptance/m3/test_spinnet_lean.py::test_M3_L3_native_certificate_general_step
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_archive_best_valid_and_not_worse_than_seed
+PASSED tests/acceptance/m2/test_lean_structure.py::test_lean_structure_certificate_accept_reject
+PASSED tests/acceptance/m2/test_lean_formal.py::test_lean_certificate_general_circuit
+PASSED tests/acceptance/m2/test_lean_formal.py::test_round_records_lean_certificate
+PASSED tests/acceptance/m2/test_lean_formal.py::test_lean_theorem_file_general
+PASSED tests/acceptance/m1/test_twelve_paulo.py::test_M1_P1_paulo_qpy_verifies
+9 passed in 106.93s (0:01:46)
+	Command being timed: "taskset -c 0-9 python -m pytest -p no:cacheprovider -n 9 -q -m slow tests/acceptance/m0 tests/acceptance/m1 tests/acceptance/m2 tests/acceptance/m3 tests/acceptance/m3x -rA"
+	User time (seconds): 733.45
+	System time (seconds): 5.71
+	Percent of CPU this job got: 689%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:47.15
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1539680
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1699521
+	Voluntary context switches: 10604
+	Involuntary context switches: 190353
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 18240
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

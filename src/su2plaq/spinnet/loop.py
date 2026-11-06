@@ -4,9 +4,9 @@ The laptop's `su2plaq.compress.*` is the machinery (evaluator, archive, briefs, 
 only (a) registers the encoding `spinnet` in it at run time (`install`, four overrides, nothing else), (b) renders the
 spin-network task specification with OUR tool commands and the spin-network Lean facts, (c) builds the round-0 seeds.
 
-Step 4.0 created the interface (stubs raise NotImplementedError, the locked tests then fail with `PENDING:`); step 4.1
-implements `install / spec / code_hash / structure_facts / render_spec / write_spec / general_program_path` and the
-`--worker` entry point; the seed and round functions follow in steps 4.2 and 4.3.
+Step 4.0 created the interface, step 4.1 the shim / spec / `--worker`, step 4.2 the seeds (`import_seed`,
+`seed_program_source`, `evaluate_seed`), step 4.3 the rounds (`seed_round`, `run_round`, briefs, report, `certify_best`) and
+the command line (`python -m su2plaq.spinnet.loop candidate|oracle|seed|round|brief|ideation|report|certify-best`).
 
 No laptop-owned file is edited.  `SPINNET_CODE_FILES` are frozen during M4 (their hash is recorded in every round).
 """
@@ -33,10 +33,6 @@ INSTALLED: dict = {}                     # {} before install(); then {"encoding"
 _SRC = pathlib.Path(__file__).resolve().parents[1]            # src/su2plaq
 _LEAN_SPINNET = pathlib.Path("lean") / "Su2Plaq" / "SpinNet"
 _SHIM_MARK = "_spinnet_shim"
-
-
-def _todo(name: str, step: str):
-    raise NotImplementedError(f"su2plaq.spinnet.loop.{name} is not built yet (prompts/104 step {step})")
 
 
 def _root(root=None) -> pathlib.Path:
@@ -270,7 +266,7 @@ def structure_facts(root=None) -> dict:
     if not st.endswith("= true"):
         raise RuntimeError(f"ub_exact_all_codes in {rel} does not have the shape `... = true`")
     add("ub_exact_semantics", True, "Semantics",
-        "the exact semantics of the 48-gate U_B circuit equals exp(-i beta K) of every valid inner code, for all beta",
+        "the exact semantics of the reference U_B circuit equals exp(-i beta K) of every valid inner code, for all beta",
         theorem="ub_exact_all_codes")
     return {"facts": facts,
             "provenance": {"lean_files": {rel: hashlib.sha256(src.encode()).hexdigest() for rel, src in texts.values()},
@@ -334,31 +330,38 @@ def write_spec(path=None, root=None) -> pathlib.Path:
     return p
 
 
+def _reference_circuit(s):
+    """The reference circuit of the spin-network encoding for the spec `s` (kind, order, angles), outer register present."""
+    from su2plaq.circuits import spinnet as C
+
+    if s.kind == "UE":
+        return C.build_UE(s.alpha, with_outer=True)
+    if s.kind == "UB":
+        return C.build_UB(s.beta, with_outer=True)
+    return C.build_step(s.alpha, s.beta, s.order, with_outer=True)
+
+
 def general_program_path(sp, root=None) -> pathlib.Path:
     """<root>/compress/programs/spinnet/seed/000-general.py: the general circuit as an angle-linear Builder program (generated
     on first use through the laptop's `program_source`, afterwards immutable)."""
-    from su2plaq.circuits import spinnet as C
     from su2plaq.compress import baselines as BL
 
     install()
-
-    def circuit(s):
-        if s.kind == "UE":
-            return C.build_UE(s.alpha, with_outer=True)
-        if s.kind == "UB":
-            return C.build_UB(s.beta, with_outer=True)
-        return C.build_step(s.alpha, s.beta, s.order, with_outer=True)
-
     path = _root(root) / "compress" / "programs" / sp.encoding / BL.SEED_FAMILY / f"000-{BL._stem(sp)}.py"
     if not path.exists():
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(BL.program_source(circuit, sp, summary=(
+        path.write_text(BL.program_source(_reference_circuit, sp, summary=(
             f"the reference circuit of the {sp.encoding} encoding ({sp.kind}) expressed through the Builder; every angle is a "
             "linear function of spec.alpha / spec.beta.")))
     return path
 
 
 # ------------------------------------------------------------------------------------------------ seeds (step 4.2)
+SKELETONS = ("pairs9", "flags4", "flags5", "flags6")
+PAULO_SOURCE = "paulo15"
+V2_PREFIX = "spinnet_v2:"
+
+
 @dataclass
 class SeedCircuit:
     qc: object
@@ -371,48 +374,409 @@ class SeedCircuit:
     gauge: np.ndarray | None = None      # +-1 over the 433 states for paulo15, else None
 
 
+def _v2_circuit(skeleton: str, s):
+    """The vendored spinnet_v2 U_B skeleton behind OUR electric layer (electric layer first; order 2: half layers on both sides),
+    angles solved from K at build time, outer register present.  UB kind: the skeleton alone."""
+    from qiskit import QuantumCircuit
+
+    from su2plaq.circuits import spinnet as C
+
+    pl = C.trotter_v2_circuit(skeleton, s.beta, with_outer=True)
+    if s.kind == "UB":
+        return pl
+    qc = QuantumCircuit(*pl.qregs, name=f"{skeleton}-{s.kind}")
+    half = s.alpha if s.order == 1 else s.alpha / 2
+    qc.compose(C.build_UE(half, with_outer=True), qubits=list(range(16)), inplace=True)
+    qc.compose(pl, inplace=True)
+    if s.order == 2:
+        qc.compose(C.build_UE(half, with_outer=True), qubits=list(range(16)), inplace=True)
+    return qc
+
+
+def _gauge_of_paulo(enc, beta: float):
+    """(+-1 vector over the 433 states, residual, inner-block leak) of Paulo's 15-qubit file against exp(-i beta K): the real diagonal
+    gauge D over the 47 inner codes found by `align_inner_block` (M3-P1: one -1 per bright pair), extended to every state by the
+    data part of its code (the file never touches the outer register)."""
+    from su2plaq.circuits import spinnet as C
+    from su2plaq.encodings.spinnet import align_inner_block
+    from su2plaq.evaluate.sparse_sim import encoded_block, run_batch
+
+    codes = enc.inner_codes()
+    M, leak = encoded_block(run_batch(C.paulo_circuit(), codes), codes, len(codes), code_mask=(1 << 8) - 1)
+    D, res, _phase = align_inner_block(M, enc.inner_target("UB", None, beta))
+    if D is None:
+        raise RuntimeError("Paulo's inner block differs from exp(-i beta K) in modulus: no gauge exists")
+    if np.abs(np.asarray(D).imag).max() > 1e-12 or np.abs(np.abs(D) - 1.0).max() > 1e-12:
+        raise RuntimeError("the gauge of Paulo's file is not a real +-1 diagonal")
+    return np.sign(np.asarray(D).real)[enc._pos_of_k].astype(float), float(res), float(np.max(leak))
+
+
+def gauge_minus_codes(gauge) -> list[int]:
+    """Sorted data codes (8 bits) of the inner codes on which the gauge is -1 (M3-P1: {8..15})."""
+    from su2plaq.compress.spec import get_encoding
+
+    enc = get_encoding(ENC)
+    return sorted({int(c) & 0xFF for c, g in zip(enc._codes, np.asarray(gauge)) if g < 0})
+
+
 def import_seed(sp, source: str):
-    _todo("import_seed", "4.2")
+    """SeedCircuit for "paulo15" (fixed angle beta = 0.05, kind UB, never a parent, with the sign gauge) and
+    "spinnet_v2:pairs9|flags4|flags5|flags6" (step seeds at the spec's angles, parent-able); a reason string for the 12-qubit
+    sources; ValueError for unknown names."""
+    from su2plaq.circuits import spinnet as C
+    from su2plaq.compress.spec import get_encoding
+
+    install()
+    enc = get_encoding(ENC)
+    if source == PAULO_SOURCE:
+        qc = C.paulo_circuit(with_outer=True)
+        beta = float(qc.metadata["beta"])
+        gauge, _res, _leak = _gauge_of_paulo(enc, beta)
+        return SeedCircuit(qc=qc, source=source, fixed_angle=True, alpha=None, beta=beta, kind="UB", can_be_parent=False, gauge=gauge)
+    if source.startswith(V2_PREFIX):
+        skel = source[len(V2_PREFIX):]
+        if skel not in SKELETONS:
+            raise ValueError(f"unknown spinnet_v2 skeleton {skel!r}; known: {list(SKELETONS)}")
+        if sp.kind == "UE":
+            return f"{source} is a magnetic-layer circuit; it has no electric (U_E) part"
+        return SeedCircuit(qc=_v2_circuit(skel, sp), source=source, fixed_angle=False, alpha=sp.alpha, beta=sp.beta, kind=sp.kind,
+                           can_be_parent=True)
+    if source in ("paulo34", "lean22", "lean22_v2"):
+        reason = enc.import_map(source)
+        if not isinstance(reason, str):
+            raise RuntimeError(f"import_map({source!r}) of the spin-network encoding no longer returns a reason string")
+        return reason
+    raise ValueError(f"unknown seed source {source!r}")
 
 
 def seed_program_source(sp, source: str) -> str:
-    _todo("seed_program_source", "4.2")
+    """Angle-linear program text (laptop `program_source`) of a parent-able seed."""
+    from su2plaq.compress import baselines as BL
+
+    seed = import_seed(sp, source)
+    if isinstance(seed, str):
+        raise ValueError(seed)
+    if not seed.can_be_parent:
+        raise ValueError(f"{source} is a fixed-angle seed and cannot be written as an angle-linear program")
+    skel = source[len(V2_PREFIX):]
+    return BL.program_source(lambda s: _v2_circuit(skel, s), sp, summary=(
+        f"the vendored su2qc-trotter spinnet_v2 {skel} skeleton for U_B (angles solved from K, route-B signs) behind our electric "
+        "layer; every angle is a linear function of spec.alpha / spec.beta."))
 
 
 def evaluate_seed(sp, seed: SeedCircuit, mode: str = "full"):
-    _todo("evaluate_seed", "4.2")
+    """A fixed-angle seed (Paulo's file) is judged at its OWN angle and kind with the spec's exact tolerances (its p gates are
+    exact) against the target regauged with seed.gauge (`SpinNet.regauge`), without alternate angles; the message records the
+    gauge.  A parent-able seed goes through `evaluate_circuit` with the alternate-angle circuits rebuilt at sp.alt_angles."""
+    from su2plaq.compress import evaluate as E
+    from su2plaq.compress import oracle
+    from su2plaq.compress.spec import TaskSpec, get_encoding
+
+    install()
+    if not seed.fixed_angle:
+        alts = None
+        if mode == "full":
+            skel = seed.source[len(V2_PREFIX):]
+            alts = [_v2_circuit(skel, sp.with_angles(a, b)) for a, b in sp.alt_angles]
+        return E.evaluate_circuit(seed.qc, sp, mode, alt_circuits=alts)
+    from su2plaq.evaluate.evaluator import evaluate
+
+    if seed.gauge is None:
+        raise ValueError("a fixed-angle spin-network seed needs its sign gauge (SeedCircuit.gauge)")
+    t0 = time.time()
+    s2 = TaskSpec(**{**sp.to_dict(), "kind": seed.kind, "alpha": sp.alpha if seed.alpha is None else seed.alpha,
+                     "beta": seed.beta, "alt_angles": ()})
+    enc = get_encoding(ENC)
+    g = np.asarray(seed.gauge, dtype=float)
+    Vg = g[:, None] * oracle.target(s2) * g[None, :]                      # == enc.regauge(V, D) for a real D
+    v = evaluate(seed.qc, enc, Vg, tol_err=s2.tol_err, tol_gauss=s2.tol_gauss, gauss=True, method="physical", engine="auto",
+                 cap=sp.support_cap)
+    valid, reason = E._classify(v, E._gate_violations(seed.qc))
+    try:
+        from su2plaq.compress.metrics import metrics
+
+        met = metrics(seed.qc, s2, measured=(mode == "full" and valid))
+    except ValueError:
+        met = None
+    minus = gauge_minus_codes(g)
+    return E.ProgramResult(valid, reason, v, [], True, met, "", time.time() - t0, [], f"external seed {seed.source}", mode,
+                           f"fixed angle beta={seed.beta}, kind {seed.kind}; exact-angle tolerances {s2.tol_err:g}; target regauged "
+                           f"with the sign gauge D (n_minus {len(minus)} inner codes with -1: {minus})",
+                           spec_sha256=s2.sha256(), seeds=E._seeds(s2))
 
 
 # ----------------------------------------------------------------------------------------------- rounds (step 4.3)
+_SEED_FILES = (("general", None), ("spinnet_v2_pairs9", "001-spinnet_v2_pairs9.py"), ("spinnet_v2_flags4", "002-spinnet_v2_flags4.py"),
+               ("spinnet_v2_flags5", "003-spinnet_v2_flags5.py"), ("spinnet_v2_flags6", "004-spinnet_v2_flags6.py"),
+               ("general+polish", "010-general_polish.py"), ("qiskit_l3", "011-qiskit_l3.py"))
+_LABEL_OF_STEM = {"000-general": "general", "001-spinnet_v2_pairs9": "spinnet_v2_pairs9", "002-spinnet_v2_flags4": "spinnet_v2_flags4",
+                  "003-spinnet_v2_flags5": "spinnet_v2_flags5", "004-spinnet_v2_flags6": "spinnet_v2_flags6",
+                  "010-general_polish": "general+polish", "011-qiskit_l3": "qiskit_l3"}
+
+
+def _qiskit_l3(qc, seed: int = 12345, window: int | None = None):
+    """The laptop's windowed level-3 baseline (`baselines.qiskit_l3`) applied to OUR general circuit (the laptop function builds
+    twelve's circuit): windows of `L3_WINDOW` instructions, optimisation_level=3, Builder basis, idle qubits not assumed clean."""
+    from qiskit import QuantumCircuit, transpile
+
+    from su2plaq.compress import baselines as BL
+    from su2plaq.compress import builder as B
+
+    window = BL.L3_WINDOW if window is None else window
+    out = QuantumCircuit(*qc.qregs, global_phase=qc.global_phase, name="qiskit_l3")
+    data = list(qc.data)
+    for s0 in range(0, len(data), window):
+        chunk = data[s0:s0 + window]
+        qs = sorted({qc.find_bit(q).index for i in chunk for q in i.qubits})
+        idx = {q: k for k, q in enumerate(qs)}
+        sub = QuantumCircuit(len(qs))
+        for i in chunk:
+            sub.append(i.operation, [idx[qc.find_bit(q).index] for q in i.qubits])
+        t = transpile(sub, basis_gates=sorted(B.BASIS), optimization_level=3, seed_transpiler=seed, qubits_initially_zero=False)
+        out.compose(t, qubits=[out.qubits[q] for q in qs], inplace=True)
+    return out
+
+
+def _qiskit_l3_whole(qc, seed: int = 12345):
+    from qiskit import transpile
+
+    from su2plaq.compress import builder as B
+
+    return transpile(qc, basis_gates=sorted(B.BASIS), optimization_level=3, seed_transpiler=seed, qubits_initially_zero=False)
+
+
+_FIT_POINTS = ((0.37, 0.61), (0.91, 0.23), (1.70, 1.00), (0.50, 0.50), (0.20, 1.30))
+
+
+def _linear_in_angles(circuit_fn, sp):
+    """`circuit_fn` with its angles replaced by their exact linear form c_a * alpha + c_b * beta, fitted at generic angle pairs.
+    The laptop's `program_source` fits at (alpha, beta) = (0,0), (1,0), (0,1), where an optimising transpile (the Qiskit level-3
+    baseline) deletes the zero-angle rotations and changes the skeleton; at generic pairs the skeleton is stable.  Raises
+    ValueError if the skeleton differs between the pairs or an angle is not (to 1e-10) linear homogeneous in (alpha, beta)."""
+    from qiskit import QuantumCircuit
+
+    from su2plaq.compress import baselines as BL
+
+    gls = [BL._gate_list(circuit_fn(sp.with_angles(a, b))) for a, b in _FIT_POINTS]
+    skel = [[(n, q) for n, _p, q in g] for g in gls]
+    if any(k != skel[0] for k in skel):
+        raise ValueError("the circuit skeleton depends on the angles at the generic fit points; no angle-linear program exists")
+    A = np.array(_FIT_POINTS)
+    coeffs = {}
+    for k, (name, params, _q) in enumerate(gls[0]):
+        if params:
+            y = np.array([g[k][1][0] for g in gls])
+            c = np.linalg.lstsq(A, y, rcond=None)[0]
+            if np.abs(A @ c - y).max() > 1e-10:
+                raise ValueError(f"angle of gate {k} ({name}) is not linear homogeneous in (alpha, beta)")
+            coeffs[k] = (float(c[0]), float(c[1]))
+    base = circuit_fn(sp)
+
+    def fn(s):
+        out = QuantumCircuit(*base.qregs)
+        for k, inst in enumerate(base.data):
+            op = inst.operation
+            if k in coeffs:
+                op = type(op)(coeffs[k][0] * s.alpha + coeffs[k][1] * s.beta)
+            out.append(op, [base.find_bit(q).index for q in inst.qubits])
+        return out
+    return fn
+
+
+def _polished(s):
+    from su2plaq.compress.passes import polish
+
+    return polish(_reference_circuit(s), s)[0]
+
+
+def seed_programs(sp, root=None) -> list[tuple[str, pathlib.Path]]:
+    """Write (once; the files are immutable afterwards) and return [(label, path)] of the seven round-0 candidate programs under
+    <root>/compress/programs/spinnet/seed/."""
+    from su2plaq.compress import baselines as BL
+
+    install()
+    gp = general_program_path(sp, root)
+    out = [("general", gp)]
+    texts = {"general+polish": lambda: BL.program_source(_polished, sp, summary="the reference circuit after the deterministic polish passes."),
+             "qiskit_l3": lambda: BL.program_source(_linear_in_angles(lambda s: _qiskit_l3(_reference_circuit(s)), sp), sp,
+                                                    summary=f"Qiskit level-3 transpile (windows of {BL.L3_WINDOW}) of the reference circuit.")}
+    for label, fname in _SEED_FILES[1:]:
+        f = gp.parent / fname
+        if not f.exists():
+            f.write_text(seed_program_source(sp, f"{V2_PREFIX}{label[len('spinnet_v2_'):]}") if label.startswith("spinnet_v2_")
+                         else texts[label]())
+        out.append((label, f))
+    return out
+
+
+def _annotate(root: pathlib.Path, round: int, *, relabel: bool = False, external=None, lean_general=None, extra_lean_seconds: float = 0.0):
+    """Append our provenance key to results/compress/spinnet/round-rrr.json (and, for round 0, the labels, the external rows and
+    the extra Lean record)."""
+    import json
+
+    f = root / "results" / "compress" / ENC / f"round-{round:03d}.json"
+    d = json.loads(f.read_text())
+    d["spinnet"] = {"code_sha256": code_hash(), "shim": sorted(INSTALLED)}
+    if relabel:
+        for c in d["candidates"]:
+            c["label"] = _LABEL_OF_STEM.get(pathlib.Path(c["program_path"]).stem, c["label"])
+    if external is not None:
+        d["external"] = list(external)
+    if lean_general is not None:
+        for c in d["candidates"]:
+            if c["label"] == "general":
+                c["lean"] = lean_general
+    d["lean_seconds"] = float(d.get("lean_seconds", 0.0)) + extra_lean_seconds
+    f.write_text(json.dumps(d, indent=1, default=str))
+    return d
+
+
+def _external_rows(sp) -> list[dict]:
+    from su2plaq.compress.metrics import metrics
+
+    rows = []
+    try:
+        rows.append({"source": "qiskit_l3_whole", "valid": False, "reason": "unverifiable: Qiskit's whole-circuit level-3 transpile "
+                     "hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+                     "metrics": metrics(_qiskit_l3_whole(_reference_circuit(sp)), sp, measured=False)})
+    except (ValueError, RuntimeError) as exc:
+        rows.append({"source": "qiskit_l3_whole", "valid": False, "reason": f"counts unavailable: {exc}"})
+    seed = import_seed(sp, PAULO_SOURCE)
+    rs = evaluate_seed(sp, seed, "full")
+    minus = gauge_minus_codes(seed.gauge)
+    rows.append({"source": seed.source, "fixed_angle": True, "kind": seed.kind, "beta": seed.beta, "valid": rs.valid, "reason": rs.reason,
+                 "metrics": rs.metrics, "op_norm_error": getattr(rs.verdict, "op_norm_error", None),
+                 "leak_amplitude": getattr(rs.verdict, "leak_amplitude", None), "gauss_residual": getattr(rs.verdict, "gauss_residual", None),
+                 "certified": getattr(rs.verdict, "certified", None), "message": rs.message, "gauge_minus_codes": minus,
+                 "n_minus": len(minus)})
+    return rows
+
+
 def seed_round(root=None, lean: bool = True, dry_run: bool = False) -> dict:
-    _todo("seed_round", "4.3")
+    """Round 0 (prompts/104 §1): the seven seed programs through the laptop's `round.run_round` (round 0 with an explicit program
+    list = the proposals branch: archive, feedback, attempts, synthesised re-verification and Lean certificate of the best are the
+    laptop's), then the labels, the external rows (qiskit_l3_whole, paulo15), our provenance key and the Lean certificate of the
+    `general` seed are added to results/compress/spinnet/round-000.json.
+    -> {"round": 0, "n_valid", "n_invalid", "best_key", "entries", "lean_seconds"}."""
+    from su2plaq.compress import archive as A
+    from su2plaq.compress import round as R
+
+    install()
+    root = _root(root)
+    sp = spec()
+    progs = seed_programs(sp, root)
+    info = R.run_round(ENC, KIND, 0, evaluate=True, dry_run=dry_run, root=root, proposals=[str(p) for _, p in progs], lean=lean)
+    lean_general, extra = None, 0.0
+    if lean:
+        arch = A.Archive.load(ENC, root=root, n_alt=len(sp.alt_angles), strict=True)
+        e = next((x for x in arch.entries() if pathlib.Path(x.program_path).name == "000-general.py"), None)
+        if e is not None and e.lean is None:
+            new, extra = R._certify(_reference_circuit(sp), sp)
+            R._store_lean(e, new, root, ENC, "round 0: general seed")
+            arch.save()
+        lean_general = e.lean if e is not None else None
+    d = _annotate(root, 0, relabel=True, external=_external_rows(sp), lean_general=lean_general, extra_lean_seconds=extra)
+    info["lean_seconds"] = d["lean_seconds"]
+    info["external"] = [x["source"] for x in d["external"]]
+    return info
 
 
 def run_round(round: int, evaluate: bool = True, dry_run: bool = False, root=None, proposals=None, lean: bool = True) -> dict:
-    _todo("run_round", "4.3")
+    """Round 0: `seed_round`.  Round r >= 1: the laptop's `round.run_round("spinnet", "step", r)` after `install()` plus our
+    provenance key `spinnet = {code_sha256, shim}` in results/compress/spinnet/round-rrr.json."""
+    from su2plaq.compress import round as R
+
+    install()
+    if round == 0 and proposals is None:
+        return seed_round(root=root, lean=lean, dry_run=dry_run)
+    info = R.run_round(ENC, KIND, round, evaluate=evaluate, dry_run=dry_run, root=_root(root), proposals=proposals, lean=lean)
+    _annotate(_root(root), round)
+    return info
+
+
+# briefs: the laptop's text with our commands (the proposer agent file is not edited; plan §9 decision 3)
+def _rewrite_text(text: str, root: pathlib.Path, ideation: bool) -> str:
+    """The laptop's brief text with OUR commands: every replaced snippet must occur exactly once (else the laptop text changed and
+    the shim needs the planner)."""
+    from su2plaq.compress import brief as BR
+
+    pairs = [(BR._structure_pointer(root), "the section 'Proved structure (Lean)' of the specification (kernel-checked facts about "
+                                          "the spin-network problem; there is no separate structure file)")]
+    if ideation:
+        pairs.append((f"(`python -m su2plaq.compress.oracle --encoding {ENC} --kind {KIND} ...`)",
+                      "(`python -m su2plaq.spinnet.loop oracle ...`)"))
+    else:
+        pairs += [(f"`python -m su2plaq.compress.run_candidate <program.py> --encoding {ENC} --kind {KIND} --trial`",
+                   "`python -m su2plaq.spinnet.loop candidate <program.py> --trial`"),
+                  ("`--full` before you finish; the oracle: `python -m su2plaq.compress.oracle ...`",
+                   "`--full` before you finish (`--order 2` for the second-order step); the oracle: "
+                   "`python -m su2plaq.spinnet.loop oracle ...`")]
+    for old, new in pairs:
+        if text.count(old) != 1:
+            raise RuntimeError(f"laptop module shape changed: brief text {old!r} found {text.count(old)} times (expected 1); the "
+                               "shim of su2plaq.spinnet.loop must be amended by the planner")
+        text = text.replace(old, new)
+    return text
+
+
+def _finish_brief(path, root: pathlib.Path, ideation: bool) -> pathlib.Path:
+    path = pathlib.Path(path)
+    text = _rewrite_text(path.read_text(), root, ideation)
+    if "su2plaq.compress.run_candidate" in text or "su2plaq.compress.oracle" in text:
+        raise RuntimeError(f"laptop module shape changed: a laptop tool command remains in {path}")
+    path.write_text(text)
+    write_spec(root=root)                  # the laptop's brief regenerated the spec file with its own text
+    return path
 
 
 def make_ideation_brief(root=None) -> pathlib.Path:
-    _todo("make_ideation_brief", "4.3")
+    """compress/briefs/spinnet/ideation.md: spec only (laptop text) with our oracle command and the spin-network facts."""
+    from su2plaq.compress import brief as BR
+
+    install()
+    root = _root(root)
+    return _finish_brief(BR.make_ideation_brief(ENC, KIND, root), root, True)
 
 
 def make_brief(round: int, family: str, root=None) -> pathlib.Path:
-    _todo("make_brief", "4.3")
+    """compress/briefs/spinnet/round-rrr-<family>.md: laptop brief with `python -m su2plaq.spinnet.loop candidate|oracle` and the
+    spin-network facts; the spec file the laptop regenerated is rewritten with ours."""
+    from su2plaq.compress import brief as BR
+
+    install()
+    root = _root(root)
+    return _finish_brief(BR.make_brief(ENC, KIND, round, family, root), root, False)
 
 
 def report_table(root=None) -> str:
-    _todo("report_table", "4.3")
+    """Laptop `report.report_table("spinnet", "step", root)` (also writes results/compress/spinnet/summary.json)."""
+    from su2plaq.compress import report
+
+    install()
+    return report.report_table(ENC, KIND, root=_root(root))
 
 
 def certify_best(root=None) -> dict:
-    _todo("certify_best", "4.3")
+    """Laptop `round.certify_best("spinnet", "step", root)` after `install()` (the spin-network checker through the shim)."""
+    from su2plaq.compress import round as R
+
+    install()
+    return R.certify_best(ENC, KIND, root=_root(root))
 
 
 # ------------------------------------------------------------------------------------------------------------ CLI
+_USAGE = "python -m su2plaq.spinnet.loop {candidate|oracle|seed|round|brief|ideation|report|certify-best|--worker} ..."
+
+
 def main(argv=None) -> int:
-    """`--worker <prog> <specs.json> <out.qpy> <meta.json>` (step 4.1): install(), then the laptop's `evaluate._worker`
-    (audit guard, QPY round trip and contract checks are the laptop's).  The other subcommands (candidate, oracle, seed,
-    round, brief, ideation, report, certify-best) follow in step 4.3."""
+    """`--worker <prog> <specs.json> <out.qpy> <meta.json>`: install(), then the laptop's `evaluate._worker` (audit guard, QPY round
+    trip and contract checks are the laptop's).  `candidate <program.py> [--trial|--full] [--order 1|2] [--json out]` and
+    `oracle [--column j] [--element i j] [--codec] [--block o]` are the laptop's `run_candidate` / `oracle` CLIs for the spin-network
+    step; `seed [--no-lean] [--dry-run]`, `round --round r [--evaluate] [--dry-run] [--no-lean]`, `brief --round r --family F`,
+    `ideation`, `report [--out]`, `certify-best` drive the loop (all take `--root`)."""
+    import argparse
+    import json
+
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv and argv[0] == "--worker":
         if len(argv) != 5:
@@ -422,7 +786,53 @@ def main(argv=None) -> int:
 
         E._worker(*argv[1:])
         return 0
-    _todo("main (subcommands candidate/oracle/seed/round/brief/ideation/report/certify-best)", "4.3")
+    if not argv:
+        raise SystemExit(f"usage: {_USAGE}")
+    cmd, rest = argv[0], argv[1:]
+    install()
+    if cmd == "candidate":
+        from su2plaq.compress import run_candidate
+
+        return run_candidate.main([*rest, "--encoding", ENC, "--kind", KIND])
+    if cmd == "oracle":
+        from su2plaq.compress import oracle
+
+        return oracle.main(["--encoding", ENC, "--kind", KIND, *rest])
+    ap = argparse.ArgumentParser(prog=f"python -m su2plaq.spinnet.loop {cmd}")
+    if cmd in ("seed", "round", "brief", "ideation", "report", "certify-best"):
+        ap.add_argument("--root")
+    if cmd in ("seed", "round"):
+        ap.add_argument("--dry-run", action="store_true")
+        ap.add_argument("--no-lean", dest="lean", action="store_false", default=True)
+    if cmd == "round":
+        ap.add_argument("--round", type=int, required=True)
+        ap.add_argument("--evaluate", action="store_true")
+    if cmd == "brief":
+        ap.add_argument("--round", type=int, required=True)
+        ap.add_argument("--family", required=True)
+    if cmd == "report":
+        ap.add_argument("--out")
+    if cmd not in ("seed", "round", "brief", "ideation", "report", "certify-best"):
+        raise SystemExit(f"unknown subcommand {cmd!r}; usage: {_USAGE}")
+    a = ap.parse_args(rest)
+    if cmd == "seed":
+        print(json.dumps(seed_round(a.root, lean=a.lean, dry_run=a.dry_run), indent=1, default=str))
+    elif cmd == "round":
+        print(json.dumps(run_round(a.round, evaluate=a.evaluate or a.round == 0, dry_run=a.dry_run, root=a.root, lean=a.lean), indent=1,
+                         default=str))
+    elif cmd == "brief":
+        print(make_brief(a.round, a.family, a.root))
+    elif cmd == "ideation":
+        print(make_ideation_brief(a.root))
+    elif cmd == "report":
+        text = report_table(a.root)
+        if a.out:
+            pathlib.Path(a.out).write_text(text)
+        else:
+            print(text)
+    else:
+        print(json.dumps(certify_best(a.root), indent=1, default=str))
+    return 0
 
 
 if __name__ == "__main__":

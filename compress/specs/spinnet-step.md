@@ -94,7 +94,7 @@ Machine-checked facts about the problem (Lean 4, kernel-checked by `decide`); th
 - `mult_half` = 16 (proved by decide, Su2Plaq.SpinNet.mult_half) -- states of the alternating pair 0101 <-> 1010, |K| = 1/2 (multiplicity of -1/2 and +1/2)
 - `spectrum_multiplicities` = {-2: 16, -1: 96, -0.5: 16, 0: 177, 0.5: 16, 1: 96, 2: 16} (eigenvalue: multiplicity) (proved by decide, Su2Plaq.SpinNet.eig_mult) -- multiplicity of each eigenvalue of H_B (= the spectrum of K block by block) on the 433 states, as [eigenvalue, multiplicity]
 - `couplings_2k` = {2K = -4: 1, 2K = 2: 6, 2K = -1: 1, 2K = 0: 31} (proved by decide, Su2Plaq.SpinNet.coupling_from_6j) -- 2K from the Racah 6j symbols on all 47 inner codes; the map is 2K -> number of bright pairs with that coupling ('0': number of dark codes, K = 0). K = -2 (0000<->1111), -1/2 (0101<->1010), +1 (six pairs)
-- `ub_exact_semantics` = True (proved by decide, Su2Plaq.SpinNet.ub_exact_all_codes) -- the exact semantics of the 48-gate U_B circuit equals exp(-i beta K) of every valid inner code, for all beta
+- `ub_exact_semantics` = True (proved by decide, Su2Plaq.SpinNet.ub_exact_all_codes) -- the exact semantics of the reference U_B circuit equals exp(-i beta K) of every valid inner code, for all beta
 
 ## Tools
 
