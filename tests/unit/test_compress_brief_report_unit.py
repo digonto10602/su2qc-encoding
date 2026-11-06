@@ -1,5 +1,6 @@
 """Unit tests for su2plaq.compress.{brief,report} and the round bookkeeping added in step 2.6."""
 import json
+import pathlib
 
 import pytest
 
@@ -215,7 +216,7 @@ def test_global_best_is_the_archived_best_and_the_whole_circuit_row_has_no_fake_
     assert "r00-F-001" in best_row and "r00-F-002" not in best_row
     whole = [ln for ln in t.splitlines() if ln.startswith("| Qiskit L3 (whole circuit")][0].split("|")
     cells = [c.strip() for c in whole]
-    assert cells[6] == "n/a (unverifiable)" and cells[8] == "n/a (unverifiable)" and cells[9] == "n/a (unverifiable)"     # T(1e-6), T(1e-10), depth_CT
+    assert cells[6] == "n/a (unverifiable)" and cells[8] == "n/a (unverifiable)" and cells[9] == "-" and cells[10] == "n/a (unverifiable)"     # T(1e-6), T(1e-10), Paulo column, depth_CT
     assert cells[7] == "77.7" and "268" not in whole
 
 
@@ -234,3 +235,56 @@ def test_append_qiskit_refuses_a_non_numeric_global_phase_without_appending():
     ok.h(0)
     b.append_qiskit(ok, [0, 1])
     assert b.n_gates == 1 and abs(b.circuit().global_phase - 0.3) < 1e-15
+
+
+def test_circuit_of_raises_on_a_program_sha_mismatch_and_builds_when_it_matches(tmp_path):
+    import hashlib
+
+    from su2plaq.compress.baselines import general_program_path
+    from su2plaq.compress.spec import default_spec
+
+    spec = default_spec("twelve", "UE")
+    src = pathlib.Path(general_program_path(spec))
+    good = hashlib.sha256(src.read_bytes()).hexdigest()
+    qc, err = R._circuit_of(spec, str(src), "x", None, tmp_path, expected_sha256=good)
+    assert err is None and qc.num_qubits > 0
+    with pytest.raises(R.ProgramShaMismatch, match="sha256"):
+        R._circuit_of(spec, str(src), "x", None, tmp_path, expected_sha256="0" * 64)
+
+
+def test_cert_path_is_stored_relative_and_resolved_on_read(tmp_path):
+    cert = tmp_path / "compress" / "lean" / "certs" / "c.json"
+    cert.parent.mkdir(parents=True)
+    cert.write_text("{}")
+
+    class _E:
+        id, lean = "e", None
+
+    e = _E()
+    R._store_lean(e, {"status": "certified", "cert_path": str(cert)}, tmp_path, "twelve")
+    assert e.lean["cert_path"] == "compress/lean/certs/c.json"                       # relative to the root
+    assert R.resolve_cert_path(e.lean, tmp_path) == cert                              # round trip
+    assert R.resolve_cert_path({"cert_path": str(cert)}, tmp_path) == cert           # old absolute entry
+    assert R.resolve_cert_path({"cert_path": None}, tmp_path) is None and R.resolve_cert_path(None, tmp_path) is None
+
+
+def test_paulo_t_is_not_put_under_pygridsynth_columns(tmp_path):
+    import json
+
+    from su2plaq.compress import report as RP
+
+    d = tmp_path / "results" / "compress" / "twelve"
+    d.mkdir(parents=True)
+    paulo = {"source": "paulo34", "fixed_angle": True, "kind": "UB", "valid": True, "reason": "ok", "op_norm_error": 1e-5,
+             "metrics": {"cx": 294, "t_fixed": 1162, "n_rot": 0, "t_eps": 1162.0, "t_estimate": {"1e-06": 1162.0, "1e-10": 1162.0},
+                         "depth_ct": 2549, "qubits": 50}}
+    (d / "round-000.json").write_text(json.dumps({"round": 0, "candidates": [], "entries": [], "external": [paulo]}))
+    text = RP.report_table("twelve", "step", root=tmp_path)
+    summ = json.loads((d / "summary.json").read_text())
+    hdr = summ["header"]
+    row = dict(zip(hdr, next(r for r in summ["rows"] if r[0].startswith("paulo34"))))
+    for col in ("T_fixed", "T(1e-6)", "T_est(1e-6)", "T(1e-10)"):
+        assert row[col] == "-", col
+    assert row[RP.PAULO_T_COLUMN] == "1162" and row["CX"] == "294" and "Paulo, Qiskit CT pass, U_B only, beta=1" in RP.PAULO_T_COLUMN
+    assert all(len(r) == len(hdr) for r in summ["rows"])
+    assert "662 T vs Paulo 1162 T" in text and summ["notes"]

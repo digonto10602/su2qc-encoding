@@ -520,3 +520,13 @@ def test_cached_result_equals_the_fresh_one_including_float_keyed_tables(tmp_pat
     assert all(isinstance(k, float) for k in r2.metrics["t_estimate"]) and set(r2.metrics["t_estimate"]) == set(r1.metrics["t_estimate"])
     assert all(isinstance(k, float) for k in r2.metrics["t_measured"]) and r2.metrics["t_measured"] == r1.metrics["t_measured"]
     assert r2.metrics == r1.metrics
+
+
+def test_cache_key_changes_with_package_versions(tmp_path):
+    v = P.package_versions()
+    assert set(v) == {"qiskit", "qiskit_aer", "pygridsynth"}
+    base = P.cache_path("e" * 64, "p" * 64, "s" * 64, root=tmp_path)
+    assert base == P.cache_path("e" * 64, "p" * 64, "s" * 64, root=tmp_path, versions=v)        # default = installed versions
+    for name in v:
+        other = P.cache_path("e" * 64, "p" * 64, "s" * 64, root=tmp_path, versions={**v, name: v[name] + ".post1"})
+        assert other != base and other.parent == base.parent, name

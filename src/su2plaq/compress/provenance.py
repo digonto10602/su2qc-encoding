@@ -30,10 +30,25 @@ def code_hash(files: list[pathlib.Path] | None = None) -> str:
     return h.hexdigest()
 
 
-def cache_path(evaluator_sha, program_sha, spec_sha, root=None) -> pathlib.Path:
-    """<root>/compress/cache/<evaluator_sha>/<program_sha>-<spec_sha>.json  (any code edit changes the evaluator sha)."""
+def package_versions() -> dict:
+    """Versions of the packages whose behaviour enters a cached metric: qiskit (lowering / transpile), qiskit-aer (engine
+    cross-check) and pygridsynth (T counts of every rotation)."""
+    from su2plaq.metrics.provenance import _version
+
+    return {"qiskit": _version("qiskit"), "qiskit_aer": _version("qiskit_aer"), "pygridsynth": _version("pygridsynth")}
+
+
+def versions_tag(versions: dict | None = None) -> str:
+    """12-hex tag of `package_versions()` (or of the given dict); part of the result-cache key (audit 004 N7)."""
+    v = package_versions() if versions is None else versions
+    return hashlib.sha256(repr(sorted(v.items())).encode()).hexdigest()[:12]
+
+
+def cache_path(evaluator_sha, program_sha, spec_sha, root=None, versions: dict | None = None) -> pathlib.Path:
+    """<root>/compress/cache/<evaluator_sha>/<program_sha>-<spec_sha>-<versions_tag>.json  (any code edit changes the
+    evaluator sha; an upgrade of qiskit / qiskit-aer / pygridsynth changes the tag)."""
     root = pathlib.Path(root) if root is not None else ROOT
-    return root / "compress" / "cache" / str(evaluator_sha) / f"{program_sha}-{spec_sha}.json"
+    return root / "compress" / "cache" / str(evaluator_sha) / f"{program_sha}-{spec_sha}-{versions_tag(versions)}.json"
 
 
 def machine() -> str:

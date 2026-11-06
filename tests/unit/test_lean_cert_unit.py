@@ -411,7 +411,7 @@ def test_note_n1_theorem_writer_refuses_malformed_metadata(ue_cert, tmp_path):
     d = json.loads(json.dumps(ue_cert)); d["phase"]["m"] = [1.5, 0]
     refuse(d, "bad phase")
     d = json.loads(json.dumps(ue_cert)); d["gates"][0]["m"] = [-2, 0]       # a different angle, hash unchanged
-    refuse(d, "recorded program_sha256")
+    refuse(d, "recorded gates_sha256")
     d = json.loads(json.dumps(ue_cert)); d["gates"][0]["q"] = [99]
     refuse(d, "bad qubits")
     d = json.loads(json.dumps(ue_cert)); d["base"]["d_beta"] = 0

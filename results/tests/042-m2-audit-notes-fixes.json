@@ -1,0 +1,91 @@
+{
+ "report": "reports/tests/042-m2-audit-notes-fixes.md",
+ "git_commit": "0aca224+uncommitted (builder diff)",
+ "date": "2026-11-06",
+ "mode": "step",
+ "seeds": {
+  "tests": 20261104,
+  "PYTHONHASHSEED": "unset for tests; 20261104 for benchmarks"
+ },
+ "unit": {
+  "passed": 401,
+  "failed": 0,
+  "wall_s": 398.07,
+  "cmd": "pytest -n auto tests/unit"
+ },
+ "acceptance_m2": {
+  "passed": 46,
+  "failed": 0,
+  "wall_s": 362.38,
+  "cmd": "pytest -n auto tests/acceptance/m2 (incl. slow)"
+ },
+ "acceptance_m0_m1_regression": {
+  "passed": 56,
+  "failed": 0,
+  "wall_s": [
+   198.13,
+   199.72,
+   201.42
+  ],
+  "note": "run 3x inside benchmark 003"
+ },
+ "check_lock": "LOCK OK",
+ "acceptance_check": "PASS: tests/acceptance matches acceptance-v7",
+ "N1": {
+  "paulo_row_old": [
+   "paulo34",
+   "50",
+   "294",
+   "1162",
+   "0",
+   "1162",
+   "1162",
+   "1162",
+   "2549"
+  ],
+  "paulo_row_new_cols": {
+   "T_fixed": "-",
+   "T(1e-6)": "-",
+   "T_est(1e-6)": "-",
+   "T(1e-10)": "-",
+   "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "1162"
+  },
+  "other_13_rows_identical": true,
+  "note_numbers": {
+   "ours": 662,
+   "paulo": 1162,
+   "cx": [
+    294,
+    294
+   ]
+  },
+  "source": "results/m1_audit_fixes_n3.json"
+ },
+ "N2": {
+  "unmodified_copy": "builds, 31 qubits, 272 ops",
+  "tampered_copy_comment_only": "ProgramShaMismatch (c5f0014330c9 != 4f7fcb1eab11) from _circuit_of and certify_best",
+  "program_sha256_r05-F2-005": "4f7fcb1eab11fc709a1e44eb0fdafe9a5f7cd9d48365aea6642cd280170cef92",
+  "new_cert_provenance_program_file_sha256_matches": true,
+  "certify_best_seconds": 350.4,
+  "lean_status": "certified",
+  "old_cert_format_validates": {
+   "structure_problem": null,
+   "lean_status": "certified",
+   "seconds": 325.4
+  }
+ },
+ "N13": {
+  "stored_relative": "compress/lean/certs/step-o1-ca5c0f1a907a.json",
+  "old_absolute_resolves": true
+ },
+ "N7": {
+  "versions": {
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "tag": "1b9d66c02b1c",
+  "each_version_bump_changes_path": true,
+  "evaluator_code_hash_unchanged": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582"
+ }
+}

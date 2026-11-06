@@ -313,10 +313,12 @@ def _fit_phase(cs, pairs, base, window=12):
 
 
 def export_certificate(qc, enc, kind: str, alpha: float, beta: float, order: int, out_path, *,
-                       verdict_phases: list[complex] | None = None) -> pathlib.Path | str:
+                       verdict_phases: list[complex] | None = None,
+                       extra_provenance: dict | None = None) -> pathlib.Path | str:
     """Write the certificate JSON of `qc` against the exact target (kind, order) of the twelve-qubit encoding.  Returns the
     path or an n_a reason string (`non_linear_angle:<gate>:<theta>`, `unitary_gate`, `phase_not_in_K`, `too_many_qubits`, ...).
-    `verdict_phases` (float evaluator phases at the nominal pair, global phase included) are only cross-checked."""
+    `verdict_phases` (float evaluator phases at the nominal pair, global phase included) are only cross-checked.
+    `extra_provenance` (e.g. `{"program_file_sha256": ...}`) is merged into the certificate's `provenance` block."""
     from su2plaq.encodings.base import ALT_ANGLES
     from su2plaq.evaluate import sparse_sim as ss
 
@@ -382,7 +384,7 @@ def export_certificate(qc, enc, kind: str, alpha: float, beta: float, order: int
         residual = float(abs(cs[0] / abs(cs[0]) * np.exp(1j * gphase) - verdict_phases[0]))
     gates_hash = hashlib.sha256(json.dumps(recs).encode()).hexdigest()
     cert = {
-        "schema": "su2plaq-cert-1", "circuit_id": f"{kind}-o{order}-{gates_hash[:12]}", "program_sha256": gates_hash,
+        "schema": "su2plaq-cert-1", "circuit_id": f"{kind}-o{order}-{gates_hash[:12]}", "gates_sha256": gates_hash,
         "n_qubits": n_cert, "n_data": N_DATA, "n_outer": N_OUTER, "base": {"d_alpha": base[0], "d_beta": base[1]},
         "gates": recs,
         "states": [{"k": k, "label": str(enc.basis.labels[k]),
@@ -394,7 +396,7 @@ def export_certificate(qc, enc, kind: str, alpha: float, beta: float, order: int
         "phase": {"k": E.omega_power(j_).to_json(), "m": [a_, b_]},
         "provenance": {"git_commit": _git_commit(), "exporter_sha256": _exporter_sha(), "alpha_nominal": alpha,
                        "beta_nominal": beta, "float_phase_spread": spread, "float_phase_cross_check": residual,
-                       "export_seconds": time.time() - t0},
+                       "export_seconds": time.time() - t0, **(extra_provenance or {})},
     }
     out_path = pathlib.Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -446,8 +448,9 @@ def _structure_problem(d: dict) -> str | None:
                 return f"gate {i} ({name}): bad angle exponents"
         elif m is not None:
             return f"gate {i} ({name}): angle exponents on an angle-free gate"
-    if d.get("program_sha256") != hashlib.sha256(json.dumps(gates).encode()).hexdigest():
-        return "gate list does not match its recorded program_sha256"
+    recorded = d.get("gates_sha256", d.get("program_sha256"))        # old certificates call the gate-list hash program_sha256
+    if recorded != hashlib.sha256(json.dumps(gates).encode()).hexdigest():
+        return "gate list does not match its recorded gates_sha256"
     return None
 
 
@@ -519,12 +522,12 @@ def check_certificate(path, timeout: float = 900.0) -> LeanCert:
     return LeanCert("failed", f"checker output {line!r} stderr {r.stderr.strip()[-300:]!r}", str(path), dt, sha)
 
 
-def _certify(qc, enc, kind, alpha, beta, order, out_dir, timeout) -> LeanCert:
+def _certify(qc, enc, kind, alpha, beta, order, out_dir, timeout, extra_provenance=None) -> LeanCert:
     t0 = time.time()
     out_dir = pathlib.Path(out_dir) if out_dir is not None else CERT_DIR
     tmp = out_dir / f"{kind}-o{order}-pending-{abs(hash(id(qc))) % 10**8}.json"
     try:
-        res = export_certificate(qc, enc, kind, alpha, beta, order, tmp)
+        res = export_certificate(qc, enc, kind, alpha, beta, order, tmp, extra_provenance=extra_provenance)
     except E.ExactError as exc:
         return LeanCert("failed", f"exact export failed: {exc}", None, time.time() - t0, "")
     if isinstance(res, str):
@@ -537,18 +540,19 @@ def _certify(qc, enc, kind, alpha, beta, order, out_dir, timeout) -> LeanCert:
 
 
 def certify_circuit_kind(qc, enc, kind: str, alpha: float, beta: float, order: int, out_dir=None,
-                         timeout: float = 900.0) -> LeanCert:
+                         timeout: float = 900.0, extra_provenance: dict | None = None) -> LeanCert:
     """Export + check against the target (kind, order) at the given nominal angles; the alternate angle pairs are
     `encodings.base.ALT_ANGLES` (the circuit is re-instantiated at them from its recognised angle exponents)."""
-    return _certify(qc, enc, kind, alpha, beta, order, out_dir, timeout)
+    return _certify(qc, enc, kind, alpha, beta, order, out_dir, timeout, extra_provenance)
 
 
-def certify_circuit(qc, spec, out_dir=None, timeout: float = 900.0) -> LeanCert:
+def certify_circuit(qc, spec, out_dir=None, timeout: float = 900.0, extra_provenance: dict | None = None) -> LeanCert:
     """`certify_circuit_kind` with kind / angles / order taken from a TaskSpec-like object."""
     enc = _encoding() if getattr(spec, "encoding", "twelve") == "twelve" else None
     if enc is None:
         return LeanCert("n_a", f"unsupported_encoding:{spec.encoding}", None, 0.0, "")
-    return _certify(qc, enc, spec.kind, float(spec.alpha), float(spec.beta), int(spec.order), out_dir, timeout)
+    return _certify(qc, enc, spec.kind, float(spec.alpha), float(spec.beta), int(spec.order), out_dir, timeout,
+                    extra_provenance)
 
 
 def write_theorem_file(cert_path, theorem_name: str, out_path) -> pathlib.Path:

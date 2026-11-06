@@ -14,7 +14,16 @@ import sys
 
 from su2plaq.compress.spec import ROOT
 
-HEADER = ["row", "qubits", "CX", "T_fixed", "N_rot", "T(1e-6)", "T_est(1e-6)", "T(1e-10)", "depth_CT", "verdict", "Lean", "entry / commit"]
+PAULO_T_COLUMN = "T (Paulo, Qiskit CT pass, U_B only, beta=1)"
+HEADER = ["row", "qubits", "CX", "T_fixed", "N_rot", "T(1e-6)", "T_est(1e-6)", "T(1e-10)", PAULO_T_COLUMN, "depth_CT", "verdict", "Lean",
+          "entry / commit"]
+PAULO_NOTE = (
+    "Paulo row: the T count in column `" + PAULO_T_COLUMN + "` (1162) is Qiskit's Clifford+T pass manager applied to his fixed-angle "
+    "U_B alone at beta = 1; it is NOT a pygridsynth count, NOT the step operator (our rows include the 4 electric rotations, about "
+    "256 T at 1e-6) and NOT at beta = 0.61, so the T_fixed, T(1e-6), T_est and T(1e-10) cells are left blank. The like-for-like "
+    "comparison is U_B at beta = 1 through the same Qiskit pass (eps 1e-6, seed 12345): ours 662 T vs Paulo 1162 T, CX 294 vs 294 "
+    "(reports/audits/003, results/m1_audit_fixes_n3.json). His depth (2549) is also from that pass, not from pygridsynth words. "
+    "The CX column is comparable (U_E costs 0 CX).")
 
 
 def _f(x) -> str:
@@ -47,7 +56,7 @@ def _row_from_record(name, rec) -> list:
     tm = m.get("t_measured") or {}
     est = m.get("t_estimate") or {}
     return [name, m.get("qubits"), m.get("cx"), m.get("t_fixed"), m.get("n_rot"), m.get("t_eps"), est.get("1e-06"),
-            tm.get("1e-10", est.get("1e-10")), m.get("depth_ct"), _verdict(rec), _lean(rec),
+            tm.get("1e-10", est.get("1e-10")), None, m.get("depth_ct"), _verdict(rec), _lean(rec),
             f"{rec.get('id', '-')} @ {rec.get('git_commit', '-')}"]
 
 
@@ -55,12 +64,16 @@ def _row_external(x) -> list:
     m = x.get("metrics") or {}
     est = m.get("t_estimate") or {}
     if "metrics" not in x:
-        return [f"{x['source']} (not applicable)", "-", "-", "-", "-", "-", "-", "-", "-", x.get("reason", ""), "n_a", "-"]
+        return [f"{x['source']} (not applicable)", "-", "-", "-", "-", "-", "-", "-", "-", "-", x.get("reason", ""), "n_a", "-"]
     verdict = ("valid at its own angle (beta = 1, kind " + str(x.get("kind")) + "), err " + _f(x.get("op_norm_error"))
                if x.get("valid") else f"not verified: {x.get('reason')}")
-    return [x["source"] + (" (fixed angle; Clifford+T up to a global phase)" if x.get("fixed_angle") else ""), m.get("qubits"),
-            m.get("cx"), m.get("t_fixed"), m.get("n_rot"), m.get("t_eps"), est.get("1e-06"), est.get("1e-10"), m.get("depth_ct"),
-            verdict, "n_a", "-"]
+    if x.get("fixed_angle"):
+        # a fixed-angle external is Clifford+T already: its T count comes from the other tool's own pass, so it is NOT put under
+        # T_fixed / T(1e-6) / T_est / T(1e-10) (pygridsynth-based definitions, METHODS §7); it gets its own labelled column
+        return [x["source"] + " (fixed angle; Clifford+T up to a global phase)", m.get("qubits"), m.get("cx"), None, m.get("n_rot"),
+                None, None, None, m.get("t_eps"), m.get("depth_ct"), verdict, "n_a", "-"]
+    return [x["source"], m.get("qubits"), m.get("cx"), m.get("t_fixed"), m.get("n_rot"), m.get("t_eps"), est.get("1e-06"),
+            est.get("1e-10"), None, m.get("depth_ct"), verdict, "n_a", "-"]
 
 
 def report_table(encoding, kind, root=None) -> str:
@@ -86,7 +99,7 @@ def report_table(encoding, kind, root=None) -> str:
             m = x.get("metrics")
             na = "n/a (unverifiable)"
             rows.append(["Qiskit L3 (whole circuit; counts only)", *([m.get("qubits"), m.get("cx"), m.get("t_fixed"), m.get("n_rot"), na,
-                         (m.get("t_estimate") or {}).get("1e-06"), na, na] if m else ["-"] * 8), x.get("reason", ""), "n_a", "-"])
+                         (m.get("t_estimate") or {}).get("1e-06"), na, None, na] if m else ["-"] * 9), x.get("reason", ""), "n_a", "-"])
         else:
             rows.append(_row_external(x))
     best_by_family = {}
@@ -103,6 +116,8 @@ def report_table(encoding, kind, root=None) -> str:
     lines += ["", "Every exact-angle circuit is the target up to ONE global phase; Clifford+T circuits (synthesised) are equal to their "
               "exact-angle design up to the synthesis error and one global phase. T(1e-6), T(1e-10): T_fixed + pygridsynth T of every "
               "rotation (measured); T_est: T_fixed + 3 N_rot log2(1/eps). Key = (CX, T(1e-6), depth_CT, qubits), lexicographic."]
+    notes = [PAULO_NOTE] if any(x.get("fixed_angle") and "metrics" in x for x in externals) else []
+    lines += [""] + notes if notes else []
     synth = [(r["round"], r["synthesis_verification"]) for r in rounds if r.get("synthesis_verification")]
     for rnd, s in synth:
         lines.append(f"Round {rnd}: Clifford+T re-verification of `{s['entry']}`: " + (
@@ -113,7 +128,7 @@ def report_table(encoding, kind, root=None) -> str:
                for r in valid]
     summary = {"encoding": encoding, "kind": kind, "n_rounds": len(rounds), "n_candidates": len(records), "n_valid": len(valid),
                "global_best": gbest["id"] if gbest else None, "global_best_key": gbest["key"] if gbest else None,
-               "best_by_family": {k: v["id"] for k, v in best_by_family.items()}, "rows": [[_f(c) for c in row] for row in rows],
+               "best_by_family": {k: v["id"] for k, v in best_by_family.items()}, "header": HEADER, "notes": notes, "rows": [[_f(c) for c in row] for row in rows],
                "lineage": lineage}
     rdir.mkdir(parents=True, exist_ok=True)
     (rdir / "summary.json").write_text(json.dumps(summary, indent=1))

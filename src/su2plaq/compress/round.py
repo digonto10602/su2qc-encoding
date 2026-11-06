@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import hashlib
 import json
 import pathlib
 import subprocess
@@ -213,7 +214,7 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
     if best_here is not None and evaluate:
         # the round's global best: Clifford+T re-verification (and, on request, the Lean certificate)
         _rec, r, pp, label, fn = best_here
-        circ, err = _circuit_of(spec, pp, label, fn, root)
+        circ, err = _circuit_of(spec, pp, label, fn, root, expected_sha256=r.program_sha256 or None)
         if circ is None:
             synth_check = {"entry": best.id, "ok": None, "error": err}
         else:
@@ -222,7 +223,7 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
                            "tolerances": sv["tolerances"], "op_norm_error": sv["verdict"].op_norm_error,
                            "certified": sv["verdict"].certified, "reason": sv["verdict"].reason}
             if lean:
-                new_lean, lean_seconds = _certify(circ, spec)
+                new_lean, lean_seconds = _certify(circ, spec, program_file_sha256=r.program_sha256 or None)
                 _store_lean(best, new_lean, root, encoding, f"round {round}")
     archive.save()
     for rec, *_ in records:               # records carry the final lean status
@@ -264,6 +265,7 @@ def _store_lean(entry, new: dict, root, encoding: str, why: str = "") -> None:
     """Record `new` as `entry.lean` unless that would replace an existing `certified` status by a `failed` / `not_run` one (a `rejected` verdict is a finding and is recorded) (a transient
     crash must not erase a certificate): then the old status stays and the failed attempt goes to
     results/compress/<encoding>/lean-attempts.jsonl."""
+    new = _relativise_cert_path(new, root)
     old = entry.lean
     if isinstance(old, dict) and old.get("status") == "certified" and new.get("status") in ("failed", "not_run"):
         d = pathlib.Path(root) / "results" / "compress" / encoding
@@ -275,24 +277,59 @@ def _store_lean(entry, new: dict, root, encoding: str, why: str = "") -> None:
     entry.lean = new
 
 
-def _certify(circ, spec):
-    """(asdict(LeanCert) or a status dict, seconds).  Lean never changes validity; a failure is recorded, not hidden."""
+def _relativise_cert_path(lean: dict, root) -> dict:
+    """Copy of an entry's `lean` dict whose `cert_path` is relative to the repository root (else to `root`), so archives stay
+    relocatable (audit 004 N13).  Other values are left alone."""
+    cp = lean.get("cert_path") if isinstance(lean, dict) else None
+    if not cp:
+        return lean
+    return {**lean, "cert_path": _rel(cp, pathlib.Path(root))}
+
+
+def resolve_cert_path(lean: dict | None, root=None) -> pathlib.Path | None:
+    """Absolute path of an entry's certificate.  Relative paths are looked up under `root`, then under the repository root;
+    old entries with an absolute path are returned as they are.  None if the entry has no certificate path."""
+    cp = lean.get("cert_path") if isinstance(lean, dict) else None
+    if not cp:
+        return None
+    p = pathlib.Path(cp)
+    if p.is_absolute():
+        return p
+    root = pathlib.Path(root) if root is not None else ROOT
+    return root / p if (root / p).exists() else ROOT / p
+
+
+def _certify(circ, spec, program_file_sha256=None):
+    """(asdict(LeanCert) or a status dict, seconds).  Lean never changes validity; a failure is recorded, not hidden.  The
+    certificate provenance and the returned dict carry `program_file_sha256` (the program source that was rebuilt) and
+    `gates_sha256` (hash of the exported gate list), so the certificate is tied to a program file (audit 004 N2)."""
     t0 = time.time()
     try:
         from dataclasses import asdict
 
         from su2plaq.lean import certify
 
-        return asdict(certify.certify_circuit(circ, spec, timeout=1200.0)), time.time() - t0
+        extra = {"program_file_sha256": program_file_sha256} if program_file_sha256 else None
+        d = asdict(certify.certify_circuit(circ, spec, timeout=1200.0, extra_provenance=extra))
+        if program_file_sha256:
+            d["program_file_sha256"] = program_file_sha256
+        if d.get("cert_path"):
+            d["gates_sha256"] = json.loads(pathlib.Path(d["cert_path"]).read_text())["gates_sha256"]
+        return d, time.time() - t0
     except NotImplementedError as exc:
         return {"status": "not_run", "reason": f"Lean certification not available: {exc}"}, time.time() - t0
     except (ImportError, OSError, ValueError, RuntimeError, subprocess.SubprocessError) as exc:
         return {"status": "failed", "reason": f"{type(exc).__name__}: {exc}"}, time.time() - t0
 
 
-def _circuit_of(spec, program_path, label, fn, root):
+class ProgramShaMismatch(Exception):
+    """The program file on disk is not the file that was evaluated and archived (audit 004 N2).  Never caught."""
+
+
+def _circuit_of(spec, program_path, label, fn, root, expected_sha256=None):
     """(nominal circuit of an evaluated candidate, None) or (None, error text).  Programs are rebuilt in the sandboxed worker, circuit-valued
-    seeds from their function; failures are returned, never swallowed."""
+    seeds from their function; failures are returned, never swallowed.  With `expected_sha256` the program bytes are read once, their
+    sha256 must equal it (else `ProgramShaMismatch` is raised) and the circuit is built from exactly those bytes."""
     try:
         if fn is not None and (program_path is None or str(program_path).endswith(".circuit")):
             return fn(spec), None
@@ -300,7 +337,11 @@ def _circuit_of(spec, program_path, label, fn, root):
         f = f if f.is_absolute() else (root / f if (root / f).exists() else ROOT / f)
         if not f.exists():
             return None, f"program file {program_path} not found"
-        circuits, _ = E._build_in_subprocess(f.read_bytes(), [spec], E.BUILD_TIMEOUT_S)
+        source = f.read_bytes()
+        got = hashlib.sha256(source).hexdigest()
+        if expected_sha256 is not None and got != expected_sha256:
+            raise ProgramShaMismatch(f"{program_path}: file sha256 {got[:12]} != archived program_sha256 {expected_sha256[:12]}")
+        circuits, _ = E._build_in_subprocess(source, [spec], E.BUILD_TIMEOUT_S)
         return circuits[0], None
     except (E.ContractError, RuntimeError, OSError, ValueError, subprocess.SubprocessError) as exc:
         return None, f"{type(exc).__name__}: {exc}"
@@ -315,11 +356,11 @@ def certify_best(encoding="twelve", kind="step", root=None) -> dict:
     best = archive.best()
     if best is None:
         return {"entry": None, "lean": None, "seconds": 0.0}
-    circ, err = _circuit_of(spec, best.program_path, best.id, None, root)
+    circ, err = _circuit_of(spec, best.program_path, best.id, None, root, expected_sha256=best.program_sha256)
     if circ is None:
         new, sec = {"status": "failed", "reason": f"cannot rebuild the best circuit: {err}"}, 0.0
     else:
-        new, sec = _certify(circ, spec)
+        new, sec = _certify(circ, spec, program_file_sha256=best.program_sha256)
     before = best.lean
     _store_lean(best, new, root, encoding, "certify_best")
     archive.save()

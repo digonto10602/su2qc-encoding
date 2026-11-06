@@ -1,0 +1,156 @@
+{
+  "valid": true,
+  "reason": "ok",
+  "mode": "full",
+  "message": "",
+  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+  "seeds": {
+    "trial_seed": 0,
+    "transpiler_logical": 20261104,
+    "clifford_t_pass_manager": 12345,
+    "gridsynth": 0
+  },
+  "verdict": {
+    "ok": true,
+    "reason": "ok",
+    "op_norm_error": 1.0044392193329395e-13,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      -6.563905180231949e-17,
+      0.9999999999999999
+    ],
+    "outer_bits_read": 4,
+    "n_blocks": 16,
+    "gauss_residual": 7.148071168125942e-16,
+    "method": "physical",
+    "engine": "sparse",
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "dropped_total": 8.683544550622045e-14,
+    "block_error": 1.3608476427073498e-14,
+    "leak_amplitude": 0.0,
+    "seconds": 12.198628902435303,
+    "n_inputs": 433,
+    "failing_inputs": [],
+    "extra": {
+      "op_norm_error_physical": 1.3608476427073498e-14,
+      "max_dropped_l2": 4.676385917458759e-15,
+      "max_span_leak": 4.884981308350689e-15,
+      "op_norm_error_inner_span": null
+    }
+  },
+  "verdicts_alt": [
+    {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 9.566027581753258e-14,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": [
+        4.9229288851739594e-17,
+        1.0
+      ],
+      "outer_bits_read": 4,
+      "n_blocks": 16,
+      "gauss_residual": 6.502969072191774e-16,
+      "method": "physical",
+      "engine": "sparse",
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+      },
+      "dropped_total": 8.101891725651538e-14,
+      "block_error": 1.464135856101719e-14,
+      "leak_amplitude": 0.0,
+      "seconds": 10.430249691009521,
+      "n_inputs": 433,
+      "failing_inputs": [],
+      "extra": {
+        "op_norm_error_physical": 1.464135856101719e-14,
+        "max_dropped_l2": 4.57428560831347e-15,
+        "max_span_leak": 6.5503158452884236e-15,
+        "op_norm_error_inner_span": null
+      }
+    },
+    {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 1.1043274061258404e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": [
+        8.204881475289937e-18,
+        1.0
+      ],
+      "outer_bits_read": 4,
+      "n_blocks": 16,
+      "gauss_residual": 7.606876177453824e-16,
+      "method": "physical",
+      "engine": "sparse",
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+      },
+      "dropped_total": 9.455100214447618e-14,
+      "block_error": 1.588173846810786e-14,
+      "leak_amplitude": 0.0,
+      "seconds": 10.550902366638184,
+      "n_inputs": 433,
+      "failing_inputs": [],
+      "extra": {
+        "op_norm_error_physical": 1.588173846810786e-14,
+        "max_dropped_l2": 5.262835930684218e-15,
+        "max_span_leak": 6.106226635438361e-15,
+        "op_norm_error_inner_span": null
+      }
+    }
+  ],
+  "skeleton_equal": true,
+  "metrics": {
+    "cx": 111,
+    "t_fixed": 104,
+    "n_rot": 13,
+    "t_eps": 912,
+    "t_estimate": {
+      "1e-06": 881.3311742036428,
+      "1e-10": 1399.5519570060715
+    },
+    "t_measured": {
+      "1e-06": 912,
+      "1e-10": 1456
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 145,
+    "depth_ct": 1663,
+    "qubits": 31,
+    "gates": {
+      "h": 118,
+      "cx": 111,
+      "t": 52,
+      "tdg": 52,
+      "sdg": 36,
+      "s": 22,
+      "x": 19,
+      "rz": 13,
+      "z": 11
+    },
+    "measured": true
+  },
+  "program_sha256": "4f7fcb1eab11fc709a1e44eb0fdafe9a5f7cd9d48365aea6642cd280170cef92",
+  "wall_s": 36.422595739364624,
+  "discoveries": [
+    "DISCOVERY: Per-corner gadget search on the exact corner states (writable a, b, t; controls j_A, j_B, outer m and j bits; free U3 layers; flag on a, b or t; partner phases referenced to the parent frame): the parent 5-CX frame followed by any 2 two-qubit gates gives no valid corner (1656 skeletons, residual floor 0.20), and at a NOT corner no one-gate substitution of the 8-gate frame+flag removes the relabel CX (555 skeletons, floor 0.46); outer reads do not shorten the corner below 8 CX in these neighbourhoods.",
+    "DISCOVERY: The walk's type bit can be read from the outer register: t2 = q_j(o4) ^ q_j(o5) on every physical state, so each of the two t toggles becomes two CX from the outer bits (+2 CX) while the cx(t2 -> f2) copy (2 CX) and its ancilla vanish (corner 2 flags in place on q8): equal CX/T, one qubit fewer.",
+    "DISCOVERY: depth_CT is fixed by one synthesised electric phase word (~167 levels) + ~20 forward levels + the 9-rotation walk on F (~1410 levels) + ~30 backward levels; merging fixed 1q runs (diagonal merge, BFS-shortest Clifford words) and making corner 1's merge the last F-controlled forward gate gain only 3 levels, and moving any electric phase later on its wire makes the depth worse (1833-2010)."
+  ],
+  "summary": "Parent datapath (5-CX clean corner frame, in-place flags, in-walk pa, 9-term Walsh walk, CX 111) with t2 read from the corner-2 outer j bits inside the walk (Gauss law t2 = q21 ^ q23), so corner 2's flag sits in place on q8 and the t2 copy ancilla disappears (31 qubits), plus a 1q peephole and corner-2-before-corner-1 scheduling (depth_CT 1663); no CX gain: a numerical corner-gadget search with outer m/j reads found no 7-CX corner."
+}
