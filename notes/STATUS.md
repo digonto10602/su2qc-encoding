@@ -1,17 +1,18 @@
-M5 in progress (desktop track R, rishon QLM): plan prompts/200 locked as acceptance-v7; steps 5.0+5.1 done; building step 5.2 (physical basis, counts).
+M5 in progress (desktop track R, rishon QLM): plan prompts/200 locked as acceptance-v7; steps 5.0+5.1 done; 5.2 done; building step 5.3 (plaquette operator, structure).
 
 # Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)
 
 Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 200–299. Cores 10–19, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-rishon.md`.
 
 ## Current milestone / step
-M5 — plan `prompts/200-rishon-m5-plan.md` (acceptance-v7, m5 tests 34). Steps 5.0+5.1 PASS (reports/tests/200). Step 5.2 with builder. Lean steps 5.L1–5.L3 run after, one builder per clone at a time (START_HERE §3 overrides the plan's parallel-builder note).
+M5 — plan `prompts/200-rishon-m5-plan.md` (acceptance-v7, m5 tests 34). Steps 5.0+5.1 PASS (reports/tests/200). Step 5.2 PASS (reports/tests/201). Step 5.3 with builder. Lean steps 5.L1–5.L3 run after, one builder per clone at a time (START_HERE §3 overrides the plan's parallel-builder note).
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
 |---|---|---|---|---|
 
 ## Desktop log
+- 2026-11-06: M5 step 5.2 PASS (reports/tests/201): 38 432 physical states by fusion, built basis, and two tester routes (Haar integral, brute-force corner kernels); closed 4352, 431 U(1) sectors, U(2) sector 2192; Gauss ≤ 2e-16 on all; Gram − 1 ≤ 8e-15; inner span rank 1296; build 2.3 s / 0.33 GB.
 - 2026-11-06: M5 steps 5.0+5.1 PASS (reports/tests/200): D1 ×2 green; independent JW image: CAR, BCW Eq. 4.1, sector dim 6 (2 singlets + quartet), string-freeness on 8/12 modes all exact (0 deviation); unit 259/259; m0+m1 54/54.
 - 2026-11-06: planner prompts/200 + reports/research/200 + docs/METHODS-rishon.md + tests/acceptance/m5 (34 tests, all PENDING); locked acceptance-v7 (202a340). Model: SU(2) QLM, 2 rishons/link (6 states), SU(2) Gauss only, det coupling γ=0 (default, flagged for Digonto). Physical count 38 432 (two routes + Lean decide prototype), closed sector 4352, inner span 1296 full; H_B^in = 81 bright pairs (κ ∈ {1×32, 2×48, 4√2×1}) + 1134 dark. Verification: laptop evaluate on an inner view (certifies all 38 432 for outer-blind circuits) + sampled Gauss.
 - 2026-11-05: desktop setup done (`~/su2qc-sync/setup-log.md`); baseline on fresh clone: m0+m1 56/56 incl. slow, unit 216/216, lock PASS acceptance-v6.
