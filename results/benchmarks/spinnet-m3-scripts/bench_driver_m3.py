@@ -2,7 +2,7 @@
 usage: python bench_driver_m3.py <scratch_dir>   -> writes <scratch_dir>/raw.json"""
 import sys, json, subprocess, os, time, pathlib, statistics
 ROOT = str(pathlib.Path(__file__).resolve().parents[3])
-W = ROOT + "/results/benchmarks/scripts/bench_worker_m3.py"
+W = ROOT + "/results/benchmarks/spinnet-m3-scripts/bench_worker_m3.py"
 SCR = pathlib.Path(sys.argv[1]); SCR.mkdir(parents=True, exist_ok=True)
 env = dict(os.environ, OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MKL_NUM_THREADS="1", PYTHONHASHSEED="20261104", PYTHONPATH=ROOT + "/src")
 TS = ["taskset", "-c", "0-9"]

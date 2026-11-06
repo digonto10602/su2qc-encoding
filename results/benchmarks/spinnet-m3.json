@@ -21,8 +21,8 @@
  },
  "repeats": "enc_build 5 fresh processes; each eval/synth task 3 fresh processes (4 evaluate calls each: 1 cold + 3 warm; synth: 3+3); m3_results 3; pytest suites 3",
  "scripts": [
-  "results/benchmarks/scripts/bench_worker_m3.py",
-  "results/benchmarks/scripts/bench_driver_m3.py"
+  "results/benchmarks/spinnet-m3-scripts/bench_worker_m3.py",
+  "results/benchmarks/spinnet-m3-scripts/bench_driver_m3.py"
  ],
  "raw": {
   "tasks": {

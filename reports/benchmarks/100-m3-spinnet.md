@@ -3,7 +3,7 @@
 - Date: 2026-11-06. Commit: `9c0aee6` (branch `m3-spin-network`; tree clean apart from this benchmark's two new scripts and `results/benchmarks/spinnet-m3.json`).
 - Prompt in force: `prompts/100-spinnet-m3-plan.md` (+ `prompts/101` erratum), plan row 3.8. Auditor: `reports/audits/100` (PASS WITH NOTES; N1/N2/N4 fixed in `d82a472`).
 - Related: `reports/benchmarks/001-m0-baseline.md`, `reports/benchmarks/002-m1-twelve-qubit.md` (laptop), `reports/tests/106` (gate, mode full), `reports/audits/100`; desktop baseline `~/su2qc-sync/setup-log.md` section 1.8.
-- Raw numbers (all repeats, provenance): `results/benchmarks/spinnet-m3.json`. Scripts: `results/benchmarks/scripts/bench_worker_m3.py` (one task per fresh process) and `bench_driver_m3.py` (driver).
+- Raw numbers (all repeats, provenance): `results/benchmarks/spinnet-m3.json`. Scripts: `results/benchmarks/spinnet-m3-scripts/bench_worker_m3.py` (one task per fresh process) and `bench_driver_m3.py` (driver).
 - Machine: desktop, Intel i7-12700KF (20 logical CPUs), 31 GB, no GPU used. Python 3.12.16, numpy 2.5.2, scipy 1.18.0, qiskit 2.5.2, qiskit-aer 0.17.2. `OMP/OPENBLAS/MKL_NUM_THREADS=1`, `PYTHONHASHSEED=20261104`, every job under `taskset -c 0-9`. Peak RSS of every non-pytest job < 660 MB; pytest peak is the largest single process (see section 4), always < 10 GB.
 - **Concurrency caveat:** the other track (rishon, `~/Projects/su2qc-rishon`, cores 10-19) was running its own jobs during these timings and a memory-guard / watchdog service also runs. I did not control it. Load average (1/5/15 min) read before each suite run: 1.1-4.9 / 1.4-3.7 / 1.8-2.9 on 20 CPUs, so my 10 cores were not oversubscribed, but shared caches / memory bandwidth / turbo state may differ from the 2026-11-05 baseline. Spread of the repeats (below) is small, so the numbers are reproducible within this session.
 - Seeds: no stochastic call is timed (`ct_compile` seed 12345 is not used here; `m3_results.py` uses its own fixed seeds `20261104` / `12345`).
@@ -13,7 +13,7 @@
 ```
 cd ~/Projects/su2qc-spinnet; source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONHASHSEED=20261104
-python results/benchmarks/scripts/bench_driver_m3.py <scratch>   # tasks x 3-5 processes, m3_results.py x 3, pytest unit x 3, pytest m0+m1+m3 x 3
+python results/benchmarks/spinnet-m3-scripts/bench_driver_m3.py <scratch>   # tasks x 3-5 processes, m3_results.py x 3, pytest unit x 3, pytest m0+m1+m3 x 3
 # like-for-like with the desktop baseline (setup-log 1.8): old unit files only, and m0+m1 only, 3 runs each (wrapper in scratch)
 taskset -c 0-9 python -m pytest -n 10 -q <16 unit files that exist at a2ec571, minus test_spinnet_unit.py>
 taskset -c 0-9 python -m pytest -n 10 -q tests/acceptance/m0 tests/acceptance/m1
