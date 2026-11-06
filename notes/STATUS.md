@@ -1,4 +1,4 @@
-M9 fuzzy: code, tester part 1 PASS, audit PASS WITH NOTES (NB-1/NB-2 fixed); pending: results/T tables (9.7), tester part 2, Report 9, tag milestone-9. M10: plan prompts/302 locked (acceptance-v11), step 10.0 hook+seeds in progress; next: ideation + rounds until 5 h 15.
+M9 fuzzy: built, tester part 1 PASS, audit PASS WITH NOTES (fixed), results/T tables done; pending: tester part 2 + benchmark, Report 9 draft, tag milestone-9. M10: step 10.0 done (seeds UB 1596 CX, link 30 CX; composed step 1956 CX); ideation running (UB ≤3 families, link ≤2; total ≤4 active); next: rounds 1–2 until 5 h 15.
 
 # STATUS — branch m9-fuzzy (48-core machine, fuzzy encoding M9/M10)
 
@@ -25,4 +25,5 @@ M9 — planner (prompts/300, docs/METHODS-fuzzy.md, reports/research/300, tests/
 - Coordinator defaults (not yet confirmed by Digonto): kappa_2/kappa_1 not given in the note -> free parameter, nominal kappa_2 = kappa_1, also verify kappa_2 = 0; plaquette coupling per Eq. 16 (alpha_N = -2 beta, KS sign); note Eq. 3 (T_L on incoming) treated as typo -> T_L on outgoing links as in the paper; daggers per paper Eqs. 35/37.
 - 2026-11-06 (Digonto, chat): approved two locked-test fixes -> prompts/301: (1) O1 one-step plaquette = 0 only for order 1 (order 2 is O(alpha beta), 0.0348 at nominal r=0); (2) K1 electric dense 65536^2 check -> seeded-state check, tol 1e-10 unchanged.
 - Known test costs: C1 ~18 min (test's own reference Gauss on 4^12 vacuum); S1 needs 68-135 GB per test -> run with -n 1.
+- M10 ideation split into two proposers (one per unit: fuzzy_ub, fuzzy_link) because plan 302 has two compression units; family cap 4 kept across both.
 - Env: ~/venvs/coding (uv, CPython 3.12.14), not conda (none on this host). See notes/merge-notes-fuzzy.md.
