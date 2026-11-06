@@ -1,17 +1,23 @@
-M3 in progress (desktop track S, spin network): plan prompts/100 locked as acceptance-v7; building step 3.0+3.1.
+M3 in progress (desktop track S, spin network): steps 3.0+3.1 done; building step 3.2 (Paulo 15-qubit file + phase-walk solver).
 
 # Desktop track S — spin network — branch `m3-spin-network` (clone `~/Projects/su2qc-spinnet`)
 
 Coordinator: desktop session, started 2026-11-05 from `~/Projects/su2qc-desktop-package/START_HERE.md`. Numbers: prompts/reports 100–199. Cores 0–9, `pytest -n 10`. Env: `source ~/anaconda3/etc/profile.d/conda.sh && conda activate su2qc-coding`. Merge notes: `notes/merge-notes-spinnet.md`.
 
 ## Current milestone / step
-M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Step 3.0+3.1 (stubs, codec) with builder.
+M3 — plan `prompts/100-spinnet-m3-plan.md` (acceptance-v7, 24 m3 tests). Steps 3.0+3.1 PASS (reports/tests/100). Step 3.2 with builder.
+
+## Pending notes
+- METHODS-spinnet §3: fallback decode must say "each end's $G^z$ eigenvalue $\pm\tfrac12$", not "$m=\pm\tfrac12$" (builder fix, reports/tests/100) — next planner run.
+- Laptop-owned flaky unit test `tests/unit/test_results_unit.py::test_render_is_deterministic_and_contains_only_json_numbers` fails when the short commit hash contains "c1" (merge notes).
+- Tester data goes to `results/spinnet/tester/` (track-owned), not `results/tester/`.
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
 |---|---|---|---|---|
 
 ## Desktop log
+- 2026-11-06: M3 steps 3.0+3.1 PASS (reports/tests/100): C1, K1 green; fallback decode fixed by builder (prototype let 60–76 inadmissible codes overlap physical states up to 0.354; now Gram = 1 to 7.3e-15 on 12 032 codes, Gauss ≥ ½ on all 11 599 inadmissible); route B vs A after gauge 1.4e-15; unit 236/237 (laptop flake). Commit 33d7dba.
 - 2026-11-06: planner prompts/100 + reports/research/100 + docs/METHODS-spinnet.md + tests/acceptance/m3 (24 tests, all PENDING); locked acceptance-v7 (a3bfda5). Findings: general U_B prototype 54 CX, 4 rotations (−7/2, −1, 3, 3/2)β, 56 T_fixed, exact 1.4e-14; Paulo's 15-qubit file valid on the open 433 states up to a per-pair sign gauge (err 9.8e-15); spinnet_v2 pairs9 34 CX/9 rot, flags4 44 CX/4 rot. Laptop-owned diffs wanted → merge notes.
 - 2026-11-05: desktop setup done (`~/su2qc-sync/setup-log.md`); baseline on fresh clone: m0+m1 56/56 incl. slow, unit 216/216, lock PASS acceptance-v6.
 

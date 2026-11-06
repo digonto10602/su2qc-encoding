@@ -35,3 +35,6 @@ From `prompts/100-spinnet-m3-plan.md` §10 (not applied; M3 routes around 2; 1 a
    +        return enc.inner_target(kind, alpha, beta, order)
    ```
 3. `src/su2plaq/compress/baselines.py::import_seed`: add sources `"paulo15"` and `"spinnet_v2"` via `SpinNet.import_map` (M4 round-0 seeds).
+
+## Observations on laptop-owned code
+- `tests/unit/test_results_unit.py::test_render_is_deterministic_and_contains_only_json_numbers` asserts `"c1" not in t_noq`, but the rendered table contains the git short hash; it fails whenever the hash contains "c1" (seen with `bd37c15`). Suggested fix: strip the commit field before the check, or test for `"| c1 "`.
