@@ -19,10 +19,15 @@ def _ks(g2):
 
 def test_M9_O1_definitions_and_identities():
     """g2_of(alpha, beta) = sqrt(2 alpha / beta); electric_spectrum(g2) = {0, 3 g^2/8, g^2/2}; closed_sector(g2, r) is Hermitian,
-    its dimension is the same for r = 1 and r = 0 and is at least 2, and its ground state energy is below the vacuum energy
-    -2 r g^2 (the K2 vacuum value) + 0; ks_closed_sector equals the 2x2 above; after one first-order Trotter step from the vacuum
-    both theories give <Re Tr U_P> = 0 exactly (U_B commutes with the plaquette, kinetic layers are phases on the vacuum);
-    plaquette_at_time(t) is odd-free: it starts at 0 and is O(t) small for t = 1e-3 (|value| <= 1e-2); loschmidt(0) = 1."""
+    basis vector 0 = Omega, dimension 12 (r = 1) and 9 (r = 0) (the K2 term connects Omega to more states; both <= 50), vacuum
+    energy <Omega|H|Omega> = H[0, 0] = -4 r g^2 (the K2 vacuum value, 4 inner links x (-g^2 r)), and the ground state is strictly
+    below it for r = 1 (and <= 0 = vacuum for r = 0); ks_closed_sector equals the 2x2 above.  One-step identity: after one
+    FIRST-order Trotter step U = U_B U_K U_E from the vacuum <Re Tr U_P> = 0 exactly at r = 1 and r = 0 (U_E, U_K are phases on
+    the vacuum and U_B commutes with the plaquette).  For the symmetric order-2 step U_E(a/2) U_K(k/2) U_B U_K(k/2) U_E(a/2) the
+    value is NOT zero: it is O(alpha beta) (measured 0.0348 at nominal r = 0, 0.0147 at (0.05, 0.05), 0.0037 at (0.025, 0.025);
+    prompts/301), so the test checks it is nonzero and that halving both angles divides it by a factor in [3, 5] (4 at leading
+    order, corrections O(alpha, beta)).  plaquette_at_time(t) starts at 0 and is small for t = 1e-3 (|value| <= 1e-2);
+    loschmidt(0) = 1."""
     ob = api("su2plaq.fuzzy.observables")
     alpha, beta = NOMINAL
     g2 = ob.g2_of(alpha, beta)
@@ -31,15 +36,25 @@ def test_M9_O1_definitions_and_identities():
     assert np.allclose(es, [0.0, 0.375 * g2, 0.5 * g2], atol=1e-12)
     H1, d1 = ob.closed_sector(g2, 1.0)
     H0, d0 = ob.closed_sector(g2, 0.0)
-    assert H1.shape == (d1, d1) and H0.shape == (d0, d0) and d1 >= 2 and d0 >= 2 and d1 <= 50 and d0 <= 50
+    assert H1.shape == (d1, d1) and H0.shape == (d0, d0) and d1 == 12 and d0 == 9
     assert np.abs(H1 - H1.conj().T).max() <= TOL and np.abs(H0 - H0.conj().T).max() <= TOL
+    assert abs(H1[0, 0] + 4 * g2) <= TOL and abs(H0[0, 0]) <= TOL          # vacuum energy -4 r g^2 (prompts/301, verified)
+    assert np.linalg.eigvalsh(H1)[0] < -4 * g2 - TOL and np.linalg.eigvalsh(H0)[0] <= TOL
     ks = ob.ks_closed_sector(g2)
     assert np.abs(ks - _ks(g2)).max() <= 1e-12
-    # one-step identity (fuzzy): <Omega| U^dag W U |Omega> = <Omega|W|Omega> = 0 with U = U_B U_K U_E — checked on the 4 inner links
+    # one-step identity (fuzzy, order 1): <Omega| U^dag W U |Omega> = <Omega|W|Omega> = 0 with U = U_B U_K U_E — 4 inner links
     W = ref_plaquette_row()
     vac1 = np.zeros(4, complex); vac1[[0, 3]] = 1 / np.sqrt(2)   # row part of Psi = 1/2 per link, traced over columns = |00>+|11>
     assert abs(ob.plaquette_at_time(0.0, g2, 1.0)) <= TOL and abs(ob.plaquette_at_time(0.0, g2, 0.0)) <= TOL
-    assert abs(ob.one_step_plaquette(alpha, beta, 1.0, order=1)) <= TOL and abs(ob.one_step_plaquette(alpha, beta, 0.0, order=2)) <= TOL
+    assert abs(ob.one_step_plaquette(alpha, beta, 1.0, order=1)) <= TOL and abs(ob.one_step_plaquette(alpha, beta, 0.0, order=1)) <= TOL
+    # order 2 is nonzero and O(alpha beta): halving both angles divides the value by ~4 (prompts/301: 0.0147 -> 0.0037 at r = 0)
+    for r in (1.0, 0.0):
+        v_nom = ob.one_step_plaquette(alpha, beta, r, order=2)
+        assert abs(v_nom) > 1e-3
+        v1 = ob.one_step_plaquette(0.05, 0.05, r, order=2)
+        v2 = ob.one_step_plaquette(0.025, 0.025, r, order=2)
+        assert abs(v1) > 1e-4 and abs(v2) > 1e-5
+        assert 3.0 <= v1 / v2 <= 5.0
     assert abs(ob.plaquette_at_time(1e-3, g2, 1.0)) <= 1e-2
     L = ob.loschmidt(np.array([0.0, 0.5, 1.0]), g2, 1.0)
     assert L.shape == (3,) and abs(L[0] - 1) <= TOL and np.all((L >= -TOL) & (L <= 1 + TOL))

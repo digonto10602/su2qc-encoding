@@ -1,7 +1,9 @@
 """M9-K1, M9-B1, M9-S1 — general circuits of the fuzzy encoding (prompts/300 §1, §3 steps 9.5a–c; METHODS-fuzzy F3, F5, F6).
 Exact-angle circuits: op-norm error <= 1e-10 after one global phase (block error + leak amplitude, prompts/004), weights
 <= 1e-20 = (1e-10)^2 (float64 over <= 3e4 gates accumulates ~1e-12 in amplitude).  Every link state is a code, so a full
-16x16 (one link) or 256x256 (row block) unitary equality certifies exactness on every physical state."""
+16x16 (one link) or 256x256 (row block) unitary equality certifies exactness on every physical state.
+Cost note (prompts/301): the two M9_S1 tests form np.kron of four 16x16 blocks as a dense 65536x65536 complex matrix (69 GB each,
+68-135 GB peak per test) — run this file with `pytest -n 1` (or `-k "not S1"` in parallel); K1 uses a seeded-state check instead."""
 import numpy as np
 import pytest
 
@@ -59,8 +61,25 @@ def test_M9_K1_electric_link_and_layout(alpha):
     big = circ.build_UE(alpha)
     assert big.num_qubits == 16 and [r.name for r in big.qregs] == ["d"] and ops_of(big) <= ALLOWED
     U16 = _unitary(qc)
-    full = _unitary(big)
-    assert op_norm_after_phase(full, np.kron(np.kron(np.kron(U16, U16), U16), U16)) <= 1e-10
+    # build_UE == kron(U16, U16, U16, U16) up to ONE global phase, checked on 8 seeded random 16-qubit states (prompts/301: the
+    # dense 65536x65536 Operator(big) needed 69 GB and was infeasible).  The reference is applied link by link via tensordot on
+    # the (16,16,16,16) reshape (axis 0 = qubits 12..15, little-endian like Operator), never forming the 65536^2 matrix.  The
+    # phase is fixed from the first state and reused for all others; per-state error <= 1e-10 (float64: measured ~1e-15).
+    from qiskit.quantum_info import Statevector
+    rng = np.random.default_rng(SEED)
+    phase = None
+    for _ in range(8):
+        psi = rng.normal(size=65536) + 1j * rng.normal(size=65536)
+        psi /= np.linalg.norm(psi)
+        out = Statevector(psi).evolve(big).data
+        ref = psi.reshape(16, 16, 16, 16)
+        for ax in range(4):
+            ref = np.moveaxis(np.tensordot(U16, ref, axes=([1], [ax])), 0, ax)
+        ref = ref.reshape(65536)
+        if phase is None:
+            ov = np.vdot(ref, out)
+            phase = ov / abs(ov)
+        assert np.linalg.norm(out - phase * ref) <= 1e-10
     bo = circ.build_UE(alpha, with_outer=True)
     assert bo.num_qubits == 48 and [r.name for r in bo.qregs] == ["d", "o"]
     assert qubits_touched(bo) == set(range(48))
