@@ -3,6 +3,7 @@ with_outer, then ancillas.  Stubs (steps 3.2-3.6)."""
 from __future__ import annotations
 
 from su2plaq._stub import todo
+from su2plaq.spinnet import paulo
 
 N_DATA, N_OUTER = 8, 8
 LINK_QUBITS = (0, 1, 2, 3)
@@ -28,8 +29,12 @@ def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = Fal
 
 
 def paulo_circuit(with_outer: bool = False):
-    """refs/paulo/spin_network_plaquette3.gates.txt as a QuantumCircuit."""
-    return todo("circuits.spinnet.paulo_circuit")
+    """refs/paulo/spin_network_plaquette3.gates.txt as a QuantumCircuit (gates as in the file, global phase 0), registers
+    d[8] (+ o[8]) a[7]; metadata kind UB, alpha_P = 0.1, beta = alpha_P / 2 (Paulo Eq. 16 normalisation), source, sha256."""
+    qc = paulo.load_circuit(with_outer)
+    qc.metadata = {"kind": "UB", "alpha_P": paulo.FILE_ALPHA_P, "beta": paulo.FILE_ALPHA_P / 2,
+                   "source": str(paulo.GATES_FILE), "sha256": paulo.SHA256}
+    return qc
 
 
 def trotter_v2_circuit(skeleton: str, beta: float, with_outer: bool = False):
