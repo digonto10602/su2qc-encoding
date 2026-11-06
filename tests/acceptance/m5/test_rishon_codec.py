@@ -32,7 +32,7 @@ def test_M5_C1_encoding_codec_and_vectors():
     va, vb = _ref.vac_codes()
     assert enc.decode(va | outer) is not None and enc.decode(va | outer)[:4] == ("A", "A", "B", "B")
     assert enc.decode(vb | outer)[:4] == ("B", "B", "A", "A")
-    assert enc.decode(va | outer | (1 << 0)) is None                        # link b weight 3
+    assert enc.decode(va | outer | (1 << 2)) is None                        # link b 0011 -> 0111, weight 3
     assert enc.decode((va & ~0xF) | 0b0001 | outer) is None                  # weight 1
     # outer Q link with far colour 2 is invalid; with far colour 1 valid
     k0 = 4 * 4
@@ -46,7 +46,7 @@ def test_M5_C1_encoding_codec_and_vectors():
     keys, amps = enc.decode_state(np.array([va | outer, vb | outer], dtype=np.int64), np.array([1.0, 0.5]))
     assert np.array_equal(keys, [va | outer, vb | outer]) and np.allclose(amps, [1.0, 0.5])
     with pytest.raises(ValueError):
-        enc.decode_state(np.array([va | outer | 1], dtype=np.int64), np.array([1.0]))
+        enc.decode_state(np.array([va | outer | (1 << 2)], dtype=np.int64), np.array([1.0]))   # link b weight 3
     eb = enc.physical_vectors("all")
     assert eb.n_data == 16 and eb.n_outer == 32 and len(eb.codes) == _ref.N_PHYS
     norms = np.array([np.linalg.norm(a) for a in eb.amps])
