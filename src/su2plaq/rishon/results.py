@@ -110,6 +110,14 @@ def register_rows(enc, circuits: dict) -> dict:
                             "(ancillas excluded)"}}
 
 
+def _coef_text() -> str:
+    """The electric coefficient as a short fraction for result labels, e.g. "3/4" (computed, not typed)."""
+    import fractions
+
+    f = fractions.Fraction(_ops.electric_coefficient()).limit_denominator(64)
+    return f"{f.numerator}/{f.denominator}" if f.denominator != 1 else str(f.numerator)
+
+
 def outer_electric_check(qc, enc, alpha: float, n_codes: int = 4000, seed: int = SEED, cap: int = 5_000_000) -> dict:
     """The circuit `qc` (48-qubit U_E with the outer electric row) against exp(-i alpha (3/4) #Q(code)) on up to `n_codes`
     seeded valid 48-bit codes (drawn from the keys of the 17 closed + 256 seeded physical states).  One global phase is
@@ -121,7 +129,7 @@ def outer_electric_check(qc, enc, alpha: float, n_codes: int = 4000, seed: int =
     if len(codes) > n_codes:
         codes = np.sort(rng.choice(codes, size=n_codes, replace=False))
     nq = np.array([enc.decode(int(c)).count("Q") for c in codes], dtype=np.float64)
-    tgt = np.exp(-0.75j * alpha * nq)
+    tgt = np.exp(-1j * _ops.electric_coefficient() * alpha * nq)
     batch = ss.run_batch(qc, codes, cap=cap)
     own = batch.keys == codes[batch.cols]
     a = np.zeros(len(codes), dtype=np.complex128)
@@ -133,8 +141,8 @@ def outer_electric_check(qc, enc, alpha: float, n_codes: int = 4000, seed: int =
     err = np.sqrt(np.bincount(batch.cols, weights=np.abs(res) ** 2, minlength=len(codes)))
     return {"max_error": float(err.max()), "n_codes": int(len(codes)), "phase": phase, "seed": seed,
             "max_branches": int(np.bincount(batch.cols, minlength=len(codes)).max()),
-            "target": "exp(-i alpha (3/4) #Q) per valid 48-bit code, #Q = number of type-Q links among the 12 (decoded "
-                      "independently of the circuit)"}
+            "target": f"exp(-i alpha ({_coef_text()}) #Q) per valid 48-bit code, #Q = number of type-Q links among the 12 "
+                      "(decoded independently of the circuit)"}
 
 
 def observable_rows(tab: dict) -> dict:
@@ -159,7 +167,7 @@ def outer_electric_certify(qc, enc, alpha: float, tol_err: float = 1e-10) -> dic
     The row is a tensor product of 12 per-link gadgets on disjoint qubits (link l = qubits 4l..4l+3).  Gates are partitioned
     by link (a gate across links -> `cross_link_gate`; a circuit with qubits beyond the 12 links -> `ancilla_register`).  Per
     link, V_l = exact 16 x 16 operator of the link's sub-circuit; T_l = diag over the 6 sector codes of
-    exp(-i (3/4) alpha [type Q]); phi_l = phase of conj(T_aa) V_aa at the anchor code a = the type-A sector code, whose
+    exp(-i c alpha [type Q]) with c = operators.electric_coefficient(); phi_l = phase of conj(T_aa) V_aa at the anchor code a = the type-A sector code, whose
     target phase is 1 (1 if the modulus is < 1e-300; DEVIATION from prompts/202 section 1, which fits the phase of
     sum_s conj(T_ss) V_ss: any phi_l gives a valid bound, the anchor keeps a one-code phase error visible at full size
     (1e-7 phase mutant -> 1e-7, as the locked test and the planner prototype) instead of halved by the fit);
@@ -178,7 +186,7 @@ def outer_electric_certify(qc, enc, alpha: float, tol_err: float = 1e-10) -> dic
     base = {"certified": False, "ok": False, "method": "outer_electric_gadgets", "n_links": n_links, "link_errors": [],
             "max_link_error": float("inf"), "error_bound": float("inf"), "phase": 1.0 + 0j, "gates_per_link": [],
             "tol_err": tol_err,
-            "target": "exp(-i alpha (3/4) [type Q]) per link on the 6 sector codes; bound = sum over links (tensor product)"}
+            "target": f"exp(-i alpha ({_coef_text()}) [type Q]) per link on the 6 sector codes; bound = sum over links (tensor product)"}
     if qc.num_qubits != N_MODES * n_links:
         return {**base, "reason": "ancilla_register"}
     per_link = [[] for _ in range(n_links)]
@@ -196,7 +204,8 @@ def outer_electric_certify(qc, enc, alpha: float, tol_err: float = 1e-10) -> dic
     counts = [len(g) for g in per_link]
     rl = RishonLink()
     sector = [int(s) for s in rl.sector]
-    tgt = np.array([np.exp(-0.75j * alpha * (rl.link_type(s) == "Q")) for s in sector])
+    coef = _ops.electric_coefficient()
+    tgt = np.array([np.exp(-1j * coef * alpha * (rl.link_type(s) == "Q")) for s in sector])
     anchor = [k for k, s in enumerate(sector) if rl.link_type(s) == "A"][0]
     errs, phases = [], []
     for l in range(n_links):

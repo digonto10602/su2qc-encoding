@@ -5,11 +5,15 @@ N_DATA, N_OUTER = 16, 32
 
 
 def _emit_ue(qc, alpha: float, n_links: int = 4) -> None:
-    """CX(L1 -> L2), p(-3 alpha/4) on L2, CX on each of the first `n_links` links."""
+    """CX(L1 -> L2), p(-c alpha) on L2, CX on each of the first `n_links` links, c = operators.electric_coefficient()
+    (the quartet Casimir of the link algebra, METHODS-rishon R1)."""
+    from su2plaq.rishon.operators import electric_coefficient
+
+    coef = electric_coefficient()
     for link in range(n_links):
         l1, l2 = 4 * link, 4 * link + 1
         qc.cx(l1, l2)
-        qc.p(-0.75 * alpha, l2)
+        qc.p(-coef * alpha, l2)
         qc.cx(l1, l2)
 
 
@@ -98,7 +102,23 @@ def _cancel_adjacent(ops: list) -> list:
     return [op for op, a in zip(ops, alive) if a]
 
 
-def _pair_ops(f: dict, anc: list[int]) -> list:
+LADDERS = ("ccx", "rccx", "mcx")
+
+
+def _ladder_names(ladder: str, n: int) -> list[str]:
+    """Gate name of each of the n AND gates of a control ladder: "ccx" = all Toffolis (default, M5); "rccx" = all
+    relative-phase Toffolis (self-uncomputing mirror, exact); "mcx" = `Builder.mcx` style, rccx everywhere except the last
+    AND (which feeds the controlled rotation) as a true ccx (research 202 section 3)."""
+    if ladder == "ccx":
+        return ["ccx"] * n
+    if ladder == "rccx":
+        return ["rccx"] * n
+    if ladder == "mcx":
+        return ["rccx"] * (n - 1) + ["ccx"]
+    raise ValueError(f"ladder must be one of {LADDERS}, got {ladder!r}")
+
+
+def _pair_ops(f: dict, anc: list[int], ladder: str = "ccx") -> list:
     j, ctrl, theta = f["pivot"], f["controls"], f["angle"]
     ops = [(n, tuple(q), ()) for n, q in f["frame_gates"]]
     ops += [("x", (c,), ()) for c in ctrl]
@@ -106,22 +126,23 @@ def _pair_ops(f: dict, anc: list[int]) -> list:
         ops.append(("crx", (ctrl[0], j), (theta,)))
     else:
         chain = [(ctrl[0], ctrl[1], anc[0])] + [(anc[i - 2], ctrl[i], anc[i - 1]) for i in range(2, len(ctrl))]
-        ops += [("ccx", c, ()) for c in chain]
+        names = _ladder_names(ladder, len(chain))
+        ops += [(nm, c, ()) for nm, c in zip(names, chain)]
         ops.append(("crx", (anc[len(ctrl) - 2], j), (theta,)))
-        ops += [("ccx", c, ()) for c in reversed(chain)]
+        ops += [(nm, c, ()) for nm, c in reversed(list(zip(names, chain)))]
     ops += [("x", (c,), ()) for c in ctrl]
     ops += [(n, tuple(q), ()) for n, q in reversed(f["frame_gates"])]
     return ops
 
 
-def _emit_ub(qc, beta: float, anc: list[int]) -> dict:
+def _emit_ub(qc, beta: float, anc: list[int], ladder: str = "ccx") -> dict:
     """Append U_B(beta) to `qc` (data qubits 0..15, ancillas `anc`, all clean before and after); returns metadata.
     The 81 pair blocks commute; consecutive blocks share Hadamard/CX/X structure and adjacent identical self-inverse gates
     are cancelled (exact, angle-independent)."""
     frames = pair_frames(beta)
     ops = []
     for f in sorted(frames, key=lambda f: (tuple(f["controls"]), f["pivot"], tuple(f["frame_gates"]))):   # blocks commute
-        ops += _pair_ops(f, anc)
+        ops += _pair_ops(f, anc, ladder)
     n_before = len(ops)
     ops = _cancel_adjacent(ops)
     for name, qs, params in ops:
@@ -135,27 +156,29 @@ def _emit_ub(qc, beta: float, anc: list[int]) -> dict:
             "gates_after_cancel": len(ops)}
 
 
-def build_UB(beta: float, with_outer: bool = False):
+def build_UB(beta: float, with_outer: bool = False, ladder: str = "ccx"):
     """Magnetic step U_B(beta) = exp(-i beta H_B^inner) as 81 commuting two-level rotations (METHODS-rishon R7).
 
     Pair p: F_p (Clifford-type frame, X/CX/Z/CZ/H and j-controlled versions) maps the bright vectors u_p, v_p of
     H_B^in = -sum_p kappa_p (|u_p><v_p| + h.c.) to two computational codes that differ in the pivot bit j only; then
     Rx(-2 s_p kappa_p beta) on j controlled on the (zero) bits that separate that pair from the images of every other valid
-    code (Toffoli `ccx` ladder on clean ancillas, mirrored uncompute; the relative-phase `rccx` variant was evaluated and rejected by the prune cap, reports/tests/204 N1), then F_p^dagger.  The angles are 2 beta (x32), 4 beta (x48) and
+    code (`ladder` selects the control-ladder style on clean ancillas, mirrored uncompute: "ccx" Toffolis (default; the M5 circuit), "rccx" relative-phase Toffolis, "mcx" = rccx..ccx..rccx as `Builder.mcx`; the uncompressed rccx/mcx variants are rejected by the prune cap, reports/tests/204 N1, research 202 section 3), then F_p^dagger.  The angles are 2 beta (x32), 4 beta (x48) and
     8 sqrt(2) beta (x1) (kappa = 1, 2, 4 sqrt 2), signs from the operator.  Registers d (+ o), then ancillas `anc`;
     metadata {"kind": "UB", "beta": beta, "n_pairs": 81, ...}."""
+    _ladder_names(ladder, 1)
     n_anc = _n_ancillas()
     qc, anc = _registers(with_outer, n_anc, "UB")
-    meta = _emit_ub(qc, float(beta), anc)
+    meta = _emit_ub(qc, float(beta), anc, ladder)
     qc.metadata = {"kind": "UB", "beta": float(beta), **meta}
     return qc
 
 
-def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = False):
+def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = False, ladder: str = "ccx"):
     """One Trotter step on d (+ o) and the U_B ancillas: order 1 = U_B(beta) U_E(alpha) (electric layer applied first),
-    order 2 = U_E(alpha/2) U_B(beta) U_E(alpha/2)  (prompts/200 METHODS §2).  metadata {"kind": "step", ...}."""
+    order 2 = U_E(alpha/2) U_B(beta) U_E(alpha/2)  (prompts/200 METHODS §2).  `ladder` as in `build_UB`.  metadata {"kind": "step", ...}."""
     if order not in (1, 2):
         raise ValueError(f"step order must be 1 or 2, got {order}")
+    _ladder_names(ladder, 1)
     n_anc = _n_ancillas()
     qc, anc = _registers(with_outer, n_anc, f"step{order}")
 
@@ -164,10 +187,10 @@ def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = Fal
 
     if order == 1:
         electric(float(alpha))
-        meta = _emit_ub(qc, float(beta), anc)
+        meta = _emit_ub(qc, float(beta), anc, ladder)
     else:
         electric(float(alpha) / 2)
-        meta = _emit_ub(qc, float(beta), anc)
+        meta = _emit_ub(qc, float(beta), anc, ladder)
         electric(float(alpha) / 2)
     qc.metadata = {"kind": "step", "alpha": float(alpha), "beta": float(beta), "order": order, **meta}
     return qc

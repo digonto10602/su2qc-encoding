@@ -2,6 +2,7 @@ M5 done (milestone-5, Report 5) and M5x done (milestone-5x); laptop milestone-2 
 - 2026-11-06T14:55 merged laptop master 5111d69 (tag milestone-2, bundle laptop-milestone-2-20261106-1211) with --no-ff; no conflicts; our STATUS kept; LOCK.json regenerated with tools/lock.py (identical to the auto-merged one, LOCK OK); laptop acceptance-v7 fetched as tag laptop-acceptance-v7 (name clash with ours).
 - 2026-11-06T15:35 tester 213: merge full suite PASS (unit 520, m0 34, m1 22, m2 46, m5 34, m5x 6); KS projection side check independently verified (P H_B P = KS H_B exactly, c = 1; step does not reproduce KS: leakage 0.8615, distance 1.990 at beta 0.61; rishon H_B spectrum lacks KS's +-1/2, so no exact invariant embedding exists).
 - 2026-11-06T15:50 planner M6 -> prompts/203, reports/research/202, METHODS-rishon R10-R12, tests/acceptance/m6 (26 tests); locked acceptance-v10 (acceptance-check PASS); plan §9 copied into merge notes. Counters reset. Plan §8 defaults taken (Digonto may override): D1 gamma = 0; D2 prune cap 1 %; D4 build track-owned three-angle Lean checker. D3 (T1[step] slow marker) still awaiting Digonto, not applied.
+- 2026-11-06T17:10 step 6.0 builder done (K0 PASS, rest PENDING, ladder ccx byte-identical to M5); tester step (reports/tests/214) running.
 - 2026-11-06T14:20 side task (Digonto): rishon→KS projection check of the full step circuit; builder running (scripts/rx_ks_projection.py → results/rishon/ks_projection.json), tester next.
 
 # Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)

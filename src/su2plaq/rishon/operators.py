@@ -101,18 +101,42 @@ def plaquette_W_inner() -> np.ndarray:
 
 
 @functools.lru_cache(maxsize=1)
-def _HE() -> np.ndarray:
+def electric_coefficient() -> float:
+    """Quartet Casimir (1/2) sum_a (L_a^2 + R_a^2) of one link, evaluated with `RishonLink` on the six sector codes.
+
+    Asserts that the operator is diagonal on the sector, vanishes on the A and B codes and takes one common value on the four
+    Q codes (METHODS-rishon R1; prompts/203 section 1.3).  This is the number every production site multiplies #Q with."""
+    rl = _link()
+    sec = [int(s) for s in rl.sector]
+    h = 0.5 * (rl.casimir_L + rl.casimir_R)[np.ix_(sec, sec)]
+    off = h - np.diag(np.diag(h))
+    assert np.abs(off).max() <= _TOL, "link Casimir is not diagonal on the sector codes"
+    d = np.real(np.diag(h))
+    types = [rl.link_type(s) for s in sec]
+    assert all(abs(x) <= _TOL for x, t in zip(d, types) if t in ("A", "B")), "Casimir must vanish on A and B"
+    q = [x for x, t in zip(d, types) if t == "Q"]
+    assert len(q) == len(CODES_Q) and max(q) - min(q) <= _TOL, "Casimir must be one common value on the Q codes"
+    return float(np.mean(q))
+
+
+@functools.lru_cache(maxsize=1)
+def _n_quartet() -> np.ndarray:
     codes = inner_codes()
     q = np.zeros(len(codes))
     for l in range(_N_INNER):
         nib = (codes >> (4 * l)) & 15
         q += np.isin(nib, CODES_Q)
-    return 0.75 * q
+    return q
+
+
+@functools.lru_cache(maxsize=1)
+def _HE() -> np.ndarray:
+    return electric_coefficient() * _n_quartet()
 
 
 def h_electric_inner() -> np.ndarray:
-    """Diagonal of H_E on the inner codes: 3/4 per quartet (Q) inner link."""
-    return _HE().copy()
+    """Diagonal of H_E on the inner codes: `electric_coefficient()` (the quartet Casimir) per quartet (Q) inner link."""
+    return electric_coefficient() * _n_quartet()
 
 
 def h_magnetic_inner() -> np.ndarray:
