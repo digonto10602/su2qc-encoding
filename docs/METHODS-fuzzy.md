@@ -123,3 +123,32 @@ transformation law, $[\mathcal K_1,\mathcal K_2]=0$, $\mathcal K_1$ and $\mathca
 `decide` on 16×16 matrix identities. Physical counts 50, 12 800, 101 197 218, 6 767 266 914 by `decide` from the corner rule of F4.
 Per-circuit native certificates: only if the fixed unitaries $C_p$ lie in $K=\mathbb Q(i,\sqrt2,\sqrt3)$ (METHODS §11.2); otherwise
 reported as `n_a` with the reason.
+
+## F9. M10 compression units, composed score and hook (prompts/302)
+
+* **Units.** The step factorises exactly (F3): $U=[\bigotimes_{\rm outer}U_{EK}]\,U_B\,[\bigotimes_{\rm inner}U_{EK}]$ with
+  $U_{EK}(\alpha,\kappa_2)=U_K(\kappa_2)U_E(\alpha)=e^{-i(\frac\alpha2\mathcal K_1+\kappa_2\mathcal K_2)}$ ($[\mathcal K_1,\mathcal K_2]=0$).
+  Compression runs the Gu-et-al loop (METHODS §9) on two units through the laptop machinery: `fuzzy_ub` (kind `UB`, target
+  `UB_row(beta)`, $256\times256$ on the 8 row qubits; unit frame qubit $2l=q_2^l$, $2l+1=q_1^l$ = circuit qubit `ROW_QUBITS[i]`; up to
+  32 ancillas) and `fuzzy_link` (kind `UE`, target `UEK_link(alpha, kappa2)` with **`spec.beta` $=\kappa_2$**, $16\times16$ on
+  $(q_4,q_3,q_2,q_1)$ = frame qubits 0..3, no ancillas). Validity = the laptop rules (exact $\le10^{-10}$ after one phase at the
+  nominal and both alternate angle pairs with identical skeleton, clean ancillas, allowed gates, wall $\le300$ s). Gauss is not
+  re-checked per unit: all unit codes are physical and both targets commute with every $\mathcal T^A$ (audit 300 A1/A3), so full
+  block exactness implies Gauss preservation. Key $(\mathrm{CX},T_{10^{-6}},\mathrm{depth}_{CT},\mathrm{qubits})$ per unit.
+* **Composed score.** `compress_hook.compose_step(link_fn, ub_fn, alpha, beta, kappa2, order, with_outer)` builds the step from the
+  unit circuits (order 1: 4 inner $U_{EK}$ blocks, $U_B$, 8 outer blocks; order 2: half-angle $U_{EK}$ blocks on both sides) with
+  `metadata['layers']`; its `logical_metrics` are the reported step counts and it is re-verified with `verify_step_samples`
+  (F6: blocks certified on a complete basis, composition sampled, seed 20261104, $10^{-10}$).
+* **In the $U_K$ Clifford frame** `cx(q1,q3) cx(q2,q4) h(q1) h(q2)` both kinetic terms are diagonal:
+  $\mathcal K_1\to\tfrac32-\tfrac14(Z_2-Z_2Z_4+Z_4)(1+Z_3)$, $\mathcal K_2\to-Z_1+Z_1Z_2Z_3-Z_1Z_2Z_3Z_4+Z_1Z_3Z_4$ (10 $Z$-strings,
+  $Z_1Z_3\to Z_3$ under the frame), so $U_{EK}$ is one Clifford frame plus a phase polynomial; parity-network synthesis
+  (Amy–Maslov–Mosca, arXiv:1303.2042) bounds the CNOT count by $2^4-2=14$ for all parities, against 36 CX for the two M9 ladders.
+  $U_B$ levers: `rccx` compute/uncompute pairs (Maslov arXiv:1508.03273), one unary decode of the three parity bits into eight
+  sector flags, Gray-ordered sectors, uncontrolled Clifford frames where the flag makes the control redundant.
+* **Hook.** `su2plaq.fuzzy.compress_hook.install()` registers the two units in the laptop `spec`/`evaluate`/`baselines`/`round`
+  modules by attribute patching (no laptop file edited; the clean diff is in prompts/302 §2 and `notes/merge-notes-fuzzy.md`),
+  forces `gauss=False` for fuzzy block encodings, replaces `build_UB`'s constant `p(-pi)` by `z` in the general seed (the laptop
+  program generator requires angle-linear gates), records Lean status `n_a` (no fuzzy exporter), and exports
+  `SU2PLAQ_FUZZY_HOOK=1` + `PYTHONPATH+=src/su2plaq/fuzzy/sitehook` so that the sandboxed build worker installs the hook too.
+  Prototype (`scratch/planner/m10_hook_proto.py`): link full key (36, 644, 1515, 4), polish → 30 CX; $U_B$ (1718, 2822, 4924, 15),
+  polish → 1596 CX; composed general step with outer links CX 2150, $N_{\rm rot}=136$.
