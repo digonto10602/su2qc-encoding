@@ -1,6 +1,6 @@
 # Report 10 — Fuzzy encoding: compression of the one-Trotter-step circuit
 
-Date: 2026-11-06 · Branch `m9-fuzzy` (on top of tag `milestone-9`) · Commit of the numbers: `15a12fa` · Plan: `prompts/302-fuzzy-m10-plan.md` (locked tests `tests/acceptance/m10/`, `acceptance-v11`) · Methods: `docs/METHODS-fuzzy.md` F9 · Previous report: `docs/report-9-fuzzy-general-circuit.md`.
+Date: 2026-11-06 · Branch `m9-fuzzy` (on top of tag `milestone-9`) · Numbers committed in `15a12fa` (the JSON provenance of `compressed_step.json` records `git_commit` `7b0e5d0` with a dirty tree; the round and summary files carry their own entry commits) · Plan: `prompts/302-fuzzy-m10-plan.md` (locked tests `tests/acceptance/m10/`, `acceptance-v11`) · Methods: `docs/METHODS-fuzzy.md` F9 · Previous report: `docs/report-9-fuzzy-general-circuit.md`.
 
 Sources of every number: `results/compress/fuzzy_ub/summary.json`, `results/compress/fuzzy_link/summary.json` (written by `python scripts/m10_round.py report --encoding fuzzy_ub|fuzzy_link`), the round files `results/compress/fuzzy_{ub,link}/round-00r.json`, and the composed step `results/fuzzy/compressed_step.json` (written by `python scripts/m10_round.py best-step`). Tester verification: TESTER-VERDICT-LINE.
 
@@ -37,7 +37,7 @@ Columns from `results/compress/fuzzy_ub/summary.json` `rows`. T at $\varepsilon=
 | best of family F2 | 14 | 165 | 106 | 44 | 2914 | 7221 | valid ($7.2\times10^{-14}$) | not_run | r03-F2-003 |
 | **after**: GLOBAL BEST (family F3) | **13** | **151** | **118** | **28** | **1902** | **4682** | valid ($6.4\times10^{-14}$, leak 0) | n_a | r03-F3-003 |
 
-12 candidates, 11 valid (the invalid one is the Qiskit L3 seed, rejected by the pruning bound). The best is better than the general circuit in every key entry: CX $1718\to151$ ($-91\%$), T($10^{-6}$) $2822\to1902$ ($-33\%$), CT-depth $4916\to4682$, qubits $15\to13$. Clifford+T re-verification of r03-F3-003 at $\varepsilon=10^{-6}$: ok, error $3.4\times10^{-6}\le$ budget $2.8\times10^{-5}$ (28 rotations).
+12 candidates, 11 valid (the invalid one is the Qiskit L3 seed transpiled in windows of 32 gates, 1629 CX, rejected by the pruning bound — not shown in the table; the whole-circuit L3 row above is counts-only and not an archive candidate). The best is better than the general circuit in every key entry: CX $1718\to151$ ($-91\%$), T($10^{-6}$) $2822\to1902$ ($-33\%$), CT-depth $4916\to4682$, qubits $15\to13$. Clifford+T re-verification of r03-F3-003 at $\varepsilon=10^{-6}$: ok, error $3.4\times10^{-6}\le$ budget $2.8\times10^{-5}$ (28 rotations).
 
 Lineage (CX): seed 1596 → F1 200 (r1) → F1 172 (r2) → F3 151 (r3, parent r02-F1-002); side branches F2 268 → 172 → 165 and F3 390 → 192.
 
@@ -59,8 +59,8 @@ Lineage (CX): seed 1596 → F1 200 (r1) → F1 172 (r2) → F3 151 (r3, parent r
 | composed step | CX | $N_{\rm rot}$ | $T_{\rm fixed}$ | T($10^{-6}$), unit sums | depth | qubits | verification |
 |---|---|---|---|---|---|---|---|
 | **before**, inner links only (M9 `build_step`) | 1862 | 56 | 1826 | 5398 | 2690 | 23 (16 data + 7 work) | Report 9 |
-| **after**, inner links only ($151+4\times12$) | **199** | 68 | 118 | **4478** | — | 21 (16 data + 5 work) | blocks certified (units valid) |
-| **before**, all 12 links (`general`) | 2150 | 136 | 1826 | 10550 | 2690 | 55 (48 data + 7 work) | err $1.1\times10^{-14}$ |
+| **after**, inner links only ($151+4\times12$) | **199** | 68 | 118 | **4478** | — | 21 (16 data + 5 work; derived: U_B unit 13 = 8 row + 5 work) | blocks certified (units valid); depth not composed |
+| **before**, all 12 links (`general`) | 2150 | 136 | 1826 | 10550 | 2690 | 55 (48 data + 7 work) | err $1.1\times10^{-14}$ (`results/fuzzy/step.json` with outer; Report 9) |
 | **after**, all 12 links (`composed`) | **295** | 148 | 118 | **9630** | 255 | 53 (48 data + 5 work) | err $1.7\times10^{-14}$, Gauss $5.9\times10^{-15}$, 40 inputs, seed 20261104 |
 
 The composed after-step has $295=151+12\times12$ CX. The JSON's own `t_estimate` field (8968 after, 9958 before) uses the laptop's per-rotation estimate and is not the pygridsynth number; the table uses the exact unit sums. The step is verified the same way as in M9: every layer block certified exactly, composition sampled (label `blocks_certified_composition_sampled`).
@@ -84,3 +84,5 @@ Comparison with KS (12-qubit encoding, Report 1, inner-only step): 294 CX, 952 T
 - **Proposer program technique.** Two families (F2 rounds 2–3) re-synthesise the angle-free segments between rotations with Qiskit's level-3 transpiler at emission time with fixed seeds; validity with an identical skeleton at all three angle pairs was checked by the evaluator, so this is allowed by the rules, but the emitted circuit depends on the Qiskit version (2.5.2).
 - **Ideation split** into one proposer per unit (instead of one in total) — a coordinator deviation from START_HERE §4, recorded in `notes/STATUS.md`.
 - Tester verification of all elites with a second engine: TESTER-VERDICT-LINE.
+
+- Audit 301 note A1 (hook records the per-unit Gauss residual as 0.0 when it is not computed; it should read 'not checked') and A2 (validity is checked at 3 angle points only; the auditor checked the best link program at 7 further $(\alpha,\kappa_2)$ points, max error $7\times10^{-15}$, and the best $U_B$ at 6 further $\beta$, max error $1.1\times10^{-13}$) are open for the next session.
