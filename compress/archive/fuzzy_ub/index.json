@@ -1,14 +1,26 @@
 {
  "encoding": "fuzzy_ub",
- "n_entries": 2,
+ "n_entries": 5,
  "families": {
+  "F1": {
+   "best": "r01-F1-001"
+  },
+  "F2": {
+   "best": "r01-F2-001"
+  },
+  "F3": {
+   "best": "r01-F3-001"
+  },
   "seed": {
    "best": "r00-seed-010"
   }
  },
  "elites": {
+  "61,95": "r01-F1-001",
+  "64,82": "r01-F2-001",
+  "68,83": "r01-F3-001",
   "85,91": "r00-seed-010"
  },
- "best": "r00-seed-010",
- "written_utc": "2026-11-06T19:50:48Z"
+ "best": "r01-F1-001",
+ "written_utc": "2026-11-06T20:13:58Z"
 }
