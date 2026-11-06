@@ -82,6 +82,16 @@ class TaskSpec:
             return r"$U=U_B(\beta)\,U_E(\alpha)$ (electric layer first in the circuit)"
         return r"$U=U_E(\alpha/2)\,U_B(\beta)\,U_E(\alpha/2)$"
 
+    def _synth_rule_text(self) -> str:
+        from su2plaq.evaluate.evaluator import PRUNE_FRACTION, synth_tolerances
+
+        slack = synth_tolerances(0, self.eps)["tol_err"]
+        return (f"The circuit you submit is exact-angle; its Clifford+T synthesis (pygridsynth at $\\varepsilon={self.eps:g}$) is "
+                f"re-verified separately with both tolerances $N_{{\\rm rot}}\\varepsilon+{slack:g}$ (the triangle inequality over "
+                f"the $N_{{\\rm rot}}$ synthesised rotations). The simulator's certified pruning bound (`dropped_total`) must be at "
+                f"most {PRUNE_FRACTION:g} times the error tolerance (programs that keep hundreds of tiny amplitudes alive are "
+                "rejected as `pruning_bound`).")
+
     def _structure_section(self) -> str:
         head = "## Proved structure (Lean)\n\n"
         if not STRUCTURE_JSON.exists():
@@ -123,7 +133,8 @@ class TaskSpec:
             f"## Correctness\n\nThe combined error bound `op_norm_error` = block error + leak amplitude (+ certified simulator "
             f"pruning bound) must be at most {self.tol_err:g} on the physical block after one global phase, and the Gauss residual "
             f"of the outputs at most {self.tol_gauss:g}; the skeleton must be identical at the three angle pairs; evaluation wall "
-            f"at most {self.eval_budget_s:g} s and at most {self.support_cap} stored amplitudes. The evaluator is ground truth.\n\n"
+            f"at most {self.eval_budget_s:g} s and at most {self.support_cap} stored amplitudes. {self._synth_rule_text()} "
+            "The evaluator is ground truth.\n\n"
             f"## Cost\n\nKey $(\\mathrm{{CX}},\\,T_{{\\varepsilon}},\\,\\mathrm{{depth}}_{{\\rm CT}},\\,\\mathrm{{qubits}})$, "
             f"lexicographic. $T_\\varepsilon=T_{{\\rm fixed}}+\\sum_r T_r$ with each rotation $T_r$ measured with pygridsynth at "
             f"$\\varepsilon={self.eps:g}$; estimate $3\\log_2(1/\\varepsilon)$ per rotation. MAP-Elites cells "

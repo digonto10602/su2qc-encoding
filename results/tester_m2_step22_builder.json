@@ -1,0 +1,126 @@
+{
+ "pass": 189,
+ "fail": [],
+ "mcx_rows": [
+  {
+   "k": 0,
+   "qubits": 1,
+   "exact_err": 0.0,
+   "leak": 0.0,
+   "cx": 0,
+   "t": 0,
+   "exp_cx": 0,
+   "exp_t": 0,
+   "peak": 1,
+   "lowered_gates": {
+    "x": 1
+   }
+  },
+  {
+   "k": 1,
+   "qubits": 2,
+   "exact_err": 0.0,
+   "leak": 0.0,
+   "cx": 1,
+   "t": 0,
+   "exp_cx": 1,
+   "exp_t": 0,
+   "peak": 2,
+   "lowered_gates": {
+    "cx": 1
+   }
+  },
+  {
+   "k": 2,
+   "qubits": 3,
+   "exact_err": 0.0,
+   "leak": 0.0,
+   "cx": 6,
+   "t": 7,
+   "exp_cx": 6,
+   "exp_t": 7,
+   "peak": 3,
+   "lowered_gates": {
+    "cx": 6,
+    "t": 4,
+    "tdg": 3,
+    "h": 2
+   }
+  },
+  {
+   "k": 3,
+   "qubits": 5,
+   "exact_err": 3.3306690738754696e-16,
+   "leak": 0.0,
+   "cx": 12,
+   "t": 15,
+   "exp_cx": 12,
+   "exp_t": 15,
+   "peak": 5,
+   "lowered_gates": {
+    "cx": 12,
+    "t": 8,
+    "tdg": 7,
+    "h": 6
+   }
+  },
+  {
+   "k": 4,
+   "qubits": 7,
+   "exact_err": 3.552716894235139e-15,
+   "leak": 0.0,
+   "cx": 18,
+   "t": 23,
+   "exp_cx": 18,
+   "exp_t": 23,
+   "peak": 7,
+   "lowered_gates": {
+    "cx": 18,
+    "t": 12,
+    "tdg": 11,
+    "h": 10
+   }
+  },
+  {
+   "k": 5,
+   "qubits": 9,
+   "exact_err": 5.551115123125783e-15,
+   "leak": 0.0,
+   "cx": 24,
+   "t": 31,
+   "exp_cx": 24,
+   "exp_t": 31,
+   "peak": 9,
+   "lowered_gates": {
+    "cx": 24,
+    "t": 16,
+    "tdg": 15,
+    "h": 14
+   }
+  },
+  {
+   "k": 6,
+   "qubits": 11,
+   "exact_err": 6.664524939855476e-15,
+   "leak": 0.0,
+   "cx": 30,
+   "t": 39,
+   "exp_cx": 30,
+   "exp_t": 39,
+   "peak": 11,
+   "lowered_gates": {
+    "cx": 30,
+    "t": 20,
+    "tdg": 19,
+    "h": 18
+   }
+  }
+ ],
+ "seed": 20261105,
+ "script": "/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/6f24cad7-b2eb-5b02-89d1-34310bbf63e6/scratchpad/adv_builder.py",
+ "commit": "cdc6551 (+ uncommitted working tree)",
+ "date": "2026-11-05",
+ "n_adversarial_checks": 189,
+ "rng_seed_random_circuits": 20261105,
+ "machine": "local, qiskit 2.5.2, 1 thread"
+}
