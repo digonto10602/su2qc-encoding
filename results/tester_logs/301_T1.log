@@ -1,0 +1,35 @@
+bringing up nodes...
+bringing up nodes...
+
+....                                                                     [100%]
+============================== slowest durations ===============================
+1500.40s call     tests/acceptance/m9/test_fuzzy_metrics.py::test_M9_T1_t_table_and_synth_verify[step]
+4.27s call     tests/acceptance/m9/test_fuzzy_metrics.py::test_M9_T1_t_table_and_synth_verify[UB]
+0.82s call     tests/acceptance/m9/test_fuzzy_metrics.py::test_M9_T1_t_table_and_synth_verify[UE]
+0.78s call     tests/acceptance/m9/test_fuzzy_metrics.py::test_M9_T1_t_table_and_synth_verify[UK]
+
+(8 durations < 0.005s hidden.  Use -vv to show these durations.)
+4 passed in 1501.35s (0:25:01)
+	Command being timed: "pytest -n 8 -m slow tests/acceptance/m9/test_fuzzy_metrics.py -q --durations=0 -p no:cacheprovider"
+	User time (seconds): 1494.23
+	System time (seconds): 15.55
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 25:01.70
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3359324
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2
+	Minor (reclaiming a frame) page faults: 7498897
+	Voluntary context switches: 3247
+	Involuntary context switches: 169553
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 232
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
