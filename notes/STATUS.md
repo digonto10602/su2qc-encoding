@@ -1,4 +1,5 @@
-M5 done (milestone-5, Report 5) and M5x wait-time Lean/robustness work done (milestone-5x); M6 waiting for laptop milestone-2 bundle in ~/su2qc-sync/inbox/ (waiting since 2026-11-06T03:20; stop after 24 h).
+M5 done (milestone-5, Report 5) and M5x done (milestone-5x); laptop milestone-2 bundle arrived 2026-11-06T14:12 and is fetched as laptop-master (5111d69); merge (conflict-free preview) waits for the running projection-check builder, then full suite and M6 planner.
+- 2026-11-06T14:20 side task (Digonto): rishon→KS projection check of the full step circuit; builder running (scripts/rx_ks_projection.py → results/rishon/ks_projection.json), tester next.
 
 # Desktop track R — rishon (quantum link model) — branch `m5-rishon` (clone `~/Projects/su2qc-rishon`)
 
