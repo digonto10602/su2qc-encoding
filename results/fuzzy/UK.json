@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "encoding": "fuzzy",
+  "circuit_id": "UK",
+  "kind": "UK",
+  "params": {
+    "alpha": 0.37,
+    "beta": null,
+    "kappa2": 0.185,
+    "r": 1.0,
+    "order": 1
+  },
+  "provenance": {
+    "git_commit": "8e71c38",
+    "git_dirty": true,
+    "versions": {
+      "python": "3.12.14",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+    "cpu_count": 48,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "step_samples": 20261104
+    },
+    "timestamp_utc": "2026-11-06T19:12:30Z",
+    "provenance_captured_at": "2026-11-06T19:12:30Z"
+  },
+  "verification": {
+    "ok": true,
+    "reason": "ok",
+    "op_norm_error": 1.5487086826676482e-15,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      1.4003592993916388e-17
+    ],
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": NaN,
+    "method": "physical",
+    "engine": "sparse",
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "dropped_total": 1.0164367940680673e-16,
+    "block_error": 1.4470650032608415e-15,
+    "leak_amplitude": 0.0,
+    "seconds": 0.0016338825225830078,
+    "n_inputs": 16,
+    "failing_inputs": [],
+    "extra": {
+      "scope": "full_unitary_link",
+      "layer_blocks_max_error": 1.1679222310250946e-15,
+      "layer_n_blocks": 4
+    }
+  },
+  "metrics": {
+    "logical": {
+      "cx": 72,
+      "depth": 22,
+      "n_rot": 16,
+      "t_fixed": 0,
+      "qubits": 16,
+      "ancilla": 0
+    },
+    "gates_lowered": {
+      "cx": 72,
+      "h": 16,
+      "rz": 16
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 0,
+        "n_rot": 16,
+        "t_rot_pygridsynth": 672,
+        "t_total": 672,
+        "t_est": 637.8101942183736,
+        "t_qiskit": 672,
+        "cx_qiskit": 56,
+        "depth_qiskit": 430,
+        "synth": {
+          "n_rot": 16,
+          "t_rot": 672,
+          "error_bound_sum": 0.0016,
+          "error_measured_sum": 0.00011792657855874988,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 2.75222701212685e-05,
+            "block_error": 2.75222701212685e-05,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": NaN,
+            "method": "physical",
+            "engine": "sparse",
+            "certified": true,
+            "tolerances": {
+              "tol_err": 0.001600001,
+              "tol_gauss": 1e-10
+            },
+            "n_inputs": 16,
+            "seconds": 0.02918529510498047,
+            "extra": {
+              "scope": "full_unitary_link",
+              "layer_blocks_max_error": 2.7522270122779974e-05,
+              "layer_n_blocks": 4
+            }
+          },
+          "seconds": 0.15430927276611328
+        }
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 0,
+        "n_rot": 16,
+        "t_rot_pygridsynth": 992,
+        "t_total": 992,
+        "t_est": 956.7152913275604,
+        "t_qiskit": 992,
+        "cx_qiskit": 56,
+        "depth_qiskit": 646,
+        "synth": {
+          "n_rot": 16,
+          "t_rot": 992,
+          "error_bound_sum": 1.6e-05,
+          "error_measured_sum": 5.472385653040468e-06,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.0785412287388607e-06,
+            "block_error": 1.0785412287388607e-06,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": NaN,
+            "method": "physical",
+            "engine": "sparse",
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1.6000999999999998e-05,
+              "tol_gauss": 1e-10
+            },
+            "n_inputs": 16,
+            "seconds": 0.04142189025878906,
+            "extra": {
+              "scope": "full_unitary_link",
+              "layer_blocks_max_error": 1.078541230420629e-06,
+              "layer_n_blocks": 4
+            }
+          },
+          "seconds": 0.22784066200256348
+        }
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 0,
+        "n_rot": 16,
+        "t_rot_pygridsynth": 1344,
+        "t_total": 1344,
+        "t_est": 1275.6203884367471,
+        "t_qiskit": 1296,
+        "cx_qiskit": 56,
+        "depth_qiskit": 862,
+        "synth": {
+          "n_rot": 16,
+          "t_rot": 1344,
+          "error_bound_sum": 1.6e-07,
+          "error_measured_sum": 5.96842601933646e-08,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.3802311171338395e-08,
+            "block_error": 1.3802308345203421e-08,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": NaN,
+            "method": "physical",
+            "engine": "sparse",
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1.61e-07,
+              "tol_gauss": 1e-10
+            },
+            "n_inputs": 16,
+            "seconds": 0.05556130409240723,
+            "extra": {
+              "scope": "full_unitary_link",
+              "layer_blocks_max_error": 1.3802309322483359e-08,
+              "layer_n_blocks": 4
+            }
+          },
+          "seconds": 0.20610952377319336
+        }
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 0,
+        "n_rot": 16,
+        "t_rot_pygridsynth": 1664,
+        "t_total": 1664,
+        "t_est": 1594.5254855459339,
+        "t_qiskit": 1616,
+        "cx_qiskit": 56,
+        "depth_qiskit": 978,
+        "synth": {
+          "n_rot": 16,
+          "t_rot": 1664,
+          "error_bound_sum": 1.6e-09,
+          "error_measured_sum": 2.4590793198767124e-10,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 5.676200899923318e-11,
+            "block_error": 5.675881781180659e-11,
+            "leak_amplitude": 0.0,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "gauss_residual": NaN,
+            "method": "physical",
+            "engine": "sparse",
+            "certified": true,
+            "tolerances": {
+              "tol_err": 2.6e-09,
+              "tol_gauss": 1e-10
+            },
+            "n_inputs": 16,
+            "seconds": 0.06576251983642578,
+            "extra": {
+              "scope": "full_unitary_link",
+              "layer_blocks_max_error": 5.675754982264525e-11,
+              "layer_n_blocks": 4
+            }
+          },
+          "seconds": 0.24000215530395508
+        }
+      }
+    ],
+    "macro_counts": {
+      "cx": 72,
+      "h": 16,
+      "rz": 16
+    }
+  },
+  "files": {
+    "qpy": "results/fuzzy/UK.qpy",
+    "sha256": "5027dcf19afefc975629d3b1f42f72d57f4f068ce12d263eae0ea38ea4e761d3",
+    "qasm3": "results/fuzzy/UK.qasm3"
+  },
+  "extra": {
+    "verification_scope": "full_unitary_link",
+    "order": 1,
+    "alternates": [
+      {
+        "params": {
+          "alpha": 0.91,
+          "beta": 0.23,
+          "kappa2": 0.455,
+          "r": 1.0
+        },
+        "verification": {
+          "ok": true,
+          "reason": "ok",
+          "op_norm_error": 1.7283515741319888e-15,
+          "block_error": 1.4351938389438307e-15,
+          "leak_amplitude": 0.0,
+          "max_leak": 0.0,
+          "dirty_ancilla": 0.0,
+          "gauss_residual": NaN,
+          "method": "physical",
+          "engine": "sparse",
+          "certified": true,
+          "tolerances": {
+            "tol_err": 1e-10,
+            "tol_gauss": 1e-10
+          },
+          "n_inputs": 16,
+          "seconds": 0.001806020736694336,
+          "extra": {
+            "scope": "full_unitary_link",
+            "layer_blocks_max_error": 1.435474164151353e-15,
+            "layer_n_blocks": 4
+          }
+        },
+        "logical": {
+          "cx": 72,
+          "depth": 22,
+          "n_rot": 16,
+          "t_fixed": 0,
+          "qubits": 16,
+          "ancilla": 0
+        },
+        "seconds": 0.008736133575439453
+      },
+      {
+        "params": {
+          "alpha": 1.7,
+          "beta": 1.0,
+          "kappa2": 0.85,
+          "r": 1.0
+        },
+        "verification": {
+          "ok": true,
+          "reason": "ok",
+          "op_norm_error": 1.804438751132846e-15,
+          "block_error": 1.5404552335773527e-15,
+          "leak_amplitude": 0.0,
+          "max_leak": 0.0,
+          "dirty_ancilla": 0.0,
+          "gauss_residual": NaN,
+          "method": "physical",
+          "engine": "sparse",
+          "certified": true,
+          "tolerances": {
+            "tol_err": 1e-10,
+            "tol_gauss": 1e-10
+          },
+          "n_inputs": 16,
+          "seconds": 0.0017955303192138672,
+          "extra": {
+            "scope": "full_unitary_link",
+            "layer_blocks_max_error": 1.5402633808645463e-15,
+            "layer_n_blocks": 4
+          }
+        },
+        "logical": {
+          "cx": 72,
+          "depth": 22,
+          "n_rot": 16,
+          "t_fixed": 0,
+          "qubits": 16,
+          "ancilla": 0
+        },
+        "seconds": 0.008805036544799805
+      },
+      {
+        "params": {
+          "alpha": 0.37,
+          "beta": 0.61,
+          "kappa2": 0.0,
+          "r": 0.0
+        },
+        "verification": {
+          "ok": true,
+          "reason": "ok",
+          "op_norm_error": 1.4607799020739927e-15,
+          "block_error": 1.4607799020739927e-15,
+          "leak_amplitude": 0.0,
+          "max_leak": 0.0,
+          "dirty_ancilla": 0.0,
+          "gauss_residual": NaN,
+          "method": "physical",
+          "engine": "sparse",
+          "certified": true,
+          "tolerances": {
+            "tol_err": 1e-10,
+            "tol_gauss": 1e-10
+          },
+          "n_inputs": 16,
+          "seconds": 0.009596824645996094,
+          "extra": {
+            "scope": "full_unitary_link",
+            "layer_blocks_max_error": 1.4607799020739927e-15,
+            "layer_n_blocks": 4
+          }
+        },
+        "logical": {
+          "cx": 72,
+          "depth": 22,
+          "n_rot": 0,
+          "t_fixed": 0,
+          "qubits": 16,
+          "ancilla": 0
+        },
+        "seconds": 0.026626110076904297
+      }
+    ],
+    "note": "build_UK: four identical link_UK blocks (same verification)",
+    "per_link": {
+      "cx": 18,
+      "depth": 22,
+      "n_rot": 4,
+      "t_fixed": 0,
+      "qubits": 4,
+      "ancilla": 0
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "cluster_product_vs_exact": [
+    {
+      "beta": 0.61,
+      "error": 1.9888358348834358,
+      "norm": "operator 2-norm of exp(2i beta square) - cluster product",
+      "cluster_product_unitarity_error": 6.661338147750939e-16
+    },
+    {
+      "beta": 0.23,
+      "error": 0.8510043969437668,
+      "norm": "operator 2-norm of exp(2i beta square) - cluster product",
+      "cluster_product_unitarity_error": 1.1102230246251565e-15
+    },
+    {
+      "beta": 1.0,
+      "error": 1.9740322694388093,
+      "norm": "operator 2-norm of exp(2i beta square) - cluster product",
+      "cluster_product_unitarity_error": 8.881784197001252e-16
+    }
+  ],
+  "trotter_order1_vs_order2": {
+    "alpha": 0.37,
+    "beta": 0.61,
+    "r": 1.0,
+    "kappa2": 0.185,
+    "error": 1.4773130032355548,
+    "space": "isolated_plaquette_singlets_50",
+    "dim": 50,
+    "norm": "operator 2-norm of (U_order1 - U_order2) restricted to the space (no phase freedom)",
+    "basis_gauss_residual": 1.6877590043005205e-14,
+    "basis_orthonormality_error": 1.9984014443252818e-15,
+    "gauss_residual_of_order1_outputs": 1.6947155361030158e-14,
+    "gauss_residual_of_order2_outputs": 1.694000798179876e-14,
+    "spectral_gap_above_kernel": 1.499999999999986
+  },
+  "provenance": {
+    "git_commit": "8e71c38",
+    "git_dirty": true,
+    "versions": {
+      "python": "3.12.14",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+    "cpu_count": 48,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "step_samples": 20261104
+    },
+    "timestamp_utc": "2026-11-06T19:12:30Z",
+    "provenance_captured_at": "2026-11-06T19:12:30Z"
+  }
+}

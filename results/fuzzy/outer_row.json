@@ -1,0 +1,474 @@
+{
+  "schema_version": 1,
+  "n_outer_links": 8,
+  "params": {
+    "alpha": 0.37,
+    "beta": null,
+    "kappa2": 0.185,
+    "r": 1.0
+  },
+  "per_link": {
+    "UE": {
+      "cx": 18,
+      "depth": 23,
+      "n_rot": 6,
+      "t_fixed": 0,
+      "qubits": 4,
+      "ancilla": 0,
+      "t_table": [
+        {
+          "eps": 0.0001,
+          "t_fixed": 0,
+          "n_rot": 6,
+          "t_rot_pygridsynth": 228,
+          "t_total": 228,
+          "t_est": 239.17882283189007,
+          "t_qiskit": 228,
+          "cx_qiskit": 14,
+          "depth_qiskit": 494,
+          "synth": {
+            "n_rot": 6,
+            "t_rot": 228,
+            "error_bound_sum": 0.0006000000000000001,
+            "verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 0.00021230799848744947,
+              "block_error": 0.00021230799848744947,
+              "leak_amplitude": 0.0,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "gauss_residual": NaN,
+              "method": "physical",
+              "engine": "sparse",
+              "certified": true,
+              "tolerances": {
+                "tol_err": 0.0006000010000000001,
+                "tol_gauss": 1e-10
+              },
+              "n_inputs": 16,
+              "seconds": 0.03955483436584473,
+              "extra": {
+                "op_norm_error_physical": 0.00021230799848744947,
+                "max_dropped_l2": 0.0,
+                "max_span_leak": 2.220446049250313e-16,
+                "op_norm_error_inner_span": null
+              }
+            }
+          }
+        },
+        {
+          "eps": 1e-06,
+          "t_fixed": 0,
+          "n_rot": 6,
+          "t_rot_pygridsynth": 396,
+          "t_total": 396,
+          "t_est": 358.76823424783515,
+          "t_qiskit": 390,
+          "cx_qiskit": 14,
+          "depth_qiskit": 862,
+          "synth": {
+            "n_rot": 6,
+            "t_rot": 396,
+            "error_bound_sum": 6e-06,
+            "verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 2.641426163326806e-06,
+              "block_error": 2.641426163326806e-06,
+              "leak_amplitude": 0.0,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "gauss_residual": NaN,
+              "method": "physical",
+              "engine": "sparse",
+              "certified": true,
+              "tolerances": {
+                "tol_err": 6.001e-06,
+                "tol_gauss": 1e-10
+              },
+              "n_inputs": 16,
+              "seconds": 0.07293009757995605,
+              "extra": {
+                "op_norm_error_physical": 2.641426163326806e-06,
+                "max_dropped_l2": 0.0,
+                "max_span_leak": 1.1102230246251565e-16,
+                "op_norm_error_inner_span": null
+              }
+            }
+          }
+        },
+        {
+          "eps": 1e-08,
+          "t_fixed": 0,
+          "n_rot": 6,
+          "t_rot_pygridsynth": 504,
+          "t_total": 504,
+          "t_est": 478.35764566378015,
+          "t_qiskit": 498,
+          "cx_qiskit": 14,
+          "depth_qiskit": 1074,
+          "synth": {
+            "n_rot": 6,
+            "t_rot": 504,
+            "error_bound_sum": 6.000000000000001e-08,
+            "verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 2.1981769705303567e-08,
+              "block_error": 2.198176951952181e-08,
+              "leak_amplitude": 0.0,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "gauss_residual": NaN,
+              "method": "physical",
+              "engine": "sparse",
+              "certified": true,
+              "tolerances": {
+                "tol_err": 6.1e-08,
+                "tol_gauss": 1e-10
+              },
+              "n_inputs": 16,
+              "seconds": 0.08900237083435059,
+              "extra": {
+                "op_norm_error_physical": 2.198176951952181e-08,
+                "max_dropped_l2": 4.644544331272272e-17,
+                "max_span_leak": 1.1102230246251565e-16,
+                "op_norm_error_inner_span": null
+              }
+            }
+          }
+        },
+        {
+          "eps": 1e-10,
+          "t_fixed": 0,
+          "n_rot": 6,
+          "t_rot_pygridsynth": 612,
+          "t_total": 612,
+          "t_est": 597.9470570797253,
+          "t_qiskit": 612,
+          "cx_qiskit": 14,
+          "depth_qiskit": 1297,
+          "synth": {
+            "n_rot": 6,
+            "t_rot": 612,
+            "error_bound_sum": 6e-10,
+            "verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 7.029851429464941e-11,
+              "block_error": 7.029851429251e-11,
+              "leak_amplitude": 0.0,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "gauss_residual": NaN,
+              "method": "physical",
+              "engine": "sparse",
+              "certified": true,
+              "tolerances": {
+                "tol_err": 1.6e-09,
+                "tol_gauss": 1e-10
+              },
+              "n_inputs": 16,
+              "seconds": 0.11203694343566895,
+              "extra": {
+                "op_norm_error_physical": 7.029851429251e-11,
+                "max_dropped_l2": 5.34869598780048e-22,
+                "max_span_leak": 0.0,
+                "op_norm_error_inner_span": null
+              }
+            }
+          }
+        }
+      ],
+      "verification": {
+        "ok": true,
+        "reason": "ok",
+        "op_norm_error": 4.290266420504479e-16,
+        "block_error": 2.2887833992611187e-16,
+        "leak_amplitude": 0.0,
+        "max_leak": 0.0,
+        "dirty_ancilla": 0.0,
+        "gauss_residual": NaN,
+        "method": "physical",
+        "engine": "sparse",
+        "certified": true,
+        "tolerances": {
+          "tol_err": 1e-10,
+          "tol_gauss": 1e-10
+        },
+        "n_inputs": 16,
+        "seconds": 0.003421306610107422,
+        "extra": {
+          "op_norm_error_physical": 2.2887833992611187e-16,
+          "max_dropped_l2": 6.206335383118183e-17,
+          "max_span_leak": 0.0,
+          "op_norm_error_inner_span": null
+        }
+      }
+    },
+    "UK": {
+      "cx": 18,
+      "depth": 22,
+      "n_rot": 4,
+      "t_fixed": 0,
+      "qubits": 4,
+      "ancilla": 0,
+      "t_table": [
+        {
+          "eps": 0.0001,
+          "t_fixed": 0,
+          "n_rot": 4,
+          "t_rot_pygridsynth": 168,
+          "t_total": 168,
+          "t_est": 159.4525485545934,
+          "t_qiskit": 168,
+          "cx_qiskit": 14,
+          "depth_qiskit": 430,
+          "synth": {
+            "n_rot": 4,
+            "t_rot": 168,
+            "error_bound_sum": 0.0004,
+            "verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 2.75222701212685e-05,
+              "block_error": 2.75222701212685e-05,
+              "leak_amplitude": 0.0,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "gauss_residual": NaN,
+              "method": "physical",
+              "engine": "sparse",
+              "certified": true,
+              "tolerances": {
+                "tol_err": 0.00040000100000000003,
+                "tol_gauss": 1e-10
+              },
+              "n_inputs": 16,
+              "seconds": 0.03287529945373535,
+              "extra": {
+                "op_norm_error_physical": 2.75222701212685e-05,
+                "max_dropped_l2": 0.0,
+                "max_span_leak": 1.1102230246251565e-16,
+                "op_norm_error_inner_span": null
+              }
+            }
+          }
+        },
+        {
+          "eps": 1e-06,
+          "t_fixed": 0,
+          "n_rot": 4,
+          "t_rot_pygridsynth": 248,
+          "t_total": 248,
+          "t_est": 239.1788228318901,
+          "t_qiskit": 248,
+          "cx_qiskit": 14,
+          "depth_qiskit": 646,
+          "synth": {
+            "n_rot": 4,
+            "t_rot": 248,
+            "error_bound_sum": 4e-06,
+            "verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 1.0785412287388607e-06,
+              "block_error": 1.0785412287388607e-06,
+              "leak_amplitude": 0.0,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "gauss_residual": NaN,
+              "method": "physical",
+              "engine": "sparse",
+              "certified": true,
+              "tolerances": {
+                "tol_err": 4.0009999999999995e-06,
+                "tol_gauss": 1e-10
+              },
+              "n_inputs": 16,
+              "seconds": 0.0462031364440918,
+              "extra": {
+                "op_norm_error_physical": 1.0785412287388607e-06,
+                "max_dropped_l2": 0.0,
+                "max_span_leak": 1.1102230246251565e-16,
+                "op_norm_error_inner_span": null
+              }
+            }
+          }
+        },
+        {
+          "eps": 1e-08,
+          "t_fixed": 0,
+          "n_rot": 4,
+          "t_rot_pygridsynth": 336,
+          "t_total": 336,
+          "t_est": 318.9050971091868,
+          "t_qiskit": 324,
+          "cx_qiskit": 14,
+          "depth_qiskit": 862,
+          "synth": {
+            "n_rot": 4,
+            "t_rot": 336,
+            "error_bound_sum": 4e-08,
+            "verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 1.3802311171338395e-08,
+              "block_error": 1.3802308345203421e-08,
+              "leak_amplitude": 0.0,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "gauss_residual": NaN,
+              "method": "physical",
+              "engine": "sparse",
+              "certified": true,
+              "tolerances": {
+                "tol_err": 4.1e-08,
+                "tol_gauss": 1e-10
+              },
+              "n_inputs": 16,
+              "seconds": 0.06290793418884277,
+              "extra": {
+                "op_norm_error_physical": 1.3802308345203421e-08,
+                "max_dropped_l2": 1.2483385067155113e-15,
+                "max_span_leak": 1.1102230246251565e-16,
+                "op_norm_error_inner_span": null
+              }
+            }
+          }
+        },
+        {
+          "eps": 1e-10,
+          "t_fixed": 0,
+          "n_rot": 4,
+          "t_rot_pygridsynth": 416,
+          "t_total": 416,
+          "t_est": 398.63137138648347,
+          "t_qiskit": 404,
+          "cx_qiskit": 14,
+          "depth_qiskit": 978,
+          "synth": {
+            "n_rot": 4,
+            "t_rot": 416,
+            "error_bound_sum": 4e-10,
+            "verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 5.676200899923318e-11,
+              "block_error": 5.675881781180659e-11,
+              "leak_amplitude": 0.0,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "gauss_residual": NaN,
+              "method": "physical",
+              "engine": "sparse",
+              "certified": true,
+              "tolerances": {
+                "tol_err": 1.4000000000000001e-09,
+                "tol_gauss": 1e-10
+              },
+              "n_inputs": 16,
+              "seconds": 0.07365536689758301,
+              "extra": {
+                "op_norm_error_physical": 5.675881781180659e-11,
+                "max_dropped_l2": 1.6116259821369142e-15,
+                "max_span_leak": 0.0,
+                "op_norm_error_inner_span": null
+              }
+            }
+          }
+        }
+      ],
+      "verification": {
+        "ok": true,
+        "reason": "ok",
+        "op_norm_error": 1.5487086826676482e-15,
+        "block_error": 1.4470650032608415e-15,
+        "leak_amplitude": 0.0,
+        "max_leak": 0.0,
+        "dirty_ancilla": 0.0,
+        "gauss_residual": NaN,
+        "method": "physical",
+        "engine": "sparse",
+        "certified": true,
+        "tolerances": {
+          "tol_err": 1e-10,
+          "tol_gauss": 1e-10
+        },
+        "n_inputs": 16,
+        "seconds": 0.002733945846557617,
+        "extra": {
+          "op_norm_error_physical": 1.4470650032608415e-15,
+          "max_dropped_l2": 3.925231146709437e-17,
+          "max_span_leak": 0.0,
+          "op_norm_error_inner_span": null
+        }
+      }
+    }
+  },
+  "totals": {
+    "cx": 288,
+    "n_rot": 80,
+    "t_fixed": 0,
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_rot_pygridsynth": 3168,
+        "t_total": 3168,
+        "t_qiskit": 3168,
+        "cx_qiskit": 224
+      },
+      {
+        "eps": 1e-06,
+        "t_rot_pygridsynth": 5152,
+        "t_total": 5152,
+        "t_qiskit": 5104,
+        "cx_qiskit": 224
+      },
+      {
+        "eps": 1e-08,
+        "t_rot_pygridsynth": 6720,
+        "t_total": 6720,
+        "t_qiskit": 6576,
+        "cx_qiskit": 224
+      },
+      {
+        "eps": 1e-10,
+        "t_rot_pygridsynth": 8224,
+        "t_total": 8224,
+        "t_qiskit": 8128,
+        "cx_qiskit": 224
+      }
+    ]
+  },
+  "consistency_with_build_step_with_outer": {
+    "cx_increment": 288,
+    "n_rot_increment": 80,
+    "t_fixed_increment": 0,
+    "max_commutator_with_gauss_generators": 1.013001938233668e-16,
+    "matches_totals": true
+  },
+  "note": "each outer link carries one full-angle link_UE(alpha) and one link_UK(kappa2) block (Digonto's decision 7: a separate row); the blocks commute with every Gauss generator and with the inner part, so they are verified per link as complete 16x16 unitaries.",
+  "provenance": {
+    "git_commit": "8e71c38",
+    "git_dirty": true,
+    "versions": {
+      "python": "3.12.14",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+    "cpu_count": 48,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "step_samples": 20261104
+    },
+    "timestamp_utc": "2026-11-06T19:12:30Z",
+    "provenance_captured_at": "2026-11-06T19:12:30Z"
+  }
+}
