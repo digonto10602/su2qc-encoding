@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "56b466d",
+    "git_commit": "b4c1917",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -28,15 +28,15 @@
       "outer_row_sample": 20261104,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-06T09:40:36Z",
-    "provenance_captured_at": "2026-11-06T09:40:36Z",
+    "timestamp_utc": "2026-11-06T10:59:52Z",
+    "provenance_captured_at": "2026-11-06T10:59:52Z",
     "host": "SupremeCommander",
-    "command": "python scripts/m5_results.py",
+    "command": "python scripts/m5_results.py --jobs 6",
     "quick": false,
-    "jobs": 8,
-    "wall_seconds": 3490.803976535797,
-    "peak_rss_mb": 495.9765625,
-    "peak_rss_mb_largest_worker": 3090.5703125
+    "jobs": 6,
+    "wall_seconds": 4130.811309576035,
+    "peak_rss_mb": 508.640625,
+    "peak_rss_mb_largest_worker": 2969.640625
   },
   "verification": {
     "ok": true,
@@ -57,7 +57,7 @@
     "outer_bits_read": 0,
     "method": "inner_block",
     "engine": "sparse",
-    "seconds": 36.36002993583679,
+    "seconds": 20.49841618537903,
     "tolerances": {
       "tol_err": 1e-10,
       "tol_gauss": 1e-10
@@ -87,7 +87,7 @@
       "dropped_total": 0.0,
       "block_error": 1.1102230246251565e-16,
       "leak_amplitude": 0.0,
-      "seconds": 36.26433968544006,
+      "seconds": 20.458293199539185,
       "n_inputs": 1296,
       "failing_inputs": [],
       "extra": {
@@ -152,7 +152,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 48.913461208343506,
+            "seconds": 24.724915504455566,
             "tolerances": {
               "tol_err": 0.00040000100000000003,
               "tol_gauss": 0.00040000100000000003
@@ -182,7 +182,7 @@
               "dropped_total": 8.730048916928203e-14,
               "block_error": 0.0001045066206140351,
               "leak_amplitude": 1.9220814937827326e-05,
-              "seconds": 48.571120738983154,
+              "seconds": 24.55764412879944,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -200,7 +200,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 48.92925786972046
+        "synth_seconds": 24.7288601398468
       },
       {
         "eps": 1e-06,
@@ -237,7 +237,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 46.63754749298096,
+            "seconds": 22.36738085746765,
             "tolerances": {
               "tol_err": 4.0009999999999995e-06,
               "tol_gauss": 4.0009999999999995e-06
@@ -267,7 +267,7 @@
               "dropped_total": 6.593111896232599e-12,
               "block_error": 1.8583710128939706e-06,
               "leak_amplitude": 3.152907163942511e-07,
-              "seconds": 46.205066204071045,
+              "seconds": 22.202005624771118,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -285,7 +285,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 46.66058850288391
+        "synth_seconds": 22.371687173843384
       },
       {
         "eps": 1e-08,
@@ -322,7 +322,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 42.90383982658386,
+            "seconds": 22.07307004928589,
             "tolerances": {
               "tol_err": 4.1e-08,
               "tol_gauss": 4.1e-08
@@ -352,7 +352,7 @@
               "dropped_total": 1.6758970108493056e-15,
               "block_error": 1.7994100706952041e-09,
               "leak_amplitude": 6.7015298023977584e-09,
-              "seconds": 42.5254602432251,
+              "seconds": 21.899688482284546,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -370,7 +370,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 42.921834230422974
+        "synth_seconds": 22.082141637802124
       },
       {
         "eps": 1e-10,
@@ -407,7 +407,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 43.24262833595276,
+            "seconds": 23.591524124145508,
             "tolerances": {
               "tol_err": 1.4000000000000001e-09,
               "tol_gauss": 1.4000000000000001e-09
@@ -437,7 +437,7 @@
               "dropped_total": 1.0852661401477054e-19,
               "block_error": 2.004872560535911e-12,
               "leak_amplitude": 5.3928871892531153e-11,
-              "seconds": 42.67176008224487,
+              "seconds": 23.37521743774414,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -455,7 +455,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 43.263925552368164
+        "synth_seconds": 23.59955620765686
       }
     ],
     "macro": {
@@ -508,7 +508,7 @@
       "max_components": 1296
     },
     "seconds": {
-      "verify_exact": 36.36935782432556
+      "verify_exact": 20.500036001205444
     },
     "outer_electric_row": {
       "file": "UE_outer_row.json",

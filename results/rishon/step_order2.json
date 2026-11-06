@@ -9,7 +9,7 @@
     "order": 2
   },
   "provenance": {
-    "git_commit": "56b466d",
+    "git_commit": "b4c1917",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -28,15 +28,15 @@
       "outer_row_sample": 20261104,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-06T09:40:36Z",
-    "provenance_captured_at": "2026-11-06T09:40:36Z",
+    "timestamp_utc": "2026-11-06T10:59:52Z",
+    "provenance_captured_at": "2026-11-06T10:59:52Z",
     "host": "SupremeCommander",
-    "command": "python scripts/m5_results.py",
+    "command": "python scripts/m5_results.py --jobs 6",
     "quick": false,
-    "jobs": 8,
-    "wall_seconds": 3490.803976535797,
-    "peak_rss_mb": 495.9765625,
-    "peak_rss_mb_largest_worker": 3090.5703125
+    "jobs": 6,
+    "wall_seconds": 4130.811309576035,
+    "peak_rss_mb": 508.640625,
+    "peak_rss_mb_largest_worker": 2969.640625
   },
   "verification": {
     "ok": true,
@@ -57,7 +57,7 @@
     "outer_bits_read": 0,
     "method": "inner_block",
     "engine": "sparse",
-    "seconds": 42.84531593322754,
+    "seconds": 32.30233955383301,
     "tolerances": {
       "tol_err": 1e-10,
       "tol_gauss": 1e-10
@@ -87,7 +87,7 @@
       "dropped_total": 3.6455487294995047e-13,
       "block_error": 4.505799488143801e-14,
       "leak_amplitude": 0.0,
-      "seconds": 33.51625990867615,
+      "seconds": 24.558480739593506,
       "n_inputs": 1296,
       "failing_inputs": [],
       "extra": {
@@ -159,7 +159,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 2510.070522069931,
+            "seconds": 3134.395255804062,
             "tolerances": {
               "tol_err": 0.017000001,
               "tol_gauss": 0.017000001
@@ -189,7 +189,7 @@
               "dropped_total": 1.5515756263653722e-09,
               "block_error": 0.0019028826572750122,
               "leak_amplitude": 0.0021801063299660074,
-              "seconds": 1692.5435860157013,
+              "seconds": 2309.364584207535,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -207,7 +207,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 2510.8427884578705
+        "synth_seconds": 3135.1132204532623
       },
       {
         "eps": 1e-06,
@@ -244,7 +244,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 1023.4151482582092,
+            "seconds": 1680.304744720459,
             "tolerances": {
               "tol_err": 0.00017000099999999997,
               "tol_gauss": 0.00017000099999999997
@@ -274,7 +274,7 @@
               "dropped_total": 7.730350521338083e-10,
               "block_error": 8.1688080463693e-06,
               "leak_amplitude": 1.2302381250971895e-05,
-              "seconds": 556.4018952846527,
+              "seconds": 1003.6430239677429,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -292,7 +292,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 1023.712541103363
+        "synth_seconds": 1680.594714164734
       },
       {
         "eps": 1e-08,
@@ -329,7 +329,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 1091.9471180438995,
+            "seconds": 757.3304650783539,
             "tolerances": {
               "tol_err": 1.701e-06,
               "tol_gauss": 1.701e-06
@@ -359,7 +359,7 @@
               "dropped_total": 4.252580034577576e-12,
               "block_error": 4.858427675076863e-08,
               "leak_amplitude": 7.616443185008279e-08,
-              "seconds": 573.4224107265472,
+              "seconds": 431.7100715637207,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -377,7 +377,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 1092.9164202213287
+        "synth_seconds": 758.1978189945221
       },
       {
         "eps": 1e-10,
@@ -414,7 +414,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 636.4675540924072,
+            "seconds": 788.8951406478882,
             "tolerances": {
               "tol_err": 1.8e-08,
               "tol_gauss": 1.8e-08
@@ -444,7 +444,7 @@
               "dropped_total": 1.6068729854389894e-11,
               "block_error": 3.733303790104993e-10,
               "leak_amplitude": 5.216490469724304e-10,
-              "seconds": 333.48650598526,
+              "seconds": 402.7816023826599,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -462,7 +462,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 636.8125283718109
+        "synth_seconds": 789.2938256263733
       }
     ],
     "macro": {
@@ -522,7 +522,7 @@
       "max_components": 1296
     },
     "seconds": {
-      "verify_exact": 42.88133668899536
+      "verify_exact": 32.33150124549866
     }
   }
 }

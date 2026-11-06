@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "56b466d",
+    "git_commit": "b4c1917",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -28,15 +28,15 @@
       "outer_row_sample": 20261104,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-06T09:40:36Z",
-    "provenance_captured_at": "2026-11-06T09:40:36Z",
+    "timestamp_utc": "2026-11-06T10:59:52Z",
+    "provenance_captured_at": "2026-11-06T10:59:52Z",
     "host": "SupremeCommander",
-    "command": "python scripts/m5_results.py",
+    "command": "python scripts/m5_results.py --jobs 6",
     "quick": false,
-    "jobs": 8,
-    "wall_seconds": 3490.803976535797,
-    "peak_rss_mb": 495.9765625,
-    "peak_rss_mb_largest_worker": 3090.5703125
+    "jobs": 6,
+    "wall_seconds": 4130.811309576035,
+    "peak_rss_mb": 508.640625,
+    "peak_rss_mb_largest_worker": 2969.640625
   },
   "verification": {
     "ok": true,
@@ -57,7 +57,7 @@
     "outer_bits_read": 0,
     "method": "inner_block",
     "engine": "sparse",
-    "seconds": 42.42283844947815,
+    "seconds": 31.699408054351807,
     "tolerances": {
       "tol_err": 1e-10,
       "tol_gauss": 1e-10
@@ -87,7 +87,7 @@
       "dropped_total": 3.675622702950601e-13,
       "block_error": 4.489833056565055e-14,
       "leak_amplitude": 0.0,
-      "seconds": 33.73812198638916,
+      "seconds": 24.56659746170044,
       "n_inputs": 1296,
       "failing_inputs": [],
       "extra": {
@@ -159,7 +159,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 2180.525111913681,
+            "seconds": 2866.136109828949,
             "tolerances": {
               "tol_err": 0.016600001,
               "tol_gauss": 0.016600001
@@ -189,7 +189,7 @@
               "dropped_total": 1.158475067299776e-09,
               "block_error": 0.001900823460662783,
               "leak_amplitude": 0.00217211030129941,
-              "seconds": 1505.3302626609802,
+              "seconds": 2132.0490930080414,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -207,7 +207,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 2181.2398982048035
+        "synth_seconds": 2866.8599030971527
       },
       {
         "eps": 1e-06,
@@ -244,7 +244,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 2055.1954765319824,
+            "seconds": 2266.393456697464,
             "tolerances": {
               "tol_err": 0.00016600099999999998,
               "tol_gauss": 0.00016600099999999998
@@ -274,7 +274,7 @@
               "dropped_total": 1.1446465704294232e-09,
               "block_error": 6.688569877164367e-06,
               "leak_amplitude": 1.2305435095685939e-05,
-              "seconds": 1510.452675819397,
+              "seconds": 1506.5448734760284,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -292,7 +292,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 2056.012659549713
+        "synth_seconds": 2266.7065851688385
       },
       {
         "eps": 1e-08,
@@ -329,7 +329,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 1058.4478130340576,
+            "seconds": 689.7527842521667,
             "tolerances": {
               "tol_err": 1.661e-06,
               "tol_gauss": 1.661e-06
@@ -359,7 +359,7 @@
               "dropped_total": 4.2509080743858295e-12,
               "block_error": 4.314470611535388e-08,
               "leak_amplitude": 7.481106881237793e-08,
-              "seconds": 536.9674954414368,
+              "seconds": 412.9436848163605,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -377,7 +377,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 1059.065218925476
+        "synth_seconds": 690.5786609649658
       },
       {
         "eps": 1e-10,
@@ -414,7 +414,7 @@
             "outer_bits_read": 0,
             "method": "inner_block",
             "engine": "sparse",
-            "seconds": 623.4271514415741,
+            "seconds": 980.8515193462372,
             "tolerances": {
               "tol_err": 1.76e-08,
               "tol_gauss": 1.76e-08
@@ -444,7 +444,7 @@
               "dropped_total": 1.588783012229626e-11,
               "block_error": 3.67649624193723e-10,
               "leak_amplitude": 4.955607791964107e-10,
-              "seconds": 323.22468757629395,
+              "seconds": 507.80144023895264,
               "n_inputs": 1296,
               "failing_inputs": [],
               "extra": {
@@ -462,7 +462,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 623.7660582065582
+        "synth_seconds": 981.7535629272461
       }
     ],
     "macro": {
@@ -522,7 +522,7 @@
       "max_components": 1296
     },
     "seconds": {
-      "verify_exact": 42.4579336643219
+      "verify_exact": 31.7287015914917
     }
   }
 }

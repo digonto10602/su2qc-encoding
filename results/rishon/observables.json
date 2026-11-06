@@ -19,7 +19,7 @@
       "beta": 0.61,
       "n": 1,
       "E_link": 0.03469942463454666,
-      "P": -0.0,
+      "P": 0.0,
       "echo": 0.0005614233152572021
     },
     {
@@ -35,7 +35,7 @@
       "beta": 0.23,
       "n": 1,
       "E_link": 0.3483743658218328,
-      "P": -0.0,
+      "P": 0.0,
       "echo": 0.4009811354062393
     },
     {
@@ -51,7 +51,7 @@
       "beta": 1.0,
       "n": 1,
       "E_link": 0.12885094846647344,
-      "P": -0.0,
+      "P": 0.0,
       "echo": 0.8191911692464149
     },
     {
@@ -69,7 +69,7 @@
       "beta": 0.61,
       "n": 1,
       "E_link": 0.6614307007791655,
-      "P": -0.0,
+      "P": 0.0,
       "echo": 0.11809239896111282
     },
     {
@@ -85,7 +85,7 @@
       "beta": 0.23,
       "n": 1,
       "E_link": 0.14781744125870153,
-      "P": -0.0,
+      "P": 0.0,
       "echo": 0.8029100783217313
     },
     {
@@ -101,7 +101,7 @@
       "beta": 1.0,
       "n": 1,
       "E_link": 0.620116357823854,
-      "P": -0.0,
+      "P": 0.0,
       "echo": 0.1731781895681944
     },
     {
@@ -238,7 +238,7 @@
   },
   "closed_forms_max_dev_n1": 7.771561172376096e-16,
   "provenance": {
-    "git_commit": "56b466d",
+    "git_commit": "b4c1917",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -257,14 +257,14 @@
       "outer_row_sample": 20261104,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-06T09:40:36Z",
-    "provenance_captured_at": "2026-11-06T09:40:36Z",
+    "timestamp_utc": "2026-11-06T10:59:52Z",
+    "provenance_captured_at": "2026-11-06T10:59:52Z",
     "host": "SupremeCommander",
-    "command": "python scripts/m5_results.py",
+    "command": "python scripts/m5_results.py --jobs 6",
     "quick": false,
-    "jobs": 8,
-    "wall_seconds": 3490.803976535797,
-    "peak_rss_mb": 495.9765625,
-    "peak_rss_mb_largest_worker": 3090.5703125
+    "jobs": 6,
+    "wall_seconds": 4130.811309576035,
+    "peak_rss_mb": 508.640625,
+    "peak_rss_mb_largest_worker": 2969.640625
   }
 }

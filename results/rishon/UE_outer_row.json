@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "56b466d",
+    "git_commit": "b4c1917",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -28,15 +28,15 @@
       "outer_row_sample": 20261104,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-06T09:40:36Z",
-    "provenance_captured_at": "2026-11-06T09:40:36Z",
+    "timestamp_utc": "2026-11-06T10:59:52Z",
+    "provenance_captured_at": "2026-11-06T10:59:52Z",
     "host": "SupremeCommander",
-    "command": "python scripts/m5_results.py",
+    "command": "python scripts/m5_results.py --jobs 6",
     "quick": false,
-    "jobs": 8,
-    "wall_seconds": 3490.803976535797,
-    "peak_rss_mb": 495.9765625,
-    "peak_rss_mb_largest_worker": 3090.5703125
+    "jobs": 6,
+    "wall_seconds": 4130.811309576035,
+    "peak_rss_mb": 508.640625,
+    "peak_rss_mb_largest_worker": 2969.640625
   },
   "verification": {
     "method": "outer_electric_check",
@@ -107,7 +107,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 34.507360219955444
+        "synth_seconds": 16.72086787223816
       },
       {
         "eps": 1e-06,
@@ -146,7 +146,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 13.655957698822021
+        "synth_seconds": 5.752936124801636
       },
       {
         "eps": 1e-08,
@@ -185,7 +185,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 13.396136999130249
+        "synth_seconds": 5.55450701713562
       },
       {
         "eps": 1e-10,
@@ -224,7 +224,7 @@
           },
           "t_matches_table": true
         },
-        "synth_seconds": 17.17287302017212
+        "synth_seconds": 7.100637912750244
       }
     ],
     "macro": {
@@ -277,7 +277,7 @@
       "max_components": 1296
     },
     "seconds": {
-      "verify_exact": 0.21956610679626465
+      "verify_exact": 0.09065723419189453
     },
     "note": "U_E with the electric term of the 8 outer links (12 links in total): the outer qubits are CX targets that are restored, so `verify` (which refuses circuits touching the outer register) is not used; verification = sampled diagonal check against exp(-i alpha (3/4) #Q) on seeded valid 48-bit codes (not a certificate)"
   }
