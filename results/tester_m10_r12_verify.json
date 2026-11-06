@@ -1,0 +1,508 @@
+{
+ "commit": "ebd52e9",
+ "engine": "qiskit Statevector with max-entangled reference",
+ "results": [
+  {
+   "unit": "fuzzy_link",
+   "id": "r01-F1-001",
+   "valid": true,
+   "key": [
+    13,
+    644,
+    1161,
+    4
+   ],
+   "program": "compress/programs/fuzzy_link/F1/001-bell_parity_net13.py",
+   "sha_match": true,
+   "unit_err": [
+    1.267406454340892e-15,
+    8.570560601880632e-16,
+    9.068478287860345e-16
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    3.0419783196114013e-15,
+    1.9400971888624447e-15,
+    4.121518962907459e-15
+   ],
+   "max_err": 4.121518962907459e-15,
+   "leak": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "skeleton_equal": true,
+   "counts_nominal": {
+    "cx": 13,
+    "n_rot": 10,
+    "t_fixed": 0,
+    "qubits": 4
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 13,
+    "n_rot": 10,
+    "t_fixed": 0,
+    "qubits": 4
+   },
+   "wall_s": 3.0853490829467773
+  },
+  {
+   "unit": "fuzzy_link",
+   "id": "r02-F2-001",
+   "valid": true,
+   "key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "program": "compress/programs/fuzzy_link/F2/001-plane_bfs_frame_fusion12.py",
+   "sha_match": true,
+   "unit_err": [
+    4.2501730106299e-15,
+    3.136284790203723e-15,
+    4.817733368054453e-15
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    4.4023073173738095e-15,
+    2.5666719408845785e-15,
+    5.1769875778401755e-15
+   ],
+   "max_err": 5.1769875778401755e-15,
+   "leak": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "skeleton_equal": true,
+   "counts_nominal": {
+    "cx": 12,
+    "n_rot": 10,
+    "t_fixed": 0,
+    "qubits": 4
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 12,
+    "n_rot": 10,
+    "t_fixed": 0,
+    "qubits": 4
+   },
+   "wall_s": 3.5740318298339844
+  },
+  {
+   "unit": "fuzzy_ub",
+   "id": "r01-F1-001",
+   "valid": true,
+   "key": [
+    200,
+    3804,
+    9501,
+    16
+   ],
+   "program": "compress/programs/fuzzy_ub/F1/001-fredkin-dp-onehot-phasepoly.py",
+   "sha_match": true,
+   "unit_err": [
+    3.3059171205906742e-15,
+    1.0823078633542835e-14,
+    3.483192281116771e-15
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    1.7546211855186338e-14,
+    1.0311086200150708e-14,
+    1.6823332093959396e-14
+   ],
+   "max_err": 1.7546211855186338e-14,
+   "leak": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "skeleton_equal": false,
+   "skel_diff": [
+    "(161, ('crx', (8, 1), (-2.44,)), ('crx', (8, 1), (-0.92,)))"
+   ],
+   "skel_len": [
+    215,
+    215,
+    215
+   ],
+   "counts_nominal": {
+    "cx": 200,
+    "n_rot": 58,
+    "t_fixed": 112,
+    "qubits": 16
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 200,
+    "n_rot": 58,
+    "t_fixed": 112,
+    "qubits": 16
+   },
+   "wall_s": 194.8846025466919
+  },
+  {
+   "unit": "fuzzy_ub",
+   "id": "r01-F2-001",
+   "valid": true,
+   "key": [
+    268,
+    1276,
+    2703,
+    14
+   ],
+   "program": "compress/programs/fuzzy_ub/F2/001-sector-sandwich-gray.py",
+   "sha_match": true,
+   "unit_err": [
+    2.841356893850784e-15,
+    3.2335854934400557e-15,
+    2.8620646328713272e-15
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    1.7502617665027682e-14,
+    8.874319682970602e-15,
+    1.680879780275139e-14
+   ],
+   "max_err": 1.7502617665027682e-14,
+   "leak": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "skeleton_equal": false,
+   "skel_diff": [
+    "(18, ('crx', (11, 1), (-4.88,)), ('crx', (11, 1), (-1.84,)))",
+    "(33, ('crx', (11, 1), (4.88,)), ('crx', (11, 1), (1.84,)))",
+    "(54, ('crx', (11, 1), (4.88,)), ('crx', (11, 1), (1.84,)))",
+    "(66, ('crx', (13, 1), (-9.76,)), ('crx', (13, 1), (-3.68,)))"
+   ],
+   "skel_len": [
+    136,
+    136,
+    136
+   ],
+   "counts_nominal": {
+    "cx": 268,
+    "n_rot": 16,
+    "t_fixed": 280,
+    "qubits": 14
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 268,
+    "n_rot": 16,
+    "t_fixed": 280,
+    "qubits": 14
+   },
+   "wall_s": 47.26871466636658
+  },
+  {
+   "unit": "fuzzy_ub",
+   "id": "r01-F3-001",
+   "valid": true,
+   "key": [
+    390,
+    1392,
+    2882,
+    14
+   ],
+   "program": "compress/programs/fuzzy_ub/F3/001-fredkin-singlet-sandwich.py",
+   "sha_match": true,
+   "unit_err": [
+    3.39690266163462e-15,
+    3.4280797804648465e-15,
+    3.502297041676443e-15
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    1.7521769367133537e-14,
+    8.84603487800541e-15,
+    1.681510954482855e-14
+   ],
+   "max_err": 1.7521769367133537e-14,
+   "leak": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "skeleton_equal": false,
+   "skel_diff": [
+    "(18, ('crx', (11, 1), (-4.88,)), ('crx', (11, 1), (-1.84,)))",
+    "(42, ('crx', (11, 1), (-4.88,)), ('crx', (11, 1), (-1.84,)))",
+    "(65, ('crx', (11, 1), (-4.88,)), ('crx', (11, 1), (-1.84,)))",
+    "(80, ('crx', (9, 1), (-2.44,)), ('crx', (9, 1), (-0.92,)))"
+   ],
+   "skel_len": [
+    194,
+    194,
+    194
+   ],
+   "counts_nominal": {
+    "cx": 390,
+    "n_rot": 16,
+    "t_fixed": 396,
+    "qubits": 14
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 390,
+    "n_rot": 16,
+    "t_fixed": 396,
+    "qubits": 14
+   },
+   "wall_s": 51.01643419265747
+  },
+  {
+   "unit": "fuzzy_ub",
+   "id": "r02-F1-002",
+   "valid": true,
+   "key": [
+    172,
+    2904,
+    7206,
+    14
+   ],
+   "program": "compress/programs/fuzzy_ub/F1/002-merged-group-phasepoly.py",
+   "sha_match": true,
+   "unit_err": [
+    3.4524706709433358e-15,
+    8.609261308184272e-15,
+    3.0950768051285756e-15
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    1.7634226553392582e-14,
+    9.734143023785767e-15,
+    1.691577532525155e-14
+   ],
+   "max_err": 1.7634226553392582e-14,
+   "leak": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "skeleton_equal": true,
+   "counts_nominal": {
+    "cx": 172,
+    "n_rot": 44,
+    "t_fixed": 96,
+    "qubits": 14
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 172,
+    "n_rot": 44,
+    "t_fixed": 96,
+    "qubits": 14
+   },
+   "wall_s": 49.0714590549469
+  },
+  {
+   "unit": "fuzzy_ub",
+   "id": "r02-F2-002",
+   "valid": true,
+   "key": [
+    172,
+    2916,
+    7263,
+    15
+   ],
+   "program": "compress/programs/fuzzy_ub/F2/002-partial-onehot-pair-walsh.py",
+   "sha_match": true,
+   "unit_err": [
+    3.0414434869371945e-14,
+    3.612952424292962e-14,
+    3.0834469755661e-14
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    2.2534234397593972e-14,
+    2.009166997636377e-14,
+    2.1910621042609555e-14
+   ],
+   "max_err": 2.2534234397593972e-14,
+   "leak": [
+    6.830514380193296e-15,
+    8.051695585394403e-15,
+    7.031596052117832e-15
+   ],
+   "skeleton_equal": true,
+   "counts_nominal": {
+    "cx": 172,
+    "n_rot": 44,
+    "t_fixed": 116,
+    "qubits": 15
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 172,
+    "n_rot": 44,
+    "t_fixed": 116,
+    "qubits": 15
+   },
+   "wall_s": 201.2578649520874
+  },
+  {
+   "unit": "fuzzy_ub",
+   "id": "r02-F3-002",
+   "valid": true,
+   "key": [
+    192,
+    3820,
+    9543,
+    16
+   ],
+   "program": "compress/programs/fuzzy_ub/F3/002-fredkin7-dp-onehot-phasepoly.py",
+   "sha_match": true,
+   "unit_err": [
+    2.4732877267987218e-14,
+    3.102968598101496e-14,
+    2.3514613259288032e-14
+   ],
+   "pairs": [
+    [
+     0.37,
+     0.61
+    ],
+    [
+     0.91,
+     0.23
+    ],
+    [
+     1.7,
+     1.0
+    ]
+   ],
+   "op_norm_err": [
+    1.992981410890527e-14,
+    1.751766963104589e-14,
+    1.9724288767941883e-14
+   ],
+   "max_err": 1.992981410890527e-14,
+   "leak": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "skeleton_equal": false,
+   "skel_diff": [
+    "(306, ('crx', (8, 1), (-2.44,)), ('crx', (8, 1), (-0.92,)))"
+   ],
+   "skel_len": [
+    447,
+    447,
+    447
+   ],
+   "counts_nominal": {
+    "cx": 192,
+    "n_rot": 58,
+    "t_fixed": 128,
+    "qubits": 16
+   },
+   "counts_all_equal": true,
+   "archive_raw": {
+    "cx": 192,
+    "n_rot": 58,
+    "t_fixed": 128,
+    "qubits": 16
+   },
+   "wall_s": 316.13635301589966
+  }
+ ]
+}

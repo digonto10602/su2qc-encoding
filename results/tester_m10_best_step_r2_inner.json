@@ -1,0 +1,89 @@
+{
+ "order": 1,
+ "with_outer": false,
+ "units": {
+  "fuzzy_ub": {
+   "entry": "r02-F1-002",
+   "key": [
+    172.0,
+    2904.0,
+    7206.0,
+    14.0
+   ]
+  },
+  "fuzzy_link": {
+   "entry": "r02-F2-001",
+   "key": [
+    12.0,
+    644.0,
+    1183.0,
+    4.0
+   ]
+  }
+ },
+ "composed": {
+  "cx": 220,
+  "depth": 232,
+  "n_rot": 84,
+  "t_fixed": 96,
+  "qubits": 22,
+  "ancilla": 6,
+  "gates": {
+   "cx": 220,
+   "h": 146,
+   "rz": 84,
+   "t": 52,
+   "tdg": 44,
+   "s": 36,
+   "x": 6,
+   "z": 4
+  },
+  "t_estimate": 5118.755279469692
+ },
+ "general": {
+  "cx": 1862,
+  "depth": 2690,
+  "n_rot": 56,
+  "t_fixed": 1826,
+  "qubits": 23,
+  "ancilla": 7,
+  "gates": {
+   "cx": 1862,
+   "t": 1036,
+   "tdg": 790,
+   "h": 668,
+   "x": 176,
+   "rz": 56,
+   "s": 52,
+   "sdg": 52,
+   "z": 8
+  },
+  "t_estimate": 5174.503519646461
+ },
+ "verification": {
+  "err": 1.0961772580920957e-14,
+  "gauss": 5.2045070869223944e-15,
+  "n_inputs": 40,
+  "seed": 20261104,
+  "mode": "layers",
+  "leak": 0.0
+ },
+ "provenance": {
+  "git_commit": "ebd52e9",
+  "git_dirty": false,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "cpu_count": 48,
+  "seeds": {
+   "verify_seed": 20261104
+  },
+  "timestamp_utc": "2026-11-06T20:34:28Z"
+ }
+}
