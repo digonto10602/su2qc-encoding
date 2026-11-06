@@ -41,8 +41,10 @@ def test_no_sorry_scanner(tmp_path):
 def test_lake_build_checker_and_exe():
     r = project.build("Su2PlaqCert", timeout=600)
     assert r["ok"], r["stderr"][-1000:]
-    r = project.lake(["exe", "su2plaq_cert", "check", "x.json"], timeout=120)
-    assert r.returncode == 1 and r.stdout.strip() == "REJECT unimplemented"
+    r = project.lake(["exe", "su2plaq_cert", "check", "no-such-file.json"], timeout=120)
+    assert r.returncode == 1 and r.stdout.strip().startswith("REJECT cannot read")
+    r = project.lake(["exe", "su2plaq_cert", "structure", "x.json"], timeout=120)
+    assert r.returncode == 1 and r.stdout.strip().startswith("REJECT structure checker not implemented")
 
 
 def test_print_axioms_real_and_unknown():
@@ -55,9 +57,7 @@ def test_print_axioms_real_and_unknown():
 
 def test_skeleton_stubs_raise():
     with pytest.raises(NotImplementedError):
-        exact.rational_multiple(0.1, 0.2)
-    with pytest.raises(NotImplementedError):
-        certify.check_certificate("x.json")
+        certify.write_theorem_file("x.json", "t", "y.lean")
     with pytest.raises(NotImplementedError):
         structure.structure_facts()
     with pytest.raises(NotImplementedError):
