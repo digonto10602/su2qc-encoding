@@ -1,0 +1,25 @@
+/home/digonto/Projects/su2qc-spinnet/results/spinnet/tester/4_6_r1/sensitivity.py:15: RuntimeWarning: invalid value encountered in scalar divide
+  ov = np.trace(V.conj().T @ M); ph = ov/abs(ov); return float(np.linalg.norm(M-ph*V,2))
+baseline 2.9367903536336015e-15
+target with -beta (wrong convention) 1.8781987126381336
+target with order swapped U_E U_B 0.9897042280751303
+first rz + 1e-3: 0.0004999999947920761
+Traceback (most recent call last):
+  File "/home/digonto/Projects/su2qc-spinnet/results/spinnet/tester/4_6_r1/sensitivity.py", line 29, in <module>
+    q3 = qc.copy(); q3.x(0); print("extra x(0):", err(block(q3), V))
+                                                  ^^^^^^^^^^^^^^^^^
+  File "/home/digonto/Projects/su2qc-spinnet/results/spinnet/tester/4_6_r1/sensitivity.py", line 15, in err
+    ov = np.trace(V.conj().T @ M); ph = ov/abs(ov); return float(np.linalg.norm(M-ph*V,2))
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/digonto/anaconda3/envs/su2qc-coding/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 2822, in norm
+    ret = _multi_svd_norm(x, row_axis, col_axis, amax, 0)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/digonto/anaconda3/envs/su2qc-coding/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 2590, in _multi_svd_norm
+    result = op(svd(y, compute_uv=False), axis=-1, initial=initial)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/digonto/anaconda3/envs/su2qc-coding/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 1850, in svd
+    s = _umath_linalg.svd(a, signature=signature)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/digonto/anaconda3/envs/su2qc-coding/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 153, in _raise_linalgerror_svd_nonconvergence
+    raise LinAlgError("SVD did not converge")
+numpy.linalg.LinAlgError: SVD did not converge

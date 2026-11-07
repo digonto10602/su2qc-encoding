@@ -1,0 +1,873 @@
+{
+ "report": "reports/tests/113-m4-round-001.md",
+ "git_commit": "e7d0f0c",
+ "round_commit": "302dee2",
+ "proposals_commit": "22d6061",
+ "acceptance_tag": "acceptance-v12",
+ "angle_pairs": [
+  [
+   0.37,
+   0.61
+  ],
+  [
+   0.91,
+   0.23
+  ],
+  [
+   1.7,
+   1.0
+  ]
+ ],
+ "random_pairs_seed": 20261107,
+ "aer": {
+  "r01-F1-001": {
+   "id": "r01-F1-001",
+   "sha_equal_archive": true,
+   "cases": {
+    "0.37,0.61": {
+     "block_err_2norm": 2.001483021243361e-15,
+     "max_col_residual": 2.0014830212433605e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 0.0,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 18,
+     "ops": {
+      "cx": 13,
+      "x": 12,
+      "rz": 9,
+      "rccx": 6,
+      "p": 4,
+      "s": 2,
+      "h": 2,
+      "sdg": 1,
+      "cz": 1
+     },
+     "wall_s": 15.059922695159912
+    },
+    "0.91,0.23": {
+     "block_err_2norm": 1.7632984155323095e-15,
+     "max_col_residual": 1.7632984155323095e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 0.0,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 18,
+     "ops": {
+      "cx": 13,
+      "x": 12,
+      "rz": 9,
+      "rccx": 6,
+      "p": 4,
+      "s": 2,
+      "h": 2,
+      "sdg": 1,
+      "cz": 1
+     },
+     "wall_s": 14.464122772216797
+    },
+    "1.7,1.0": {
+     "block_err_2norm": 2.7429048063508063e-15,
+     "max_col_residual": 2.488113585276671e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 0.0,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 18,
+     "ops": {
+      "cx": 13,
+      "x": 12,
+      "rz": 9,
+      "rccx": 6,
+      "p": 4,
+      "s": 2,
+      "h": 2,
+      "sdg": 1,
+      "cz": 1
+     },
+     "wall_s": 14.119412660598755
+    }
+   }
+  },
+  "r01-F2-001": {
+   "id": "r01-F2-001",
+   "sha_equal_archive": true,
+   "cases": {
+    "0.37,0.61": {
+     "block_err_2norm": 1.4089294059850685e-15,
+     "max_col_residual": 1.486673200195252e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 1.048476261724411e-30,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 17,
+     "ops": {
+      "cx": 27,
+      "rz": 18,
+      "p": 4,
+      "x": 4,
+      "h": 4,
+      "rccx": 2,
+      "sdg": 2,
+      "z": 1,
+      "s": 1
+     },
+     "wall_s": 9.889099359512329
+    },
+    "0.91,0.23": {
+     "block_err_2norm": 5.68852663443754e-16,
+     "max_col_residual": 4.742874840267547e-16,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 0.0,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 17,
+     "ops": {
+      "cx": 27,
+      "rz": 18,
+      "p": 4,
+      "x": 4,
+      "h": 4,
+      "rccx": 2,
+      "sdg": 2,
+      "z": 1,
+      "s": 1
+     },
+     "wall_s": 8.869187355041504
+    },
+    "1.7,1.0": {
+     "block_err_2norm": 1.4244785749467869e-15,
+     "max_col_residual": 1.6745608376609718e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 1.2761211811509825e-29,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 17,
+     "ops": {
+      "cx": 27,
+      "rz": 18,
+      "p": 4,
+      "x": 4,
+      "h": 4,
+      "rccx": 2,
+      "sdg": 2,
+      "z": 1,
+      "s": 1
+     },
+     "wall_s": 9.27526044845581
+    }
+   }
+  },
+  "r01-F3-001": {
+   "id": "r01-F3-001",
+   "sha_equal_archive": true,
+   "cases": {
+    "0.37,0.61": {
+     "block_err_2norm": 1.6946818973100092e-15,
+     "max_col_residual": 1.6946818973100072e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 0.0,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 19,
+     "ops": {
+      "x": 25,
+      "cx": 15,
+      "rz": 9,
+      "rccx": 6,
+      "p": 4,
+      "h": 4,
+      "s": 2,
+      "sdg": 1
+     },
+     "wall_s": 34.41756987571716
+    },
+    "0.91,0.23": {
+     "block_err_2norm": 1.691041330490231e-15,
+     "max_col_residual": 1.6910413304902302e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 0.0,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 19,
+     "ops": {
+      "x": 25,
+      "cx": 15,
+      "rz": 9,
+      "rccx": 6,
+      "p": 4,
+      "h": 4,
+      "s": 2,
+      "sdg": 1
+     },
+     "wall_s": 27.418601512908936
+    },
+    "1.7,1.0": {
+     "block_err_2norm": 2.2379472703331384e-15,
+     "max_col_residual": 2.136508185315312e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 0.0,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 19,
+     "ops": {
+      "x": 25,
+      "cx": 15,
+      "rz": 9,
+      "rccx": 6,
+      "p": 4,
+      "h": 4,
+      "s": 2,
+      "sdg": 1
+     },
+     "wall_s": 26.7712459564209
+    }
+   }
+  },
+  "r01-F5-001": {
+   "id": "r01-F5-001",
+   "sha_equal_archive": true,
+   "cases": {
+    "0.37,0.61": {
+     "block_err_2norm": 2.9367903536336015e-15,
+     "max_col_residual": 2.7823493677931487e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 0.0,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 17,
+     "ops": {
+      "cx": 34,
+      "x": 16,
+      "t": 15,
+      "tdg": 14,
+      "h": 12,
+      "rccx": 4,
+      "rz": 4,
+      "p": 3
+     },
+     "wall_s": 9.010571956634521
+    },
+    "0.91,0.23": {
+     "block_err_2norm": 2.8159485304321907e-15,
+     "max_col_residual": 2.8138733424525e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 0.0,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 17,
+     "ops": {
+      "cx": 34,
+      "x": 16,
+      "t": 15,
+      "tdg": 14,
+      "h": 12,
+      "rccx": 4,
+      "rz": 4,
+      "p": 3
+     },
+     "wall_s": 12.375160694122314
+    },
+    "1.7,1.0": {
+     "block_err_2norm": 3.293255843239855e-15,
+     "max_col_residual": 3.2690365668520586e-15,
+     "ancilla_weight_sum": 0.0,
+     "leak_weight_sum": 0.0,
+     "outer_changed_weight_sum": 0.0,
+     "n_qubits": 17,
+     "ops": {
+      "cx": 34,
+      "x": 16,
+      "t": 15,
+      "tdg": 14,
+      "h": 12,
+      "rccx": 4,
+      "rz": 4,
+      "p": 3
+     },
+     "wall_s": 7.8507654666900635
+    }
+   }
+  }
+ },
+ "keys_own": {
+  "r01-F1-001": {
+   "sha_equal_archive": true,
+   "imports": [
+    "fractions",
+    "su2plaq.compress.builder"
+   ],
+   "static_violations": [],
+   "cx_own": 32,
+   "t_fixed_own": 24,
+   "n_rot_own": 13,
+   "n_rot_irrational": 13,
+   "t_from_exact_pi4_rotations": 0,
+   "t_from_synth": 808,
+   "t_total_own": 832,
+   "qubits_own": 18,
+   "depth_ct_own": 1583,
+   "key_archive": [
+    32,
+    832,
+    1583,
+    18
+   ],
+   "metrics_raw": {
+    "cx": 32,
+    "t_fixed": 24,
+    "n_rot": 13,
+    "t_eps": 832,
+    "t_estimate": {
+     "1e-06": 801.3311742036428,
+     "1e-10": 1319.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 832,
+     "1e-10": 1376
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 49,
+    "depth_ct": 1583,
+    "qubits": 18,
+    "gates": {
+     "cx": 32,
+     "h": 16,
+     "rz": 13,
+     "x": 12,
+     "t": 12,
+     "tdg": 12,
+     "s": 2,
+     "sdg": 1
+    },
+    "measured": true
+   },
+   "skeleton_same_8_pairs": true,
+   "linear_fit_worst_residual": 8.881784197001252e-16,
+   "rot_coeffs_alpha_beta_const_over_pi": [
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     0.0,
+     -0.079577,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.159155,
+     0.0
+    ]
+   ],
+   "nonzero_constant_term_rotations": 0,
+   "outer_gate_use(name,pos,arity)": {},
+   "outer_touched_beyond_control_in_lowered": []
+  },
+  "r01-F2-001": {
+   "sha_equal_archive": true,
+   "imports": [
+    "numpy",
+    "su2plaq.compress.builder"
+   ],
+   "static_violations": [],
+   "cx_own": 33,
+   "t_fixed_own": 8,
+   "n_rot_own": 22,
+   "n_rot_irrational": 22,
+   "t_from_exact_pi4_rotations": 0,
+   "t_from_synth": 1372,
+   "t_total_own": 1380,
+   "qubits_own": 17,
+   "depth_ct_own": 2852,
+   "key_archive": [
+    33,
+    1380,
+    2852,
+    17
+   ],
+   "metrics_raw": {
+    "cx": 33,
+    "t_fixed": 8,
+    "n_rot": 22,
+    "t_eps": 1380,
+    "t_estimate": {
+     "1e-06": 1323.4835255753956,
+     "1e-10": 2200.472542625659
+    },
+    "t_measured": {
+     "1e-06": 1380,
+     "1e-10": 2296
+    },
+    "synth_error_bound": 2.2e-05,
+    "depth": 54,
+    "depth_ct": 2852,
+    "qubits": 17,
+    "gates": {
+     "cx": 33,
+     "rz": 22,
+     "h": 8,
+     "x": 4,
+     "t": 4,
+     "tdg": 4,
+     "sdg": 2,
+     "z": 1,
+     "s": 1
+    },
+    "measured": true
+   },
+   "skeleton_same_8_pairs": true,
+   "linear_fit_worst_residual": 8.881784197001252e-16,
+   "rot_coeffs_alpha_beta_const_over_pi": [
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     -0.0
+    ],
+    [
+     0.0,
+     -0.079577,
+     -0.0
+    ],
+    [
+     0.0,
+     -0.079577,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     0.0,
+     -0.079577,
+     0.0
+    ],
+    [
+     0.0,
+     -0.079577,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     0.0,
+     -0.079577,
+     -0.0
+    ]
+   ],
+   "nonzero_constant_term_rotations": 0,
+   "outer_gate_use(name,pos,arity)": {},
+   "outer_touched_beyond_control_in_lowered": []
+  },
+  "r01-F3-001": {
+   "sha_equal_archive": true,
+   "imports": [
+    "dataclasses",
+    "numpy",
+    "su2plaq.compress",
+    "su2plaq.compress.builder"
+   ],
+   "static_violations": [
+    "su2plaq.compress"
+   ],
+   "cx_own": 33,
+   "t_fixed_own": 24,
+   "n_rot_own": 13,
+   "n_rot_irrational": 13,
+   "t_from_exact_pi4_rotations": 0,
+   "t_from_synth": 808,
+   "t_total_own": 832,
+   "qubits_own": 19,
+   "depth_ct_own": 1570,
+   "key_archive": [
+    33,
+    832,
+    1570,
+    19
+   ],
+   "metrics_raw": {
+    "cx": 33,
+    "t_fixed": 24,
+    "n_rot": 13,
+    "t_eps": 832,
+    "t_estimate": {
+     "1e-06": 801.3311742036428,
+     "1e-10": 1319.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 832,
+     "1e-10": 1376
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 36,
+    "depth_ct": 1570,
+    "qubits": 19,
+    "gates": {
+     "cx": 33,
+     "x": 25,
+     "h": 16,
+     "rz": 13,
+     "t": 12,
+     "tdg": 12,
+     "s": 2,
+     "sdg": 1
+    },
+    "measured": true
+   },
+   "skeleton_same_8_pairs": true,
+   "linear_fit_worst_residual": 8.881784197001252e-16,
+   "rot_coeffs_alpha_beta_const_over_pi": [
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.0,
+     0.159155,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     0.0,
+     -0.079577,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ]
+   ],
+   "nonzero_constant_term_rotations": 0,
+   "outer_gate_use(name,pos,arity)": {},
+   "outer_touched_beyond_control_in_lowered": []
+  },
+  "r01-F5-001": {
+   "sha_equal_archive": true,
+   "imports": [
+    "su2plaq.compress.builder"
+   ],
+   "static_violations": [],
+   "cx_own": 46,
+   "t_fixed_own": 45,
+   "n_rot_own": 7,
+   "n_rot_irrational": 7,
+   "t_from_exact_pi4_rotations": 0,
+   "t_from_synth": 446,
+   "t_total_own": 491,
+   "qubits_own": 17,
+   "depth_ct_own": 914,
+   "key_archive": [
+    46,
+    491,
+    914,
+    17
+   ],
+   "metrics_raw": {
+    "cx": 46,
+    "t_fixed": 45,
+    "n_rot": 7,
+    "t_eps": 491,
+    "t_estimate": {
+     "1e-06": 463.5629399558077,
+     "1e-10": 742.6048999263461
+    },
+    "t_measured": {
+     "1e-06": 491,
+     "1e-10": 777
+    },
+    "synth_error_bound": 7e-06,
+    "depth": 83,
+    "depth_ct": 914,
+    "qubits": 17,
+    "gates": {
+     "cx": 46,
+     "t": 23,
+     "tdg": 22,
+     "h": 20,
+     "x": 16,
+     "rz": 7
+    },
+    "measured": true
+   },
+   "skeleton_same_8_pairs": true,
+   "linear_fit_worst_residual": 1.7763568394002505e-15,
+   "rot_coeffs_alpha_beta_const_over_pi": [
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     0.477465,
+     -0.0,
+     -0.0
+    ],
+    [
+     0.0,
+     -0.159155,
+     -0.25
+    ],
+    [
+     -0.0,
+     0.477465,
+     0.0
+    ],
+    [
+     -0.0,
+     0.159155,
+     0.0
+    ],
+    [
+     0.0,
+     -0.477465,
+     -0.0
+    ]
+   ],
+   "nonzero_constant_term_rotations": 1,
+   "outer_gate_use(name,pos,arity)": {},
+   "outer_touched_beyond_control_in_lowered": []
+  }
+ },
+ "static_and_lean": {
+  "static": {
+   "r01-F1-001": {
+    "evaluator_scan": "accepted",
+    "imports": [
+     "fractions:Fraction",
+     "su2plaq.compress.builder:Builder"
+    ],
+    "own_non_whitelisted": [],
+    "forbidden_names": []
+   },
+   "r01-F2-001": {
+    "evaluator_scan": "accepted",
+    "imports": [
+     "numpy:None",
+     "su2plaq.compress.builder:Builder"
+    ],
+    "own_non_whitelisted": [],
+    "forbidden_names": []
+   },
+   "r01-F3-001": {
+    "evaluator_scan": "accepted",
+    "imports": [
+     "dataclasses:None",
+     "numpy:None",
+     "su2plaq.compress:oracle",
+     "su2plaq.compress.builder:Builder"
+    ],
+    "own_non_whitelisted": [],
+    "forbidden_names": []
+   },
+   "r01-F5-001": {
+    "evaluator_scan": "accepted",
+    "imports": [
+     "su2plaq.compress.builder:Builder"
+    ],
+    "own_non_whitelisted": [],
+    "forbidden_names": []
+   }
+  },
+  "lean": {
+   "archived_cert": "/home/digonto/Projects/su2qc-spinnet/results/spinnet/certs/spinnet-step-o1-47a41f2305b0.json",
+   "cert_sha256": "56d13092fa6985af86188e24056f7cc38d382d1cbeda0891dda987a1a64c121a",
+   "checker_sha256": "ec00aa45fafa507a075313dc4650c11bf6d122cd9233588125f61a092f853de5",
+   "check_archived": "ACCEPT",
+   "same_circuit_id": true,
+   "fields_differing_besides_provenance": [],
+   "check_reexport": "ACCEPT",
+   "n_gates": 98,
+   "n_states": 433,
+   "schema": "su2plaq-cert-1",
+   "mutations": {
+    "drop_middle_gate": "REJECT state 0 differs from the target",
+    "swap_first_cx": "REJECT state 16 differs from the target",
+    "rz_plus_unit": "REJECT state 0 differs from the target",
+    "tdg_to_t": "REJECT state 0 differs from the target",
+    "phase_shift": "REJECT state 0 differs from the target",
+    "drop_state": "REJECT certificate has 432 states, the physical subspace has 433",
+    "swap_last_two_cx": "ACCEPT",
+    "insert_x": "REJECT state 0 differs from the target",
+    "remove_first_tdg": "REJECT state 0 differs from the target",
+    "last_rz_plus_unit": "REJECT state 0 differs from the target"
+   }
+  }
+ },
+ "machine": "SupremeCommander x86_64, taskset -c 0-9, shared (load 10-22)",
+ "seeds": {
+  "aer": "deterministic statevector",
+  "angle_linearity_pairs": 20261107,
+  "loop": {
+   "trial_seed": 0,
+   "transpiler_logical": 20261104,
+   "clifford_t_pass_manager": 12345,
+   "gridsynth": 0
+  }
+ }
+}

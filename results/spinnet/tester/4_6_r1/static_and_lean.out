@@ -1,0 +1,28 @@
+r01-F1-001 {'evaluator_scan': 'accepted', 'imports': ['fractions:Fraction', 'su2plaq.compress.builder:Builder'], 'own_non_whitelisted': [], 'forbidden_names': []}
+r01-F2-001 {'evaluator_scan': 'accepted', 'imports': ['numpy:None', 'su2plaq.compress.builder:Builder'], 'own_non_whitelisted': [], 'forbidden_names': []}
+r01-F3-001 {'evaluator_scan': 'accepted', 'imports': ['dataclasses:None', 'numpy:None', 'su2plaq.compress:oracle', 'su2plaq.compress.builder:Builder'], 'own_non_whitelisted': [], 'forbidden_names': []}
+r01-F5-001 {'evaluator_scan': 'accepted', 'imports': ['su2plaq.compress.builder:Builder'], 'own_non_whitelisted': [], 'forbidden_names': []}
+{
+ "archived_cert": "/home/digonto/Projects/su2qc-spinnet/results/spinnet/certs/spinnet-step-o1-47a41f2305b0.json",
+ "cert_sha256": "56d13092fa6985af86188e24056f7cc38d382d1cbeda0891dda987a1a64c121a",
+ "checker_sha256": "ec00aa45fafa507a075313dc4650c11bf6d122cd9233588125f61a092f853de5",
+ "check_archived": "ACCEPT",
+ "same_circuit_id": true,
+ "fields_differing_besides_provenance": [],
+ "check_reexport": "ACCEPT",
+ "n_gates": 98,
+ "n_states": 433,
+ "schema": "su2plaq-cert-1",
+ "mutations": {
+  "drop_middle_gate": "REJECT state 0 differs from the target",
+  "swap_first_cx": "REJECT state 16 differs from the target",
+  "rz_plus_unit": "REJECT state 0 differs from the target",
+  "tdg_to_t": "REJECT state 0 differs from the target",
+  "phase_shift": "REJECT state 0 differs from the target",
+  "drop_state": "REJECT certificate has 432 states, the physical subspace has 433",
+  "swap_last_two_cx": "ACCEPT",
+  "insert_x": "REJECT state 0 differs from the target",
+  "remove_first_tdg": "REJECT state 0 differs from the target",
+  "last_rz_plus_unit": "REJECT state 0 differs from the target"
+ }
+}

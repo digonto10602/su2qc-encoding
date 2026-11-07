@@ -1,4 +1,4 @@
-M3 done (milestone-3, Report 3, incl. 3.L3); laptop milestone-2 merged; M4 in progress: round 0 committed (best pairs9 CX 34); ideation committed (F1-F5); round 1 proposers F1, F2, F3, F5 running; round-0 tester (reports/tests/112) running; 4.L1/4.L2 Lean next.
+M3 done (milestone-3, Report 3, incl. 3.L3); laptop milestone-2 merged; M4 in progress: round 1 evaluated (302dee2, best F1 (32, 832, 1583, 18), Lean certified); round-1 tester (reports/tests/113) + round-2 proposers F1, F2, F3, F5 running; 4.L1/4.L2 after the rounds.
 - NOTE (coordinator, 2026-11-06T19:00 clock time): the HH:MM stamps on entries written after ~16:00 today were estimated, not read from the clock, and several are later than the real time; the git commit times are authoritative.
 - 2026-11-06T14:25 merged laptop master 5111d69 (tag milestone-2, bundle laptop-milestone-2-20261106-1211) with --no-ff; no conflicts; our STATUS kept; LOCK.json regenerated with tools/lock.py (identical to the auto-merged one, LOCK OK); laptop acceptance-v7 fetched as tag laptop-acceptance-v7 (name clash with ours).
 - 2026-11-06T14:45 tester full after merge FAIL 618/619 (reports/tests/108): M3-L3 now un-pended by laptop checker -> step 3.L3 builder attempt 1; acceptance-check needs a new acceptance tag after merge (do it together with m4 lock).
@@ -10,6 +10,7 @@ M3 done (milestone-3, Report 3, incl. 3.L3); laptop milestone-2 merged; M4 in pr
 - 2026-11-06T18:40 planner erratum E2 (prompts/104 §11): S6 now checks gauge per inner code (8 minus codes 8..15) and per state (128, re-derived from codes). m4 re-locked by hand -> acceptance-v12. FOR DIGONTO REVIEW (stuck->planner rule).
 - 2026-11-06T19:55 4.2/4.3 tester PASS (reports/tests/111), committed 2fd5b3d. Round 0 real run 15 s / 0.83 GB on clean tree -> c9ad8d0: 7 valid seeds, keys as research 102 §3, global best spinnet_v2_pairs9 (34, 832, 1597, 19); general + pairs9 Lean certified. Proposer sessions used: 1 (ideation).
 - 2026-11-06T20:45 ideation (proposer session 1): F1 dimer frame + 2 flags (est. ~35-36 CX, 10 rot), F2 single flag, F3 numerical don't-care, F4 dark re-encoding (qubits only), F5 T-lean. Round 1: F1, F2, F3, F5 (sessions 2-5); F4 not run in round 1 (its stated gain is qubit count only, last key component; budget 20 sessions). Proposer sessions used: 5/20. Rounds without improvement: 0.
+- 2026-11-06T19:32 round 1 evaluated (8 s): F1 (32, 832, 1583, 18) certified = new global best; F2 (33, 1380, 2852, 17); F3 (33, 832, 1570, 19); F5 (46, 491, 914, 17). Round 2 launched: F1, F2, F3, F5 (sessions 6-9; F4 not run). Proposer sessions used: 9/20. Rounds without improvement: 0.
 
 # Desktop track S — spin network — branch `m3-spin-network` (clone `~/Projects/su2qc-spinnet`)
 
