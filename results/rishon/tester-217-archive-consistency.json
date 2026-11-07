@@ -1,0 +1,122 @@
+[
+ [
+  "r00-seed-010 program sha256 = file = round JSON",
+  true,
+  "38d3d2e1780b"
+ ],
+ [
+  "r00-seed-010 key entry == round",
+  true,
+  "[10102, 20650, 35639, 58]"
+ ],
+ [
+  "r00-seed-010 valid, round 0, family seed",
+  true,
+  ""
+ ],
+ [
+  "r00-seed-010 evaluator sha == round",
+  true,
+  ""
+ ],
+ [
+  "r00-seed-000 program sha256 = file = round JSON",
+  true,
+  "6757d91f5a90"
+ ],
+ [
+  "r00-seed-000 key entry == round",
+  true,
+  "[10102, 20650, 35639, 58]"
+ ],
+ [
+  "r00-seed-000 valid, round 0, family seed",
+  true,
+  ""
+ ],
+ [
+  "r00-seed-000 evaluator sha == round",
+  true,
+  ""
+ ],
+ [
+  "index best = cheapest valid seed",
+  true,
+  "r00-seed-000"
+ ],
+ [
+  "round best_key == cheapest valid candidate key",
+  true,
+  ""
+ ],
+ [
+  "index n_entries == 2 == round entries",
+  true,
+  ""
+ ],
+ [
+  "elite cell",
+  true,
+  "{'106,114': 'r00-seed-000'}"
+ ],
+ [
+  "tie-break: equal keys, first-written kept as best",
+  true,
+  "seed-000 (written first, same key as seed-010)"
+ ],
+ [
+  "attempts 5 lines == candidates",
+  true,
+  "['r00-seed-000', 'r00-seed-010', 'r00-seed-qiskit_l3', 'r00-seed-001', 'r00-seed-002']"
+ ],
+ [
+  "attempt r00-seed-000 matches round",
+  true,
+  ""
+ ],
+ [
+  "attempt r00-seed-010 matches round",
+  true,
+  ""
+ ],
+ [
+  "attempt r00-seed-qiskit_l3 matches round",
+  true,
+  ""
+ ],
+ [
+  "attempt r00-seed-001 matches round",
+  true,
+  ""
+ ],
+ [
+  "attempt r00-seed-002 matches round",
+  true,
+  ""
+ ],
+ [
+  "invalid list == 3 pruning_bound",
+  true,
+  ""
+ ],
+ [
+  "best==synthesis_verification entry",
+  true,
+  ""
+ ],
+ [
+  "provenance d68fdec clean",
+  true,
+  "d68fdec"
+ ],
+ [
+  "round json spec/evaluator sha present",
+  true,
+  ""
+ ],
+ [
+  "d68fdec is parent of HEAD",
+  true,
+  ""
+ ]
+]

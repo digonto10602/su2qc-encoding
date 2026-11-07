@@ -1,0 +1,35 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [ 12%]
+........................................................................ [ 25%]
+........................................................................ [ 37%]
+........................................................................ [ 50%]
+........................................................................ [ 62%]
+........................................................................ [ 75%]
+........................................................................ [ 87%]
+.......................................................................  [100%]
+575 passed in 707.76s (0:11:47)
+	Command being timed: "taskset -c 10,11 python -m pytest -n 2 -q -p no:cacheprovider tests/unit"
+	User time (seconds): 1346.74
+	System time (seconds): 44.99
+	Percent of CPU this job got: 196%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 11:48.05
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6810344
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 7585295
+	Voluntary context switches: 83254
+	Involuntary context switches: 243108
+	Swaps: 0
+	File system inputs: 64
+	File system outputs: 311280
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

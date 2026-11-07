@@ -1,0 +1,40 @@
+{
+ "commit": "c75aad5",
+ "rows": {
+  "general": {
+   "cx": 10102,
+   "t_fixed": 10218,
+   "n_rot": 166,
+   "depth_lowered": 13685,
+   "est_t_eps_1e6": 20143.92114752344
+  },
+  "general-rccx": {
+   "cx": 6874,
+   "t_fixed": 7262,
+   "n_rot": 166,
+   "depth_lowered": 9752,
+   "est_t_eps_1e6": 17187.92114752344
+  },
+  "general-mcx": {
+   "cx": 7360,
+   "t_fixed": 7748,
+   "n_rot": 166,
+   "depth_lowered": 10400,
+   "est_t_eps_1e6": 17673.92114752344
+  },
+  "qiskit_l3": {
+   "cx": 9688,
+   "t_fixed": 9120,
+   "n_rot": 166,
+   "depth_lowered": 13496,
+   "est_t_eps_1e6": 19045.92114752344
+  },
+  "qiskit_l3_whole": {
+   "cx": 9559,
+   "t_fixed": 8634,
+   "n_rot": 166,
+   "depth_lowered": 13261,
+   "est_t_eps_1e6": 18559.92114752344
+  }
+ }
+}
