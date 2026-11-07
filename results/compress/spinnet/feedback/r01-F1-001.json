@@ -1,0 +1,154 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.652764313490737e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   1.3127810360463772e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 6.049187461416408e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.1301948085543627e-15,
+  "block_error": 2.5225695049363744e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.5968172550201416,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.007634679969619e-15,
+   "max_dropped_l2": 8.162103559311194e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.5225695049363744e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.389886767812166e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -6.563905180231882e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.299175624130714e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.511508835095373e-15,
+   "block_error": 1.878377932716794e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.19524359703063965,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7554167342883534e-15,
+    "max_dropped_l2": 8.283519737837995e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.878377932716794e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.86520381220949e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    8.204881475289853e-18
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.309954273421678e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.349728517688062e-15,
+   "block_error": 2.5154752945214277e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.19635319709777832,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.317722906807071e-15,
+    "max_dropped_l2": 1.0989068990468814e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.5154752945214277e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 32,
+  "t_fixed": 24,
+  "n_rot": 13,
+  "t_eps": 832,
+  "t_estimate": {
+   "1e-06": 801.3311742036428,
+   "1e-10": 1319.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 832,
+   "1e-10": 1376
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 49,
+  "depth_ct": 1583,
+  "qubits": 18,
+  "gates": {
+   "cx": 32,
+   "h": 16,
+   "rz": 13,
+   "x": 12,
+   "t": 12,
+   "tdg": 12,
+   "s": 2,
+   "sdg": 1
+  },
+  "measured": true
+ },
+ "program_sha256": "c42a1340229c137195bbc8207dd4e658b9e258c5ac9a505af861ac953b8ab49a",
+ "wall_s": 1.6898620128631592,
+ "discoveries": [
+  "DISCOVERY: two rccx gates targeting the walk pivot leave only the sign (-1)^(l1*dS) (l1 = their first control, dS = parity toggled on the pivot between them), so an AND toggled twice costs 6 CX instead of 6+2 with an ancilla; here dS = a1 and one CZ(c1bar, a1) removes it.",
+  "DISCOVERY: CX(a->b) H(a) CX(b->a) = sdg(b) CX(a->b) s(b) s(a) h(a) (1 CX), so the ladder's last CX merges with the first pivot toggle when the walk starts with that ladder qubit and the constant term is rotated at the end of the walk."
+ ],
+ "summary": "dimer frame (pivot = link b) with two clean flags a1=[c0=c2=0], A=[u=v=0] and the third AND a2=[c1=c3=0] toggled straight onto the pivot by two rccx inside the H-frame phase walk (one CZ cancels their leftover sign), plus a 1-CX merge of the last ladder CX with the first walk toggle; 32 CX, 9+4 rotations, all angles k*beta/4 or 3*alpha/4."
+}
