@@ -60,3 +60,6 @@ Both desktop clones and the laptop create `acceptance-vN` tags independently (bo
 6. New folder `results/compress/rishon/` (round JSON, feedback, summary) — same layout as `results/compress/twelve/`.
 7. Shared-file appends made by this milestone: `lean/lakefile.toml` (`[[lean_exe]] name = "su2plaq_rishon_cert"`, `root = "Su2PlaqCert.Rishon.Main"`), `lean/Su2PlaqCert.lean` (`import Su2PlaqCert.Rishon.Check3`), `.gitignore` (nothing new expected; `compress/lean/certs/*.json` already ignored).
 
+
+## Proposed laptop change: robust T in the archive key (prompts/203 §13 E3, 2026-11-07)
+Same proposal as track S (spinnet merge notes, prompts/104 §11 E3): the laptop key's T component is measured at the nominal angle pair only, so exact rewrites that redraw pygridsynth's angle-dependent fluctuation can lower it by luck; on the rishon round-2 archive the nominal T margin between two 252-CX programs (30 T) is 4x the 20-pair-averaged margin (7.8 T). Proposal (not applied): key T = sum of T_1e-6 over a fixed seeded angle set (default_rng(20261107), alpha = U(0.05, 2.0) x20 then beta = U(0.05, 1.2) x20), skeleton fixed over the set. Track R applies it only to its own headline selection.
