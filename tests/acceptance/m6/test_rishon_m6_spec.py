@@ -160,6 +160,9 @@ def test_M6_K2_structure_facts_and_spec_text(root, tmp_path):
     assert text == S.render_spec(spec), "the committed spec is not the renderer's output"
     for needle in SPEC_PHRASES:
         assert needle in text, needle
+    # prompts/203 §13 E3 (headline rule): the spec carries the section before "## Tools" (PENDING until the robust module exists)
+    title = api("su2plaq.rishon.compress.robust:HEADLINE_SECTION_TITLE")
+    assert title in text and text.index(title) < text.index("## Tools") and "robust key" in text and "pi/4" in text.replace("\\pi/4", "pi/4").replace("\\pi", "pi")
     assert "U_B" in text and "U_E" in text and "12-qubit" not in text and "433" not in text
     sj = root / "compress" / "specs" / "rishon-structure.json"
     assert sj.exists() and json.loads(sj.read_text())["facts"]

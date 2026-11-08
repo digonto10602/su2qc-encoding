@@ -68,6 +68,7 @@ def test_M6_R2_round_dry_run_brief_and_report(tmp_path):
     assert brief.exists() and "Rewrite the parent to improve the key; return the complete program" in txt
     assert "su2plaq.rishon.compress.run_candidate" in txt and "su2plaq.rishon.compress.oracle" in txt and f"compress/programs/{ENC}/" in txt
     assert (tmp_path / "compress" / "specs" / f"{ENC}-{kind}.md").exists()
+    assert api("su2plaq.rishon.compress.robust:HEADLINE_SECTION_TITLE") in txt          # prompts/203 §13 E3
     info1 = rd.run_round(kind, round=1, evaluate=True, dry_run=True, root=tmp_path, proposals=[str(path)], lean=False)
     assert info1["round"] == 1 and info1["n_valid"] >= 1
     rj = tmp_path / "results" / "compress" / ENC / "round-001.json"

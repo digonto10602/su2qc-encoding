@@ -103,3 +103,11 @@ def test_M6_G4_summary_and_budgets(root):
     assert n_prune >= 0 and all(isinstance(r.get("wall_s"), (int, float)) for r in rounds)
     lineage = summary["lineage"]
     assert any(l["id"] == best.id for l in lineage)
+    # prompts/203 §13 E3: the headline (robust key over the locked angle set) is a valid archived entry and is what the summary names
+    R = api("su2plaq.rishon.compress.robust")
+    h = R.headline(KIND, root=root)
+    valid_ids = {e.id for e in arch.entries() if e.valid}
+    assert h["id"] in valid_ids and h["robust_key"] is not None and h["archive_best"] == best.id
+    assert summary.get("headline", {}).get("id") == h["id"] and tuple(summary["headline"]["robust_key"]) == tuple(h["robust_key"])
+    keyed = [tuple(r["robust_key"]) for r in h["ranking"] if r["robust_key"] is not None]
+    assert keyed == sorted(keyed) and tuple(h["robust_key"]) == keyed[0]

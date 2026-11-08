@@ -237,6 +237,15 @@ def test_M6_L7_archive_best_lean_status_recorded(root):
         assert str(best.lean["reason"]).startswith(("non_linear_angle", "phase_not_in_K", "unitary_gate", "too_many_qubits")), best.lean
     text = api("su2plaq.compress.report:report_table")(ENC, "step", root=root)
     assert "Lean" in text
+    # prompts/203 §13 E3: the HEADLINE entry (robust key) carries its own Lean status with the same allowed values
+    R = api("su2plaq.rishon.compress.robust")
+    h = R.headline("step", root=root)
+    entry = next(e for e in A.Archive.load(ENC, root=root).entries() if e.id == h["id"])
+    assert isinstance(entry.lean, dict) and entry.lean["status"] in ("certified", "n_a"), entry.lean
+    if entry.lean["status"] == "n_a":
+        assert str(entry.lean["reason"]).startswith(("non_linear_angle", "phase_not_in_K", "unitary_gate", "too_many_qubits")), entry.lean
+    assert h["lean"] == entry.lean["status"]
+    assert "HEADLINE" in R.report_table("step", root=root)
 
 
 def test_M6_L8_polish_rules_lean_certified(root):
