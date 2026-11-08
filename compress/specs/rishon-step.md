@@ -24,7 +24,7 @@ The other 10 of 16 link patterns are unused (don't-care). 1296 valid inner codes
 
 **State indexing.** Inner codes 0..1295 in sorted code order (the 6^4 = 1296 valid inner codes are the single-code input states of the evaluator, outer bits 0); `oracle --codec --state k` prints the code of state k and the link types of b, r, t, l.
 
-Writing the outer register is rejected as `writes_outer`. The outer qubits are in the layout because the machinery fixes `d` + `o`; they count in the key's qubit component (48 + ancillas).
+Writing the outer register is rejected as `writes_outer`. The outer qubits are in the layout because the machinery fixes `d` + `o`; they count in the key's qubit component (48 + ancillas). **Effective qubit limit: 62 qubits in total, i.e. at most 14 ancillas** (the exact simulation engine stores basis states in 64-bit keys); a circuit with more qubits is invalid as `engine_qubit_limit`.
 
 ## Target structure (exact)
 
@@ -32,7 +32,7 @@ $U_E^{\rm in}=\mathrm{diag}(e^{-i\frac{3}{4}\alpha\,\#Q})$ with $\#Q$ the number
 
 ## Circuit model
 
-Gates `cx cz h p rz s sdg t tdg x z` and macros `ccx ccz ch cp crx crz rccx swap` with costs (CX, T, rotations) from the builder table: ccx (6, 7, 0), rccx (3, 4, 0), ccz (6, 7, 0), swap (3, 0, 0), ch (1, 2, 0), crz (2, 0, 2), crx (2, 0, 2), cp (2, 0, 3), cz (1, 0, 0). `Builder.alloc/free` for clean ancillas; `Builder.mcx` for 3 or more controls ((k-2) rccx + ccx + (k-2) rccx; native mcx, mcrx, cu, unitary and measurement are rejected); at most 80 qubits in total; no measurement; emission-time classical computation is allowed (`su2plaq.compress.oracle`, `su2plaq.compress.spec.get_encoding("rishon")`, numpy).
+Gates `cx cz h p rz s sdg t tdg x z` and macros `ccx ccz ch cp crx crz rccx swap` with costs (CX, T, rotations) from the builder table: ccx (6, 7, 0), rccx (3, 4, 0), ccz (6, 7, 0), swap (3, 0, 0), ch (1, 2, 0), crz (2, 0, 2), crx (2, 0, 2), cp (2, 0, 3), cz (1, 0, 0). `Builder.alloc/free` for clean ancillas; `Builder.mcx` for 3 or more controls ((k-2) rccx + ccx + (k-2) rccx; native mcx, mcrx, cu, unitary and measurement are rejected); at most 62 qubits in total (the engine limit; the nominal cap is 80); no measurement; emission-time classical computation is allowed (`su2plaq.compress.oracle`, `su2plaq.compress.spec.get_encoding("rishon")`, numpy).
 
 ## Correctness
 

@@ -33,6 +33,7 @@ from su2plaq.compress import evaluate as LE
 from su2plaq.compress.evaluate import ContractError, EvalTimeout, ProgramResult, load_program, skeleton  # noqa: F401
 from su2plaq.compress.spec import TaskSpec, get_encoding
 from su2plaq.evaluate.evaluator import Verdict, synth_tolerances
+from su2plaq.rishon.compress.spec import ENGINE_QUBIT_LIMIT, REASON_ENGINE_QUBIT_LIMIT, engine_qubit_message
 
 ROOT = LE.ROOT
 BUILD_TIMEOUT_S = LE.BUILD_TIMEOUT_S
@@ -92,6 +93,8 @@ def evaluate_circuit(qc, spec: TaskSpec, mode: str = "full", alt_circuits=None, 
     violations = LE._gate_violations(qc)
     if qc.num_qubits > spec.peak_qubit_cap():
         return result(False, "max_qubits", message=f"{qc.num_qubits} qubits > cap {spec.peak_qubit_cap()}")
+    if qc.num_qubits > ENGINE_QUBIT_LIMIT:
+        return result(False, REASON_ENGINE_QUBIT_LIMIT, message=engine_qubit_message(qc.num_qubits))
     try:
         verdict = _one_verdict(qc, spec, mode, spec.eval_budget_s)
     except EvalTimeout:

@@ -87,3 +87,54 @@ def test_round_argument_errors_and_empty_certify(tmp_path, capsys):
 def test_certify_reports_unbuilt_checker():
     d, sec = RD._certify(BL.general_circuit(_sp("UE")), _sp("UE"))
     assert d["status"] in ("not_run", "certified", "n_a", "failed") and sec >= 0
+
+
+# ---------------------------------------------------------------------------------- engine qubit limit (62)
+_WIDE = '"""SUMMARY: dummy program with {n} qubits (engine-limit test).\n\n"""\nFAMILY = "Ftest"\nPARENT = None\n\n' \
+        "from su2plaq.compress.builder import Builder\n\n\ndef build(spec):\n    b = Builder(spec)\n    b.alloc({a}, 'work')\n" \
+        "    b.x(48)\n    b.x(48)\n    return b\n"
+
+
+def _wide(tmp_path, n_anc, name="001-wide.py"):
+    d = tmp_path / "compress" / "programs" / "rishon" / "Ftest"
+    d.mkdir(parents=True, exist_ok=True)
+    f = d / name
+    f.write_text(_WIDE.format(n=48 + n_anc, a=n_anc))
+    return f
+
+
+def test_engine_limit_constant_matches_the_laptop_engine():
+    import numpy as np
+    from qiskit import QuantumCircuit
+
+    from su2plaq.evaluate import sparse_sim
+
+    assert S.ENGINE_QUBIT_LIMIT == 62
+    sparse_sim.run_batch(QuantumCircuit(62), np.zeros(1, dtype=np.int64))              # accepted
+    with pytest.raises(ValueError, match="at most 62 qubits"):
+        sparse_sim.run_batch(QuantumCircuit(63), np.zeros(1, dtype=np.int64))
+
+
+def test_wide_program_is_recorded_invalid_by_run_round(tmp_path):
+    f = _wide(tmp_path, 15)                                             # 48 + 15 = 63 qubits
+    info = RD.run_round("step", 1, evaluate=True, dry_run=True, root=tmp_path, proposals=[f], lean=False)
+    assert info["n_valid"] == 0 and info["n_invalid"] == 1
+    rd = json.loads((tmp_path / "results" / "compress" / "rishon" / "round-001.json").read_text())
+    (inv,) = rd["invalid"]
+    assert inv["reason"] == "engine_qubit_limit" and "63 qubits" in inv["message"] and "62" in inv["message"]
+    fb = list((tmp_path / "results" / "compress" / "rishon" / "feedback").glob("*.json"))
+    assert len(fb) == 1 and json.loads(fb[0].read_text())["reason"] == "engine_qubit_limit"
+    assert "engine_qubit_limit" in (tmp_path / "compress" / "attempts" / "rishon.jsonl").read_text()
+
+
+def test_wide_program_run_candidate_reports_reason(tmp_path, capsys):
+    f = _wide(tmp_path, 15)
+    assert RC.main([str(f), "--kind", "step", "--trial"]) == 1
+    out = capsys.readouterr().out
+    assert out.startswith("invalid: engine_qubit_limit") and "63 qubits" in out and "limit of 62" in out
+
+
+def test_62_qubit_program_is_not_rejected_by_the_limit(tmp_path):
+    f = _wide(tmp_path, 14, "002-ok62.py")
+    r = RC.evaluate_program(f, S.rishon_spec("step"), "trial")
+    assert r.reason != "engine_qubit_limit"

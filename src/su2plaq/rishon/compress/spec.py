@@ -114,6 +114,20 @@ class RishonCompressView:
 _VIEW: RishonCompressView | None = None
 
 
+# Effective qubit limit of the exact sparse engine.  PROVENANCE: laptop-owned `su2plaq/evaluate/sparse_sim.py:298-299`
+# (`run_batch`: `if n > 62: raise ValueError("at most 62 qubits")`, int64 basis keys); the laptop module does not expose the number,
+# so it is repeated here (tests/unit/test_rishon_compress_spec_unit.py checks that the engine really rejects 63 and accepts 62).
+# The task spec's `peak_qubit_cap()` (80, locked by tests/acceptance/m6) is NOT lowered; circuits above this limit are recorded
+# invalid with the reason `engine_qubit_limit` instead of reaching the engine.
+ENGINE_QUBIT_LIMIT = 62
+REASON_ENGINE_QUBIT_LIMIT = "engine_qubit_limit"
+
+
+def engine_qubit_message(n_qubits: int) -> str:
+    return (f"{n_qubits} qubits > the exact simulation engine's limit of {ENGINE_QUBIT_LIMIT} qubits "
+            f"(the circuit cannot be evaluated; use at most {ENGINE_QUBIT_LIMIT} qubits in total)")
+
+
 def register() -> None:
     """NOMINAL_ANGLES["rishon"] = RISHON_NOMINAL; su2plaq.compress.spec._ENCODINGS["rishon"] = RishonCompressView() (idempotent)."""
     global _VIEW
@@ -438,7 +452,9 @@ def render_spec(spec) -> str:
         "return to $|0\\rangle$. Angles must be computed from the spec's `alpha`/`beta` (and the oracle), never typed in.\n\n"
         f"## Registers\n\n{view.describe()}\n"
         f"Writing the outer register is rejected as `writes_outer`. The outer qubits are in the layout because the machinery fixes "
-        f"`d` + `o`; they count in the key's qubit component ({view.n_data + view.n_outer} + ancillas).\n\n"
+        f"`d` + `o`; they count in the key's qubit component ({view.n_data + view.n_outer} + ancillas). **Effective qubit limit: "
+        f"{ENGINE_QUBIT_LIMIT} qubits in total, i.e. at most {ENGINE_QUBIT_LIMIT - view.n_data - view.n_outer} ancillas** (the exact "
+        f"simulation engine stores basis states in 64-bit keys); a circuit with more qubits is invalid as `{REASON_ENGINE_QUBIT_LIMIT}`.\n\n"
         f"## Target structure (exact)\n\n$U_E^{{\\rm in}}=\\mathrm{{diag}}(e^{{-i{_casimir_tex()}\\alpha\\,\\#Q}})$ with $\\#Q$ the number "
         f"of inner links in a quartet state (`1010`, `0110`, `1001`, `0101`); "
         f"$U_B^{{\\rm in}}=\\prod_{{p=1}}^{{{hb['n_pairs']}}}\\exp\\big(i\\beta\\kappa_p(|u_p\\rangle\\langle v_p|+{{\\rm h.c.}})\\big)$ with "
@@ -449,7 +465,8 @@ def render_spec(spec) -> str:
         f"## Circuit model\n\nGates `{gates}` and macros `{macros}` with costs (CX, T, rotations) from the builder table: {costs}. "
         "`Builder.alloc/free` for clean ancillas; `Builder.mcx` for 3 or more controls ((k-2) rccx + ccx + (k-2) rccx; native mcx, "
         "mcrx, cu, unitary and measurement are rejected); at most "
-        f"{spec.peak_qubit_cap()} qubits in total; no measurement; emission-time classical computation is allowed "
+        f"{min(spec.peak_qubit_cap(), ENGINE_QUBIT_LIMIT)} qubits in total (the engine limit; the nominal cap is "
+        f"{spec.peak_qubit_cap()}); no measurement; emission-time classical computation is allowed "
         "(`su2plaq.compress.oracle`, `su2plaq.compress.spec.get_encoding(\"rishon\")`, numpy).\n\n"
         f"## Correctness\n\n`op_norm_error` = block error + leak amplitude + certified pruning bound must be at most {spec.tol_err:g} "
         f"after one global phase; `dropped_total` must be at most {cap:g} (**prune cap** = {PRUNE_FRACTION:g} x tolerance; measured on "
