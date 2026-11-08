@@ -1,0 +1,188 @@
+{
+ "cid": "r03-F1-003",
+ "program_sha256": "95ec25703fc5f646d5ca57862b6e27cd54dedd97d2e31e71988da32687f981ee",
+ "pairs": [
+  [
+   0.37,
+   0.61
+  ],
+  [
+   0.91,
+   0.23
+  ],
+  [
+   1.7,
+   1.0
+  ],
+  [
+   2.6,
+   -0.4
+  ],
+  [
+   0.13,
+   1.9
+  ]
+ ],
+ "skeleton_equal_5_pairs": true,
+ "nparam_equal": true,
+ "n_params": 10,
+ "n_const_params": 0,
+ "n_varying_params": 10,
+ "const_values": [],
+ "coefficient_set": [
+  [
+   -0.75,
+   0.0
+  ],
+  [
+   0.0,
+   -3.328427125
+  ],
+  [
+   0.0,
+   -1.828427125
+  ],
+  [
+   0.0,
+   -0.5
+  ],
+  [
+   -0.0,
+   0.5
+  ],
+  [
+   -0.0,
+   1.828427125
+  ],
+  [
+   -0.0,
+   3.328427125
+  ]
+ ],
+ "linearity_resid_max": 1.3322676295501878e-15,
+ "intercept_max": 4.440892098500626e-16,
+ "angle_gate_counts": {
+  "p": 4,
+  "rz": 6
+ },
+ "fixed_gates_unchanged": true,
+ "rows": [
+  {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "spec_pair": true,
+   "n_gates": 672,
+   "n_qubits_total": 55,
+   "n_qubits_touched": 23,
+   "outer_touched": [],
+   "ancillas_touched": [
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54
+   ],
+   "block_err_spectral": 2.1855162764716534e-14,
+   "block_err_maxabs": 2.1629982583309686e-14,
+   "leak_dirty_max": 0.0,
+   "leak_nocode_max": 0.0,
+   "leak_total_fro": 0.0,
+   "my_dropped_fro": 2.877999793614518e-14,
+   "my_dropped_triangle": 1.383475999604916e-13,
+   "max_state_size": 14500,
+   "phase_abs_minus_1": 0.0,
+   "phase_angle": 2.3971841447539825e-16,
+   "seconds": 3.3444130420684814
+  },
+  {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "spec_pair": true,
+   "n_gates": 672,
+   "n_qubits_total": 55,
+   "n_qubits_touched": 23,
+   "outer_touched": [],
+   "ancillas_touched": [
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54
+   ],
+   "block_err_spectral": 2.1638813531597497e-14,
+   "block_err_maxabs": 2.1638813531597494e-14,
+   "leak_dirty_max": 0.0,
+   "leak_nocode_max": 0.0,
+   "leak_total_fro": 0.0,
+   "my_dropped_fro": 2.7732492121792858e-14,
+   "my_dropped_triangle": 1.3521201872707145e-13,
+   "max_state_size": 14500,
+   "phase_abs_minus_1": 0.0,
+   "phase_angle": -2.086810701134667e-16,
+   "seconds": 3.1281604766845703
+  },
+  {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "spec_pair": true,
+   "n_gates": 672,
+   "n_qubits_total": 55,
+   "n_qubits_touched": 23,
+   "outer_touched": [],
+   "ancillas_touched": [
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54
+   ],
+   "block_err_spectral": 2.198311244501194e-14,
+   "block_err_maxabs": 2.179489675266873e-14,
+   "leak_dirty_max": 0.0,
+   "leak_nocode_max": 0.0,
+   "leak_total_fro": 0.0,
+   "my_dropped_fro": 2.768120312208184e-14,
+   "my_dropped_triangle": 1.336219441659921e-13,
+   "max_state_size": 14500,
+   "phase_abs_minus_1": 0.0,
+   "phase_angle": -2.59340406189687e-16,
+   "seconds": 3.183349609375
+  },
+  {
+   "alpha": 2.6,
+   "beta": -0.4,
+   "spec_pair": false,
+   "n_gates": 672,
+   "n_qubits_total": 55,
+   "n_qubits_touched": 23,
+   "outer_touched": [],
+   "ancillas_touched": [
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54
+   ],
+   "block_err_spectral": 2.1858302041097366e-14,
+   "block_err_maxabs": 2.1612880174924296e-14,
+   "leak_dirty_max": 0.0,
+   "leak_nocode_max": 0.0,
+   "leak_total_fro": 0.0,
+   "my_dropped_fro": 2.7897310439232717e-14,
+   "my_dropped_triangle": 1.37026222508749e-13,
+   "max_state_size": 14500,
+   "phase_abs_minus_1": 0.0,
+   "phase_angle": -1.8328276955549188e-16,
+   "seconds": 3.3623270988464355
+  }
+ ],
+ "commit": "bcdf9be"
+}

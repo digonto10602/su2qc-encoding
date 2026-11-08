@@ -1,0 +1,71 @@
+{
+ "r03-F1-003": {
+  "path": "compress/programs/rishon/F1/003-exact-corner-tests.py",
+  "sha_file": "95ec25703fc5f646d5ca57862b6e27cd54dedd97d2e31e71988da32687f981ee",
+  "sha_archive": "95ec25703fc5f646d5ca57862b6e27cd54dedd97d2e31e71988da32687f981ee",
+  "sha_round": "95ec25703fc5f646d5ca57862b6e27cd54dedd97d2e31e71988da32687f981ee",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ },
+ "r03-F3-002": {
+  "path": "compress/programs/rishon/F3/002-ch-partner-f-fold.py",
+  "sha_file": "b244b6820874d79fced80a888366e5e5bd8ebd40aa82fb2b55bcfd7d479d02f2",
+  "sha_archive": "b244b6820874d79fced80a888366e5e5bd8ebd40aa82fb2b55bcfd7d479d02f2",
+  "sha_round": "b244b6820874d79fced80a888366e5e5bd8ebd40aa82fb2b55bcfd7d479d02f2",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ },
+ "r03-F4-003": {
+  "path": "compress/programs/rishon/F4/003-cross-corner-rc3x-lowering.py",
+  "sha_file": "141887620a9f5ed4f60d9180edf61ac4af5935c42c007f51913a103dba9d4c46",
+  "sha_archive": "141887620a9f5ed4f60d9180edf61ac4af5935c42c007f51913a103dba9d4c46",
+  "sha_round": "141887620a9f5ed4f60d9180edf61ac4af5935c42c007f51913a103dba9d4c46",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ }
+}
