@@ -1,0 +1,177 @@
+{
+ "commit": "b5272e2",
+ "rows": {
+  "r01-F1-001": {
+   "recount": {
+    "cx": 256,
+    "cx_hand": 256,
+    "t_gates": 258,
+    "t_hand": 258,
+    "t_fixed": 258,
+    "n_rot": 12,
+    "t_rot": 762,
+    "t_total": 1020,
+    "depth_ct": 1714,
+    "qubits": 58,
+    "distinct_angles": 9
+   },
+   "t_total_1e10": 1496,
+   "archived_key": [
+    256,
+    1020,
+    1714,
+    58
+   ],
+   "archived": {
+    "cx": 256,
+    "t_fixed": 258,
+    "n_rot": 12,
+    "t_eps": 1020,
+    "depth_ct": 1714,
+    "qubits": 58,
+    "t_measured": {
+     "1e-06": 1020,
+     "1e-10": 1496
+    }
+   },
+   "match": {
+    "cx": true,
+    "t_fixed": true,
+    "n_rot": true,
+    "t_total": true,
+    "depth_ct": true,
+    "qubits": true,
+    "t_1e10": true
+   }
+  },
+  "r01-F2-001": {
+   "recount": {
+    "cx": 354,
+    "cx_hand": 354,
+    "t_gates": 324,
+    "t_hand": 336,
+    "t_fixed": 336,
+    "n_rot": 23,
+    "t_rot": 1482,
+    "t_total": 1818,
+    "depth_ct": 3557,
+    "qubits": 62,
+    "distinct_angles": 10
+   },
+   "t_total_1e10": 2728,
+   "archived_key": [
+    354,
+    1818,
+    3557,
+    62
+   ],
+   "archived": {
+    "cx": 354,
+    "t_fixed": 336,
+    "n_rot": 23,
+    "t_eps": 1818,
+    "depth_ct": 3557,
+    "qubits": 62,
+    "t_measured": {
+     "1e-06": 1818,
+     "1e-10": 2728
+    }
+   },
+   "match": {
+    "cx": true,
+    "t_fixed": true,
+    "n_rot": true,
+    "t_total": true,
+    "depth_ct": true,
+    "qubits": true,
+    "t_1e10": true
+   }
+  },
+  "r01-F4-001": {
+   "recount": {
+    "cx": 390,
+    "cx_hand": 390,
+    "t_gates": 400,
+    "t_hand": 400,
+    "t_fixed": 400,
+    "n_rot": 14,
+    "t_rot": 904,
+    "t_total": 1304,
+    "depth_ct": 1871,
+    "qubits": 62,
+    "distinct_angles": 9
+   },
+   "t_total_1e10": 1836,
+   "archived_key": [
+    390,
+    1304,
+    1871,
+    62
+   ],
+   "archived": {
+    "cx": 390,
+    "t_fixed": 400,
+    "n_rot": 14,
+    "t_eps": 1304,
+    "depth_ct": 1871,
+    "qubits": 62,
+    "t_measured": {
+     "1e-06": 1304,
+     "1e-10": 1836
+    }
+   },
+   "match": {
+    "cx": true,
+    "t_fixed": true,
+    "n_rot": true,
+    "t_total": true,
+    "depth_ct": true,
+    "qubits": true,
+    "t_1e10": true
+   }
+  },
+  "r01-F5-001": {
+   "recount": {
+    "cx": 492,
+    "cx_hand": 492,
+    "t_gates": 483,
+    "t_hand": 483,
+    "t_fixed": 483,
+    "n_rot": 20,
+    "t_rot": 1256,
+    "t_total": 1739,
+    "depth_ct": 3142,
+    "qubits": 51,
+    "distinct_angles": 7
+   },
+   "t_total_1e10": 2563,
+   "archived_key": [
+    492,
+    1739,
+    3142,
+    51
+   ],
+   "archived": {
+    "cx": 492,
+    "t_fixed": 483,
+    "n_rot": 20,
+    "t_eps": 1739,
+    "depth_ct": 3142,
+    "qubits": 51,
+    "t_measured": {
+     "1e-06": 1739,
+     "1e-10": 2563
+    }
+   },
+   "match": {
+    "cx": true,
+    "t_fixed": true,
+    "n_rot": true,
+    "t_total": true,
+    "depth_ct": true,
+    "qubits": true,
+    "t_1e10": true
+   }
+  }
+ }
+}

@@ -1,0 +1,106 @@
+{
+ "r01-F1-001": {
+  "path": "compress/programs/rishon/F1/001-ghz-frame-cx-tau.py",
+  "sha_file": "2c58c7b56c048216da58f37b4f62bb2ecd26df763b322cd3d28bececcf3185fc",
+  "sha_archive": "2c58c7b56c048216da58f37b4f62bb2ecd26df763b322cd3d28bececcf3185fc",
+  "sha_round": "2c58c7b56c048216da58f37b4f62bb2ecd26df763b322cd3d28bececcf3185fc",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ },
+ "r01-F2-001": {
+  "path": "compress/programs/rishon/F2/001-direction-qubit-walsh.py",
+  "sha_file": "d56116b4b8c420bbf18884e211d94e253cf8c0da5bcc1b184e71bf528175c1b4",
+  "sha_archive": "d56116b4b8c420bbf18884e211d94e253cf8c0da5bcc1b184e71bf528175c1b4",
+  "sha_round": "d56116b4b8c420bbf18884e211d94e253cf8c0da5bcc1b184e71bf528175c1b4",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ },
+ "r01-F4-001": {
+  "path": "compress/programs/rishon/F4/001-flat-dilation.py",
+  "sha_file": "3ef8c9394f9daf49c18d6782cf7db5739bab2fa0d131c3607412ef0d9bdd9b21",
+  "sha_archive": "3ef8c9394f9daf49c18d6782cf7db5739bab2fa0d131c3607412ef0d9bdd9b21",
+  "sha_round": "3ef8c9394f9daf49c18d6782cf7db5739bab2fa0d131c3607412ef0d9bdd9b21",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ },
+ "r01-F5-001": {
+  "path": "compress/programs/rishon/F5/001-class-batched-givens.py",
+  "sha_file": "c64fedb561c112e8416e011b7a3be06e30c93be768d5a301ead314847c2fbd85",
+  "sha_archive": "c64fedb561c112e8416e011b7a3be06e30c93be768d5a301ead314847c2fbd85",
+  "sha_round": "c64fedb561c112e8416e011b7a3be06e30c93be768d5a301ead314847c2fbd85",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "numpy",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ],
+   [
+    "su2plaq.compress.spec",
+    true
+   ],
+   [
+    "su2plaq.compress.spec.get_encoding",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ }
+}

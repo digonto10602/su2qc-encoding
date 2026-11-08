@@ -1,0 +1,29 @@
+{
+ "commit": "b5272e2",
+ "evaluated_commit": "6b7a731",
+ "verdict": "PASS",
+ "report": "reports/tests/218-m6-round-001.md",
+ "files": [
+  "tester-218-static.json",
+  "tester-218-sparse-r01-F*-001.json",
+  "tester-218-recount.json",
+  "tester-218-synth-1e-06.json",
+  "tester-218-aer-summary.json",
+  "tester-218-live2.json",
+  "tester-218-mutants.json",
+  "tester-218-archive.json",
+  "tester-218-qubitcap.json",
+  "tester-218-qubitcap-mine.json"
+ ],
+ "seeds": {
+  "mutants": 218,
+  "aer_sampling": 218
+ },
+ "aer_runs": 5074,
+ "aer_nominal_codes": {
+  "F1": 1278,
+  "F2": 1167,
+  "F4": 669,
+  "F5": 1296
+ }
+}

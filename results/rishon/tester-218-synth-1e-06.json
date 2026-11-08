@@ -1,0 +1,108 @@
+{
+ "commit": "b5272e2",
+ "eps": 1e-06,
+ "rows": {
+  "r01-F1-001": {
+   "n_rot": 12,
+   "eps": 1e-06,
+   "budget": 1.2001e-05,
+   "block_err": 2.943821350853921e-06,
+   "leak": 9.096172448892287e-07,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "cx": 256,
+   "t": 1020,
+   "n_gates": 2728,
+   "max_state": 184126,
+   "my_dropped_fro": 3.9255653818458497e-13,
+   "ratio_to_budget": 0.24529800440412639,
+   "seconds": 3.5449178218841553,
+   "outer_touched": []
+  },
+  "r01-F2-001": {
+   "n_rot": 23,
+   "eps": 1e-06,
+   "budget": 2.3001e-05,
+   "block_err": 3.866651099994171e-06,
+   "leak": 1.574114767586759e-06,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x",
+    "z"
+   ],
+   "cx": 354,
+   "t": 1818,
+   "n_gates": 4773,
+   "max_state": 225940,
+   "my_dropped_fro": 6.534247928374072e-13,
+   "ratio_to_budget": 0.16810795617556504,
+   "seconds": 8.682873249053955,
+   "outer_touched": []
+  },
+  "r01-F4-001": {
+   "n_rot": 14,
+   "eps": 1e-06,
+   "budget": 1.4001e-05,
+   "block_err": 2.9820213593885896e-06,
+   "leak": 1.5266555117101558e-06,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x",
+    "z"
+   ],
+   "cx": 390,
+   "t": 1304,
+   "n_gates": 3492,
+   "max_state": 237348,
+   "my_dropped_fro": 5.375145130992293e-13,
+   "ratio_to_budget": 0.21298631236258764,
+   "seconds": 6.031881809234619,
+   "outer_touched": []
+  },
+  "r01-F5-001": {
+   "n_rot": 20,
+   "eps": 1e-06,
+   "budget": 2.0000999999999997e-05,
+   "block_err": 5.5108905599097034e-06,
+   "leak": 2.8250077446317233e-06,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "cx": 492,
+   "t": 1739,
+   "n_gates": 4570,
+   "max_state": 300730,
+   "my_dropped_fro": 7.375414180170971e-13,
+   "ratio_to_budget": 0.27553075145791234,
+   "seconds": 9.74059271812439,
+   "outer_touched": []
+  }
+ }
+}

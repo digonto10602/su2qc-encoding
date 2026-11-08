@@ -1,0 +1,104 @@
+{
+ "r01-F5-001+14idle": {
+  "cid": "r01-F5-001",
+  "extra": 14,
+  "live": false,
+  "n_qubits": 62,
+  "run_batch": "ok",
+  "evaluate_trial": {
+   "valid": true,
+   "reason": "ok",
+   "message": ""
+  },
+  "verify_aer_mps_trial": {
+   "ok": false,
+   "reason": "leak",
+   "engine": "aer_mps",
+   "op_norm_error": 1.5883923279019972e-09,
+   "certified": false
+  },
+  "seconds": 54.96459460258484
+ },
+ "r01-F5-001+14live": {
+  "cid": "r01-F5-001",
+  "extra": 14,
+  "live": true,
+  "n_qubits": 62,
+  "run_batch": "ok",
+  "evaluate_trial": {
+   "valid": true,
+   "reason": "ok",
+   "message": ""
+  },
+  "verify_aer_mps_trial": {
+   "ok": false,
+   "reason": "leak",
+   "engine": "aer_mps",
+   "op_norm_error": 2.6004981254384612e-09,
+   "certified": false
+  },
+  "seconds": 55.25108861923218
+ },
+ "r01-F5-001+15idle": {
+  "cid": "r01-F5-001",
+  "extra": 15,
+  "live": false,
+  "n_qubits": 63,
+  "run_batch": "ValueError: at most 62 qubits",
+  "evaluate_trial": "EXCEPTION ValueError: at most 62 qubits",
+  "verify_aer_mps_trial": {
+   "ok": false,
+   "reason": "leak",
+   "engine": "aer_mps",
+   "op_norm_error": 1.5883923279019972e-09,
+   "certified": false
+  },
+  "seconds": 68.00373840332031
+ },
+ "r01-F5-001+15live": {
+  "cid": "r01-F5-001",
+  "extra": 15,
+  "live": true,
+  "n_qubits": 63,
+  "run_batch": "ValueError: at most 62 qubits",
+  "evaluate_trial": "EXCEPTION ValueError: at most 62 qubits",
+  "verify_aer_mps_trial": {
+   "ok": false,
+   "reason": "leak",
+   "engine": "aer_mps",
+   "op_norm_error": 2.5869774048866548e-09,
+   "certified": false
+  },
+  "seconds": 81.21895909309387
+ },
+ "r01-F5-001+16live": {
+  "cid": "r01-F5-001",
+  "extra": 16,
+  "live": true,
+  "n_qubits": 64,
+  "run_batch": "ValueError: at most 62 qubits",
+  "evaluate_trial": "EXCEPTION ValueError: at most 62 qubits",
+  "verify_aer_mps_trial": "EXCEPTION CircuitTooWideForTarget: 'Number of qubits (64) in circuit-5280 is greater than maximum (63) in the coupling_map'",
+  "seconds": 0.09058308601379395
+ },
+ "r01-F5-001+17live": {
+  "cid": "r01-F5-001",
+  "extra": 17,
+  "live": true,
+  "n_qubits": 65,
+  "run_batch": "ValueError: at most 62 qubits",
+  "evaluate_trial": "EXCEPTION ValueError: at most 62 qubits",
+  "verify_aer_mps_trial": "EXCEPTION CircuitTooWideForTarget: 'Number of qubits (65) in circuit-5283 is greater than maximum (63) in the coupling_map'",
+  "seconds": 0.10014963150024414
+ },
+ "r01-F5-001+29live": {
+  "cid": "r01-F5-001",
+  "extra": 29,
+  "live": true,
+  "n_qubits": 77,
+  "run_batch": "ValueError: at most 62 qubits",
+  "evaluate_trial": "EXCEPTION ValueError: at most 62 qubits",
+  "verify_aer_mps_trial": "EXCEPTION CircuitTooWideForTarget: 'Number of qubits (77) in circuit-5286 is greater than maximum (63) in the coupling_map'",
+  "seconds": 0.12617087364196777
+ }
+}

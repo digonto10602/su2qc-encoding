@@ -1,0 +1,297 @@
+{
+ "commit": "b5272e2",
+ "n": 58,
+ "n_pass": 58,
+ "checks": [
+  {
+   "check": "round: ids = 4 entries",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "round: n_valid 4, n_invalid 0, no external, no pruning_bound",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "round: best_key = lexicographic min of the four keys",
+   "ok": true,
+   "detail": "([256, 1020, 1714, 58], {'r01-F1-001': (256, 1020, 1714, 58), 'r01-F2-001': (354, 1818, 3557, 62), 'r01-F4-001': (390, 1304, 1871, 62), 'r01-F5-001': (492, 1739, 3142, 51)})"
+  },
+  {
+   "check": "round: evaluator_sha256 = round 0's (evaluator unchanged)",
+   "ok": true,
+   "detail": "d45ffb311689"
+  },
+  {
+   "check": "round: spec_sha256 = round 0's",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "round: synthesis_verification entry = best, ok, certified",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "round: synthesis tol_err = n_rot*eps + 1e-9, op_norm_error <= tol",
+   "ok": true,
+   "detail": "{'entry': 'r01-F1-001', 'ok': True, 'eps': 1e-06, 'n_rot': 12, 't_total': 1020, 'tolerances': {'tol_err': 1.2001e-05, 'tol_gauss': 1.2001e-05}, 'op_norm_error': 3.85345463512864e-06, 'certified': True, 'reason': 'ok'}"
+  },
+  {
+   "check": "r01-F1-001: program sha256 file = entry = round = candidate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F1-001: id = file name, round 1, valid, reason ok",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F1-001: key = (cx, t_eps, depth_ct, qubits) of metrics",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F1-001: cell = floor(8 log2(.+1)) recomputed",
+   "ok": true,
+   "detail": "(64, 79)"
+  },
+  {
+   "check": "r01-F1-001: verdict certified, ok, tolerances 1e-10, gauss/leak/block/dropped bounds",
+   "ok": true,
+   "detail": "{'op': 1.4011625989653016e-13, 'block': 1.3457884021996038e-14, 'gauss': 1.076401158743041e-15, 'dropped': 1.266583758745341e-13}"
+  },
+  {
+   "check": "r01-F1-001: two alternate verdicts ok+certified, dropped<=1e-12, skeleton_equal",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F1-001: FAMILY header = entry family, PARENT None = entry parent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F1-001: all 3 DISCOVERY lines of the docstring are in discoveries/rishon.md",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F1-001: feedback verdict/metrics/sha = entry",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F1-001: Lean field: best only (not_run, PENDING 6.L3), others None",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F2-001: program sha256 file = entry = round = candidate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F2-001: id = file name, round 1, valid, reason ok",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F2-001: key = (cx, t_eps, depth_ct, qubits) of metrics",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F2-001: cell = floor(8 log2(.+1)) recomputed",
+   "ok": true,
+   "detail": "(67, 86)"
+  },
+  {
+   "check": "r01-F2-001: verdict certified, ok, tolerances 1e-10, gauss/leak/block/dropped bounds",
+   "ok": true,
+   "detail": "{'op': 1.6732846310228907e-13, 'block': 1.4469801699022858e-14, 'gauss': 1.828829704940152e-15, 'dropped': 1.528586614032662e-13}"
+  },
+  {
+   "check": "r01-F2-001: two alternate verdicts ok+certified, dropped<=1e-12, skeleton_equal",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F2-001: FAMILY header = entry family, PARENT None = entry parent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F2-001: all 3 DISCOVERY lines of the docstring are in discoveries/rishon.md",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F2-001: feedback verdict/metrics/sha = entry",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F2-001: Lean field: best only (not_run, PENDING 6.L3), others None",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F4-001: program sha256 file = entry = round = candidate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F4-001: id = file name, round 1, valid, reason ok",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F4-001: key = (cx, t_eps, depth_ct, qubits) of metrics",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F4-001: cell = floor(8 log2(.+1)) recomputed",
+   "ok": true,
+   "detail": "(68, 82)"
+  },
+  {
+   "check": "r01-F4-001: verdict certified, ok, tolerances 1e-10, gauss/leak/block/dropped bounds",
+   "ok": true,
+   "detail": "{'op': 1.8775152156392726e-13, 'block': 1.4341674244546985e-14, 'gauss': 3.156975588947356e-15, 'dropped': 1.7340984731938027e-13}"
+  },
+  {
+   "check": "r01-F4-001: two alternate verdicts ok+certified, dropped<=1e-12, skeleton_equal",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F4-001: FAMILY header = entry family, PARENT None = entry parent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F4-001: all 3 DISCOVERY lines of the docstring are in discoveries/rishon.md",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F4-001: feedback verdict/metrics/sha = entry",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F4-001: Lean field: best only (not_run, PENDING 6.L3), others None",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F5-001: program sha256 file = entry = round = candidate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F5-001: id = file name, round 1, valid, reason ok",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F5-001: key = (cx, t_eps, depth_ct, qubits) of metrics",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F5-001: cell = floor(8 log2(.+1)) recomputed",
+   "ok": true,
+   "detail": "(71, 86)"
+  },
+  {
+   "check": "r01-F5-001: verdict certified, ok, tolerances 1e-10, gauss/leak/block/dropped bounds",
+   "ok": true,
+   "detail": "{'op': 1.7716378702841755e-13, 'block': 1.9286557291253313e-14, 'gauss': 2.4774863738802118e-15, 'dropped': 1.5787722973716423e-13}"
+  },
+  {
+   "check": "r01-F5-001: two alternate verdicts ok+certified, dropped<=1e-12, skeleton_equal",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F5-001: FAMILY header = entry family, PARENT None = entry parent",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F5-001: all 3 DISCOVERY lines of the docstring are in discoveries/rishon.md",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F5-001: feedback verdict/metrics/sha = entry",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F5-001: Lean field: best only (not_run, PENDING 6.L3), others None",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "attempts: 9 lines (5 round 0 + 4 round 1)",
+   "ok": true,
+   "detail": "9"
+  },
+  {
+   "check": "attempts: round-1 lines = 4 ids in order with key/valid/sha equal",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "attempts: round-0 lines unchanged ids",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "index: n_entries = number of entry files = 6",
+   "ok": true,
+   "detail": "['r00-seed-010.json', 'r01-F2-001.json', 'r01-F5-001.json', 'r00-seed-000.json', 'r01-F4-001.json', 'r01-F1-001.json']"
+  },
+  {
+   "check": "index: best = argmin key over valid entries",
+   "ok": true,
+   "detail": "('r01-F1-001', 'r01-F1-001')"
+  },
+  {
+   "check": "index: family bests = per-family argmin",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "index: elites = cell -> smallest-key entry, 5 cells",
+   "ok": true,
+   "detail": "{'64,79': 'r01-F1-001', '67,86': 'r01-F2-001', '68,82': 'r01-F4-001', '71,86': 'r01-F5-001', '106,114': 'r00-seed-000'}"
+  },
+  {
+   "check": "index: seed r00-seed-000 and 010 identical key, 000 kept",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "round-0 entries/files untouched since the round-0 commit",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "no src/ tests/ tools/ change between round-0 commit and HEAD",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "provenance: git_commit 2a8d2b5 is the proposals commit, dirty flag",
+   "ok": true,
+   "detail": "True"
+  }
+ ]
+}
