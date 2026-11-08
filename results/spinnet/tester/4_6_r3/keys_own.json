@@ -1,0 +1,422 @@
+{
+ "r03-F1-003": {
+  "sha_equal_archive": true,
+  "imports": [
+   "fractions",
+   "math",
+   "su2plaq.compress.builder"
+  ],
+  "static_violations": [],
+  "cx_own": 31,
+  "t_fixed_own": 24,
+  "n_rot_own": 17,
+  "n_rot_irrational": 17,
+  "t_from_exact_pi4_rotations": 0,
+  "t_from_synth": 1038,
+  "t_total_own": 1062,
+  "qubits_own": 17,
+  "depth_ct_own": 2189,
+  "key_archive": [
+   31,
+   1062,
+   2189,
+   17
+  ],
+  "metrics_raw": {
+   "cx": 31,
+   "t_fixed": 24,
+   "n_rot": 17,
+   "t_eps": 1062,
+   "t_estimate": {
+    "1e-06": 1040.5099970355327,
+    "1e-10": 1718.1833283925548
+   },
+   "t_measured": {
+    "1e-06": 1062,
+    "1e-10": 1752
+   },
+   "synth_error_bound": 1.7e-05,
+   "depth": 68,
+   "depth_ct": 2189,
+   "qubits": 17,
+   "gates": {
+    "cx": 31,
+    "x": 30,
+    "rz": 17,
+    "t": 16,
+    "h": 10,
+    "s": 9,
+    "tdg": 8,
+    "z": 4,
+    "sdg": 2
+   },
+   "measured": true
+  },
+  "skeleton_same_8_pairs": true,
+  "linear_fit_worst_residual": 2.6645352591003757e-15,
+  "rot_coeffs_alpha_beta_const_over_pi": [
+   [
+    0.238732,
+    -0.0,
+    0.25
+   ],
+   [
+    0.238732,
+    -0.0,
+    0.25
+   ],
+   [
+    0.238732,
+    -0.0,
+    0.25
+   ],
+   [
+    0.238732,
+    -0.0,
+    0.25
+   ],
+   [
+    -0.0,
+    0.31831,
+    0.0
+   ],
+   [
+    -0.0,
+    0.159155,
+    1.25
+   ],
+   [
+    -0.0,
+    0.159155,
+    1.25
+   ],
+   [
+    -0.0,
+    0.079577,
+    0.0
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.079577,
+    0.0
+   ],
+   [
+    -0.0,
+    0.159155,
+    1.25
+   ],
+   [
+    -0.0,
+    0.159155,
+    1.25
+   ],
+   [
+    -0.0,
+    0.079577,
+    0.0
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ]
+  ],
+  "nonzero_constant_term_rotations": 8,
+  "outer_gate_use(name,pos,arity)": {},
+  "outer_touched_beyond_control_in_lowered": []
+ },
+ "r03-F2-003": {
+  "sha_equal_archive": true,
+  "imports": [
+   "numpy",
+   "su2plaq.compress.builder"
+  ],
+  "static_violations": [],
+  "cx_own": 31,
+  "t_fixed_own": 24,
+  "n_rot_own": 17,
+  "n_rot_irrational": 17,
+  "t_from_exact_pi4_rotations": 0,
+  "t_from_synth": 1038,
+  "t_total_own": 1062,
+  "qubits_own": 17,
+  "depth_ct_own": 2191,
+  "key_archive": [
+   31,
+   1062,
+   2191,
+   17
+  ],
+  "metrics_raw": {
+   "cx": 31,
+   "t_fixed": 24,
+   "n_rot": 17,
+   "t_eps": 1062,
+   "t_estimate": {
+    "1e-06": 1040.5099970355327,
+    "1e-10": 1718.1833283925548
+   },
+   "t_measured": {
+    "1e-06": 1062,
+    "1e-10": 1752
+   },
+   "synth_error_bound": 1.7e-05,
+   "depth": 52,
+   "depth_ct": 2191,
+   "qubits": 17,
+   "gates": {
+    "cx": 31,
+    "x": 20,
+    "rz": 17,
+    "tdg": 16,
+    "h": 12,
+    "t": 8,
+    "sdg": 2,
+    "z": 1,
+    "s": 1
+   },
+   "measured": true
+  },
+  "skeleton_same_8_pairs": true,
+  "linear_fit_worst_residual": 9.992007221626409e-16,
+  "rot_coeffs_alpha_beta_const_over_pi": [
+   [
+    -0.238732,
+    0.0,
+    0.25
+   ],
+   [
+    -0.238732,
+    0.0,
+    0.25
+   ],
+   [
+    -0.238732,
+    0.0,
+    0.25
+   ],
+   [
+    -0.238732,
+    0.0,
+    0.25
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.238732,
+    0.0
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.079577,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.159155,
+    0.25
+   ],
+   [
+    -0.0,
+    -0.159155,
+    0.25
+   ],
+   [
+    -0.0,
+    0.079577,
+    0.0
+   ],
+   [
+    -0.0,
+    0.238732,
+    0.0
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.079577,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.159155,
+    0.25
+   ],
+   [
+    -0.0,
+    -0.159155,
+    0.25
+   ],
+   [
+    -0.0,
+    0.31831,
+    0.0
+   ]
+  ],
+  "nonzero_constant_term_rotations": 8,
+  "outer_gate_use(name,pos,arity)": {},
+  "outer_touched_beyond_control_in_lowered": []
+ },
+ "r03-F3-003": {
+  "sha_equal_archive": true,
+  "imports": [
+   "dataclasses",
+   "numpy",
+   "su2plaq.compress",
+   "su2plaq.compress.builder"
+  ],
+  "static_violations": [
+   "su2plaq.compress"
+  ],
+  "cx_own": 32,
+  "t_fixed_own": 24,
+  "n_rot_own": 13,
+  "n_rot_irrational": 13,
+  "t_from_exact_pi4_rotations": 0,
+  "t_from_synth": 808,
+  "t_total_own": 832,
+  "qubits_own": 17,
+  "depth_ct_own": 1553,
+  "key_archive": [
+   32,
+   832,
+   1553,
+   17
+  ],
+  "metrics_raw": {
+   "cx": 32,
+   "t_fixed": 24,
+   "n_rot": 13,
+   "t_eps": 832,
+   "t_estimate": {
+    "1e-06": 801.3311742036428,
+    "1e-10": 1319.5519570060715
+   },
+   "t_measured": {
+    "1e-06": 832,
+    "1e-10": 1376
+   },
+   "synth_error_bound": 1.3e-05,
+   "depth": 64,
+   "depth_ct": 1553,
+   "qubits": 17,
+   "gates": {
+    "cx": 32,
+    "x": 30,
+    "h": 16,
+    "rz": 13,
+    "t": 12,
+    "tdg": 12,
+    "sdg": 2,
+    "z": 2,
+    "s": 1
+   },
+   "measured": true
+  },
+  "skeleton_same_8_pairs": true,
+  "linear_fit_worst_residual": 1.3322676295501878e-15,
+  "rot_coeffs_alpha_beta_const_over_pi": [
+   [
+    -0.238732,
+    0.0,
+    0.5
+   ],
+   [
+    -0.238732,
+    0.0,
+    -0.5
+   ],
+   [
+    -0.238732,
+    0.0,
+    0.5
+   ],
+   [
+    -0.238732,
+    0.0,
+    0.5
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.238732,
+    0.0
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.079577,
+    0.0
+   ],
+   [
+    -0.0,
+    0.079577,
+    0.0
+   ],
+   [
+    -0.0,
+    0.238732,
+    0.0
+   ],
+   [
+    0.0,
+    -0.238732,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.079577,
+    0.0
+   ],
+   [
+    0.0,
+    -0.159155,
+    -0.0
+   ]
+  ],
+  "nonzero_constant_term_rotations": 4,
+  "outer_gate_use(name,pos,arity)": {},
+  "outer_touched_beyond_control_in_lowered": []
+ }
+}
