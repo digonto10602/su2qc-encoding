@@ -1,0 +1,191 @@
+{
+ "id": "r02-F3-001",
+ "program_path": "compress/programs/rishon/F3/001-hadamard-test-partner.py",
+ "program_sha256": "20bc6163fb031b8c736fda9d4fa978ff5deb72271b201a38ef262a9c955bfdaa",
+ "parent": null,
+ "family": "F3",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  252,
+  1120,
+  2023,
+  54
+ ],
+ "cell": [
+  63,
+  81
+ ],
+ "metrics_raw": {
+  "cx": 252,
+  "t_fixed": 240,
+  "n_rot": 14,
+  "t_eps": 1120,
+  "t_estimate": {
+   "1e-06": 1077.1258799116154,
+   "1e-10": 1635.2097998526922
+  },
+  "t_measured": {
+   "1e-06": 1120,
+   "1e-10": 1692
+  },
+  "synth_error_bound": 1.4e-05,
+  "depth": 308,
+  "depth_ct": 2023,
+  "qubits": 54,
+  "gates": {
+   "cx": 252,
+   "h": 136,
+   "t": 122,
+   "tdg": 118,
+   "x": 56,
+   "sdg": 18,
+   "s": 18,
+   "rz": 14
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.3708079265366763e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   0.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 8.214900197283516e-16,
+  "method": "rishon_inner_block",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.234376919878649e-13,
+  "block_error": 1.3643100665802709e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 10.869616746902466,
+  "n_inputs": 1296,
+  "failing_inputs": [],
+  "extra": {
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "inner_method": "inner_span",
+   "rishon": true
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.3396895928795546e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -8.772132540248249e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 8.98325509390976e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.204620569678821e-13,
+   "block_error": 1.3506902320073367e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 10.860711812973022,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.396129464376569e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.425471537790343e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 6.649763268202179e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.259051795628475e-13,
+   "block_error": 1.3707766874809416e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 11.00824236869812,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: an rccx(F, m, e1) between S and S^dag acts on the F=1 branch as X^m Z^(1-m) on e1 (a real Hermitian involution), so cQ exp(i theta X_F) cQ = exp(i theta X_F Q) is an exact controlled-partner rotation at 12 CX per cQ whenever e1 = 0 at every e2 = 1 corner of a bright label; no canonical bits n_c = e1 ^ g e2 (the F1 canonicaliser) are ever formed.",
+  "DISCOVERY: in this frame the bright set is exactly {delta_c ^ (e2_c & e1_c) = 1 at all four corners} (T+- at equal corners and wrong orientations are caught by the same mux test) except 16 kappa=1 dark labels, killed by the frame-A products e1c0&!e2c0 and e1c3&!g_t folded into the c1 test; the kappa class needs no selector bit: k(r) = [r=101] + [r=000] = (1 + s_t + s_rl + s_rlt)/4 is a 4-term Walsh sum over two parity qubits.",
+  "DISCOVERY: raw R2 slots are free registers once neutralised (R2 = R1 ^ g on valid codes): link b's R2 becomes h_b with one Toffoli (h_b = q3 ^ F(q2 ^ y)), link r's R2 becomes r_r ^ r_l with CX(R1), CX(g_l); and H on q3 (never read on non-closed labels) replaces the closed CH(Z, q3)."
+ ],
+ "summary": "F3 controlled partner involution, no canonicaliser: light frame (L2 = Q flag, U_E as 4 phases on L2; R2 slots as h_b / r_t / r_l / r_r^r_l registers; h_b by two in-place rccx Fredkin halves + one Toffoli into the raw R2 of link b; one CX per corner; tau fix CX(h_X -> e1); 4 relative-phase C2H; e1 ^= g^delta^1 with one CX per corner; closed gadget H(q3), CCH(Z,F), rccx) makes the partner map the involution Pi = X_F Q, Q = prod_c X^(!e2_c) on e1_c, with every one of the 81 couplings +1 (closed -1); exp(i theta Pi) = cQ exp(i theta X_F) cQ (Hadamard-test identity with the flip qubit F as the test qubit), cQ = 4 S-conjugated rccx(F, !e2, e1); bright flag = AND of 4 in-place corner tests delta_c ^ (e2 & e1) plus two kappa=1 folds; 10-term Gray-path Walsh rotation on F over (X, Z, r_t, r_r^r_l); all angles linear in alpha, beta, sqrt2 beta.",
+ "evaluator_sha256": "43ae85b452e0c2a5bf09d19fbb1d6d56cf6a81599eb5642d2ecb1364a50309f3",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "git_commit": "71ff4cb",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 35.41829991340637,
+ "written_utc": "2026-11-08T01:55:53Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.4e-05
+ },
+ "lean": {
+  "status": "not_run",
+  "reason": "Lean certification not available: PENDING: su2plaq.rishon.compress.lean_cert.certify_circuit is a stub (prompts/203 step 6.L3)"
+ },
+ "mode": "full"
+}
