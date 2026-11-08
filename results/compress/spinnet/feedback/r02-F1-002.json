@@ -1,0 +1,154 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.126691826890021e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -9.845857770347825e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.344750312233835e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.2596231561562225e-15,
+  "block_error": 1.8670686707337984e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.48424530029296875,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.5453706261318547e-15,
+   "max_dropped_l2": 9.473535760110797e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 1.8670686707337984e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.147987639375001e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    0.0
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.405215745588179e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.6016259032501086e-15,
+   "block_error": 1.546361736124893e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.15765094757080078,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.546361736124893e-15,
+    "max_dropped_l2": 1.1604675463879514e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.3753831470420886e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.247669230485711e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    5.333172958938403e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.770557056164968e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.0024288501207722e-15,
+   "block_error": 2.2452403803649386e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1585249900817871,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.1645886782157388e-15,
+    "max_dropped_l2": 7.568619961411094e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.2452403803649386e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 31,
+  "t_fixed": 16,
+  "n_rot": 17,
+  "t_eps": 1086,
+  "t_estimate": {
+   "1e-06": 1032.5099970355327,
+   "1e-10": 1710.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1086,
+   "1e-10": 1784
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 48,
+  "depth_ct": 2258,
+  "qubits": 17,
+  "gates": {
+   "cx": 31,
+   "rz": 17,
+   "x": 10,
+   "h": 10,
+   "t": 8,
+   "tdg": 8,
+   "sdg": 2,
+   "s": 1
+  },
+  "measured": true
+ },
+ "program_sha256": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650",
+ "wall_s": 1.3680155277252197,
+ "discoveries": [
+  "DISCOVERY: with only the flags A and a1=[c0=c2=0], the raw corner parities c1, c3 complete the bright projector: the pivot polynomial over (e, A, a1, c1, c3) needs 12 terms (MILP) and an all-linear 13-toggle walk p -> p^e exists (C DFS), so the a2 rccx pair and its CZ are not needed (31 vs 32 CX); DFS finds no all-linear 12-toggle walk for any of the six corner-pair flags with A, e, u, v.",
+  "DISCOVERY: A can live in corner qubit c0 (c0 ^= A by an rccx on the non-clean target, its phase cancels with the mirrored uncompute) because c0 is read only by the a1 flag, which is computed before and uncomputed after; the walk over (e, c0^A, a1, c1, c3) still has 12-term supports and 13-toggle walks (with c2^A it needs more), so one ancilla is saved at equal CX."
+ ],
+ "summary": "dimer frame (pivot = link b) with one clean flag a1=[c0=c2=0] and A=[u=v=0] XORed in place into corner qubit c0; corners c1, c3 and c0^A enter the H-frame pivot walk as plain CX toggles, so the walk is all-linear (13 CX, no rccx on the pivot, no sign fix) and ends on the e-step merged into the inverse ladder; 31 CX, 13+4 rotations, 17 qubits, all angles k*beta/4 or 3*alpha/4."
+}
