@@ -6,7 +6,8 @@ spin-network task specification with OUR tool commands and the spin-network Lean
 
 Step 4.0 created the interface, step 4.1 the shim / spec / `--worker`, step 4.2 the seeds (`import_seed`,
 `seed_program_source`, `evaluate_seed`), step 4.3 the rounds (`seed_round`, `run_round`, briefs, report, `certify_best`) and
-the command line (`python -m su2plaq.spinnet.loop candidate|oracle|seed|round|brief|ideation|report|certify-best`).
+the command line (`python -m su2plaq.spinnet.loop candidate|oracle|seed|round|brief|ideation|report|certify-best|headline`),
+step 4.3b the headline rule (`ANGLE_SET`, `robust_metrics`, `headline`; prompts/104 §11 E3).
 
 No laptop-owned file is edited.  `SPINNET_CODE_FILES` are frozen during M4 (their hash is recorded in every round).
 """
@@ -33,6 +34,25 @@ INSTALLED: dict = {}                     # {} before install(); then {"encoding"
 _SRC = pathlib.Path(__file__).resolve().parents[1]            # src/su2plaq
 _LEAN_SPINNET = pathlib.Path("lean") / "Su2Plaq" / "SpinNet"
 _SHIM_MARK = "_spinnet_shim"
+
+# headline rule (prompts/104 §11 erratum E3): the angle set on which T and depth_CT are averaged
+ANGLE_SET_SEED, ANGLE_SET_N = 20261107, 20
+ANGLE_SET_RANGES = ((0.05, 2.0), (0.05, 1.2))
+
+
+def _make_angle_set() -> tuple[tuple[float, float], ...]:
+    rng = np.random.default_rng(ANGLE_SET_SEED)
+    a = rng.uniform(*ANGLE_SET_RANGES[0], ANGLE_SET_N)           # all alphas first ...
+    b = rng.uniform(*ANGLE_SET_RANGES[1], ANGLE_SET_N)           # ... then all betas
+    return tuple((float(x), float(y)) for x, y in zip(a, b))
+
+
+ANGLE_SET: tuple[tuple[float, float], ...] = _make_angle_set()
+
+HEADLINE_RULE_SECTION = """## Headline rule (track S)
+
+The archive key counts T at the nominal pair; the Report 4 headline and the Lean theorem file go to the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth, qubits). Offsetting a rotation by +-pi/4 with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of pi/2 belong in separate `s`/`sdg`/`z` gates so that the rotation angle stays a rational multiple of alpha or beta (Lean-certifiable). Fewer CX, fewer rotations, smaller rational coefficients, and shared rotations are what move the headline.
+"""
 
 
 def _root(root=None) -> pathlib.Path:
@@ -311,7 +331,7 @@ def render_spec(sp=None) -> str:
     i, j = text.find(head), text.find(tools)
     if i < 0 or j < i:
         raise RuntimeError("laptop module shape changed: TaskSpec.render() lost its 'Proved structure (Lean)' / 'Tools' sections")
-    text = text[:i] + _structure_markdown(structure_facts()) + "\n" + text[j:]
+    text = text[:i] + _structure_markdown(structure_facts()) + "\n" + HEADLINE_RULE_SECTION + "\n" + text[j:]
     for old, new in _TOOL_REWRITES:
         old = old.format(enc=sp.encoding, kind=sp.kind)
         if text.count(old) != 1:
@@ -716,6 +736,11 @@ def _rewrite_text(text: str, root: pathlib.Path, ideation: bool) -> str:
             raise RuntimeError(f"laptop module shape changed: brief text {old!r} found {text.count(old)} times (expected 1); the "
                                "shim of su2plaq.spinnet.loop must be amended by the planner")
         text = text.replace(old, new)
+    if not ideation:                     # E3: the headline rule follows the laptop's last section ("## Output")
+        if text.count("\n## Output") != 1 or "## Headline rule (track S)" in text:
+            raise RuntimeError("laptop module shape changed: the round brief must contain exactly one '## Output' section and no "
+                               "headline rule yet")
+        text = text.rstrip("\n") + "\n\n" + HEADLINE_RULE_SECTION
     return text
 
 
@@ -748,24 +773,222 @@ def make_brief(round: int, family: str, root=None) -> pathlib.Path:
     return _finish_brief(BR.make_brief(ENC, KIND, round, family, root), root, False)
 
 
+# ------------------------------------------------------------------------------------------ headline rule (E3)
+def angle_set_sha256() -> str:
+    """sha256 of the repr of the locked angle pairs (identifies the set in every cache and report)."""
+    return hashlib.sha256(repr(ANGLE_SET).encode()).hexdigest()
+
+
+def _program_file(program_path, root=None) -> pathlib.Path:
+    f = pathlib.Path(program_path)
+    if f.is_absolute():
+        return f
+    r = _root(root)
+    return r / f
+
+
+def robust_metrics(program_path, sp=None, root=None) -> dict:
+    """Angle-averaged cost of a program (prompts/104 §11 E3).  The program is rebuilt through our worker at the 20 pairs of
+    `ANGLE_SET` (and at the nominal pair of `sp`, used for the angle-linearity test); the laptop's `metrics(measured=True)` gives
+    T(1e-6) and depth_CT at every pair.  -> {"program_sha256", "angle_set_sha256", "skeleton_equal", "t_eps": [20 int],
+    "depth_ct": [20 int], "t_sum", "depth_sum", "t_mean", "cx", "qubits", "angle_linear", "export_status",
+    "robust_key": (cx, t_sum, 0|1, depth_sum, qubits) | None}.  `robust_key` is None when the gate skeleton changes inside the
+    angle set (the laptop's "no fixed-angle tricks" rule extended to the set).  `angle_linear` is False when the Lean exporter
+    answers `non_linear_angle:...` for the nominal circuit; `export_status` is the exporter's answer ("ok" or its reason text)."""
+    import tempfile
+
+    from su2plaq.compress import evaluate as E
+    from su2plaq.compress import metrics as M
+    from su2plaq.compress.spec import get_encoding
+    from su2plaq.spinnet import lean_export
+
+    install()
+    sp = sp if sp is not None else spec()
+    src = _program_file(program_path, root).read_bytes()
+    specs = [sp.with_angles(a, b) for a, b in ANGLE_SET]
+    circuits, _ = E._build_in_subprocess(src, [*specs, sp], E.BUILD_TIMEOUT_S)
+    nominal, circuits = circuits[-1], circuits[:-1]
+    skeleton_equal = len({tuple(map(tuple, E.skeleton(c))) for c in circuits}) == 1
+    ms = [M.metrics(c, s, measured=True) for c, s in zip(circuits, specs)]
+    t_eps = [int(m["t_eps"]) for m in ms]
+    depth_ct = [int(m["depth_ct"]) for m in ms]
+    with tempfile.TemporaryDirectory() as td:
+        res = lean_export.export_certificate(nominal, get_encoding(ENC), sp.kind, sp.alpha, sp.beta, sp.order,
+                                             pathlib.Path(td) / "angle-linearity.json")
+    status = res if isinstance(res, str) else "ok"
+    linear = not status.startswith("non_linear_angle")
+    out = {"program_sha256": hashlib.sha256(src).hexdigest(), "angle_set_sha256": angle_set_sha256(), "skeleton_equal": skeleton_equal,
+           "t_eps": t_eps, "depth_ct": depth_ct, "t_sum": sum(t_eps), "depth_sum": sum(depth_ct), "t_mean": sum(t_eps) / len(t_eps),
+           "cx": int(ms[0]["cx"]), "qubits": int(ms[0]["qubits"]), "angle_linear": linear, "export_status": status}
+    out["robust_key"] = ((out["cx"], out["t_sum"], 0 if linear else 1, out["depth_sum"], out["qubits"]) if skeleton_equal else None)
+    return out
+
+
+def _angle_set_record() -> dict:
+    return {"seed": ANGLE_SET_SEED, "n": ANGLE_SET_N, "ranges": [list(r) for r in ANGLE_SET_RANGES],
+            "pairs": [list(p) for p in ANGLE_SET], "sha256": angle_set_sha256()}
+
+
+def _lean_status(entry):
+    return (entry.lean or {}).get("status") if isinstance(entry.lean, dict) else None
+
+
+def headline(root=None, refresh: bool = False) -> dict:
+    """The headline entry of the archive (prompts/104 §11 E3): among the valid entries, the smallest robust key
+    (CX, sum T over `ANGLE_SET`, angle-linear rank, sum depth_CT, qubits); full ties: the laptop key, then the id.  Entries whose
+    skeleton changes inside the angle set have no robust key and are listed under "unrankable".  The per-entry `robust_metrics`
+    are cached in results/compress/spinnet/robust.json, keyed by (id, program_sha256, angle_set_sha256) and the evaluator /
+    spin-network code hashes; mismatch or `refresh` recomputes.
+    -> {"id", "robust_key", "t_mean", "lean", "archive_best", "archive_best_robust_key", "ranking": [{"id", "robust_key",
+    "t_mean", "lean", "laptop_key", "family", "round", "cx", "qubits", "t_nominal", "depth_mean", "angle_linear"}...] sorted,
+    "unrankable": [ids]}."""
+    import json
+
+    from su2plaq.compress import archive as A
+    from su2plaq.compress import provenance
+
+    install()
+    root = _root(root)
+    sp = spec()
+    arch = A.Archive.load(ENC, root=root, n_alt=len(sp.alt_angles), strict=True)
+    valid = sorted((e for e in arch.entries() if e.valid), key=lambda e: e.id)
+    best = arch.best()
+    cache_file = root / "results" / "compress" / ENC / "robust.json"
+    ev_sha, sp_sha, as_sha = provenance.code_hash(), code_hash(), angle_set_sha256()
+    cache = {}
+    if cache_file.exists() and not refresh:
+        cache = json.loads(cache_file.read_text())
+        if cache.get("evaluator_sha256") != ev_sha or cache.get("spinnet_code_sha256") != sp_sha \
+                or cache.get("angle_set", {}).get("sha256") != as_sha:
+            cache = {}
+    cached = cache.get("entries", {})
+    store = {"angle_set": _angle_set_record(), "evaluator_sha256": ev_sha, "spinnet_code_sha256": sp_sha, "entries": {}}
+    for e in valid:
+        rec = cached.get(e.id)
+        if rec is None or rec.get("program_sha256") != e.program_sha256 or rec.get("angle_set_sha256") != as_sha:
+            rec = robust_metrics(_program_file(e.program_path, root), sp, root=root)
+            rec["laptop_key"] = [int(x) for x in e.key]
+            if rec["program_sha256"] != e.program_sha256:
+                raise RuntimeError(f"program file of {e.id} ({e.program_path}) differs from the archived sha256")
+        store["entries"][e.id] = rec
+        cache_file.parent.mkdir(parents=True, exist_ok=True)
+        tmp = cache_file.with_suffix(".json.tmp")
+        tmp.write_text(json.dumps(store, indent=1))
+        tmp.replace(cache_file)
+    by_id = {e.id: e for e in valid}
+    rows, unrankable = [], []
+    for i, rec in store["entries"].items():
+        if rec["robust_key"] is None:
+            unrankable.append(i)
+            continue
+        e = by_id[i]
+        rows.append({"id": i, "robust_key": tuple(rec["robust_key"]), "t_mean": rec["t_mean"], "lean": _lean_status(e),
+                     "laptop_key": tuple(int(x) for x in e.key), "family": e.family, "round": e.round, "cx": rec["cx"],
+                     "qubits": rec["qubits"], "t_nominal": int(e.key[1]), "depth_mean": rec["depth_sum"] / len(rec["depth_ct"]),
+                     "angle_linear": rec["angle_linear"]})
+    rows.sort(key=lambda r: (r["robust_key"], r["laptop_key"], r["id"]))
+    top = rows[0] if rows else None
+    best_row = next((r for r in rows if best is not None and r["id"] == best.id), None)
+    return {"id": top["id"] if top else None, "robust_key": top["robust_key"] if top else None,
+            "t_mean": top["t_mean"] if top else None, "lean": top["lean"] if top else None,
+            "archive_best": best.id if best else None,
+            "archive_best_robust_key": best_row["robust_key"] if best_row else None, "ranking": rows, "unrankable": sorted(unrankable)}
+
+
+_LEAN_WORDS = {"certified": "certified", "accepted": "certified", "failed": "failed", "rejected": "failed"}
+
+
+def _lean_word(status) -> str:
+    return "not_run" if status is None else _LEAN_WORDS.get(status, "n_a")
+
+
 def report_table(root=None) -> str:
-    """Laptop `report.report_table("spinnet", "step", root)` (also writes results/compress/spinnet/summary.json)."""
+    """Laptop `report.report_table("spinnet", "step", root)` (also writes results/compress/spinnet/summary.json) followed by the
+    HEADLINE table of prompts/104 §11 E3 (GLOBAL BEST by the laptop key, HEADLINE by the robust key, best per family by the robust
+    key; T_avg = T(1e-6) averaged over `ANGLE_SET`).  summary.json gains "headline" {id, robust_key, t_mean, angle_set_sha256},
+    "t_avg" {id: T_avg} and `t_avg` in every lineage item."""
+    import json
+
+    from su2plaq.compress import archive as A
     from su2plaq.compress import report
 
     install()
-    return report.report_table(ENC, KIND, root=_root(root))
+    root = _root(root)
+    text = report.report_table(ENC, KIND, root=root)
+    h = headline(root)
+    arch = A.Archive.load(ENC, root=root, n_alt=len(spec().alt_angles), strict=True)
+    best = arch.best()
+    by_id = {r["id"]: r for r in h["ranking"]}
+    header = ["entry", "family", "round", "CX", "T nominal", "T_avg(1e-6)", "depth_CT avg", "qubits", "angle-linear", "Lean"]
+
+    def row(label, i, e=None):
+        r = by_id.get(i)
+        e = e if e is not None else next(x for x in arch.entries() if x.id == i)
+        if r is None:                                           # no robust key (skeleton changes inside the angle set)
+            return [f"{label}{i}", e.family, e.round, int(e.key[0]), int(e.key[1]), "-", "-", int(e.key[3]), "-", _lean_word(_lean_status(e))]
+        return [f"{label}{i}", r["family"], r["round"], r["cx"], r["t_nominal"], f"{r['t_mean']:.2f}", f"{r['depth_mean']:.1f}", r["qubits"],
+                "yes" if r["angle_linear"] else "no", _lean_word(r["lean"])]
+
+    rows = []
+    if best is not None:
+        rows.append(row("GLOBAL BEST (laptop key): ", best.id, best))
+    if h["id"] is not None:
+        rows.append(row("HEADLINE (robust key): ", h["id"]))
+    fam_best = {}
+    for r in h["ranking"]:
+        fam_best.setdefault(r["family"], r["id"])
+    rows += [row(f"best of family {f} (robust key): ", fam_best[f]) for f in sorted(fam_best)]
+    lines = ["", "### HEADLINE (angle-averaged T, prompts/104 §11 E3)", "", "| " + " | ".join(header) + " |",
+             "|" + "|".join("---" for _ in header) + "|"] + ["| " + " | ".join(str(c) for c in rw) + " |" for rw in rows]
+    lines += ["", f"GLOBAL BEST is the archive's laptop-key minimum (CX, T(1e-6) at the nominal pair, depth_CT, qubits); HEADLINE is the "
+              f"smallest robust key (CX, sum of T(1e-6) over the {ANGLE_SET_N} fixed random angle pairs of seed {ANGLE_SET_SEED}, "
+              "angle-linear first, sum of depth_CT, qubits). T_avg = sum T / " + f"{ANGLE_SET_N}; angle set sha256 {angle_set_sha256()[:16]}."]
+    if h["unrankable"]:
+        lines.append("No robust key (skeleton changes inside the angle set): " + ", ".join(h["unrankable"]) + ".")
+    summary_file = root / "results" / "compress" / ENC / "summary.json"
+    summary = json.loads(summary_file.read_text())
+    summary["headline"] = {"id": h["id"], "robust_key": list(h["robust_key"]) if h["robust_key"] else None, "t_mean": h["t_mean"],
+                           "angle_set_sha256": angle_set_sha256()}
+    summary["t_avg"] = {r["id"]: r["t_mean"] for r in h["ranking"]}
+    for item in summary.get("lineage", []):
+        item["t_avg"] = by_id[item["id"]]["t_mean"] if item["id"] in by_id else None
+    summary_file.write_text(json.dumps(summary, indent=1))
+    return text + "\n".join(lines) + "\n"
 
 
 def certify_best(root=None) -> dict:
-    """Laptop `round.certify_best("spinnet", "step", root)` after `install()` (the spin-network checker through the shim)."""
+    """Laptop `round.certify_best("spinnet", "step", root)` after `install()` (the spin-network checker through the shim) for the
+    archive's best by the laptop key, AND the headline entry (prompts/104 §11 E3) through the same `_certify` / `_store_lean` path
+    when it is another entry.  -> the laptop's dict plus "headline": {"entry", "lean", "seconds", ...} (for the same entry:
+    {"entry", "same_as_archive_best": True})."""
+    from su2plaq.compress import archive as A
     from su2plaq.compress import round as R
 
     install()
-    return R.certify_best(ENC, KIND, root=_root(root))
+    root = _root(root)
+    res = R.certify_best(ENC, KIND, root=root)
+    h = headline(root)
+    if h["id"] is None or h["id"] == res.get("entry"):
+        res["headline"] = {"entry": h["id"], "same_as_archive_best": True}
+        return res
+    sp = spec()
+    arch = A.Archive.load(ENC, root=root, n_alt=len(sp.alt_angles), strict=True)
+    e = next(x for x in arch.entries() if x.id == h["id"])
+    circ, err = R._circuit_of(sp, e.program_path, e.id, None, root)
+    if circ is None:
+        new, sec = {"status": "failed", "reason": f"cannot rebuild the headline circuit: {err}"}, 0.0
+    else:
+        new, sec = R._certify(circ, sp)
+    before = e.lean
+    R._store_lean(e, new, root, ENC, "certify_best: headline")
+    arch.save()
+    res["headline"] = {"entry": e.id, "lean": e.lean, "attempt": new, "kept_previous": before is not None and e.lean is before,
+                       "seconds": sec}
+    return res
 
 
 # ------------------------------------------------------------------------------------------------------------ CLI
-_USAGE = "python -m su2plaq.spinnet.loop {candidate|oracle|seed|round|brief|ideation|report|certify-best|--worker} ..."
+_USAGE = "python -m su2plaq.spinnet.loop {candidate|oracle|seed|round|brief|ideation|report|certify-best|headline|--worker} ..."
 
 
 def main(argv=None) -> int:
@@ -773,7 +996,7 @@ def main(argv=None) -> int:
     trip and contract checks are the laptop's).  `candidate <program.py> [--trial|--full] [--order 1|2] [--json out]` and
     `oracle [--column j] [--element i j] [--codec] [--block o]` are the laptop's `run_candidate` / `oracle` CLIs for the spin-network
     step; `seed [--no-lean] [--dry-run]`, `round --round r [--evaluate] [--dry-run] [--no-lean]`, `brief --round r --family F`,
-    `ideation`, `report [--out]`, `certify-best` drive the loop (all take `--root`)."""
+    `ideation`, `report [--out]`, `certify-best`, `headline [--refresh]` drive the loop (all take `--root`)."""
     import argparse
     import json
 
@@ -799,8 +1022,10 @@ def main(argv=None) -> int:
 
         return oracle.main(["--encoding", ENC, "--kind", KIND, *rest])
     ap = argparse.ArgumentParser(prog=f"python -m su2plaq.spinnet.loop {cmd}")
-    if cmd in ("seed", "round", "brief", "ideation", "report", "certify-best"):
+    if cmd in ("seed", "round", "brief", "ideation", "report", "certify-best", "headline"):
         ap.add_argument("--root")
+    if cmd == "headline":
+        ap.add_argument("--refresh", action="store_true")
     if cmd in ("seed", "round"):
         ap.add_argument("--dry-run", action="store_true")
         ap.add_argument("--no-lean", dest="lean", action="store_false", default=True)
@@ -812,7 +1037,7 @@ def main(argv=None) -> int:
         ap.add_argument("--family", required=True)
     if cmd == "report":
         ap.add_argument("--out")
-    if cmd not in ("seed", "round", "brief", "ideation", "report", "certify-best"):
+    if cmd not in ("seed", "round", "brief", "ideation", "report", "certify-best", "headline"):
         raise SystemExit(f"unknown subcommand {cmd!r}; usage: {_USAGE}")
     a = ap.parse_args(rest)
     if cmd == "seed":
@@ -830,6 +1055,8 @@ def main(argv=None) -> int:
             pathlib.Path(a.out).write_text(text)
         else:
             print(text)
+    elif cmd == "headline":
+        print(json.dumps(headline(a.root, refresh=a.refresh), indent=1, default=str))
     else:
         print(json.dumps(certify_best(a.root), indent=1, default=str))
     return 0

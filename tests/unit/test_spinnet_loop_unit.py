@@ -277,10 +277,14 @@ def test_seed_round_writes_labels_external_rows_and_our_key(round0):
 def test_seed_programs_are_immutable_once_written(round0):
     root, _ = round0
     f = root / "compress" / "programs" / "spinnet" / "seed" / "011-qiskit_l3.py"
-    text = f.read_text() + "# marker\n"
+    original = f.read_text()
+    text = original + "# marker\n"
     f.write_text(text)
-    progs = L.seed_programs(L.spec(), root)
-    assert dict(progs)["qiskit_l3"].read_text() == text
+    try:
+        progs = L.seed_programs(L.spec(), root)
+        assert dict(progs)["qiskit_l3"].read_text() == text
+    finally:
+        f.write_text(original)               # the module-scoped archive must keep matching its program hashes (headline checks them)
 
 
 def test_briefs_name_our_commands_and_the_spec_file_is_ours(round0):
@@ -319,8 +323,11 @@ def test_certify_best_goes_through_the_laptop_with_the_shim(round0, monkeypatch)
     calls = []
     monkeypatch.setattr(lean_export, "certify", lambda qc, enc, kind, a, b, order, **kw: (calls.append(kind) or
                                                                                            {"status": "not_run", "reason": "stub"}))
+    best = L.headline(root=root)["archive_best"]
+    monkeypatch.setattr(L, "headline", lambda root=None, refresh=False: {"id": best})     # headline == archive best: certified once
     out = L.certify_best(root=root)
     assert calls == ["step"] and out["lean"]["status"] == "not_run" and out["entry"].startswith("r00-seed-")
+    assert out["headline"] == {"entry": best, "same_as_archive_best": True}
 
 
 def test_cli_oracle_and_usage_errors(capsys, tmp_path):
@@ -345,3 +352,119 @@ def test_cli_brief_ideation_report_and_seed_dispatch(round0, capsys):
     assert L.main(["report", "--root", str(root)]) == 0
     out = capsys.readouterr().out
     assert "round-001-F1.md" in out and "ideation.md" in out and "GLOBAL BEST" in out
+
+
+# ------------------------------------------------------------------------------------------------- headline rule (4.3b, E3)
+def test_angle_set_is_the_locked_seeded_set():
+    rng = np.random.default_rng(20261107)
+    a, b = rng.uniform(0.05, 2.0, 20), rng.uniform(0.05, 1.2, 20)
+    assert (L.ANGLE_SET_SEED, L.ANGLE_SET_N, L.ANGLE_SET_RANGES) == (20261107, 20, ((0.05, 2.0), (0.05, 1.2)))
+    assert len(L.ANGLE_SET) == 20 and np.array_equal(np.asarray(L.ANGLE_SET), np.c_[a, b])
+    assert all(isinstance(x, float) for pair in L.ANGLE_SET for x in pair)
+    assert len(L.angle_set_sha256()) == 64 and L.angle_set_sha256() == L.angle_set_sha256()
+
+
+def test_spec_carries_the_headline_rule_before_the_tools_section(sp):
+    text = L.render_spec(sp)
+    assert text.count("## Headline rule (track S)") == 1
+    assert text.index("## Proved structure (Lean)") < text.index("## Headline rule (track S)") < text.index("## Tools")
+    assert "will not count" in text and "multiples of pi/2" in text
+
+
+def test_round_brief_gets_the_headline_rule_after_output_but_not_the_ideation_brief(tmp_path):
+    from su2plaq.compress import brief as BR
+
+    base = (f"x {BR._structure_pointer(tmp_path)} y\n`python -m su2plaq.compress.run_candidate <program.py> --encoding spinnet --kind step "
+            "--trial` and `--full` before you finish; the oracle: `python -m su2plaq.compress.oracle ...`\n\n## Output\nWrite ONE program.\n")
+    out = L._rewrite_text(base, tmp_path, False)
+    assert out.count("## Headline rule (track S)") == 1 and out.index("## Output") < out.index("## Headline rule (track S)")
+    assert out.rstrip().endswith(L.HEADLINE_RULE_SECTION.rstrip())
+    with pytest.raises(RuntimeError, match="laptop module shape changed"):
+        L._rewrite_text(out, tmp_path, False)                 # the rule is added exactly once
+    ideation = (f"x {BR._structure_pointer(tmp_path)} (`python -m su2plaq.compress.oracle --encoding spinnet --kind step ...`)\n")
+    assert "Headline rule" not in L._rewrite_text(ideation, tmp_path, True)
+
+
+def _fake_archive(monkeypatch, tmp_path, specs):
+    """specs: (id, laptop key, robust key or None, lean status or None).  Programs are tiny files; robust_metrics is stubbed."""
+    import hashlib
+    from types import SimpleNamespace
+
+    from su2plaq.compress import archive as A
+
+    entries, table = [], {}
+    for i, (eid, key, rkey, lean) in enumerate(specs):
+        f = tmp_path / "compress" / "programs" / "spinnet" / "F1" / f"{i:03d}-x.py"
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(f"# {eid}\n")
+        sha = hashlib.sha256(f.read_bytes()).hexdigest()
+        entries.append(SimpleNamespace(id=eid, program_path=str(f.relative_to(tmp_path)), program_sha256=sha, valid=True, key=key,
+                                       family="F1", round=1, lean=None if lean is None else {"status": lean}))
+        table[f.name] = {"program_sha256": sha, "angle_set_sha256": L.angle_set_sha256(), "skeleton_equal": rkey is not None,
+                         "t_eps": [rkey[1] // 20] * 20 if rkey else [0] * 20, "depth_ct": [rkey[3] // 20] * 20 if rkey else [0] * 20,
+                         "t_sum": rkey[1] if rkey else 0, "depth_sum": rkey[3] if rkey else 0, "t_mean": rkey[1] / 20 if rkey else 0.0,
+                         "cx": key[0], "qubits": key[3], "angle_linear": bool(rkey) and rkey[2] == 0, "export_status": "ok",
+                         "robust_key": rkey}
+    best = min(entries, key=lambda e: (tuple(e.key), e.id))
+    monkeypatch.setattr(A.Archive, "load", classmethod(lambda cls, *a, **k: SimpleNamespace(entries=lambda: list(entries), best=lambda: best)))
+    calls = []
+
+    def stub(path, sp=None, root=None):
+        calls.append(pathlib.Path(path).name)
+        return dict(table[pathlib.Path(path).name])
+
+    monkeypatch.setattr(L, "robust_metrics", stub)
+    return calls
+
+
+def test_headline_picks_the_smallest_robust_key_not_the_laptop_best(tmp_path, monkeypatch):
+    calls = _fake_archive(monkeypatch, tmp_path, [
+        ("r03-F1-003", (31, 1062, 2189, 17), (31, 21840, 1, 46141, 17), "n_a"),       # laptop best, tied in sum T, not angle-linear
+        ("r02-F1-002", (31, 1086, 2258, 17), (31, 21840, 0, 46024, 17), "certified"),  # angle-linear: wins the tie
+        ("r01-F1-001", (32, 832, 1583, 18), (32, 16948, 0, 33256, 18), "certified"),
+        ("r04-F1-001", (30, 900, 2000, 17), None, None)])                              # skeleton changes in the set: never headline
+    h = L.headline(root=tmp_path)
+    assert h["id"] == "r02-F1-002" and h["archive_best"] == "r04-F1-001" and h["lean"] == "certified"
+    assert [r["id"] for r in h["ranking"]] == ["r02-F1-002", "r03-F1-003", "r01-F1-001"] and h["unrankable"] == ["r04-F1-001"]
+    assert h["archive_best_robust_key"] is None and tuple(h["robust_key"]) == (31, 21840, 0, 46024, 17)
+    cache = json.loads((tmp_path / "results" / "compress" / "spinnet" / "robust.json").read_text())
+    assert set(cache["entries"]) == {r["id"] for r in h["ranking"]} | {"r04-F1-001"} and cache["angle_set"]["seed"] == 20261107
+    assert len(cache["angle_set"]["pairs"]) == 20 and len(calls) == 4
+    L.headline(root=tmp_path)                                  # second call: everything from the cache
+    assert len(calls) == 4
+    L.headline(root=tmp_path, refresh=True)
+    assert len(calls) == 8
+
+
+def test_headline_full_tie_falls_back_to_the_laptop_key_then_the_id(tmp_path, monkeypatch):
+    _fake_archive(monkeypatch, tmp_path, [("r02-F1-002", (31, 1086, 2258, 17), (31, 100, 0, 200, 17), None),
+                                          ("r02-F1-003", (31, 1062, 2189, 17), (31, 100, 0, 200, 17), None),
+                                          ("r02-F1-001", (31, 1062, 2189, 17), (31, 100, 0, 200, 17), None)])
+    assert [r["id"] for r in L.headline(root=tmp_path)["ranking"]] == ["r02-F1-001", "r02-F1-003", "r02-F1-002"]
+
+
+def test_headline_cache_is_invalidated_by_a_changed_angle_set_hash(tmp_path, monkeypatch):
+    calls = _fake_archive(monkeypatch, tmp_path, [("r01-F1-001", (32, 832, 1583, 18), (32, 16948, 0, 33256, 18), None)])
+    L.headline(root=tmp_path)
+    f = tmp_path / "results" / "compress" / "spinnet" / "robust.json"
+    d = json.loads(f.read_text())
+    d["angle_set"]["sha256"] = "0" * 64
+    f.write_text(json.dumps(d))
+    L.headline(root=tmp_path)
+    assert len(calls) == 2
+
+
+def test_certify_best_also_certifies_a_different_headline(round0, monkeypatch):
+    from su2plaq.compress import archive as A
+    from su2plaq.spinnet import lean_export
+
+    root, _ = round0
+    calls = []
+    monkeypatch.setattr(lean_export, "certify", lambda qc, enc, kind, a, b, order, **kw: (calls.append(qc.num_qubits) or
+                                                                                           {"status": "n_a", "reason": "stub"}))
+    arch = A.Archive.load("spinnet", root=root, n_alt=len(L.spec().alt_angles), strict=True)
+    other = next(e.id for e in arch.entries() if e.valid and e.id != arch.best().id)
+    monkeypatch.setattr(L, "headline", lambda root=None, refresh=False: {"id": other})
+    out = L.certify_best(root=root)
+    assert len(calls) == 2 and out["headline"]["entry"] == other and out["headline"]["lean"]["status"] == "n_a"
+    assert A.Archive.load("spinnet", root=root, n_alt=len(L.spec().alt_angles), strict=True).entries()

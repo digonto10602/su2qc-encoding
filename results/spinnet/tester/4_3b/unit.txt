@@ -1,0 +1,36 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [ 13%]
+........................................................................ [ 26%]
+........................................................................ [ 39%]
+........................................................................ [ 52%]
+........................................................................ [ 65%]
+........................................................................ [ 78%]
+...........................F............................................ [ 91%]
+...............................................                          [100%]
+=================================== FAILURES ===================================
+_____________________ test_committed_spec_file_is_current ______________________
+[gw0] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+
+    def test_committed_spec_file_is_current():
+        p = ROOT / "compress" / "specs" / "spinnet-step.md"
+>       assert p.exists() and p.read_text() == L.render_spec()
+E       AssertionError: assert (True and '# Task speci...> Builder`.\n' == '# Task speci...> Builder`.\n'
+E        +  where True = exists()
+E        +    where exists = PosixPath('/home/digonto/Projects/su2qc-spinnet/compress/specs/spinnet-step.md').exists
+E         
+E         Skipping 8298 identical leading characters in diff, use -v to show
+E            beta
+E         - 
+E         - ## Headline rule (track S)
+E         - 
+E         - The archive key counts T at the nominal pair; the Report 4 headline and the Lean theorem file go to the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth, qubits). Offsetting a rotation by +-pi/4 with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of pi/2 belong in separate `s`/`sdg`/`z` gates so that the rotation angle stays a rational multip...
+E         
+E         ...Full output truncated, use '-vv' to show)
+
+tests/unit/test_spinnet_loop_unit.py:154: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_spinnet_loop_unit.py::test_committed_spec_file_is_current
+1 failed, 550 passed in 660.22s (0:11:00)
+done

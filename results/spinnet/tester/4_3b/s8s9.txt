@@ -1,0 +1,12 @@
+..                                                                       [100%]
+==================================== PASSES ====================================
+============================= slowest 5 durations ==============================
+58.28s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_S9_headline_selection_on_seed_round
+7.94s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_S8_angle_set_and_robust_metrics
+
+(3 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S8_angle_set_and_robust_metrics
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S9_headline_selection_on_seed_round
+2 passed, 17 deselected in 66.51s (0:01:06)
+done
