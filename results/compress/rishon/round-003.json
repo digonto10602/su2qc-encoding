@@ -1,0 +1,278 @@
+{
+ "round": 3,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  232,
+  1090,
+  2037,
+  53
+ ],
+ "entries": [
+  "r03-F1-003",
+  "r03-F3-002",
+  "r03-F4-003"
+ ],
+ "lean_seconds": 0.00024771690368652344,
+ "encoding": "rishon",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "f691e94",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-08T03:43:07Z"
+ },
+ "evaluator_sha256": "43ae85b452e0c2a5bf09d19fbb1d6d56cf6a81599eb5642d2ecb1364a50309f3",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "invalid": [],
+ "external": [],
+ "n_pruning_bound": 0,
+ "candidates": [
+  {
+   "label": "003-exact-corner-tests",
+   "id": "r03-F1-003",
+   "family": "F1",
+   "program_sha256": "95ec25703fc5f646d5ca57862b6e27cd54dedd97d2e31e71988da32687f981ee",
+   "program_path": "compress/programs/rishon/F1/003-exact-corner-tests.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    240,
+    870,
+    1351,
+    55
+   ],
+   "cell": [
+    63,
+    78
+   ],
+   "metrics": {
+    "cx": 240,
+    "t_fixed": 234,
+    "n_rot": 10,
+    "t_eps": 870,
+    "t_estimate": {
+     "1e-06": 831.9470570797253,
+     "1e-10": 1230.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 870,
+     "1e-10": 1266
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 295,
+    "depth_ct": 1351,
+    "qubits": 55,
+    "gates": {
+     "cx": 240,
+     "h": 122,
+     "t": 118,
+     "tdg": 116,
+     "x": 54,
+     "sdg": 22,
+     "s": 22,
+     "rz": 10
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.2665695028294345e-13,
+    "block_error": 1.2210939236537677e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 8.724814098415249e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 1.1444601104640577e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r02-F1-002",
+   "parent_known": true,
+   "git_commit": "f691e94",
+   "summary": "F1 link-flag GHZ frame (flip qubit F = g_b), parent r02-F1-002 with the fold/NOR flag X1 and the closed-pair check Y1..Y3 replaced by one exact bright test: frame as in the parent (link prep, U_E on L2, corner CX+CCX, r in R2 slots, h_b mux with K1/z selectors, CX tau fix, relative-phase CCH, deltas, closed GHZ gadget; the c3 test literal e1 ^ delta_c3 merged into the tau fix at no cost); flag x = AND_c [e1_c = 0 and (e2_c or delta_c)], closed pair included, from three in-place quadratic tests on the delta registers (delta ^ e2 & !(e1 ^ delta)), corner c2 as the literal !e1 before and after one in-place fold, and a 5-input rccx chain (26 CX per side instead of 30); the uniformly controlled Rz on F needs only 6 Gray-cycle Walsh terms over (x, K1, z); all angles linear in alpha, beta, sqrt2 beta.",
+   "lean": null,
+   "round": 3,
+   "mode": "full"
+  },
+  {
+   "label": "002-ch-partner-f-fold",
+   "id": "r03-F3-002",
+   "family": "F3",
+   "program_sha256": "b244b6820874d79fced80a888366e5e5bd8ebd40aa82fb2b55bcfd7d479d02f2",
+   "program_path": "compress/programs/rishon/F3/002-ch-partner-f-fold.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    232,
+    1090,
+    2037,
+    53
+   ],
+   "cell": [
+    62,
+    80
+   ],
+   "metrics": {
+    "cx": 232,
+    "t_fixed": 210,
+    "n_rot": 14,
+    "t_eps": 1090,
+    "t_estimate": {
+     "1e-06": 1047.1258799116154,
+     "1e-10": 1605.2097998526922
+    },
+    "t_measured": {
+     "1e-06": 1090,
+     "1e-10": 1662
+    },
+    "synth_error_bound": 1.4e-05,
+    "depth": 321,
+    "depth_ct": 2037,
+    "qubits": 53,
+    "gates": {
+     "cx": 232,
+     "h": 148,
+     "t": 106,
+     "tdg": 104,
+     "x": 52,
+     "sdg": 26,
+     "s": 26,
+     "rz": 14,
+     "z": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.4746334283778298e-13,
+    "block_error": 1.4407342859475635e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 1.1195513421934758e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 1.3305599997830734e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r02-F3-001",
+   "parent_known": true,
+   "git_commit": "f691e94",
+   "summary": "F3 controlled partner involution in CH form (parent r02-F3-001): light frame (L2 = Q flag, U_E as 4 phases on L2; h_b by two in-place rccx Fredkin halves + a Margolus Toffoli with a CZ(h_b, r.L1) gauge into the raw R2 of link b; one CX per corner; tau fix CX(h_X -> e1); 4 relative-phase C2H; ONE kappa=1 dark-label fold rccx(e1c3, !e2c3 -> F) onto the flip qubit itself (no fold ancilla); e1 ^= g^delta^1; closed gadget H(q3), CCH(Z,F), rccx) maps every pair to labels related by Pi = X_F Q, Q = prod_c X^(!e2_c) Z^(e2_c) on e1_c, with the same coupling sign for all 80 open pairs; exp(i theta Pi) = W exp(i theta X_F Z_E) W, W = 4 CH(!e2 -> e1) (1 CX each), Z_E folded into the Gray path by 4 CX(e1 -> F) at each end; bright flag = AND of 4 in-place corner tests delta_c ^ (e2 & e1); 10-term class-signed Walsh rotation on F over (X, Z, r_t, r_r^r_l); all angles linear in alpha, beta, sqrt2 beta.",
+   "lean": {
+    "status": "not_run",
+    "reason": "Lean certification not available: PENDING: su2plaq.rishon.compress.lean_cert.certify_circuit is a stub (prompts/203 step 6.L3)"
+   },
+   "round": 3,
+   "mode": "full"
+  },
+  {
+   "label": "003-cross-corner-rc3x-lowering",
+   "id": "r03-F4-003",
+   "family": "F4",
+   "program_sha256": "141887620a9f5ed4f60d9180edf61ac4af5935c42c007f51913a103dba9d4c46",
+   "program_path": "compress/programs/rishon/F4/003-cross-corner-rc3x-lowering.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    292,
+    1210,
+    1766,
+    62
+   ],
+   "cell": [
+    65,
+    81
+   ],
+   "metrics": {
+    "cx": 292,
+    "t_fixed": 306,
+    "n_rot": 14,
+    "t_eps": 1210,
+    "t_estimate": {
+     "1e-06": 1143.1258799116154,
+     "1e-10": 1701.2097998526922
+    },
+    "t_measured": {
+     "1e-06": 1210,
+     "1e-10": 1742
+    },
+    "synth_error_bound": 1.4e-05,
+    "depth": 330,
+    "depth_ct": 1766,
+    "qubits": 62,
+    "gates": {
+     "cx": 292,
+     "h": 156,
+     "t": 154,
+     "tdg": 152,
+     "x": 54,
+     "sdg": 25,
+     "s": 25,
+     "z": 18,
+     "rz": 14
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.873460023908498e-13,
+    "block_error": 1.6136471996107276e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 1.2380433539422526e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 1.7120953039474254e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r02-F4-002",
+   "parent_known": true,
+   "git_commit": "f691e94",
+   "summary": "F4 flat direction-qubit dilation (parent r02-F4-002) with a cross-corner sector frame and ancilla-free lowering: per corner (a, b, c, w) = (s1, s1^s2, s1^t1, s2^t2) by 3 CX, the target-end Q flag read from the neighbouring corner's b (b_{c-1} = t1^t2 on valid codes) as the second control of the 4-CX relative-phase C2H, rccx+CS species relabel; class flags e = [g_b=g_t][g_r=g_l], k0 = e [g_t=g_l] from the four b's; direction q = NAND(a^b at c0, c2) by one rccx with Z/S gauges; q-controlled lowering a ^= q b_c b_{c-1} as one Maslov RC3X^dag (6 CX, no ancilla) with S(a), T(b_{c-1}) gauges, then b ^= q (CY); exact all-source/not-dark test (8-literal rccx chain, dark = (c, w) = 0) and class-multiplexed Rx on q; closed chain via q=|+> on the loop plus an A<->L toggle; all angles linear in alpha, beta, sqrt2 beta.",
+   "lean": null,
+   "round": 3,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r03-F3-002",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 14,
+  "t_total": 1090,
+  "tolerances": {
+   "tol_err": 1.4001e-05,
+   "tol_gauss": 1.4001e-05
+  },
+  "op_norm_error": 4.156274856144831e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 122.95195817947388,
+ "written_utc": "2026-11-08T03:43:07Z"
+}
