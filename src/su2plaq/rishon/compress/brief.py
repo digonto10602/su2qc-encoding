@@ -18,6 +18,7 @@ import su2plaq.rishon.compress  # noqa: F401  (registers the encoding)
 from su2plaq.compress import archive as A
 from su2plaq.compress import brief as LBR
 from su2plaq.compress.spec import ROOT, default_spec
+from su2plaq.rishon.compress import robust as RB
 from su2plaq.rishon.compress import spec as S
 
 ENC = "rishon"
@@ -113,6 +114,7 @@ def make_brief(kind, round: int, family: str, root=None) -> pathlib.Path:
     lines += ["", f"## DISCOVERY notes of all programs (last {len(disc)} of at most {MAX_DISCOVERY_LINES} lines)"]
     lines += disc or ["- (none yet)"]
     n = LBR._next_number(root, ENC, family)
+    lines += ["", RB.HEADLINE_SECTION.rstrip("\n")]          # prompts/203 section 13 E3
     lines += ["", "## Output", f"Write ONE program to `compress/programs/{ENC}/{family}/{n:03d}-<slug>.py` (docstring starting with "
               "`SUMMARY:`, at most 3 `DISCOVERY:` lines, `FAMILY`, `PARENT`, `def build(spec) -> Builder`); scratch files only under "
               "`scratch/proposer/`. The file is immutable once evaluated; a change needs a new number.", ""]

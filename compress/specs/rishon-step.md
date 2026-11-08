@@ -68,6 +68,10 @@ Numerical structure (not proved in Lean):
 - `u1_sectors`: 431 -- distinct U(1) charge sectors of the physical states (corner occupation quartets)
 - `prune_rates`: growth of the sparse engine's certified pruning bound: 1.1e-15 per branching gate of its lowering (budget at the cap: 909 branching gates; macro ccx/ccz and permutation/phase gates cost 0)
 
+## Headline rule (track R)
+
+The archive key counts T at the nominal pair; the Report 6 headline and the Lean theorem file go to the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth, qubits). Offsetting a rotation by $\pm\pi/4$ with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of $\pi/2$ belong in separate `s`/`sdg`/`z` gates so that the rotation angle stays $(m_\alpha\alpha+m_\beta\beta+m_\gamma\sqrt2\beta)/d$ (Lean-certifiable). Fewer CX, fewer rotations, smaller coefficients and shared rotations are what move the headline.
+
 ## Tools
 
 `python -m su2plaq.rishon.compress.run_candidate <program.py> --kind step --trial` (seconds; 64 of the 1296 inner codes, nominal angles, no Gauss sample, T estimate) or `--full`. **A trial `valid` is not a validity verdict**: it can miss a wrong controlled rotation that acts on few codes (reports/tests/215: most single-gate errors passed it); only `--full` (all codes, three angle pairs, Gauss sample) decides, so run `--full` before you finish.

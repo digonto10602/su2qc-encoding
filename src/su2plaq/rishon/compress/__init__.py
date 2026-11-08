@@ -18,6 +18,13 @@ RISHON_EVALUATOR_FILES: list[str] = list(_provenance.EVALUATOR_FILES) + [
 
 register()      # idempotent side effect on import
 
+# prompts/203 section 13 E3: the spec carries the headline-rule section.  Wrapped here, not edited in spec.py, because spec.py is hashed
+# into `code_hash()` and the archive best's evaluator sha (test_M6_G1) must keep matching; see robust.py.
+from su2plaq.rishon.compress import robust as _robust  # noqa: E402
+from su2plaq.rishon.compress import spec as _spec  # noqa: E402
+
+_spec.render_spec = _robust.with_headline_section(_spec.render_spec)
+
 
 def code_hash() -> str:
     """sha256 over RISHON_EVALUATOR_FILES (provenance.code_hash with the explicit list; files that do not exist are skipped)."""

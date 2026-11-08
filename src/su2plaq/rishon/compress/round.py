@@ -229,6 +229,12 @@ def run_round(kind: str, round: int, evaluate: bool, dry_run: bool = False, root
             rec["lean"] = e.lean
     info = {"round": round, "n_valid": n_valid, "n_invalid": n_invalid, "best_key": list(best.key) if best else None,
             "entries": ids, "lean_seconds": lean_seconds}
+    if evaluate:      # prompts/203 section 13 E3: robust metrics of the new valid entries (cached), the round's headline
+        from su2plaq.rishon.compress import robust
+
+        h = robust.headline(kind, root=root)
+        info["headline"] = h["id"]
+        info["headline_robust_key"] = list(h["robust_key"]) if h["robust_key"] is not None else None
     out = {**info, "encoding": ENC, "kind": kind, "provenance": provenance({"trial_seed": spec.trial_seed}),
            "evaluator_sha256": code_hash(), "spec_sha256": spec.sha256(), "invalid": invalid, "external": external,
            "n_pruning_bound": sum(1 for x in invalid if x["reason"] == "pruning_bound"),
@@ -242,23 +248,37 @@ def run_round(kind: str, round: int, evaluate: bool, dry_run: bool = False, root
 
 def certify_best(kind="step", root=None) -> dict:
     """Lean-certify the archive's current global best (rebuilt from its program file) and store the certificate on the entry
-    (`Entry.lean`).  Never changes validity; a failure is recorded, not hidden.  -> {"entry","lean","seconds"}."""
+    (`Entry.lean`); when the headline entry (prompts/203 section 13 E3, `robust.headline`) is another entry it is certified through the
+    same path.  Never changes validity; a failure is recorded, not hidden.
+    -> {"entry","lean","seconds", "headline": {"entry", ...}} (for the same entry: {"entry", "same_as_archive_best": True})."""
+    from su2plaq.rishon.compress import robust
+
     root = pathlib.Path(root) if root is not None else ROOT
     spec = default_spec(ENC, kind)
     archive = A.Archive.load(ENC, root=root, n_alt=len(spec.alt_angles), strict=True)
     best = archive.best()
     if best is None:
         return {"entry": None, "lean": None, "seconds": 0.0}
-    circ, err = _circuit_of(spec, best.program_path, best.id, None, root)
-    if circ is None:
-        new, sec = {"status": "failed", "reason": f"cannot rebuild the best circuit: {err}"}, 0.0
+
+    def certify(e, why):
+        circ, err = _circuit_of(spec, e.program_path, e.id, None, root)
+        if circ is None:
+            new, sec = {"status": "failed", "reason": f"cannot rebuild the circuit: {err}"}, 0.0
+        else:
+            new, sec = _certify(circ, spec)
+        before = e.lean
+        LR._store_lean(e, new, root, ENC, why)
+        return {"entry": e.id, "lean": e.lean, "attempt": new, "kept_previous": before is not None and e.lean is before,
+                "seconds": sec}
+
+    res = certify(best, "certify_best")
+    h = robust.headline(kind, root=root)
+    if h["id"] is None or h["id"] == best.id:
+        res["headline"] = {"entry": h["id"], "same_as_archive_best": True}
     else:
-        new, sec = _certify(circ, spec)
-    before = best.lean
-    LR._store_lean(best, new, root, ENC, "certify_best")
+        res["headline"] = certify(next(x for x in archive.entries() if x.id == h["id"]), "certify_best: headline")
     archive.save()
-    return {"entry": best.id, "lean": best.lean, "attempt": new, "kept_previous": before is not None and best.lean is before,
-            "seconds": sec}
+    return res
 
 
 def main(argv=None) -> int:
