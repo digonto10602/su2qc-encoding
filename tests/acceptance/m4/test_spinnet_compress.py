@@ -377,6 +377,88 @@ def test_M4_S4_round_one_dry_run_and_brief(tmp_path):
     assert any(a["round"] == 1 for a in lines)
 
 
+# ---------------------------------------------------------------------------------------------------- headline rule (E3)
+ANGLE_SET_SEED, ANGLE_SET_N = 20261107, 20
+ANGLE_RANGES = ((0.05, 2.0), (0.05, 1.2))        # alpha, beta (prompts/104 §11 erratum E3; the tester's ranges in reports/tests/115)
+
+
+def _angle_set() -> np.ndarray:
+    """The locked angle set, recomputed here: alphas first, then betas, from numpy's default_rng(ANGLE_SET_SEED)."""
+    rng = np.random.default_rng(ANGLE_SET_SEED)
+    a = rng.uniform(*ANGLE_RANGES[0], ANGLE_SET_N)
+    b = rng.uniform(*ANGLE_RANGES[1], ANGLE_SET_N)
+    return np.c_[a, b]
+
+
+def test_M4_S8_angle_set_and_robust_metrics(tmp_path):
+    """Headline rule (erratum E3): the loop's angle set is the locked seeded set; `robust_metrics` of a program returns the
+    laptop T(1e-6) and depth_CT at every pair (identical skeleton required) and the robust key sums them; a program whose
+    skeleton changes inside the angle range has no robust key."""
+    L = _loop()
+    spec = _spec()
+    M = api("su2plaq.compress.metrics")
+    assert api("su2plaq.spinnet.loop:ANGLE_SET_SEED") == ANGLE_SET_SEED
+    A_set = np.asarray(api("su2plaq.spinnet.loop:ANGLE_SET"), dtype=float)
+    robust_metrics = api("su2plaq.spinnet.loop:robust_metrics")          # new names of erratum E3: missing -> PENDING
+    assert A_set.shape == (ANGLE_SET_N, 2) and np.array_equal(A_set, _angle_set())
+    assert (A_set[:, 0] >= ANGLE_RANGES[0][0]).all() and (A_set[:, 0] <= ANGLE_RANGES[0][1]).all()
+    assert (A_set[:, 1] >= ANGLE_RANGES[1][0]).all() and (A_set[:, 1] <= ANGLE_RANGES[1][1]).all()
+    gp = L.general_program_path(spec, root=tmp_path)
+    rm = robust_metrics(gp, spec, root=tmp_path)
+    assert rm["skeleton_equal"] and len(rm["t_eps"]) == ANGLE_SET_N and len(rm["depth_ct"]) == ANGLE_SET_N
+    assert rm["t_sum"] == sum(rm["t_eps"]) and rm["depth_sum"] == sum(rm["depth_ct"])
+    assert rm["angle_linear"] is True                      # the general program: rational multiples of alpha / beta (M4-S1)
+    assert tuple(rm["robust_key"]) == (rm["cx"], rm["t_sum"], 0, rm["depth_sum"], rm["qubits"])
+    assert abs(rm["t_mean"] - rm["t_sum"] / ANGLE_SET_N) <= 1e-12
+    for i in (0, 7, 19):                                   # the laptop's metrics at the same pair, from the reference circuit
+        a_i, b_i = (float(x) for x in A_set[i])
+        ref = M.metrics(_general_qc(a_i, b_i), spec.with_angles(a_i, b_i), measured=True)
+        assert rm["t_eps"][i] == ref["t_eps"] and rm["depth_ct"][i] == ref["depth_ct"], i
+        assert rm["cx"] == ref["cx"] and rm["qubits"] == ref["qubits"]
+    assert len(rm["program_sha256"]) == 64 and len(rm["angle_set_sha256"]) == 64
+    # a skeleton that changes with beta inside the angle range: no robust key (the laptop's 'no fixed-angle tricks' rule)
+    betas = A_set[:, 1]
+    thr = float(np.sort(betas)[ANGLE_SET_N // 2])
+    assert (betas > thr).any() and (betas <= thr).any()
+    bad = _derived_program(gp, epilogue=f"    if spec.beta > {thr!r}:\n        b.x(16)\n        b.x(16)\n")
+    rb = robust_metrics(_program(tmp_path, "004-skel-range", bad), spec, root=tmp_path)
+    assert not rb["skeleton_equal"] and rb["robust_key"] is None
+    # a valid but not angle-linear program (constant angle on an ancilla, undone): rank 1 in the third key component
+    nonlin = _derived_program(gp, epilogue="    b.p(0.123, 16)\n    b.p(-0.123, 16)\n")
+    rn = robust_metrics(_program(tmp_path, "005-nonlinear", nonlin), spec, root=tmp_path)
+    assert rn["skeleton_equal"] and rn["angle_linear"] is False and rn["robust_key"][2] == 1
+    assert rn["cx"] == rm["cx"] and rn["robust_key"] > rm["robust_key"]
+
+
+@pytest.mark.slow
+def test_M4_S9_headline_selection_on_seed_round(tmp_path):
+    """Headline rule on a round-0 archive under tmp: `headline()` picks the valid entry with the smallest robust key
+    (CX, sum T, angle-linear rank, sum depth_CT, qubits; full ties: the laptop key, then the id), caches the per-entry robust
+    metrics, and the report / summary carry the headline next to the laptop's global best."""
+    L = _loop()
+    L.seed_round(root=tmp_path, lean=False, dry_run=True)
+    A = api("su2plaq.compress.archive")
+    arch = A.Archive.load(ENC, root=tmp_path)
+    valid = {e.id: e for e in arch.entries() if e.valid}
+    headline, robust_metrics = api("su2plaq.spinnet.loop:headline"), api("su2plaq.spinnet.loop:robust_metrics")
+    h = headline(root=tmp_path)
+    assert h["id"] in valid and h["archive_best"] == arch.best().id
+    ranking = h["ranking"]
+    assert {r["id"] for r in ranking} == set(valid) and all(r["robust_key"] is not None for r in ranking)
+    keys = [tuple(r["robust_key"]) for r in ranking]
+    assert keys == sorted(keys) and tuple(h["robust_key"]) == keys[0]
+    for r in ranking:                                      # every robust key is consistent with its own metrics
+        rm = robust_metrics(tmp_path / valid[r["id"]].program_path, L.spec(), root=tmp_path)
+        assert tuple(rm["robust_key"]) == tuple(r["robust_key"]) and rm["cx"] == valid[r["id"]].key[0]
+    cache = json.loads((tmp_path / "results" / "compress" / ENC / "robust.json").read_text())
+    assert set(cache["entries"]) == set(valid) and cache["angle_set"]["seed"] == ANGLE_SET_SEED and len(cache["angle_set"]["pairs"]) == ANGLE_SET_N
+    text = L.report_table(root=tmp_path)
+    assert "HEADLINE" in text and h["id"] in text and "T_avg" in text
+    summary = json.loads((tmp_path / "results" / "compress" / ENC / "summary.json").read_text())
+    assert summary["headline"]["id"] == h["id"] and tuple(summary["headline"]["robust_key"]) == tuple(h["robust_key"])
+    assert summary["global_best"] == arch.best().id
+
+
 # ---------------------------------------------------------------------------------------------------- gate (4.7, 4.8)
 @pytest.mark.slow
 def test_M4_G1_archive_best_reverified_from_source(root):
@@ -493,14 +575,20 @@ def test_M4_R1_results_and_before_after(root):
     table names the global best."""
     L = _loop()
     A = api("su2plaq.compress.archive")
-    best = A.Archive.load(ENC, root=root).best()
+    arch = A.Archive.load(ENC, root=root)
+    best = arch.best()
+    h = api("su2plaq.spinnet.loop:headline")(root=root)       # erratum E3: the headline circuit is the robust-key minimum
+    head = {e.id: e for e in arch.entries()}[h["id"]]
     f = root / "results" / ENC / "m4-compressed.json"
     assert f.exists(), "run scripts/m4_results.py on a clean commit"
     d = json.loads(f.read_text())
-    assert d["encoding"] == ENC and d["provenance"]["git_dirty"] is False and d["circuit_id"] == best.id
+    assert d["encoding"] == ENC and d["provenance"]["git_dirty"] is False and d["circuit_id"] == h["id"]
     v = d["verification"]
     assert v["ok"] and v["op_norm_error"] <= 1e-10 and v["gauss_residual"] <= 1e-10 and v["certified"]
-    assert d["metrics"]["logical"]["cx"] == best.key[0]
+    assert d["metrics"]["logical"]["cx"] == head.key[0] == h["robust_key"][0]
+    aset = d["extra"]["angle_set"]
+    assert aset["seed"] == ANGLE_SET_SEED and np.array_equal(np.asarray(aset["pairs"], dtype=float), _angle_set())
+    assert tuple(d["extra"]["headline"]["robust_key"]) == tuple(h["robust_key"]) and d["extra"]["archive_best"] == best.id
     eps_seen = []
     for row in d["metrics"]["t_table"]:
         eps = float(row["eps"])
@@ -513,10 +601,15 @@ def test_M4_R1_results_and_before_after(root):
     assert sorted(eps_seen) == sorted([1e-4, 1e-6, 1e-8, 1e-10])
     ex = d["extra"]
     rows = {r["row"]: r for r in ex["before_after"]}
-    for name in ("general", "general+polish", "qiskit_l3", "spinnet_v2_pairs9", "paulo15", "global_best"):
+    for name in ("general", "general+polish", "qiskit_l3", "spinnet_v2_pairs9", "paulo15", "global_best", "headline"):
         assert name in rows, name
         assert rows[name]["lean"] in ("certified", "n_a", "failed", "not_run"), name
     assert rows["global_best"]["entry"] == best.id and rows["global_best"]["cx"] == best.key[0]
+    assert rows["headline"]["entry"] == h["id"] and rows["headline"]["cx"] == h["robust_key"][0]
+    assert abs(rows["headline"]["t_avg"] - h["t_mean"]) <= 1e-9 and rows["headline"]["t_avg"] * ANGLE_SET_N == h["robust_key"][1]
+    for name in rows:                                       # every archived row carries its angle-averaged T next to the nominal one
+        if rows[name].get("entry") in {e.id for e in arch.entries()}:
+            assert "t_avg" in rows[name] and rows[name]["t_avg"] > 0, name
     assert ex["lineage"] and "outer_electric_row" in ex
     md = root / "results" / ENC / "m4-before-after.md"
-    assert md.exists() and best.id in md.read_text()
+    assert md.exists() and best.id in md.read_text() and h["id"] in md.read_text()

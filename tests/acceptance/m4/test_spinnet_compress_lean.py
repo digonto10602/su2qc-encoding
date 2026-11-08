@@ -177,14 +177,23 @@ def test_M4_L5_final_best_lean_status_and_theorem_file(root):
     L = _loop()
     _lean_dir(root)
     A = api("su2plaq.compress.archive")
-    best = A.Archive.load(ENC, root=root).best()
+    arch = A.Archive.load(ENC, root=root)
+    best = arch.best()
     assert best is not None and isinstance(best.lean, dict), best
     assert best.lean["status"] in ("certified", "n_a"), best.lean
     if best.lean["status"] == "n_a":
         assert best.lean["reason"].startswith(("non_linear_angle", "phase_not_in_K")), best.lean
+    # erratum E3: the headline circuit (robust-key minimum, prompts/104 §11) carries a Lean status too, and the theorem file is its
+    h = api("su2plaq.spinnet.loop:headline")(root=root)
+    head = {e.id: e for e in arch.entries()}[h["id"]]
+    assert isinstance(head.lean, dict) and head.lean["status"] in ("certified", "n_a"), head.lean
+    assert h["lean"] == head.lean["status"]
+    if head.lean["status"] == "n_a":
+        assert head.lean["reason"].startswith(("non_linear_angle", "phase_not_in_K")), head.lean
     else:
         f = root / "lean" / "certs" / "spinnet-best-step.lean"
-        assert f.exists(), "write_theorem_file for the final best (step 4.7)"
+        assert f.exists(), "write_theorem_file for the headline circuit (step 4.7)"
+        assert head.id in f.read_text() or head.program_sha256[:12] in f.read_text(), "theorem file must name the headline entry"
         env = {**__import__("os").environ, "PATH": str(pathlib.Path.home() / ".elan" / "bin") + ":" + __import__("os").environ["PATH"]}
         t0 = time.time()
         p = subprocess.run(["lake", "env", "lean", str(f)], cwd=root / "lean", capture_output=True, text=True, timeout=900, env=env)
