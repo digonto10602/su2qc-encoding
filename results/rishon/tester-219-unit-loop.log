@@ -1,0 +1,45 @@
+python -m su2plaq.rishon.compress.round: error: give exactly one of --seed and --round r
+=========================== short test summary info ============================
+PASSED tests/unit/test_rishon_compress_loop_unit.py::test_ideation_and_family_briefs_name_rishon_commands_and_rules
+PASSED tests/unit/test_rishon_compress_loop_unit.py::test_brief_cli
+PASSED tests/unit/test_rishon_compress_loop_unit.py::test_run_candidate_main_in_process
+PASSED tests/unit/test_rishon_compress_loop_unit.py::test_seed_candidates_labels_and_programs
+PASSED tests/unit/test_rishon_compress_loop_unit.py::test_round_argument_errors_and_empty_certify
+PASSED tests/unit/test_rishon_compress_loop_unit.py::test_certify_reports_unbuilt_checker
+PASSED tests/unit/test_rishon_compress_loop_unit.py::test_engine_limit_constant_matches_the_laptop_engine
+PASSED tests/unit/test_rishon_compress_loop_unit.py::test_wide_program_is_recorded_invalid_by_run_round
+PASSED tests/unit/test_rishon_compress_loop_unit.py::test_wide_program_run_candidate_reports_reason
+PASSED tests/unit/test_rishon_compress_loop_unit.py::test_62_qubit_program_is_not_rejected_by_the_limit
+PASSED tests/unit/test_rishon_compress_spec_unit.py::test_register_is_idempotent_and_runtime_only
+PASSED tests/unit/test_rishon_compress_spec_unit.py::test_spec_matches_laptop_default_and_cap
+PASSED tests/unit/test_rishon_compress_spec_unit.py::test_view_basis_and_vectors
+PASSED tests/unit/test_rishon_compress_spec_unit.py::test_code_hash_is_stable_and_lists_existing_files
+PASSED tests/unit/test_rishon_compress_spec_unit.py::test_structure_facts_values_and_lean_cross_checks
+PASSED tests/unit/test_rishon_compress_spec_unit.py::test_gf2_helpers_and_labels
+PASSED tests/unit/test_rishon_compress_spec_unit.py::test_render_and_write
+PASSED tests/unit/test_rishon_compress_spec_unit.py::test_oracle_functions_and_cli
+PASSED tests/unit/test_rishon_compress_spec_unit.py::test_committed_spec_files_equal_the_renderer
+19 passed in 34.95s
+	Command being timed: "/home/digonto/anaconda3/envs/su2qc-coding/bin/python -m pytest -q -x -p no:cacheprovider tests/unit/test_rishon_compress_loop_unit.py tests/unit/test_rishon_compress_spec_unit.py -rA"
+	User time (seconds): 30.71
+	System time (seconds): 4.44
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:35.40
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 507992
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1485307
+	Voluntary context switches: 10758
+	Involuntary context switches: 14145
+	Swaps: 0
+	File system inputs: 256
+	File system outputs: 1264
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

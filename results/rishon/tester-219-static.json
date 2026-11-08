@@ -1,0 +1,98 @@
+{
+ "r02-F1-002": {
+  "path": "compress/programs/rishon/F1/002-ghz-frame-walsh-y3.py",
+  "sha_file": "06aaa8ecc1d35a4e9f9fff7fce38e9ddc746f2b4491f31270e307c87d3f59200",
+  "sha_archive": "06aaa8ecc1d35a4e9f9fff7fce38e9ddc746f2b4491f31270e307c87d3f59200",
+  "sha_round": "06aaa8ecc1d35a4e9f9fff7fce38e9ddc746f2b4491f31270e307c87d3f59200",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ },
+ "r02-F2-002": {
+  "path": "compress/programs/rishon/F2/002-ghz-frame-y3-walsh10.py",
+  "sha_file": "6f2c3d678dc98461a17bbde33ca7e1d4ec133441ea958c1e23e50de19ae01195",
+  "sha_archive": "6f2c3d678dc98461a17bbde33ca7e1d4ec133441ea958c1e23e50de19ae01195",
+  "sha_round": "6f2c3d678dc98461a17bbde33ca7e1d4ec133441ea958c1e23e50de19ae01195",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "numpy",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ },
+ "r02-F3-001": {
+  "path": "compress/programs/rishon/F3/001-hadamard-test-partner.py",
+  "sha_file": "20bc6163fb031b8c736fda9d4fa978ff5deb72271b201a38ef262a9c955bfdaa",
+  "sha_archive": "20bc6163fb031b8c736fda9d4fa978ff5deb72271b201a38ef262a9c955bfdaa",
+  "sha_round": "20bc6163fb031b8c736fda9d4fa978ff5deb72271b201a38ef262a9c955bfdaa",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ },
+ "r02-F4-002": {
+  "path": "compress/programs/rishon/F4/002-gauged-rel-phase-lowering.py",
+  "sha_file": "fb514cf4bd4c5b766d8ab0504448baadfbad855095388ec0a34705604879c0a5",
+  "sha_archive": "fb514cf4bd4c5b766d8ab0504448baadfbad855095388ec0a34705604879c0a5",
+  "sha_round": "fb514cf4bd4c5b766d8ab0504448baadfbad855095388ec0a34705604879c0a5",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ }
+}

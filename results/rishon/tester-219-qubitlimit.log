@@ -1,0 +1,22 @@
+constants: ENGINE_QUBIT_LIMIT 62 REASON engine_qubit_limit peak_qubit_cap 80
+{'n': 62, 'mode': 'full', 'valid': True, 'reason': 'ok', 'message': '', 'wall': 49.6, 'qubits': 62, 'err': 1.3708079265366763e-13, 'exc': None}
+{'n': 62, 'mode': 'trial', 'valid': True, 'reason': 'ok', 'message': '', 'wall': 3.3, 'qubits': 62, 'err': 1.3660074263202824e-13, 'exc': None}
+{'n': 63, 'mode': 'full', 'valid': False, 'reason': 'engine_qubit_limit', 'message': "63 qubits > the exact simulation engine's limit of 62 qubits (the circuit cannot be evaluated; use at most 62 qubits in total)", 'wall': 2.8, 'qubits': None, 'err': None, 'exc': None}
+{'n': 63, 'mode': 'trial', 'valid': False, 'reason': 'engine_qubit_limit', 'message': "63 qubits > the exact simulation engine's limit of 62 qubits (the circuit cannot be evaluated; use at most 62 qubits in total)", 'wall': 2.7, 'qubits': None, 'err': None, 'exc': None}
+{'n': 64, 'mode': 'full', 'valid': False, 'reason': 'engine_qubit_limit', 'message': "64 qubits > the exact simulation engine's limit of 62 qubits (the circuit cannot be evaluated; use at most 62 qubits in total)", 'wall': 3.3, 'qubits': None, 'err': None, 'exc': None}
+{'n': 64, 'mode': 'trial', 'valid': False, 'reason': 'engine_qubit_limit', 'message': "64 qubits > the exact simulation engine's limit of 62 qubits (the circuit cannot be evaluated; use at most 62 qubits in total)", 'wall': 3.7, 'qubits': None, 'err': None, 'exc': None}
+{'n': 70, 'mode': 'full', 'valid': False, 'reason': 'engine_qubit_limit', 'message': "70 qubits > the exact simulation engine's limit of 62 qubits (the circuit cannot be evaluated; use at most 62 qubits in total)", 'wall': 3.0, 'qubits': None, 'err': None, 'exc': None}
+{'n': 70, 'mode': 'trial', 'valid': False, 'reason': 'engine_qubit_limit', 'message': "70 qubits > the exact simulation engine's limit of 62 qubits (the circuit cannot be evaluated; use at most 62 qubits in total)", 'wall': 3.4, 'qubits': None, 'err': None, 'exc': None}
+{'n': 80, 'mode': 'full', 'valid': False, 'reason': 'engine_qubit_limit', 'message': "80 qubits > the exact simulation engine's limit of 62 qubits (the circuit cannot be evaluated; use at most 62 qubits in total)", 'wall': 3.4, 'qubits': None, 'err': None, 'exc': None}
+{'n': 80, 'mode': 'trial', 'valid': False, 'reason': 'engine_qubit_limit', 'message': "80 qubits > the exact simulation engine's limit of 62 qubits (the circuit cannot be evaluated; use at most 62 qubits in total)", 'wall': 3.2, 'qubits': None, 'err': None, 'exc': None}
+{'n': 81, 'mode': 'full', 'valid': False, 'reason': 'max_qubits', 'message': '81 qubits > cap 80', 'wall': 3.4, 'qubits': None, 'err': None, 'exc': None}
+{'n': 81, 'mode': 'trial', 'valid': False, 'reason': 'max_qubits', 'message': '81 qubits > cap 80', 'wall': 2.8, 'qubits': None, 'err': None, 'exc': None}
+CLI --trial n=62 exit 0: valid: ok  [trial, 7.9 s]  sha256 a5dbca753670 | stderr tail: 
+CLI --trial n=63 exit 1: invalid: engine_qubit_limit  [trial, 3.6 s]  sha256 bc26b3fb3eca | stderr tail: 
+CLI --trial n=81 exit 1: invalid: max_qubits  [trial, 3.9 s]  sha256 bbec97093b82 | stderr tail: 
+CLI --full n=63 exit 1:
+invalid: engine_qubit_limit  [full, 3.8 s]  sha256 bc26b3fb3eca
+summary: F3 controlled partner involution, no canonicaliser: light frame (L2 = Q flag, U_E as 4 phases on L2; R2 slots as h_b / r_t / r_l / r_r^r_l registers; h_b by two in-place rccx Fredkin halves + one Toffoli into the raw R2 of link b; one CX per corner; tau fix CX(h_X -> e1); 4 relative-phase C2H; e1 ^= g^delta^1 with one CX per corner; closed gadget H(q3), CCH(Z,F), rccx) makes the partner map the involution Pi = X_F Q, Q = prod_c X^(!e2_c) on e1_c, with every one of the 81 couplings +1 (closed -1); exp(i theta Pi) = cQ exp( | stderr: 
+run_round: {'round': 1, 'n_valid': 1, 'n_invalid': 3, 'best_key': [268, 1120, 2035, 62], 'entries': ['r01-F3-062']} 82 s
+round JSON invalid: [('063-pad63', 'engine_qubit_limit', "63 qubits > the exact simulation engine's limit of 62 qubits (the circ"), ('080-pad80', 'engine_qubit_limit', "80 qubits > the exact simulation engine's limit of 62 qubits (the circ"), ('081-pad81', 'max_qubits', '81 qubits > cap 80')]
+attempts: [('r01-F3-062', True, 'ok'), ('r01-F3-063', False, 'engine_qubit_limit'), ('r01-F3-080', False, 'engine_qubit_limit'), ('r01-F3-081', False, 'max_qubits')] | feedback: ['r01-F3-062.json', 'r01-F3-063.json', 'r01-F3-080.json', 'r01-F3-081.json'] | archive entries: ['r01-F3-062.json'] | best: r01-F3-062

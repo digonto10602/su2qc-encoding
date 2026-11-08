@@ -1,0 +1,27 @@
+.......FF.........                                                       [100%]
+=================================== FAILURES ===================================
+____________________ test_M6_L2_cert3_builds_and_semantics _____________________
+PENDING: lean/Su2PlaqCert/Rishon/Laurent3.lean missing (step 6.L2)
+______________________ test_M6_L3_cert3_accept_reject_na _______________________
+PENDING: lean/Su2PlaqCert/Rishon/Laurent3.lean missing (step 6.L2)
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m6/test_rishon_m6_evaluate.py::test_M6_E1_evaluator_sensitivity
+PASSED tests/acceptance/m6/test_rishon_m6_evaluate.py::test_M6_E2_metrics_match_qiskit_and_T_band
+PASSED tests/acceptance/m6/test_rishon_m6_evaluate.py::test_M6_E3_full_mode_ue_program_and_cache
+PASSED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G2_best_synthesised_reverified
+PASSED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G3_best_touches_no_outer_qubit
+PASSED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G4_summary_and_budgets
+PASSED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L1_structure_facts_axioms_and_spec_section
+PASSED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L8_polish_rules_lean_certified
+PASSED tests/acceptance/m6/test_rishon_m6_loop.py::test_M6_R1_run_candidate_cli_trial
+PASSED tests/acceptance/m6/test_rishon_m6_loop.py::test_M6_R2_round_dry_run_brief_and_report
+PASSED tests/acceptance/m6/test_rishon_m6_seeds.py::test_M6_S1_seed_programs_and_import_reasons
+PASSED tests/acceptance/m6/test_rishon_m6_seeds.py::test_M6_S2_polish_and_l3_trial
+PASSED tests/acceptance/m6/test_rishon_m6_spec.py::test_M6_K0_ladder_variants_and_casimir
+PASSED tests/acceptance/m6/test_rishon_m6_spec.py::test_M6_K1_spec_view_and_oracle
+PASSED tests/acceptance/m6/test_rishon_m6_spec.py::test_M6_K2_structure_facts_and_spec_text
+PASSED tests/acceptance/m6/test_rishon_m6_spec.py::test_M6_K3_builder_registers_and_cap
+FAILED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L2_cert3_builds_and_semantics
+FAILED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L3_cert3_accept_reject_na
+2 failed, 16 passed, 8 deselected in 265.71s (0:04:25)
