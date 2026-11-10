@@ -168,7 +168,16 @@ def test_M9_S1_step_orders(order, r):
     psi = rng.normal(size=65536) + 1j * rng.normal(size=65536)
     psi /= np.linalg.norm(psi)
     UEK = tg.UEK_link(alpha, k2)
-    UEK4 = np.kron(np.kron(np.kron(UEK, UEK), UEK), UEK)
+    def kron4(A, v):
+        # np.kron(np.kron(np.kron(A, A), A), A) @ v applied factor by factor (prompts/007): the same operator, never formed as
+        # the dense 65536x65536 matrix (68.7 GB, twice for order 2; this supersedes the file-header cost note for this test).
+        # np.kron puts its FIRST factor on the MOST significant index = axis 0 of the C-order (16,16,16,16) reshape.
+        t = v.reshape(16, 16, 16, 16)
+        t = np.einsum("ai,ijkl->ajkl", A, t)
+        t = np.einsum("bj,ajkl->abkl", A, t)
+        t = np.einsum("ck,abkl->abcl", A, t)
+        t = np.einsum("dl,abcl->abcd", A, t)
+        return t.reshape(65536)
     rows = np.arange(65536)
     row_idx = sum((((rows >> (4 * l + 2)) & 3) << (2 * l)) for l in range(4))
     col_idx = sum((((rows >> (4 * l)) & 3) << (2 * l)) for l in range(4))
@@ -178,11 +187,10 @@ def test_M9_S1_step_orders(order, r):
         M[row_idx, col_idx] = v
         return (UB @ M)[row_idx, col_idx]
     if order == 1:
-        ref = apply_UB(UEK4 @ psi)
+        ref = apply_UB(kron4(UEK, psi))
     else:
         h = tg.UEK_link(alpha / 2, k2 / 2)
-        H = np.kron(np.kron(np.kron(h, h), h), h)
-        ref = H @ apply_UB(H @ psi)
+        ref = kron4(h, apply_UB(kron4(h, psi)))
     out = tg.apply_step(psi, alpha, beta, k2, order)
     assert np.linalg.norm(out - ref) <= 1e-10
     # order mismatch
