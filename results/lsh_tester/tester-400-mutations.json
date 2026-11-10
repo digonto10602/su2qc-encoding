@@ -1,0 +1,453 @@
+[
+ {
+  "mutation": "baseline",
+  "failed": [],
+  "summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")"
+ },
+ {
+  "mutation": "site rule: drop 110 from VALID_SITE",
+  "kind": "site",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_A1_register_agl_counts",
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 7,
+  "unit_failed_first": [
+   "test_counts_second_loop",
+   "test_plaquette_and_K_structure",
+   "test_h_electric",
+   "test_code_of_label_roundtrip_and_errors",
+   "test_h_magnetic_block_structure",
+   "test_label_of_code_inverse_and_none"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "7 failed, 12 passed in 0.44s"
+ },
+ {
+  "mutation": "site rule: add 111 to VALID_SITE",
+  "kind": "site",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_A1_register_agl_counts",
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a"
+  ],
+  "n_unit_failed": 8,
+  "unit_failed_first": [
+   "test_is_physical_and_agl_violations",
+   "test_plaquette_and_K_structure",
+   "test_counts_second_loop",
+   "test_code_of_label_roundtrip_and_errors",
+   "test_h_magnetic_block_structure",
+   "test_h_electric"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "8 failed, 11 passed in 0.44s"
+ },
+ {
+  "mutation": "site rule: add 011 (replace 010)",
+  "kind": "site",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_A1_register_agl_counts",
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 7,
+  "unit_failed_first": [
+   "test_counts_second_loop",
+   "test_plaquette_and_K_structure",
+   "test_h_electric",
+   "test_h_magnetic_block_structure",
+   "test_code_of_label_roundtrip_and_errors",
+   "test_label_of_code_inverse_and_none"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "7 failed, 12 passed in 0.50s"
+ },
+ {
+  "mutation": "site rule: flux N_2 uses l23+l31 (wrong leg sum)",
+  "kind": "site",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_A1_register_agl_counts",
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 8,
+  "unit_failed_first": [
+   "test_is_physical_and_agl_violations",
+   "test_counts_second_loop",
+   "test_plaquette_and_K_structure",
+   "test_h_electric",
+   "test_h_magnetic_block_structure",
+   "test_code_of_label_roundtrip_and_errors"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "8 failed, 11 passed in 0.51s"
+ },
+ {
+  "mutation": "site rule: cap only N_1<=1 (drop N_2 cap)",
+  "kind": "site",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_A1_register_agl_counts"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_site_rules_from_spin_triangles"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.47s"
+ },
+ {
+  "mutation": "site rule: cap N_1<=1, N_2<=2",
+  "kind": "site",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_A1_register_agl_counts"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_site_rules_from_spin_triangles"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.46s"
+ },
+ {
+  "mutation": "AGL: skip virtual-link condition",
+  "kind": "site",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_A1_register_agl_counts"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_is_physical_and_agl_violations"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.51s"
+ },
+ {
+  "mutation": "AGL: inner link compares N_1 of next with N_1 of this",
+  "kind": "site",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_A1_register_agl_counts"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_is_physical_and_agl_violations"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.48s"
+ },
+ {
+  "mutation": "ladder: L++ factor (S+2) -> (S+1)",
+  "kind": "ladder",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 3,
+  "unit_failed_first": [
+   "test_ladder_amplitude_hand_values",
+   "test_loop_ladder_matches_table_and_cap",
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "3 failed, 16 passed in 0.51s"
+ },
+ {
+  "mutation": "ladder: L-- factor (S+1) -> S",
+  "kind": "ladder",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 3,
+  "unit_failed_first": [
+   "test_loop_ladder_matches_table_and_cap",
+   "test_plaquette_and_K_structure",
+   "test_ladder_amplitude_hand_values"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "3 failed, 16 passed in 0.54s"
+ },
+ {
+  "mutation": "ladder: L+- sign flipped",
+  "kind": "ladder",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials"
+  ],
+  "n_unit_failed": 3,
+  "unit_failed_first": [
+   "test_ladder_amplitude_hand_values",
+   "test_loop_ladder_matches_table_and_cap",
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "3 failed, 16 passed in 0.55s"
+ },
+ {
+  "mutation": "ladder: L-+ (l31) -> (l31+1)",
+  "kind": "ladder",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 3,
+  "unit_failed_first": [
+   "test_ladder_amplitude_hand_values",
+   "test_loop_ladder_matches_table_and_cap",
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "3 failed, 16 passed in 0.45s"
+ },
+ {
+  "mutation": "ladder: dressing (N_p+1) dropped",
+  "kind": "ladder",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 3,
+  "unit_failed_first": [
+   "test_ladder_amplitude_hand_values",
+   "test_plaquette_and_K_structure",
+   "test_loop_ladder_matches_table_and_cap"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "3 failed, 16 passed in 0.48s"
+ },
+ {
+  "mutation": "ladder: dressing uses N_n of old state",
+  "kind": "ladder",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 3,
+  "unit_failed_first": [
+   "test_ladder_amplitude_hand_values",
+   "test_loop_ladder_matches_table_and_cap",
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "3 failed, 16 passed in 0.49s"
+ },
+ {
+  "mutation": "ladder: overall factor 2 on L++",
+  "kind": "ladder",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 3,
+  "unit_failed_first": [
+   "test_loop_ladder_matches_table_and_cap",
+   "test_ladder_amplitude_hand_values",
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "3 failed, 16 passed in 0.45s"
+ },
+ {
+  "mutation": "vertex: c0 (0,0) sign +1 -> -1",
+  "kind": "vertex",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.56s"
+ },
+ {
+  "mutation": "vertex: c1 (0,0) sign +1 -> -1",
+  "kind": "vertex",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.48s"
+ },
+ {
+  "mutation": "vertex: c1 (1,0) sign -1 -> +1",
+  "kind": "vertex",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.51s"
+ },
+ {
+  "mutation": "vertex: c2 (0,1) sign -1 -> +1",
+  "kind": "vertex",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.48s"
+ },
+ {
+  "mutation": "vertex: c3 (1,1) sign -1 -> +1",
+  "kind": "vertex",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.46s"
+ },
+ {
+  "mutation": "vertex: c3 (0,0) sign -1 -> +1",
+  "kind": "vertex",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.44s"
+ },
+ {
+  "mutation": "vertex: c0 (0,1) sigma (-,-)->(+,+)",
+  "kind": "vertex",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_K1_ladder_factors_from_prepotentials",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 2,
+  "unit_failed_first": [
+   "test_vertex_table_shape",
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "2 failed, 17 passed in 0.43s"
+ },
+ {
+  "mutation": "electric: N_n -> N_p read at in-site",
+  "kind": "elec",
+  "caught": false,
+  "acceptance_failed": [],
+  "n_unit_failed": 0,
+  "unit_failed_first": [],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "19 passed in 0.49s"
+ },
+ {
+  "mutation": "electric: j(j+1) -> j^2",
+  "kind": "elec",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_X1_spectra_three_routes",
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_h_electric"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.44s"
+ },
+ {
+  "mutation": "electric: outer legs flux N_3 included",
+  "kind": "elec",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_h_electric"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.51s"
+ },
+ {
+  "mutation": "K: drop h.c. (K = -P)",
+  "kind": "K",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_plaquette_and_K_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.52s"
+ },
+ {
+  "mutation": "h_magnetic: couple all codes regardless of outer part",
+  "kind": "K",
+  "caught": true,
+  "acceptance_failed": [
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 1,
+  "unit_failed_first": [
+   "test_h_magnetic_block_structure"
+  ],
+  "acc_summary": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit_summary": "1 failed, 18 passed in 0.49s"
+ }
+]

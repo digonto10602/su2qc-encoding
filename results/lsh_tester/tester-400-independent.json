@@ -1,0 +1,109 @@
+{
+ "valid_site_codes": [
+  0,
+  1,
+  2,
+  4,
+  6
+ ],
+ "n_physical_5^8": 433,
+ "n_inner": 47,
+ "raw_AGL_only": 5920,
+ "raw_AGL_cap": 433,
+ "raw_inner_AGL_only": 82,
+ "n_outer_patterns": 305,
+ "fock_gram_err": 6.661338147750939e-16,
+ "P_nnz": 16,
+ "bright": 16,
+ "dark": 31,
+ "K_coupling_counts": {
+  "-2.0": 2,
+  "-0.5": 2,
+  "1.0": 12
+ },
+ "max_K_indep_minus_6j": 3.552713678800501e-15,
+ "max_K_project_minus_6j": 1.7763568394002505e-15,
+ "max_K_project_minus_indep": 1.7763568394002505e-15,
+ "max_P_proj_minus_indep": 8.881784197001252e-16,
+ "HB_indep_minus_6j": 3.552713678800501e-15,
+ "HE_indep_minus_6j_inner": 0.0,
+ "HE_indep_minus_6j_all": 0.0,
+ "HE_inner_hist": {
+  "0.0": 16,
+  "0.75": 64,
+  "1.5": 128,
+  "2.25": 144,
+  "3.0": 81
+ },
+ "HE_all_hist": {
+  "0.0": 1,
+  "1.5": 4,
+  "2.25": 16,
+  "3.0": 23,
+  "3.75": 48,
+  "4.5": 92,
+  "5.25": 80,
+  "6.0": 57,
+  "6.75": 64,
+  "7.5": 32,
+  "9.0": 16
+ },
+ "gauge_align_residual_indep": 2.6645352591003757e-15,
+ "gauge_minus_signs": 64,
+ "spectra_independent": {
+  "0.5": {
+   "indepLSH_vs_A": 8.881784197001252e-15,
+   "indepLSH_vs_B": 7.105427357601002e-15,
+   "A_vs_B": 1.1102230246251565e-14,
+   "emin": -3.642539669997046,
+   "emax": 4.392539669997046
+  },
+  "1.0": {
+   "indepLSH_vs_A": 6.106226635438361e-15,
+   "indepLSH_vs_B": 3.552713678800501e-15,
+   "A_vs_B": 4.829470157119431e-15,
+   "emin": -1.386000936329381,
+   "emax": 2.8860009363293813
+  },
+  "2.0": {
+   "indepLSH_vs_A": 7.105427357601002e-15,
+   "indepLSH_vs_B": 9.992007221626409e-16,
+   "A_vs_B": 7.105427357601002e-15,
+   "emin": -0.3027756377319941,
+   "emax": 3.3027756377319943
+  }
+ },
+ "spectra_project": {
+  "0.5": {
+   "project_vs_A": 1.021405182655144e-14,
+   "project_vs_B": 3.552713678800501e-15
+  },
+  "1.0": {
+   "project_vs_A": 5.218048215738236e-15,
+   "project_vs_B": 1.7763568394002505e-15
+  },
+  "2.0": {
+   "project_vs_A": 7.105427357601002e-15,
+   "project_vs_B": 4.996003610813204e-16
+  }
+ },
+ "HB_project_minus_6j": 1.7763568394002505e-15,
+ "HE_project_minus_indep_inner": 0.0,
+ "HE_project_minus_indep_all": 0.0,
+ "HB_spectrum": {
+  "-2.0": 16,
+  "-1.0": 96,
+  "-0.5": 16,
+  "0.0": 177,
+  "0.5": 16,
+  "1.0": 96,
+  "2.0": 16
+ },
+ "closed_block_err": {
+  "0.5": 3.552713678800501e-15,
+  "1.0": 1.7763568394002505e-15,
+  "2.0": 8.881784197001252e-16
+ },
+ "commit": "3762312",
+ "note": "tester-400 independent check of LSH steps 7.0-7.2 (deterministic; no RNG); working tree has uncommitted builder files"
+}
