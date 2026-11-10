@@ -1,0 +1,270 @@
+{
+ "n_entries_20": {
+  "pass": true,
+  "got": [
+   20,
+   20
+  ]
+ },
+ "key_r04-F1-004": {
+  "pass": true,
+  "got": [
+   31,
+   1062,
+   2173,
+   17
+  ]
+ },
+ "key_r04-F3-004": {
+  "pass": true,
+  "got": [
+   32,
+   811,
+   1536,
+   17
+  ]
+ },
+ "best_is_min_key": {
+  "pass": true,
+  "got": [
+   "r04-F1-004",
+   "r04-F1-004",
+   [
+    31,
+    1062,
+    2173,
+    17
+   ]
+  ]
+ },
+ "min_key_unique": {
+  "pass": true,
+  "got": null
+ },
+ "elites_recomputed": {
+  "pass": true,
+  "got": {
+   "cells_of_new": {
+    "r04-F1-004": [
+     40,
+     80
+    ],
+    "r04-F3-004": [
+     40,
+     77
+    ]
+   },
+   "elite_in_those": {
+    "40,80": "r04-F1-004",
+    "40,77": "r04-F3-004"
+   }
+  }
+ },
+ "cell_formula": {
+  "pass": true,
+  "got": null
+ },
+ "family_bests_recomputed": {
+  "pass": true,
+  "got": {
+   "F1": {
+    "best": "r04-F1-004"
+   },
+   "F2": {
+    "best": "r03-F2-003"
+   },
+   "F3": {
+    "best": "r04-F3-004"
+   },
+   "F5": {
+    "best": "r02-F5-002"
+   },
+   "seed": {
+    "best": "r00-seed-001"
+   }
+  }
+ },
+ "attempts_20_lines": {
+  "pass": true,
+  "got": 20
+ },
+ "attempts_match_entries": {
+  "pass": true,
+  "got": null
+ },
+ "attempts_ids_unique": {
+  "pass": true,
+  "got": null
+ },
+ "attempts_first18_unchanged": {
+  "pass": true,
+  "got": 18
+ },
+ "round_json": {
+  "pass": true,
+  "got": null
+ },
+ "round_candidates_match_entries": {
+  "pass": true,
+  "got": null
+ },
+ "program_files_sha_equal_archive_all20": {
+  "pass": true,
+  "got": 20
+ },
+ "feedback_files_20": {
+  "pass": true,
+  "got": [
+   20,
+   20
+  ]
+ },
+ "feedback_round4_valid": {
+  "pass": true,
+  "got": {
+   "r04-F1-004": 7.34808696138718e-15,
+   "r04-F3-004": 5.9431522064411265e-15
+  }
+ },
+ "verdicts_nominal_alt_ok": {
+  "pass": true,
+  "got": {
+   "r04-F1-004": [
+    7.34808696138718e-15,
+    5.156050377256206e-15,
+    6.484834315513731e-15
+   ],
+   "r04-F3-004": [
+    5.9431522064411265e-15,
+    4.9923226059017676e-15,
+    6.0953187725141944e-15
+   ]
+  }
+ },
+ "no_leak_dirty_outer_in_verdicts": {
+  "pass": true,
+  "got": null
+ },
+ "discoveries_tail_equals_round4_entries": {
+  "pass": true,
+  "got": {
+   "n_new": 5,
+   "file_lines": 35
+  }
+ },
+ "discoveries_prefix_unchanged": {
+  "pass": true,
+  "got": 30
+ },
+ "synthesis_verification_best": {
+  "pass": true,
+  "got": {
+   "entry": "r04-F1-004",
+   "ok": true,
+   "eps": 1e-06,
+   "n_rot": 17,
+   "t_total": 1062,
+   "tolerances": {
+    "tol_err": 1.7001e-05,
+    "tol_gauss": 1.7001e-05
+   },
+   "op_norm_error": 6.0122638422264305e-06,
+   "certified": true,
+   "reason": "ok"
+  }
+ },
+ "lean_status_round4": {
+  "pass": true,
+  "got": {
+   "r04-F1-004": "n_a",
+   "r04-F3-004": null
+  }
+ },
+ "old_entries_unchanged_vs_base": {
+  "pass": true,
+  "got": null
+ },
+ "old_feedback_unchanged_vs_base": {
+  "pass": true,
+  "got": null
+ },
+ "robust_json_old_entries_unchanged": {
+  "pass": true,
+  "got": null
+ },
+ "round_provenance": {
+  "pass": true,
+  "got": {
+   "git_commit": "a0c90d7",
+   "git_dirty": true,
+   "entries_dirty": {
+    "r04-F1-004": false,
+    "r04-F3-004": true
+   }
+  }
+ },
+ "parents_as_claimed": {
+  "pass": true,
+  "got": {
+   "r04-F1-004": "r03-F1-003",
+   "r04-F3-004": "r03-F3-003"
+  }
+ },
+ "seeds": {
+  "pass": true,
+  "got": {
+   "trial_seed": 0,
+   "transpiler_logical": 20261104,
+   "clifford_t_pass_manager": 12345,
+   "gridsynth": 0
+  }
+ },
+ "best_certified_is_r02_F1_002": {
+  "pass": true,
+  "got": null
+ },
+ "r04F3_strictly_better_than_parent_nominal": {
+  "pass": true,
+  "got": [
+   [
+    32,
+    811,
+    1536,
+    17
+   ],
+   [
+    32,
+    832,
+    1553,
+    17
+   ]
+  ]
+ },
+ "r04F1_strictly_better_than_parent_nominal": {
+  "pass": true,
+  "got": [
+   [
+    31,
+    1062,
+    2173,
+    17
+   ],
+   [
+    31,
+    1062,
+    2189,
+    17
+   ]
+  ]
+ },
+ "hashes": {
+  "pass": true,
+  "got": [
+   "0bd7e7d91d9d",
+   "0bd7e7d91d9d",
+   "7f5bb7f8e65f",
+   "7f5bb7f8e65f"
+  ]
+ }
+}
+ALL PASS []

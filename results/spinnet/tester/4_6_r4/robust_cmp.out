@@ -1,0 +1,11 @@
+r04-F1-004 {'own_sum': 21840, 'cache_sum': 21840, 'max_abs_pair_diff': 0, 'own_cx': [31], 'cache_cx': 31, 'mean': 1092.0, 'nominal_key_T': 1062, 'angle_linear_cache': False, 'T_min': 1056, 'T_max': 1126, 'std': 18.80649383926509}
+r04-F3-004 {'own_sum': 16954, 'cache_sum': 16954, 'max_abs_pair_diff': 0, 'own_cx': [32], 'cache_cx': 32, 'mean': 847.7, 'nominal_key_T': 811, 'angle_linear_cache': False, 'T_min': 823, 'T_max': 871, 'std': 12.570223797362939}
+r02-F1-002 {'own_sum': 21840, 'cache_sum': 21840, 'max_abs_pair_diff': 0, 'own_cx': [31], 'cache_cx': 31, 'mean': 1092.0, 'nominal_key_T': 1086, 'angle_linear_cache': True, 'T_min': 1072, 'T_max': 1114, 'std': 13.97742540858765}
+r03-F1-003 {'own_sum': 21840, 'cache_sum': 21840, 'max_abs_pair_diff': 0, 'own_cx': [31], 'cache_cx': 31, 'mean': 1092.0, 'nominal_key_T': 1062, 'angle_linear_cache': False, 'T_min': 1056, 'T_max': 1126, 'std': 18.80649383926509}
+r03-F3-003 {'own_sum': 16948, 'cache_sum': 16948, 'max_abs_pair_diff': 0, 'own_cx': [32], 'cache_cx': 32, 'mean': 847.4, 'nominal_key_T': 832, 'angle_linear_cache': False, 'T_min': 828, 'T_max': 864, 'std': 11.931382767175066}
+r02-F3-002 {'own_sum': 16948, 'cache_sum': 16948, 'max_abs_pair_diff': 0, 'own_cx': [32], 'cache_cx': 32, 'mean': 847.4, 'nominal_key_T': 832, 'angle_linear_cache': False, 'T_min': 828, 'T_max': 864, 'std': 11.931382767175066}
+T(r04-F1-004)-T(r02-F1-002): mean +0.00 sem 3.67 min -32 max 32 neg 8 zero 3 pos 9
+T(r04-F1-004)-T(r03-F1-003): mean +0.00 sem 0.00 min 0 max 0 neg 0 zero 20 pos 0
+T(r04-F3-004)-T(r03-F3-003): mean +0.30 sem 1.83 min -15 max 11 neg 9 zero 0 pos 11
+T(r04-F3-004)-T(r02-F3-002): mean +0.30 sem 1.83 min -15 max 11 neg 9 zero 0 pos 11
+T(r04-F3-004)-T(r02-F1-002): mean -244.30 sem 2.69 min -271 max -219 neg 20 zero 0 pos 0
