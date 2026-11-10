@@ -15,7 +15,7 @@ def _enc():
     return api("su2plaq.encodings.rishon:RishonEncoding")()
 
 
-@pytest.mark.parametrize("kind", ["UE", "UB", "step"])
+@pytest.mark.parametrize("kind", ["UE", "UB", pytest.param("step", marks=pytest.mark.slow)])   # prompts/202 section 7, prompts/204 (c)
 def test_M5_T1_t_table_and_synth_verify(kind):
     """t_table rows for the eps grid: t_total = t_fixed + sum of pygridsynth T per rotation, each in the Ross-Selinger
     band; |t_qiskit - t_total| <= 10 %; t_est formula.  The circuit synthesised at eps = 1e-6 re-verifies through the

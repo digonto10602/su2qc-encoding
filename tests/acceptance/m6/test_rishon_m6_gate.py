@@ -44,6 +44,10 @@ def test_M6_G1_archive_best_valid_and_not_worse_than_seed(root):
     arch, best = _best(root)
     ev = api("su2plaq.rishon.compress.evaluate")
     M = api("su2plaq.compress.metrics")
+    # prompts/204 section 3, 6: rishon prune cap 10 % of tol_err; the archive must be the one replayed under the new evaluator hash
+    assert api("su2plaq.rishon.verify:RISHON_PRUNE_FRACTION") == 0.1
+    if not (root / "results" / "compress" / ENC / "replay-204.json").exists():
+        pytest.fail("PENDING: the archive has not been replayed under the 10 % cap (prompts/204 step C2)", pytrace=False)
     assert best.valid and best.mode == "full"
     r = ev.evaluate_program(str(root / best.program_path), spec, mode="full")
     assert r.valid and r.skeleton_equal, (r.reason, r.message)
@@ -51,7 +55,7 @@ def test_M6_G1_archive_best_valid_and_not_worse_than_seed(root):
     seeds = [e for e in arch.entries() if e.round == 0 and e.valid]
     assert seeds and tuple(best.key) <= min(tuple(e.key) for e in seeds)
     assert best.evaluator_sha256 == api("su2plaq.rishon.compress:code_hash")()
-    assert r.verdict.op_norm_error <= 1e-10 and r.verdict.dropped_total <= 1e-12 and r.verdict.gauss_residual <= 1e-10
+    assert r.verdict.op_norm_error <= 1e-10 and r.verdict.dropped_total <= 1e-11 and r.verdict.gauss_residual <= 1e-10
 
 
 def test_M6_G2_best_synthesised_reverified(root):

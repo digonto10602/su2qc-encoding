@@ -22,7 +22,7 @@ REQUIRED_FACTS = {   # name -> (value or None if free-form, proved_by)
     "amplitude_alphabet": (None, "numerical"), "closed_bright_block": (None, "numerical"), "inner_span_rank": (1296, "numerical"),
     "u1_sectors": (431, "numerical"), "prune_rates": (None, "numerical"),
 }
-SPEC_PHRASES = ("quantum link model", "1296", "38432", "outer_read_unsupported", "pruning", "rccx", "ccx", "1e-10", "1e-12",
+SPEC_PHRASES = ("quantum link model", "1296", "38432", "outer_read_unsupported", "pruning", "rccx", "ccx", "1e-10", "1e-11",
                 "su2plaq.rishon.compress.run_candidate", "su2plaq.rishon.compress.oracle", "Proved structure (Lean)", "DISCOVERY",
                 "4\\sqrt2", "sqrt2", "kappa", "0.37", "0.61", "80")
 
@@ -134,6 +134,8 @@ def test_M6_K2_structure_facts_and_spec_text(root, tmp_path):
     renderer's output and carries the required phrases (prompts/203 §4)."""
     spec = _spec()
     S = api("su2plaq.rishon.compress.spec")
+    # prompts/204 section 3 (Digonto 2026-11-10): the rishon prune cap is 10 % of tol_err = 1e-11; PENDING until it is built
+    assert api("su2plaq.rishon.verify:RISHON_PRUNE_FRACTION") == 0.1
     facts = S.structure_facts()
     by = {f["name"]: f for f in facts["facts"]}
     for name, (value, proved_by) in REQUIRED_FACTS.items():
@@ -149,7 +151,7 @@ def test_M6_K2_structure_facts_and_spec_text(root, tmp_path):
     assert hb["n_pairs"] == 81 and hb["dark_codes"] == 990 and hb["vectors"] == 162 and set(hb["kappa_multiset"].values()) == {32, 48, 1}
     pr = by["prune_rates"]["value"]            # prompts/203 §13 E2: one rate per branching gate of the engine's lowering + the budget
     assert {"per_branching_gate", "budget_at_cap", "branching", "engine_exact"} <= set(pr)
-    assert 1e-16 <= pr["per_branching_gate"] <= 1e-14 and pr["budget_at_cap"] == int(np.floor(1e-12 / pr["per_branching_gate"]))
+    assert 1e-16 <= pr["per_branching_gate"] <= 1e-14 and pr["budget_at_cap"] == int(np.floor(1e-11 / pr["per_branching_gate"]))
     assert "h" in pr["branching"] and "ccx" in pr["engine_exact"] and "cx" in pr["engine_exact"]
     p = S.write_structure_json(tmp_path / "rishon-structure.json")
     d = json.loads(pathlib.Path(p).read_text())
@@ -160,6 +162,7 @@ def test_M6_K2_structure_facts_and_spec_text(root, tmp_path):
     assert text == S.render_spec(spec), "the committed spec is not the renderer's output"
     for needle in SPEC_PHRASES:
         assert needle in text, needle
+    assert "1e-12" not in text, "the spec still quotes the 1 % cap (prompts/204 section 3)"
     # prompts/203 §13 E3 (headline rule): the spec carries the section before "## Tools" (PENDING until the robust module exists)
     title = api("su2plaq.rishon.compress.robust:HEADLINE_SECTION_TITLE")
     assert title in text and text.index(title) < text.index("## Tools") and "robust key" in text and "pi/4" in text.replace("\\pi/4", "pi/4").replace("\\pi", "pi")

@@ -82,6 +82,11 @@ def test_M6_S3_round0_recorded(root):
     f = root / "results" / "compress" / ENC / "round-000.json"
     if not f.exists():
         pytest.fail("PENDING: results/compress/rishon/round-000.json missing (step 6.5)", pytrace=False)
+    # prompts/204 section 3, 6: the rishon prune cap is 10 % of tol_err (1e-11) and round 0 is the replayed one
+    assert api("su2plaq.rishon.verify:RISHON_PRUNE_FRACTION") == 0.1
+    if not (root / "results" / "compress" / ENC / "replay-204.json").exists():
+        pytest.fail("PENDING: round 0 not yet replayed under the 10 % cap (prompts/204 step C2)", pytrace=False)
+    assert json.loads(f.read_text())["evaluator_sha256"] == json.loads((root / "results" / "compress" / ENC / "replay-204.json").read_text())["evaluator_sha256"]
     d = json.loads(f.read_text())
     assert d["round"] == 0 and d["encoding"] == ENC and d["kind"] == KIND and "git_commit" in d["provenance"]
     by = {c["label"]: c for c in d["candidates"]}
@@ -93,9 +98,10 @@ def test_M6_S3_round0_recorded(root):
     assert tuple(by["general+polish"]["key"]) <= tuple(by["general"]["key"])
     # Exact circuits that the engine simulates through bare branching gates (h / sx / u after its lowering) accumulate a
     # rounding-level pruning bound of ~5e-16 .. 1.1e-15 per branching gate over the 1296 inputs; above ~900-1900 of them the
-    # 1 % cap (prompts/005) rejects them as `pruning_bound` although block error + leak is ~1e-13 (prompts/203 §13 E2, METHODS-rishon
-    # R11).  The windowed Qiskit L3 row (ccx lowered to h/t/cx, ~3500 h) and the two ladder variants are therefore recorded as the
-    # evaluator judged them; a rejection must carry that reason and its true error, never another one.
+    # 1 % cap (prompts/005) rejected them as `pruning_bound` although block error + leak is ~1e-13 (prompts/203 §13 E2, METHODS-rishon
+    # R11).  Under the rishon cap of prompts/204 (10 % = 1e-11; measured dropped_total 3.8e-12, 2.9e-12, 2.7e-12) they are expected
+    # valid; the test keeps the "recorded as the evaluator judged them" form: a rejection must carry that reason, a bound above the
+    # cap in force and its true error, never another one.
     for lab in ("qiskit_l3", "general-rccx", "general-mcx"):
         c = by[lab]
         assert c["reason"] in ("ok", "pruning_bound"), (lab, c["reason"])
@@ -103,8 +109,9 @@ def test_M6_S3_round0_recorded(root):
         v = c["verdict"]
         if c["reason"] == "ok":
             assert v["op_norm_error"] <= 1e-10 and v["certified"] and c["skeleton_equal"] and all(c["alt_ok"])
+            assert v["dropped_total"] <= 1e-11, (lab, v)
         else:
-            assert v["block_error"] + v["leak_amplitude"] <= 1e-10 and v["dropped_total"] > 1e-12, (lab, v)
+            assert v["block_error"] + v["leak_amplitude"] <= 1e-10 and v["dropped_total"] > 1e-11, (lab, v)
     ext = {x["source"]: x for x in d["external"]}
     assert set(ext) == EXTERNAL
     for s in ("paulo34", "lean22", "lean22_v2", "spinnet15"):

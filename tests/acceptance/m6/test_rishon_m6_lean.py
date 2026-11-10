@@ -1,4 +1,4 @@
-"""M6-L1..L8 — Lean inside the rishon loop (prompts/203 §2, §3.2, §6; prompts/006 trust levels; METHODS-rishon R12):
+"""M6-L1..L9 — Lean inside the rishon loop (prompts/203 §2, §3.2, §6; prompts/204 §6.4 (L9); prompts/006 trust levels; METHODS-rishon R12):
 the structure facts proposers may rely on (kernel / native), the track-owned three-angle exact certificate checker
 (z_alpha, z_beta, z_gamma = e^{i sqrt2 beta / d}), per-circuit certificates of the general circuits, the round integration,
 and the gate status of the archive best.  Everything Lean checks is exact; numbers are time limits and one 1e-12 float
@@ -165,6 +165,37 @@ def test_M6_L3_cert3_accept_reject_na(root, tmp_path):
     assert time.time() - t0 <= 300
 
 
+def test_M6_L9_det_layer_certificate(root, tmp_path):
+    """prompts/204 section 6.4: the det layer U_D(eta) (16 data qubits, 4 link gadgets) is certified for ALL eta by the same
+    three-angle checker with eta in the first formal slot (z_alpha := e^{i eta / d}; the slot use is recorded in the certificate's
+    provenance, the schema is unchanged); a wrong multiple of eta is rejected; an angle that is not m eta / d is n_a.  With the
+    unit's certificate (L4 / L7) this gives the three-layer step for all (alpha, beta, eta) by composition of two exact
+    statements on the same 1296 codes (METHODS-rishon R15) -- no fourth variable is needed.  <= 300 s total."""
+    LC = api("su2plaq.rishon.lean_cert")
+    single = api("su2plaq.rishon.lean_cert:recognise_angle_single")
+    assert single(2 * 0.29, 0.29) == (2, 1) and single(-0.75 * 0.29, 0.29) == (-3, 4) and single(0.0, 0.29) == (0, 1)
+    assert single(0.123, 0.29) is None and single(0.29 / 64, 0.29) == (1, 64) and single(0.29 / 65, 0.29) is None
+    certify = api("su2plaq.rishon.lean_cert:certify_det_layer")
+    _lean_dir(root)
+    build_UD = api("su2plaq.circuits.rishon:build_UD")
+    eta = 0.29
+    t0 = time.time()
+    qc = build_UD(eta)
+    c1 = certify(qc, eta, out_dir=tmp_path, timeout=300)
+    assert c1.status == "certified", (c1.status, c1.reason)
+    cert = json.loads(pathlib.Path(c1.cert_path).read_text())
+    assert cert["schema"] == SCHEMA and cert["n_data"] == 16 and cert["n_outer"] == 0 and len(cert["states"]) == 1296
+    assert cert["provenance"]["kind"] == "UD" and cert["provenance"]["angle_slots"] == {"alpha": "eta"}
+    ms = [g["m"] for g in cert["gates"] if "m" in g]
+    assert ms and all(len(m) == 3 and m[1] == 0 and m[2] == 0 for m in ms) and any(m[0] != 0 for m in ms)
+    name, old = next((inst.operation.name, float(inst.operation.params[0])) for inst in qc.data if inst.operation.params)
+    c2 = certify(_with_first_angle(qc, name, -old), eta, out_dir=tmp_path / "bad", timeout=300)
+    assert c2.status == "rejected", (c2.status, c2.reason)
+    c3 = certify(_with_first_angle(qc, name, 0.123), eta, out_dir=tmp_path / "na", timeout=300)
+    assert c3.status == "n_a" and c3.reason.startswith("non_linear_angle"), (c3.status, c3.reason)
+    assert time.time() - t0 <= 300
+
+
 @pytest.mark.slow
 def test_M6_L4_cert3_general_ub_and_step(root, tmp_path):
     """The general U_B(0.61) (angles 2 beta, 4 beta, 8 sqrt2 beta) and the general step circuit are certified exactly for
@@ -234,7 +265,7 @@ def test_M6_L7_archive_best_lean_status_recorded(root):
     assert isinstance(best.lean, dict), best.lean
     assert best.lean["status"] in ("certified", "n_a"), best.lean
     if best.lean["status"] == "n_a":
-        assert str(best.lean["reason"]).startswith(("non_linear_angle", "phase_not_in_K", "unitary_gate", "too_many_qubits")), best.lean
+        assert str(best.lean["reason"]).startswith(("non_linear_angle", "angle_fit_not_confirmed", "phase_not_in_K", "unitary_gate", "too_many_qubits")), best.lean
     text = api("su2plaq.compress.report:report_table")(ENC, "step", root=root)
     assert "Lean" in text
     # prompts/203 §13 E3: the HEADLINE entry (robust key) carries its own Lean status with the same allowed values
@@ -243,7 +274,7 @@ def test_M6_L7_archive_best_lean_status_recorded(root):
     entry = next(e for e in A.Archive.load(ENC, root=root).entries() if e.id == h["id"])
     assert isinstance(entry.lean, dict) and entry.lean["status"] in ("certified", "n_a"), entry.lean
     if entry.lean["status"] == "n_a":
-        assert str(entry.lean["reason"]).startswith(("non_linear_angle", "phase_not_in_K", "unitary_gate", "too_many_qubits")), entry.lean
+        assert str(entry.lean["reason"]).startswith(("non_linear_angle", "angle_fit_not_confirmed", "phase_not_in_K", "unitary_gate", "too_many_qubits")), entry.lean
     assert h["lean"] == entry.lean["status"]
     assert "HEADLINE" in R.report_table("step", root=root)
 
