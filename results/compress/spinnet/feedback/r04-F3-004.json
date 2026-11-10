@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.9431522064411265e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.9238795325112871,
+   -0.3826834323650892
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.424666426981638e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.557950808618435e-15,
+  "block_error": 2.385201397822692e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.17081713676452637,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.2296340532816534e-15,
+   "max_dropped_l2": 8.7910305360257005e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.385201397822692e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.9923226059017676e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9238795325112866,
+    -0.38268343236509
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.411530983378858e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.2729356156004335e-15,
+   "block_error": 1.7193869903013337e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.17015480995178223,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.650465180893349e-15,
+    "max_dropped_l2": 7.216449660063518e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.7193869903013337e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.0953187725141944e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.923879532511287,
+    -0.3826834323650894
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.338891568193822e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.5724407080513905e-15,
+   "block_error": 2.522878064462804e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1711263656616211,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.303054819864817e-15,
+    "max_dropped_l2": 7.286288659966601e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.522878064462804e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 32,
+  "t_fixed": 29,
+  "n_rot": 13,
+  "t_eps": 811,
+  "t_estimate": {
+   "1e-06": 806.3311742036428,
+   "1e-10": 1324.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 811,
+   "1e-10": 1347
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 64,
+  "depth_ct": 1536,
+  "qubits": 17,
+  "gates": {
+   "cx": 32,
+   "x": 30,
+   "tdg": 17,
+   "h": 16,
+   "rz": 13,
+   "t": 12,
+   "sdg": 2,
+   "z": 2,
+   "s": 1
+  },
+  "measured": true
+ },
+ "program_sha256": "0bab039b12c723846fcda0b9b8b837e5fd4788491c784f7f3b3ee2a1bcff6aef",
+ "wall_s": 1.4591460227966309,
+ "discoveries": [
+  "DISCOVERY: every crossing of two direct rccx pairs on the pivot (A with a corner NOR, or two corner NORs; all 3 pairings, 4 literal variants each, both first controls, all 7 crossing patterns of three direct units) leaves a sign that is cubic in the corners in sector e=u=v=0 and cannot be fixed with <= 2 CZ; nested or sequential direct pairs confine the walk to 3 of the 4 flag classes and the time-limited MILP finds no support below 13 terms (16 for most pairings, 14-30 for A+NOR direct) while 31 CX would need <= 12, so double/triple direct AND designs do not reach 31 CX (MILP values are incumbents, not proven optima).",
+  "DISCOVERY: hosting a corner NOR in the e wire (so that the fused ladder block would unload it for free) ties it to e: f leaves the span without raw corners and needs 25-30 terms with them; Na XORed into the first-control corner of the direct NOR (so that its enclosed toggle would cancel the rccx sign) needs >= 17 terms; dropping A and using only two corner NORs needs 14 terms (no 32-CX all-ancilla walk for pairing 01|23).",
+  "DISCOVERY: the star ladder CX(0,1) CX(0,2) CX(0,3) H(0) absorbs a pivot preload from any subset of q1..q3 (H(0) CX(k,0) = CZ(k,0) H(0) and each CX(0,k) CZ(0,k) is a 1-CX Clifford), so its free walk ends are all of span(b^r, b^t, b^l); it does not help here because A=[u=v=0] needs v=r^l on a wire, which the star frame lacks."
+ ],
+ "summary": "F3 parent circuit (Na=NOR(c0,c1) ancilla, A=[u=v=0] in place in c1, Nd=NOR(c2,c3) direct rccx pair + CZ(Na,c2); 9-term walk e -> 0, 32 CX, 17 qubits) with every rotation that has a cheaper pi/4-shifted Clifford+T form emitted as p/rz(theta + pi/4) . tdg: the 4 electric p(-3alpha/4 +- pi/2) go 64 -> 58+1 T and the rz(+-beta/2) walk term 66 -> 64+1 (fixed decision, same skeleton at all angles); T 832 -> 811, angles k*beta/8, 3*alpha/4 (+ multiples of pi/4)."
+}

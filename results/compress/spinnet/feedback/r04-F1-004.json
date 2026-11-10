@@ -1,0 +1,155 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 7.34808696138718e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.9999999999999999,
+   2.297366813081159e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.881301029635769e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 5.069255486160639e-15,
+  "block_error": 2.278831475226542e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.5222992897033691,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9159022391830736e-15,
+   "max_dropped_l2": 1.401291267976986e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.278831475226542e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.156050377256206e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    0.0
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.369466571967547e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.674828114175494e-15,
+   "block_error": 1.481222263080712e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1759042739868164,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.481222263080712e-15,
+    "max_dropped_l2": 1.133606388445179e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.4812222630807097e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.484834315513731e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    1.189707813917028e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.309727579961014e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.871042789779678e-15,
+   "block_error": 2.6137915257340528e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.17672181129455566,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.4381737258819824e-15,
+    "max_dropped_l2": 1.0003552036395106e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.6137915257340528e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 31,
+  "t_fixed": 24,
+  "n_rot": 17,
+  "t_eps": 1062,
+  "t_estimate": {
+   "1e-06": 1040.5099970355327,
+   "1e-10": 1718.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1062,
+   "1e-10": 1752
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 57,
+  "depth_ct": 2173,
+  "qubits": 17,
+  "gates": {
+   "cx": 31,
+   "rz": 17,
+   "x": 14,
+   "tdg": 12,
+   "t": 12,
+   "h": 10,
+   "s": 3,
+   "z": 2,
+   "sdg": 2
+  },
+  "measured": true
+ },
+ "program_sha256": "cc53f03142012fdc76047319adc70ed0b3a0da27eec98bbc1fab015215800741",
+ "wall_s": 1.506570816040039,
+ "discoveries": [
+  "DISCOVERY: the fused start block CX(0,2)CX(0,3)H(0) absorbs 14 of the 168 linear maps on (q0,q2,q3) at no CX (optimal 3-qubit Clifford synthesis), among them copying the pivot into q3 (q3 = e^p, a second rotation accumulator) and the relabel v^e; yet exhaustive two-accumulator DFS (pivot and q3 both carry p, free ends on both) finds no 12-CX walk for atoms {c0^A, a1, c1, c3}, and the three-AND designs (A + any corner-NOR pairing, A in an ancilla or any corner, atoms allowed as extra accumulators) have no 7-CX walk, so 31 CX stands.",
+  "DISCOVERY: the 19 remaining adjacent-pair direct-rccx NOR designs (12 linear toggles) and all 30 feasible 'corner NOR XORed into u/v/e with A rebuilt' designs (12-toggle budget) have no walk; no 4-rccx flag program that restores every register on the 39 configs reaches 3 independent nonlinear values (meet-in-the-middle over 88240 two-gate states), while 5-rccx programs do (4954 value sets, 160 with A and a Z/CZ-fixable leftover phase) - their segmented walks (9-10 CX for 30-31 CX total) are the open lead."
+ ],
+ "summary": "parent circuit unchanged in every gate that costs CX or T (dimer frame, pivot b; flag a1=[c0=c2=0], A=[u=v=0] XORed into c0; 13-toggle all-linear H-frame walk over c1, c3, c0^A, a1, e; 31 CX, 17 qubits, T 1062), with the pivot critical path shortened: each exact phase fix p(-m*pi/4) is one gate (tdg/sdg instead of z s t / z s), the electric phase of b drops its X-frame sandwich (sg=+1 form, 154-gate word plus one tdg), and the per-rotation (sign, pi/4-shift) forms plus pivot X flips are chosen by a DP over the walk for minimal word+fix+flip length at minimal T (walk chain 2010 -> 2004 gates)."
+}
