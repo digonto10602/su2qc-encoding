@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.594163421680758e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.281952590115942e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.933464366067994e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.3336784681939215e-15,
+  "block_error": 2.2604849534868365e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.2723236083984375,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.782019951394485e-15,
+   "max_dropped_l2": 8.468470856445827e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.2604849534868365e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.642889076312193e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -5.743417032702897e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.846815929450271e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.827920598106599e-15,
+   "block_error": 1.8149684782055937e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2731766700744629,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.6910413304902314e-15,
+    "max_dropped_l2": 8.385165697974018e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.8149684782055937e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.584650345267174e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    3.6921966638804335e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.405215745588179e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.9611840295833066e-15,
+   "block_error": 2.6234663156838673e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.27846646308898926,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.536665005570981e-15,
+    "max_dropped_l2": 1.1053722798734825e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.6234663156838673e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 32,
+  "t_fixed": 24,
+  "n_rot": 13,
+  "t_eps": 832,
+  "t_estimate": {
+   "1e-06": 801.3311742036428,
+   "1e-10": 1319.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 832,
+   "1e-10": 1376
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 64,
+  "depth_ct": 1552,
+  "qubits": 17,
+  "gates": {
+   "cx": 32,
+   "x": 30,
+   "h": 16,
+   "rz": 13,
+   "t": 12,
+   "tdg": 12,
+   "s": 2,
+   "z": 2,
+   "sdg": 1
+  },
+  "measured": true
+ },
+ "program_sha256": "43605421051ce5e26b85b1b5241eb02638fc5f8ad7c6297a67e7dd0e96fd22e4",
+ "wall_s": 2.1538822650909424,
+ "discoveries": [
+  "DISCOVERY: free sign tools for direct rccx pairs: two Z on the pivot at steps i<j give (-1)^(g_i^g_j) (incl. direct flags), a CZ fused into a toggle (sdg(0) cx(x,0) s(0) s(x), 1 CX) twice on one atom gives (-1)^(x(g_i^g_j)), rccx literal pairs (ab, abar bbar)/(abar b, a bbar) leave only S phases, and the AND toggle ch(a,P) cz(b,P) ch(a,P) (3 CX, 4 T) leaves (-1)^(abar b dS) instead of (-1)^(a dS); none fixes the leftover (-1)^(c2bar Na) of the 6 nine-toggle walks of the parent design (exhaustive over 7 linear toggles, free ends span(e,u), all four second-toggle variants), so 32 CX stays.",
+  "DISCOVERY: with A in an ancilla and BOTH corner NORs toggled by crossing direct rccx pairs, 9-rotation walks need only 5 linear toggles (8 walks per pairing, 29 CX before the sign fix; 88 walks with 6), but the leftover is ~[corner x only] ^ [corner y only] (x, y one corner of each pair) and is not in the span of the free tools plus any two CZ products of wire values (corners x links included), so the design costs >= 32 CX.",
+  "DISCOVERY: the robust T sum is set by the rotation count (about 63 T per rotation at random angles): removing the pi/4 offsets of r04-F3-004 changes the 20-pair sum only 16954 -> 16948 but makes the circuit angle-linear (Lean exporter ok); only a 31-CX circuit with <= 12 walk rotations can beat the 31-CX, 17-rotation headline."
+ ],
+ "summary": "angle-linear form of the F3 parent (Na=NOR(c0,c1) ancilla, A=[u=v=0] in place in c1, Nd=NOR(c2,c3) direct rccx pair + CZ(Na,c2); 9-term walk e -> 0, 32 CX, 17 qubits, 9+4 rotations): every rotation angle is exactly k*beta/4 or -3*alpha/4 (no pi/4 offsets and no fused pi/2 offsets; s/sdg are separate gates), so the circuit is angle-linear (Lean exporter ok) at an unchanged skeleton; robust key (32, 16948, 0, 33225, 17) vs parent (32, 16954, 1)."
+}

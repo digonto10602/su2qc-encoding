@@ -1,0 +1,265 @@
+{
+ "round": 5,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  31,
+  1062,
+  2173,
+  17
+ ],
+ "entries": [
+  "r05-F1-005",
+  "r05-F2-005",
+  "r05-F3-005"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "spinnet",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "9145258",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-10T21:12:38Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "005-nor3-direct-pair",
+   "id": "r05-F1-005",
+   "family": "F1",
+   "program_sha256": "c84e7634ded502b1d33c045227b5425cf4adc845824944606982569fbdb048fe",
+   "program_path": "compress/programs/spinnet/F1/005-nor3-direct-pair.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    32,
+    834,
+    1565,
+    18
+   ],
+   "cell": [
+    40,
+    77
+   ],
+   "metrics": {
+    "cx": 32,
+    "t_fixed": 24,
+    "n_rot": 13,
+    "t_eps": 834,
+    "t_estimate": {
+     "1e-06": 801.3311742036428,
+     "1e-10": 1319.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 834,
+     "1e-10": 1376
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 49,
+    "depth_ct": 1565,
+    "qubits": 18,
+    "gates": {
+     "cx": 32,
+     "x": 22,
+     "h": 16,
+     "rz": 13,
+     "t": 12,
+     "tdg": 12,
+     "sdg": 2,
+     "s": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.606482394400899e-15,
+    "block_error": 2.1547202288021332e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.488309788105658e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r04-F1-004",
+   "parent_known": true,
+   "git_commit": "9145258",
+   "summary": "three-AND F1 variant with a chained direct flag: dimer frame (pivot b), clean ancillas N12=[c1=c2=0] and A=[u=v=0], and D=[c3=0]&N12 (NOR3 of c1,c2,c3) toggled straight onto the pivot by an rccx pair; the raw corner c0 completes the bright projector, so the walk A D A c0 A D e A c0 (start p, end p^e fused into the inverse ladder) carries a 9-term polynomial (angles k*beta/8) and one CZ(c3bar, c0) removes the pair's leftover sign (-1)^(c3bar*c0); 32 CX, 9+4 rotations, 18 qubits (no robust gain: CX 32 > 31).",
+   "lean": null,
+   "round": 5,
+   "mode": "full"
+  },
+  {
+   "label": "005-angle-linear-design-interpreter",
+   "id": "r05-F2-005",
+   "family": "F2",
+   "program_sha256": "a446b43382ce42e588388893d19498f214234364b3a5d6af146ddf52af04d5e8",
+   "program_path": "compress/programs/spinnet/F2/005-angle-linear-design-interpreter.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    31,
+    1086,
+    2262,
+    17
+   ],
+   "cell": [
+    40,
+    80
+   ],
+   "metrics": {
+    "cx": 31,
+    "t_fixed": 16,
+    "n_rot": 17,
+    "t_eps": 1086,
+    "t_estimate": {
+     "1e-06": 1032.5099970355327,
+     "1e-10": 1710.1833283925548
+    },
+    "t_measured": {
+     "1e-06": 1086,
+     "1e-10": 1784
+    },
+    "synth_error_bound": 1.7e-05,
+    "depth": 48,
+    "depth_ct": 2262,
+    "qubits": 17,
+    "gates": {
+     "cx": 31,
+     "rz": 17,
+     "x": 17,
+     "h": 12,
+     "t": 8,
+     "tdg": 8,
+     "sdg": 2,
+     "s": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 4.989682288025805e-15,
+    "block_error": 1.643481081125481e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.907440274120147e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r03-F2-003",
+   "parent_known": true,
+   "git_commit": "9145258",
+   "summary": "angle-linear rebuild of the F2 31-CX design (dimer frame, pivot b, fused 2-CX start/end blocks, N=[c1=c3=0] in one ancilla, A=[U=V=0] XORed into c1, all-linear 13-toggle walk E -> 0 over (E, N, c1^A, c0, c2)) with every rotation a plain rational multiple of alpha or beta: U_E = 4 x p(-3alpha/4), walk rz(k beta/4), no pi/4-shift t/tdg (which cost +1 T at every angle), generic design interpreter (flags, direct rccx pairs with exact leftover-phase Z fix, fused START/END = inverse pairs); 31 CX, 17 rotations, 17 qubits",
+   "lean": null,
+   "round": 5,
+   "mode": "full"
+  },
+  {
+   "label": "005-angle-linear-walk",
+   "id": "r05-F3-005",
+   "family": "F3",
+   "program_sha256": "43605421051ce5e26b85b1b5241eb02638fc5f8ad7c6297a67e7dd0e96fd22e4",
+   "program_path": "compress/programs/spinnet/F3/005-angle-linear-walk.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    32,
+    832,
+    1552,
+    17
+   ],
+   "cell": [
+    40,
+    77
+   ],
+   "metrics": {
+    "cx": 32,
+    "t_fixed": 24,
+    "n_rot": 13,
+    "t_eps": 832,
+    "t_estimate": {
+     "1e-06": 801.3311742036428,
+     "1e-10": 1319.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 832,
+     "1e-10": 1376
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 64,
+    "depth_ct": 1552,
+    "qubits": 17,
+    "gates": {
+     "cx": 32,
+     "x": 30,
+     "h": 16,
+     "rz": 13,
+     "t": 12,
+     "tdg": 12,
+     "s": 2,
+     "z": 2,
+     "sdg": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.594163421680758e-15,
+    "block_error": 2.2604849534868365e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.933464366067994e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r04-F3-004",
+   "parent_known": true,
+   "git_commit": "9145258",
+   "summary": "angle-linear form of the F3 parent (Na=NOR(c0,c1) ancilla, A=[u=v=0] in place in c1, Nd=NOR(c2,c3) direct rccx pair + CZ(Na,c2); 9-term walk e -> 0, 32 CX, 17 qubits, 9+4 rotations): every rotation angle is exactly k*beta/4 or -3*alpha/4 (no pi/4 offsets and no fused pi/2 offsets; s/sdg are separate gates), so the circuit is angle-linear (Lean exporter ok) at an unchanged skeleton; robust key (32, 16948, 0, 33225, 17) vs parent (32, 16954, 1).",
+   "lean": null,
+   "round": 5,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": null,
+ "wall_s": 7.0534508228302,
+ "written_utc": "2026-11-10T21:12:38Z",
+ "spinnet": {
+  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "shim": [
+   "build_in_subprocess",
+   "certify",
+   "encoding"
+  ]
+ }
+}

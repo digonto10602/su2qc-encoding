@@ -1,9 +1,9 @@
 {
  "encoding": "spinnet",
  "kind": "step",
- "n_rounds": 5,
- "n_candidates": 20,
- "n_valid": 20,
+ "n_rounds": 6,
+ "n_candidates": 23,
+ "n_valid": 23,
  "global_best": "r04-F1-004",
  "global_best_key": [
   31,
@@ -463,6 +463,36 @@
    "t_eps": 811,
    "parent_known": true,
    "t_avg": 847.7
+  },
+  {
+   "id": "r05-F1-005",
+   "parent": "r04-F1-004",
+   "family": "F1",
+   "round": 5,
+   "cx": 32,
+   "t_eps": 834,
+   "parent_known": true,
+   "t_avg": 847.5
+  },
+  {
+   "id": "r05-F2-005",
+   "parent": "r03-F2-003",
+   "family": "F2",
+   "round": 5,
+   "cx": 31,
+   "t_eps": 1086,
+   "parent_known": true,
+   "t_avg": 1092.0
+  },
+  {
+   "id": "r05-F3-005",
+   "parent": "r04-F3-004",
+   "family": "F3",
+   "round": 5,
+   "cx": 32,
+   "t_eps": 832,
+   "parent_known": true,
+   "t_avg": 847.4
   }
  ],
  "headline": {
@@ -479,13 +509,16 @@
  },
  "t_avg": {
   "r02-F1-002": 1092.0,
+  "r05-F2-005": 1092.0,
   "r04-F1-004": 1092.0,
   "r03-F2-003": 1092.0,
   "r03-F1-003": 1092.0,
+  "r05-F3-005": 847.4,
   "r01-F1-001": 847.4,
   "r02-F2-002": 847.4,
   "r03-F3-003": 847.4,
   "r02-F3-002": 847.4,
+  "r05-F1-005": 847.5,
   "r04-F3-004": 847.7,
   "r01-F3-001": 847.4,
   "r01-F2-001": 1401.4,

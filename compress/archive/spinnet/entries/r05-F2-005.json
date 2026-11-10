@@ -1,0 +1,187 @@
+{
+ "id": "r05-F2-005",
+ "program_path": "compress/programs/spinnet/F2/005-angle-linear-design-interpreter.py",
+ "program_sha256": "a446b43382ce42e588388893d19498f214234364b3a5d6af146ddf52af04d5e8",
+ "parent": "r03-F2-003",
+ "family": "F2",
+ "round": 5,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  31,
+  1086,
+  2262,
+  17
+ ],
+ "cell": [
+  40,
+  80
+ ],
+ "metrics_raw": {
+  "cx": 31,
+  "t_fixed": 16,
+  "n_rot": 17,
+  "t_eps": 1086,
+  "t_estimate": {
+   "1e-06": 1032.5099970355327,
+   "1e-10": 1710.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1086,
+   "1e-10": 1784
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 48,
+  "depth_ct": 2262,
+  "qubits": 17,
+  "gates": {
+   "cx": 31,
+   "rz": 17,
+   "x": 17,
+   "h": 12,
+   "t": 8,
+   "tdg": 8,
+   "sdg": 2,
+   "s": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 4.989682288025805e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -1.6409762950579708e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.907440274120147e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.3462012069003245e-15,
+  "block_error": 1.643481081125481e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.2229471206665039,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.5820946729673023e-15,
+   "max_dropped_l2": 9.15105544098837e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 1.643481081125481e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.839438749800294e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.6409762950579702e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.830322762800934e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.188973568906946e-15,
+   "block_error": 1.6504651808933478e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2251269817352295,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.6504651808933478e-15,
+    "max_dropped_l2": 1.1901787496966291e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.5463617361248926e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.8679137114096886e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -3.6921966638804335e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.276069553530071e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.47874856657543e-15,
+   "block_error": 2.3891651448342586e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2172696590423584,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.3082492053662036e-15,
+    "max_dropped_l2": 1.0643358803872895e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.3891651448342586e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: wide annealing screens (C, f-in-span-of-visited-states, free ends span(E,U), exact direct-pair leftover sign (-1)^(first literal * net pivot change) with Z fixes) find no 30-CX walk for: no flag (L <= 30), A alone hosted anywhere (L <= 21), A plus any 2-literal AND over E,U,V,c0..c3 in any host (2016 designs, 12 toggles), A plus one direct AND pair (840 designs, 12 toggles, host control-swap phase allowed as a fix); time-limited MILP incumbents: raw A and N13 as wires need 15 terms (12 with A hosted in c1), 21 without A*N cross terms, 19-27 for nested direct A/NOR pairs.",
+  "DISCOVERY: no 31-CX three-unit walk without a fix gate (corner NOR ancilla + A in any corner/ancilla + any direct AND of two walk-time literals incl. the NOR and the hosted corner, both first controls: 7104 designs, 7 linear toggles, Z fixes only; with 6 toggles + 1 CZ and the control-swap phase, the 3439 designs with NOR N01, N02, N03 also fail), so the direct-AND route stays at 32 CX (CZ) and the 31-CX floor of all-linear two-flag walks keeps 13 walk rotations."
+ ],
+ "summary": "angle-linear rebuild of the F2 31-CX design (dimer frame, pivot b, fused 2-CX start/end blocks, N=[c1=c3=0] in one ancilla, A=[U=V=0] XORed into c1, all-linear 13-toggle walk E -> 0 over (E, N, c1^A, c0, c2)) with every rotation a plain rational multiple of alpha or beta: U_E = 4 x p(-3alpha/4), walk rz(k beta/4), no pi/4-shift t/tdg (which cost +1 T at every angle), generic design interpreter (flags, direct rccx pairs with exact leftover-phase Z fix, fused START/END = inverse pairs); 31 CX, 17 rotations, 17 qubits",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "9145258",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 2.6192028522491455,
+ "written_utc": "2026-11-10T21:12:38Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.7e-05
+ },
+ "lean": null,
+ "mode": "full"
+}
