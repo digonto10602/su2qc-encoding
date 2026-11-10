@@ -89,10 +89,13 @@ def _worker_copy(original):
 
 
 def _certify_dispatch(original):
-    def _certify(circ, spec):
-        """Round._certify with `spinnet` routed to the spin-network exporter/checker (Lean never changes a verdict)."""
+    def _certify(circ, spec, program_file_sha256=None):
+        """Round._certify with `spinnet` routed to the spin-network exporter/checker (Lean never changes a verdict).
+        `program_file_sha256` (laptop audit-004 N2) is passed through for other encodings and recorded in the dict."""
         if spec.encoding != ENC:
-            return original(circ, spec)
+            if program_file_sha256 is None:
+                return original(circ, spec)
+            return original(circ, spec, program_file_sha256=program_file_sha256)
         t0 = time.time()
         try:
             from dataclasses import asdict
@@ -105,7 +108,10 @@ def _certify_dispatch(original):
             cert = LeanCert(status=res["status"], reason=res.get("reason", ""), cert_path=res.get("cert_path"),
                             seconds=float(res.get("seconds", time.time() - t0)), checker_sha256=res.get("checker_sha256", ""),
                             theorem_path=None, axioms=list(res.get("axioms", [])))
-            return asdict(cert), time.time() - t0
+            d = asdict(cert)
+            if program_file_sha256:
+                d["program_file_sha256"] = program_file_sha256
+            return d, time.time() - t0
         except NotImplementedError as exc:
             return {"status": "not_run", "reason": f"Lean certification not available: {exc}"}, time.time() - t0
         except (ImportError, OSError, ValueError, RuntimeError, subprocess.SubprocessError) as exc:

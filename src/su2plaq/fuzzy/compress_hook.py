@@ -458,10 +458,13 @@ def install() -> None:
     # ---- round: no Lean certificate for the fuzzy units
     orig_certify = RD._certify
 
-    def certify(circ, spec):
+    def certify(circ, spec, program_file_sha256=None):
+        # `program_file_sha256` (laptop audit-004 N2) is passed by round.py; forward it for non-fuzzy encodings
         if _is_fuzzy(spec.encoding):
             return dict(LEAN_NA), 0.0
-        return orig_certify(circ, spec)
+        if program_file_sha256 is None:
+            return orig_certify(circ, spec)
+        return orig_certify(circ, spec, program_file_sha256=program_file_sha256)
 
     RD._certify = certify
 
