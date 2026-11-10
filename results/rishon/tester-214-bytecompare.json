@@ -1,0 +1,61 @@
+{
+ "commit": "427598a",
+ "rows": [
+  {
+   "circuit": "UE",
+   "variant": "default",
+   "qpy_equal": true,
+   "qasm3_equal": true,
+   "gates": 12
+  },
+  {
+   "circuit": "UE_outer_row",
+   "variant": "default",
+   "qpy_equal": true,
+   "qasm3_equal": true,
+   "gates": 36
+  },
+  {
+   "circuit": "UB",
+   "variant": "default",
+   "qpy_equal": true,
+   "qasm3_equal": true,
+   "gates": 4277
+  },
+  {
+   "circuit": "UB",
+   "variant": "ladder=ccx",
+   "qpy_equal": true,
+   "qasm3_equal": true,
+   "gates": 4277
+  },
+  {
+   "circuit": "step",
+   "variant": "default",
+   "qpy_equal": true,
+   "qasm3_equal": true,
+   "gates": 4289
+  },
+  {
+   "circuit": "step",
+   "variant": "ladder=ccx",
+   "qpy_equal": true,
+   "qasm3_equal": true,
+   "gates": 4289
+  },
+  {
+   "circuit": "step_order2",
+   "variant": "default",
+   "qpy_equal": true,
+   "qasm3_equal": true,
+   "gates": 4301
+  },
+  {
+   "circuit": "step_order2",
+   "variant": "ladder=ccx",
+   "qpy_equal": true,
+   "qasm3_equal": true,
+   "gates": 4301
+  }
+ ]
+}

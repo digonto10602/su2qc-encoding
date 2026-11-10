@@ -1,0 +1,41 @@
+{
+ "commit": "427598a",
+ "baseline": {
+  "coef": 0.75,
+  "abs_dev_from_0.75": 0.0,
+  "h_el_minus_coef_nq": 0.0,
+  "p_angles_equal_minus_coef_alpha": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "n_p": 4,
+  "certified": true,
+  "error_bound": 0.0,
+  "check_max_error": 1.3877787807814457e-16,
+  "target_label": "exp(-i alpha (3/4) [type Q]) per link on the 6 sector codes; bound = sum over links (tensor product)",
+  "check_label": "exp(-i alpha (3/4) #Q) per valid 48-bit code, #Q = number of type-Q links among the 12 (decoded independently of the circuit)"
+ },
+ "mutant_casimir_x2": {
+  "coef": 1.5,
+  "h_el_minus_coef_nq": 0.0,
+  "h_el_max_ratio_to_baseline": 2.0,
+  "p_angles_equal_minus_coef_alpha": [
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "certify_mutant_circuit_under_mutant": {
+   "certified": true,
+   "error_bound": 0.0
+  },
+  "certify_baseline_circuit_under_mutant": {
+   "certified": false,
+   "error_bound": 3.3193256628782986
+  }
+ },
+ "mutant_nonzero_on_AB": "AssertionError: Casimir must vanish on A and B",
+ "restored_coef": 0.75
+}

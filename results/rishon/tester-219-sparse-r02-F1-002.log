@@ -1,0 +1,9 @@
+r02-F1-002 skeleton equal (5 pairs) True const params 0 [] varying 14 linear resid 1.33e-15 intercept 6.66e-16 {'p': 4, 'rz': 10} fixed ok True
+targets (0.37, 0.61) HE offdiag 0.0e+00 HB herm 0.0e+00 UB unitarity 8.9e-16
+targets (0.91, 0.23) HE offdiag 0.0e+00 HB herm 0.0e+00 UB unitarity 2.2e-16
+targets (1.7, 1.0) HE offdiag 0.0e+00 HB herm 0.0e+00 UB unitarity 6.7e-16
+targets (2.6, -0.4) HE offdiag 0.0e+00 HB herm 0.0e+00 UB unitarity 3.3e-16
+r02-F1-002 (0.37, 0.61) err 2.32e-14 leak 0.0e+00/0.0e+00 dropped(fro) 2.91e-14 tri 1.44e-13 size 14500 outer []  4.6s
+r02-F1-002 (0.91, 0.23) err 2.32e-14 leak 0.0e+00/0.0e+00 dropped(fro) 2.85e-14 tri 1.40e-13 size 14500 outer []  4.2s
+r02-F1-002 (1.7, 1.0) err 2.44e-14 leak 0.0e+00/0.0e+00 dropped(fro) 2.80e-14 tri 1.37e-13 size 14500 outer []  4.4s
+r02-F1-002 (2.6, -0.4) err 2.33e-14 leak 0.0e+00/0.0e+00 dropped(fro) 2.82e-14 tri 1.41e-13 size 14500 outer []  4.5s

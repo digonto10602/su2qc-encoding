@@ -1,0 +1,31 @@
+{
+ "commit": "d4c931a",
+ "seed": 0,
+ "trial_detects": 13,
+ "n_crx": 81,
+ "ue": {
+  "trial": [
+   true,
+   1.2412670766236366e-16,
+   [
+    1.0,
+    -5.551115123125783e-17
+   ]
+  ],
+  "full": [
+   true,
+   1.1102230246251565e-16,
+   [
+    1.0,
+    0.0
+   ]
+  ],
+  "metrics_equal": {
+   "cx": true,
+   "t_fixed": true,
+   "n_rot": true,
+   "depth": true,
+   "qubits": true
+  }
+ }
+}

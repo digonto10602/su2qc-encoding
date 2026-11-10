@@ -1,0 +1,126 @@
+{
+  "rows": {
+    "jw_4_per_link": {
+      "qubits": 48,
+      "inner_qubits": 16,
+      "outer_qubits": 32,
+      "touched": 16,
+      "touched_qubits": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "note": "built: two fermionic rishon modes x two colours per link, Jordan-Wigner"
+    },
+    "codeword_3_per_link": {
+      "qubits": 36,
+      "inner_qubits": 12,
+      "touched": null,
+      "note": "size row only: 6 link states -> 3 qubits per link; no circuit built"
+    }
+  },
+  "touched_by_circuit": {
+    "UE": {
+      "n": 8,
+      "qubits": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        9,
+        12,
+        13
+      ]
+    },
+    "UB": {
+      "n": 16,
+      "qubits": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "step": {
+      "n": 16,
+      "qubits": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  },
+  "definitions": {
+    "qubits": "size of the encoded register",
+    "touched": "register qubits acted on by the step circuit (ancillas excluded)"
+  },
+  "provenance": {
+    "git_commit": "b4c1917",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "cpu_count": 20,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "gauss_sample": 20261104,
+      "outer_row_sample": 20261104,
+      "trial_subset": 0
+    },
+    "timestamp_utc": "2026-11-06T10:59:52Z",
+    "provenance_captured_at": "2026-11-06T10:59:52Z",
+    "host": "SupremeCommander",
+    "command": "python scripts/m5_results.py --jobs 6",
+    "quick": false,
+    "jobs": 6,
+    "wall_seconds": 4130.811309576035,
+    "peak_rss_mb": 508.640625,
+    "peak_rss_mb_largest_worker": 2969.640625
+  }
+}

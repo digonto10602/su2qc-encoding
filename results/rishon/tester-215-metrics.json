@@ -1,0 +1,38 @@
+{
+ "commit": "d4c931a",
+ "own": {
+  "cx": 10102,
+  "t_fixed": 10218,
+  "n_rot": 166,
+  "depth": 13685,
+  "qubits": 58,
+  "t_eps_1e-6": 20650,
+  "distinct_angles": 7,
+  "synth_wall": 0.13941645622253418
+ },
+ "evaluator": {
+  "cx": 10102,
+  "t_fixed": 10218,
+  "n_rot": 166,
+  "depth": 13685,
+  "qubits": 58,
+  "depth_ct": 13685,
+  "t_eps": 20650,
+  "t_measured": {
+   "1e-06": 20650,
+   "1e-10": 27482
+  }
+ },
+ "report5": {
+  "cx": 10102,
+  "n_rot": 166,
+  "t_fixed": 10218
+ },
+ "match": {
+  "cx": true,
+  "t_fixed": true,
+  "n_rot": true,
+  "qubits": true,
+  "t_eps": true
+ }
+}

@@ -1,0 +1,7 @@
+'Su2Plaq.Rishon.hb_link_ops_from_jw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Su2Plaq.Rishon.hb_link_ops_count' does not depend on any axioms
+'Su2Plaq.Rishon.det_u_identity' does not depend on any axioms
+'Su2Plaq.Rishon.u_commute' does not depend on any axioms
+	Command being timed: "taskset -c 10-19 lake env lean ../scratch/t209_axioms.lean"
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.58
+	Maximum resident set size (kbytes): 824176

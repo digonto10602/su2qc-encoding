@@ -1,0 +1,23 @@
+bringing up nodes...
+bringing up nodes...
+
+...FFF                                                                   [100%]
+=================================== FAILURES ===================================
+___________________ test_M5X_L_exact_theorems_kernel_checked ___________________
+[gw0] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+PENDING: lean/Su2Plaq/Rishon/Bridge.lean missing (prompts/202 steps W1-W4)
+___________________ test_M5X_O1_outer_electric_row_certified ___________________
+[gw0] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+prompts/202 step O1
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: prompts/202 step O1
+______________________ test_M5X_O1_outer_row_results_file ______________________
+[gw0] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+PENDING: results/rishon/UE_outer_row_certified.json missing (prompts/202 step O1)
+=========================== short test summary info ============================
+FAILED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_L_exact_theorems_kernel_checked
+FAILED tests/acceptance/m5x/test_rishon_outer_row.py::test_M5X_O1_outer_electric_row_certified
+FAILED tests/acceptance/m5x/test_rishon_outer_row.py::test_M5X_O1_outer_row_results_file
+3 failed, 3 passed in 5.18s
+done

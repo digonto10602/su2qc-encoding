@@ -1,0 +1,107 @@
+{
+ "commit": "6f3de03",
+ "eps": 1e-06,
+ "rows": {
+  "r02-F1-002": {
+   "n_rot": 14,
+   "eps": 1e-06,
+   "budget": 1.4001e-05,
+   "block_err": 3.3620140096221174e-06,
+   "leak": 1.664867473001058e-06,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "cx": 252,
+   "t": 1150,
+   "n_gates": 3074,
+   "max_state": 159786,
+   "my_dropped_fro": 5.33709172745671e-13,
+   "ratio_to_budget": 0.24012670592258534,
+   "seconds": 7.401053428649902,
+   "outer_touched": []
+  },
+  "r02-F2-002": {
+   "n_rot": 14,
+   "eps": 1e-06,
+   "budget": 1.4001e-05,
+   "block_err": 3.3620140096221174e-06,
+   "leak": 1.664867473001058e-06,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "cx": 252,
+   "t": 1150,
+   "n_gates": 3074,
+   "max_state": 159786,
+   "my_dropped_fro": 5.33709172745671e-13,
+   "ratio_to_budget": 0.24012670592258534,
+   "seconds": 7.157760381698608,
+   "outer_touched": []
+  },
+  "r02-F3-001": {
+   "n_rot": 14,
+   "eps": 1e-06,
+   "budget": 1.4001e-05,
+   "block_err": 3.4925295854677215e-06,
+   "leak": 1.9344909369382127e-06,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x"
+   ],
+   "cx": 252,
+   "t": 1120,
+   "n_gates": 2953,
+   "max_state": 347172,
+   "my_dropped_fro": 5.970658282368443e-13,
+   "ratio_to_budget": 0.24944858120617966,
+   "seconds": 11.502848863601685,
+   "outer_touched": []
+  },
+  "r02-F4-002": {
+   "n_rot": 14,
+   "eps": 1e-06,
+   "budget": 1.4001e-05,
+   "block_err": 2.824390288531946e-06,
+   "leak": 1.6710801682898522e-06,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x",
+    "z"
+   ],
+   "cx": 326,
+   "t": 1232,
+   "n_gates": 3290,
+   "max_state": 257872,
+   "my_dropped_fro": 4.581214700836435e-13,
+   "ratio_to_budget": 0.20172775434125748,
+   "seconds": 9.751692533493042,
+   "outer_touched": []
+  }
+ }
+}

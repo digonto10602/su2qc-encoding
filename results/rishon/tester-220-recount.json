@@ -1,0 +1,134 @@
+{
+ "commit": "50ea6c7",
+ "rows": {
+  "r03-F1-003": {
+   "recount": {
+    "cx": 240,
+    "cx_hand": 240,
+    "t_gates": 234,
+    "t_hand": 234,
+    "t_fixed": 234,
+    "n_rot": 10,
+    "t_rot": 636,
+    "t_total": 870,
+    "depth_ct": 1351,
+    "qubits": 55,
+    "distinct_angles": 7
+   },
+   "t_total_1e10": 1266,
+   "archived_key": [
+    240,
+    870,
+    1351,
+    55
+   ],
+   "archived": {
+    "cx": 240,
+    "t_fixed": 234,
+    "n_rot": 10,
+    "t_eps": 870,
+    "depth_ct": 1351,
+    "qubits": 55,
+    "t_measured": {
+     "1e-06": 870,
+     "1e-10": 1266
+    }
+   },
+   "match": {
+    "cx": true,
+    "t_fixed": true,
+    "n_rot": true,
+    "t_total": true,
+    "depth_ct": true,
+    "qubits": true,
+    "t_1e10": true
+   }
+  },
+  "r03-F3-002": {
+   "recount": {
+    "cx": 232,
+    "cx_hand": 232,
+    "t_gates": 210,
+    "t_hand": 210,
+    "t_fixed": 210,
+    "n_rot": 14,
+    "t_rot": 880,
+    "t_total": 1090,
+    "depth_ct": 2037,
+    "qubits": 53,
+    "distinct_angles": 7
+   },
+   "t_total_1e10": 1662,
+   "archived_key": [
+    232,
+    1090,
+    2037,
+    53
+   ],
+   "archived": {
+    "cx": 232,
+    "t_fixed": 210,
+    "n_rot": 14,
+    "t_eps": 1090,
+    "depth_ct": 2037,
+    "qubits": 53,
+    "t_measured": {
+     "1e-06": 1090,
+     "1e-10": 1662
+    }
+   },
+   "match": {
+    "cx": true,
+    "t_fixed": true,
+    "n_rot": true,
+    "t_total": true,
+    "depth_ct": true,
+    "qubits": true,
+    "t_1e10": true
+   }
+  },
+  "r03-F4-003": {
+   "recount": {
+    "cx": 292,
+    "cx_hand": 292,
+    "t_gates": 306,
+    "t_hand": 306,
+    "t_fixed": 306,
+    "n_rot": 14,
+    "t_rot": 904,
+    "t_total": 1210,
+    "depth_ct": 1766,
+    "qubits": 62,
+    "distinct_angles": 9
+   },
+   "t_total_1e10": 1742,
+   "archived_key": [
+    292,
+    1210,
+    1766,
+    62
+   ],
+   "archived": {
+    "cx": 292,
+    "t_fixed": 306,
+    "n_rot": 14,
+    "t_eps": 1210,
+    "depth_ct": 1766,
+    "qubits": 62,
+    "t_measured": {
+     "1e-06": 1210,
+     "1e-10": 1742
+    }
+   },
+   "match": {
+    "cx": true,
+    "t_fixed": true,
+    "n_rot": true,
+    "t_total": true,
+    "depth_ct": true,
+    "qubits": true,
+    "t_1e10": true
+   }
+  }
+ }
+}

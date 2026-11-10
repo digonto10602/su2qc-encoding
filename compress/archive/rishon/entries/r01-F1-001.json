@@ -1,0 +1,191 @@
+{
+ "id": "r01-F1-001",
+ "program_path": "compress/programs/rishon/F1/001-ghz-frame-cx-tau.py",
+ "program_sha256": "2c58c7b56c048216da58f37b4f62bb2ecd26df763b322cd3d28bececcf3185fc",
+ "parent": null,
+ "family": "F1",
+ "round": 1,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  256,
+  1020,
+  1714,
+  58
+ ],
+ "cell": [
+  64,
+  79
+ ],
+ "metrics_raw": {
+  "cx": 256,
+  "t_fixed": 258,
+  "n_rot": 12,
+  "t_eps": 1020,
+  "t_estimate": {
+   "1e-06": 975.5364684956703,
+   "1e-10": 1453.8941141594505
+  },
+  "t_measured": {
+   "1e-06": 1020,
+   "1e-10": 1496
+  },
+  "synth_error_bound": 1.2e-05,
+  "depth": 293,
+  "depth_ct": 1714,
+  "qubits": 58,
+  "gates": {
+   "cx": 256,
+   "h": 134,
+   "t": 130,
+   "tdg": 128,
+   "x": 74,
+   "sdg": 22,
+   "s": 22,
+   "rz": 12
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.4011625989653016e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -1.754426508049651e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 1.076401158743041e-15,
+  "method": "rishon_inner_block",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.266583758745341e-13,
+  "block_error": 1.3457884021996038e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 8.09371829032898,
+  "n_inputs": 1296,
+  "failing_inputs": [],
+  "extra": {
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "inner_method": "inner_span",
+   "rishon": true
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.3736747267564162e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.3158198810372378e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 9.949724222975091e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.2304172331046341e-13,
+   "block_error": 1.4325749365178202e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 5.122015953063965,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.3914624673457445e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -3.8378079863586155e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 9.707758083292375e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.2525736113385665e-13,
+   "block_error": 1.3888885600717792e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 5.115586996078491,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: after the g-controlled corner Toffolis the equal-corner partner mismatch tau_c equals the sector height h_X; XOR-ing h_X into e1 BEFORE the controlled H (a sign on the singlet, a flip on the 00 member) removes it with CX only, no Toffoli; h_b itself is a 3-way mux of the [N_c=3] bits of different corners selected by r.",
+  "DISCOVERY: in this frame every bright label has e1=0000 and bright <=> e1=0000 and e2_c=1 at every equal corner (T+- have e2=0); 4 rccx folds (T+- at c0,c1,c2,c3 -> flip e1 of c0,c3,c0,c1) reduce the 80 non-closed pairs to a NOR of the 4 e1, but in r=000 all 256 (e1,e2) patterns are occupied, so the closed pair needs the full 8-bit check.",
+  "DISCOVERY: the GHZ-frame coupling sign is (-1)^(r_r+r_t+r_l); the relative-phase CCH (CCZ.CS^dag, 4 CX) adds (-i)^(g_X g_Y) = -1 exactly for pairs with adjacent equal corners, which cancels that sign for all 81 pairs, so no CZ is needed."
+ ],
+ "summary": "F1 link-flag GHZ frame (flip qubit F = g_b): link prep with g copies in R2, U_E as 4 phases on L2, per-corner CX+CCX (CZ.CX merged, CS^dag + rccx), r folded into the R2 slots, sector height h_b by a flip-invariant 3-way rccx mux whose selectors also give K1=[r=101] and z=[r=000], tau removed by plain CX(h_X->e1) before a relative-phase 2-control H, closed-pair GHZ gadget; bright flag = NOR of 4 rccx-folded e1 plus z & e2=1111 for the closed pair; one 8-term Gray-cycle uniformly controlled Rz on F (8 CX); all angles linear in alpha, beta, sqrt2 beta.",
+ "evaluator_sha256": "d45ffb3116894a24f75864ed708c79b3ad174398e358af0ed5b8bc03845d2793",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "git_commit": "2a8d2b5",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 24.69789981842041,
+ "written_utc": "2026-11-07T02:00:33Z",
+ "git_dirty": false,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.2e-05
+ },
+ "lean": {
+  "status": "not_run",
+  "reason": "Lean certification not available: PENDING: su2plaq.rishon.compress.lean_cert.certify_circuit is a stub (prompts/203 step 6.L3)"
+ },
+ "mode": "full"
+}

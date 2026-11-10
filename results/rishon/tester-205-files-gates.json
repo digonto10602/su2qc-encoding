@@ -1,0 +1,278 @@
+{
+ "commit": "56b466d",
+ "checks": {
+  "UE": {
+   "qpy_exists": true,
+   "sha_ok": true,
+   "qubits": 16,
+   "macro_counts_match": true,
+   "macro_depth_match": true,
+   "size_match": true,
+   "logical_metrics_match_json": true,
+   "indep_cx": 8,
+   "indep_nrot": 4,
+   "indep_t": 0,
+   "indep_matches": [
+    true,
+    true,
+    true
+   ],
+   "json_logical": {
+    "cx": 8,
+    "depth": 3,
+    "n_rot": 4,
+    "t_fixed": 0,
+    "qubits": 16,
+    "ancilla": 0
+   },
+   "json_lowered_gates": {
+    "cx": 8,
+    "rz": 4
+   },
+   "indep_lowered_ops": {
+    "cx": 8,
+    "rz": 4
+   },
+   "qasm3_file": "results/rishon/UE.qasm3",
+   "qasm3_header_ok": true,
+   "qasm3_qubit_decls": [
+    [
+     "16",
+     "d"
+    ]
+   ],
+   "qasm3_gate_stmt_lines": 12,
+   "qasm3_sha": "0d6638c9e013"
+  },
+  "UE_outer_row": {
+   "qpy_exists": true,
+   "sha_ok": true,
+   "qubits": 48,
+   "macro_counts_match": true,
+   "macro_depth_match": true,
+   "size_match": true,
+   "logical_metrics_match_json": true,
+   "indep_cx": 24,
+   "indep_nrot": 12,
+   "indep_t": 0,
+   "indep_matches": [
+    true,
+    true,
+    true
+   ],
+   "json_logical": {
+    "cx": 24,
+    "depth": 3,
+    "n_rot": 12,
+    "t_fixed": 0,
+    "qubits": 48,
+    "ancilla": 0
+   },
+   "json_lowered_gates": {
+    "cx": 24,
+    "rz": 12
+   },
+   "indep_lowered_ops": {
+    "cx": 24,
+    "rz": 12
+   },
+   "qasm3_file": "results/rishon/UE_outer_row.qasm3",
+   "qasm3_header_ok": true,
+   "qasm3_qubit_decls": [
+    [
+     "16",
+     "d"
+    ],
+    [
+     "32",
+     "o"
+    ]
+   ],
+   "qasm3_gate_stmt_lines": 36,
+   "qasm3_sha": "3beba46560b3"
+  },
+  "UB": {
+   "qpy_exists": true,
+   "sha_ok": true,
+   "qubits": 26,
+   "macro_counts_match": true,
+   "macro_depth_match": true,
+   "size_match": true,
+   "logical_metrics_match_json": true,
+   "indep_cx": 10094,
+   "indep_nrot": 162,
+   "indep_t": 10218,
+   "indep_matches": [
+    true,
+    true,
+    true
+   ],
+   "json_logical": {
+    "cx": 10094,
+    "depth": 13682,
+    "n_rot": 162,
+    "t_fixed": 10218,
+    "qubits": 26,
+    "ancilla": 10
+   },
+   "json_lowered_gates": {
+    "cx": 10094,
+    "t": 5810,
+    "tdg": 4408,
+    "h": 3804,
+    "x": 1224,
+    "s": 202,
+    "sdg": 202,
+    "rz": 162,
+    "z": 16
+   },
+   "indep_lowered_ops": {
+    "cx": 10094,
+    "t": 5810,
+    "tdg": 4408,
+    "h": 3804,
+    "x": 1224,
+    "s": 202,
+    "sdg": 202,
+    "rz": 162,
+    "z": 16
+   },
+   "qasm3_file": "results/rishon/UB.qasm3",
+   "qasm3_header_ok": true,
+   "qasm3_qubit_decls": [
+    [
+     "16",
+     "d"
+    ],
+    [
+     "10",
+     "anc"
+    ]
+   ],
+   "qasm3_gate_stmt_lines": 4277,
+   "qasm3_sha": "5358407db1f9"
+  },
+  "step": {
+   "qpy_exists": true,
+   "sha_ok": true,
+   "qubits": 26,
+   "macro_counts_match": true,
+   "macro_depth_match": true,
+   "size_match": true,
+   "logical_metrics_match_json": true,
+   "indep_cx": 10102,
+   "indep_nrot": 166,
+   "indep_t": 10218,
+   "indep_matches": [
+    true,
+    true,
+    true
+   ],
+   "json_logical": {
+    "cx": 10102,
+    "depth": 13685,
+    "n_rot": 166,
+    "t_fixed": 10218,
+    "qubits": 26,
+    "ancilla": 10
+   },
+   "json_lowered_gates": {
+    "cx": 10102,
+    "t": 5810,
+    "tdg": 4408,
+    "h": 3804,
+    "x": 1224,
+    "s": 202,
+    "sdg": 202,
+    "rz": 166,
+    "z": 16
+   },
+   "indep_lowered_ops": {
+    "cx": 10102,
+    "t": 5810,
+    "tdg": 4408,
+    "h": 3804,
+    "x": 1224,
+    "s": 202,
+    "sdg": 202,
+    "rz": 166,
+    "z": 16
+   },
+   "qasm3_file": "results/rishon/step.qasm3",
+   "qasm3_header_ok": true,
+   "qasm3_qubit_decls": [
+    [
+     "16",
+     "d"
+    ],
+    [
+     "10",
+     "anc"
+    ]
+   ],
+   "qasm3_gate_stmt_lines": 4289,
+   "qasm3_sha": "0b1fece8adbf"
+  },
+  "step_order2": {
+   "qpy_exists": true,
+   "sha_ok": true,
+   "qubits": 26,
+   "macro_counts_match": true,
+   "macro_depth_match": true,
+   "size_match": true,
+   "logical_metrics_match_json": true,
+   "indep_cx": 10110,
+   "indep_nrot": 170,
+   "indep_t": 10218,
+   "indep_matches": [
+    true,
+    true,
+    true
+   ],
+   "json_logical": {
+    "cx": 10110,
+    "depth": 13688,
+    "n_rot": 170,
+    "t_fixed": 10218,
+    "qubits": 26,
+    "ancilla": 10
+   },
+   "json_lowered_gates": {
+    "cx": 10110,
+    "t": 5810,
+    "tdg": 4408,
+    "h": 3804,
+    "x": 1224,
+    "s": 202,
+    "sdg": 202,
+    "rz": 170,
+    "z": 16
+   },
+   "indep_lowered_ops": {
+    "cx": 10110,
+    "t": 5810,
+    "tdg": 4408,
+    "h": 3804,
+    "x": 1224,
+    "s": 202,
+    "sdg": 202,
+    "rz": 170,
+    "z": 16
+   },
+   "qasm3_file": "results/rishon/step_order2.qasm3",
+   "qasm3_header_ok": true,
+   "qasm3_qubit_decls": [
+    [
+     "16",
+     "d"
+    ],
+    [
+     "10",
+     "anc"
+    ]
+   ],
+   "qasm3_gate_stmt_lines": 4301,
+   "qasm3_sha": "897eeb1306de"
+  }
+ }
+}

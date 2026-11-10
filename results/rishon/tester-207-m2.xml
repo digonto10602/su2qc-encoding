@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="39" skipped="0" tests="46" time="3.544" timestamp="2026-11-06T07:27:11.646591-05:00" hostname="SupremeCommander"><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_oracle_matches_exact_step" time="0.458" /><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_evaluator_accepts_general_circuit" time="0.004"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_evaluator_rejects_partial" time="0.102"><failure message="Failed: PENDING: NotImplementedError: evaluate_circuit is not built yet">evaluate_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: evaluate_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_evaluator_rejects_small_ancilla_leak" time="0.008"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_macro_costs_match_lowering" time="0.624" /><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_evaluator_rejects_wrong_gate" time="0.004"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_archive_roundtrip_and_elites" time="0.003"><failure message="Failed: PENDING: NotImplementedError: Archive.load is not built yet">Archive.load is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: Archive.load is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_t_eps_deterministic" time="0.001"><failure message="Failed: PENDING: NotImplementedError: gridsynth_T is not built yet">gridsynth_T is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: gridsynth_T is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_t_eps_in_ross_selinger_band[1e-06]" time="0.001"><failure message="Failed: PENDING: NotImplementedError: gridsynth_T is not built yet">gridsynth_T is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: gridsynth_T is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_metrics_match_qiskit_count_ops" time="0.004"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_evaluator_rejects_dirty_ancilla" time="0.000"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_t_estimate_formula" time="0.004"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_archive_rejects_invalid" time="0.001"><failure message="Failed: PENDING: NotImplementedError: Archive.load is not built yet">Archive.load is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: Archive.load is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_evaluator_accepts_global_phase" time="0.000"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_t_eps_in_ross_selinger_band[1e-08]" time="0.000"><failure message="Failed: PENDING: NotImplementedError: gridsynth_T is not built yet">gridsynth_T is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: gridsynth_T is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_evaluator_rejects_angle_error" time="0.000"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_t_eps_in_ross_selinger_band[0.0001]" time="0.001"><failure message="Failed: PENDING: NotImplementedError: gridsynth_T is not built yet">gridsynth_T is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: gridsynth_T is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_entry_has_provenance_fields" time="0.000"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_cache_keyed_by_code_hash" time="0.001"><failure message="Failed: PENDING: NotImplementedError: code_hash is not built yet">code_hash is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: code_hash is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_seed_import_declared[lean22_v2]" time="0.000"><failure message="Failed: PENDING: NotImplementedError: import_seed is not built yet">import_seed is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: import_seed is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_seed_import_declared[paulo34]" time="0.003"><failure message="Failed: PENDING: NotImplementedError: import_seed is not built yet">import_seed is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: import_seed is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_qiskit_l3_baseline_valid" time="0.004"><failure message="Failed: PENDING: NotImplementedError: qiskit_l3 is not built yet">qiskit_l3 is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: qiskit_l3 is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_skeleton_angle_independent_general" time="0.000"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_archive_best_valid_and_not_worse_than_seed" time="0.097"><failure message="Failed: PENDING: NotImplementedError: Archive.load is not built yet">Archive.load is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: Archive.load is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_polish_valid_and_not_worse" time="0.000"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_seed_import_declared[spinnet15]" time="0.000"><failure message="Failed: PENDING: NotImplementedError: import_seed is not built yet">import_seed is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: import_seed is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_run_candidate_cli_trial_and_full" time="0.001"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_formal" name="test_lean_generic_theorems_standard_axioms" time="2.449" /><testcase classname="tests.acceptance.m2.test_lean_formal" name="test_lean_project_present_and_builds_checker" time="0.693" /><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_report_table_from_results" time="0.001"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_formal" name="test_lean_checker_semantics_match_sparse_sim" time="0.008"><failure message="Failed: PENDING: NotImplementedError: lean.certify.export_raw_circuit is not built yet">lean.certify.export_raw_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: lean.certify.export_raw_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_round_dry_run_end_to_end" time="0.001"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_formal" name="test_lean_certificate_small_accept_reject_na" time="0.308"><failure message="Failed: PENDING: NotImplementedError: lean.certify.certify_circuit_kind is not built yet">lean.certify.certify_circuit_kind is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: lean.certify.certify_circuit_kind is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_formal" name="test_round_records_lean_certificate" time="0.001"><failure message="Failed: PENDING: NotImplementedError: general_program_path is not built yet">general_program_path is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_program_path is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_structure" name="test_lean_counts_kernel_checked" time="2.417" /><testcase classname="tests.acceptance.m2.test_lean_structure" name="test_lean_structure_certificate_accept_reject" time="0.002"><failure message="Failed: PENDING: NotImplementedError: lean.structure.export_structure_certificate is not built yet">lean.structure.export_structure_certificate is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: lean.structure.export_structure_certificate is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_formal" name="test_archive_best_lean_status_recorded" time="0.003"><failure message="Failed: PENDING: NotImplementedError: Archive.load is not built yet">Archive.load is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: Archive.load is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_structure" name="test_symmetry_candidates_verified" time="0.000"><failure message="Failed: PENDING: NotImplementedError: lean.structure.symmetry_candidates is not built yet">lean.structure.symmetry_candidates is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: lean.structure.symmetry_candidates is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_evaluator_rejects_control_change" time="0.001"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_formal" name="test_lean_certificate_general_circuit" time="0.001"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_formal" name="test_program_lemma_file_checked" time="0.001"><failure message="Failed: PENDING: NotImplementedError: general_program_path is not built yet">general_program_path is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_program_path is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_builder_gateset" time="0.001" /><testcase classname="tests.acceptance.m2.test_compress_machinery" name="test_builder_mcx_chain" time="0.008" /><testcase classname="tests.acceptance.m2.test_lean_formal" name="test_lean_theorem_file_general" time="0.001"><failure message="AssertionError: assert False&#10; +  where False = exists()&#10; +    where exists = PosixPath('/home/digonto/Projects/su2qc-rishon/lean/certs/twelve-general-step.lean').exists">root = PosixPath('/home/digonto/Projects/su2qc-rishon')
+
+    @pytest.mark.slow
+    def test_lean_theorem_file_general(root):
+        """lean/certs/twelve-general-step.lean exists, elaborates, and its theorem depends on the standard axioms plus exactly
+        one native (compiler-trust) axiom — the labelled trust level of certificates (prompts/006 §0, §8)."""
+        d = _lean_dir(root)
+        P = api("su2plaq.lean.project")
+        f = d / "certs" / "twelve-general-step.lean"
+&gt;       assert f.exists()
+E       AssertionError: assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/home/digonto/Projects/su2qc-rishon/lean/certs/twelve-general-step.lean').exists
+
+tests/acceptance/m2/test_lean_formal.py:196: AssertionError</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_structure" name="test_structure_json_and_spec_section" time="0.001"><failure message="Failed: PENDING: NotImplementedError: lean.structure.structure_facts is not built yet">lean.structure.structure_facts is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: lean.structure.structure_facts is not built yet</failure></testcase><testcase classname="tests.acceptance.m2.test_lean_formal" name="test_polish_rules_are_lean_certified" time="0.001"><failure message="Failed: PENDING: NotImplementedError: general_circuit is not built yet">general_circuit is not built yet
+
+During handling of the above exception, another exception occurred:
+PENDING: NotImplementedError: general_circuit is not built yet</failure></testcase></testsuite></testsuites>

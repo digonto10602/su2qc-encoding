@@ -1,0 +1,53 @@
+{
+ "commit": "9f2e1e5 (+uncommitted 5.0/5.1)",
+ "plan": "prompts/200-rishon-m5-plan.md",
+ "script": "independent bit-manipulation JW (reports/tests/200 section 2)",
+ "seed": null,
+ "deterministic": true,
+ "results": {
+  "car_max": 0.0,
+  "BCW_L_U": 0,
+  "BCW_R_U": 0,
+  "UU": 0,
+  "N_Tb": 0,
+  "su2su2": 0,
+  "sector_dim": 6,
+  "sector": [
+   3,
+   5,
+   6,
+   9,
+   10,
+   12
+  ],
+  "casimir": [
+   0.0,
+   0.75,
+   0.75,
+   0.75,
+   0.75,
+   0.0
+  ],
+  "casimir_eig_sector": [
+   0.0,
+   0.0,
+   0.75,
+   0.75,
+   0.75,
+   0.75
+  ],
+  "n_singlets": 2,
+  "n_quartet": 4,
+  "prod_vs_indep_max": 0,
+  "string_free_max": {
+   "8_modes": 0,
+   "12_modes": 0
+  },
+  "end_gen_L": 0.0,
+  "end_gen_embed_L": 0.0,
+  "end_gen_R": 0.0,
+  "end_gen_embed_R": 0.0,
+  "detU_vs_2cLcRcLcR": 0.0,
+  "detU_sector": 0.0
+ }
+}

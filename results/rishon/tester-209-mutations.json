@@ -1,0 +1,502 @@
+{
+ "M0_control_literal_copy": {
+  "rc": 0,
+  "accepted": true,
+  "expected_accept": true,
+  "secs": 0.59,
+  "first_error": "",
+  "nerr": 0,
+  "says_false": false,
+  "verdict": "OK"
+ },
+ "M0b_control_original": {
+  "rc": 0,
+  "accepted": true,
+  "expected_accept": true,
+  "secs": 0.54,
+  "first_error": "",
+  "nerr": 0,
+  "says_false": false,
+  "verdict": "OK"
+ },
+ "M1_negate_all_values": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.69,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M1_negate_all_values.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M1_negate_values_list0": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.7,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M1_negate_values_list0.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M1_negate_values_list1": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.72,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M1_negate_values_list1.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M1_negate_values_list2": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.7,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M1_negate_values_list2.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M1_negate_values_list3": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.75,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M1_negate_values_list3.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M1_negate_values_list4": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.68,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M1_negate_values_list4.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M1_negate_values_list5": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.66,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M1_negate_values_list5.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M1_negate_values_list6": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.77,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M1_negate_values_list6.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M1_negate_values_list7": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.7,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M1_negate_values_list7.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M2_swap_U01_U10": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.7,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M2_swap_U01_U10.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M2_swap_U00_U11": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.61,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M2_swap_U00_U11.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M2_swap_U_Ud_0_4": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.61,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M2_swap_U_Ud_0_4.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M2_swap_Ud01_Ud10": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.67,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M2_swap_Ud01_Ud10.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M2_swap_Ud00_Ud11": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.7,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M2_swap_Ud00_Ud11.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_x2_list0_e0": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.63,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_x2_list0_e0.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_sign_list0_e1": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.68,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_sign_list0_e1.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_x2_list1_e0": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.76,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_x2_list1_e0.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_sign_list1_e1": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.63,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_sign_list1_e1.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_x2_list2_e0": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.72,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_x2_list2_e0.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_sign_list2_e1": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.74,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_sign_list2_e1.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_x2_list3_e0": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.69,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_x2_list3_e0.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_sign_list3_e1": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.64,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_sign_list3_e1.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_x2_list4_e0": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.67,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_x2_list4_e0.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_sign_list4_e1": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.69,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_sign_list4_e1.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_x2_list5_e0": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.72,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_x2_list5_e0.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_sign_list5_e1": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.69,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_sign_list5_e1.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_x2_list6_e0": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.76,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_x2_list6_e0.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_sign_list6_e1": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.73,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_sign_list6_e1.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_x2_list7_e0": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.67,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_x2_list7_e0.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_value_sign_list7_e1": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.82,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_value_sign_list7_e1.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_row_changed_list0_e0": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.68,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_row_changed_list0_e0.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_col_changed_list3_e1": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.75,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_col_changed_list3_e1.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_rowcol_swapped_Ud_entry(list5_e0)": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.73,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_rowcol_swapped_Ud_entry_list5_e0_.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_dropped_entry_list2": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.68,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_dropped_entry_list2.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_extra_entry_list2": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.67,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_extra_entry_list2.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_duplicated_entry_same_length_list2": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.69,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_duplicated_entry_same_length_list2.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_empty_list6": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.77,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_empty_list6.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M3_only_7_lists(hb_link_ops_from_jw)": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.71,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M3_only_7_lists_hb_link_ops_from_jw_.lean:58:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 2,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M4_transpose_map_replaced_by_identity": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.71,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M4_transpose_map_replaced_by_identity.lean:52:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M5_det_coeff_3_lhs": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.7,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M5_det_coeff_3_lhs.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M5_det_coeff_1_lhs": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.67,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M5_det_coeff_1_lhs.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M5_det_plus_sign": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.72,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M5_det_plus_sign.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M5_det_coeff_2_on_cross_term": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.71,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M5_det_coeff_2_on_cross_term.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M5_det_cross_term_dropped": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.72,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M5_det_cross_term_dropped.lean:59:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M6_commute_with_Udop": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.63,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M6_commute_with_Udop.lean:64:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M7_count_9": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.7,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M7_count_9.lean:54:57: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M8_Udop_wrong_def_(c_Rj_cdag_Li -> c_Lj_cdag_Ri)": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.66,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M8_Udop_wrong_def__c_Rj_cdag_Li____c_Lj_cdag_Ri_.lean:52:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ },
+ "M8_Udop_as_Uop": {
+  "rc": 1,
+  "accepted": false,
+  "expected_accept": false,
+  "secs": 0.69,
+  "first_error": "/home/digonto/Projects/su2qc-rishon/scratch/t209mut/M8_Udop_as_Uop.lean:52:2: error: Tactic `decide` proved that the proposition",
+  "nerr": 1,
+  "says_false": true,
+  "verdict": "OK"
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "commit": "6f3de03",
+ "report": "reports/tests/219-m6-round-002.md",
+ "prompt": "prompts/203-rishon-m6-plan.md",
+ "evaluated_state": "82fd452 (round 2), builder fix 27bc972",
+ "seeds": {
+  "mutants": 219,
+  "aer_sampling": 219
+ },
+ "env": "su2qc-coding, taskset 10-19, OMP/OPENBLAS/MKL=1",
+ "results": {
+  "sparse": {
+   "r02-F1-002": 2.3184795690241797e-14,
+   "r02-F2-002": 2.362663111950196e-14,
+   "r02-F3-001": 2.2133570613298984e-14,
+   "r02-F4-002": 2.9939920976804856e-14
+  },
+  "archive": 86,
+  "archive_n": 86,
+  "unit": "579 passed (21:26 min, 6.8 GB)",
+  "m6_gate": "4 passed 39.9 s 0.83 GB",
+  "m6_fast": "16 passed, 2 pending (L2,L3) 266 s 6.8 GB",
+  "wall_s_total": 3129
+ }
+}

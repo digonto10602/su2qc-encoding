@@ -1,0 +1,60 @@
+{
+ "commit": "6da30dd",
+ "swap_L1L2_link0_gauss_sample_256": {
+  "ok": false,
+  "reason": "gauss",
+  "block_error": 0.0,
+  "gauss_residual": 1.0000000000000002,
+  "gauss_states": 273,
+  "extra": {
+   "inner_method": "inner_span",
+   "gauss_sample": 256,
+   "seed": 20261104
+  }
+ },
+ "swap_L1L2_link0_gauss_sample_1": {
+  "ok": false,
+  "reason": "gauss",
+  "block_error": 0.0,
+  "gauss_residual": 0.9999999999999998,
+  "gauss_states": 18,
+  "extra": {
+   "inner_method": "inner_span",
+   "gauss_sample": 1,
+   "seed": 20261104
+  }
+ },
+ "gauss_false": {
+  "ok": true,
+  "reason": "ok"
+ },
+ "sample": {
+  "n": 273,
+  "n_closed": 17,
+  "distinct": 273,
+  "seed": 20261104,
+  "first5": [
+   2341,
+   17454,
+   37227,
+   66,
+   691
+  ],
+  "last5": [
+   37745,
+   37755,
+   38116,
+   38216,
+   38259
+  ],
+  "outer_Q_count_hist": [
+   46,
+   0,
+   124,
+   0,
+   87,
+   0,
+   16
+  ]
+ }
+}

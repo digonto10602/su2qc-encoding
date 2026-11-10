@@ -1,0 +1,197 @@
+{
+ "commit": "4d2265c+uncommitted",
+ "UB": {
+  "count_ops": {
+   "ccx": 1402,
+   "x": 1224,
+   "cx": 1118,
+   "ch": 202,
+   "cz": 200,
+   "crx": 81,
+   "h": 34,
+   "z": 16
+  },
+  "qubits": 26,
+  "depth": 2402,
+  "my_cx": 10094,
+  "my_t_fixed": 10218,
+  "my_n_rot": 162,
+  "prod_logical_metrics": {
+   "cx": 10094,
+   "t_fixed": 10218,
+   "n_rot": 162,
+   "qubits": 26,
+   "depth": 13682
+  },
+  "transpiled_cx": 10094,
+  "transpiled_t": 10218,
+  "transpiled_nonclifford_rz": 162,
+  "native_mcx_ge3": 0,
+  "n_gates": 4277,
+  "names": [
+   "ccx",
+   "ch",
+   "crx",
+   "cx",
+   "cz",
+   "h",
+   "x",
+   "z"
+  ]
+ },
+ "step1": {
+  "count_ops": {
+   "ccx": 1402,
+   "x": 1224,
+   "cx": 1126,
+   "ch": 202,
+   "cz": 200,
+   "crx": 81,
+   "h": 34,
+   "z": 16,
+   "p": 4
+  },
+  "qubits": 26,
+  "depth": 2405,
+  "my_cx": 10102,
+  "my_t_fixed": 10218,
+  "my_n_rot": 166,
+  "prod_logical_metrics": {
+   "cx": 10102,
+   "t_fixed": 10218,
+   "n_rot": 166,
+   "qubits": 26,
+   "depth": 13685
+  },
+  "transpiled_cx": 10102,
+  "transpiled_t": 10218,
+  "transpiled_nonclifford_rz": 166,
+  "native_mcx_ge3": 0,
+  "n_gates": 4289,
+  "names": [
+   "ccx",
+   "ch",
+   "crx",
+   "cx",
+   "cz",
+   "h",
+   "p",
+   "x",
+   "z"
+  ]
+ },
+ "step2": {
+  "count_ops": {
+   "ccx": 1402,
+   "x": 1224,
+   "cx": 1134,
+   "ch": 202,
+   "cz": 200,
+   "crx": 81,
+   "h": 34,
+   "z": 16,
+   "p": 8
+  },
+  "qubits": 26,
+  "depth": 2408,
+  "my_cx": 10110,
+  "my_t_fixed": 10218,
+  "my_n_rot": 170,
+  "prod_logical_metrics": {
+   "cx": 10110,
+   "t_fixed": 10218,
+   "n_rot": 170,
+   "qubits": 26,
+   "depth": 13688
+  },
+  "transpiled_cx": 10110,
+  "transpiled_t": 10218,
+  "transpiled_nonclifford_rz": 170,
+  "native_mcx_ge3": 0,
+  "n_gates": 4301,
+  "names": [
+   "ccx",
+   "ch",
+   "crx",
+   "cx",
+   "cz",
+   "h",
+   "p",
+   "x",
+   "z"
+  ]
+ },
+ "UB_with_outer": {
+  "qubits": 58,
+  "registers": [
+   [
+    "d",
+    16
+   ],
+   [
+    "o",
+    32
+   ],
+   [
+    "anc",
+    10
+   ]
+  ],
+  "outer_qubits_touched": [],
+  "metadata_keys": [
+   "angle_over_beta_abs_counts",
+   "beta",
+   "gates_after_cancel",
+   "gates_before_cancel",
+   "kind",
+   "n_controls",
+   "n_pairs",
+   "pivots"
+  ]
+ },
+ "UB_registers": [
+  [
+   "d",
+   16
+  ],
+  [
+   "anc",
+   10
+  ]
+ ],
+ "pair_frames": {
+  "n": 81,
+  "kappa": {
+   "1.0": 32,
+   "2.0": 48,
+   "5.656854249": 1
+  },
+  "angle_over_beta_abs": {
+   "2.0": 32,
+   "4.0": 48,
+   "11.313708499": 1
+  },
+  "n_controls_hist": {
+   "11": 81
+  },
+  "keys": [
+   "angle",
+   "angle_over_beta",
+   "controls",
+   "frame_gates",
+   "kappa",
+   "n_images",
+   "pivot",
+   "sign"
+  ]
+ },
+ "frame_gate_vocab": {
+  "x": 1220,
+  "cx": 907,
+  "ccx": 51,
+  "z": 16,
+  "cz": 100,
+  "h": 17,
+  "ch": 101
+ }
+}

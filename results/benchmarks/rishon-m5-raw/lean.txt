@@ -1,0 +1,13 @@
+lake build Su2Plaq.Rishon.Counts (cached) rep1 | 4.33 s wall, 1002436 KB maxrss, exit 0 | warning: Su2Plaq/Structure/Counts.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file Build completed s
+lake build Su2Plaq.Rishon.Counts (cached) rep2 | 3.41 s wall, 966368 KB maxrss, exit 0 | warning: Su2Plaq/Structure/Counts.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file Build completed s
+lake build Su2Plaq.Rishon.Counts (cached) rep3 | 3.51 s wall, 960632 KB maxrss, exit 0 | warning: Su2Plaq/Structure/Counts.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file Build completed s
+lake build Su2Plaq.Rishon.JW (cached) rep1 | 0.57 s wall, 824304 KB maxrss, exit 0 | Build completed successfully (2 jobs). 
+lake build Su2Plaq.Rishon.JW (cached) rep2 | 0.58 s wall, 824248 KB maxrss, exit 0 | Build completed successfully (2 jobs). 
+lake build Su2Plaq.Rishon.JW (cached) rep3 | 0.57 s wall, 824264 KB maxrss, exit 0 | Build completed successfully (2 jobs). 
+lake build +Su2PlaqCert.Rishon.HB (cached) | 0.59 s wall, 824248 KB maxrss, exit 0 | Build completed successfully (2 jobs). 
+lake env lean Rishon/Counts.lean (from source) rep1 | 7.92 s wall, 8300308 KB maxrss, exit 0 | 
+lake env lean Rishon/Counts.lean (from source) rep2 | 8.04 s wall, 8300372 KB maxrss, exit 0 | 
+lake env lean Rishon/Counts.lean (from source) rep3 | 8.34 s wall, 8295208 KB maxrss, exit 0 | 
+lake env lean Rishon/JW.lean (from source) rep1 | 61.16 s wall, 7070588 KB maxrss, exit 0 | 
+lake env lean Rishon/JW.lean (from source) rep2 | 61.10 s wall, 7068724 KB maxrss, exit 0 | 
+lake env lean Rishon/JW.lean (from source) rep3 | 61.01 s wall, 7070460 KB maxrss, exit 0 |

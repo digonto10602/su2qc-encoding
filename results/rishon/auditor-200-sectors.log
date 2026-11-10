@@ -1,0 +1,10 @@
+closed refs (vac_A, vac_B, loop) labels: [('A', 'A', 'B', 'B', 'A', 'A', 'B', 'A', 'B', 'B', 'A', 'B'), ('B', 'B', 'A', 'A', 'A', 'A', 'B', 'A', 'B', 'B', 'A', 'B'), ('Q', 'Q', 'Q', 'Q', 'A', 'A', 'B', 'A', 'B', 'B', 'A', 'B')]
+U(1) charges Q_c of vac_A, vac_B, loop: [(2, 2, 2, 2), (2, 2, 2, 2), (2, 2, 2, 2)]
+U(1) charges of the 17 closed refs: [(0, 2, 2, 4), (0, 2, 4, 2), (0, 4, 0, 4), (0, 4, 2, 2), (2, 0, 2, 4), (2, 0, 4, 2), (2, 2, 0, 4), (2, 2, 2, 2), (2, 2, 4, 0), (2, 4, 0, 2), (2, 4, 2, 0), (4, 0, 2, 2), (4, 0, 4, 0), (4, 2, 0, 2), (4, 2, 2, 0)]
+gamma*dt=0.0: E_link=0.034699 echo=0.000561 ||[D,HB]||=22.627
+gamma*dt=0.1: E_link=0.034699 echo=0.000414 ||[D,HB]||=22.627
+gamma*dt=0.3: E_link=0.034699 echo=0.007787 ||[D,HB]||=22.627
+g2=1, gamma=0.2: number of eigenvalues within 1e-9 of 0: 5 (gamma=0: 15 )
+	Command being timed: "taskset -c 10-19 python results/rishon/auditor-200-sectors.py"
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:13.76
+	Maximum resident set size (kbytes): 476376

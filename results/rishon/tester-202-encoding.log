@@ -1,0 +1,112 @@
+{
+ "commit": "98ae337",
+ "outer_near_empty_code_from_closed_state0": "0xc3cc3c33",
+ "all_closed_states_share_outer_bits": true,
+ "codec_inner_valid_set_mismatch_over_65536": 0,
+ "codec_inner_type_mismatch": 0,
+ "inner_codes_equal_own": true,
+ "inner_codes_sorted_unique_int64": true,
+ "n_distinct_decodes_on_inner_codes": 81,
+ "valid_nibbles_per_outer_link": [
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4
+ ],
+ "out_of_range_invalid": true,
+ "n_vectors": 38432,
+ "norm_dev_max": 1.7763568394002505e-15,
+ "all_keys_valid_decode": true,
+ "keys_dtype_int64": true,
+ "ends_per_corner": {
+  "0": 4,
+  "1": 4,
+  "2": 4,
+  "3": 4
+ },
+ "gauss_residual_max_own_all_38432": 2.3221980631040627e-16,
+ "gram_sample_seed": 20261106,
+ "gram_minus_identity_max_ALL": 7.993605777301127e-15,
+ "n_closed": 17,
+ "closed_idx_matches_closed_vectors": true,
+ "closed_B_orthonormal": 6.661338147750939e-16,
+ "closed_target": {
+  "UB@0.37,0.61": {
+   "shape": [
+    17,
+    17
+   ],
+   "unitarity": 2.4424906541753444e-15,
+   "vs_own_expm_restricted": 9.43689570931383e-16
+  },
+  "UE@0.37,0.61": {
+   "shape": [
+    17,
+    17
+   ],
+   "unitarity": 1.1102612268021013e-15,
+   "vs_own_expm_restricted": 2.0014830212433607e-16
+  },
+  "step1@0.37,0.61": {
+   "shape": [
+    17,
+    17
+   ],
+   "unitarity": 1.6653749877941266e-15,
+   "vs_own_expm_restricted": 9.992970910418892e-16
+  },
+  "step2@0.37,0.61": {
+   "shape": [
+    17,
+    17
+   ],
+   "unitarity": 1.887416937413162e-15,
+   "vs_own_expm_restricted": 1.0548031706780683e-15
+  },
+  "UB@1.7,1.0": {
+   "shape": [
+    17,
+    17
+   ],
+   "unitarity": 1.6653345369377348e-15,
+   "vs_own_expm_restricted": 9.992007221626409e-16
+  },
+  "UE@1.7,1.0": {
+   "shape": [
+    17,
+    17
+   ],
+   "unitarity": 1.8873821556944066e-15,
+   "vs_own_expm_restricted": 3.510833468576701e-16
+  },
+  "step1@1.7,1.0": {
+   "shape": [
+    17,
+    17
+   ],
+   "unitarity": 1.6653476476195453e-15,
+   "vs_own_expm_restricted": 1.0370338861126152e-15
+  },
+  "step2@1.7,1.0": {
+   "shape": [
+    17,
+    17
+   ],
+   "unitarity": 1.887432782700078e-15,
+   "vs_own_expm_restricted": 9.930136612989092e-16
+  }
+ },
+ "closed_subspace_invariant_under_Vin_residual": 2.558937633260452e-16,
+ "target_40_random_states_vs_own": 4.440892098500626e-16,
+ "target_40_seed": 20261106,
+ "inner_view_1296_single_code": true,
+ "RISHON_NOMINAL": [
+  0.37,
+  0.61
+ ],
+ "wall_s": 21.37329363822937
+}

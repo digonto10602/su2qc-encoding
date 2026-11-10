@@ -1,0 +1,71 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+rootdir: /home/digonto/Projects/su2qc-rishon
+configfile: pytest.ini
+plugins: xdist-3.8.0, cov-7.1.0, platformdirs-4.14.5, anyio-4.16.0
+created: 1/1 worker
+1 worker [6 items]
+
+scheduling tests via LoadScheduling
+
+tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W1_hb_link_ops_tied_to_jw 
+[gw0] [ 16%] PASSED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W1_hb_link_ops_tied_to_jw 
+tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W2_corner_kernel_dims_match_production 
+[gw0] [ 33%] PASSED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W2_corner_kernel_dims_match_production 
+tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W3_ue_semantics_gate_list_and_qiskit_matrices 
+[gw0] [ 50%] PASSED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W3_ue_semantics_gate_list_and_qiskit_matrices 
+tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_L_exact_theorems_kernel_checked 
+[gw0] [ 66%] PASSED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_L_exact_theorems_kernel_checked 
+tests/acceptance/m5x/test_rishon_outer_row.py::test_M5X_O1_outer_electric_row_certified 
+[gw0] [ 83%] PASSED tests/acceptance/m5x/test_rishon_outer_row.py::test_M5X_O1_outer_electric_row_certified 
+tests/acceptance/m5x/test_rishon_outer_row.py::test_M5X_O1_outer_row_results_file 
+[gw0] [100%] FAILED tests/acceptance/m5x/test_rishon_outer_row.py::test_M5X_O1_outer_row_results_file 
+
+=================================== FAILURES ===================================
+______________________ test_M5X_O1_outer_row_results_file ______________________
+[gw0] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+
+root = PosixPath('/home/digonto/Projects/su2qc-rishon')
+
+    def test_M5X_O1_outer_row_results_file(root):
+        """results/rishon/UE_outer_row_certified.json exists (scripts/m5x_outer_row.py), carries provenance on a clean commit,
+        a certified `outer_electric_gadgets` verdict at alpha = 0.37 with error_bound <= 1e-10 and 12 links, and a fresh
+        outer_electric_certify call reproduces its numbers."""
+        f = root / "results" / "rishon" / "UE_outer_row_certified.json"
+        if not f.exists():
+            pytest.fail("PENDING: results/rishon/UE_outer_row_certified.json missing (prompts/202 step O1)", pytrace=False)
+        d = json.loads(f.read_text())
+        assert d["encoding"] == "rishon" and d["kind"] == "UE" and d["params"]["alpha"] == 0.37
+        prov = d["provenance"]
+>       assert isinstance(prov["git_commit"], str) and prov["git_commit"] not in ("", "unknown") and prov["git_dirty"] is False
+E       AssertionError: assert (True and 'c3ff07d' not in ('', 'unknown') and True is False)
+E        +  where True = isinstance('c3ff07d', str)
+
+tests/acceptance/m5x/test_rishon_outer_row.py:120: AssertionError
+=========================== short test summary info ============================
+FAILED tests/acceptance/m5x/test_rishon_outer_row.py::test_M5X_O1_outer_row_results_file
+========================= 1 failed, 5 passed in 9.79s ==========================
+Command exited with non-zero status 1
+	Command being timed: "pytest -n 1 tests/acceptance/m5x -v -p no:cacheprovider"
+	User time (seconds): 6.75
+	System time (seconds): 3.41
+	Percent of CPU this job got: 101%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.99
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6817840
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 526970
+	Voluntary context switches: 6445
+	Involuntary context switches: 605
+	Swaps: 0
+	File system inputs: 248
+	File system outputs: 120
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

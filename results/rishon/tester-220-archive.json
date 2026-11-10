@@ -1,0 +1,377 @@
+{
+ "commit": "50ea6c7",
+ "n": 74,
+ "n_pass": 73,
+ "checks": [
+  {
+   "check": "round: evaluator_sha256 = my recomputation over the explicit file list (30 files)",
+   "ok": true,
+   "detail": "('43ae85b452e0', '43ae85b452e0')"
+  },
+  {
+   "check": "round: evaluator_sha256 equals round 2's (no evaluator source change since 27bc972)",
+   "ok": true,
+   "detail": "('43ae85b452e0', '43ae85b452e0')"
+  },
+  {
+   "check": "round: spec_sha256 = round 2's = round 0's",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "committed src/tests/tools diff 6f3de03..HEAD empty",
+   "ok": false,
+   "detail": "['tests/acceptance/LOCK.json', 'tests/acceptance/m6/test_rishon_m6_gate.py', 'tests/acceptance/m6/test_rishon_m6_headline.py', 'tests/acceptance/m6/test_rishon_m6_lean.py', 'tests/acceptance/m6/test_rishon_m6_loop.py', 'tests/acceptance/m6/test_rishon_m6_spec.py']"
+  },
+  {
+   "check": "working tree: src and tools unmodified",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "round: round 3, kind step, entries = F1 F3 F4 in order, candidates same",
+   "ok": true,
+   "detail": "['r03-F1-003', 'r03-F3-002', 'r03-F4-003']"
+  },
+  {
+   "check": "round: n_valid 3, n_invalid 0, no external, no pruning_bound, invalid []",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "round: keys as announced",
+   "ok": true,
+   "detail": "{'r03-F1-003': (240, 870, 1351, 55), 'r03-F3-002': (232, 1090, 2037, 53), 'r03-F4-003': (292, 1210, 1766, 62)}"
+  },
+  {
+   "check": "round: best_key = min = (232,1090,2037,53)",
+   "ok": true,
+   "detail": "[232, 1090, 2037, 53]"
+  },
+  {
+   "check": "round: synthesis_verification entry = best (r03-F3-002), ok, certified, eps 1e-6, n_rot 14, T 1090",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "round: synthesis tol_err = n_rot*eps + 1e-9, op_norm_error <= tol",
+   "ok": true,
+   "detail": "(4.156274856144831e-06, {'tol_err': 1.4001e-05, 'tol_gauss': 1.4001e-05})"
+  },
+  {
+   "check": "r03-F1-003: program sha256 file = entry = round candidate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F1-003: id = file name, round 3, valid, reason ok, mode full",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F1-003: key = (cx, t_eps, depth_ct, qubits) of metrics = round key",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F1-003: cell = floor(8 log2(.+1)) recomputed = (63, 78)",
+   "ok": true,
+   "detail": "(63, 78)"
+  },
+  {
+   "check": "r03-F1-003: nominal verdict ok, certified, op_norm<=1e-10, gauss<=1e-10, dropped<=1e-12, leak 0, dirty 0, outer 0",
+   "ok": true,
+   "detail": "{'op': 1.2665695028294345e-13, 'block': 1.2210939236537677e-14, 'gauss': 8.724814098415249e-16, 'dropped': 1.1444601104640577e-13}"
+  },
+  {
+   "check": "r03-F1-003: two alternate verdicts ok+certified, dropped<=1e-12, skeleton_equal",
+   "ok": true,
+   "detail": "[1.1260467617577322e-13, 1.141064621265468e-13]"
+  },
+  {
+   "check": "r03-F1-003: FAMILY header = entry family; PARENT header = 'r02-F1-002' = entry parent = round parent",
+   "ok": true,
+   "detail": "('F1', '\"r02-F1-002\"', 'r02-F1-002')"
+  },
+  {
+   "check": "r03-F1-003: parent r02-F1-002 exists in the archive and is valid",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F1-003: parent family consistent; parent key (252, 1150, 2073, 57) -> (240, 870, 1351, 55) (info)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F1-003: all 3 DISCOVERY lines of the docstring are in discoveries/rishon.md (and no extra)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F1-003: feedback valid, sha, metrics, verdict equal to entry",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F1-003: evaluator_sha256 entry = round, spec_sha256 entry = round",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F1-003: Lean field: best of the round only (not_run, 6.L3), others None",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F1-003: seeds recorded (trial_seed 0), git_commit f691e94, versions = round",
+   "ok": true,
+   "detail": "('f691e94', False)"
+  },
+  {
+   "check": "r03-F3-002: program sha256 file = entry = round candidate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F3-002: id = file name, round 3, valid, reason ok, mode full",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F3-002: key = (cx, t_eps, depth_ct, qubits) of metrics = round key",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F3-002: cell = floor(8 log2(.+1)) recomputed = (62, 80)",
+   "ok": true,
+   "detail": "(62, 80)"
+  },
+  {
+   "check": "r03-F3-002: nominal verdict ok, certified, op_norm<=1e-10, gauss<=1e-10, dropped<=1e-12, leak 0, dirty 0, outer 0",
+   "ok": true,
+   "detail": "{'op': 1.4746334283778298e-13, 'block': 1.4407342859475635e-14, 'gauss': 1.1195513421934758e-15, 'dropped': 1.3305599997830734e-13}"
+  },
+  {
+   "check": "r03-F3-002: two alternate verdicts ok+certified, dropped<=1e-12, skeleton_equal",
+   "ok": true,
+   "detail": "[1.300733422474613e-13, 1.3555650330876688e-13]"
+  },
+  {
+   "check": "r03-F3-002: FAMILY header = entry family; PARENT header = 'r02-F3-001' = entry parent = round parent",
+   "ok": true,
+   "detail": "('F3', '\"r02-F3-001\"', 'r02-F3-001')"
+  },
+  {
+   "check": "r03-F3-002: parent r02-F3-001 exists in the archive and is valid",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F3-002: parent family consistent; parent key (252, 1120, 2023, 54) -> (232, 1090, 2037, 53) (info)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F3-002: all 3 DISCOVERY lines of the docstring are in discoveries/rishon.md (and no extra)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F3-002: feedback valid, sha, metrics, verdict equal to entry",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F3-002: evaluator_sha256 entry = round, spec_sha256 entry = round",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F3-002: Lean field: best of the round only (not_run, 6.L3), others None",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F3-002: seeds recorded (trial_seed 0), git_commit f691e94, versions = round",
+   "ok": true,
+   "detail": "('f691e94', True)"
+  },
+  {
+   "check": "r03-F4-003: program sha256 file = entry = round candidate",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F4-003: id = file name, round 3, valid, reason ok, mode full",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F4-003: key = (cx, t_eps, depth_ct, qubits) of metrics = round key",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F4-003: cell = floor(8 log2(.+1)) recomputed = (65, 81)",
+   "ok": true,
+   "detail": "(65, 81)"
+  },
+  {
+   "check": "r03-F4-003: nominal verdict ok, certified, op_norm<=1e-10, gauss<=1e-10, dropped<=1e-12, leak 0, dirty 0, outer 0",
+   "ok": true,
+   "detail": "{'op': 1.873460023908498e-13, 'block': 1.6136471996107276e-14, 'gauss': 1.2380433539422526e-15, 'dropped': 1.7120953039474254e-13}"
+  },
+  {
+   "check": "r03-F4-003: two alternate verdicts ok+certified, dropped<=1e-12, skeleton_equal",
+   "ok": true,
+   "detail": "[1.7191730380435211e-13, 1.7150584694276062e-13]"
+  },
+  {
+   "check": "r03-F4-003: FAMILY header = entry family; PARENT header = 'r02-F4-002' = entry parent = round parent",
+   "ok": true,
+   "detail": "('F4', '\"r02-F4-002\"', 'r02-F4-002')"
+  },
+  {
+   "check": "r03-F4-003: parent r02-F4-002 exists in the archive and is valid",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F4-003: parent family consistent; parent key (326, 1232, 1752, 62) -> (292, 1210, 1766, 62) (info)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F4-003: all 3 DISCOVERY lines of the docstring are in discoveries/rishon.md (and no extra)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F4-003: feedback valid, sha, metrics, verdict equal to entry",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F4-003: evaluator_sha256 entry = round, spec_sha256 entry = round",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F4-003: Lean field: best of the round only (not_run, 6.L3), others None",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r03-F4-003: seeds recorded (trial_seed 0), git_commit f691e94, versions = round",
+   "ok": true,
+   "detail": "('f691e94', True)"
+  },
+  {
+   "check": "r00-seed-000: entry file unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r00-seed-010: entry file unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F1-001: entry file unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F2-001: entry file unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F4-001: entry file unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r01-F5-001: entry file unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r02-F1-002: entry file unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r02-F2-002: entry file unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r02-F3-001: entry file unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "r02-F4-002: entry file unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "rounds 0-2 JSON, feedback of rounds 0-2, programs of rounds 0-2 unchanged since 6f3de03",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "attempts: 16 lines (5 + 4 + 4 + 3)",
+   "ok": true,
+   "detail": "16"
+  },
+  {
+   "check": "attempts: round-3 lines = 3 ids in order, key/valid/reason/sha equal to entries",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "attempts: first 13 lines byte-identical to 6f3de03 (prefix)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "index: n_entries 13 = number of files",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "index: best = argmin (key, id) = r03-F3-002",
+   "ok": true,
+   "detail": "('r03-F3-002', ['r03-F3-002', 'r03-F1-003', 'r02-F3-001'])"
+  },
+  {
+   "check": "index: family bests = per-family argmin; families F1 F2 F3 F4 F5 seed",
+   "ok": true,
+   "detail": "{'F4': 'r03-F4-003', 'seed': 'r00-seed-000', 'F2': 'r02-F2-002', 'F3': 'r03-F3-002', 'F5': 'r01-F5-001', 'F1': 'r03-F1-003'}"
+  },
+  {
+   "check": "index: elites = cell -> smallest (key, id) entry (recomputed)",
+   "ok": true,
+   "detail": "(10, {'62,80': 'r03-F3-002', '63,78': 'r03-F1-003', '63,81': 'r02-F3-001', '64,79': 'r01-F1-001', '65,81': 'r03-F4-003', '66,82': 'r02-F4-002', '67,86': 'r01-F2-001', '68,82': 'r01-F4-001', '71,86': 'r01-F5-001', '106,114': 'r00-seed-000'})"
+  },
+  {
+   "check": "Archive.load: 13 entries, 0 rejected",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "Archive.load: best/elites/family_best equal to my computation",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "Archive: 20 random insertion orders give the identical best and elites",
+   "ok": true,
+   "detail": ""
+  }
+ ]
+}

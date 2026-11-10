@@ -1,0 +1,264 @@
+{
+ "commit": "b4c1917 + uncommitted builder changes",
+ "date": "2026-11-06",
+ "machine": "desktop, taskset -c 10-19, OMP/OPENBLAS/MKL threads=1, regen job concurrent",
+ "seed": "none (deterministic; no stochastic checks)",
+ "tests": {
+  "L1+L2": {
+   "passed": 2,
+   "wall_s": 28.65,
+   "peak_rss_kb": 6805248
+  },
+  "L3": {
+   "passed": 1,
+   "wall_s": 10.12,
+   "peak_rss_kb": 824364
+  },
+  "unit": {
+   "passed": 307,
+   "failed": 1,
+   "failed_id": "tests/unit/test_results_unit.py::test_render_is_deterministic_and_contains_only_json_numbers",
+   "wall_s": 322.6,
+   "peak_rss_kb": 6814088
+  },
+  "acceptance_not_slow": {
+   "passed": 94,
+   "failed": 33,
+   "all_failed_are_PENDING": true,
+   "pending_laptop_M2": 33,
+   "wall_s": 2514,
+   "peak_rss_kb": 6816328
+  },
+  "acceptance_check": "PASS acceptance-v8"
+ },
+ "lean_compile_from_source_lake_env_lean": {
+  "Counts.lean": {
+   "wall_s": 31.8,
+   "rss_kb": 8304640,
+   "note": "contended with unit tests"
+  },
+  "JW.lean": {
+   "wall_s": 264.8,
+   "rss_kb": 7071132,
+   "note": "contended with unit tests"
+  },
+  "HB.lean": {
+   "wall_s": 2.49,
+   "rss_kb": 824028
+  },
+  "HBData.lean": {
+   "wall_s": 2.62,
+   "rss_kb": 824236
+  }
+ },
+ "axioms": {
+  "card_rishon_physical": [
+   "propext"
+  ],
+  "card_rishon_closed": [
+   "propext"
+  ],
+  "car_4": [],
+  "car_8": [],
+  "bilinear_string_free_8": [],
+  "sector_card": [],
+  "u_ladder": [
+   "propext",
+   "Quot.sound"
+  ],
+  "det_u_sector": [],
+  "end_bilinear_local": []
+ },
+ "hb_independent": {
+  "link_ops_vs_own_JW_maxdev": 0.0,
+  "own_W_vs_production_maxdev": 0.0,
+  "identity_residual": 3.55e-15,
+  "gram_dev": 3.55e-15,
+  "support_codes": 306,
+  "dark": 990,
+  "spectrum": {
+   "+-4sqrt2": 1,
+   "+-2": 48,
+   "+-1": 32,
+   "0": 1134
+  }
+ },
+ "hb_tamper": {
+  "swap_kappa_1_2": {
+   "status": "rejected",
+   "seconds": 2.68,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": true,
+    "dark": true
+   }
+  },
+  "kappa_2_to_1": {
+   "status": "rejected",
+   "seconds": 3.67,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": false,
+    "dark": true
+   }
+  },
+  "kappa_4sqrt2_to_5": {
+   "status": "rejected",
+   "seconds": 4.08,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": false,
+    "dark": true
+   }
+  },
+  "vector_entry": {
+   "status": "rejected",
+   "seconds": 3.19,
+   "py_mirror": {
+    "identity": false,
+    "ortho": false,
+    "kappa": true,
+    "dark": true
+   }
+  },
+  "vector_index_shift": {
+   "status": "rejected",
+   "seconds": 4.23,
+   "py_mirror": {
+    "identity": false,
+    "ortho": false,
+    "kappa": true,
+    "dark": false
+   }
+  },
+  "drop_pair_mid": {
+   "status": "rejected",
+   "seconds": 4.36,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": false,
+    "dark": false
+   }
+  },
+  "drop_pair_last": {
+   "status": "rejected",
+   "seconds": 2.55,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": false,
+    "dark": false
+   }
+  },
+  "duplicate_pair": {
+   "status": "rejected",
+   "seconds": 4.14,
+   "py_mirror": {
+    "identity": false,
+    "ortho": false,
+    "kappa": false,
+    "dark": true
+   }
+  },
+  "index_out_of_range": {
+   "status": "rejected",
+   "seconds": 4.44,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": true,
+    "dark": true
+   }
+  },
+  "n_codes_1295": {
+   "status": "rejected",
+   "seconds": 2.59,
+   "py_mirror": {
+    "identity": true,
+    "ortho": true,
+    "kappa": true,
+    "dark": false
+   }
+  },
+  "link_sign_flip": {
+   "status": "rejected",
+   "seconds": 4.07,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": true,
+    "dark": true
+   }
+  },
+  "Ud_sign_flip": {
+   "status": "rejected",
+   "seconds": 3.7,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": true,
+    "dark": true
+   }
+  },
+  "link_entry_dropped": {
+   "status": "rejected",
+   "seconds": 3.03,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": true,
+    "dark": true
+   }
+  },
+  "swap_u_v_valid": {
+   "status": "certified",
+   "seconds": 2.88,
+   "py_mirror": {
+    "identity": true,
+    "ortho": true,
+    "kappa": true,
+    "dark": true
+   }
+  },
+  "negate_u_only": {
+   "status": "rejected",
+   "seconds": 3.71,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": true,
+    "dark": true
+   }
+  },
+  "negate_kappa": {
+   "status": "rejected",
+   "seconds": 3.1,
+   "py_mirror": {
+    "identity": false,
+    "ortho": true,
+    "kappa": false,
+    "dark": true
+   }
+  },
+  "zero_entry_valid": {
+   "status": "certified",
+   "seconds": 3.73,
+   "py_mirror": {
+    "identity": true,
+    "ortho": true,
+    "kappa": true,
+    "dark": false
+   }
+  }
+ },
+ "jw_mutants_rejected": {
+  "jwSign_always_1": "car_4 fails (line 100)",
+  "detU_coefficient_3": "det_u_sector fails (line 138)",
+  "sector_weight_1": "sector_card fails (line 113)",
+  "creation_sign_1": "car_4 and det_u_sector fail"
+ }
+}

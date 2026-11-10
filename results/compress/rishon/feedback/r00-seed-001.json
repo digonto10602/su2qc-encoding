@@ -1,0 +1,89 @@
+{
+ "valid": false,
+ "reason": "pruning_bound",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": false,
+  "reason": "pruning_bound",
+  "op_norm_error": 3.2872545791522326e-12,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -2.500057773971506e-14
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 7.480352640225858e-14,
+  "method": "rishon_inner_block",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 2.914751031257563e-12,
+  "block_error": 3.725035478946696e-13,
+  "leak_amplitude": 0.0,
+  "seconds": 10.501180410385132,
+  "n_inputs": 1296,
+  "failing_inputs": [
+   [
+    "dropped_total",
+    2.914751031257563e-12
+   ],
+   [
+    "prune_cap",
+    1e-12
+   ]
+  ],
+  "extra": {
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "inner_method": "inner_span",
+   "rishon": true
+  }
+ },
+ "verdicts_alt": [],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 6874,
+  "t_fixed": 7262,
+  "n_rot": 166,
+  "t_eps": 17187.92114752344,
+  "t_estimate": {
+   "1e-06": 17187.92114752344,
+   "1e-10": 23805.201912539065
+  },
+  "t_measured": null,
+  "synth_error_bound": 0.000166,
+  "depth": 9752,
+  "depth_ct": 9752,
+  "qubits": 58,
+  "gates": {
+   "cx": 6874,
+   "h": 4348,
+   "t": 3658,
+   "tdg": 3604,
+   "x": 1224,
+   "s": 202,
+   "sdg": 202,
+   "rz": 166,
+   "z": 16
+  },
+  "measured": false
+ },
+ "program_sha256": "d68f2aad1ba4788a5e22dc578aea89a15280e67bf701c56efdfa9d03871e836c",
+ "wall_s": 12.751960277557373,
+ "discoveries": [],
+ "summary": "the reference circuit of the rishon encoding (step) with rccx control ladders expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta."
+}

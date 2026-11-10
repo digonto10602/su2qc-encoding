@@ -1,0 +1,14 @@
+...F                                                                     [100%]
+=================================== FAILURES ===================================
+________________________ test_M6_G4_summary_and_budgets ________________________
+No module named 'su2plaq.rishon.compress.robust'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.rishon.compress.robust: No module named 'su2plaq.rishon.compress.robust'
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G1_archive_best_valid_and_not_worse_than_seed
+PASSED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G2_best_synthesised_reverified
+PASSED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G3_best_touches_no_outer_qubit
+FAILED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G4_summary_and_budgets
+1 failed, 3 passed in 53.77s

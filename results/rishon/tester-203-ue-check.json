@@ -1,0 +1,177 @@
+{
+ "commit": "6da30dd",
+ "alphas": {
+  "0.37": {
+   "gates_on_link0": 3,
+   "gates_on_link1": 3,
+   "gates_on_link2": 3,
+   "gates_on_link3": 3,
+   "per_link_max_dev_valid_codes": 0.0,
+   "invalid_code_phases_link0": {
+    "0": [
+     1.0,
+     0.0
+    ],
+    "1": [
+     0.9617433234158248,
+     -0.2739521488601326
+    ],
+    "2": [
+     0.9617433234158248,
+     -0.2739521488601326
+    ],
+    "4": [
+     1.0,
+     0.0
+    ],
+    "7": [
+     1.0,
+     0.0
+    ],
+    "8": [
+     1.0,
+     0.0
+    ],
+    "11": [
+     1.0,
+     0.0
+    ],
+    "13": [
+     0.9617433234158248,
+     -0.2739521488601326
+    ],
+    "14": [
+     0.9617433234158248,
+     -0.2739521488601326
+    ],
+    "15": [
+     1.0,
+     0.0
+    ]
+   },
+   "statevector_16q_40_codes_max_dev": 1.1102230246251565e-16,
+   "inner": {
+    "count_ops": {
+     "cx": 8,
+     "p": 4
+    },
+    "logical": {
+     "cx": 8,
+     "n_rot": 4,
+     "depth": 3,
+     "t_fixed": 0
+    }
+   },
+   "with_outer_no_row": {
+    "num_qubits": 48,
+    "count_ops": {
+     "cx": 8,
+     "p": 4
+    },
+    "cx": 8,
+    "n_rot": 4
+   },
+   "with_outer_row": {
+    "count_ops": {
+     "cx": 24,
+     "p": 12
+    },
+    "cx": 24,
+    "n_rot": 12,
+    "depth": 3
+   },
+   "outer_row_separately": {
+    "cx": 16,
+    "n_rot": 8
+   },
+   "outer_links_valid_codes_phase_ok": true,
+   "outer_Q_physical_codes_are_quartet_codes": true
+  },
+  "0.91": {
+   "gates_on_link0": 3,
+   "gates_on_link1": 3,
+   "gates_on_link2": 3,
+   "gates_on_link3": 3,
+   "per_link_max_dev_valid_codes": 0.0,
+   "invalid_code_phases_link0": {
+    "0": [
+     1.0,
+     0.0
+    ],
+    "1": [
+     0.7759983079148826,
+     -0.6307349888132409
+    ],
+    "2": [
+     0.7759983079148826,
+     -0.6307349888132409
+    ],
+    "4": [
+     1.0,
+     0.0
+    ],
+    "7": [
+     1.0,
+     0.0
+    ],
+    "8": [
+     1.0,
+     0.0
+    ],
+    "11": [
+     1.0,
+     0.0
+    ],
+    "13": [
+     0.7759983079148826,
+     -0.6307349888132409
+    ],
+    "14": [
+     0.7759983079148826,
+     -0.6307349888132409
+    ],
+    "15": [
+     1.0,
+     0.0
+    ]
+   },
+   "statevector_16q_40_codes_max_dev": 1.2412670766236366e-16,
+   "inner": {
+    "count_ops": {
+     "cx": 8,
+     "p": 4
+    },
+    "logical": {
+     "cx": 8,
+     "n_rot": 4,
+     "depth": 3,
+     "t_fixed": 0
+    }
+   },
+   "with_outer_no_row": {
+    "num_qubits": 48,
+    "count_ops": {
+     "cx": 8,
+     "p": 4
+    },
+    "cx": 8,
+    "n_rot": 4
+   },
+   "with_outer_row": {
+    "count_ops": {
+     "cx": 24,
+     "p": 12
+    },
+    "cx": 24,
+    "n_rot": 12,
+    "depth": 3
+   },
+   "outer_row_separately": {
+    "cx": 16,
+    "n_rot": 8
+   },
+   "outer_links_valid_codes_phase_ok": true,
+   "outer_Q_physical_codes_are_quartet_codes": true
+  }
+ }
+}

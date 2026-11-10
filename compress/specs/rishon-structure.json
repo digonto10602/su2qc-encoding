@@ -1,0 +1,694 @@
+{
+ "facts": [
+  {
+   "name": "card_rishon_physical",
+   "value": 38432,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.card_rishon_physical",
+   "note": "number of Gauss-law (SU(2)) states of the plaquette with 8 outer links"
+  },
+  {
+   "name": "card_rishon_closed",
+   "value": 4352,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.card_rishon_closed",
+   "note": "states with every outer link a singlet"
+  },
+  {
+   "name": "card_inner_codes",
+   "value": 1296,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.Rishon.card_inner_codes",
+   "note": "valid inner codes (6 link states on each of the 4 inner links)"
+  },
+  {
+   "name": "jw_string_free",
+   "value": true,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.Rishon.bilinear_string_free_8",
+   "note": "Jordan-Wigner strings of other links cancel in every link bilinear: link operators act on their own 4 qubits only"
+  },
+  {
+   "name": "corner_kernel_dims",
+   "value": 81,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.Rishon.corner_kernel_dims",
+   "note": "for all corner end configurations the Gauss kernel dimension equals the SU(2) fusion count"
+  },
+  {
+   "name": "ue_exact_all_codes",
+   "value": true,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.Rishon.ue_exact_all_codes",
+   "note": "the 12 electric gates map every valid inner code exactly to z^{-3 #Q}|code> for all alpha (exact Laurent arithmetic)"
+  },
+  {
+   "name": "hb_bright_pairs",
+   "proved_by": "native",
+   "certificate": "lean/certs/rishon-hb-structure.lean",
+   "value": {
+    "n_pairs": 81,
+    "kappa_multiset": {
+     "1": 32,
+     "2": 48,
+     "4*sqrt2": 1
+    },
+    "dark_codes": 990,
+    "vectors": 162
+   },
+   "note": "H_B^in = -sum_p kappa_p (|u_p><v_p| + h.c.) over commuting bright pairs; the other codes are dark (exact integer pairs a + b sqrt2)"
+  },
+  {
+   "name": "heights_raising",
+   "proved_by": "numerical",
+   "value": {
+    "height_shifts": [
+     [
+      1,
+      1,
+      1,
+      1
+     ]
+    ],
+    "raises_all_by_one": true,
+    "W_cubed_zero": true,
+    "W_nonzero_entries": 256
+   },
+   "summary": "W (the plaquette trace) raises all four link heights by one; W^3 = 0",
+   "note": "heights A=0, Q=1, B=2 on b, r and 2, 1, 0 on t, l (operators.heights)"
+  },
+  {
+   "name": "pair_supports",
+   "proved_by": "numerical",
+   "value": {
+    "columns": [
+     "n_u",
+     "n_v",
+     "affine_dim_u",
+     "affine_dim_v"
+    ],
+    "per_pair": [
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      2,
+      2,
+      1,
+      1
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      1,
+      4,
+      0,
+      2
+     ],
+     [
+      2,
+      16,
+      1,
+      4
+     ]
+    ],
+    "supports_are_affine": true,
+    "max_support": 16
+   },
+   "summary": "supports of u and v: sizes 2^d on GF(2) affine subspaces of dimension d (all affine: True); largest support 16",
+   "note": "per pair: support sizes of u and v and the GF(2) affine-subspace dimension of each support"
+  },
+  {
+   "name": "amplitude_alphabet",
+   "proved_by": "numerical",
+   "value": [
+    1.0,
+    0.707106781,
+    0.5,
+    0.25
+   ],
+   "summary": "absolute amplitudes of the pair vectors: 1, 1/sqrt2, 1/2, 1/4",
+   "note": "absolute values of all nonzero entries of the 162 pair vectors, rounded to 1e-9"
+  },
+  {
+   "name": "closed_bright_block",
+   "proved_by": "numerical",
+   "value": {
+    "kappa": 5.656854249492379,
+    "kappa_closed_form": "4*sqrt2",
+    "u": "(vac_A + vac_B)/sqrt2",
+    "v": "loop",
+    "u_is_vac_sum": true,
+    "v_is_loop": true,
+    "vac_A": 52275,
+    "vac_B": 13260,
+    "loop_codes": [
+     22170,
+     22182,
+     23130,
+     23142,
+     26265,
+     26277,
+     27225,
+     27237,
+     38298,
+     38310,
+     39258,
+     39270,
+     42393,
+     42405,
+     43353,
+     43365
+    ]
+   },
+   "summary": "the kappa = 4 sqrt2 pair is u = (vac_A + vac_B)/sqrt2, v = loop ~ W vac_A (checked: True); the closed 3x3 block lives on (vac_A, loop, vac_B)",
+   "note": "the only pair that touches the closed sector"
+  },
+  {
+   "name": "inner_span_rank",
+   "value": 1296,
+   "proved_by": "numerical",
+   "note": "the inner components of the physical states span all 1296 inner codes (R6 item 1: inner-block soundness)"
+  },
+  {
+   "name": "u1_sectors",
+   "value": 431,
+   "proved_by": "numerical",
+   "note": "distinct U(1) charge sectors of the physical states (corner occupation quartets)"
+  },
+  {
+   "name": "prune_rates",
+   "value": {
+    "per_branching_gate": 1.1e-15,
+    "budget_at_cap": 909,
+    "branching": [
+     "h",
+     "sx",
+     "u",
+     "ch (2)",
+     "crx (2)",
+     "rccx (2)",
+     "crz (0)",
+     "cp (0)"
+    ],
+    "engine_exact": [
+     "x",
+     "z",
+     "s",
+     "sdg",
+     "t",
+     "tdg",
+     "p",
+     "rz",
+     "cx",
+     "cz",
+     "cp",
+     "swap",
+     "ccx",
+     "ccz"
+    ],
+    "provenance": "prompts/203 \u00a713 E2 table"
+   },
+   "proved_by": "numerical",
+   "summary": "growth of the sparse engine's certified pruning bound: 1.1e-15 per branching gate of its lowering (budget at the cap: 909 branching gates; macro ccx/ccz and permutation/phase gates cost 0)",
+   "note": "measured, prompts/203 section 13 E2 (METHODS-rishon R11)"
+  }
+ ],
+ "provenance": {
+  "generator": "su2plaq.rishon.compress.spec.structure_facts",
+  "plan": "prompts/203",
+  "methods": "docs/METHODS-rishon.md R12",
+  "lean_sources": {
+   "lean/Su2Plaq/Rishon/Bridge.lean": "2014522a4141140512cee900532d7b934297e98dbead1121d7cea4821f6b2408",
+   "lean/Su2Plaq/Rishon/CornerKernel.lean": "c000547a5aa03c570f6c6b9652c200a1e11c1eb251650b800e56027e23629da2",
+   "lean/Su2Plaq/Rishon/Counts.lean": "87ab382fbd8d3c93596eefc0e1d124319f5959381c0199957f0ad5bc97f3440c",
+   "lean/Su2Plaq/Rishon/HBLink.lean": "0bca3c1fac71bd7c56da1b165b5154abccc6c34f3b7cc0a99f94ed5457251995",
+   "lean/Su2Plaq/Rishon/JW.lean": "4326faf85c166efa286c16c24286e715d6e024cc1106a9ab4acf632b6d816f48",
+   "lean/Su2Plaq/Rishon/UESemantics.lean": "c35ba3efdb594e9c51f73a1cfc1bee6ae97cad8895c561b51cbc3a3e2d72c210",
+   "lean/certs/rishon-hb-structure.lean": "01ff3ba7d761598378b850f6b435a1b8df5f1d7fb163c04181642c81a0d4da1e"
+  }
+ }
+}

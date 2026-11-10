@@ -1,0 +1,37 @@
+control_UE_ok                                           ok=True  reason=ok err=1.1102230246251565e-16 pass=True 
+A1_hidden_read_custom_gate_named_cx                     ok=False reason=outer_read_unsupported err=inf pass=True 
+A2_subclass_named_cz_outer_read                         ok=False reason=outer_read_unsupported err=inf pass=True 
+A3_unitary_controlled_phase_outer                       ok=False reason=outer_read_unsupported err=inf pass=True 
+A3b_nested_custom_outer_read                            ok=False reason=outer_read_unsupported err=inf pass=True 
+A4_gate_named_cx_no_definition                          ok=False reason=disallowed_gate err=inf pass=True 
+A5_gate_named_cx_is_swap_on_data                        ok=False reason=error err=2.0000000000000004 pass=True 
+A5b_fake_cp_3e-9_off_on_data                            ok=False reason=error err=0.08332464911241069 pass=True 
+A6_cp_outer_control                                     ok=False reason=outer_read_unsupported err=inf pass=True 
+A6b_cx_outer_control                                    ok=False reason=outer_read_unsupported err=inf pass=True 
+A7_mcx3_with_outer_control                              ok=False reason=disallowed_gate err=inf pass=True 
+A7b_ccx_outer_control                                   ok=False reason=outer_read_unsupported err=inf pass=True 
+A8_cx_open_control_outer                                ok=False reason=writes_outer err=inf pass=True 
+A8b_crz_outer_control                                   ok=False reason=outer_read_unsupported err=inf pass=True 
+A8c_cry_outer_control                                   ok=False reason=outer_read_unsupported err=inf pass=True 
+A8d_rzz_outer_data                                      ok=False reason=outer_read_unsupported err=inf pass=True 
+A8e_rz_on_outer_only                                    ok=False reason=outer_read_unsupported err=inf pass=True 
+A8f_swap_outer                                          ok=False reason=writes_outer err=inf pass=True 
+A8g_x_x_on_outer_restored                               ok=False reason=writes_outer err=inf pass=True 
+A8h_rx_1e-13_on_outer                                   ok=False reason=outer_read_unsupported err=inf pass=True 
+A9_ancilla_dirty_only_on_code_AAAA                      ok=False reason=dirty_ancilla err=2.0 pass=True 
+A10_phase_3.0_only_on_AAAA                              ok=False reason=error err=1.9949822559012587 pass=True 
+A10_phase_0.001_only_on_AAAA                            ok=False reason=error err=0.0009992283536197333 pass=True 
+A10_phase_1e-06_only_on_AAAA                            ok=False reason=error err=9.992283950534498e-07 pass=True 
+A10_phase_5e-10_only_on_AAAA                            ok=False reason=error err=4.996141892935697e-10 pass=True 
+A10_phase_2e-10_only_on_AAAA                            ok=False reason=error err=1.9984567077505118e-10 pass=True 
+A10_phase_5e-11_only_on_AAAA_(below_tol: accept)        ok=True  reason=ok err=4.9961411515791904e-11 pass=True 
+A11_ccz_on_invalid_pattern_dontcare(accept)             ok=True  reason=ok err=1.1102230246251565e-16 pass=True 
+A11b_ccz_on_valid_codes                                 ok=False reason=error err=2.0000000000000004 pass=True 
+A12_bad_layout                                          ok=False reason=bad_layout err=inf pass=True 
+A12b_unnamed_registers                                  ok=False reason=error err=0.7242209713797423 pass=True 
+A13_reset                                               ok=False reason=disallowed_gate err=inf pass=True 
+A13b_measure                                            ok=False reason=disallowed_gate err=inf pass=True 
+A14_global_phase(accept)                                ok=True  reason=ok err=1.6653345369377348e-16 pass=True 
+A15_wrong_alpha_sign                                    ok=False reason=error err=1.3549613673118173 pass=True 
+A17_rz_instead_of_p(per link phase differs by a global e^{-i...}: expect accept after global phase) ok=True  reason=ok err=4.515776300817696e-16 pass=True 
+n_cases 36 n_mismatch 0

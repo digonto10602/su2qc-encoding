@@ -1,0 +1,99 @@
+{
+ "commit": "5bba3e5",
+ "dirty": true,
+ "note": "uncommitted builder work for steps 6.3 and 6.4",
+ "tester": "reports/tests/216-m6-steps-6-3-6-4.md",
+ "machine": "taskset -c 10-19, OMP/OPENBLAS/MKL_NUM_THREADS=1; spinnet track concurrent (load 10-14)",
+ "seed": {
+  "trial_seed": 0,
+  "L3_seed": 12345
+ },
+ "tests": {
+  "m6_not_slow": {
+   "cmd": "pytest -n 4 -m 'not slow' tests/acceptance/m6",
+   "passed": 13,
+   "pending": 5,
+   "failed_other": 0,
+   "wall_s": 87.5,
+   "max_rss_gb": 6.81,
+   "pending_ids": [
+    "G2",
+    "G3",
+    "G4",
+    "L2",
+    "L3"
+   ]
+  },
+  "m6_R3_slow": {
+   "passed": 1,
+   "wall_s": 6.9,
+   "rss_gb": 0.36
+  },
+  "m6_slow_rest": {
+   "pending": [
+    "L4",
+    "L5",
+    "L6",
+    "L7",
+    "S3",
+    "G1"
+   ],
+   "E4": "not rerun (builder 1277 s; first half reproduced by dry round)"
+  },
+  "unit": {
+   "passed": 575,
+   "failed": 0,
+   "wall_s": 348.3,
+   "max_rss_gb": 6.81
+  },
+  "m5_m5x_not_slow": {
+   "passed": 39,
+   "failed": 0,
+   "wall_s": 946.0,
+   "max_rss_gb": 6.82
+  },
+  "check_lock": "LOCK OK",
+  "acceptance_check": "PASS acceptance-v11",
+  "collect": "168 tests"
+ },
+ "dry_round0": {
+  "cmd": "python -m su2plaq.rishon.compress.round --kind step --seed --dry-run --root <tmp>",
+  "wall_s": 1804.2,
+  "peak_rss_gb": 2.18,
+  "seed_eval_wall_s": {
+   "general": 43.2,
+   "general-rccx": 22.3,
+   "general-mcx": 19.4,
+   "general+polish": 33.0,
+   "qiskit_l3": 234.4
+  },
+  "synth_verify_and_rest_s": 1451.9
+ },
+ "prune_budget": {
+  "cap": 1e-12,
+  "rates_const": {
+   "ccx": 2.1e-16,
+   "rccx": 1.4e-15
+  },
+  "prune_budget": [
+   4700,
+   710
+  ],
+  "R11": [
+   4500,
+   700
+  ],
+  "measured_rate_UB": {
+   "ccx": 2.154e-16,
+   "rccx": 1.408e-15
+  },
+  "measured_rate_step": {
+   "ccx": 2.622e-16,
+   "rccx": 1.799e-15
+  },
+  "cap_over_step_rate": {
+   "ccx": 3813.8825324180016,
+   "rccx": 555.8643690939411
+  }
+ }
+}

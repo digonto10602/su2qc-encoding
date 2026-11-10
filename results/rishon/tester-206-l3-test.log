@@ -1,0 +1,38 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+rootdir: /home/digonto/Projects/su2qc-rishon
+configfile: pytest.ini
+plugins: xdist-3.8.0, cov-7.1.0, platformdirs-4.14.5, anyio-4.16.0
+collecting ... collected 3 items / 2 deselected / 1 selected
+
+tests/acceptance/m5/test_rishon_lean.py::test_M5_L3_hb_structure_certificate PASSED [100%]
+
+============================= slowest 5 durations ==============================
+9.20s call     tests/acceptance/m5/test_rishon_lean.py::test_M5_L3_hb_structure_certificate
+
+(2 durations < 0.005s hidden.  Use -vv to show these durations.)
+======================= 1 passed, 2 deselected in 9.24s ========================
+	Command being timed: "taskset -c 10-19 python -m pytest tests/acceptance/m5/test_rishon_lean.py -k L3 -v -p no:cacheprovider --durations=5"
+	User time (seconds): 6.84
+	System time (seconds): 3.31
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.12
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 824364
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 167746
+	Voluntary context switches: 759
+	Involuntary context switches: 215
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 112
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+done

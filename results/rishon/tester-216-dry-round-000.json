@@ -1,0 +1,448 @@
+{
+ "round": 0,
+ "n_valid": 2,
+ "n_invalid": 3,
+ "best_key": [
+  10102,
+  20650,
+  35639,
+  58
+ ],
+ "entries": [
+  "r00-seed-000",
+  "r00-seed-010"
+ ],
+ "lean_seconds": 0.00023317337036132812,
+ "encoding": "rishon",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "5bba3e5",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T23:24:01Z"
+ },
+ "evaluator_sha256": "85a4e38c4c65a99ba1c5b7d351737863ea4d5544fe2cd77950d5c24f7a13aa1c",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "invalid": [
+  {
+   "id": "r00-seed-qiskit_l3",
+   "label": "qiskit_l3",
+   "reason": "pruning_bound",
+   "message": ""
+  },
+  {
+   "id": "r00-seed-001",
+   "label": "general-rccx",
+   "reason": "pruning_bound",
+   "message": ""
+  },
+  {
+   "id": "r00-seed-002",
+   "label": "general-mcx",
+   "reason": "pruning_bound",
+   "message": ""
+  }
+ ],
+ "external": [
+  {
+   "source": "qiskit_l3_whole",
+   "valid": false,
+   "reason": "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "metrics": {
+    "cx": 9559,
+    "t_fixed": 8634,
+    "n_rot": 166,
+    "t_eps": 18559.92114752344,
+    "t_estimate": {
+     "1e-06": 18559.92114752344,
+     "1e-10": 25177.201912539065
+    },
+    "t_measured": null,
+    "synth_error_bound": 0.000166,
+    "depth": 13261,
+    "depth_ct": 13261,
+    "qubits": 58,
+    "gates": {
+     "cx": 9559,
+     "tdg": 4287,
+     "t": 4272,
+     "h": 2273,
+     "rz": 1114,
+     "x": 379,
+     "sdg": 108,
+     "s": 99,
+     "z": 8
+    },
+    "measured": false
+   }
+  },
+  {
+   "source": "paulo34",
+   "reason": "Paulo's 34-qubit circuit acts on the 12-qubit Paulo codes (3 qubits per link), not on rishon codes; the rishon circuits are built from the inner-operator structure (circuits.rishon)"
+  },
+  {
+   "source": "lean22",
+   "reason": "the su2qc-trotter lean circuits act on the 12-qubit Paulo codes, not on rishon codes; the rishon circuits are built from the inner-operator structure (circuits.rishon)"
+  },
+  {
+   "source": "lean22_v2",
+   "reason": "the su2qc-trotter lean circuits act on the 12-qubit Paulo codes, not on rishon codes; the rishon circuits are built from the inner-operator structure (circuits.rishon)"
+  },
+  {
+   "source": "spinnet15",
+   "reason": "spinnet15 acts on route-B spin-network labels, a different encoding, not on rishon codes; the rishon circuits are built from the inner-operator structure (circuits.rishon)"
+  }
+ ],
+ "n_pruning_bound": 3,
+ "candidates": [
+  {
+   "label": "general",
+   "id": "r00-seed-000",
+   "family": "seed",
+   "program_sha256": "6757d91f5a90ad008f83f54549c526cb82bdb61f69dec61258a30c6d0d63e1f2",
+   "program_path": "compress/programs/rishon/seed/000-general.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    10102,
+    20650,
+    35639,
+    58
+   ],
+   "cell": [
+    106,
+    114
+   ],
+   "metrics": {
+    "cx": 10102,
+    "t_fixed": 10218,
+    "n_rot": 166,
+    "t_eps": 20650,
+    "t_estimate": {
+     "1e-06": 20143.92114752344,
+     "1e-10": 26761.201912539065
+    },
+    "t_measured": {
+     "1e-06": 20650,
+     "1e-10": 27482
+    },
+    "synth_error_bound": 0.000166,
+    "depth": 13685,
+    "depth_ct": 35639,
+    "qubits": 58,
+    "gates": {
+     "cx": 10102,
+     "t": 5810,
+     "tdg": 4408,
+     "h": 3804,
+     "x": 1224,
+     "s": 202,
+     "sdg": 202,
+     "rz": 166,
+     "z": 16
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 4.1251643306005405e-13,
+    "block_error": 4.4954162764993984e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 2.6597966961250314e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 3.675622702950601e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "5bba3e5",
+   "summary": "the reference circuit of the rishon encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": {
+    "status": "not_run",
+    "reason": "Lean certification not available: PENDING: su2plaq.rishon.compress.lean_cert.certify_circuit is a stub (prompts/203 step 6.L3)"
+   },
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "general+polish",
+   "id": "r00-seed-010",
+   "family": "seed",
+   "program_sha256": "38d3d2e1780b1da62a6e04aa939d196c89e3c402316382a6458c4828afd3154f",
+   "program_path": "compress/programs/rishon/seed/010-general_polish.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    10102,
+    20650,
+    35639,
+    58
+   ],
+   "cell": [
+    106,
+    114
+   ],
+   "metrics": {
+    "cx": 10102,
+    "t_fixed": 10218,
+    "n_rot": 166,
+    "t_eps": 20650,
+    "t_estimate": {
+     "1e-06": 20143.92114752344,
+     "1e-10": 26761.201912539065
+    },
+    "t_measured": {
+     "1e-06": 20650,
+     "1e-10": 27482
+    },
+    "synth_error_bound": 0.000166,
+    "depth": 13685,
+    "depth_ct": 35639,
+    "qubits": 58,
+    "gates": {
+     "cx": 10102,
+     "t": 5810,
+     "tdg": 4408,
+     "h": 3804,
+     "x": 1224,
+     "s": 202,
+     "sdg": 202,
+     "rz": 166,
+     "z": 16
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 4.1251643306005405e-13,
+    "block_error": 4.4954162764993984e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 2.6597966961250314e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 3.675622702950601e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "5bba3e5",
+   "summary": "the reference circuit after the deterministic polish passes.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "qiskit_l3",
+   "id": "r00-seed-qiskit_l3",
+   "family": "seed",
+   "program_sha256": "",
+   "program_path": "compress/programs/rishon/seed/qiskit_l3.circuit",
+   "valid": false,
+   "reason": "pruning_bound",
+   "key": null,
+   "cell": null,
+   "metrics": {
+    "cx": 9688,
+    "t_fixed": 9120,
+    "n_rot": 166,
+    "t_eps": 19045.92114752344,
+    "t_estimate": {
+     "1e-06": 19045.92114752344,
+     "1e-10": 25663.201912539065
+    },
+    "t_measured": null,
+    "synth_error_bound": 0.000166,
+    "depth": 13496,
+    "depth_ct": 13496,
+    "qubits": 58,
+    "gates": {
+     "cx": 9688,
+     "t": 4712,
+     "tdg": 4336,
+     "h": 3718,
+     "rz": 966,
+     "x": 947,
+     "sdg": 165,
+     "s": 155,
+     "z": 11
+    },
+    "measured": false
+   },
+   "verdict": {
+    "ok": false,
+    "op_norm_error": 4.134786199897362e-12,
+    "block_error": 3.4634032574511414e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 1.497385651525929e-14,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 3.788445874152248e-12
+   },
+   "alt_ok": [],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "5bba3e5",
+   "summary": "",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "general-rccx",
+   "id": "r00-seed-001",
+   "family": "seed",
+   "program_sha256": "d68f2aad1ba4788a5e22dc578aea89a15280e67bf701c56efdfa9d03871e836c",
+   "program_path": "compress/programs/rishon/seed/001-general-rccx.py",
+   "valid": false,
+   "reason": "pruning_bound",
+   "key": null,
+   "cell": null,
+   "metrics": {
+    "cx": 6874,
+    "t_fixed": 7262,
+    "n_rot": 166,
+    "t_eps": 17187.92114752344,
+    "t_estimate": {
+     "1e-06": 17187.92114752344,
+     "1e-10": 23805.201912539065
+    },
+    "t_measured": null,
+    "synth_error_bound": 0.000166,
+    "depth": 9752,
+    "depth_ct": 9752,
+    "qubits": 58,
+    "gates": {
+     "cx": 6874,
+     "h": 4348,
+     "t": 3658,
+     "tdg": 3604,
+     "x": 1224,
+     "s": 202,
+     "sdg": 202,
+     "rz": 166,
+     "z": 16
+    },
+    "measured": false
+   },
+   "verdict": {
+    "ok": false,
+    "op_norm_error": 3.2872545791522326e-12,
+    "block_error": 3.725035478946696e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 7.480352640225858e-14,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 2.914751031257563e-12
+   },
+   "alt_ok": [],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "5bba3e5",
+   "summary": "the reference circuit of the rishon encoding (step) with rccx control ladders expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "general-mcx",
+   "id": "r00-seed-002",
+   "family": "seed",
+   "program_sha256": "43a41238a8d4f3751dbb12fdc5001fa3aa81a4c4ca7922c683a85e7e61e8d877",
+   "program_path": "compress/programs/rishon/seed/002-general-mcx.py",
+   "valid": false,
+   "reason": "pruning_bound",
+   "key": null,
+   "cell": null,
+   "metrics": {
+    "cx": 7360,
+    "t_fixed": 7748,
+    "n_rot": 166,
+    "t_eps": 17673.92114752344,
+    "t_estimate": {
+     "1e-06": 17673.92114752344,
+     "1e-10": 24291.201912539065
+    },
+    "t_measured": null,
+    "synth_error_bound": 0.000166,
+    "depth": 10400,
+    "depth_ct": 10400,
+    "qubits": 58,
+    "gates": {
+     "cx": 7360,
+     "h": 4348,
+     "t": 3982,
+     "tdg": 3766,
+     "x": 1224,
+     "s": 202,
+     "sdg": 202,
+     "rz": 166,
+     "z": 16
+    },
+    "measured": false
+   },
+   "verdict": {
+    "ok": false,
+    "op_norm_error": 3.034328040728021e-12,
+    "block_error": 3.3945815632227425e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 6.104618808204473e-14,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 2.694869884405747e-12
+   },
+   "alt_ok": [],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "5bba3e5",
+   "summary": "the reference circuit of the rishon encoding (step) with mcx control ladders expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r00-seed-000",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 166,
+  "t_total": 20650,
+  "tolerances": {
+   "tol_err": 0.00016600099999999998,
+   "tol_gauss": 0.00016600099999999998
+  },
+  "op_norm_error": 1.8995149619420735e-05,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 1804.2411115169525,
+ "written_utc": "2026-11-06T23:24:01Z"
+}

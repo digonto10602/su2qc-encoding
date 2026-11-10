@@ -1,0 +1,58 @@
+{
+ "commit": "d4c931a",
+ "seed": 215,
+ "rows": [
+  {
+   "gate": "cx",
+   "index": 3698,
+   "qubits": [
+    0,
+    10
+   ],
+   "new_control": 14,
+   "valid": false,
+   "reason": "leak",
+   "err": 2.000000000000335,
+   "wall": 39.835633277893066
+  },
+  {
+   "gate": "cz",
+   "index": 602,
+   "qubits": [
+    2,
+    15
+   ],
+   "new_control": 0,
+   "valid": false,
+   "reason": "error",
+   "err": 2.0000000000003344,
+   "wall": 56.54017734527588
+  },
+  {
+   "gate": "ch",
+   "index": 2385,
+   "qubits": [
+    1,
+    11
+   ],
+   "new_control": 15,
+   "valid": false,
+   "reason": "leak",
+   "err": 2.707106781186855,
+   "wall": 44.52560091018677
+  },
+  {
+   "gate": "cx",
+   "index": 4206,
+   "qubits": [
+    0,
+    11
+   ],
+   "new_control": 13,
+   "valid": false,
+   "reason": "leak",
+   "err": 3.000000000000297,
+   "wall": 26.908896684646606
+  }
+ ]
+}

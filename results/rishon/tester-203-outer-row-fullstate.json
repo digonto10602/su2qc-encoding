@@ -1,0 +1,24 @@
+{
+ "commit": "6da30dd",
+ "seed": 20261106,
+ "res": {
+  "0.37": {
+   "max_dev_with_outer_row": 1.5700924586837752e-16,
+   "max_dev_inner_only": 6.206335383118183e-17,
+   "n_states_with_outer_quartet": 64,
+   "n_states": 72
+  },
+  "0.91": {
+   "max_dev_with_outer_row": 1.1102230246251565e-16,
+   "max_dev_inner_only": 5.551115123125783e-17,
+   "n_states_with_outer_quartet": 64,
+   "n_states": 72
+  },
+  "verify_outer_row_circuit_vs_inner_target": {
+   "ok": false,
+   "reason": "writes_outer",
+   "err": Infinity,
+   "outer_read": 0
+  }
+ }
+}

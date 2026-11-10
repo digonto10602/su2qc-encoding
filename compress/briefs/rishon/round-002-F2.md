@@ -1,0 +1,45 @@
+# Brief: `rishon` / `step`, round 2, family `F2`
+
+**Task.** Rewrite the parent to improve the key; return the complete program.
+
+- Task specification: `compress/specs/rishon-step.md`
+- Structure facts: `compress/specs/rishon-structure.json`
+
+## Rishon overrides (these win over `~/.claude/agents/proposer.md`, which describes the `twelve` encoding)
+- Commands: `python -m su2plaq.rishon.compress.run_candidate <program.py> --kind step --trial` (seconds) and `--full` (all inner codes, three angle pairs, Gauss sample); the oracle: `python -m su2plaq.rishon.compress.oracle --kind step [--column j] [--element i j] [--codec [--state k]] [--pairs [--closed]] [--block]`. Do NOT use `su2plaq.compress.run_candidate` / `su2plaq.compress.oracle` with `--encoding`.
+- **Outer qubits `o[16..47]` may be neither read nor written** (a gate on them is `outer_read_unsupported` / `writes_outer`, invalid). The target acts on the 16 data qubits; the outer register only counts in the key's qubit component.
+- **A `--trial` result is not a validity verdict.** Trial checks only a seeded subset of the inner codes at the nominal angles with no Gauss sample; a wrong controlled rotation acting on few codes can pass it (reports/tests/215: most single-gate errors passed it). Only `--full` decides validity (all codes, three angle pairs with an identical skeleton, Gauss sample, prune cap): run it before you finish, and never conclude a design is correct from a trial `valid`.
+- The prune cap (`dropped_total` <= 1e-12) is part of validity: see the Correctness section of the specification (prune budget: see Correctness); a program that is exact but over the cap is recorded as `pruning_bound` (invalid).
+- Programs import only numpy / maths modules / qiskit / `su2plaq.compress.{oracle,builder,spec}` (`get_encoding("rishon")` gives the pairs, targets and codes); never `su2plaq.rishon.*`. Do not ship `.lean` lemma files (not checked for rishon).
+- Structure facts (what Lean proved and what is only numerical): `compress/specs/rishon-structure.json` and the section 'Proved structure (Lean)' of the specification.
+
+## Parent
+- program: `compress/programs/rishon/F2/001-direction-qubit-walsh.py` (entry `r01-F2-001`, sha256 d56116b4b8c4)
+- feedback: `results/compress/rishon/feedback/r01-F2-001.json`
+- cost: CX 354, T_eps 1818, depth_CT 3557, qubits 62
+- summary: F2 explicit direction qubit: link prep, g-controlled canonicaliser + Bell map at corners c0/c2, direction f = [x0=g_b][x10=g_t] in one Toffoli, f-controlled lowering at c1/c3, c0/c2 partner fix, then a 6-term Walsh multiplexer on f over four good-equal-corner bits plus kappa=1 and closed-pair gadgets; all angles are integer (closed: sqrt2) multiples of beta.
+
+## Archive alternatives (paths and costs only)
+- `compress/programs/rishon/F1/001-ghz-frame-cx-tau.py` (entry `r01-F1-001`, family `F1`): CX 256, T_eps 1020, depth_CT 1714, qubits 58; F1 link-flag GHZ frame (flip qubit F = g_b): link prep with g copies in R2, U_E as 4 phases on L2, per-corner CX+CCX (CZ.CX merged, CS^dag + rccx), r folded into the R2 slots, sector height h_b by a flip-invariant 3-way rccx mux whose selectors also give K1=[r=101] and z=[r=000], tau removed by plain CX(h_X->e1) before a relative-phase 2-control H, closed-pair GHZ gadget; bright flag = NOR of 4 rccx-folded e1 plus z & e2=1111 for the closed pair; one 8-term Gray-cycle uniformly controlled Rz on F (8 CX); all angles linear in alpha, beta, sqrt2 beta.
+- `compress/programs/rishon/F4/001-flat-dilation.py` (entry `r01-F4-001`, family `F4`): CX 390, T_eps 1304, depth_CT 1871, qubits 62; exact degree-1 spectral transform of a flat dilation of W = prod_c K_c (F4): corner-local Dicke frame (pseudo-spin chain e1 -> S -> e3 made classical, U_E as 4 free phases), direction qubit q = f(data), q-controlled corner-local lowering J so both members of every bright pair share the data register, then one class-multiplexed Rx on q gated by AND_c[corner is a raising source and not dark]; closed chain via q=|+> on the all-Q loop plus an A<->L toggle.
+- `compress/programs/rishon/F5/001-class-batched-givens.py` (entry `r01-F5-001`, family `F5`): CX 492, T_eps 1739, depth_CT 3142, qubits 51; frame D (link prep, corner CX/CCX/C2H, GHZ fold of the Q flags; U_E = 4 phases on the flags) sends 80 bright pairs to basis pairs; per r-class (7) merged Toffolis make partners differ only in F=q1, a 4-7 literal rccx AND (shared invariant prefixes) flags the class and one crx(-2 kappa s beta) rotates it; closed pair by an unconditional CX.CH.H basis change and one crx; then D^dagger.
+
+## Last 1 attempts of family `F2`
+- `r01-F2-001`: valid, key [354, 1818, 3557, 62]; F2 explicit direction qubit: link prep, g-controlled canonicaliser + Bell map at corners c0/c2, direction f = [x0=g_b][x10=g_t] in one Toffoli, f-controlled lowering at c1/c3, c0/c2 partner fix, then a 6-term Walsh multiplexer on f over four good-equal-corner bits plus kappa=1 and closed-pair gadgets; all angles are integer (closed: sqrt2) multiples of beta.
+
+## DISCOVERY notes of all programs (last 12 of at most 30 lines)
+- r01-F1-001: DISCOVERY: after the g-controlled corner Toffolis the equal-corner partner mismatch tau_c equals the sector height h_X; XOR-ing h_X into e1 BEFORE the controlled H (a sign on the singlet, a flip on the 00 member) removes it with CX only, no Toffoli; h_b itself is a 3-way mux of the [N_c=3] bits of different corners selected by r.
+- r01-F1-001: DISCOVERY: in this frame every bright label has e1=0000 and bright <=> e1=0000 and e2_c=1 at every equal corner (T+- have e2=0); 4 rccx folds (T+- at c0,c1,c2,c3 -> flip e1 of c0,c3,c0,c1) reduce the 80 non-closed pairs to a NOR of the 4 e1, but in r=000 all 256 (e1,e2) patterns are occupied, so the closed pair needs the full 8-bit check.
+- r01-F1-001: DISCOVERY: the GHZ-frame coupling sign is (-1)^(r_r+r_t+r_l); the relative-phase CCH (CCZ.CS^dag, 4 CX) adds (-i)^(g_X g_Y) = -1 exactly for pairs with adjacent equal corners, which cancels that sign for all 81 pairs, so no CZ is needed.
+- r01-F2-001: DISCOVERY: after the g-controlled canonicaliser + Bell map at opposite corners c0,c2 the true direction (upper member) is f = [x0==g_b] AND [x10==g_t] on every non-closed bright member (one Toffoli), although f is not even quadratic in the raw code bits.
+- r01-F2-001: DISCOVERY: in the lowered frame a kappa=2 label is bright iff both bits are 1 at its two equal corners and its Rx angle depends only on their geometry (adjacent +4 beta, opposite -4 beta); kappa=1 labels are bright iff x0 = x10 = NOT s_b (-2 beta), the closed pair gets -8 sqrt2 beta.
+- r01-F2-001: DISCOVERY: the 4-bit multiplexer needs only 6 Walsh terms (12 CX) if the never-occurring weight>=3 patterns get angles (-4,4,4,4,0) beta; the sparse engine caps circuits at 62 qubits, so the four link R2 qubits (|0> after link prep) serve as scratch.
+- r01-F4-001: DISCOVERY: W/kappa is a product of corner partial isometries (pseudo-spin raising J+/|J+|); with a direction qubit the dilated block is flat (all 81 pairs at singular value 1, the kappa=4sqrt2 pair too if q=|+> on the loop), so exp(i beta H_B) is exp(i theta_kappa X_q) in the J-frame gated by a corner-local test: no polynomial, no bright-pair labels.
+- r01-F4-001: DISCOVERY: corner frame CX(s1,t1) CX(s2,t2) CX(t1,t2) CX(s1,s2), C2H(s2=1,t2=0 -> s1), CCX(t1,s2 -> s1): every raising source has s1 xor s2 = 1, every other state outside the dark sector (t1,t2)=(0,0) has 0; the lowering is s1 ^= q !t2 s2, s2 ^= q.
+- r01-F4-001: DISCOVERY: the corner signs of W are (-1)^[N_c=1]; the free gauge Z(s1)Z(s2) plus CY (instead of CX) for the q-controlled s2 flip makes the sign of all 81 lowerings +1 (phases i, i, -i, -i for N=1, N=3, e3->S, S->e1).
+- r01-F5-001: DISCOVERY: in the frame, within each kappa=2 class r the partner flip on the equal-corner e1 bits is tau_c = a_c xor e1_d (d a fixed different corner), so Toffolis CCX(e1_d, F -> e1_c) make every pair of the class differ only in F; the post-Toffoli bright set of each class is isolated from all 1296 valid images by a cube of 4-7 literals (single bits / 2-3 bit parities).
+- r01-F5-001: DISCOVERY: the frame coupling sign of a kappa=2 class is (-1)^{r_l} (r_l = g_b xor g_l); after CX(e1c0, F -> e1c1, e1c2, e1c3) the closed pair is u = (|a>+|b>)/sqrt2, v = -|c> with a, b, c (and one dark label d) differing only in (F, e1c0).
+- r01-F5-001: DISCOVERY: the closed pair needs no controlled H: the unconditional V = CX(F,q0) CH(F,q0) H(q0) maps u -> |00>, v -> -|10> and both dark states of the 4-label block to q0 = 1, so one crx controlled by (flag and not q0) on F does the 3x3 block.
+
+## Output
+Write ONE program to `compress/programs/rishon/F2/002-<slug>.py` (docstring starting with `SUMMARY:`, at most 3 `DISCOVERY:` lines, `FAMILY`, `PARENT`, `def build(spec) -> Builder`); scratch files only under `scratch/proposer/`. The file is immutable once evaluated; a change needs a new number.

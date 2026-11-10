@@ -1,0 +1,188 @@
+{
+ "id": "r03-F1-003",
+ "program_path": "compress/programs/rishon/F1/003-exact-corner-tests.py",
+ "program_sha256": "95ec25703fc5f646d5ca57862b6e27cd54dedd97d2e31e71988da32687f981ee",
+ "parent": "r02-F1-002",
+ "family": "F1",
+ "round": 3,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  240,
+  870,
+  1351,
+  55
+ ],
+ "cell": [
+  63,
+  78
+ ],
+ "metrics_raw": {
+  "cx": 240,
+  "t_fixed": 234,
+  "n_rot": 10,
+  "t_eps": 870,
+  "t_estimate": {
+   "1e-06": 831.9470570797253,
+   "1e-10": 1230.5784284662086
+  },
+  "t_measured": {
+   "1e-06": 870,
+   "1e-10": 1266
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 295,
+  "depth_ct": 1351,
+  "qubits": 55,
+  "gates": {
+   "cx": 240,
+   "h": 122,
+   "t": 118,
+   "tdg": 116,
+   "x": 54,
+   "sdg": 22,
+   "s": 22,
+   "rz": 10
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.2665695028294345e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   0.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 8.724814098415249e-16,
+  "method": "rishon_inner_block",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.1444601104640577e-13,
+  "block_error": 1.2210939236537677e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 17.215509176254272,
+  "n_inputs": 1296,
+  "failing_inputs": [],
+  "extra": {
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "inner_method": "inner_span",
+   "rishon": true
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.2507514257037482e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -6.579099405186184e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 9.240981210571205e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.1260467617577322e-13,
+   "block_error": 1.2470466394601602e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 9.056999444961548,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.269207638165497e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -9.86864910777928e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 7.822198817032362e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.141064621265468e-13,
+   "block_error": 1.2814301690002898e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 5.11474347114563,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: in the F1 GHZ frame the bright set is exactly {e1_c = 0 and (e2_c = 1 or delta_c = 1) at all four corners} on all 1296 images, closed pair included (dark passing: 0); the delta registers are 0 in the r = 000 sector, so a test rccx in place on delta_c gives a fresh AND of two e-bits there and four of them isolate the loop among the 256 all-Q images without the 8-bit e2 check.",
+  "DISCOVERY: a single-rccx test per corner has an even truth table, so it cannot equal the weight-3 corner condition; the best quadratic tests (delta ^ e2 & !(e1 ^ delta), one CX prep each) leave 16 kappa=1 dark labels that all have e1_c2 = 1, and an exhaustive search (4 tests with z-constant targets, up to 5 CX preps incl. cross-corner sources, plus 0..1 literal, or single-CX kills) finds no cheaper combination; the special c2 corner (literal !e1 read before rccx(!e2, !delta -> e1), then !e1 again) is the cheapest kill.",
+  "DISCOVERY: linear test preps e1_c ^= delta_c commute with the frame's CCH (it fires only at Q-Q corners, where delta_c = 0) and with the z-controlled closed gadget, so they can be merged into the tau fix: for c2 and c3 the merge is free (h_r -> h_b ^ r_t, h_t -> h_b ^ r_l), for c1 it costs one CX, for c0 four (the GHZ collapse spreads e1_c0)."
+ ],
+ "summary": "F1 link-flag GHZ frame (flip qubit F = g_b), parent r02-F1-002 with the fold/NOR flag X1 and the closed-pair check Y1..Y3 replaced by one exact bright test: frame as in the parent (link prep, U_E on L2, corner CX+CCX, r in R2 slots, h_b mux with K1/z selectors, CX tau fix, relative-phase CCH, deltas, closed GHZ gadget; the c3 test literal e1 ^ delta_c3 merged into the tau fix at no cost); flag x = AND_c [e1_c = 0 and (e2_c or delta_c)], closed pair included, from three in-place quadratic tests on the delta registers (delta ^ e2 & !(e1 ^ delta)), corner c2 as the literal !e1 before and after one in-place fold, and a 5-input rccx chain (26 CX per side instead of 30); the uniformly controlled Rz on F needs only 6 Gray-cycle Walsh terms over (x, K1, z); all angles linear in alpha, beta, sqrt2 beta.",
+ "evaluator_sha256": "43ae85b452e0c2a5bf09d19fbb1d6d56cf6a81599eb5642d2ecb1364a50309f3",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "git_commit": "f691e94",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 41.77627778053284,
+ "written_utc": "2026-11-08T03:42:25Z",
+ "git_dirty": false,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9.999999999999999e-06
+ },
+ "lean": null,
+ "mode": "full"
+}

@@ -1,0 +1,179 @@
+{
+ "commit": "98ae337",
+ "results": [
+  [
+   "test_rishon_observables::test_M5_O1_closed_spectra",
+   "PENDING",
+   "NotImplementedError: rishon.observables.closed_spectra is not built yet"
+  ],
+  [
+   "test_rishon_algebra::test_M5_D1_link_algebra",
+   "PASS",
+   ""
+  ],
+  [
+   "test_rishon_circuits::test_M5_E1_electric_step[0.37]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_UE is not built yet"
+  ],
+  [
+   "test_rishon_circuits::test_M5_B1_magnetic_inner_block[1.0]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_UB is not built yet"
+  ],
+  [
+   "test_rishon_circuits::test_M5_B1_magnetic_inner_block[0.61]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_UB is not built yet"
+  ],
+  [
+   "test_rishon_circuits::test_M5_S1_step_orders[2]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_step is not built yet"
+  ],
+  [
+   "test_rishon_circuits::test_M5_B1_physical_with_outer_and_gauss",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_UB is not built yet"
+  ],
+  [
+   "test_rishon_metrics::test_M5_T1_t_table_and_synth_verify[UB]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_UB is not built yet"
+  ],
+  [
+   "test_rishon_lean::test_M5_L1_counts_kernel_checked",
+   "PENDING",
+   "Su2Plaq/Rishon/Counts.lean missingPENDING: Su2Plaq/Rishon/Counts.lean missing"
+  ],
+  [
+   "test_rishon_lean::test_M5_L3_hb_structure_certificate",
+   "PENDING",
+   "Su2PlaqCert/Rishon/HB.lean missingPENDING: Su2PlaqCert/Rishon/HB.lean missing"
+  ],
+  [
+   "test_rishon_lean::test_M5_L2_jw_facts_kernel_checked",
+   "PENDING",
+   "Su2Plaq/Rishon/JW.lean missingPENDING: Su2Plaq/Rishon/JW.lean missing"
+  ],
+  [
+   "test_rishon_metrics::test_M5_T1_t_table_and_synth_verify[UE]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_UE is not built yet"
+  ],
+  [
+   "test_rishon_observables::test_M5_O1_observables_after_steps[0.91-0.23]",
+   "PENDING",
+   "NotImplementedError: rishon.observables.observables is not built yet"
+  ],
+  [
+   "test_rishon_observables::test_M5_O1_observables_after_steps[0.37-0.61]",
+   "PENDING",
+   "NotImplementedError: rishon.observables.observables is not built yet"
+  ],
+  [
+   "test_rishon_operators::test_M5_X1_plaquette_structure",
+   "PASS",
+   ""
+  ],
+  [
+   "test_rishon_operators::test_M5_X1_bright_pairs_and_closed_block",
+   "PASS",
+   ""
+  ],
+  [
+   "test_rishon_algebra::test_M5_D1_string_free_and_sector",
+   "PASS",
+   ""
+  ],
+  [
+   "test_rishon_metrics::test_M5_T1_t_table_and_synth_verify[step]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_step is not built yet"
+  ],
+  [
+   "test_rishon_observables::test_M5_O1_observables_after_steps[1.7-1.0]",
+   "PENDING",
+   "NotImplementedError: rishon.observables.observables is not built yet"
+  ],
+  [
+   "test_rishon_circuits::test_M5_S1_step_orders[1]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_step is not built yet"
+  ],
+  [
+   "test_rishon_circuits::test_M5_B1_magnetic_inner_block[0.23]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_UB is not built yet"
+  ],
+  [
+   "test_rishon_physical::test_M5_C1_inner_span_full",
+   "PASS",
+   ""
+  ],
+  [
+   "test_rishon_codec::test_M5_C1_encoding_codec_and_vectors",
+   "PASS",
+   ""
+  ],
+  [
+   "test_rishon_circuits::test_M5_E1_electric_step[0.91]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_UE is not built yet"
+  ],
+  [
+   "test_rishon_physical::test_M5_C1_states_gauss_orthonormal",
+   "PASS",
+   ""
+  ],
+  [
+   "test_rishon_circuits::test_M5_B1_magnetic_inner_block[2.0]",
+   "PENDING",
+   "NotImplementedError: circuits.rishon.build_UB is not built yet"
+  ],
+  [
+   "test_rishon_results::test_M5_R1_observables_and_register_rows",
+   "PENDING",
+   "missing /home/digonto/Projects/su2qc-rishon/results/rishon/observables.json (step 5.10)PENDING: missing /home/digonto/Projects/su2qc-rishon/results/rishon/observables.json (step 5.10)"
+  ],
+  [
+   "test_rishon_results::test_M5_R1_results_files[step]",
+   "PENDING",
+   "missing /home/digonto/Projects/su2qc-rishon/results/rishon/step.json (step 5.10)PENDING: missing /home/digonto/Projects/su2qc-rishon/results/rishon/step.json (step 5.10)"
+  ],
+  [
+   "test_rishon_results::test_M5_R1_results_files[UB]",
+   "PENDING",
+   "missing /home/digonto/Projects/su2qc-rishon/results/rishon/UB.json (step 5.10)PENDING: missing /home/digonto/Projects/su2qc-rishon/results/rishon/UB.json (step 5.10)"
+  ],
+  [
+   "test_rishon_physical::test_M5_C1_counts_two_routes",
+   "PASS",
+   ""
+  ],
+  [
+   "test_rishon_operators::test_M5_X1_inner_target_properties[1.7-1.0]",
+   "PASS",
+   ""
+  ],
+  [
+   "test_rishon_verify::test_M5_B1_verifier_sensitivity",
+   "PENDING",
+   "NotImplementedError: rishon.verify.verify is not built yet"
+  ],
+  [
+   "test_rishon_results::test_M5_R1_results_files[UE]",
+   "PENDING",
+   "missing /home/digonto/Projects/su2qc-rishon/results/rishon/UE.json (step 5.10)PENDING: missing /home/digonto/Projects/su2qc-rishon/results/rishon/UE.json (step 5.10)"
+  ],
+  [
+   "test_rishon_operators::test_M5_X1_inner_target_properties[0.37-0.61]",
+   "PASS",
+   ""
+  ]
+ ],
+ "counts": {
+  "PENDING": 24,
+  "PASS": 10
+ }
+}

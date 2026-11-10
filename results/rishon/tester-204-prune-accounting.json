@@ -1,0 +1,112 @@
+{
+ "commit": "4d2265c+uncommitted",
+ "PRUNE_FRACTION": 0.01,
+ "verdicts": {
+  "UB(0.61)": {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.434066627820508e-13,
+   "block_error": 4.1436388124413177e-14,
+   "dropped_total": 3.0197027465763763e-13,
+   "leak_amplitude": 0.0,
+   "sum_check": 0.0,
+   "cap": 1e-12,
+   "headroom": 3.311584231705461,
+   "gauss_residual": 2.2614139732385464e-15,
+   "gauss_states": 273,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "engine": "sparse",
+   "certified": true,
+   "seconds": 19.058238983154297
+  },
+  "UB(2.0)": {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.5622589333562274e-13,
+   "block_error": 4.0626134296200945e-14,
+   "dropped_total": 3.155997590394218e-13,
+   "leak_amplitude": 0.0,
+   "sum_check": 0.0,
+   "cap": 1e-12,
+   "headroom": 3.1685702265542264,
+   "gauss_residual": 2.298750060655254e-15,
+   "gauss_states": 273,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "engine": "sparse",
+   "certified": true,
+   "seconds": 16.472479104995728
+  },
+  "step1(0.37,0.61)": {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.1246060086071064e-13,
+   "block_error": 4.489833056565055e-14,
+   "dropped_total": 3.675622702950601e-13,
+   "leak_amplitude": 0.0,
+   "sum_check": 0.0,
+   "cap": 1e-12,
+   "headroom": 2.720627444153208,
+   "gauss_residual": 2.6597966961250314e-15,
+   "gauss_states": 273,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "engine": "sparse",
+   "certified": true,
+   "seconds": 27.06251049041748
+  },
+  "step2(0.37,0.61)": {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.0961286783138846e-13,
+   "block_error": 4.505799488143801e-14,
+   "dropped_total": 3.6455487294995047e-13,
+   "leak_amplitude": 0.0,
+   "sum_check": 0.0,
+   "cap": 1e-12,
+   "headroom": 2.743071274587761,
+   "gauss_residual": 2.2694320561057443e-15,
+   "gauss_states": 273,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "engine": "sparse",
+   "certified": true,
+   "seconds": 19.638768672943115
+  },
+  "step2(1.7,1.0)": {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.298749072535613e-13,
+   "block_error": 4.353999727674824e-14,
+   "dropped_total": 3.8633490997681306e-13,
+   "leak_amplitude": 0.0,
+   "sum_check": 0.0,
+   "cap": 1e-12,
+   "headroom": 2.588427745398462,
+   "gauss_residual": 2.0988519628113186e-15,
+   "gauss_states": 273,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "engine": "sparse",
+   "certified": true,
+   "seconds": 16.316827058792114
+  }
+ },
+ "cap_boundary": {
+  "0.9*100*d": {
+   "tol_err": 2.7177324719187385e-11,
+   "ok": false,
+   "reason": "pruning_bound",
+   "dropped_total": 3.0197027465763763e-13,
+   "cap": 2.7177324719187386e-13
+  },
+  "1.1*100*d": {
+   "tol_err": 3.321673021234014e-11,
+   "ok": true,
+   "reason": "ok",
+   "dropped_total": 3.0197027465763763e-13,
+   "cap": 3.321673021234014e-13
+  }
+ }
+}

@@ -1,0 +1,41 @@
+bringing up nodes...
+bringing up nodes...
+
+..................................                                       [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m0/test_algebra.py::test_M0_A1_link_algebra[0.5]
+PASSED tests/acceptance/m0/test_geometry.py::test_M0_G1_diagram
+PASSED tests/acceptance/m0/test_geometry.py::test_M0_G2_point_split
+PASSED tests/acceptance/m0/test_algebra.py::test_M0_A1_link_algebra[1.0]
+PASSED tests/acceptance/m0/test_metrics.py::test_M0_M2_pygridsynth_band[1e-06]
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X3_hermitian_and_electric
+PASSED tests/acceptance/m0/test_metrics.py::test_M0_M2_pygridsynth_band[1e-08]
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C1_dimension
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C2_closed
+PASSED tests/acceptance/m0/test_metrics.py::test_M0_M3_qiskit_ct_pm
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X7_closed_block[0.5]
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X7_closed_block[1.0]
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C5_far_end_weighted
+PASSED tests/acceptance/m0/test_sparse_sim.py::test_M0_E2_vs_dense_operator
+PASSED tests/acceptance/m0/test_algebra.py::test_M0_A2_six_j_vs_sympy
+PASSED tests/acceptance/m0/test_algebra.py::test_M0_A3_paulo_adapter
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X7_closed_block[2.0]
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C4_ambiguous
+PASSED tests/acceptance/m0/test_physical.py::test_M0_X1_gauss_and_gram
+PASSED tests/acceptance/m0/test_results.py::test_M0_R1_results_json_and_report
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X2_plaquette_leak
+PASSED tests/acceptance/m0/test_spinnet.py::test_M0_X4_spectra_A_vs_B
+PASSED tests/acceptance/m0/test_spinnet.py::test_M0_X5_outer_block_structure_and_J
+PASSED tests/acceptance/m0/test_metrics.py::test_M0_M1_macro_costs
+PASSED tests/acceptance/m0/test_spinnet.py::test_M0_X6_gauge_align_K
+PASSED tests/acceptance/m0/test_sparse_sim.py::test_M0_E1_vs_aer
+PASSED tests/acceptance/m0/test_metrics.py::test_M0_M2_pygridsynth_band[0.0001]
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X8_target_properties
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C3_link_strings
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C6_jmax1_count_slow
+PASSED tests/acceptance/m0/test_evaluator.py::test_M0_E5_gauss_of_outputs
+PASSED tests/acceptance/m0/test_evaluator.py::test_M0_E3_sensitivity
+PASSED tests/acceptance/m0/test_evaluator.py::test_M0_E4_outer_control_blocks
+PASSED tests/acceptance/m0/test_evaluator.py::test_M0_E6_leak_is_judged_as_amplitude
+34 passed in 12.26s

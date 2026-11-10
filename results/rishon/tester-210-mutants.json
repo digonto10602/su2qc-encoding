@@ -1,0 +1,366 @@
+[
+ {
+  "id": "W2-01 fuseR true true=[0]",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_u8dfls38/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 26.7
+ },
+ {
+  "id": "W2-02 fuseR true true=[2]",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_af4urdbk/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 4.8
+ },
+ {
+  "id": "W2-03 fuseR false true=[0]",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_l_g7ttm6/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 5.0
+ },
+ {
+  "id": "W2-04 fuseR false false=[1]",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_k7242s_d/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 3.7
+ },
+ {
+  "id": "W2-05 swap G+/G- definitions",
+  "lean_rejected": false,
+  "python_tie_rejected": false,
+  "lean_msg": "",
+  "py_msg": [],
+  "secs": 7.9
+ },
+ {
+  "id": "W2-06 G- := G+ (duplicate)",
+  "lean_rejected": false,
+  "python_tie_rejected": false,
+  "lean_msg": "",
+  "py_msg": [],
+  "secs": 7.3
+ },
+ {
+  "id": "W2-07 G- sums only 3 ends",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_sqveeiak/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 7.3
+ },
+ {
+  "id": "W2-08 drop Gz from stack",
+  "lean_rejected": false,
+  "python_tie_rejected": false,
+  "lean_msg": "",
+  "py_msg": [],
+  "secs": 7.1
+ },
+ {
+  "id": "W2-09 drop G+ from stack",
+  "lean_rejected": false,
+  "python_tie_rejected": false,
+  "lean_msg": "",
+  "py_msg": [],
+  "secs": 7.1
+ },
+ {
+  "id": "W2-10 drop G- from stack",
+  "lean_rejected": false,
+  "python_tie_rejected": false,
+  "lean_msg": "",
+  "py_msg": [],
+  "secs": 7.1
+ },
+ {
+  "id": "W2-11 range 80",
+  "lean_rejected": false,
+  "python_tie_rejected": true,
+  "lean_msg": "",
+  "py_msg": [
+   "E       AssertionError: assert ('(List.range 81)' in ' : (List.range 80).all (fun m =>\\n    invariant gz (cornerBasis m) && invariant gp (cornerBasis m) && invariant gm (cornerBasis m) &&\\n    kerDim m == cornerCountR (isQ m 0) (isQ m 1) (isQ m 2) (isQ m 3)) = true ')",
+   "FAILED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W2_corner_kernel_dims_match_production"
+  ],
+  "secs": 5.4
+ },
+ {
+  "id": "W2-12 range 82 (duplicate cfg)",
+  "lean_rejected": false,
+  "python_tie_rejected": true,
+  "lean_msg": "",
+  "py_msg": [
+   "E       AssertionError: assert ('(List.range 81)' in ' : (List.range 82).all (fun m =>\\n    invariant gz (cornerBasis m) && invariant gp (cornerBasis m) && invariant gm (cornerBasis m) &&\\n    kerDim m == cornerCountR (isQ m 0) (isQ m 1) (isQ m 2) (isQ m 3)) = true ')",
+   "FAILED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W2_corner_kernel_dims_match_production"
+  ],
+  "secs": 6.2
+ },
+ {
+  "id": "W2-13 oneRishon only 01",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_63ntpdi2/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 2.0
+ },
+ {
+  "id": "W2-14 Gz = n1+n2",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_v1xxtcz5/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 1.8
+ },
+ {
+  "id": "W2-15 elim sign wrong",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval__ziiunmz/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 2.5
+ },
+ {
+  "id": "W2-16 rank counts +1",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_yf1dlmxz/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 2.4
+ },
+ {
+  "id": "W2-17 kerDim ignores b.length",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_mu3vcmfd/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 1.9
+ },
+ {
+  "id": "W2-18 invariant check off",
+  "lean_rejected": false,
+  "python_tie_rejected": false,
+  "lean_msg": "",
+  "py_msg": [],
+  "secs": 7.1
+ },
+ {
+  "id": "W2-19 Gz weights on JW mode 4 not 8 (modes)",
+  "lean_rejected": false,
+  "python_tie_rejected": false,
+  "lean_msg": "",
+  "py_msg": [],
+  "secs": 8.0
+ },
+ {
+  "id": "W3-01 flip p exponent sign",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:92:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_ytpc299q/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/UESemantics.olean' of module Su2Plaq.Rishon.UESemantics does not exist"
+  ],
+  "secs": 2.1
+ },
+ {
+  "id": "W3-02 CX target changed in ueGates",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:94:75: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           AssertionError: the Lean gate list ueGates differs from the shipped build_UE",
+   "E           assert 'def ueGates : List Gate := [.cx 0 1, .p 1 (-3), .cx 0 1, .cx 4 5, .p 5 (-3), .cx 4 5, .cx 8 9, .p 9 (-3), .cx 8 9, .cx 12 13, .p 13 (-3), .cx 12 13]' in 'import Su2Plaq.Rishon.JW\\n\\n/-!\\n# Su2Plaq.Rishon.UESemantics -- exact gate semantics of `build_UE` (M5x step W3)\\n\\n...rCodes.all (fun y => runGates ueGates [(y, one)] == ueTarget y) = true := by\\n  decide +kernel\\n\\nend Su2Plaq.Rishon\\n'"
+  ],
+  "secs": 1.6
+ },
+ {
+  "id": "W3-03 angle integer -3->-2 on link 2 in ueGates",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:94:75: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           AssertionError: the Lean gate list ueGates differs from the shipped build_UE",
+   "E           assert 'def ueGates : List Gate := [.cx 0 1, .p 1 (-3), .cx 0 1, .cx 4 5, .p 5 (-3), .cx 4 5, .cx 8 9, .p 9 (-3), .cx 8 9, .cx 12 13, .p 13 (-3), .cx 12 13]' in 'import Su2Plaq.Rishon.JW\\n\\n/-!\\n# Su2Plaq.Rishon.UESemantics -- exact gate semantics of `build_UE` (M5x step W3)\\n\\n...rCodes.all (fun y => runGates ueGates [(y, one)] == ueTarget y) = true := by\\n  decide +kernel\\n\\nend Su2Plaq.Rishon\\n'"
+  ],
+  "secs": 1.7
+ },
+ {
+  "id": "W3-04 drop last gate of ueGates",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:94:75: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           AssertionError: the Lean gate list ueGates differs from the shipped build_UE",
+   "E           assert 'def ueGates : List Gate := [.cx 0 1, .p 1 (-3), .cx 0 1, .cx 4 5, .p 5 (-3), .cx 4 5, .cx 8 9, .p 9 (-3), .cx 8 9, .cx 12 13, .p 13 (-3), .cx 12 13]' in 'import Su2Plaq.Rishon.JW\\n\\n/-!\\n# Su2Plaq.Rishon.UESemantics -- exact gate semantics of `build_UE` (M5x step W3)\\n\\n...rCodes.all (fun y => runGates ueGates [(y, one)] == ueTarget y) = true := by\\n  decide +kernel\\n\\nend Su2Plaq.Rishon\\n'"
+  ],
+  "secs": 1.7
+ },
+ {
+  "id": "W3-05 quartet cond in nQ (drop code 10)",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:99:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_g9gbtoy_/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/UESemantics.olean' of module Su2Plaq.Rishon.UESemantics does not exist"
+  ],
+  "secs": 2.2
+ },
+ {
+  "id": "W3-06 quartet cond in gadget theorem",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:92:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E       AssertionError: assert ('sector.all' in ' : sector.all (fun s =>\\n    runGates (gadget 0) [(s, one)] == [(s, [(if [5, 6, 9].contains s then -3 else 0, 1, 0)])]) = true ' and 'linkQ' in ' : sector.all (fun s =>\\n    runGates (gadget 0) [(s, one)] == [(s, [(if [5, 6, 9].contains s then -3 else 0, 1, 0)])]) = true ')",
+   "E        +  where ' : sector.all (fun s =>\\n    runGates (gadget 0) [(s, one)] == [(s, [(if [5, 6, 9].contains s then -3 else 0, 1, 0)])]) = true ' = _statement('import Su2Plaq.Rishon.JW\\n\\n/-!\\n# Su2Plaq.Rishon.UESemantics -- exact gate semantics of `build_UE` (M5x step W3)\\n\\n...rCodes.all (fun y => runGates ueGates [(y, one)] == ueTarget y) = true := by\\n  decide +kernel\\n\\nend Su2Plaq.Rishon\\n', 'ue_gadget_sector')"
+  ],
+  "secs": 6.0
+ },
+ {
+  "id": "W3-07 target phase sign",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:99:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_egoqx7v7/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/UESemantics.olean' of module Su2Plaq.Rishon.UESemantics does not exist"
+  ],
+  "secs": 2.3
+ },
+ {
+  "id": "W3-08 outer cx reversed (last)",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:95:87: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           AssertionError: the Lean gate list ueOuterGates differs from the shipped build_UE",
+   "E           assert 'def ueOuterGates : List Gate := [.cx 0 1, .p 1 (-3), .cx 0 1, .cx 4 5, .p 5 (-3), .cx 4 5, .cx 8 9, .p 9 (-3), .cx 8 ...(-3), .cx 32 33, .cx 36 37, .p 37 (-3), .cx 36 37, .cx 40 41, .p 41 (-3), .cx 40 41, .cx 44 45, .p 45 (-3), .cx 44 45]' in 'import Su2Plaq.Rishon.JW\\n\\n/-!\\n# Su2Plaq.Rishon.UESemantics -- exact gate semantics of `build_UE` (M5x step W3)\\n\\n...rCodes.all (fun y => runGates ueGates [(y, one)] == ueTarget y) = true := by\\n  decide +kernel\\n\\nend Su2Plaq.Rishon\\n'"
+  ],
+  "secs": 6.3
+ },
+ {
+  "id": "W3-09 gadget def angle -2",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:92:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_qk6r5exd/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/UESemantics.olean' of module Su2Plaq.Rishon.UESemantics does not exist"
+  ],
+  "secs": 6.9
+ },
+ {
+  "id": "W3-10 extra identity CX pair at start of ueGates",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:94:75: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           AssertionError: the Lean gate list ueGates differs from the shipped build_UE",
+   "E           assert 'def ueGates : List Gate := [.cx 0 1, .p 1 (-3), .cx 0 1, .cx 4 5, .p 5 (-3), .cx 4 5, .cx 8 9, .p 9 (-3), .cx 8 9, .cx 12 13, .p 13 (-3), .cx 12 13]' in 'import Su2Plaq.Rishon.JW\\n\\n/-!\\n# Su2Plaq.Rishon.UESemantics -- exact gate semantics of `build_UE` (M5x step W3)\\n\\n...rCodes.all (fun y => runGates ueGates [(y, one)] == ueTarget y) = true := by\\n  decide +kernel\\n\\nend Su2Plaq.Rishon\\n'"
+  ],
+  "secs": 7.0
+ },
+ {
+  "id": "W3-11 innerCodes drops one code (sector minus 12)",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:87:58: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_rjrq09tp/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/UESemantics.olean' of module Su2Plaq.Rishon.UESemantics does not exist"
+  ],
+  "secs": 6.0
+ },
+ {
+  "id": "W3-12 card claim 1295",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:87:58: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E       AssertionError: assert '= 1296' in ' : innerCodes.length = 1295 '",
+   "E        +  where ' : innerCodes.length = 1295 ' = _statement('import Su2Plaq.Rishon.JW\\n\\n/-!\\n# Su2Plaq.Rishon.UESemantics -- exact gate semantics of `build_UE` (M5x step W3)\\n\\n...rCodes.all (fun y => runGates ueGates [(y, one)] == ueTarget y) = true := by\\n  decide +kernel\\n\\nend Su2Plaq.Rishon\\n', 'card_inner_codes')"
+  ],
+  "secs": 6.1
+ },
+ {
+  "id": "W3-13 unit Laurent shift wrong (c.unit a ->a+1)",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:92:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_sjiekkv9/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/UESemantics.olean' of module Su2Plaq.Rishon.UESemantics does not exist"
+  ],
+  "secs": 2.2
+ },
+ {
+  "id": "W3-14 cx control/target swapped in applyBasis",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:92:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval__y_7npvy/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/UESemantics.olean' of module Su2Plaq.Rishon.UESemantics does not exist"
+  ],
+  "secs": 2.1
+ },
+ {
+  "id": "W3-15 x gate no-op / p on bit==0",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/UESemantics.lean:92:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_o987u_8h/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/UESemantics.olean' of module Su2Plaq.Rishon.UESemantics does not exist"
+  ],
+  "secs": 2.1
+ },
+ {
+  "id": "W3-16 SELF-CONSISTENT phase -2 everywhere",
+  "lean_rejected": false,
+  "python_tie_rejected": true,
+  "lean_msg": "",
+  "py_msg": [
+   "E           AssertionError: the Lean gate list ueGates differs from the shipped build_UE",
+   "E           assert 'def ueGates : List Gate := [.cx 0 1, .p 1 (-3), .cx 0 1, .cx 4 5, .p 5 (-3), .cx 4 5, .cx 8 9, .p 9 (-3), .cx 8 9, .cx 12 13, .p 13 (-3), .cx 12 13]' in 'import Su2Plaq.Rishon.JW\\n\\n/-!\\n# Su2Plaq.Rishon.UESemantics -- exact gate semantics of `build_UE` (M5x step W3)\\n\\n...rCodes.all (fun y => runGates ueGates [(y, one)] == ueTarget y) = true := by\\n  decide +kernel\\n\\nend Su2Plaq.Rishon\\n'"
+  ],
+  "secs": 6.2
+ }
+]

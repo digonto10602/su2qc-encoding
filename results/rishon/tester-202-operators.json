@@ -1,0 +1,236 @@
+{
+ "commit": "98ae337",
+ "seed": null,
+ "CAR_err": 0.0,
+ "W_leak_outside_codes": 0.0,
+ "W_real_imag": 0.0,
+ "W_nnz": 256,
+ "comm_W_G_max": 0.0,
+ "G_hermitian_max": 0.0,
+ "casimirL_vs_R_max": 0.0,
+ "link_casimir_values": [
+  0.0,
+  0.75
+ ],
+ "HE_unique_values": [
+  0.0,
+  0.75,
+  1.5,
+  2.25,
+  3.0
+ ],
+ "HE_vs_quartet_count": 0.0,
+ "W_prod_vs_own": 0.0,
+ "codes_equal": true,
+ "HE_prod_vs_own": 0.0,
+ "HB_hermitian": 0.0,
+ "HB_prod_vs_own": 0.0,
+ "Gauss_prod_vs_own": 0.0,
+ "comm_Wprod_Gown": 0.0,
+ "W3": 0.0,
+ "spectrum": {
+  "-5.6568542": 1,
+  "-2.0": 48,
+  "-1.0": 32,
+  "-0.0": 1134,
+  "1.0": 32,
+  "2.0": 48,
+  "5.6568542": 1
+ },
+ "component_sizes": {
+  "1": 990,
+  "2": 32,
+  "4": 16,
+  "5": 32,
+  "18": 1
+ },
+ "isolated_codes": 990,
+ "n_bright_components": 81,
+ "zero_eigs_total": 1134,
+ "zero_eigs_inside_bright_components": 144,
+ "kappa_own": {
+  "1.0": 32,
+  "2.0": 48,
+  "5.656854249": 1
+ },
+ "pairs_n": 81,
+ "pairs_kappa": {
+  "1.0": 32,
+  "2.0": 48,
+  "5.656854249": 1
+ },
+ "pairs_recon_err": 6.661338147750939e-16,
+ "pairs_orth_err": 4.440892098500626e-16,
+ "pairs_amplitudes": [
+  0.25,
+  0.5,
+  0.707106781,
+  1.0
+ ],
+ "pairs_u_sign_ok": true,
+ "pairs_in_support_of_nonisolated": true,
+ "dark_n": 990,
+ "dark_equals_isolated": true,
+ "targets_vs_expm": {
+  "0.37,0.61": {
+   "UB": 4.440892098500626e-16,
+   "UE": 0.0,
+   "step1": 4.440892098500626e-16,
+   "step2": 4.440892098500626e-16,
+   "unitarity_UB": 7.771561172376096e-16,
+   "comm_UB_G": 1.6653345369377348e-16
+  },
+  "1.7,1.0": {
+   "UB": 8.326672684688674e-16,
+   "UE": 0.0,
+   "step1": 8.163159687020607e-16,
+   "step2": 8.206690572649954e-16,
+   "unitarity_UB": 1.3322676295501878e-15,
+   "comm_UB_G": 2.220446049250313e-16
+  }
+ },
+ "W_vacA_norm": 4.0,
+ "W_vacA_nnz": 16,
+ "loop_all_Q": true,
+ "loop_vs_prod_codes": true,
+ "vac_codes_match": true,
+ "Wloop_to_vacB": 4.0,
+ "vacB_W_loop": 4.0,
+ "Wdag_vacA_max": 0.0,
+ "W_vacB_max": 0.0,
+ "closed": {
+  "0.5": {
+   "block_vs_formula": 0.0,
+   "prod_block_vs_own": 0.0,
+   "eig_vs_formula": 1.7763568394002505e-15,
+   "span_invariance_residual": 0.0,
+   "eigs": [
+    -10.944921598668428,
+    -5.342948306008566e-16,
+    11.69492159866843
+   ],
+   "prod_eigs": [
+    -10.944921598668428,
+    -5.342948306008566e-16,
+    11.69492159866843
+   ],
+   "full_inner_H_has_these_eigs": true
+  },
+  "1.0": {
+   "block_vs_formula": 0.0,
+   "prod_block_vs_own": 0.0,
+   "eig_vs_formula": 1.7763568394002505e-15,
+   "span_invariance_residual": 0.0,
+   "eigs": [
+    -4.956356105256663,
+    1.3201245652183502e-15,
+    6.456356105256665
+   ],
+   "prod_eigs": [
+    -4.956356105256663,
+    1.3201245652183502e-15,
+    6.456356105256665
+   ],
+   "full_inner_H_has_these_eigs": true
+  },
+  "2.0": {
+   "block_vs_formula": 0.0,
+   "prod_block_vs_own": 0.0,
+   "eig_vs_formula": 2.5071158799190585e-16,
+   "span_invariance_residual": 0.0,
+   "eigs": [
+    -1.7015621187164243,
+    -2.5071158799190585e-16,
+    4.701562118716424
+   ],
+   "prod_eigs": [
+    -1.7015621187164243,
+    -2.5071158799190585e-16,
+    4.701562118716424
+   ],
+   "full_inner_H_has_these_eigs": true
+  }
+ },
+ "KS_closed_state_labels": [
+  "((0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0))",
+  "((0.5, 0.5, 0.5, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.0))"
+ ],
+ "KS": {
+  "0.5": {
+   "block": [
+    [
+     0.0,
+     -4.000000000000001
+    ],
+    [
+     -4.000000000000001,
+     0.75
+    ]
+   ],
+   "prod": [
+    [
+     0.0,
+     -4.0
+    ],
+    [
+     -4.0,
+     0.75
+    ]
+   ],
+   "maxdiff_abs_entries": 8.881784197001252e-16,
+   "eig_diff": 8.881784197001252e-16,
+   "KS_formula_eig_diff": 1.3322676295501878e-15
+  },
+  "1.0": {
+   "block": [
+    [
+     0.0,
+     -2.0000000000000004
+    ],
+    [
+     -2.0000000000000004,
+     1.5
+    ]
+   ],
+   "prod": [
+    [
+     0.0,
+     -2.0
+    ],
+    [
+     -2.0,
+     1.5
+    ]
+   ],
+   "maxdiff_abs_entries": 4.440892098500626e-16,
+   "eig_diff": 4.440892098500626e-16,
+   "KS_formula_eig_diff": 6.661338147750939e-16
+  },
+  "2.0": {
+   "block": [
+    [
+     0.0,
+     -1.0000000000000002
+    ],
+    [
+     -1.0000000000000002,
+     3.0
+    ]
+   ],
+   "prod": [
+    [
+     0.0,
+     -1.0
+    ],
+    [
+     -1.0,
+     3.0
+    ]
+   ],
+   "maxdiff_abs_entries": 2.220446049250313e-16,
+   "eig_diff": 1.1102230246251565e-16,
+   "KS_formula_eig_diff": 1.6653345369377348e-16
+  }
+ },
+ "wall_s": 101.45478940010071
+}

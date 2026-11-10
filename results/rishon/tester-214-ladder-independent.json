@@ -1,0 +1,26 @@
+{
+ "commit": "427598a",
+ "beta": 0.61,
+ "seed": 214,
+ "n_valid": 48,
+ "n_arbitrary": 24,
+ "ladders": {
+  "ccx": {
+   "max_ancilla_leak_prob": 0.0,
+   "max_err_vs_dense_expm_valid": 1.27675647831893e-14
+  },
+  "rccx": {
+   "max_ancilla_leak_prob": 0.0,
+   "max_amp_diff_vs_ccx_valid": 0.0,
+   "max_amp_diff_vs_ccx_arbitrary": 0.0,
+   "max_err_vs_dense_expm_valid": 1.27675647831893e-14
+  },
+  "mcx": {
+   "max_ancilla_leak_prob": 0.0,
+   "max_amp_diff_vs_ccx_valid": 0.0,
+   "max_amp_diff_vs_ccx_arbitrary": 0.0,
+   "max_err_vs_dense_expm_valid": 1.27675647831893e-14
+  }
+ },
+ "seconds": 8.05452013015747
+}

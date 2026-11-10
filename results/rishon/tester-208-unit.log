@@ -1,0 +1,359 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [ 23%]
+........................................................................ [ 46%]
+........................................................................ [ 69%]
+........................................................................ [ 92%]
+........................                                                 [100%]
+==================================== PASSES ====================================
+________________________ test_quick_result_files[step] _________________________
+[gw3] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+---------------------------- Captured stderr setup -----------------------------
+[m5_results 08:00:10] physics block done; circuits ['UE', 'UE_outer_row', 'UB', 'step']
+[m5_results 08:00:11] static metrics and circuit files done
+[m5_results 08:00:33] done ('exact', 'UB') in 21.9 s
+[m5_results 08:00:48] done ('exact', 'step') in 15.2 s
+[m5_results 08:00:48] done ('exact', 'UE_outer_row') in 0.0 s
+[m5_results 08:00:49] done ('synth', 'UE_outer_row', 0.0001) in 0.4 s
+[m5_results 08:00:58] done ('exact', 'UE') in 9.2 s
+[m5_results 08:01:09] done ('synth', 'UE', 0.0001) in 10.9 s
+[m5_results 08:01:15] observables done
+_________________________ test_quick_result_files[UE] __________________________
+[gw8] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+---------------------------- Captured stderr setup -----------------------------
+[m5_results 08:00:11] physics block done; circuits ['UE', 'UE_outer_row', 'UB', 'step']
+[m5_results 08:00:13] static metrics and circuit files done
+[m5_results 08:00:41] done ('exact', 'UB') in 27.9 s
+[m5_results 08:00:57] done ('exact', 'step') in 16.2 s
+[m5_results 08:00:57] done ('exact', 'UE_outer_row') in 0.0 s
+[m5_results 08:00:57] done ('synth', 'UE_outer_row', 0.0001) in 0.3 s
+[m5_results 08:01:05] done ('exact', 'UE') in 8.0 s
+[m5_results 08:01:17] done ('synth', 'UE', 0.0001) in 11.9 s
+[m5_results 08:01:23] observables done
+___________________ test_quick_observables_and_register_rows ___________________
+[gw5] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python3.12
+---------------------------- Captured stderr setup -----------------------------
+[m5_results 08:00:23] physics block done; circuits ['UE', 'UE_outer_row', 'UB', 'step']
+[m5_results 08:00:25] static metrics and circuit files done
+[m5_results 08:00:51] done ('exact', 'UB') in 25.8 s
+[m5_results 08:01:10] done ('exact', 'step') in 18.7 s
+[m5_results 08:01:10] done ('exact', 'UE_outer_row') in 0.0 s
+[m5_results 08:01:11] done ('synth', 'UE_outer_row', 0.0001) in 0.5 s
+[m5_results 08:01:20] done ('exact', 'UE') in 9.8 s
+[m5_results 08:01:29] done ('synth', 'UE', 0.0001) in 8.6 s
+[m5_results 08:01:34] observables done
+=========================== short test summary info ============================
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.circuits.rishon]
+PASSED tests/unit/test_compress_builder_unit.py::test_alloc_reuses_freed_indices_and_tracks_peak
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.circuits.twelve]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress]
+PASSED tests/unit/test_compress_builder_unit.py::test_gate_validation
+PASSED tests/unit/test_compress_builder_unit.py::test_mcx_is_an_exact_toffoli_with_clean_ancillas[0]
+PASSED tests/unit/test_compress_spec_oracle_unit.py::test_render_sections_and_numbers_from_the_spec
+PASSED tests/unit/test_compress_spec_oracle_unit.py::test_write_creates_the_instance_file
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.evaluate]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.metrics]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.oracle]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.archive]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.baselines]
+PASSED tests/unit/test_evaluator_unit.py::test_layout_of_errors
+PASSED tests/unit/test_compress_builder_unit.py::test_mcx_is_an_exact_toffoli_with_clean_ancillas[1]
+PASSED tests/unit/test_compress_builder_unit.py::test_mcx_is_an_exact_toffoli_with_clean_ancillas[2]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.brief]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.passes]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.provenance]
+PASSED tests/unit/test_compress_builder_unit.py::test_mcx_is_an_exact_toffoli_with_clean_ancillas[3]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.report]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.round]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.builder]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.run_candidate]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.spec]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.exact.physical]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.exact.spinnet]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.compress.synth]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.encodings]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.encodings.base]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.encodings.rishon]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.geometry]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.lean]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.lean.certify]
+PASSED tests/unit/test_compress_builder_unit.py::test_mcx_is_an_exact_toffoli_with_clean_ancillas[4]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.lean.exact]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.evaluate]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.encodings.twelve]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.lean.project]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.lean.rules]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.lean.lemmas]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.results]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.results.report]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.results.store]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.rishon]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.lean.structure]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.metrics]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.metrics.cliffordt]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.metrics.logical]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.rishon.algebra]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.rishon.frames]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.rishon.lean_export]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.metrics.provenance]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.su2]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.su2.algebra]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.rishon.observables]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.su2.wigner]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.rishon.operators]
+PASSED tests/unit/test_import.py::test_stub_raises_not_implemented
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.rishon.physical]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.rishon.results]
+PASSED tests/unit/test_lean_project_unit.py::test_pins_and_files
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.rishon.verify]
+PASSED tests/unit/test_lean_project_unit.py::test_is_native_axiom
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.evaluate.aer_check]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.evaluate.evaluator]
+PASSED tests/unit/test_compress_builder_unit.py::test_mcx_is_an_exact_toffoli_with_clean_ancillas[5]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.evaluate.sparse_sim]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.exact]
+PASSED tests/unit/test_compress_builder_unit.py::test_append_qiskit_is_all_or_nothing_and_uses_class_identity
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.exact.compare]
+PASSED tests/unit/test_compress_builder_unit.py::test_discoveries_limit
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.exact.operators]
+PASSED tests/unit/test_m1_results_script.py::test_unevaluable_record_has_no_numbers_that_look_like_a_verdict
+PASSED tests/unit/test_compress_builder_unit.py::test_program_header_contract
+PASSED tests/unit/test_lean_project_unit.py::test_no_sorry_scanner
+PASSED tests/unit/test_m1_results_script.py::test_script_takes_one_provenance_snapshot_before_writing
+PASSED tests/unit/test_compress_builder_unit.py::test_rendered_spec_states_the_synthesised_rule_and_prune_cap
+PASSED tests/unit/test_metrics_unit.py::test_logical_metrics_register_ancilla_and_angles
+PASSED tests/unit/test_compress_spec_oracle_unit.py::test_default_spec_fields_and_validation
+PASSED tests/unit/test_metrics_unit.py::test_lower_rejects_unitary_measure_and_wrapped_mcx
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[-8]
+PASSED tests/unit/test_compress_spec_oracle_unit.py::test_sha256_is_stable_and_field_sensitive
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[-6]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[-7]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[-5]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[-1]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[-4]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[0]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[1]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[2]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[-3]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[-2]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[4]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[5]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[3]
+PASSED tests/unit/test_metrics_unit.py::test_word_error_detects_wrong_word
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[6]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[7]
+PASSED tests/unit/test_metrics_unit.py::test_exact_words_for_multiples_of_pi_over_4[8]
+PASSED tests/unit/test_metrics_unit.py::test_word_cache_returns_identical_object
+PASSED tests/unit/test_compress_spec_oracle_unit.py::test_oracle_views_agree_and_labels_work
+PASSED tests/unit/test_compress_spec_oracle_unit.py::test_oracle_blocks_are_unitary_and_sized_by_the_outer_spins[0]
+PASSED tests/unit/test_compress_spec_oracle_unit.py::test_oracle_blocks_are_unitary_and_sized_by_the_outer_spins[6]
+PASSED tests/unit/test_compress_spec_oracle_unit.py::test_oracle_blocks_are_unitary_and_sized_by_the_outer_spins[97527]
+PASSED tests/unit/test_compress_spec_oracle_unit.py::test_oracle_blocks_are_unitary_and_sized_by_the_outer_spins[277212]
+PASSED tests/unit/test_evaluator_unit.py::test_bad_layout_has_its_own_reason
+PASSED tests/unit/test_operators_unit.py::test_W_paulo_equals_vp_conjugate
+PASSED tests/unit/test_compress_spec_oracle_unit.py::test_codec_and_cli
+PASSED tests/unit/test_evaluator_unit.py::test_codec_roundtrip_decode_state_matches_route_a
+PASSED tests/unit/test_evaluator_unit.py::test_classify_outer_gates_and_writes
+PASSED tests/unit/test_evaluator_unit.py::test_specialise_equals_operator_columns
+PASSED tests/unit/test_evaluator_unit.py::test_native_mcx_inside_custom_gate_is_rejected
+PASSED tests/unit/test_operators_unit.py::test_hb_paulo_and_cg_have_same_spectrum
+PASSED tests/unit/test_metrics_unit.py::test_lower_is_program_order_and_counts_match_whole_circuit_transpile
+PASSED tests/unit/test_metrics_unit.py::test_lower_does_not_confuse_same_named_custom_gates
+PASSED tests/unit/test_metrics_unit.py::test_lower_inlines_nested_custom_gates_in_program_order
+PASSED tests/unit/test_metrics_unit.py::test_disguised_gates_are_lowered_and_counted_by_content
+PASSED tests/unit/test_metrics_unit.py::test_synthesize_reproduces_circuit_up_to_global_phase_and_bound[0.001]
+PASSED tests/unit/test_operators_unit.py::test_W_shape_and_gauge_invariance_commutation
+PASSED tests/unit/test_physical_unit.py::test_jmax_one_not_supported_for_route_a
+PASSED tests/unit/test_physical_unit.py::test_singlet_signs_are_deterministic_under_ties_and_noise
+PASSED tests/unit/test_metrics_unit.py::test_synthesize_reproduces_circuit_up_to_global_phase_and_bound[1e-06]
+PASSED tests/unit/test_operators_unit.py::test_hamiltonian_is_sum_of_parts_and_targets_unitary
+PASSED tests/unit/test_operators_unit.py::test_target_missing_argument_raises
+PASSED tests/unit/test_physical_unit.py::test_corner_singlet_counts_and_phase
+PASSED tests/unit/test_rishon_algebra_unit.py::test_det_u_on_sector
+PASSED tests/unit/test_rishon_algebra_unit.py::test_end_generator_matches_link_generator
+PASSED tests/unit/test_rishon_algebra_unit.py::test_embed_and_global_bilinear_string_free
+PASSED tests/unit/test_rishon_circuits_unit.py::test_unprep_maps_signed_affine_state_to_zero
+PASSED tests/unit/test_rishon_circuits_unit.py::test_unprep_rejects_non_clifford_signs_and_non_affine_support
+PASSED tests/unit/test_rishon_circuits_unit.py::test_separator_minimum_weight_and_inseparable
+PASSED tests/unit/test_rishon_circuits_unit.py::test_min_hitting_set
+PASSED tests/unit/test_rishon_circuits_unit.py::test_cancel_adjacent_only_identical_self_inverse_neighbours
+PASSED tests/unit/test_metrics_unit.py::test_t_table_rows_consistent
+PASSED tests/unit/test_results_unit.py::test_render_is_deterministic_and_contains_only_json_numbers
+PASSED tests/unit/test_results_unit.py::test_non_serialisable_numpy_types_are_converted
+PASSED tests/unit/test_results_unit.py::test_provenance_snapshot_is_shared_and_not_recaptured
+PASSED tests/unit/test_rishon_algebra_unit.py::test_jw_car_two_and_four_modes
+PASSED tests/unit/test_rishon_algebra_unit.py::test_link_sector_types_and_casimirs
+PASSED tests/unit/test_rishon_encoding_unit.py::test_registers_and_attributes
+PASSED tests/unit/test_lean_project_unit.py::test_lake_build_checker_and_exe
+PASSED tests/unit/test_evaluator_unit.py::test_pruning_bound_reason
+PASSED tests/unit/test_physical_unit.py::test_outer_dont_care_table_is_complete_and_matches_the_measured_histogram
+PASSED tests/unit/test_results_unit.py::test_provenance_fields_and_seeds
+PASSED tests/unit/test_results_unit.py::test_verdict_roundtrip_and_optional_keys
+PASSED tests/unit/test_lean_project_unit.py::test_step_2L3_theorems_exist_with_standard_axioms
+PASSED tests/unit/test_rishon_circuits_unit.py::test_pair_frames_structure_from_operator
+PASSED tests/unit/test_rishon_circuits_unit.py::test_frame_images_are_basis_states_and_controls_sufficient
+PASSED tests/unit/test_rishon_encoding_unit.py::test_inner_codec_bijection
+PASSED tests/unit/test_rishon_encoding_unit.py::test_decode_rejects_invalid
+PASSED tests/unit/test_rishon_encoding_unit.py::test_decode_state
+PASSED tests/unit/test_lean_project_unit.py::test_print_axioms_real_and_unknown
+PASSED tests/unit/test_lean_project_unit.py::test_skeleton_stubs_raise
+PASSED tests/unit/test_evaluator_unit.py::test_aer_mps_verdict_is_flagged_uncertified
+PASSED tests/unit/test_evaluator_unit.py::test_verdict_extra_is_persisted
+PASSED tests/unit/test_rishon_encoding_unit.py::test_all_basis_states_decode
+PASSED tests/unit/test_rishon_encoding_unit.py::test_physical_vectors_variants
+PASSED tests/unit/test_rishon_encoding_unit.py::test_inner_view
+PASSED tests/unit/test_rishon_encoding_unit.py::test_layout
+PASSED tests/unit/test_evaluator_unit.py::test_pruning_bound_failing_inputs_and_relative_cap
+PASSED tests/unit/test_geometry_unit.py::test_every_link_end_belongs_to_exactly_one_corner_or_is_external
+PASSED tests/unit/test_geometry_unit.py::test_corner_site_matches_link_endpoints
+PASSED tests/unit/test_geometry_unit.py::test_near_end_consistent_with_role
+PASSED tests/unit/test_geometry_unit.py::test_split_graph_edges_follow_link_direction
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq._stub]
+PASSED tests/unit/test_import.py::test_module_imports[su2plaq.circuits]
+PASSED tests/unit/test_evaluator_unit.py::test_idle_qubits_are_not_assumed_clean_by_the_translation
+PASSED tests/unit/test_rishon_lean_export_unit.py::test_export_structure_and_values
+PASSED tests/unit/test_rishon_lean_export_unit.py::test_mirror_accepts_and_rejects
+PASSED tests/unit/test_rishon_lean_export_unit.py::test_zs_conversion
+PASSED tests/unit/test_rishon_lean_export_unit.py::test_write_hb_lean_text
+PASSED tests/unit/test_rishon_lean_export_unit.py::test_repo_generated_files_match_code
+PASSED tests/unit/test_m1_results_script.py::test_physics_block_is_computed_not_typed
+PASSED tests/unit/test_m1_results_script.py::test_results_files_are_consistent_if_present[UE]
+PASSED tests/unit/test_m1_results_script.py::test_results_files_are_consistent_if_present[UB]
+PASSED tests/unit/test_m1_results_script.py::test_results_files_are_consistent_if_present[step]
+PASSED tests/unit/test_m1_results_script.py::test_rel_path_helper_accepts_paths_outside_the_repo
+PASSED tests/unit/test_rishon_operators_unit.py::test_W_matches_full_16_qubit_construction
+PASSED tests/unit/test_evaluator_unit.py::test_identity_and_z_verdicts_and_budget_fields
+PASSED tests/unit/test_evaluator_unit.py::test_disallowed_gate_reason
+PASSED tests/unit/test_physical_unit.py::test_closed_states_and_counts
+PASSED tests/unit/test_physical_unit.py::test_apply_link_op_identity_and_coalesce
+PASSED tests/unit/test_physical_unit.py::test_gauss_detects_violation
+PASSED tests/unit/test_rishon_circuits_unit.py::test_build_UB_columns_match_inner_target_and_ancillas_clean
+PASSED tests/unit/test_rishon_circuits_unit.py::test_build_UB_registers_metadata_and_outer_untouched
+PASSED tests/unit/test_physical_unit.py::test_convention_round_trip_preserves_norm
+PASSED tests/unit/test_rishon_circuits_unit.py::test_build_step_structure_and_order_check
+PASSED tests/unit/test_rishon_operators_unit.py::test_W_real_heights_and_nilpotent
+PASSED tests/unit/test_rishon_operators_unit.py::test_heights_values
+PASSED tests/unit/test_evaluator_unit.py::test_sparse_leak_amplitude_is_exact_and_combined_error_adds_up
+PASSED tests/unit/test_rishon_operators_unit.py::test_det_term
+PASSED tests/unit/test_evaluator_unit.py::test_inner_target_realises_physical_target
+PASSED tests/unit/test_rishon_encoding_unit.py::test_target_restricted_matches_dense_embedding
+PASSED tests/unit/test_lean_project_unit.py::test_step_2L2_theorems_exist_with_standard_axioms
+PASSED tests/unit/test_lean_project_unit.py::test_rccx_phase_rule_in_gates_lean_matches_qiskit
+PASSED tests/unit/test_rishon_physical_unit.py::test_shifts
+PASSED tests/unit/test_rishon_physical_unit.py::test_corner_kernel_qq_pair_spin_and_orthonormal
+PASSED tests/unit/test_rishon_physical_unit.py::test_corner_kernel_singlet_pairs_and_empty_cases
+PASSED tests/unit/test_rishon_physical_unit.py::test_corner_kernel_annihilated_by_generators
+PASSED tests/unit/test_evaluator_unit.py::test_aer_mps_dirty_ancilla_labelled_like_sparse
+PASSED tests/unit/test_evaluator_unit.py::test_synth_tolerances_formula
+PASSED tests/unit/test_rishon_observables_unit.py::test_observables_probabilities_and_n1_plaquette
+PASSED tests/unit/test_evaluator_unit.py::test_sparse_and_aer_leak_amplitude_agree_within_the_certified_factor
+PASSED tests/unit/test_evaluator_unit.py::test_aer_mps_direct_weights_on_exact_circuit_are_at_noise_floor
+PASSED tests/unit/test_rishon_encoding_unit.py::test_target_closed_unitary_and_errors
+PASSED tests/unit/test_rishon_encoding_unit.py::test_describe_and_import_map
+PASSED tests/unit/test_rishon_lean_export_unit.py::test_check_hb_statuses
+PASSED tests/unit/test_rishon_encoding_unit.py::test_no_compress_import
+PASSED tests/unit/test_rishon_physical_unit.py::test_u1_charges_from_bits
+PASSED tests/unit/test_rishon_physical_unit.py::test_key_helpers
+PASSED tests/unit/test_rishon_physical_unit.py::test_closed_indices_and_sample
+PASSED tests/unit/test_physical_unit.py::test_inner_span_rank_bounds
+PASSED tests/unit/test_evaluator_unit.py::test_register_order_does_not_change_verdicts[order0]
+PASSED tests/unit/test_rishon_operators_unit.py::test_dark_codes
+PASSED tests/unit/test_rishon_operators_unit.py::test_closed_codes_and_block
+PASSED tests/unit/test_rishon_operators_unit.py::test_ks_closed_block_spectrum
+PASSED tests/unit/test_rishon_physical_unit.py::test_counts_two_routes_agree
+PASSED tests/unit/test_rishon_operators_unit.py::test_electric_and_gauss
+PASSED tests/unit/test_rishon_physical_unit.py::test_inner_span_full_rank_and_orthonormal
+PASSED tests/unit/test_evaluator_unit.py::test_register_order_does_not_change_verdicts[order1]
+PASSED tests/unit/test_evaluator_unit.py::test_tolerances_recorded_and_gauss_tolerance_effective
+PASSED tests/unit/test_rishon_physical_unit.py::test_basis_states_are_normalised_valid_and_gauss_clean
+PASSED tests/unit/test_rishon_results_unit.py::test_outer_electric_check_accepts_right_alpha_and_rejects_wrong
+PASSED tests/unit/test_rishon_results_unit.py::test_touched_qubits_ignores_ancillas
+PASSED tests/unit/test_rishon_results_unit.py::test_register_rows
+PASSED tests/unit/test_evaluator_unit.py::test_register_order_does_not_change_verdicts[order2]
+PASSED tests/unit/test_rishon_results_unit.py::test_observable_rows_flatten
+PASSED tests/unit/test_rishon_operators_unit.py::test_gauss_algebra_su2
+PASSED tests/unit/test_rishon_operators_unit.py::test_bright_pairs_structure
+PASSED tests/unit/test_rishon_stubs_unit.py::test_module_constants_and_classes_exist
+PASSED tests/unit/test_evaluator_unit.py::test_register_order_does_not_change_verdicts[order3]
+PASSED tests/unit/test_evaluator_unit.py::test_aer_mps_certified_only_at_or_above_1e9
+PASSED tests/unit/test_rishon_observables_unit.py::test_order2_differs_and_table_is_json_able
+PASSED tests/unit/test_rishon_observables_unit.py::test_closed_spectra_zero_count_is_computed_from_the_model
+PASSED tests/unit/test_rishon_observables_unit.py::test_closed_block_full_detects_a_non_invariant_sector
+PASSED tests/unit/test_rishon_lean_export_unit.py::test_lean_accepts_repo_file_and_rejects_tampering
+PASSED tests/unit/test_rishon_observables_unit.py::test_closed_spectra_trace_and_multiplicities
+PASSED tests/unit/test_rishon_physical_unit.py::test_gauss_residual_detects_a_violation
+PASSED tests/unit/test_rishon_physical_unit.py::test_labels_unique_and_index_roundtrip
+PASSED tests/unit/test_rishon_verify_unit.py::test_build_UE_matches_diagonal_target
+PASSED tests/unit/test_rishon_verify_unit.py::test_cross_check_detects_wrong_target
+PASSED tests/unit/test_rishon_verify_unit.py::test_build_UE_structure_and_options
+PASSED tests/unit/test_sparse_sim_unit.py::test_global_phase_and_unitary_gate
+PASSED tests/unit/test_sparse_sim_unit.py::test_ordering_heuristic_matches_plain_order
+PASSED tests/unit/test_sparse_sim_unit.py::test_hh_cancels_exactly_and_support_stays_small
+PASSED tests/unit/test_sparse_sim_unit.py::test_cap_raises_and_does_not_hang
+PASSED tests/unit/test_sparse_sim_unit.py::test_measure_rejected
+PASSED tests/unit/test_sparse_sim_unit.py::test_encoded_block_masks_outside_bits
+PASSED tests/unit/test_sparse_sim_unit.py::test_hh_cancellation_has_negligible_certified_bound
+PASSED tests/unit/test_sparse_sim_unit.py::test_testers_scenario_error_not_hidden
+PASSED tests/unit/test_sparse_sim_unit.py::test_certified_bound_dominates_true_error_when_pruning_is_forced
+PASSED tests/unit/test_sparse_sim_unit.py::test_native_mcx_with_three_or_more_controls_is_rejected[3]
+PASSED tests/unit/test_sparse_sim_unit.py::test_native_mcx_with_three_or_more_controls_is_rejected[4]
+PASSED tests/unit/test_sparse_sim_unit.py::test_exact_multi_controlled_gates_still_accepted
+PASSED tests/unit/test_sparse_sim_unit.py::test_aer_engines_agree_with_sparse
+PASSED tests/unit/test_sparse_sim_unit.py::test_aer_statevector_qubit_limit
+PASSED tests/unit/test_sparse_sim_unit.py::test_program_order_keeps_decomposed_macros_local
+PASSED tests/unit/test_sparse_sim_unit.py::test_decomposition_cache_never_keyed_on_name_alone
+PASSED tests/unit/test_sparse_sim_unit.py::test_two_ub_macros_with_the_same_name_are_not_confused
+PASSED tests/unit/test_sparse_sim_unit.py::test_disguised_gates_are_simulated_by_their_content_not_their_name
+PASSED tests/unit/test_sparse_sim_unit.py::test_opaque_custom_gate_with_a_basis_name_is_rejected_and_barrier_cannot_be_faked
+PASSED tests/unit/test_sparse_sim_unit.py::test_is_standard_gate_predicate
+PASSED tests/unit/test_sparse_sim_unit.py::test_genuine_open_control_gates_are_accepted
+PASSED tests/unit/test_sparse_sim_unit.py::test_forged_and_subclassed_standard_classes_are_not_trusted
+PASSED tests/unit/test_sparse_sim_unit.py::test_wide_mcx_hidden_in_a_custom_gate_with_a_standard_name_is_rejected
+PASSED tests/unit/test_spinnet_unit.py::test_label_order_identical_to_route_a
+PASSED tests/unit/test_spinnet_unit.py::test_P_is_orthogonal_on_bright_subspace_and_K_symmetric
+PASSED tests/unit/test_spinnet_unit.py::test_inner_P_matches_full_P_restricted
+PASSED tests/unit/test_spinnet_unit.py::test_route_b_matches_route_a_up_to_signs
+PASSED tests/unit/test_spinnet_unit.py::test_gauge_align_recovers_known_gauge
+PASSED tests/unit/test_su2.py::test_cg_known_values
+PASSED tests/unit/test_su2.py::test_link_space_dims_and_unitarity_of_U
+PASSED tests/unit/test_su2.py::test_generators_hermitian_and_casimir
+PASSED tests/unit/test_su2.py::test_six_j_known_values
+PASSED tests/unit/test_su2.py::test_six_j_symmetries
+PASSED tests/unit/test_su2.py::test_triangle
+PASSED tests/unit/test_su2.py::test_f_symbol_unitary
+PASSED tests/unit/test_su2.py::test_paulo_adapter_orthogonal_symmetric_and_conjugates
+PASSED tests/unit/test_twelve_circuits_unit.py::test_build_UE_structure_and_metadata
+PASSED tests/unit/test_twelve_circuits_unit.py::test_outer_qubits_are_the_j_qubits_of_the_outer_links
+PASSED tests/unit/test_evaluator_unit.py::test_certified_follows_engine_accuracy_against_tolerances
+PASSED tests/unit/test_evaluator_unit.py::test_inner_span_error_never_replaces_physical_error
+PASSED tests/unit/test_rishon_results_unit.py::test_verdict_to_dict_is_json_and_complete
+PASSED tests/unit/test_rishon_operators_unit.py::test_inner_target_unitarity_and_composition
+PASSED tests/unit/test_rishon_operators_unit.py::test_inner_target_errors
+PASSED tests/unit/test_evaluator_unit.py::test_aer_mps_leak_bound_is_sqrt_of_block_weight_and_consistent
+PASSED tests/unit/test_twelve_circuits_unit.py::test_build_UB_registers_gateset_and_beta_independent_skeleton
+PASSED tests/unit/test_twelve_circuits_unit.py::test_build_UB_equals_inner_target_and_paulo_logical
+PASSED tests/unit/test_twelve_circuits_unit.py::test_build_step_structure_skeleton_and_order
+PASSED tests/unit/test_twelve_circuits_unit.py::test_paulo_circuit_loads_with_registers_and_embeds_in_our_layout
+PASSED tests/unit/test_twelve_circuits_unit.py::test_global_phase_is_counted_exactly_once
+PASSED tests/unit/test_twelve_encoding_unit.py::test_describe_contains_codec_and_register_facts
+PASSED tests/unit/test_twelve_encoding_unit.py::test_import_map_sources
+PASSED tests/unit/test_rishon_results_unit.py::test_physics_block_is_computed_and_consistent
+PASSED tests/unit/test_twelve_circuits_unit.py::test_build_UB_rotations_sit_on_one_qubit_and_costs
+PASSED tests/unit/test_rishon_verify_unit.py::test_identity_ok_without_gauss
+PASSED tests/unit/test_rishon_verify_unit.py::test_outer_read_and_write_reasons
+PASSED tests/unit/test_twelve_circuits_unit.py::test_UE_matches_target_inner_and_with_outer_row[0.37]
+PASSED tests/unit/test_twelve_circuits_unit.py::test_build_step_matches_target[1]
+PASSED tests/unit/test_twelve_circuits_unit.py::test_UE_matches_target_inner_and_with_outer_row[1.7]
+PASSED tests/unit/test_twelve_circuits_unit.py::test_build_step_matches_target[2]
+PASSED tests/unit/test_rishon_verify_unit.py::test_classify_error_is_recorded_not_swallowed
+PASSED tests/unit/test_rishon_verify_unit.py::test_classify_error_without_matching_reject_raises
+PASSED tests/unit/test_rishon_verify_unit.py::test_wrong_alpha_rejected_and_gauss_counts
+PASSED tests/unit/test_rishon_verify_unit.py::test_synth_tolerances_reexport
+PASSED tests/unit/test_rishon_results_unit.py::test_quick_result_files[step]
+PASSED tests/unit/test_rishon_results_unit.py::test_quick_result_files[UE_outer_row]
+PASSED tests/unit/test_rishon_results_unit.py::test_quick_result_files[UE]
+PASSED tests/unit/test_rishon_results_unit.py::test_quick_result_files[UB]
+PASSED tests/unit/test_rishon_results_unit.py::test_quick_observables_and_register_rows
+PASSED tests/unit/test_rishon_stubs_unit.py::test_pending_names_raise[None-None]
+312 passed in 119.31s (0:01:59)

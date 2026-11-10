@@ -1,0 +1,65 @@
+[
+ {
+  "id": "W2-20 stack only Gz",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_306cv6qy/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 2.3
+ },
+ {
+  "id": "W2-21 stack only G+",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_looinbak/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 1.8
+ },
+ {
+  "id": "W2-22 stack Gz+G+ only (redundant-equivalent control)",
+  "lean_rejected": false,
+  "python_tie_rejected": false,
+  "lean_msg": "",
+  "py_msg": [],
+  "secs": 7.2
+ },
+ {
+  "id": "W2-23 G+ alternating end signs, G- plain",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_p2m0fqge/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 2.5
+ },
+ {
+  "id": "W2-24 G- uses colour2->colour1 on end 3 reversed",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_so6_ojlx/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 7.4
+ },
+ {
+  "id": "W2-25 Gz+G- only with Gz doubled end 0",
+  "lean_rejected": true,
+  "python_tie_rejected": true,
+  "lean_msg": "error: Su2Plaq/Rishon/CornerKernel.lean:93:2: Tactic `decide` proved that the proposition",
+  "py_msg": [
+   "E           RuntimeError: lean exited with 1",
+   "E           /tmp/su2plaq_lean_eval_duhal00v/Eval.lean:1:0: error: object file '/home/digonto/Projects/su2qc-rishon/scratch/t210/clone_base/lean/.lake/build/lib/lean/Su2Plaq/Rishon/CornerKernel.olean' of module Su2Plaq.Rishon.CornerKernel does not exist"
+  ],
+  "secs": 2.0
+ }
+]

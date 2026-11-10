@@ -13,3 +13,6 @@ import Su2Plaq.Fuzzy.Link
 import Su2Plaq.SpinNet.Counts
 import Su2Plaq.SpinNet.Circuit
 import Su2Plaq.SpinNet.Bridge
+import Su2Plaq.Rishon.Counts
+import Su2Plaq.Rishon.JW
+import Su2Plaq.Rishon.Bridge

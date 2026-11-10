@@ -1,0 +1,189 @@
+{
+ "id": "r01-F2-001",
+ "program_path": "compress/programs/rishon/F2/001-direction-qubit-walsh.py",
+ "program_sha256": "d56116b4b8c420bbf18884e211d94e253cf8c0da5bcc1b184e71bf528175c1b4",
+ "parent": null,
+ "family": "F2",
+ "round": 1,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  354,
+  1818,
+  3557,
+  62
+ ],
+ "cell": [
+  67,
+  86
+ ],
+ "metrics_raw": {
+  "cx": 354,
+  "t_fixed": 336,
+  "n_rot": 23,
+  "t_eps": 1818,
+  "t_estimate": {
+   "1e-06": 1711.278231283368,
+   "1e-10": 2628.13038547228
+  },
+  "t_measured": {
+   "1e-06": 1818,
+   "1e-10": 2728
+  },
+  "synth_error_bound": 2.3e-05,
+  "depth": 319,
+  "depth_ct": 3557,
+  "qubits": 62,
+  "gates": {
+   "cx": 354,
+   "h": 194,
+   "t": 170,
+   "tdg": 154,
+   "x": 50,
+   "rz": 35,
+   "sdg": 19,
+   "s": 19,
+   "z": 2
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.6732846310228907e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -5.263279524148956e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 1.828829704940152e-15,
+  "method": "rishon_inner_block",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.528586614032662e-13,
+  "block_error": 1.4469801699022858e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 5.31610631942749,
+  "n_inputs": 1296,
+  "failing_inputs": [],
+  "extra": {
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "inner_method": "inner_span",
+   "rishon": true
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.5020883861472343e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    0.0
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 7.947987303456223e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.3594773704234814e-13,
+   "block_error": 1.4261101572375285e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 5.316399097442627,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.5017139895472386e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -5.482582837655167e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 1.072502521808353e-15,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.3612237030760266e-13,
+   "block_error": 1.4049028647121207e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 5.232329845428467,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: after the g-controlled canonicaliser + Bell map at opposite corners c0,c2 the true direction (upper member) is f = [x0==g_b] AND [x10==g_t] on every non-closed bright member (one Toffoli), although f is not even quadratic in the raw code bits.",
+  "DISCOVERY: in the lowered frame a kappa=2 label is bright iff both bits are 1 at its two equal corners and its Rx angle depends only on their geometry (adjacent +4 beta, opposite -4 beta); kappa=1 labels are bright iff x0 = x10 = NOT s_b (-2 beta), the closed pair gets -8 sqrt2 beta.",
+  "DISCOVERY: the 4-bit multiplexer needs only 6 Walsh terms (12 CX) if the never-occurring weight>=3 patterns get angles (-4,4,4,4,0) beta; the sparse engine caps circuits at 62 qubits, so the four link R2 qubits (|0> after link prep) serve as scratch."
+ ],
+ "summary": "F2 explicit direction qubit: link prep, g-controlled canonicaliser + Bell map at corners c0/c2, direction f = [x0=g_b][x10=g_t] in one Toffoli, f-controlled lowering at c1/c3, c0/c2 partner fix, then a 6-term Walsh multiplexer on f over four good-equal-corner bits plus kappa=1 and closed-pair gadgets; all angles are integer (closed: sqrt2) multiples of beta.",
+ "evaluator_sha256": "d45ffb3116894a24f75864ed708c79b3ad174398e358af0ed5b8bc03845d2793",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "git_commit": "2a8d2b5",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 17.91516137123108,
+ "written_utc": "2026-11-07T02:00:33Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 2.3e-05
+ },
+ "lean": null,
+ "mode": "full"
+}
