@@ -1,0 +1,865 @@
+{
+ "commit": "ece4fa3",
+ "seed": 20261110,
+ "checks": [
+  {
+   "check": "geometry: corner c has links {p,n} u {o1,o2}",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "own codes distinct",
+   "expected": 433,
+   "got": 433,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "enc._codes == own code_of_label (433, in order)",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "physical_vectors: one code per state = own code, amp 1",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "enc.basis.labels == enc.labels == route-B labels (order)",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "decode(own code of label k) == k  (all 433)",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "vacuum label -> code 0",
+   "expected": 0,
+   "got": 0,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "link-b-only data code 0b100010 is an inner code",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "2^24 sweep: valid codes (site rule + AGL) = 433 = own label codes",
+   "expected": 433,
+   "got": 433,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "# data-valid, site-valid, AGL-violating codes",
+   "expected": 28942,
+   "got": 28942,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "decode() None on 28942 bad + 30000 random non-physical codes",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "decode_state(physical k) = gauge[k] x route-A state k (max diff, 433)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "gauge real +-1, residual",
+   "expected": "<=1e-10",
+   "got": "8.88e-16; 64 minus signs",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "own G^z formula vanishes on the support of all 433 physical states",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "fallback: 28942 keys all distinct",
+   "expected": 28942,
+   "got": 28942,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "fallback keys disjoint from physical support",
+   "expected": 0,
+   "got": 0,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "fallback: unit norm (max |norm-1|)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "fallback: min over codes of max_c |G^z_c| (own formula)",
+   "expected": ">=0.5",
+   "got": 0.5,
+   "tol": 0.499999999999,
+   "ok": true
+  },
+  {
+   "check": "fallback Gauss residual (project fn, first 3000)",
+   "expected": ">=0.5",
+   "got": 0.5,
+   "tol": 0.4999999999,
+   "ok": true
+  },
+  {
+   "check": "ValueError for bad data part / out-site cap / >24 bits / negative",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "decode_state linear (3-term superposition incl. fallback)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "own H_E (inner / all) = route-B 6j diag",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-14,
+   "ok": true
+  },
+  {
+   "check": "target UB vs expm(6j) at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 9.43689570931383e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE vs own diag at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE outer vs own at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs 6j at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 9.80915185026648e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs SpinNet at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 1.1050065994108394e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o2 vs 6j at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 9.930136612989092e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o2 vs SpinNet at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 1.0547118733938987e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs SpinNet at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 1.0547118733938987e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE vs SpinNet at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs D^dag V_A D at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 4.996003610813204e-16,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs D^dag V_A D at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 5.4672143489065705e-16,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "target unitarity UB at (alpha,beta)=(0.37,0.61)",
+   "expected": 0,
+   "got": 4.440892098500626e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs expm(6j) at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 4.440892098500626e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE vs own diag at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE outer vs own at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs 6j at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 4.440892098500626e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs SpinNet at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 3.3306690738754696e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o2 vs 6j at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 4.518280359883027e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o2 vs SpinNet at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 3.4021815010030383e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs SpinNet at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 3.3306690738754696e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE vs SpinNet at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs D^dag V_A D at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 3.3306690738754696e-16,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs D^dag V_A D at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 3.7238012298709097e-16,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "target unitarity UB at (alpha,beta)=(0.91,0.23)",
+   "expected": 0,
+   "got": 6.661338147750939e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs expm(6j) at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 1.5543122344752192e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE vs own diag at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE outer vs own at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs 6j at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 1.5543122344752192e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs SpinNet at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 1.5565409952966686e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o2 vs 6j at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 1.5543122344752192e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o2 vs SpinNet at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 1.5565409952966686e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs SpinNet at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 1.5543122344752192e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE vs SpinNet at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs D^dag V_A D at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 1.1102230246251565e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs D^dag V_A D at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 1.0824674490095276e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "target unitarity UB at (alpha,beta)=(1.7,1.0)",
+   "expected": 0,
+   "got": 4.440892098500626e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs expm(6j) at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 4.551914400963142e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE vs own diag at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE outer vs own at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs 6j at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 4.552358637737019e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs SpinNet at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 4.413136522884997e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o2 vs 6j at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 4.565649823226637e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o2 vs SpinNet at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 4.425818127945427e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs SpinNet at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 4.413136522884997e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE vs SpinNet at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs D^dag V_A D at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 2.1649348980190553e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs D^dag V_A D at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 2.1717359241398904e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "target unitarity UB at (alpha,beta)=(-0.55,2.3)",
+   "expected": 0,
+   "got": 4.440892098500626e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs expm(6j) at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 2.220446049250313e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE vs own diag at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE outer vs own at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs 6j at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 2.237726045655905e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs SpinNet at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 1.1443916996305594e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o2 vs 6j at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 2.237726045655905e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target step o2 vs SpinNet at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 1.1443916996305594e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs SpinNet at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 1.1102230246251565e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UE vs SpinNet at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target UB vs D^dag V_A D at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 2.220446049250313e-16,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "target step o1 vs D^dag V_A D at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 2.237726045655905e-16,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "target unitarity UB at (alpha,beta)=(0.05,0.05)",
+   "expected": 0,
+   "got": 3.3306690738754696e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "target('nope') ValueError",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "H_B Hermitian (real symmetric)",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-14,
+   "ok": true
+  },
+  {
+   "check": "enc.h_magnetic() vs 6j H_B",
+   "expected": 0,
+   "got": 1.7763568394002505e-15,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "47 inner codes (own, from route-B inner labels) = enc.inner_codes()",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "coupling_table + partner_table = route-B K_inner (47 codes, values incl. sign, partners)",
+   "expected": 0,
+   "got": 0,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "coupling table value multiset",
+   "expected": "{-2:2,-0.5:2,0:31,1:12}",
+   "got": {
+    "-2.0": 2,
+    "-0.5": 2,
+    "0.0": 31,
+    "1.0": 12
+   },
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "inner_target UB vs expm(-i beta K_route-B) (own ordering)",
+   "expected": 0,
+   "got": 9.43704830967283e-16,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=0.37 outer=False outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 1.5700924586837752e-16,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=0.37 outer=True outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 1.5700924586837752e-16,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=0.37 outer=True outerE=True (cx=0, ops={'p': 20})",
+   "expected": 0,
+   "got": 1.3232745389513375e-15,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=0.91 outer=False outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=0.91 outer=True outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=0.91 outer=True outerE=True (cx=0, ops={'p': 20})",
+   "expected": 0,
+   "got": 4.577566798522237e-16,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=1.7 outer=False outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=1.7 outer=True outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=1.7 outer=True outerE=True (cx=0, ops={'p': 20})",
+   "expected": 0,
+   "got": 3.528343968566428e-15,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=-0.6 outer=False outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=-0.6 outer=True outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=-0.6 outer=True outerE=True (cx=0, ops={'p': 20})",
+   "expected": 0,
+   "got": 1.8209011484034673e-15,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=3.0 outer=False outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=3.0 outer=True outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=3.0 outer=True outerE=True (cx=0, ops={'p': 20})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=0.0 outer=False outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=0.0 outer=True outerE=False (cx=0, ops={'p': 8})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "build_UE own-sim vs exp(-i alpha H_E) 433 states alpha=0.0 outer=True outerE=True (cx=0, ops={'p': 20})",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "own simulator vs qiskit Operator, 12 qubits, 4096 codes",
+   "expected": 0,
+   "got": 2.482534153247273e-16,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "own simulator vs qiskit Statevector (24 qubits, 5 states, outer row)",
+   "expected": 0,
+   "got": 3.510833468576701e-16,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "single link b at j=1/2: phase e^{-3 i alpha/4}",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "outer links o0,o1 both at 1/2 (J_0=0): phase e^{-2*(3/4) i alpha}",
+   "expected": 0,
+   "got": 0.0,
+   "tol": 1e-13,
+   "ok": true
+  },
+  {
+   "check": "evaluate UE(inner) alpha=0.37",
+   "expected": "ok, err<=1e-10",
+   "got": "ok=True err=4.44e-16 gauss=5.3e-16 leak=0.0e+00",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "evaluate UE(outer row, 12 phases) alpha=0.37",
+   "expected": "ok, outer bits 12, blocks 305",
+   "got": "ok=True err=7.70e-16 bits=12 blocks=305",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "evaluate UE(inner) alpha=0.91",
+   "expected": "ok, err<=1e-10",
+   "got": "ok=True err=5.80e-16 gauss=5.8e-16 leak=0.0e+00",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "evaluate UE(outer row, 12 phases) alpha=0.91",
+   "expected": "ok, outer bits 12, blocks 305",
+   "got": "ok=True err=5.55e-16 bits=12 blocks=305",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "evaluate UE(inner) alpha=1.7",
+   "expected": "ok, err<=1e-10",
+   "got": "ok=True err=5.80e-16 gauss=5.8e-16 leak=0.0e+00",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "evaluate UE(outer row, 12 phases) alpha=1.7",
+   "expected": "ok, outer bits 12, blocks 305",
+   "got": "ok=True err=1.90e-15 bits=12 blocks=305",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "evaluate UE(inner) alpha=-0.6",
+   "expected": "ok, err<=1e-10",
+   "got": "ok=True err=4.73e-16 gauss=5.5e-16 leak=0.0e+00",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "evaluate UE(outer row, 12 phases) alpha=-0.6",
+   "expected": "ok, outer bits 12, blocks 305",
+   "got": "ok=True err=1.02e-15 bits=12 blocks=305",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "gate counts inner UE: 8 phases, no cx",
+   "expected": "8 p",
+   "got": {
+    "p": 8
+   },
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "gate counts outer-row UE: 20 phases",
+   "expected": "20 p",
+   "got": {
+    "p": 20
+   },
+   "tol": "exact",
+   "ok": true
+  }
+ ],
+ "wall_s": 20.550146102905273,
+ "n_checks": 121,
+ "n_fail": 0
+}

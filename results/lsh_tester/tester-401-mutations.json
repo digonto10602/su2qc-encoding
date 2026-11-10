@@ -1,0 +1,679 @@
+[
+ {
+  "mutation": "baseline",
+  "acc_failed": [],
+  "unit_failed": [],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "31 passed in 2.69s"
+ },
+ {
+  "mutation": "codec: site_code bit order reversed per site (l12 <-> l31)",
+  "file": "ops",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_A1_register_agl_counts",
+   "test_M7_C1_codec_and_vectors",
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet",
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_G1_evaluator_sees_abelian_gauss_law_violations",
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_T1_t_table_and_synth_verify[UE]",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 15,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_code_of_label_roundtrip_and_errors",
+   "test_decode_state_errors",
+   "test_decode_state_fallback_all_agl_violating_codes",
+   "test_decode_state_physical_and_linear"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "15 failed, 16 passed in 1.28s"
+ },
+ {
+  "mutation": "codec: 'in' sites placed in reverse corner order (3c -> 3(3-c))",
+  "file": "ops",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_A1_register_agl_counts",
+   "test_M7_C1_codec_and_vectors",
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet",
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_G1_evaluator_sees_abelian_gauss_law_violations",
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_T1_t_table_and_synth_verify[UE]",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 13,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_code_of_label_roundtrip_and_errors",
+   "test_decode_state_errors",
+   "test_decode_state_fallback_all_agl_violating_codes",
+   "test_decode_state_physical_and_linear"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "13 failed, 18 passed in 1.50s"
+ },
+ {
+  "mutation": "codec: 'out' sites placed in reverse corner order",
+  "file": "ops",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_A1_register_agl_counts",
+   "test_M7_C1_codec_and_vectors",
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet",
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_G1_evaluator_sees_abelian_gauss_law_violations",
+   "test_M7_T1_t_table_and_synth_verify[UE]"
+  ],
+  "n_unit_failed": 13,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_code_of_label_roundtrip_and_errors",
+   "test_decode_state_errors",
+   "test_decode_state_fallback_all_agl_violating_codes",
+   "test_decode_state_physical_and_linear"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "13 failed, 18 passed in 1.42s"
+ },
+ {
+  "mutation": "codec: outer legs swapped (o1<->o2) in out-site code",
+  "file": "ops",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_A1_register_agl_counts"
+  ],
+  "n_unit_failed": 0,
+  "unit_first": [],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "31 passed in 2.71s"
+ },
+ {
+  "mutation": "codec: p,n swapped in in-site code",
+  "file": "ops",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_A1_register_agl_counts",
+   "test_M7_C1_codec_and_vectors",
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet",
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_G1_evaluator_sees_abelian_gauss_law_violations",
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_T1_t_table_and_synth_verify[UE]",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 13,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_code_of_label_roundtrip_and_errors",
+   "test_decode_state_errors",
+   "test_decode_state_fallback_all_agl_violating_codes",
+   "test_decode_state_physical_and_linear"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "13 failed, 18 passed in 1.22s"
+ },
+ {
+  "mutation": "codec: registers l_nv <-> l_vp",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_registers_and_physical_vectors"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.45s"
+ },
+ {
+  "mutation": "codec: out registers start at 11",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_registers_and_physical_vectors"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.66s"
+ },
+ {
+  "mutation": "codec: label order scrambled (sorted codes)",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors",
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet",
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_T1_t_table_and_synth_verify[UE]"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_registers_and_physical_vectors"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.94s"
+ },
+ {
+  "mutation": "codec: decode index shifted by one",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_label_order_equals_basis_and_route_b"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.52s"
+ },
+ {
+  "mutation": "codec: decode_state drops gauge sign",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors"
+  ],
+  "n_unit_failed": 0,
+  "unit_first": [],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "31 passed in 2.49s"
+ },
+ {
+  "mutation": "codec: gauge sign inverted for k=0",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_targets"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.79s"
+ },
+ {
+  "mutation": "codec: inner_codes returns unsorted/duplicate (drop one)",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors",
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet",
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_G1_evaluator_sees_abelian_gauss_law_violations",
+   "test_M7_T1_t_table_and_synth_verify[UE]"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_inner_target_and_tables",
+   "test_registers_and_physical_vectors"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.70s"
+ },
+ {
+  "mutation": "fallback: returns a physical state (basis 0)",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors",
+   "test_M7_G1_evaluator_sees_abelian_gauss_law_violations"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_decode_state_fallback_all_agl_violating_codes"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.09s"
+ },
+ {
+  "mutation": "fallback: all codes map to one key (non-injective)",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors",
+   "test_M7_G1_evaluator_sees_abelian_gauss_law_violations"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_decode_state_fallback_all_agl_violating_codes"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.46s"
+ },
+ {
+  "mutation": "fallback: inner-end sign constant (+1/2)",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_decode_state_fallback_all_agl_violating_codes"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.22s"
+ },
+ {
+  "mutation": "fallback: outer-end sign constant (-1/2)",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_decode_state_fallback_all_agl_violating_codes"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.06s"
+ },
+ {
+  "mutation": "fallback: outer sites ignored (no half spins from out sites)",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_decode_state_fallback_all_agl_violating_codes"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.00s"
+ },
+ {
+  "mutation": "fallback: far ends not +1/2 (mL=mR=-1/2)",
+  "file": "enc",
+  "caught": false,
+  "acc_failed": [],
+  "n_unit_failed": 0,
+  "unit_first": [],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "31 passed in 2.22s"
+ },
+ {
+  "mutation": "decode: data-part validity check removed",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_decode_state_errors"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.25s"
+ },
+ {
+  "mutation": "decode: out-site flux cap check removed",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C1_codec_and_vectors"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_decode_state_errors"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 1.98s"
+ },
+ {
+  "mutation": "decode: fallback of 'in' sites uses N_n for both legs",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_decode_state_fallback_all_agl_violating_codes"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 1.88s"
+ },
+ {
+  "mutation": "electric: one inner weight wrong (c==2 ->  (N/2)^2 in H_E)",
+  "file": "ops",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet",
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a",
+   "test_M7_T1_t_table_and_synth_verify[UE]",
+   "test_M7_X1_spectra_three_routes"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_h_electric"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.26s"
+ },
+ {
+  "mutation": "electric: one outer weight wrong (site out 3 counted twice)",
+  "file": "ops",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet",
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_K2_plaquette_operator_vs_route_b_and_a"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_h_electric"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.15s"
+ },
+ {
+  "mutation": "circuit UE: one inner phase wrong (c=2, l_nv gets 1/2)",
+  "file": "circ",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_T1_t_table_and_synth_verify[UE]"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_build_UE_structure"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.24s"
+ },
+ {
+  "mutation": "circuit UE: J_HALF_PHASE 0.75 -> 0.5",
+  "file": "circ",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_T1_t_table_and_synth_verify[UE]"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_build_UE_structure"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.30s"
+ },
+ {
+  "mutation": "circuit UE: phase sign flipped on one qubit (c=1, l_pn)",
+  "file": "circ",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_T1_t_table_and_synth_verify[UE]"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_build_UE_structure"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.17s"
+ },
+ {
+  "mutation": "circuit UE: l_pn phase put on l_vp (qubit 3c+2)",
+  "file": "circ",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]",
+   "test_M7_T1_t_table_and_synth_verify[UE]"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_build_UE_structure"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.22s"
+ },
+ {
+  "mutation": "circuit UE outer: l_12 weight 3/2 -> 3/4",
+  "file": "circ",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_build_UE_structure"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.20s"
+ },
+ {
+  "mutation": "circuit UE outer: l_v1 phase dropped on corner 3",
+  "file": "circ",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_build_UE_structure"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.16s"
+ },
+ {
+  "mutation": "circuit UE outer: l_2v phase on l_v1 twice (c=0)",
+  "file": "circ",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_build_UE_structure"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.35s"
+ },
+ {
+  "mutation": "circuit UE: include_outer_electric ignored",
+  "file": "circ",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UE_matches_electric_energy_on_all_codes",
+   "test_build_UE_structure"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.25s"
+ },
+ {
+  "mutation": "table: sign flipped for the +1 entry of code 0b100010",
+  "file": "walk",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_inner_target_and_tables"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.53s"
+ },
+ {
+  "mutation": "table: sign flipped for both -1/2 entries",
+  "file": "walk",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_inner_target_and_tables"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.36s"
+ },
+ {
+  "mutation": "table: sign flipped for code 0 (-2 -> +2)",
+  "file": "walk",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_inner_target_and_tables"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.59s"
+ },
+ {
+  "mutation": "table: |value| of one +1 entry halved",
+  "file": "walk",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_inner_target_and_tables"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.54s"
+ },
+ {
+  "mutation": "partner: two partners swapped",
+  "file": "walk",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_inner_target_and_tables"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.57s"
+ },
+ {
+  "mutation": "target: U_B with exp(+i beta H)",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_inner_target_and_tables",
+   "test_targets"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.33s"
+ },
+ {
+  "mutation": "target: step order 1 composed UE @ UB",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_targets"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.08s"
+ },
+ {
+  "mutation": "target: step order 2 half-angle -> alpha",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_inner_target_and_tables",
+   "test_targets"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "2 failed, 29 passed in 2.14s"
+ },
+ {
+  "mutation": "target: UE ignores include_outer (inner HE always)",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet",
+   "test_M7_E1_electric_step[0.37]",
+   "test_M7_E1_electric_step[0.91]"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_targets"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.33s"
+ },
+ {
+  "mutation": "target: inner_target uses K_codes sign flipped",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_inner_target_and_tables"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.39s"
+ },
+ {
+  "mutation": "target: h_magnetic returns -H_B",
+  "file": "enc",
+  "caught": true,
+  "acc_failed": [
+   "test_M7_C2_target_lsh_equals_route_b_and_spinnet"
+  ],
+  "n_unit_failed": 1,
+  "unit_first": [
+   "test_targets"
+  ],
+  "acc": "  warnings.warn(\"tools/check_lock.py not available; relying on ~/.claude/bin/acceptance-check\")",
+  "unit": "1 failed, 30 passed in 2.24s"
+ }
+]

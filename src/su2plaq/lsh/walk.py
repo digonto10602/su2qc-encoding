@@ -5,6 +5,8 @@ Step = ("cx", c, t) | ("x", q) | ("h", q) | ("rccx", a, b, t) | ("rz", q) | ("p_
 """
 from __future__ import annotations
 
+import numpy as np
+
 LINK = (0, 3, 6, 9)        # after transcoding: j_b, j_r, j_t, j_l
 CBIT = (1, 4, 7, 10)       # after transcoding: [J_c = 1]
 WBIT = (2, 5, 8, 11)       # after transcoding: w_c = N_v mod 2
@@ -39,11 +41,36 @@ def classical_slots(steps, code: int) -> list:
 
 
 def coupling_table(enc) -> dict:
-    _pending("coupling_table", "7.4")
+    """inner code -> K[partner, code] (0.0 for dark codes), snapped to half-integers; ValueError unless K is a matching."""
+    codes = enc.inner_codes().tolist()
+    K = np.asarray(enc.K_codes)
+    table = {}
+    for i, c in enumerate(codes):
+        nz = np.flatnonzero(np.abs(K[:, i]) > 1e-12)
+        if len(nz) == 0:
+            table[c] = 0.0
+            continue
+        if len(nz) != 1:
+            raise ValueError(f"K is not a pair matching at inner code {c:012b}")
+        v = float(K[nz[0], i])
+        if abs(2 * v - round(2 * v)) > 1e-12:
+            raise ValueError(f"K at inner code {c:012b} is {v!r}, not a half-integer")
+        table[c] = round(2 * v) / 2
+    return table
 
 
 def partner_table(enc) -> dict:
-    _pending("partner_table", "7.4")
+    """bright inner code -> the inner code the plaquette moves it to (K is a matching)."""
+    codes = enc.inner_codes().tolist()
+    K = np.asarray(enc.K_codes)
+    out = {}
+    for i, c in enumerate(codes):
+        nz = np.flatnonzero(np.abs(K[:, i]) > 1e-12)
+        if len(nz) > 1:
+            raise ValueError(f"K is not a pair matching at inner code {c:012b}")
+        if len(nz) == 1:
+            out[c] = codes[int(nz[0])]
+    return out
 
 
 def solve_angles(steps, table, beta):
