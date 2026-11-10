@@ -1,22 +1,29 @@
 # STATUS — su2qc-encoding
 
-Last updated: 2026-11-04 (coordinator)
+Last updated: 2026-11-10 (coordinator, omnicommander; merged repo, all tracks on master)
 
 ## Goal
 One SU(2) plaquette with 8 outer links (12 links, 4 four-valent corners), $j_{\max}=1/2$.
-For each of five encodings, in order — (1) Paulo's 12-qubit, (2) spin network, (3) rishon,
-(4) loop-string-hadron, (5) fuzzy — build in Qiskit 2.5.2 / Aer 0.17.2 the one-Trotter-step
-circuits $U_E(\alpha)=e^{-i\alpha H_E}$, $U_B(\beta)=e^{-i\beta H_B}$, verify on every Gauss-law
-state (433 physical states), count CNOT and T gates → report; then compress with a
-Gu-et-al-style LLM loop (in-session proposer agents, deterministic evaluator) → report.
-Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
+For each of five encodings — (1) Paulo's 12-qubit, (2) spin network, (3) rishon, (4) loop-string-hadron, (5) fuzzy —
+build the one-Trotter-step circuits, verify on every Gauss-law state, count CNOT and T → report; then compress with a
+Gu-et-al-style LLM loop → report. Full plan: `prompts/001-plaquette-five-encodings-plan.md`.
 
-## Plan in force
-`prompts/002-m0-m2-foundation-twelve-qubit-compression.md` (planner kickoff; refines prompts/001 M0–M2).
-Acceptance tests locked as `acceptance-v4` (86 tests, M0–M2; v3 = prompts/003 Gauss rule, v4 = prompts/004 leak as amplitude). M3–M10 still per prompts/001.
+## Plans in force (per track; highest number in each range)
+| Track | Range | Plan | Locked tests | Milestones done |
+|---|---|---|---|---|
+| twelve (M0–M2) | 000–099 | prompts/006 (+007 m9 erratum, 008 consolidation pending) | m0, m1, m2 | milestone-0, -1, -2, -2-gate |
+| spinnet (M3/M4) | 100–199 | prompts/104 (§11 E1–E3) | m3, m3x, m4 | milestone-3 |
+| rishon (M5/M6) | 200–299 | prompts/204 (det term, prune cap 10 %) on 203 | m5, m5x, m6 | milestone-5, -5x |
+| fuzzy (M9/M10) | 300–399 | prompts/302 | m9, m10 | milestone-9, -10 |
+| LSH (M7/M8) | 400–499 | prompts/400 | m7 | — |
+Latest acceptance tag: acceptance-v17 (tags v8–v13 are old track-local locks; v14 = merged tree).
 
-## Current milestone / step
-M2 — compression machinery (step 2.1) and Lean track (step 2.L1) in parallel (two builders).
+## Current milestone / step (per track)
+- spinnet M4: compression round 5 (proposers F1–F3, sessions 16–18/20; stop counter 2/3) → then 4.L1/4.L2 Lean, 4.7 results, 4.8 gate → Report 4.
+- rishon M5d/M6: prompts/204 steps D1–D7 (det term λ_D, milestone-5d, Report 5 addendum), then C1–C6 (replay rounds 0–4, rounds 5+, Lean 6.L, gate → Report 6).
+- fuzzy M10 follow-up: fuzzy_ub round 4 (proposers F1–F3); then Lean per-circuit certs + audit A1/A2 (planner).
+- LSH M7: steps 7.6–7.7 (walk, build_UB, build_step) of prompts/400; then 7.8–7.11, Lean 7.L1–7.L3, gate → Report 7; then M8.
+- consolidation: planner writing prompts/008 (shared-code registries replacing shims, robust-T key, hash refresh) — runs after the loops close.
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
