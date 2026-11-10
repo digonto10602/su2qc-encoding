@@ -1,6 +1,6 @@
 # su2qc-encoding — project notes for agents
 
-Physics loop active (see `~/.claude/CLAUDE.md`). Plan in force: highest-numbered file in `prompts/` (now `prompts/002-m0-m2-foundation-twelve-qubit-compression.md`). Conventions: `docs/METHODS.md`. State: `notes/STATUS.md`.
+Physics loop active (see `~/.claude/CLAUDE.md`). Plans in force: one per track, by number range (twelve 000–099, spinnet 100–199, rishon 200–299, fuzzy 300–399, LSH 400–499) — see the table in `notes/STATUS.md`. Conventions: `docs/METHODS.md`. State: `notes/STATUS.md`.
 
 ## Environment and commands
 ```
