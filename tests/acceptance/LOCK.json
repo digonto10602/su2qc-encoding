@@ -51,6 +51,14 @@
   "tests/acceptance/m6/test_rishon_m6_loop.py": "c682cd6cfe0feaf0cbc211acc20b9ac474706de726b56fb28bf9e5ade02dbd48",
   "tests/acceptance/m6/test_rishon_m6_seeds.py": "e7e6b1e8cb728bb5924b7bcc76388fb9c86e4b7709fd9eb92dbffa7d56fdcd59",
   "tests/acceptance/m6/test_rishon_m6_spec.py": "35127d044eb7617f3b7206b86d0280f800ac0b51fb5bd05a7044e44578361b5b",
+  "tests/acceptance/m7/_ref.py": "6ae88720a0b7f98bc0f41f1fb0e50dc9d0bbdb3b0e5a0f29f322712d18759f83",
+  "tests/acceptance/m7/test_lsh_circuits.py": "5f0d0d7eabd5b5b92eb88b0962e6d510a516fd542146a822670d08046af718c9",
+  "tests/acceptance/m7/test_lsh_codec.py": "f8ec332fa8dac3677876af9c4f95a0a6b72ee4a70d66476cc43e8bc475455e32",
+  "tests/acceptance/m7/test_lsh_external.py": "b385d1826b2fe85870582f66dc085e62c8c2e27bd49c9e429722e75c15a6b470",
+  "tests/acceptance/m7/test_lsh_lean.py": "ae2f7c95980eb0eae5d17595bf0fea9643c63c16d7d1626c182a21d5a8bc54f0",
+  "tests/acceptance/m7/test_lsh_metrics.py": "546d2485fd2e99913d7d57e13afdf1f59956d884509ab78a120ff57eff47a511",
+  "tests/acceptance/m7/test_lsh_model.py": "cb7cc6b97da398975571a89b4a8cf78c0a3491c165904e829bf1ddf75e5545dc",
+  "tests/acceptance/m7/test_lsh_results.py": "02140f1346bf2a71459918932997a1e06b2fd35a467e2312ee637f8e59e7b22c",
   "tests/acceptance/m9/_fz.py": "9b9754c336c2e9ae839a2c95f9432b993e17b4fc20c83d86b8d415b02f273d5a",
   "tests/acceptance/m9/test_fuzzy_circuits.py": "5c0d63ed6e230111944abbafbf749c9ef459823db0db18cd0fcf338c2819b38a",
   "tests/acceptance/m9/test_fuzzy_codec_gauss.py": "555035d655224402a9597b6fac69c75588cd12f102526fd0008a6b466a398dea",
@@ -72,6 +80,7 @@
   "m4",
   "m5",
   "m5x",
-  "m6"
+  "m6",
+  "m7"
  ]
 }
