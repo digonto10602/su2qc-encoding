@@ -1,0 +1,15 @@
+bringing up nodes...
+bringing up nodes...
+
+F...                                                                     [100%]
+=================================== FAILURES ===================================
+_________________ test_M6_L7_archive_best_lean_status_recorded _________________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: lean/Su2PlaqCert/Rishon/Laurent3.lean missing (step 6.L2)
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G1_archive_best_valid_and_not_worse_than_seed
+PASSED tests/acceptance/m6/test_rishon_m6_seeds.py::test_M6_S3_round0_recorded
+PASSED tests/acceptance/m6/test_rishon_m6_headline.py::test_M6_H2_headline_selection_on_seed_round
+FAILED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L7_archive_best_lean_status_recorded
+1 failed, 3 passed in 122.39s (0:02:02)

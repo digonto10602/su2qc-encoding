@@ -1,0 +1,9743 @@
+{
+ "commit": "f4c0c70",
+ "cid": "r04-F4-004",
+ "seed": 220,
+ "baseline": [
+  2.8240983331918572e-14,
+  0.0
+ ],
+ "pair": [
+  0.37,
+  0.61
+ ],
+ "rows": [
+  {
+   "gate": 0,
+   "name": "cx",
+   "qubits": [
+    1,
+    13
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 1,
+   "name": "cx",
+   "qubits": [
+    0,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999772,
+   "detected": true
+  },
+  {
+   "gate": 2,
+   "name": "cx",
+   "qubits": [
+    0,
+    12
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 3,
+   "name": "p",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 0.1850006792531976,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 3,
+   "name": "p",
+   "qubits": [
+    1
+   ],
+   "kind": "angle",
+   "err": 6.666666684246672e-07,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 3,
+   "name": "p",
+   "qubits": [
+    1
+   ],
+   "kind": "flip",
+   "err": 0.3700219329938381,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 4,
+   "name": "cx",
+   "qubits": [
+    5,
+    3
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 5,
+   "name": "cx",
+   "qubits": [
+    4,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999766,
+   "detected": true
+  },
+  {
+   "gate": 6,
+   "name": "cx",
+   "qubits": [
+    4,
+    2
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999772,
+   "detected": true
+  },
+  {
+   "gate": 7,
+   "name": "p",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 0.18500067925319713,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 7,
+   "name": "p",
+   "qubits": [
+    5
+   ],
+   "kind": "angle",
+   "err": 6.666666684246673e-07,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 7,
+   "name": "p",
+   "qubits": [
+    5
+   ],
+   "kind": "flip",
+   "err": 0.3700219329938379,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 8,
+   "name": "cx",
+   "qubits": [
+    11,
+    7
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 9,
+   "name": "cx",
+   "qubits": [
+    10,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 10,
+   "name": "cx",
+   "qubits": [
+    10,
+    6
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 11,
+   "name": "p",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 0.1850006792531979,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 11,
+   "name": "p",
+   "qubits": [
+    11
+   ],
+   "kind": "angle",
+   "err": 6.666666685590168e-07,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 11,
+   "name": "p",
+   "qubits": [
+    11
+   ],
+   "kind": "flip",
+   "err": 0.37002193299383856,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 12,
+   "name": "cx",
+   "qubits": [
+    15,
+    9
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 13,
+   "name": "cx",
+   "qubits": [
+    14,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 14,
+   "name": "cx",
+   "qubits": [
+    14,
+    8
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 15,
+   "name": "p",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 0.18500067925319794,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 15,
+   "name": "p",
+   "qubits": [
+    15
+   ],
+   "kind": "angle",
+   "err": 6.666666685590173e-07,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 15,
+   "name": "p",
+   "qubits": [
+    15
+   ],
+   "kind": "flip",
+   "err": 0.3700219329938385,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 16,
+   "name": "sdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301707,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 16,
+   "name": "sdg",
+   "qubits": [
+    0
+   ],
+   "kind": "sswap",
+   "err": 1.7419676959368118,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 17,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.876260326903458,
+   "leak": 0.7071067811865324,
+   "detected": true
+  },
+  {
+   "gate": 18,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322524,
+   "leak": 0.3826834323650809,
+   "detected": true
+  },
+  {
+   "gate": 18,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 19,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.726726002830896,
+   "leak": 0.8660254037844181,
+   "detected": true
+  },
+  {
+   "gate": 20,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225233,
+   "leak": 0.2705980500730925,
+   "detected": true
+  },
+  {
+   "gate": 20,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301699,
+   "leak": 0.4999999999999889,
+   "detected": true
+  },
+  {
+   "gate": 21,
+   "name": "cx",
+   "qubits": [
+    1,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999762,
+   "leak": 0.8660254037844175,
+   "detected": true
+  },
+  {
+   "gate": 22,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322519,
+   "leak": 0.2705980500730928,
+   "detected": true
+  },
+  {
+   "gate": 22,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.4999999999999888,
+   "detected": true
+  },
+  {
+   "gate": 23,
+   "name": "cx",
+   "qubits": [
+    15,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999776,
+   "leak": 0.9999999999999756,
+   "detected": true
+  },
+  {
+   "gate": 24,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.2705980500730925,
+   "detected": true
+  },
+  {
+   "gate": 24,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.76536686473017,
+   "leak": 0.4999999999999889,
+   "detected": true
+  },
+  {
+   "gate": 25,
+   "name": "cx",
+   "qubits": [
+    1,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.8660254037844173,
+   "detected": true
+  },
+  {
+   "gate": 26,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322519,
+   "leak": 0.2705980500730928,
+   "detected": true
+  },
+  {
+   "gate": 26,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.4999999999999888,
+   "detected": true
+  },
+  {
+   "gate": 27,
+   "name": "cx",
+   "qubits": [
+    15,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999752,
+   "detected": true
+  },
+  {
+   "gate": 28,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9474376823795865,
+   "leak": 0.8660254037844185,
+   "detected": true
+  },
+  {
+   "gate": 29,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322522,
+   "leak": 0.38268343236508134,
+   "detected": true
+  },
+  {
+   "gate": 29,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 30,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9957027019453433,
+   "leak": 0.7071067811865318,
+   "detected": true
+  },
+  {
+   "gate": 31,
+   "name": "s",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301705,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 31,
+   "name": "s",
+   "qubits": [
+    0
+   ],
+   "kind": "sswap",
+   "err": 1.8295778552524677,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 32,
+   "name": "sdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301713,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 32,
+   "name": "sdg",
+   "qubits": [
+    4
+   ],
+   "kind": "sswap",
+   "err": 1.999352591841065,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 33,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9989016214928637,
+   "leak": 0.7071067811865319,
+   "detected": true
+  },
+  {
+   "gate": 34,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225317,
+   "leak": 0.3826834323650805,
+   "detected": true
+  },
+  {
+   "gate": 34,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 35,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.812506581006887,
+   "leak": 0.8660254037844184,
+   "detected": true
+  },
+  {
+   "gate": 36,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322522,
+   "leak": 0.27059805007309273,
+   "detected": true
+  },
+  {
+   "gate": 36,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301707,
+   "leak": 0.4999999999999888,
+   "detected": true
+  },
+  {
+   "gate": 37,
+   "name": "cx",
+   "qubits": [
+    5,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999785,
+   "leak": 0.8660254037844176,
+   "detected": true
+  },
+  {
+   "gate": 38,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.2705980500730927,
+   "detected": true
+  },
+  {
+   "gate": 38,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301708,
+   "leak": 0.499999999999989,
+   "detected": true
+  },
+  {
+   "gate": 39,
+   "name": "cx",
+   "qubits": [
+    1,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999754,
+   "detected": true
+  },
+  {
+   "gate": 40,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322522,
+   "leak": 0.27059805007309273,
+   "detected": true
+  },
+  {
+   "gate": 40,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.4999999999999886,
+   "detected": true
+  },
+  {
+   "gate": 41,
+   "name": "cx",
+   "qubits": [
+    5,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.8660254037844176,
+   "detected": true
+  },
+  {
+   "gate": 42,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322521,
+   "leak": 0.2705980500730927,
+   "detected": true
+  },
+  {
+   "gate": 42,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301707,
+   "leak": 0.499999999999989,
+   "detected": true
+  },
+  {
+   "gate": 43,
+   "name": "cx",
+   "qubits": [
+    1,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999805,
+   "leak": 0.9999999999999754,
+   "detected": true
+  },
+  {
+   "gate": 44,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9040051454482463,
+   "leak": 0.866025403784418,
+   "detected": true
+  },
+  {
+   "gate": 45,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.38268343236508157,
+   "detected": true
+  },
+  {
+   "gate": 45,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865311,
+   "detected": true
+  },
+  {
+   "gate": 46,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9819113319549018,
+   "leak": 0.7071067811865317,
+   "detected": true
+  },
+  {
+   "gate": 47,
+   "name": "s",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301706,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 47,
+   "name": "s",
+   "qubits": [
+    4
+   ],
+   "kind": "sswap",
+   "err": 1.998629723063465,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 48,
+   "name": "sdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301706,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 48,
+   "name": "sdg",
+   "qubits": [
+    10
+   ],
+   "kind": "sswap",
+   "err": 1.998778879383571,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 49,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.978488943791418,
+   "leak": 0.7071067811865317,
+   "detected": true
+  },
+  {
+   "gate": 50,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.38268343236508107,
+   "detected": true
+  },
+  {
+   "gate": 50,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 51,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.8482945109570004,
+   "leak": 0.8660254037844184,
+   "detected": true
+  },
+  {
+   "gate": 52,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225217,
+   "leak": 0.2705980500730925,
+   "detected": true
+  },
+  {
+   "gate": 52,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.76536686473017,
+   "leak": 0.4999999999999886,
+   "detected": true
+  },
+  {
+   "gate": 53,
+   "name": "cx",
+   "qubits": [
+    11,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.999999999999978,
+   "leak": 0.8660254037844175,
+   "detected": true
+  },
+  {
+   "gate": 54,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322521,
+   "leak": 0.27059805007309246,
+   "detected": true
+  },
+  {
+   "gate": 54,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.49999999999998884,
+   "detected": true
+  },
+  {
+   "gate": 55,
+   "name": "cx",
+   "qubits": [
+    5,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999754,
+   "detected": true
+  },
+  {
+   "gate": 56,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322522,
+   "leak": 0.2705980500730925,
+   "detected": true
+  },
+  {
+   "gate": 56,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.4999999999999888,
+   "detected": true
+  },
+  {
+   "gate": 57,
+   "name": "cx",
+   "qubits": [
+    11,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999785,
+   "leak": 0.8660254037844175,
+   "detected": true
+  },
+  {
+   "gate": 58,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.390180644032252,
+   "leak": 0.2705980500730926,
+   "detected": true
+  },
+  {
+   "gate": 58,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.49999999999998906,
+   "detected": true
+  },
+  {
+   "gate": 59,
+   "name": "cx",
+   "qubits": [
+    5,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999774,
+   "leak": 0.9999999999999754,
+   "detected": true
+  },
+  {
+   "gate": 60,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9290415994684806,
+   "leak": 0.8660254037844186,
+   "detected": true
+  },
+  {
+   "gate": 61,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225194,
+   "leak": 0.3826834323650813,
+   "detected": true
+  },
+  {
+   "gate": 61,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865311,
+   "detected": true
+  },
+  {
+   "gate": 62,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9995712472866258,
+   "leak": 0.7071067811865317,
+   "detected": true
+  },
+  {
+   "gate": 63,
+   "name": "s",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301705,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 63,
+   "name": "s",
+   "qubits": [
+    10
+   ],
+   "kind": "sswap",
+   "err": 1.951554804329109,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 64,
+   "name": "sdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301701,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 64,
+   "name": "sdg",
+   "qubits": [
+    14
+   ],
+   "kind": "sswap",
+   "err": 1.965446248959395,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 65,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.414213562373078,
+   "leak": 0.7071067811865317,
+   "detected": true
+  },
+  {
+   "gate": 66,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322522,
+   "leak": 0.38268343236508084,
+   "detected": true
+  },
+  {
+   "gate": 66,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.76536686473017,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 67,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.8494756585516403,
+   "leak": 0.8660254037844186,
+   "detected": true
+  },
+  {
+   "gate": 68,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322521,
+   "leak": 0.2705980500730927,
+   "detected": true
+  },
+  {
+   "gate": 68,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.4999999999999888,
+   "detected": true
+  },
+  {
+   "gate": 69,
+   "name": "cx",
+   "qubits": [
+    15,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999771,
+   "leak": 0.8660254037844172,
+   "detected": true
+  },
+  {
+   "gate": 70,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225167,
+   "leak": 0.27059805007309246,
+   "detected": true
+  },
+  {
+   "gate": 70,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.76536686473017,
+   "leak": 0.4999999999999889,
+   "detected": true
+  },
+  {
+   "gate": 71,
+   "name": "cx",
+   "qubits": [
+    11,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 72,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225183,
+   "leak": 0.2705980500730927,
+   "detected": true
+  },
+  {
+   "gate": 72,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301699,
+   "leak": 0.4999999999999888,
+   "detected": true
+  },
+  {
+   "gate": 73,
+   "name": "cx",
+   "qubits": [
+    15,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.8660254037844171,
+   "detected": true
+  },
+  {
+   "gate": 74,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322518,
+   "leak": 0.27059805007309257,
+   "detected": true
+  },
+  {
+   "gate": 74,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.4999999999999888,
+   "detected": true
+  },
+  {
+   "gate": 75,
+   "name": "cx",
+   "qubits": [
+    11,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.9999999999999758,
+   "detected": true
+  },
+  {
+   "gate": 76,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9418931746719588,
+   "leak": 0.8660254037844188,
+   "detected": true
+  },
+  {
+   "gate": 77,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.390180644032252,
+   "leak": 0.38268343236508107,
+   "detected": true
+  },
+  {
+   "gate": 77,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 78,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.999848233959899,
+   "leak": 0.7071067811865315,
+   "detected": true
+  },
+  {
+   "gate": 79,
+   "name": "s",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301712,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 79,
+   "name": "s",
+   "qubits": [
+    14
+   ],
+   "kind": "sswap",
+   "err": 1.9970396634671708,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 80,
+   "name": "rccx",
+   "qubits": [
+    12,
+    1,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.999999999999979,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 80,
+   "name": "rccx",
+   "qubits": [
+    12,
+    1,
+    0
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.9999999999999802,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 81,
+   "name": "t",
+   "qubits": [
+    12
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322524,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 81,
+   "name": "t",
+   "qubits": [
+    12
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301707,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 82,
+   "name": "t",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960109,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 82,
+   "name": "t",
+   "qubits": [
+    1
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382554,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 83,
+   "name": "cx",
+   "qubits": [
+    12,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 84,
+   "name": "tdg",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225267,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 84,
+   "name": "tdg",
+   "qubits": [
+    1
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301713,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 85,
+   "name": "cx",
+   "qubits": [
+    12,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 86,
+   "name": "z",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.6400599925705583,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 87,
+   "name": "z",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999796,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 88,
+   "name": "rccx",
+   "qubits": [
+    2,
+    5,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999818,
+   "leak": 0.9999999999999756,
+   "detected": true
+  },
+  {
+   "gate": 88,
+   "name": "rccx",
+   "qubits": [
+    2,
+    5,
+    4
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.999999999999977,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 89,
+   "name": "t",
+   "qubits": [
+    2
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322524,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 89,
+   "name": "t",
+   "qubits": [
+    2
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 90,
+   "name": "t",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960106,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 90,
+   "name": "t",
+   "qubits": [
+    5
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382552,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 91,
+   "name": "cx",
+   "qubits": [
+    2,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 92,
+   "name": "tdg",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322525,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 92,
+   "name": "tdg",
+   "qubits": [
+    5
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301712,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 93,
+   "name": "cx",
+   "qubits": [
+    2,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999771,
+   "detected": true
+  },
+  {
+   "gate": 94,
+   "name": "z",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.945276294607502,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 95,
+   "name": "z",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999791,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 96,
+   "name": "rccx",
+   "qubits": [
+    6,
+    11,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999787,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 96,
+   "name": "rccx",
+   "qubits": [
+    6,
+    11,
+    10
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.9999999999999778,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 97,
+   "name": "t",
+   "qubits": [
+    6
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322525,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 97,
+   "name": "t",
+   "qubits": [
+    6
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 98,
+   "name": "t",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960106,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 98,
+   "name": "t",
+   "qubits": [
+    11
+   ],
+   "kind": "tswap",
+   "err": 1.051462224238255,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 99,
+   "name": "cx",
+   "qubits": [
+    6,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999768,
+   "detected": true
+  },
+  {
+   "gate": 100,
+   "name": "tdg",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225217,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 100,
+   "name": "tdg",
+   "qubits": [
+    11
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301707,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 101,
+   "name": "cx",
+   "qubits": [
+    6,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999768,
+   "detected": true
+  },
+  {
+   "gate": 102,
+   "name": "z",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.8174993653843892,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 103,
+   "name": "z",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999787,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 104,
+   "name": "rccx",
+   "qubits": [
+    8,
+    15,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999796,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 104,
+   "name": "rccx",
+   "qubits": [
+    8,
+    15,
+    14
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.999999999999976,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 105,
+   "name": "t",
+   "qubits": [
+    8
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322524,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 105,
+   "name": "t",
+   "qubits": [
+    8
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 106,
+   "name": "t",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960103,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 106,
+   "name": "t",
+   "qubits": [
+    15
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382545,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 107,
+   "name": "cx",
+   "qubits": [
+    8,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999772,
+   "detected": true
+  },
+  {
+   "gate": 108,
+   "name": "tdg",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322528,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 108,
+   "name": "tdg",
+   "qubits": [
+    15
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301715,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 109,
+   "name": "cx",
+   "qubits": [
+    8,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 110,
+   "name": "z",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.4142135623730783,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 111,
+   "name": "z",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999813,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 112,
+   "name": "cx",
+   "qubits": [
+    11,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 113,
+   "name": "cx",
+   "qubits": [
+    15,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.000000000000001,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 114,
+   "name": "x",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 115,
+   "name": "x",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 116,
+   "name": "rccx",
+   "qubits": [
+    1,
+    5,
+    48
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 116,
+   "name": "rccx",
+   "qubits": [
+    1,
+    5,
+    48
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.0884384774768834,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 117,
+   "name": "x",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 118,
+   "name": "x",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 119,
+   "name": "cx",
+   "qubits": [
+    11,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999757,
+   "detected": true
+  },
+  {
+   "gate": 120,
+   "name": "x",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 121,
+   "name": "rccx",
+   "qubits": [
+    48,
+    15,
+    49
+   ],
+   "kind": "drop",
+   "err": 1.000000000000003,
+   "leak": 0.9999999999999775,
+   "detected": true
+  },
+  {
+   "gate": 121,
+   "name": "rccx",
+   "qubits": [
+    48,
+    15,
+    49
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.2192435262572714,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 122,
+   "name": "x",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 123,
+   "name": "cx",
+   "qubits": [
+    11,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999756,
+   "detected": true
+  },
+  {
+   "gate": 124,
+   "name": "cx",
+   "qubits": [
+    15,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.000000000000001,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 125,
+   "name": "cx",
+   "qubits": [
+    11,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 126,
+   "name": "cx",
+   "qubits": [
+    0,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.000000000000002,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 127,
+   "name": "cx",
+   "qubits": [
+    10,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000029,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 128,
+   "name": "x",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 129,
+   "name": "rccx",
+   "qubits": [
+    1,
+    11,
+    50
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999787,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 129,
+   "name": "rccx",
+   "qubits": [
+    1,
+    11,
+    50
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.8477590650225524,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 130,
+   "name": "z",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 1.9569976513777727,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 131,
+   "name": "s",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.169420569327516,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 131,
+   "name": "s",
+   "qubits": [
+    50
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999796,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 132,
+   "name": "cx",
+   "qubits": [
+    0,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.000000000000002,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 133,
+   "name": "cx",
+   "qubits": [
+    10,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000029,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 134,
+   "name": "sdg",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.169420569327516,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 134,
+   "name": "sdg",
+   "qubits": [
+    50
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999796,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 135,
+   "name": "h",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.7071067811865324,
+   "leak": 0.7071067811865315,
+   "detected": true
+  },
+  {
+   "gate": 136,
+   "name": "tdg",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.07612046748873955,
+   "leak": 0.38268343236508096,
+   "detected": true
+  },
+  {
+   "gate": 136,
+   "name": "tdg",
+   "qubits": [
+    50
+   ],
+   "kind": "tswap",
+   "err": 0.2928932188134718,
+   "leak": 0.7071067811865317,
+   "detected": true
+  },
+  {
+   "gate": 137,
+   "name": "h",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.4999999999999885,
+   "leak": 0.8660254037844183,
+   "detected": true
+  },
+  {
+   "gate": 138,
+   "name": "s",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.866025403784432,
+   "leak": 0.49999999999998856,
+   "detected": true
+  },
+  {
+   "gate": 138,
+   "name": "s",
+   "qubits": [
+    50
+   ],
+   "kind": "sswap",
+   "err": 1.7071067811865313,
+   "leak": 0.7071067811865315,
+   "detected": true
+  },
+  {
+   "gate": 139,
+   "name": "ccz",
+   "qubits": [
+    49,
+    1,
+    50
+   ],
+   "kind": "drop",
+   "err": 1.7071067811865326,
+   "leak": 0.7071067811865297,
+   "detected": true
+  },
+  {
+   "gate": 140,
+   "name": "sdg",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.8660254037844318,
+   "leak": 0.49999999999998884,
+   "detected": true
+  },
+  {
+   "gate": 140,
+   "name": "sdg",
+   "qubits": [
+    50
+   ],
+   "kind": "sswap",
+   "err": 1.7071067811865313,
+   "leak": 0.7071067811865315,
+   "detected": true
+  },
+  {
+   "gate": 141,
+   "name": "h",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.499999999999989,
+   "leak": 0.8660254037844183,
+   "detected": true
+  },
+  {
+   "gate": 142,
+   "name": "t",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.0761204674887396,
+   "leak": 0.38268343236508123,
+   "detected": true
+  },
+  {
+   "gate": 142,
+   "name": "t",
+   "qubits": [
+    50
+   ],
+   "kind": "tswap",
+   "err": 0.2928932188134716,
+   "leak": 0.7071067811865313,
+   "detected": true
+  },
+  {
+   "gate": 143,
+   "name": "h",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.7071067811865313,
+   "leak": 0.9999999999999746,
+   "detected": true
+  },
+  {
+   "gate": 144,
+   "name": "s",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.1018699901848072,
+   "leak": 0.7071067811865296,
+   "detected": true
+  },
+  {
+   "gate": 144,
+   "name": "s",
+   "qubits": [
+    50
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 145,
+   "name": "s",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301707,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 145,
+   "name": "s",
+   "qubits": [
+    0
+   ],
+   "kind": "sswap",
+   "err": 1.6400599925705583,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 146,
+   "name": "t",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960102,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 146,
+   "name": "t",
+   "qubits": [
+    15
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382548,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 147,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9924635877218875,
+   "leak": 0.707106781186532,
+   "detected": true
+  },
+  {
+   "gate": 148,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225194,
+   "leak": 0.38268343236508096,
+   "detected": true
+  },
+  {
+   "gate": 148,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865313,
+   "detected": true
+  },
+  {
+   "gate": 149,
+   "name": "cx",
+   "qubits": [
+    15,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.7071067811865303,
+   "detected": true
+  },
+  {
+   "gate": 150,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322526,
+   "leak": 0.3826834323650811,
+   "detected": true
+  },
+  {
+   "gate": 150,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 151,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9929906898570673,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 152,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322526,
+   "leak": 0.3826834323650803,
+   "detected": true
+  },
+  {
+   "gate": 152,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 153,
+   "name": "cx",
+   "qubits": [
+    1,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.999999999999978,
+   "leak": 0.9999999999999757,
+   "detected": true
+  },
+  {
+   "gate": 154,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225267,
+   "leak": 0.3826834323650805,
+   "detected": true
+  },
+  {
+   "gate": 154,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301708,
+   "leak": 0.7071067811865306,
+   "detected": true
+  },
+  {
+   "gate": 155,
+   "name": "cx",
+   "qubits": [
+    50,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.9999999999999771,
+   "detected": true
+  },
+  {
+   "gate": 156,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.4575374113511242,
+   "leak": 0.38268343236508034,
+   "detected": true
+  },
+  {
+   "gate": 156,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.9151631617158709,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 157,
+   "name": "cx",
+   "qubits": [
+    1,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 158,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.4127200438095199,
+   "leak": 0.3826834323650805,
+   "detected": true
+  },
+  {
+   "gate": 158,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.8163395623515585,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 159,
+   "name": "cx",
+   "qubits": [
+    50,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999776,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 160,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9504363603390407,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 161,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322519,
+   "leak": 0.3826834323650809,
+   "detected": true
+  },
+  {
+   "gate": 161,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865313,
+   "detected": true
+  },
+  {
+   "gate": 162,
+   "name": "cx",
+   "qubits": [
+    15,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999776,
+   "leak": 0.8660254037844171,
+   "detected": true
+  },
+  {
+   "gate": 163,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322521,
+   "leak": 0.382683432365081,
+   "detected": true
+  },
+  {
+   "gate": 163,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 164,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999758,
+   "leak": 0.8660254037844166,
+   "detected": true
+  },
+  {
+   "gate": 165,
+   "name": "s",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301712,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 165,
+   "name": "s",
+   "qubits": [
+    4
+   ],
+   "kind": "sswap",
+   "err": 1.945276294607502,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 166,
+   "name": "t",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960108,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 166,
+   "name": "t",
+   "qubits": [
+    1
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382552,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 167,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9465172801041137,
+   "leak": 0.7071067811865316,
+   "detected": true
+  },
+  {
+   "gate": 168,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.3826834323650811,
+   "detected": true
+  },
+  {
+   "gate": 168,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 169,
+   "name": "cx",
+   "qubits": [
+    1,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999791,
+   "leak": 0.7071067811865303,
+   "detected": true
+  },
+  {
+   "gate": 170,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322526,
+   "leak": 0.38268343236508057,
+   "detected": true
+  },
+  {
+   "gate": 170,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301707,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 171,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.8595115202492003,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 172,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225233,
+   "leak": 0.3826834323650805,
+   "detected": true
+  },
+  {
+   "gate": 172,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.765366864730171,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 173,
+   "name": "cx",
+   "qubits": [
+    5,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999782,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 174,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322522,
+   "leak": 0.3826834323650802,
+   "detected": true
+  },
+  {
+   "gate": 174,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301707,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 175,
+   "name": "cx",
+   "qubits": [
+    50,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999787,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 176,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.45009853493818086,
+   "leak": 0.3826834323650804,
+   "detected": true
+  },
+  {
+   "gate": 176,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.8990584806635497,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 177,
+   "name": "cx",
+   "qubits": [
+    5,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 178,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.4202170719548479,
+   "leak": 0.38268343236508023,
+   "detected": true
+  },
+  {
+   "gate": 178,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.8331390975467774,
+   "leak": 0.7071067811865304,
+   "detected": true
+  },
+  {
+   "gate": 179,
+   "name": "cx",
+   "qubits": [
+    50,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999762,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 180,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9896092209029927,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 181,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322521,
+   "leak": 0.3826834323650812,
+   "detected": true
+  },
+  {
+   "gate": 181,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 182,
+   "name": "cx",
+   "qubits": [
+    1,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.7071067811865303,
+   "detected": true
+  },
+  {
+   "gate": 183,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322528,
+   "leak": 0.38268343236508096,
+   "detected": true
+  },
+  {
+   "gate": 183,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 184,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.7597319208681368,
+   "leak": 0.999999999999975,
+   "detected": true
+  },
+  {
+   "gate": 185,
+   "name": "s",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301705,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 185,
+   "name": "s",
+   "qubits": [
+    10
+   ],
+   "kind": "sswap",
+   "err": 1.8174993653843892,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 186,
+   "name": "t",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960106,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 186,
+   "name": "t",
+   "qubits": [
+    5
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382554,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 187,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9333598139502717,
+   "leak": 0.7071067811865318,
+   "detected": true
+  },
+  {
+   "gate": 188,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225183,
+   "leak": 0.3826834323650813,
+   "detected": true
+  },
+  {
+   "gate": 188,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865313,
+   "detected": true
+  },
+  {
+   "gate": 189,
+   "name": "cx",
+   "qubits": [
+    5,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.7071067811865304,
+   "detected": true
+  },
+  {
+   "gate": 190,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.38268343236508096,
+   "detected": true
+  },
+  {
+   "gate": 190,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.7071067811865311,
+   "detected": true
+  },
+  {
+   "gate": 191,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.960970480635777,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 192,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225233,
+   "leak": 0.3826834323650804,
+   "detected": true
+  },
+  {
+   "gate": 192,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 193,
+   "name": "cx",
+   "qubits": [
+    11,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 194,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322525,
+   "leak": 0.3826834323650802,
+   "detected": true
+  },
+  {
+   "gate": 194,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 195,
+   "name": "cx",
+   "qubits": [
+    50,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 196,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.4575374113511239,
+   "leak": 0.3826834323650804,
+   "detected": true
+  },
+  {
+   "gate": 196,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.91516316171587,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 197,
+   "name": "cx",
+   "qubits": [
+    11,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.999999999999976,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 198,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.41272004380952043,
+   "leak": 0.38268343236508023,
+   "detected": true
+  },
+  {
+   "gate": 198,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.8163395623515582,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 199,
+   "name": "cx",
+   "qubits": [
+    50,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 200,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9694703688319226,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 201,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.382683432365081,
+   "detected": true
+  },
+  {
+   "gate": 201,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 202,
+   "name": "cx",
+   "qubits": [
+    5,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999771,
+   "leak": 0.8660254037844165,
+   "detected": true
+  },
+  {
+   "gate": 203,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322523,
+   "leak": 0.382683432365081,
+   "detected": true
+  },
+  {
+   "gate": 203,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.76536686473017,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 204,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999758,
+   "leak": 0.8660254037844168,
+   "detected": true
+  },
+  {
+   "gate": 205,
+   "name": "s",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301707,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 205,
+   "name": "s",
+   "qubits": [
+    14
+   ],
+   "kind": "sswap",
+   "err": 1.4142135623730783,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 206,
+   "name": "t",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960101,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 206,
+   "name": "t",
+   "qubits": [
+    11
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382545,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 207,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9881642753931077,
+   "leak": 0.7071067811865313,
+   "detected": true
+  },
+  {
+   "gate": 208,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322517,
+   "leak": 0.38268343236508107,
+   "detected": true
+  },
+  {
+   "gate": 208,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 209,
+   "name": "cx",
+   "qubits": [
+    11,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.999999999999976,
+   "leak": 0.7071067811865304,
+   "detected": true
+  },
+  {
+   "gate": 210,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322518,
+   "leak": 0.3826834323650805,
+   "detected": true
+  },
+  {
+   "gate": 210,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301699,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 211,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9766501321420524,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 212,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225233,
+   "leak": 0.38268343236508057,
+   "detected": true
+  },
+  {
+   "gate": 212,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 213,
+   "name": "cx",
+   "qubits": [
+    15,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 214,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322524,
+   "leak": 0.38268343236508023,
+   "detected": true
+  },
+  {
+   "gate": 214,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.7071067811865304,
+   "detected": true
+  },
+  {
+   "gate": 215,
+   "name": "cx",
+   "qubits": [
+    50,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999771,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 216,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.4500985349381808,
+   "leak": 0.38268343236508057,
+   "detected": true
+  },
+  {
+   "gate": 216,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.8990584806635497,
+   "leak": 0.7071067811865301,
+   "detected": true
+  },
+  {
+   "gate": 217,
+   "name": "cx",
+   "qubits": [
+    15,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 218,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.42021707195484787,
+   "leak": 0.3826834323650803,
+   "detected": true
+  },
+  {
+   "gate": 218,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.8331390975467774,
+   "leak": 0.7071067811865304,
+   "detected": true
+  },
+  {
+   "gate": 219,
+   "name": "cx",
+   "qubits": [
+    50,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999765,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 220,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9835539031978384,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 221,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322519,
+   "leak": 0.38268343236508107,
+   "detected": true
+  },
+  {
+   "gate": 221,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 222,
+   "name": "cx",
+   "qubits": [
+    11,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999785,
+   "leak": 0.7071067811865305,
+   "detected": true
+  },
+  {
+   "gate": 223,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225194,
+   "leak": 0.382683432365081,
+   "detected": true
+  },
+  {
+   "gate": 223,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 224,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.8557534454754994,
+   "leak": 0.999999999999975,
+   "detected": true
+  },
+  {
+   "gate": 225,
+   "name": "sdg",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0514622242382552,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 225,
+   "name": "sdg",
+   "qubits": [
+    1
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999796,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 226,
+   "name": "cx",
+   "qubits": [
+    50,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000013,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 227,
+   "name": "s",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 0.8275515801463772,
+   "leak": 0.7071067811865297,
+   "detected": true
+  },
+  {
+   "gate": 227,
+   "name": "s",
+   "qubits": [
+    1
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999791,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 228,
+   "name": "sdg",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0514622242382559,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 228,
+   "name": "sdg",
+   "qubits": [
+    5
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999791,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 229,
+   "name": "cx",
+   "qubits": [
+    50,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000013,
+   "leak": 0.9999999999999768,
+   "detected": true
+  },
+  {
+   "gate": 230,
+   "name": "s",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 0.8275515801463773,
+   "leak": 0.7071067811865297,
+   "detected": true
+  },
+  {
+   "gate": 230,
+   "name": "s",
+   "qubits": [
+    5
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999791,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 231,
+   "name": "sdg",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 1.051462224238255,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 231,
+   "name": "sdg",
+   "qubits": [
+    11
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999787,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 232,
+   "name": "cx",
+   "qubits": [
+    50,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000013,
+   "leak": 0.9999999999999768,
+   "detected": true
+  },
+  {
+   "gate": 233,
+   "name": "s",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 0.8275515801463774,
+   "leak": 0.7071067811865297,
+   "detected": true
+  },
+  {
+   "gate": 233,
+   "name": "s",
+   "qubits": [
+    11
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999791,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 234,
+   "name": "sdg",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0514622242382554,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 234,
+   "name": "sdg",
+   "qubits": [
+    15
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999813,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 235,
+   "name": "cx",
+   "qubits": [
+    50,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000013,
+   "leak": 0.9999999999999768,
+   "detected": true
+  },
+  {
+   "gate": 236,
+   "name": "s",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 0.8275515801463772,
+   "leak": 0.7071067811865297,
+   "detected": true
+  },
+  {
+   "gate": 236,
+   "name": "s",
+   "qubits": [
+    15
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 237,
+   "name": "cx",
+   "qubits": [
+    0,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.000000000000002,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 238,
+   "name": "cx",
+   "qubits": [
+    4,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 239,
+   "name": "cx",
+   "qubits": [
+    10,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.000000000000002,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 240,
+   "name": "cx",
+   "qubits": [
+    14,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999758,
+   "detected": true
+  },
+  {
+   "gate": 241,
+   "name": "x",
+   "qubits": [
+    12
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 242,
+   "name": "x",
+   "qubits": [
+    13
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 243,
+   "name": "rccx",
+   "qubits": [
+    12,
+    13,
+    51
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 243,
+   "name": "rccx",
+   "qubits": [
+    12,
+    13,
+    51
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.1322728652503486,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 244,
+   "name": "x",
+   "qubits": [
+    12
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 245,
+   "name": "x",
+   "qubits": [
+    13
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 246,
+   "name": "x",
+   "qubits": [
+    51
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 247,
+   "name": "x",
+   "qubits": [
+    2
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 248,
+   "name": "x",
+   "qubits": [
+    3
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 249,
+   "name": "rccx",
+   "qubits": [
+    2,
+    3,
+    52
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000029,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 249,
+   "name": "rccx",
+   "qubits": [
+    2,
+    3,
+    52
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.1322728652503478,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 250,
+   "name": "x",
+   "qubits": [
+    2
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 251,
+   "name": "x",
+   "qubits": [
+    3
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 252,
+   "name": "x",
+   "qubits": [
+    52
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 253,
+   "name": "x",
+   "qubits": [
+    6
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 254,
+   "name": "x",
+   "qubits": [
+    7
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 255,
+   "name": "rccx",
+   "qubits": [
+    6,
+    7,
+    53
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000027,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 255,
+   "name": "rccx",
+   "qubits": [
+    6,
+    7,
+    53
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.1322728652503484,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 256,
+   "name": "x",
+   "qubits": [
+    6
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 257,
+   "name": "x",
+   "qubits": [
+    7
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 258,
+   "name": "x",
+   "qubits": [
+    53
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 259,
+   "name": "x",
+   "qubits": [
+    8
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 260,
+   "name": "x",
+   "qubits": [
+    9
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 261,
+   "name": "rccx",
+   "qubits": [
+    8,
+    9,
+    54
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 261,
+   "name": "rccx",
+   "qubits": [
+    8,
+    9,
+    54
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.1322728652503478,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 262,
+   "name": "x",
+   "qubits": [
+    8
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 263,
+   "name": "x",
+   "qubits": [
+    9
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 264,
+   "name": "x",
+   "qubits": [
+    54
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 265,
+   "name": "rccx",
+   "qubits": [
+    1,
+    51,
+    55
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 265,
+   "name": "rccx",
+   "qubits": [
+    1,
+    51,
+    55
+   ],
+   "kind": "rccx2ccx",
+   "err": 0.7909489820764802,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 266,
+   "name": "rccx",
+   "qubits": [
+    5,
+    52,
+    56
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000027,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 266,
+   "name": "rccx",
+   "qubits": [
+    5,
+    52,
+    56
+   ],
+   "kind": "rccx2ccx",
+   "err": 0.8078999802463221,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 267,
+   "name": "rccx",
+   "qubits": [
+    11,
+    53,
+    57
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 267,
+   "name": "rccx",
+   "qubits": [
+    11,
+    53,
+    57
+   ],
+   "kind": "rccx2ccx",
+   "err": 0.7909489820764802,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 268,
+   "name": "rccx",
+   "qubits": [
+    15,
+    54,
+    58
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 268,
+   "name": "rccx",
+   "qubits": [
+    15,
+    54,
+    58
+   ],
+   "kind": "rccx2ccx",
+   "err": 0.8078999802463223,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 269,
+   "name": "rccx",
+   "qubits": [
+    55,
+    56,
+    59
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 269,
+   "name": "rccx",
+   "qubits": [
+    55,
+    56,
+    59
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.1117859299408712,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 270,
+   "name": "rccx",
+   "qubits": [
+    57,
+    58,
+    60
+   ],
+   "kind": "drop",
+   "err": 1.000000000000002,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 270,
+   "name": "rccx",
+   "qubits": [
+    57,
+    58,
+    60
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.1117859299408703,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 271,
+   "name": "rccx",
+   "qubits": [
+    59,
+    60,
+    61
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 271,
+   "name": "rccx",
+   "qubits": [
+    59,
+    60,
+    61
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.3096566425163716,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 272,
+   "name": "h",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.9999999999999747,
+   "detected": true
+  },
+  {
+   "gate": 273,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.7198127991711695,
+   "leak": 0.6715770029862344,
+   "detected": true
+  },
+  {
+   "gate": 273,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "angle",
+   "err": 5.000000014325929e-07,
+   "leak": 5.000000001124433e-07,
+   "detected": true
+  },
+  {
+   "gate": 273,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "flip",
+   "err": 1.343154005972485,
+   "leak": 0.9951895005606305,
+   "detected": true
+  },
+  {
+   "gate": 274,
+   "name": "cx",
+   "qubits": [
+    48,
+    50
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 275,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.15235226886390024,
+   "leak": 0.151909590599591,
+   "detected": true
+  },
+  {
+   "gate": 275,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "angle",
+   "err": 5.000000013269391e-07,
+   "leak": 5.000000001394407e-07,
+   "detected": true
+  },
+  {
+   "gate": 275,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "flip",
+   "err": 0.30381918119918633,
+   "leak": 0.30029317520925414,
+   "detected": true
+  },
+  {
+   "gate": 276,
+   "name": "cx",
+   "qubits": [
+    61,
+    50
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999758,
+   "leak": 0.6504245026301305,
+   "detected": true
+  },
+  {
+   "gate": 277,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.1523522688639005,
+   "leak": 0.15190959059959103,
+   "detected": true
+  },
+  {
+   "gate": 277,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "angle",
+   "err": 5.000000015058777e-07,
+   "leak": 5.000000000827004e-07,
+   "detected": true
+  },
+  {
+   "gate": 277,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "flip",
+   "err": 0.3038191811991867,
+   "leak": 0.3002931752092544,
+   "detected": true
+  },
+  {
+   "gate": 278,
+   "name": "cx",
+   "qubits": [
+    48,
+    50
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999758,
+   "leak": 0.9999999999999758,
+   "detected": true
+  },
+  {
+   "gate": 279,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.7198127991711691,
+   "leak": 0.6715770029862346,
+   "detected": true
+  },
+  {
+   "gate": 279,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "angle",
+   "err": 5.000000016340364e-07,
+   "leak": 5.00000000139441e-07,
+   "detected": true
+  },
+  {
+   "gate": 279,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "flip",
+   "err": 1.343154005972485,
+   "leak": 0.9951895005606305,
+   "detected": true
+  },
+  {
+   "gate": 280,
+   "name": "cx",
+   "qubits": [
+    49,
+    50
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999787,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 281,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.27793271556938826,
+   "leak": 0.27523596294416103,
+   "detected": true
+  },
+  {
+   "gate": 281,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "angle",
+   "err": 5.000000015105562e-07,
+   "leak": 5.000000001108994e-07,
+   "detected": true
+  },
+  {
+   "gate": 281,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "flip",
+   "err": 0.5504719258883289,
+   "leak": 0.5292108850989462,
+   "detected": true
+  },
+  {
+   "gate": 282,
+   "name": "cx",
+   "qubits": [
+    61,
+    50
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999805,
+   "leak": 0.24231557675766488,
+   "detected": true
+  },
+  {
+   "gate": 283,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.2779327155693887,
+   "leak": 0.27523596294416103,
+   "detected": true
+  },
+  {
+   "gate": 283,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "angle",
+   "err": 5.00000001304176e-07,
+   "leak": 5.000000001112625e-07,
+   "detected": true
+  },
+  {
+   "gate": 283,
+   "name": "rz",
+   "qubits": [
+    50
+   ],
+   "kind": "flip",
+   "err": 0.5504719258883288,
+   "leak": 0.5292108850989463,
+   "detected": true
+  },
+  {
+   "gate": 284,
+   "name": "cx",
+   "qubits": [
+    49,
+    50
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 285,
+   "name": "h",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999765,
+   "leak": 0.9999999999999747,
+   "detected": true
+  },
+  {
+   "gate": 286,
+   "name": "cx",
+   "qubits": [
+    0,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.000000000000002,
+   "leak": 0.9999999999999766,
+   "detected": true
+  },
+  {
+   "gate": 287,
+   "name": "cx",
+   "qubits": [
+    0,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.000000000000002,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 288,
+   "name": "cx",
+   "qubits": [
+    0,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.000000000000002,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 289,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999776,
+   "leak": 0.9999999999999747,
+   "detected": true
+  },
+  {
+   "gate": 290,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.42799915829374624,
+   "leak": 0.4180840238852027,
+   "detected": true
+  },
+  {
+   "gate": 290,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "angle",
+   "err": 5.000000015694702e-07,
+   "leak": 5.000000001175044e-07,
+   "detected": true
+  },
+  {
+   "gate": 290,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "flip",
+   "err": 0.8361680477704154,
+   "leak": 0.7595820451684908,
+   "detected": true
+  },
+  {
+   "gate": 291,
+   "name": "cx",
+   "qubits": [
+    61,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999751,
+   "leak": 0.5371056150061855,
+   "detected": true
+  },
+  {
+   "gate": 292,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.4279991582937462,
+   "leak": 0.4180840238852027,
+   "detected": true
+  },
+  {
+   "gate": 292,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "angle",
+   "err": 5.000000015961601e-07,
+   "leak": 5.000000001151885e-07,
+   "detected": true
+  },
+  {
+   "gate": 292,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "flip",
+   "err": 0.8361680477704153,
+   "leak": 0.7595820451684907,
+   "detected": true
+  },
+  {
+   "gate": 293,
+   "name": "cx",
+   "qubits": [
+    49,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999765,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 294,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.4279991582937463,
+   "leak": 0.4180840238852027,
+   "detected": true
+  },
+  {
+   "gate": 294,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "angle",
+   "err": 5.000000016158053e-07,
+   "leak": 5.000000000995763e-07,
+   "detected": true
+  },
+  {
+   "gate": 294,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "flip",
+   "err": 0.8361680477704152,
+   "leak": 0.7595820451684908,
+   "detected": true
+  },
+  {
+   "gate": 295,
+   "name": "cx",
+   "qubits": [
+    61,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999754,
+   "leak": 0.3717525310002422,
+   "detected": true
+  },
+  {
+   "gate": 296,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.4279991582937463,
+   "leak": 0.4180840238852027,
+   "detected": true
+  },
+  {
+   "gate": 296,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "angle",
+   "err": 5.000000014673035e-07,
+   "leak": 5.000000001061811e-07,
+   "detected": true
+  },
+  {
+   "gate": 296,
+   "name": "rz",
+   "qubits": [
+    0
+   ],
+   "kind": "flip",
+   "err": 0.8361680477704153,
+   "leak": 0.7595820451684907,
+   "detected": true
+  },
+  {
+   "gate": 297,
+   "name": "cx",
+   "qubits": [
+    49,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.999999999999976,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 298,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999747,
+   "detected": true
+  },
+  {
+   "gate": 299,
+   "name": "cx",
+   "qubits": [
+    0,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000016,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 300,
+   "name": "cx",
+   "qubits": [
+    0,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000016,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 301,
+   "name": "cx",
+   "qubits": [
+    0,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000016,
+   "leak": 0.9999999999999766,
+   "detected": true
+  },
+  {
+   "gate": 302,
+   "name": "rccx",
+   "qubits": [
+    59,
+    60,
+    61
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000027,
+   "leak": 0.9999999999999755,
+   "detected": true
+  },
+  {
+   "gate": 302,
+   "name": "rccx",
+   "qubits": [
+    59,
+    60,
+    61
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.3096566425163716,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 303,
+   "name": "rccx",
+   "qubits": [
+    57,
+    58,
+    60
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.999999999999977,
+   "detected": true
+  },
+  {
+   "gate": 303,
+   "name": "rccx",
+   "qubits": [
+    57,
+    58,
+    60
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.1117859299408712,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 304,
+   "name": "rccx",
+   "qubits": [
+    55,
+    56,
+    59
+   ],
+   "kind": "drop",
+   "err": 1.000000000000002,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 304,
+   "name": "rccx",
+   "qubits": [
+    55,
+    56,
+    59
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.1117859299408708,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 305,
+   "name": "rccx",
+   "qubits": [
+    15,
+    54,
+    58
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000016,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 305,
+   "name": "rccx",
+   "qubits": [
+    15,
+    54,
+    58
+   ],
+   "kind": "rccx2ccx",
+   "err": 0.8078999802463226,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 306,
+   "name": "rccx",
+   "qubits": [
+    11,
+    53,
+    57
+   ],
+   "kind": "drop",
+   "err": 1.000000000000002,
+   "leak": 0.9999999999999771,
+   "detected": true
+  },
+  {
+   "gate": 306,
+   "name": "rccx",
+   "qubits": [
+    11,
+    53,
+    57
+   ],
+   "kind": "rccx2ccx",
+   "err": 0.7909489820764805,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 307,
+   "name": "rccx",
+   "qubits": [
+    5,
+    52,
+    56
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000027,
+   "leak": 0.9999999999999771,
+   "detected": true
+  },
+  {
+   "gate": 307,
+   "name": "rccx",
+   "qubits": [
+    5,
+    52,
+    56
+   ],
+   "kind": "rccx2ccx",
+   "err": 0.807899980246322,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 308,
+   "name": "rccx",
+   "qubits": [
+    1,
+    51,
+    55
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 308,
+   "name": "rccx",
+   "qubits": [
+    1,
+    51,
+    55
+   ],
+   "kind": "rccx2ccx",
+   "err": 0.7909489820764803,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 309,
+   "name": "x",
+   "qubits": [
+    54
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 310,
+   "name": "x",
+   "qubits": [
+    9
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 311,
+   "name": "x",
+   "qubits": [
+    8
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 312,
+   "name": "rccx",
+   "qubits": [
+    8,
+    9,
+    54
+   ],
+   "kind": "drop",
+   "err": 1.000000000000003,
+   "leak": 0.9999999999999771,
+   "detected": true
+  },
+  {
+   "gate": 312,
+   "name": "rccx",
+   "qubits": [
+    8,
+    9,
+    54
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.132272865250348,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 313,
+   "name": "x",
+   "qubits": [
+    9
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 314,
+   "name": "x",
+   "qubits": [
+    8
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 315,
+   "name": "x",
+   "qubits": [
+    53
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 316,
+   "name": "x",
+   "qubits": [
+    7
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 317,
+   "name": "x",
+   "qubits": [
+    6
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 318,
+   "name": "rccx",
+   "qubits": [
+    6,
+    7,
+    53
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000029,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 318,
+   "name": "rccx",
+   "qubits": [
+    6,
+    7,
+    53
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.132272865250348,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 319,
+   "name": "x",
+   "qubits": [
+    7
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 320,
+   "name": "x",
+   "qubits": [
+    6
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 321,
+   "name": "x",
+   "qubits": [
+    52
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 322,
+   "name": "x",
+   "qubits": [
+    3
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 323,
+   "name": "x",
+   "qubits": [
+    2
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 324,
+   "name": "rccx",
+   "qubits": [
+    2,
+    3,
+    52
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000029,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 324,
+   "name": "rccx",
+   "qubits": [
+    2,
+    3,
+    52
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.1322728652503493,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 325,
+   "name": "x",
+   "qubits": [
+    3
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 326,
+   "name": "x",
+   "qubits": [
+    2
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 327,
+   "name": "x",
+   "qubits": [
+    51
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 328,
+   "name": "x",
+   "qubits": [
+    13
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 329,
+   "name": "x",
+   "qubits": [
+    12
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 330,
+   "name": "rccx",
+   "qubits": [
+    12,
+    13,
+    51
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 330,
+   "name": "rccx",
+   "qubits": [
+    12,
+    13,
+    51
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.1322728652503486,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 331,
+   "name": "x",
+   "qubits": [
+    13
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 332,
+   "name": "x",
+   "qubits": [
+    12
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 333,
+   "name": "cx",
+   "qubits": [
+    14,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000016,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 334,
+   "name": "cx",
+   "qubits": [
+    10,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 335,
+   "name": "cx",
+   "qubits": [
+    4,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 336,
+   "name": "cx",
+   "qubits": [
+    0,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000016,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 337,
+   "name": "sdg",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 0.8275515801463768,
+   "leak": 0.7071067811865296,
+   "detected": true
+  },
+  {
+   "gate": 337,
+   "name": "sdg",
+   "qubits": [
+    15
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 338,
+   "name": "cx",
+   "qubits": [
+    50,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.000000000000001,
+   "leak": 0.9999999999999766,
+   "detected": true
+  },
+  {
+   "gate": 339,
+   "name": "s",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0514622242382548,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 339,
+   "name": "s",
+   "qubits": [
+    15
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999791,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 340,
+   "name": "sdg",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 0.8275515801463771,
+   "leak": 0.7071067811865296,
+   "detected": true
+  },
+  {
+   "gate": 340,
+   "name": "sdg",
+   "qubits": [
+    11
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 341,
+   "name": "cx",
+   "qubits": [
+    50,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.000000000000001,
+   "leak": 0.9999999999999768,
+   "detected": true
+  },
+  {
+   "gate": 342,
+   "name": "s",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0514622242382548,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 342,
+   "name": "s",
+   "qubits": [
+    11
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999791,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 343,
+   "name": "sdg",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 0.827551580146377,
+   "leak": 0.7071067811865296,
+   "detected": true
+  },
+  {
+   "gate": 343,
+   "name": "sdg",
+   "qubits": [
+    5
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999787,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 344,
+   "name": "cx",
+   "qubits": [
+    50,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.000000000000001,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 345,
+   "name": "s",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0514622242382548,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 345,
+   "name": "s",
+   "qubits": [
+    5
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999805,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 346,
+   "name": "sdg",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 0.827551580146378,
+   "leak": 0.7071067811865296,
+   "detected": true
+  },
+  {
+   "gate": 346,
+   "name": "sdg",
+   "qubits": [
+    1
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 347,
+   "name": "cx",
+   "qubits": [
+    50,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.000000000000001,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 348,
+   "name": "s",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 1.051462224238255,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 348,
+   "name": "s",
+   "qubits": [
+    1
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999805,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 349,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.999998758322168,
+   "leak": 0.9999999999999746,
+   "detected": true
+  },
+  {
+   "gate": 350,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322521,
+   "leak": 0.382683432365081,
+   "detected": true
+  },
+  {
+   "gate": 350,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 351,
+   "name": "cx",
+   "qubits": [
+    11,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999774,
+   "leak": 0.7071067811865306,
+   "detected": true
+  },
+  {
+   "gate": 352,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322519,
+   "leak": 0.3826834323650807,
+   "detected": true
+  },
+  {
+   "gate": 352,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 353,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9771177941276472,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 354,
+   "name": "cx",
+   "qubits": [
+    50,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.999999999999976,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 355,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.4202170719548477,
+   "leak": 0.3826834323650807,
+   "detected": true
+  },
+  {
+   "gate": 355,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.8331390975467774,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 356,
+   "name": "cx",
+   "qubits": [
+    15,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999771,
+   "leak": 0.9999999999999756,
+   "detected": true
+  },
+  {
+   "gate": 357,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.4500985349381812,
+   "leak": 0.3826834323650805,
+   "detected": true
+  },
+  {
+   "gate": 357,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.8990584806635499,
+   "leak": 0.7071067811865306,
+   "detected": true
+  },
+  {
+   "gate": 358,
+   "name": "cx",
+   "qubits": [
+    50,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999774,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 359,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225217,
+   "leak": 0.3826834323650805,
+   "detected": true
+  },
+  {
+   "gate": 359,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 360,
+   "name": "cx",
+   "qubits": [
+    15,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.9999999999999756,
+   "detected": true
+  },
+  {
+   "gate": 361,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322524,
+   "leak": 0.38268343236508057,
+   "detected": true
+  },
+  {
+   "gate": 361,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 362,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.998160525322336,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 363,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.3826834323650811,
+   "detected": true
+  },
+  {
+   "gate": 363,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.76536686473017,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 364,
+   "name": "cx",
+   "qubits": [
+    11,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.7071067811865306,
+   "detected": true
+  },
+  {
+   "gate": 365,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225194,
+   "leak": 0.3826834323650808,
+   "detected": true
+  },
+  {
+   "gate": 365,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 366,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.4142135623730772,
+   "leak": 0.7071067811865311,
+   "detected": true
+  },
+  {
+   "gate": 367,
+   "name": "tdg",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960103,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 367,
+   "name": "tdg",
+   "qubits": [
+    11
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382548,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 368,
+   "name": "sdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301707,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 368,
+   "name": "sdg",
+   "qubits": [
+    14
+   ],
+   "kind": "sswap",
+   "err": 1.9998610502880547,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 369,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999762,
+   "leak": 0.8660254037844167,
+   "detected": true
+  },
+  {
+   "gate": 370,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.3826834323650809,
+   "detected": true
+  },
+  {
+   "gate": 370,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865313,
+   "detected": true
+  },
+  {
+   "gate": 371,
+   "name": "cx",
+   "qubits": [
+    5,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999785,
+   "leak": 0.8660254037844164,
+   "detected": true
+  },
+  {
+   "gate": 372,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322521,
+   "leak": 0.3826834323650811,
+   "detected": true
+  },
+  {
+   "gate": 372,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 373,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.8328740928392229,
+   "leak": 0.9999999999999754,
+   "detected": true
+  },
+  {
+   "gate": 374,
+   "name": "cx",
+   "qubits": [
+    50,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 375,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.412720043809519,
+   "leak": 0.3826834323650804,
+   "detected": true
+  },
+  {
+   "gate": 375,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.816339562351558,
+   "leak": 0.7071067811865303,
+   "detected": true
+  },
+  {
+   "gate": 376,
+   "name": "cx",
+   "qubits": [
+    11,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.9999999999999768,
+   "detected": true
+  },
+  {
+   "gate": 377,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.4575374113511234,
+   "leak": 0.3826834323650805,
+   "detected": true
+  },
+  {
+   "gate": 377,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.9151631617158698,
+   "leak": 0.7071067811865304,
+   "detected": true
+  },
+  {
+   "gate": 378,
+   "name": "cx",
+   "qubits": [
+    50,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 379,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225244,
+   "leak": 0.3826834323650806,
+   "detected": true
+  },
+  {
+   "gate": 379,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.765366864730171,
+   "leak": 0.7071067811865304,
+   "detected": true
+  },
+  {
+   "gate": 380,
+   "name": "cx",
+   "qubits": [
+    11,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999774,
+   "leak": 0.9999999999999758,
+   "detected": true
+  },
+  {
+   "gate": 381,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322525,
+   "leak": 0.3826834323650804,
+   "detected": true
+  },
+  {
+   "gate": 381,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.70710678118653,
+   "detected": true
+  },
+  {
+   "gate": 382,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9416376872257224,
+   "leak": 0.9999999999999758,
+   "detected": true
+  },
+  {
+   "gate": 383,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.3826834323650811,
+   "detected": true
+  },
+  {
+   "gate": 383,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 384,
+   "name": "cx",
+   "qubits": [
+    5,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999771,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 385,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225217,
+   "leak": 0.38268343236508073,
+   "detected": true
+  },
+  {
+   "gate": 385,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 386,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9965161615681266,
+   "leak": 0.7071067811865311,
+   "detected": true
+  },
+  {
+   "gate": 387,
+   "name": "tdg",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960106,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 387,
+   "name": "tdg",
+   "qubits": [
+    5
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382548,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 388,
+   "name": "sdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301706,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 388,
+   "name": "sdg",
+   "qubits": [
+    10
+   ],
+   "kind": "sswap",
+   "err": 1.8968596617744182,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 389,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.6661433645832981,
+   "leak": 0.9999999999999747,
+   "detected": true
+  },
+  {
+   "gate": 390,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322522,
+   "leak": 0.3826834323650809,
+   "detected": true
+  },
+  {
+   "gate": 390,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 391,
+   "name": "cx",
+   "qubits": [
+    1,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999765,
+   "leak": 0.7071067811865304,
+   "detected": true
+  },
+  {
+   "gate": 392,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322519,
+   "leak": 0.3826834323650809,
+   "detected": true
+  },
+  {
+   "gate": 392,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 393,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.860049038732511,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 394,
+   "name": "cx",
+   "qubits": [
+    50,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999776,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 395,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.42021707195484725,
+   "leak": 0.38268343236508046,
+   "detected": true
+  },
+  {
+   "gate": 395,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.8331390975467773,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 396,
+   "name": "cx",
+   "qubits": [
+    5,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.999999999999979,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 397,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.45009853493818075,
+   "leak": 0.3826834323650804,
+   "detected": true
+  },
+  {
+   "gate": 397,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.8990584806635495,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 398,
+   "name": "cx",
+   "qubits": [
+    50,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999771,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 399,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322524,
+   "leak": 0.3826834323650806,
+   "detected": true
+  },
+  {
+   "gate": 399,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 400,
+   "name": "cx",
+   "qubits": [
+    5,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.999999999999979,
+   "leak": 0.9999999999999756,
+   "detected": true
+  },
+  {
+   "gate": 401,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322523,
+   "leak": 0.38268343236508034,
+   "detected": true
+  },
+  {
+   "gate": 401,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 402,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.65255742319224,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 403,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322523,
+   "leak": 0.3826834323650811,
+   "detected": true
+  },
+  {
+   "gate": 403,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 404,
+   "name": "cx",
+   "qubits": [
+    1,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.999999999999978,
+   "leak": 0.7071067811865304,
+   "detected": true
+  },
+  {
+   "gate": 405,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.390180644032252,
+   "leak": 0.38268343236508073,
+   "detected": true
+  },
+  {
+   "gate": 405,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 406,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.6786152657725169,
+   "leak": 0.7071067811865311,
+   "detected": true
+  },
+  {
+   "gate": 407,
+   "name": "tdg",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960108,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 407,
+   "name": "tdg",
+   "qubits": [
+    1
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382554,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 408,
+   "name": "sdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301702,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 408,
+   "name": "sdg",
+   "qubits": [
+    4
+   ],
+   "kind": "sswap",
+   "err": 1.6900250407139688,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 409,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.8660254037844166,
+   "detected": true
+  },
+  {
+   "gate": 410,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225194,
+   "leak": 0.38268343236508107,
+   "detected": true
+  },
+  {
+   "gate": 410,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865313,
+   "detected": true
+  },
+  {
+   "gate": 411,
+   "name": "cx",
+   "qubits": [
+    15,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.999999999999976,
+   "leak": 0.8660254037844166,
+   "detected": true
+  },
+  {
+   "gate": 412,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225194,
+   "leak": 0.382683432365081,
+   "detected": true
+  },
+  {
+   "gate": 412,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865307,
+   "detected": true
+  },
+  {
+   "gate": 413,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.90569225747868,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 414,
+   "name": "cx",
+   "qubits": [
+    50,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999767,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 415,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.412720043809519,
+   "leak": 0.38268343236508046,
+   "detected": true
+  },
+  {
+   "gate": 415,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.8163395623515581,
+   "leak": 0.7071067811865304,
+   "detected": true
+  },
+  {
+   "gate": 416,
+   "name": "cx",
+   "qubits": [
+    1,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999771,
+   "leak": 0.9999999999999758,
+   "detected": true
+  },
+  {
+   "gate": 417,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.4575374113511231,
+   "leak": 0.38268343236508046,
+   "detected": true
+  },
+  {
+   "gate": 417,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.9151631617158701,
+   "leak": 0.7071067811865301,
+   "detected": true
+  },
+  {
+   "gate": 418,
+   "name": "cx",
+   "qubits": [
+    50,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999758,
+   "leak": 0.9999999999999771,
+   "detected": true
+  },
+  {
+   "gate": 419,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322523,
+   "leak": 0.3826834323650806,
+   "detected": true
+  },
+  {
+   "gate": 419,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.7071067811865301,
+   "detected": true
+  },
+  {
+   "gate": 420,
+   "name": "cx",
+   "qubits": [
+    1,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 421,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322524,
+   "leak": 0.3826834323650804,
+   "detected": true
+  },
+  {
+   "gate": 421,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301709,
+   "leak": 0.7071067811865301,
+   "detected": true
+  },
+  {
+   "gate": 422,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9139605700521265,
+   "leak": 0.9999999999999755,
+   "detected": true
+  },
+  {
+   "gate": 423,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322524,
+   "leak": 0.38268343236508096,
+   "detected": true
+  },
+  {
+   "gate": 423,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.7071067811865315,
+   "detected": true
+  },
+  {
+   "gate": 424,
+   "name": "cx",
+   "qubits": [
+    15,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.7071067811865306,
+   "detected": true
+  },
+  {
+   "gate": 425,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.38268343236508084,
+   "detected": true
+  },
+  {
+   "gate": 425,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.76536686473017,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 426,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.7888596981765188,
+   "leak": 0.7071067811865311,
+   "detected": true
+  },
+  {
+   "gate": 427,
+   "name": "tdg",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960103,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 427,
+   "name": "tdg",
+   "qubits": [
+    15
+   ],
+   "kind": "tswap",
+   "err": 1.051462224238255,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 428,
+   "name": "sdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301709,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 428,
+   "name": "sdg",
+   "qubits": [
+    0
+   ],
+   "kind": "sswap",
+   "err": 1.6834486908585835,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 429,
+   "name": "sdg",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.1018699901848075,
+   "leak": 0.7071067811865296,
+   "detected": true
+  },
+  {
+   "gate": 429,
+   "name": "sdg",
+   "qubits": [
+    50
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999787,
+   "leak": 0.9999999999999745,
+   "detected": true
+  },
+  {
+   "gate": 430,
+   "name": "h",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.707106781186531,
+   "leak": 0.9999999999999747,
+   "detected": true
+  },
+  {
+   "gate": 431,
+   "name": "tdg",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.07612046748873912,
+   "leak": 0.3826834323650811,
+   "detected": true
+  },
+  {
+   "gate": 431,
+   "name": "tdg",
+   "qubits": [
+    50
+   ],
+   "kind": "tswap",
+   "err": 0.292893218813472,
+   "leak": 0.7071067811865314,
+   "detected": true
+  },
+  {
+   "gate": 432,
+   "name": "h",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.4999999999999896,
+   "leak": 0.8660254037844182,
+   "detected": true
+  },
+  {
+   "gate": 433,
+   "name": "s",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.8660254037844323,
+   "leak": 0.4999999999999881,
+   "detected": true
+  },
+  {
+   "gate": 433,
+   "name": "s",
+   "qubits": [
+    50
+   ],
+   "kind": "sswap",
+   "err": 1.707106781186531,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 434,
+   "name": "ccz",
+   "qubits": [
+    49,
+    1,
+    50
+   ],
+   "kind": "drop",
+   "err": 1.7071067811865333,
+   "leak": 0.7071067811865296,
+   "detected": true
+  },
+  {
+   "gate": 435,
+   "name": "sdg",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.8660254037844319,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 435,
+   "name": "sdg",
+   "qubits": [
+    50
+   ],
+   "kind": "sswap",
+   "err": 1.707106781186531,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 436,
+   "name": "h",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.4999999999999885,
+   "leak": 0.8660254037844182,
+   "detected": true
+  },
+  {
+   "gate": 437,
+   "name": "t",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 0.07612046748873896,
+   "leak": 0.38268343236508084,
+   "detected": true
+  },
+  {
+   "gate": 437,
+   "name": "t",
+   "qubits": [
+    50
+   ],
+   "kind": "tswap",
+   "err": 0.292893218813472,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 438,
+   "name": "h",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.7071067811865306,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 439,
+   "name": "s",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.1694205693275164,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 439,
+   "name": "s",
+   "qubits": [
+    50
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999791,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 440,
+   "name": "cx",
+   "qubits": [
+    10,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000027,
+   "leak": 0.9999999999999758,
+   "detected": true
+  },
+  {
+   "gate": 441,
+   "name": "cx",
+   "qubits": [
+    0,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 442,
+   "name": "sdg",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": 1.1694205693275164,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 442,
+   "name": "sdg",
+   "qubits": [
+    50
+   ],
+   "kind": "sswap",
+   "err": 1.9999999999999791,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 443,
+   "name": "z",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 1.8374459470945181,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 444,
+   "name": "rccx",
+   "qubits": [
+    1,
+    11,
+    50
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999798,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 444,
+   "name": "rccx",
+   "qubits": [
+    1,
+    11,
+    50
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.8477590650225524,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 445,
+   "name": "x",
+   "qubits": [
+    50
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 446,
+   "name": "cx",
+   "qubits": [
+    10,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000027,
+   "leak": 0.9999999999999758,
+   "detected": true
+  },
+  {
+   "gate": 447,
+   "name": "cx",
+   "qubits": [
+    0,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.9999999999999764,
+   "detected": true
+  },
+  {
+   "gate": 448,
+   "name": "cx",
+   "qubits": [
+    11,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 449,
+   "name": "cx",
+   "qubits": [
+    15,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000013,
+   "leak": 0.9999999999999756,
+   "detected": true
+  },
+  {
+   "gate": 450,
+   "name": "cx",
+   "qubits": [
+    11,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 451,
+   "name": "x",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 452,
+   "name": "rccx",
+   "qubits": [
+    48,
+    15,
+    49
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 452,
+   "name": "rccx",
+   "qubits": [
+    48,
+    15,
+    49
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.219243526257271,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 453,
+   "name": "x",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 454,
+   "name": "cx",
+   "qubits": [
+    11,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 455,
+   "name": "x",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 456,
+   "name": "x",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 457,
+   "name": "rccx",
+   "qubits": [
+    1,
+    5,
+    48
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000033,
+   "leak": 0.9999999999999769,
+   "detected": true
+  },
+  {
+   "gate": 457,
+   "name": "rccx",
+   "qubits": [
+    1,
+    5,
+    48
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.0884384774768832,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 458,
+   "name": "x",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 459,
+   "name": "x",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": Infinity,
+   "leak": Infinity,
+   "detected": true
+  },
+  {
+   "gate": 460,
+   "name": "cx",
+   "qubits": [
+    15,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000013,
+   "leak": 0.9999999999999756,
+   "detected": true
+  },
+  {
+   "gate": 461,
+   "name": "cx",
+   "qubits": [
+    11,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 462,
+   "name": "z",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999791,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 463,
+   "name": "z",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9998610502880547,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 464,
+   "name": "cx",
+   "qubits": [
+    8,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 465,
+   "name": "t",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225233,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 465,
+   "name": "t",
+   "qubits": [
+    15
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 466,
+   "name": "cx",
+   "qubits": [
+    8,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999766,
+   "detected": true
+  },
+  {
+   "gate": 467,
+   "name": "tdg",
+   "qubits": [
+    15
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960103,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 467,
+   "name": "tdg",
+   "qubits": [
+    15
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382548,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 468,
+   "name": "tdg",
+   "qubits": [
+    8
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322521,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 468,
+   "name": "tdg",
+   "qubits": [
+    8
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 469,
+   "name": "rccx",
+   "qubits": [
+    8,
+    15,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999802,
+   "leak": 0.9999999999999758,
+   "detected": true
+  },
+  {
+   "gate": 469,
+   "name": "rccx",
+   "qubits": [
+    8,
+    15,
+    14
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.9999999999999776,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 470,
+   "name": "z",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999791,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 471,
+   "name": "z",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.8968596617744182,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 472,
+   "name": "cx",
+   "qubits": [
+    6,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 473,
+   "name": "t",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225233,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 473,
+   "name": "t",
+   "qubits": [
+    11
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 474,
+   "name": "cx",
+   "qubits": [
+    6,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 475,
+   "name": "tdg",
+   "qubits": [
+    11
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960105,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 475,
+   "name": "tdg",
+   "qubits": [
+    11
+   ],
+   "kind": "tswap",
+   "err": 1.051462224238255,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 476,
+   "name": "tdg",
+   "qubits": [
+    6
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225233,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 476,
+   "name": "tdg",
+   "qubits": [
+    6
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301708,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 477,
+   "name": "rccx",
+   "qubits": [
+    6,
+    11,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999787,
+   "leak": 0.9999999999999765,
+   "detected": true
+  },
+  {
+   "gate": 477,
+   "name": "rccx",
+   "qubits": [
+    6,
+    11,
+    10
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.9999999999999778,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 478,
+   "name": "z",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999805,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 479,
+   "name": "z",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.6900250407139688,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 480,
+   "name": "cx",
+   "qubits": [
+    2,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 481,
+   "name": "t",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225233,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 481,
+   "name": "t",
+   "qubits": [
+    5
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 482,
+   "name": "cx",
+   "qubits": [
+    2,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 483,
+   "name": "tdg",
+   "qubits": [
+    5
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960106,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 483,
+   "name": "tdg",
+   "qubits": [
+    5
+   ],
+   "kind": "tswap",
+   "err": 1.051462224238255,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 484,
+   "name": "tdg",
+   "qubits": [
+    2
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225217,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 484,
+   "name": "tdg",
+   "qubits": [
+    2
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 485,
+   "name": "rccx",
+   "qubits": [
+    2,
+    5,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.999999999999979,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 485,
+   "name": "rccx",
+   "qubits": [
+    2,
+    5,
+    4
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.9999999999999785,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 486,
+   "name": "z",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999805,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 487,
+   "name": "z",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.6834486908585835,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 488,
+   "name": "cx",
+   "qubits": [
+    12,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 489,
+   "name": "t",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225217,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 489,
+   "name": "t",
+   "qubits": [
+    1
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 490,
+   "name": "cx",
+   "qubits": [
+    12,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 491,
+   "name": "tdg",
+   "qubits": [
+    1
+   ],
+   "kind": "drop",
+   "err": 0.5237247187960108,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 491,
+   "name": "tdg",
+   "qubits": [
+    1
+   ],
+   "kind": "tswap",
+   "err": 1.0514622242382552,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 492,
+   "name": "tdg",
+   "qubits": [
+    12
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322524,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 492,
+   "name": "tdg",
+   "qubits": [
+    12
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 493,
+   "name": "rccx",
+   "qubits": [
+    12,
+    1,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.99999999999998,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 493,
+   "name": "rccx",
+   "qubits": [
+    12,
+    1,
+    0
+   ],
+   "kind": "rccx2ccx",
+   "err": 1.9999999999999787,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 494,
+   "name": "sdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301705,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 494,
+   "name": "sdg",
+   "qubits": [
+    14
+   ],
+   "kind": "sswap",
+   "err": 1.9890425231344766,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 495,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9905541100496535,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 496,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322517,
+   "leak": 0.38268343236508084,
+   "detected": true
+  },
+  {
+   "gate": 496,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 497,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.957867419740819,
+   "leak": 0.8660254037844185,
+   "detected": true
+  },
+  {
+   "gate": 498,
+   "name": "cx",
+   "qubits": [
+    11,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999756,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 499,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322518,
+   "leak": 0.27059805007309223,
+   "detected": true
+  },
+  {
+   "gate": 499,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.76536686473017,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 500,
+   "name": "cx",
+   "qubits": [
+    15,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999776,
+   "leak": 0.8660254037844173,
+   "detected": true
+  },
+  {
+   "gate": 501,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322519,
+   "leak": 0.2705980500730921,
+   "detected": true
+  },
+  {
+   "gate": 501,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.4999999999999884,
+   "detected": true
+  },
+  {
+   "gate": 502,
+   "name": "cx",
+   "qubits": [
+    11,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999776,
+   "leak": 0.9999999999999759,
+   "detected": true
+  },
+  {
+   "gate": 503,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322518,
+   "leak": 0.27059805007309223,
+   "detected": true
+  },
+  {
+   "gate": 503,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.49999999999998834,
+   "detected": true
+  },
+  {
+   "gate": 504,
+   "name": "cx",
+   "qubits": [
+    15,
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999771,
+   "leak": 0.8660254037844177,
+   "detected": true
+  },
+  {
+   "gate": 505,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.390180644032252,
+   "leak": 0.2705980500730922,
+   "detected": true
+  },
+  {
+   "gate": 505,
+   "name": "tdg",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.4999999999999884,
+   "detected": true
+  },
+  {
+   "gate": 506,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9978068275135188,
+   "leak": 0.8660254037844185,
+   "detected": true
+  },
+  {
+   "gate": 507,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322517,
+   "leak": 0.38268343236508084,
+   "detected": true
+  },
+  {
+   "gate": 507,
+   "name": "t",
+   "qubits": [
+    14
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 508,
+   "name": "h",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 1.9761748134314512,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 509,
+   "name": "s",
+   "qubits": [
+    14
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301705,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 509,
+   "name": "s",
+   "qubits": [
+    14
+   ],
+   "kind": "sswap",
+   "err": 1.9840988592996947,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 510,
+   "name": "sdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301705,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 510,
+   "name": "sdg",
+   "qubits": [
+    10
+   ],
+   "kind": "sswap",
+   "err": 1.9560890651122655,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 511,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9850806838996689,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 512,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225183,
+   "leak": 0.38268343236508084,
+   "detected": true
+  },
+  {
+   "gate": 512,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.7071067811865308,
+   "detected": true
+  },
+  {
+   "gate": 513,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9983445090067236,
+   "leak": 0.8660254037844185,
+   "detected": true
+  },
+  {
+   "gate": 514,
+   "name": "cx",
+   "qubits": [
+    5,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999771,
+   "leak": 0.9999999999999756,
+   "detected": true
+  },
+  {
+   "gate": 515,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322522,
+   "leak": 0.2705980500730921,
+   "detected": true
+  },
+  {
+   "gate": 515,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 516,
+   "name": "cx",
+   "qubits": [
+    11,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.866025403784418,
+   "detected": true
+  },
+  {
+   "gate": 517,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225233,
+   "leak": 0.2705980500730923,
+   "detected": true
+  },
+  {
+   "gate": 517,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301707,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 518,
+   "name": "cx",
+   "qubits": [
+    5,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999776,
+   "leak": 0.9999999999999756,
+   "detected": true
+  },
+  {
+   "gate": 519,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225217,
+   "leak": 0.2705980500730921,
+   "detected": true
+  },
+  {
+   "gate": 519,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 520,
+   "name": "cx",
+   "qubits": [
+    11,
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.8660254037844178,
+   "detected": true
+  },
+  {
+   "gate": 521,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225217,
+   "leak": 0.2705980500730923,
+   "detected": true
+  },
+  {
+   "gate": 521,
+   "name": "tdg",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 522,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9999512000115522,
+   "leak": 0.8660254037844184,
+   "detected": true
+  },
+  {
+   "gate": 523,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322519,
+   "leak": 0.38268343236508084,
+   "detected": true
+  },
+  {
+   "gate": 523,
+   "name": "t",
+   "qubits": [
+    10
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 524,
+   "name": "h",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 1.9965413720434646,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 525,
+   "name": "s",
+   "qubits": [
+    10
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301708,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 525,
+   "name": "s",
+   "qubits": [
+    10
+   ],
+   "kind": "sswap",
+   "err": 1.8383415691792728,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 526,
+   "name": "sdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301702,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 526,
+   "name": "sdg",
+   "qubits": [
+    4
+   ],
+   "kind": "sswap",
+   "err": 1.995330839534622,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 527,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999916986896826,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 528,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322522,
+   "leak": 0.38268343236508073,
+   "detected": true
+  },
+  {
+   "gate": 528,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 529,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.999888222800274,
+   "leak": 0.8660254037844185,
+   "detected": true
+  },
+  {
+   "gate": 530,
+   "name": "cx",
+   "qubits": [
+    1,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.999999999999978,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 531,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.2705980500730922,
+   "detected": true
+  },
+  {
+   "gate": 531,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301705,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 532,
+   "name": "cx",
+   "qubits": [
+    5,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.8660254037844176,
+   "detected": true
+  },
+  {
+   "gate": 533,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322523,
+   "leak": 0.27059805007309234,
+   "detected": true
+  },
+  {
+   "gate": 533,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.49999999999998823,
+   "detected": true
+  },
+  {
+   "gate": 534,
+   "name": "cx",
+   "qubits": [
+    1,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.999999999999977,
+   "leak": 0.9999999999999761,
+   "detected": true
+  },
+  {
+   "gate": 535,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322522,
+   "leak": 0.2705980500730922,
+   "detected": true
+  },
+  {
+   "gate": 535,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301706,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 536,
+   "name": "cx",
+   "qubits": [
+    5,
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999782,
+   "leak": 0.8660254037844176,
+   "detected": true
+  },
+  {
+   "gate": 537,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225233,
+   "leak": 0.2705980500730923,
+   "detected": true
+  },
+  {
+   "gate": 537,
+   "name": "tdg",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301708,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 538,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9992373636439933,
+   "leak": 0.8660254037844185,
+   "detected": true
+  },
+  {
+   "gate": 539,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225217,
+   "leak": 0.38268343236508084,
+   "detected": true
+  },
+  {
+   "gate": 539,
+   "name": "t",
+   "qubits": [
+    4
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 540,
+   "name": "h",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 1.9998788844841027,
+   "leak": 0.7071067811865313,
+   "detected": true
+  },
+  {
+   "gate": 541,
+   "name": "s",
+   "qubits": [
+    4
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301702,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 541,
+   "name": "s",
+   "qubits": [
+    4
+   ],
+   "kind": "sswap",
+   "err": 1.9996871132993548,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 542,
+   "name": "sdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.765366864730171,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 542,
+   "name": "sdg",
+   "qubits": [
+    0
+   ],
+   "kind": "sswap",
+   "err": 1.7799722515395962,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 543,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.8966592925476324,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 544,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225194,
+   "leak": 0.3826834323650808,
+   "detected": true
+  },
+  {
+   "gate": 544,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301702,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 545,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.900860220523629,
+   "leak": 0.8660254037844184,
+   "detected": true
+  },
+  {
+   "gate": 546,
+   "name": "cx",
+   "qubits": [
+    15,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999774,
+   "leak": 0.9999999999999752,
+   "detected": true
+  },
+  {
+   "gate": 547,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.2705980500730922,
+   "detected": true
+  },
+  {
+   "gate": 547,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 548,
+   "name": "cx",
+   "qubits": [
+    1,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999778,
+   "leak": 0.866025403784418,
+   "detected": true
+  },
+  {
+   "gate": 549,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.3901806440322521,
+   "leak": 0.27059805007309223,
+   "detected": true
+  },
+  {
+   "gate": 549,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 550,
+   "name": "cx",
+   "qubits": [
+    15,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999765,
+   "leak": 0.9999999999999752,
+   "detected": true
+  },
+  {
+   "gate": 551,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.2705980500730922,
+   "detected": true
+  },
+  {
+   "gate": 551,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301703,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 552,
+   "name": "cx",
+   "qubits": [
+    1,
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9999999999999798,
+   "leak": 0.8660254037844181,
+   "detected": true
+  },
+  {
+   "gate": 553,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225206,
+   "leak": 0.27059805007309223,
+   "detected": true
+  },
+  {
+   "gate": 553,
+   "name": "tdg",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.4999999999999883,
+   "detected": true
+  },
+  {
+   "gate": 554,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.9120515159481162,
+   "leak": 0.8660254037844184,
+   "detected": true
+  },
+  {
+   "gate": 555,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.39018064403225183,
+   "leak": 0.38268343236508084,
+   "detected": true
+  },
+  {
+   "gate": 555,
+   "name": "t",
+   "qubits": [
+    0
+   ],
+   "kind": "tswap",
+   "err": 0.7653668647301701,
+   "leak": 0.7071067811865309,
+   "detected": true
+  },
+  {
+   "gate": 556,
+   "name": "h",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 1.8966828100425475,
+   "leak": 0.707106781186531,
+   "detected": true
+  },
+  {
+   "gate": 557,
+   "name": "s",
+   "qubits": [
+    0
+   ],
+   "kind": "drop",
+   "err": 0.7653668647301702,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 557,
+   "name": "s",
+   "qubits": [
+    0
+   ],
+   "kind": "sswap",
+   "err": 1.7035099655254886,
+   "leak": 0.0,
+   "detected": true
+  },
+  {
+   "gate": 558,
+   "name": "cx",
+   "qubits": [
+    14,
+    8
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 559,
+   "name": "cx",
+   "qubits": [
+    14,
+    15
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000018,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 560,
+   "name": "cx",
+   "qubits": [
+    15,
+    9
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 561,
+   "name": "cx",
+   "qubits": [
+    10,
+    6
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 562,
+   "name": "cx",
+   "qubits": [
+    10,
+    11
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 563,
+   "name": "cx",
+   "qubits": [
+    11,
+    7
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000024,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 564,
+   "name": "cx",
+   "qubits": [
+    4,
+    2
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 565,
+   "name": "cx",
+   "qubits": [
+    4,
+    5
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 566,
+   "name": "cx",
+   "qubits": [
+    5,
+    3
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000027,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 567,
+   "name": "cx",
+   "qubits": [
+    0,
+    12
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 568,
+   "name": "cx",
+   "qubits": [
+    0,
+    1
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000022,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 569,
+   "name": "cx",
+   "qubits": [
+    1,
+    13
+   ],
+   "kind": "drop",
+   "err": 1.0000000000000027,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 85,
+   "name": "cx",
+   "qubits": [
+    12,
+    1
+   ],
+   "kind": "cxswap",
+   "err": 1.0000000000000007,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 119,
+   "name": "cx",
+   "qubits": [
+    11,
+    15
+   ],
+   "kind": "cxswap",
+   "err": 1.618033988749878,
+   "leak": 0.9999999999999757,
+   "detected": true
+  },
+  {
+   "gate": 179,
+   "name": "cx",
+   "qubits": [
+    50,
+    4
+   ],
+   "kind": "cxswap",
+   "err": 1.784245993740254,
+   "leak": 0.9999999999999774,
+   "detected": true
+  },
+  {
+   "gate": 189,
+   "name": "cx",
+   "qubits": [
+    5,
+    10
+   ],
+   "kind": "cxswap",
+   "err": 1.6180339887498785,
+   "leak": 0.8660254037844187,
+   "detected": true
+  },
+  {
+   "gate": 299,
+   "name": "cx",
+   "qubits": [
+    0,
+    14
+   ],
+   "kind": "cxswap",
+   "err": 1.618033988749878,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 396,
+   "name": "cx",
+   "qubits": [
+    5,
+    4
+   ],
+   "kind": "cxswap",
+   "err": 1.6180339887498778,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 420,
+   "name": "cx",
+   "qubits": [
+    1,
+    0
+   ],
+   "kind": "cxswap",
+   "err": 1.6180339887498794,
+   "leak": 0.9999999999999767,
+   "detected": true
+  },
+  {
+   "gate": 441,
+   "name": "cx",
+   "qubits": [
+    0,
+    1
+   ],
+   "kind": "cxswap",
+   "err": 1.6180339887498778,
+   "leak": 0.9999999999999762,
+   "detected": true
+  },
+  {
+   "gate": 448,
+   "name": "cx",
+   "qubits": [
+    11,
+    1
+   ],
+   "kind": "cxswap",
+   "err": 1.0000000000000007,
+   "leak": 0.999999999999976,
+   "detected": true
+  },
+  {
+   "gate": 498,
+   "name": "cx",
+   "qubits": [
+    11,
+    14
+   ],
+   "kind": "cxswap",
+   "err": 1.6180339887498787,
+   "leak": 0.9892185757420993,
+   "detected": true
+  },
+  {
+   "gate": 514,
+   "name": "cx",
+   "qubits": [
+    5,
+    10
+   ],
+   "kind": "cxswap",
+   "err": 1.6180339887498785,
+   "leak": 0.9892185757420993,
+   "detected": true
+  },
+  {
+   "gate": 534,
+   "name": "cx",
+   "qubits": [
+    1,
+    4
+   ],
+   "kind": "cxswap",
+   "err": 1.6180339887498787,
+   "leak": 0.9892185757420996,
+   "detected": true
+  }
+ ],
+ "summary": {
+  "drop:cx": [
+   172,
+   172,
+   1.000000000000001
+  ],
+  "drop:p": [
+   4,
+   4,
+   0.18500067925319713
+  ],
+  "angle:p": [
+   4,
+   4,
+   6.666666684246672e-07
+  ],
+  "flip:p": [
+   4,
+   4,
+   0.3700219329938379
+  ],
+  "drop:sdg": [
+   25,
+   25,
+   0.7653668647301701
+  ],
+  "sswap:sdg": [
+   25,
+   25,
+   1.6834486908585835
+  ],
+  "drop:h": [
+   76,
+   76,
+   1.4142135623730772
+  ],
+  "drop:tdg": [
+   74,
+   74,
+   0.07612046748873912
+  ],
+  "tswap:tdg": [
+   74,
+   74,
+   0.2928932188134718
+  ],
+  "drop:t": [
+   74,
+   74,
+   0.07612046748873896
+  ],
+  "tswap:t": [
+   74,
+   74,
+   0.2928932188134716
+  ],
+  "drop:s": [
+   25,
+   25,
+   0.7653668647301702
+  ],
+  "sswap:s": [
+   25,
+   25,
+   1.4142135623730783
+  ],
+  "drop:rccx": [
+   36,
+   36,
+   1.0000000000000016
+  ],
+  "rccx2ccx:rccx": [
+   36,
+   36,
+   0.7909489820764802
+  ],
+  "drop:z": [
+   18,
+   18,
+   1.4142135623730783
+  ],
+  "drop:x": [
+   54,
+   54,
+   1e+300
+  ],
+  "drop:ccz": [
+   2,
+   2,
+   1.7071067811865326
+  ],
+  "drop:rz": [
+   10,
+   10,
+   0.15235226886390024
+  ],
+  "angle:rz": [
+   10,
+   10,
+   5.00000001304176e-07
+  ],
+  "flip:rz": [
+   10,
+   10,
+   0.30381918119918633
+  ],
+  "cxswap:cx": [
+   12,
+   12,
+   1.0000000000000007
+  ]
+ }
+}

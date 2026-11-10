@@ -1,0 +1,38 @@
+r04-F1-004 baseline (2.091120613482716e-14, 0.0) n mutants 536
+0 536 elapsed 8
+50 536 elapsed 145
+100 536 elapsed 294
+150 536 elapsed 437
+200 536 elapsed 533
+250 536 elapsed 622
+300 536 elapsed 723
+350 536 elapsed 825
+400 536 elapsed 926
+450 536 elapsed 1029
+500 536 elapsed 1132
+r04-F1-004 total 536 detected 536 survivors 0 seconds 1204
+  angle:p        n=  4 detected=  4 min_err=6.67e-07
+  angle:rz       n=  6 detected=  6 min_err=5.00e-07
+  cxswap:cx      n= 12 detected= 12 min_err=1.61e+00
+  drop:ccz       n=  2 detected=  2 min_err=1.71e+00
+  drop:ch        n=  8 detected=  8 min_err=1.71e+00
+  drop:cx        n=116 detected=116 min_err=1.00e+00
+  drop:cz        n=  2 detected=  2 min_err=2.00e+00
+  drop:h         n= 60 detected= 60 min_err=1.22e+00
+  drop:p         n=  4 detected=  4 min_err=1.85e-01
+  drop:rccx      n= 30 detected= 30 min_err=1.00e+00
+  drop:rz        n=  6 detected=  6 min_err=1.52e-01
+  drop:s         n= 18 detected= 18 min_err=5.79e-01
+  drop:sdg       n= 18 detected= 18 min_err=5.79e-01
+  drop:t         n= 30 detected= 30 min_err=7.61e-02
+  drop:tdg       n= 30 detected= 30 min_err=7.61e-02
+  drop:x         n= 52 detected= 52 min_err=1.41e+00
+  drop:z         n=  2 detected=  2 min_err=2.00e+00
+  flip:p         n=  4 detected=  4 min_err=3.70e-01
+  flip:rz        n=  6 detected=  6 min_err=3.04e-01
+  rccx2ccx:rccx  n= 30 detected= 30 min_err=1.05e+00
+  sswap:s        n= 18 detected= 18 min_err=1.27e+00
+  sswap:sdg      n= 18 detected= 18 min_err=1.68e+00
+  tswap:t        n= 30 detected= 30 min_err=2.93e-01
+  tswap:tdg      n= 30 detected= 30 min_err=2.93e-01
+SURVIVORS []

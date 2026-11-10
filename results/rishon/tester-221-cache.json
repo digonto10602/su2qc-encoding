@@ -1,0 +1,61 @@
+{
+ "commit": "bf3799a",
+ "result": {
+  "a_unchanged": {
+   "seconds": 0.04723334312438965,
+   "headline": "r04-F1-004",
+   "key": [
+    228,
+    16876,
+    0,
+    28328,
+    53
+   ],
+   "same_as_cache": true
+  },
+  "b_wrong_program_sha": {
+   "seconds": 6.520490646362305,
+   "restored_key": [
+    228,
+    16876,
+    0,
+    28328,
+    53
+   ],
+   "correct": true
+  },
+  "c_tampered_value_same_sha": {
+   "seconds": 0.014183998107910156,
+   "key_used": [
+    228,
+    1,
+    0,
+    28328,
+    53
+   ],
+   "trusted": true
+  },
+  "d_wrong_evaluator_sha": {
+   "seconds": 106.80673027038574,
+   "headline": "r04-F1-004",
+   "key": [
+    228,
+    16876,
+    0,
+    28328,
+    53
+   ],
+   "all_restored": true,
+   "cache_evaluator_sha_now": "43ae85b452e0"
+  },
+  "e_wrong_angle_set_sha": {
+   "seconds": 90.78381776809692,
+   "all_restored": true,
+   "angle_set_sha_now": "769caec1c273"
+  },
+  "f_refresh": {
+   "seconds": 93.28517723083496,
+   "all_equal_to_original": true
+  }
+ }
+}
