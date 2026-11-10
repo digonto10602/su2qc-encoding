@@ -2,24 +2,17 @@
 # pytest inside a memory-capped systemd user scope.
 #
 # Why (2026-11-10): `pytest -n 16 -m "not slow" tests/acceptance` filled RAM (31 GiB) and swap (62 GiB) twice;
-# systemd-oomd then killed the WHOLE terminal scope (280 processes, Claude Code included).  The cause is
-# tests/acceptance/m9/test_fuzzy_circuits.py::test_M9_S1_step_orders (locked, not marked slow): it builds the
-# dense 65536x65536 complex kron UEK4 (68.7 GB) and for order 2 a second one (137 GB per test, 4 parametrizations).
-# It was written on a 48-core large-memory host and cannot run on this machine.
+# systemd-oomd then killed the WHOLE terminal scope (280 processes, Claude Code included).  The cause was
+# tests/acceptance/m9/test_fuzzy_circuits.py::test_M9_S1_step_orders, which built a dense 65536x65536 complex kron
+# (68.7 GB; 137 GB for order 2).  Fixed by prompts/007 (acceptance-v15): factor-by-factor, 2.0 GB peak.
 #
-# Runs through tools/run-capped (shared su2qc.slice, 24G total for all su2qc jobs).
-# With a cgroup cap the kernel OOM-kills only the offending pytest worker; the terminal and the desktop survive.
+# Runs through tools/run-capped (shared su2qc.slice, 24G total for all su2qc jobs, no swap): if anything runs away
+# again, the kernel kills only the offending pytest worker; the terminal and the desktop survive.
 #
 #   tools/pytest-safe -n 8 -m "not slow" tests/acceptance      # same arguments as pytest
-#   PYTEST_MEM_MAX=26G tools/pytest-safe ...                   # change the cap (default 22G of 31 GiB, no swap)
-#   PYTEST_BIGMEM=1 tools/pytest-safe ...                      # do NOT deselect the >64 GB tests (large-memory host only)
+#   PYTEST_MEM_MAX=12G tools/pytest-safe ...                   # per-run cap (default 22G, inside the 24G slice)
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"; cd "$HERE/.."
 export OMP_NUM_THREADS=${OMP_NUM_THREADS:-1} OPENBLAS_NUM_THREADS=${OPENBLAS_NUM_THREADS:-1} MKL_NUM_THREADS=${MKL_NUM_THREADS:-1}
-extra=()
-if [[ "${PYTEST_BIGMEM:-0}" != 1 ]]; then
-  # needs 69-137 GB of dense memory per parametrization (see above)
-  extra+=(--deselect tests/acceptance/m9/test_fuzzy_circuits.py::test_M9_S1_step_orders)
-fi
 export PATH="$HOME/.elan/bin:$PATH"
-PER_JOB_MEM="${PYTEST_MEM_MAX:-22G}" exec "$HERE/run-capped" python -m pytest "${extra[@]}" "$@"
+PER_JOB_MEM="${PYTEST_MEM_MAX:-22G}" exec "$HERE/run-capped" python -m pytest "$@"
