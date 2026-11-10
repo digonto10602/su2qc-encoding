@@ -1,0 +1,321 @@
+{
+ "n_entries_15": {
+  "pass": true,
+  "got": [
+   15,
+   15
+  ]
+ },
+ "key_r02-F1-002": {
+  "pass": true,
+  "got": [
+   31,
+   1086,
+   2258,
+   17
+  ]
+ },
+ "key_r02-F2-002": {
+  "pass": true,
+  "got": [
+   32,
+   832,
+   1554,
+   17
+  ]
+ },
+ "key_r02-F3-002": {
+  "pass": true,
+  "got": [
+   32,
+   832,
+   1553,
+   18
+  ]
+ },
+ "key_r02-F5-002": {
+  "pass": true,
+  "got": [
+   34,
+   658,
+   1116,
+   17
+  ]
+ },
+ "best_is_min_key_F1": {
+  "pass": true,
+  "got": [
+   "r02-F1-002",
+   "r02-F1-002",
+   [
+    31,
+    1086,
+    2258,
+    17
+   ]
+  ]
+ },
+ "min_key_unique": {
+  "pass": true,
+  "got": null
+ },
+ "best_strictly_better_than_round1": {
+  "pass": true,
+  "got": null
+ },
+ "elites_recomputed": {
+  "pass": true,
+  "got": [
+   {
+    "40,77": "r02-F3-002",
+    "40,80": "r02-F1-002",
+    "40,83": "r01-F2-001",
+    "41,74": "r02-F5-002",
+    "41,77": "r00-seed-001",
+    "43,72": "r00-seed-002",
+    "43,73": "r00-seed-003",
+    "44,71": "r01-F5-001",
+    "46,73": "r00-seed-000"
+   },
+   {
+    "46,73": "r00-seed-000",
+    "41,77": "r00-seed-001",
+    "43,72": "r00-seed-002",
+    "43,73": "r00-seed-003",
+    "41,74": "r02-F5-002",
+    "40,77": "r02-F3-002",
+    "40,83": "r01-F2-001",
+    "44,71": "r01-F5-001",
+    "40,80": "r02-F1-002"
+   }
+  ]
+ },
+ "cell_formula": {
+  "pass": true,
+  "got": null
+ },
+ "family_bests_recomputed": {
+  "pass": true,
+  "got": [
+   {
+    "F1": {
+     "best": "r02-F1-002"
+    },
+    "F2": {
+     "best": "r02-F2-002"
+    },
+    "F3": {
+     "best": "r02-F3-002"
+    },
+    "F5": {
+     "best": "r02-F5-002"
+    },
+    "seed": {
+     "best": "r00-seed-001"
+    }
+   },
+   {
+    "seed": {
+     "best": "r00-seed-001"
+    },
+    "F1": {
+     "best": "r02-F1-002"
+    },
+    "F2": {
+     "best": "r02-F2-002"
+    },
+    "F3": {
+     "best": "r02-F3-002"
+    },
+    "F5": {
+     "best": "r02-F5-002"
+    }
+   }
+  ]
+ },
+ "attempts_15_lines": {
+  "pass": true,
+  "got": 15
+ },
+ "attempts_match_entries": {
+  "pass": true,
+  "got": null
+ },
+ "attempts_ids_unique": {
+  "pass": true,
+  "got": null
+ },
+ "attempts_rounds01_unchanged_vs_88f0f11": {
+  "pass": true,
+  "got": 11
+ },
+ "round_json": {
+  "pass": true,
+  "got": {
+   "round": 2,
+   "n_valid": 4,
+   "best_key": [
+    31,
+    1086,
+    2258,
+    17
+   ]
+  }
+ },
+ "round_candidates_match_entries": {
+  "pass": true,
+  "got": null
+ },
+ "program_files_sha_equal_archive_all15": {
+  "pass": true,
+  "got": {
+   "r00-seed-000": true,
+   "r00-seed-001": true,
+   "r00-seed-002": true,
+   "r00-seed-003": true,
+   "r00-seed-004": true,
+   "r00-seed-010": true,
+   "r00-seed-011": true,
+   "r01-F1-001": true,
+   "r01-F2-001": true,
+   "r01-F3-001": true,
+   "r01-F5-001": true,
+   "r02-F1-002": true,
+   "r02-F2-002": true,
+   "r02-F3-002": true,
+   "r02-F5-002": true
+  }
+ },
+ "feedback_files_15": {
+  "pass": true,
+  "got": [
+   15,
+   15
+  ]
+ },
+ "feedback_round2_valid": {
+  "pass": true,
+  "got": {
+   "r02-F1-002": 5.126691826890021e-15,
+   "r02-F2-002": 5.4890228374495934e-15,
+   "r02-F3-002": 5.844424752258506e-15,
+   "r02-F5-002": 6.8649088573414125e-15
+  }
+ },
+ "verdicts_nominal_alt_ok": {
+  "pass": true,
+  "got": {
+   "r02-F1-002": [
+    5.126691826890021e-15,
+    5.147987639375001e-15,
+    5.247669230485711e-15
+   ],
+   "r02-F2-002": [
+    5.4890228374495934e-15,
+    5.1145049784596336e-15,
+    5.630837050348815e-15
+   ],
+   "r02-F3-002": [
+    5.844424752258506e-15,
+    5.586441250472804e-15,
+    6.3414488861201035e-15
+   ],
+   "r02-F5-002": [
+    6.8649088573414125e-15,
+    6.806742803064443e-15,
+    7.662688924466276e-15
+   ]
+  }
+ },
+ "no_leak_dirty_outer_in_verdicts": {
+  "pass": true,
+  "got": null
+ },
+ "discoveries_tail_equals_round2_entries": {
+  "pass": true,
+  "got": {
+   "file_lines": 22,
+   "round2_expected": 11
+  }
+ },
+ "discoveries_prefix_unchanged": {
+  "pass": true,
+  "got": 11
+ },
+ "synthesis_verification_best": {
+  "pass": true,
+  "got": {
+   "entry": "r02-F1-002",
+   "ok": true,
+   "eps": 1e-06,
+   "n_rot": 17,
+   "t_total": 1086,
+   "tolerances": {
+    "tol_err": 1.7001e-05,
+    "tol_gauss": 1.7001e-05
+   },
+   "op_norm_error": 4.890096406011861e-06,
+   "certified": true,
+   "reason": "ok"
+  }
+ },
+ "lean_status_round2": {
+  "pass": true,
+  "got": {
+   "r02-F1-002": "certified",
+   "r02-F2-002": null,
+   "r02-F3-002": null,
+   "r02-F5-002": null
+  }
+ },
+ "lean_seconds": {
+  "pass": true,
+  "got": [
+   0.9365448951721191,
+   0.9345688819885254
+  ]
+ },
+ "old_entries_unchanged_vs_88f0f11": {
+  "pass": true,
+  "got": null
+ },
+ "round_provenance_commit": {
+  "pass": true,
+  "got": "6d7522d"
+ },
+ "git_dirty_flags_info": {
+  "pass": true,
+  "got": {
+   "round_json": true,
+   "entries": {
+    "r02-F1-002": false,
+    "r02-F2-002": true,
+    "r02-F3-002": true,
+    "r02-F5-002": true
+   }
+  }
+ },
+ "parents_as_claimed": {
+  "pass": true,
+  "got": {
+   "r02-F1-002": "r01-F1-001",
+   "r02-F2-002": "r01-F2-001",
+   "r02-F3-002": "r01-F3-001",
+   "r02-F5-002": "r01-F5-001"
+  }
+ },
+ "seeds": {
+  "pass": true,
+  "got": {
+   "trial_seed": 0,
+   "transpiler_logical": 20261104,
+   "clifford_t_pass_manager": 12345,
+   "gridsynth": 0
+  }
+ },
+ "lean_cert_path_belongs_to_F1": {
+  "pass": true,
+  "got": null
+ }
+}
+ALL PASS []

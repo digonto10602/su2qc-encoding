@@ -1,0 +1,1232 @@
+[
+ {
+  "probe": "baseline step o1",
+  "claim": "step o1",
+  "status": "certified",
+  "reason": "",
+  "expect": [
+   "certified"
+  ],
+  "ok": true,
+  "check_s": 1.7462854385375977
+ },
+ {
+  "probe": "rz sign flip at gate 23",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.34533262252807617
+ },
+ {
+  "probe": "rz sign flip at gate 25",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.354938268661499
+ },
+ {
+  "probe": "rz sign flip at gate 28",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.41476964950561523
+ },
+ {
+  "probe": "rz sign flip at gate 31",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.3349893093109131
+ },
+ {
+  "probe": "all 4 rz flipped (beta -> -beta)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.617638349533081
+ },
+ {
+  "probe": "all 4 p (U_E) flipped (alpha -> -alpha)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.3858771324157715
+ },
+ {
+  "probe": "rz x2 (still linear) gate 23",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2844202518463135
+ },
+ {
+  "probe": "rz x2 (still linear) gate 25",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.23000741004943848
+ },
+ {
+  "probe": "rz perturbed rel 1e-10",
+  "claim": "step o1",
+  "status": "n_a",
+  "reason": "non_linear_angle:rz:-2.1350000002134997",
+  "expect": [
+   "n_a",
+   "certified",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": null
+ },
+ {
+  "probe": "rz perturbed rel 1e-13",
+  "claim": "step o1",
+  "status": "certified",
+  "reason": "",
+  "expect": [
+   "n_a",
+   "certified",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.41016173362731934
+ },
+ {
+  "probe": "cx reversed at gate 4",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 16 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.22691845893859863
+ },
+ {
+  "probe": "cx reversed at gate 5",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 72 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2343747615814209
+ },
+ {
+  "probe": "cx reversed at gate 6",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 32 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2586503028869629
+ },
+ {
+  "probe": "cx reversed at gate 24",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.22473430633544922
+ },
+ {
+  "probe": "cx reversed at gate 26",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.25313353538513184
+ },
+ {
+  "probe": "cx reversed at gate 27",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2225322723388672
+ },
+ {
+  "probe": "cx reversed at gate 29",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.47753119468688965
+ },
+ {
+  "probe": "cx reversed at gate 30",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.4265599250793457
+ },
+ {
+  "probe": "cx reversed at gate 32",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.20293045043945312
+ },
+ {
+  "probe": "cx reversed at gate 49",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2273726463317871
+ },
+ {
+  "probe": "cx reversed at gate 50",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.301652193069458
+ },
+ {
+  "probe": "cx reversed at gate 51",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2031540870666504
+ },
+ {
+  "probe": "drop gate 0 p[0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 164 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.39249563217163086
+ },
+ {
+  "probe": "drop gate 1 p[1]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 72 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.42844676971435547
+ },
+ {
+  "probe": "drop gate 2 p[2]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.38289523124694824
+ },
+ {
+  "probe": "drop gate 3 p[3]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.3723902702331543
+ },
+ {
+  "probe": "drop gate 4 cx[1, 3]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 72 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.6174845695495605
+ },
+ {
+  "probe": "drop gate 5 cx[0, 1]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 164 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.49438977241516113
+ },
+ {
+  "probe": "drop gate 6 cx[0, 2]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 164 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.5845324993133545
+ },
+ {
+  "probe": "drop gate 7 h[0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.30127382278442383
+ },
+ {
+  "probe": "drop gate 8 x[4]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.341050386428833
+ },
+ {
+  "probe": "drop gate 9 x[5]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.31847429275512695
+ },
+ {
+  "probe": "drop gate 10 x[6]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.3172142505645752
+ },
+ {
+  "probe": "drop gate 11 x[7]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.4440884590148926
+ },
+ {
+  "probe": "drop gate 12 rccx[4, 5, 16]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.3017110824584961
+ },
+ {
+  "probe": "drop gate 13 rccx[6, 7, 17]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.34601259231567383
+ },
+ {
+  "probe": "drop gate 14 rccx[16, 17, 18]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.24086976051330566
+ },
+ {
+  "probe": "drop gate 15 x[2]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.45374274253845215
+ },
+ {
+  "probe": "drop gate 16 x[3]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.37264418601989746
+ },
+ {
+  "probe": "drop gate 17 rccx[2, 3, 19]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.33284544944763184
+ },
+ {
+  "probe": "drop gate 18 rccx[18, 19, 20]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.5338211059570312
+ },
+ {
+  "probe": "drop gate 19 x[1]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.4467589855194092
+ },
+ {
+  "probe": "drop gate 20 rccx[20, 1, 21]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.516045093536377
+ },
+ {
+  "probe": "drop gate 21 x[1]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.5754787921905518
+ },
+ {
+  "probe": "drop gate 22 rccx[20, 1, 22]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 88 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.6151919364929199
+ },
+ {
+  "probe": "drop gate 23 rz[0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.5479791164398193
+ },
+ {
+  "probe": "drop gate 24 cx[18, 0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.6673023700714111
+ },
+ {
+  "probe": "drop gate 25 rz[0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.6135234832763672
+ },
+ {
+  "probe": "drop gate 26 cx[18, 0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.49843358993530273
+ },
+ {
+  "probe": "drop gate 27 cx[21, 0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.5130996704101562
+ },
+ {
+  "probe": "drop gate 28 rz[0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.5990560054779053
+ },
+ {
+  "probe": "drop gate 29 cx[21, 0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.652073860168457
+ },
+ {
+  "probe": "drop gate 30 cx[22, 0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 88 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.5433437824249268
+ },
+ {
+  "probe": "drop gate 31 rz[0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.501981258392334
+ },
+ {
+  "probe": "drop gate 32 cx[22, 0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 88 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.612119197845459
+ },
+ {
+  "probe": "drop gate 33 rccx[20, 1, 22]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 88 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.5520317554473877
+ },
+ {
+  "probe": "drop gate 34 x[1]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.5684943199157715
+ },
+ {
+  "probe": "drop gate 35 rccx[20, 1, 21]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.7184288501739502
+ },
+ {
+  "probe": "drop gate 36 x[1]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.47855472564697266
+ },
+ {
+  "probe": "drop gate 37 rccx[18, 19, 20]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2749350070953369
+ },
+ {
+  "probe": "drop gate 38 rccx[2, 3, 19]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.3653261661529541
+ },
+ {
+  "probe": "drop gate 39 x[3]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.3560609817504883
+ },
+ {
+  "probe": "drop gate 40 x[2]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.4125630855560303
+ },
+ {
+  "probe": "drop gate 41 rccx[16, 17, 18]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.39377260208129883
+ },
+ {
+  "probe": "drop gate 42 rccx[6, 7, 17]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.44014406204223633
+ },
+ {
+  "probe": "drop gate 43 rccx[4, 5, 16]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.3414914608001709
+ },
+ {
+  "probe": "drop gate 44 x[7]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.21168255805969238
+ },
+ {
+  "probe": "drop gate 45 x[6]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.3787546157836914
+ },
+ {
+  "probe": "drop gate 46 x[5]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2536289691925049
+ },
+ {
+  "probe": "drop gate 47 x[4]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.3247263431549072
+ },
+ {
+  "probe": "drop gate 48 h[0]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.24939918518066406
+ },
+ {
+  "probe": "drop gate 49 cx[0, 2]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.20460796356201172
+ },
+ {
+  "probe": "drop gate 50 cx[0, 1]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.22237205505371094
+ },
+ {
+  "probe": "drop gate 51 cx[1, 3]",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.23830938339233398
+ },
+ {
+  "probe": "global_phase += 0.3 (circuit property)",
+  "claim": "step o1",
+  "status": "certified",
+  "reason": "",
+  "expect": [
+   "certified"
+  ],
+  "ok": true,
+  "check_s": 0.44977426528930664
+ },
+ {
+  "probe": "rz(0.3) on clean ancilla (non-linear phase)",
+  "claim": "step o1",
+  "status": "certified",
+  "reason": "",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": false,
+  "check_s": 0.42856645584106445
+ },
+ {
+  "probe": "rz(beta/2) on clean ancilla (linear phase)",
+  "claim": "step o1",
+  "status": "certified",
+  "reason": "",
+  "expect": [
+   "rejected",
+   "certified"
+  ],
+  "ok": true,
+  "check_s": 0.4028055667877197
+ },
+ {
+  "probe": "p(0.3) on data qubit 1 (relative phase)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.22924184799194336
+ },
+ {
+  "probe": "p(beta) on data qubit 1 (relative phase, linear)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.21759247779846191
+ },
+ {
+  "probe": "X on clean ancilla at end (dirty ancilla)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.26682043075561523
+ },
+ {
+  "probe": "extra H on data qubit 0 (leak)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.26288771629333496
+ },
+ {
+  "probe": "order-1 circuit claimed order 2",
+  "claim": "step o2",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.30481600761413574
+ },
+ {
+  "probe": "order-2 circuit claimed order 1",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.29048776626586914
+ },
+ {
+  "probe": "order-2 circuit claimed order 2 (control)",
+  "claim": "step o2",
+  "status": "certified",
+  "reason": "",
+  "expect": [
+   "certified"
+  ],
+  "ok": true,
+  "check_s": 0.32065701484680176
+ },
+ {
+  "probe": "UB circuit control",
+  "claim": "UB",
+  "status": "certified",
+  "reason": "",
+  "expect": [
+   "certified"
+  ],
+  "ok": true,
+  "check_s": 0.4599032402038574
+ },
+ {
+  "probe": "UE circuit control",
+  "claim": "UE",
+  "status": "certified",
+  "reason": "",
+  "expect": [
+   "certified"
+  ],
+  "ok": true,
+  "check_s": 0.15152502059936523
+ },
+ {
+  "probe": "UB circuit claimed step",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2670135498046875
+ },
+ {
+  "probe": "UE circuit claimed step",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.24891185760498047
+ },
+ {
+  "probe": "step circuit claimed UB",
+  "claim": "UB",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2492067813873291
+ },
+ {
+  "probe": "step circuit claimed UE",
+  "claim": "UE",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.23969531059265137
+ },
+ {
+  "probe": "UB circuit claimed UE",
+  "claim": "UE",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.18181324005126953
+ },
+ {
+  "probe": "step(0.37,0.61) claimed (0.74,0.61)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.19772911071777344
+ },
+ {
+  "probe": "step(0.37,0.61) claimed (0.37,1.22)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.1858353614807129
+ },
+ {
+  "probe": "step(0.37,0.61) claimed (0.61,0.37)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.20390963554382324
+ },
+ {
+  "probe": "step(0.61,0.37) claimed (0.37,0.61)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "n_a",
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.21790170669555664
+ },
+ {
+  "probe": "UB.UE composed vs step target (order of product)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "rejected",
+   "certified"
+  ],
+  "ok": true,
+  "check_s": 0.2502906322479248
+ },
+ {
+  "probe": "UE then UB composed (the other order) claimed step",
+  "claim": "step o1",
+  "status": "certified",
+  "reason": "",
+  "expect": [
+   "rejected",
+   "certified"
+  ],
+  "ok": true,
+  "check_s": 0.41158604621887207
+ },
+ {
+  "probe": "sign flip on exactly state k=0 (code 0)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 0 differs from the target",
+  "expect": [
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2053384780883789,
+  "reason_expected_k": true
+ },
+ {
+  "probe": "sign flip on exactly state k=1 (code 49152)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 1 differs from the target",
+  "expect": [
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.15721702575683594,
+  "reason_expected_k": true
+ },
+ {
+  "probe": "sign flip on exactly state k=216 (code 42245)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 100 differs from the target",
+  "expect": [
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.1958627700805664,
+  "reason_expected_k": false
+ },
+ {
+  "probe": "sign flip on exactly state k=431 (code 65407)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 431 differs from the target",
+  "expect": [
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.28281736373901367,
+  "reason_expected_k": true
+ },
+ {
+  "probe": "sign flip on exactly state k=432 (code 65535)",
+  "claim": "step o1",
+  "status": "rejected",
+  "reason": "state 432 differs from the target",
+  "expect": [
+   "rejected"
+  ],
+  "ok": true,
+  "check_s": 0.2542085647583008,
+  "reason_expected_k": true
+ }
+]

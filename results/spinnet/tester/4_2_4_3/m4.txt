@@ -1,0 +1,165 @@
+bringing up nodes...
+bringing up nodes...
+
+.FFF.......F..F..                                                        [100%]
+=================================== FAILURES ===================================
+________________ test_M4_G1_archive_best_reverified_from_source ________________
+[gw8] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+
+root = PosixPath('/home/digonto/Projects/su2qc-spinnet')
+
+    @pytest.mark.slow
+    def test_M4_G1_archive_best_reverified_from_source(root):
+        """Real archive: the global best re-evaluates from its program source (cache off, full mode) as valid with the same
+        key; it is not worse than the best round-0 seed; provenance hashes match the current code."""
+        L = _loop()
+        spec = _spec()
+        A = api("su2plaq.compress.archive"); E = api("su2plaq.compress.evaluate"); M = api("su2plaq.compress.metrics")
+        arch = A.Archive.load(ENC, root=root)
+        best = arch.best()
+>       assert best is not None and best.valid
+E       assert (None is not None)
+
+tests/acceptance/m4/test_spinnet_compress.py:390: AssertionError
+__________________ test_M4_G2_archive_best_second_engine_aer ___________________
+[gw9] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+
+root = PosixPath('/home/digonto/Projects/su2qc-spinnet')
+
+    @pytest.mark.slow
+    def test_M4_G2_archive_best_second_engine_aer(root):
+        """Second engine: Qiskit-Aer statevector on every one of the 433 physical states (nominal angles) agrees with the exact
+        target up to one global phase; ancillas return to |0>; the outer pattern of each state is unchanged.  Circuits above 26
+        qubits fail here with their size (a planner decision, not a skip)."""
+        L = _loop()
+        spec = _spec()
+        A = api("su2plaq.compress.archive"); E = api("su2plaq.compress.evaluate")
+        best = A.Archive.load(ENC, root=root).best()
+>       assert best is not None
+E       assert None is not None
+
+tests/acceptance/m4/test_spinnet_compress.py:414: AssertionError
+______________________ test_M4_G3_loop_budget_and_lineage ______________________
+[gw0] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+
+root = PosixPath('/home/digonto/Projects/su2qc-spinnet')
+
+    @pytest.mark.slow
+    def test_M4_G3_loop_budget_and_lineage(root):
+        """The loop stayed inside prompts/001 §4: at most 8 rounds, at most 20 proposer (round, family) sessions, every
+        archived proposer entry has a family and a parent that is None or an archived id; synthesis re-verification ok in
+        every round that ran it; the summary lineage covers every valid entry."""
+        L = _loop()
+        A = api("su2plaq.compress.archive")
+        arch = A.Archive.load(ENC, root=root)
+        ids = {e.id for e in arch.entries()}
+>       att = [json.loads(x) for x in (root / "compress" / "attempts" / f"{ENC}.jsonl").read_text().splitlines() if x.strip()]
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/acceptance/m4/test_spinnet_compress.py:469: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../anaconda3/envs/su2qc-coding/lib/python3.12/pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/digonto/Projects/su2qc-spinnet/compress/attempts/spinnet.jsonl')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/digonto/Projects/su2qc-spinnet/compress/attempts/spinnet.jsonl'
+
+../../anaconda3/envs/su2qc-coding/lib/python3.12/pathlib.py:1013: FileNotFoundError
+_____________________ test_M4_R1_results_and_before_after ______________________
+[gw1] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+
+root = PosixPath('/home/digonto/Projects/su2qc-spinnet')
+
+    @pytest.mark.slow
+    def test_M4_R1_results_and_before_after(root):
+        """results/spinnet/m4-compressed.json (clean commit): the archive best re-verified, T(eps) tables with certified
+        synthesised verdicts, the before/after rows with a Lean column, the lineage and the outer electric row; the markdown
+        table names the global best."""
+        L = _loop()
+        A = api("su2plaq.compress.archive")
+        best = A.Archive.load(ENC, root=root).best()
+        f = root / "results" / ENC / "m4-compressed.json"
+>       assert f.exists(), "run scripts/m4_results.py on a clean commit"
+E       AssertionError: run scripts/m4_results.py on a clean commit
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/home/digonto/Projects/su2qc-spinnet/results/spinnet/m4-compressed.json').exists
+
+tests/acceptance/m4/test_spinnet_compress.py:498: AssertionError
+______________ test_M4_L5_final_best_lean_status_and_theorem_file ______________
+[gw6] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+
+root = PosixPath('/home/digonto/Projects/su2qc-spinnet')
+
+    @pytest.mark.slow
+    def test_M4_L5_final_best_lean_status_and_theorem_file(root):
+        """After the loop: the real archive's global best carries a Lean status (`certified`, or `n_a` for the two allowed
+        reasons); when certified, the theorem file lean/certs/spinnet-best-step.lean elaborates with the standard axioms plus
+        exactly one native axiom; the report has a Lean column."""
+        L = _loop()
+        _lean_dir(root)
+        A = api("su2plaq.compress.archive")
+        best = A.Archive.load(ENC, root=root).best()
+>       assert best is not None and isinstance(best.lean, dict), best
+E       AssertionError: None
+E       assert (None is not None)
+
+tests/acceptance/m4/test_spinnet_compress_lean.py:181: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S0_spec_oracle_builder_spinnet
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S7_shim_leaves_twelve_untouched
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S5_evaluator_rejections_on_spinnet
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L3_structure_facts_match_lean_sources
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S1_general_program_valid_angle_linear
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S6_external_seeds_paulo15_and_spinnet_v2
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S2_worker_registers_encoding_and_keeps_sandbox
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L4_polish_rules_lean_certified_on_spinnet
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L1_certificate_general_and_seeds
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S3_seed_round_dry_run
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S4_round_one_dry_run_and_brief
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L2_seed_round_records_certificates
+FAILED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G1_archive_best_reverified_from_source
+FAILED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G2_archive_best_second_engine_aer
+FAILED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G3_loop_budget_and_lineage
+FAILED tests/acceptance/m4/test_spinnet_compress.py::test_M4_R1_results_and_before_after
+FAILED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L5_final_best_lean_status_and_theorem_file
+5 failed, 12 passed in 18.91s
+Command exited with non-zero status 1
+	Command being timed: "taskset -c 0-9 python -m pytest -p no:cacheprovider -n 10 -q tests/acceptance/m4 -rA"
+	User time (seconds): 75.98
+	System time (seconds): 7.50
+	Percent of CPU this job got: 435%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:19.18
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 831184
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 2633543
+	Voluntary context switches: 6069
+	Involuntary context switches: 46791
+	Swaps: 0
+	File system inputs: 8
+	File system outputs: 6120
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

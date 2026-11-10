@@ -1,0 +1,288 @@
+{
+ "round": 3,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  31,
+  1062,
+  2189,
+  17
+ ],
+ "entries": [
+  "r03-F1-003",
+  "r03-F2-003",
+  "r03-F3-003"
+ ],
+ "lean_seconds": 0.0022385120391845703,
+ "encoding": "spinnet",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "49d8b6e",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-08T03:20:20Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "003-cheap-angle-forms",
+   "id": "r03-F1-003",
+   "family": "F1",
+   "program_sha256": "4d848ccd7307c5b187812a3c93f8580c49462103332cd1d6f898487adbd89d18",
+   "program_path": "compress/programs/spinnet/F1/003-cheap-angle-forms.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    31,
+    1062,
+    2189,
+    17
+   ],
+   "cell": [
+    40,
+    80
+   ],
+   "metrics": {
+    "cx": 31,
+    "t_fixed": 24,
+    "n_rot": 17,
+    "t_eps": 1062,
+    "t_estimate": {
+     "1e-06": 1040.5099970355327,
+     "1e-10": 1718.1833283925548
+    },
+    "t_measured": {
+     "1e-06": 1062,
+     "1e-10": 1752
+    },
+    "synth_error_bound": 1.7e-05,
+    "depth": 68,
+    "depth_ct": 2189,
+    "qubits": 17,
+    "gates": {
+     "cx": 31,
+     "x": 30,
+     "rz": 17,
+     "t": 16,
+     "h": 10,
+     "s": 9,
+     "tdg": 8,
+     "z": 4,
+     "sdg": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 6.812583761452679e-15,
+    "block_error": 3.1804039727481045e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.410557748946589e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r02-F1-002",
+   "parent_known": true,
+   "git_commit": "49d8b6e",
+   "summary": "parent circuit unchanged in gates that cost CX (dimer frame, pivot b; flag a1=[c0=c2=0], A=[u=v=0] XORed into c0; 13-toggle all-linear H-frame walk over c1, c3, c0^A, a1, e; 31 CX, 17 qubits), but every rotation is emitted in its cheapest exact Clifford+T-equivalent form sg*|th| + m*pi/4 followed by p(-m*pi/4): the 4 electric p(-3alpha/4) and the 4 rz(+-beta/2) take a pi/4 shift (pygridsynth T 64 -> 58+1, 66 -> 64+1), signs ride on X frame flips (pivot or link qubit) and pi/2 shifts on S/Z fixes, picked for the shortest word; T 1086 -> 1062, depth_CT 2258 -> 2189.",
+   "lean": {
+    "status": "n_a",
+    "reason": "non_linear_angle:p:1.0628981633974481",
+    "cert_path": null,
+    "seconds": 0.000377655029296875,
+    "checker_sha256": "",
+    "theorem_path": null,
+    "axioms": []
+   },
+   "round": 3,
+   "mode": "full"
+  },
+  {
+   "label": "003-eframe_linear_walk_pi4_shift",
+   "id": "r03-F2-003",
+   "family": "F2",
+   "program_sha256": "af0e76dedfdb38d0ae567e40bb4a517ca2a747135f06e03b6d19a5bb7a44464d",
+   "program_path": "compress/programs/spinnet/F2/003-eframe_linear_walk_pi4_shift.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    31,
+    1062,
+    2191,
+    17
+   ],
+   "cell": [
+    40,
+    80
+   ],
+   "metrics": {
+    "cx": 31,
+    "t_fixed": 24,
+    "n_rot": 17,
+    "t_eps": 1062,
+    "t_estimate": {
+     "1e-06": 1040.5099970355327,
+     "1e-10": 1718.1833283925548
+    },
+    "t_measured": {
+     "1e-06": 1062,
+     "1e-10": 1752
+    },
+    "synth_error_bound": 1.7e-05,
+    "depth": 52,
+    "depth_ct": 2191,
+    "qubits": 17,
+    "gates": {
+     "cx": 31,
+     "x": 20,
+     "rz": 17,
+     "tdg": 16,
+     "h": 12,
+     "t": 8,
+     "sdg": 2,
+     "z": 1,
+     "s": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.409197143817258e-15,
+    "block_error": 2.3340251858894705e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.271733026008412e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r02-F2-002",
+   "parent_known": true,
+   "git_commit": "49d8b6e",
+   "summary": "dimer frame (pivot b; q1 = E = b^r and q2 = U = b^t both fused into 2-CX Bravyi-Maslov end blocks, flags computed after the frame H) with one clean flag N=[c1=c3=0] and A=[U=V=0] XORed in place into corner c1; all-linear 13-toggle walk E -> 0 over (E, N, c1^A, c0, c2) (the mirror of the F1 walk) with the minimum-T coefficient choice; every rotation picks its X-flip sign and a pi/4 shift rz(th) = rz(th +- pi/4) tdg/t when the shifted Clifford+T word is cheaper, and U_E is p(-3alpha/4 + pi/4) tdg (58 + 1 T instead of 64); 31 CX, 13 + 4 rotations, 17 qubits",
+   "lean": null,
+   "round": 3,
+   "mode": "full"
+  },
+  {
+   "label": "003-inplace-a-shortest-word-walk",
+   "id": "r03-F3-003",
+   "family": "F3",
+   "program_sha256": "1ca2fd55a85a204aca8de1480a024176fc143b61185b1949582df20a55adb7df",
+   "program_path": "compress/programs/spinnet/F3/003-inplace-a-shortest-word-walk.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    32,
+    832,
+    1553,
+    17
+   ],
+   "cell": [
+    40,
+    77
+   ],
+   "metrics": {
+    "cx": 32,
+    "t_fixed": 24,
+    "n_rot": 13,
+    "t_eps": 832,
+    "t_estimate": {
+     "1e-06": 801.3311742036428,
+     "1e-10": 1319.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 832,
+     "1e-10": 1376
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 64,
+    "depth_ct": 1553,
+    "qubits": 17,
+    "gates": {
+     "cx": 32,
+     "x": 30,
+     "h": 16,
+     "rz": 13,
+     "t": 12,
+     "tdg": 12,
+     "sdg": 2,
+     "z": 2,
+     "s": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.858976315733614e-15,
+    "block_error": 2.3182494305899175e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.913957033160809e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r02-F3-002",
+   "parent_known": true,
+   "git_commit": "49d8b6e",
+   "summary": "F3 one-direct-AND walk on 17 qubits: Na=NOR(c0,c1) in the only ancilla, A=[u=v=0] XORed in place into c1 (idle between the Na compute and uncompute), Nd=NOR(c2,c3) toggled straight onto the pivot by two rccx (CZ(Na,c2) Z(Na) cancels their sign); 9-term walk e -> 0 with 7 cheap toggles, the one walk whose rotations all reach the shortest Clifford+T word (pivot X-frame flips by negated toggle controls only: sum of words 1358 = floor over all 32-CX walks); 32 CX, 9+4 rotations k*beta/8, 3*alpha/4 (+-pi/2).",
+   "lean": null,
+   "round": 3,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r03-F1-003",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 17,
+  "t_total": 1062,
+  "tolerances": {
+   "tol_err": 1.7001e-05,
+   "tol_gauss": 1.7001e-05
+  },
+  "op_norm_error": 5.436488881841892e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 5.099971294403076,
+ "written_utc": "2026-11-08T03:20:20Z",
+ "spinnet": {
+  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "shim": [
+   "build_in_subprocess",
+   "certify",
+   "encoding"
+  ]
+ }
+}

@@ -1,0 +1,189 @@
+{
+ "id": "r02-F2-002",
+ "program_path": "compress/programs/spinnet/F2/002-inplaceA_nor01_direct3and.py",
+ "program_sha256": "2eeefb79056914f6b2f15e639a641ff811da8e276d1d860ee758c403d7c6cb7e",
+ "parent": "r01-F2-001",
+ "family": "F2",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  32,
+  832,
+  1554,
+  17
+ ],
+ "cell": [
+  40,
+  77
+ ],
+ "metrics_raw": {
+  "cx": 32,
+  "t_fixed": 24,
+  "n_rot": 13,
+  "t_eps": 832,
+  "t_estimate": {
+   "1e-06": 801.3311742036428,
+   "1e-10": 1319.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 832,
+   "1e-10": 1376
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 57,
+  "depth_ct": 1554,
+  "qubits": 17,
+  "gates": {
+   "cx": 32,
+   "h": 16,
+   "x": 14,
+   "rz": 13,
+   "t": 12,
+   "tdg": 12,
+   "z": 3,
+   "s": 2,
+   "sdg": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.4890228374495934e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.281952590115942e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.474255194514172e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.1916694246707777e-15,
+  "block_error": 2.2973534127788157e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.16416025161743164,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.106768173690512e-15,
+   "max_dropped_l2": 9.000809021792508e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.2973534127788157e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.1145049784596336e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -3.281952590115941e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.349702699552034e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.299536500254039e-15,
+   "block_error": 1.814968478205595e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.15870904922485352,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.814968478205595e-15,
+    "max_dropped_l2": 8.204131457067994e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.6983430161103698e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.630837050348815e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -2.4614644425869556e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.830322762800934e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.0907311189093566e-15,
+   "block_error": 2.5401059314394587e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.15883612632751465,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.306668086556208e-15,
+    "max_dropped_l2": 9.98018815624395e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.5401059314394587e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: a flag used only as an rccx control frees its own input qubits between compute and uncompute: with a01=[c0=c1=0] feeding the pivot rccx D=a01&~c3, c1 is idle during the walk and can carry A in place (X=c1^A); the walk over (e, X, D, c2) still needs only 9 terms, so the F1 cost (32 CX, T 832) is reached with 17 qubits instead of 18.",
+  "DISCOVERY: the pivot X-frame parity is free to choose per rotation (X on the pivot commutes with every CX toggle, costs a Z on the first control of an rccx it straddles, and at the walk ends turns into a Z on b next to the frame H); flipping rz(-beta/4) to rz(+beta/4) shortens its pygridsynth word from 167 to 140 gates, depth_CT 1583 -> 1554 at equal T.",
+  "DISCOVERY: walk search (MILP enumeration of up to 30-300 minimal term sets per atom set + Dijkstra with exact rccx-pair leftover-sign costs and the dark relations c1*e=0, c0*(e^v)=0, c2*(e^u)=0, c3*(e^u^v)=0) over ~150 atom sets with three AND units (two NOR pairs, NOR pair + 3-AND through it, A in place or as ancilla, extra u/v wires) never went below 32 CX = 6 ladder + 18 (three rccx pairs) + 7 linear toggles + 1 sign fix; two corner-shifted NOR flags replacing three AND units need >= 22 CX of flags."
+ ],
+ "summary": "F2 with one ancilla: dimer ladder (pivot = link b), flag a01=[c0=c1=0] on the only ancilla, A=[u=v=0] XORed in place into the idle corner qubit c1 (X = c1^A), the 3-AND D=a01&~c3 toggled straight onto the pivot by an rccx pair, and a 10-state pivot walk over (e, X, D, c2) with 9 rotations (first step fused with the ladder, one CZ for the pair's leftover sign); rotation signs set by free pivot X-flips to shorten the Clifford+T words; 32 CX, 13 rotations, 17 qubits, angles k*beta/4 and -3*alpha/4.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "6d7522d",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 1.0053668022155762,
+ "written_utc": "2026-11-08T01:02:38Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.3e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

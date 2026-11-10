@@ -1,0 +1,7 @@
+{"report": "reports/tests/115-m4-round-003.md", "commit": "2b2edb3", "verified_round_commit": "3c5363e", "verdict": "PASS",
+ "keys": {"r03-F1-003": [31,1062,2189,17], "r03-F2-003": [31,1062,2191,17], "r03-F3-003": [32,832,1553,17]},
+ "aer_pairs_per_program": 11, "aer_worst_error": 4.11e-15,
+ "T_diff_r03_minus_r02_F1": {"nominal": -24, "random20_mean": 13.2, "sem": 2.27, "min": -8, "max": 32, "n_neg": 1, "n_zero": 1, "n_pos": 18, "seed": 20261109},
+ "best_certified": "r02-F1-002", "lean_r03_F1": "n_a non_linear_angle:p:1.0628981633974481",
+ "acceptance": {"m4_passed": 16, "m4_failed": 1, "m4_failed_ids": ["R1 (pending 4.7)"], "G1G2G3": "pass"},
+ "peak_rss_gb": 0.83, "params": {"eps": 1e-6, "nominal": [0.37, 0.61]}}

@@ -1,0 +1,189 @@
+{
+ "id": "r03-F2-003",
+ "program_path": "compress/programs/spinnet/F2/003-eframe_linear_walk_pi4_shift.py",
+ "program_sha256": "af0e76dedfdb38d0ae567e40bb4a517ca2a747135f06e03b6d19a5bb7a44464d",
+ "parent": "r02-F2-002",
+ "family": "F2",
+ "round": 3,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  31,
+  1062,
+  2191,
+  17
+ ],
+ "cell": [
+  40,
+  80
+ ],
+ "metrics_raw": {
+  "cx": 31,
+  "t_fixed": 24,
+  "n_rot": 17,
+  "t_eps": 1062,
+  "t_estimate": {
+   "1e-06": 1040.5099970355327,
+   "1e-10": 1718.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1062,
+   "1e-10": 1752
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 52,
+  "depth_ct": 2191,
+  "qubits": 17,
+  "gates": {
+   "cx": 31,
+   "x": 20,
+   "rz": 17,
+   "tdg": 16,
+   "h": 12,
+   "t": 8,
+   "sdg": 2,
+   "z": 1,
+   "s": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.409197143817258e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   6.892100439243479e-16,
+   -1.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.271733026008412e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.0751719579277873e-15,
+  "block_error": 2.3340251858894705e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.16821813583374023,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9641850382783487e-15,
+   "max_dropped_l2": 8.459194298604948e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.3340251858894705e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.432140013998857e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.8050739245637673e-16,
+    -1.0
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.349702699552034e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.749492341185434e-15,
+   "block_error": 1.6826476728134232e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.18199682235717773,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.5973968262084423e-15,
+    "max_dropped_l2": 8.659852493224024e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.6826476728134232e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.931112251532269e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    3.7742454786333306e-16,
+    -1.0
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.306099167421478e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.5202008510385272e-15,
+   "block_error": 2.410911400493742e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.20632219314575195,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.234544415503326e-15,
+    "max_dropped_l2": 8.06559864276062e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.410911400493742e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: pygridsynth's T-count at eps = 1e-6 depends on the angle modulo pi/4: p(-3alpha/4) costs 64 T but p(-3alpha/4 + pi/4) costs 58 (+1 explicit tdg), and rz(+-beta/2) 66 vs 64 (+1); shifting the four U_E phases alone saves 20 T at equal CX on any spinnet circuit (the F1-type walk goes 1086 -> 1062 T with the walk shifts).",
+  "DISCOVERY: flags may be computed after the frame H, so both pivot ladder CX (E and U) fuse with the walk ends (each 3-qubit end block is a 2-CX Clifford) and the walk may start/end anywhere in span(E, U); still, exhaustive DFS finds no 30-CX all-linear 12-toggle walk for flag N13 with A in c1 or c3 (atoms E, U, N, c^A, raw corners), none for N02 with ends {0, E}, and among the N13 and N02 configurations the only 13-toggle walks are the 12 F1-type ones (N13, A in c1); minimum (12-term) supports need 18-23 toggles.",
+  "DISCOVERY: 3-unit family (NOR flag pair, A in place in a flag corner, direct 3-AND through a third corner with all literal/order variants, free ends span(E, U), and the control-order swap of the in-place A pair, phase (U^V) c_host, as a free fix): no 31-CX walk in all 24 configurations with <= 1 extra atom (DFS), so 32 CX stays that family's floor."
+ ],
+ "summary": "dimer frame (pivot b; q1 = E = b^r and q2 = U = b^t both fused into 2-CX Bravyi-Maslov end blocks, flags computed after the frame H) with one clean flag N=[c1=c3=0] and A=[U=V=0] XORed in place into corner c1; all-linear 13-toggle walk E -> 0 over (E, N, c1^A, c0, c2) (the mirror of the F1 walk) with the minimum-T coefficient choice; every rotation picks its X-flip sign and a pi/4 shift rz(th) = rz(th +- pi/4) tdg/t when the shifted Clifford+T word is cheaper, and U_E is p(-3alpha/4 + pi/4) tdg (58 + 1 T instead of 64); 31 CX, 13 + 4 rotations, 17 qubits",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "49d8b6e",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 1.1380012035369873,
+ "written_utc": "2026-11-08T03:20:19Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.7e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

@@ -1,0 +1,709 @@
+{
+ "commit": "e0f65ef+uncommitted",
+ "seed": {
+  "probe_b rng": 20261106,
+  "random8neg": 20261104,
+  "qiskit_l3 transpile seed": 12345
+ },
+ "own_aer_all433": {
+  "000-general@0.37,0.61": {
+   "err": 4.347094734970588e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 658.989093542099
+  },
+  "000-general@0.91,0.23": {
+   "err": 3.4659998329438127e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 588.3776843547821
+  },
+  "000-general@1.7,1.0": {
+   "err": 5.523398080203234e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 600.1229066848755
+  },
+  "001-spinnet_v2_pairs9@0.37,0.61": {
+   "err": 2.6864232864032027e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 48.52300310134888
+  },
+  "001-spinnet_v2_pairs9@0.91,0.23": {
+   "err": 1.5321504547024511e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 48.51917362213135
+  },
+  "001-spinnet_v2_pairs9@1.7,1.0": {
+   "err": 2.8043111069756566e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 49.569741010665894
+  },
+  "002-spinnet_v2_flags4@0.37,0.61": {
+   "err": 4.40655437930855e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 54.8480339050293
+  },
+  "002-spinnet_v2_flags4@0.91,0.23": {
+   "err": 3.553147333202951e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 55.123414039611816
+  },
+  "002-spinnet_v2_flags4@1.7,1.0": {
+   "err": 6.320492723450695e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 55.67895317077637
+  },
+  "003-spinnet_v2_flags5@0.37,0.61": {
+   "err": 3.245762396157949e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 56.27126336097717
+  },
+  "003-spinnet_v2_flags5@0.91,0.23": {
+   "err": 3.1791949213824916e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 56.5839478969574
+  },
+  "003-spinnet_v2_flags5@1.7,1.0": {
+   "err": 4.483579947243754e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 55.151766538619995
+  },
+  "004-spinnet_v2_flags6@0.37,0.61": {
+   "err": 2.6862616286484514e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 49.91711926460266
+  },
+  "004-spinnet_v2_flags6@0.91,0.23": {
+   "err": 2.124706989126661e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 49.80065441131592
+  },
+  "004-spinnet_v2_flags6@1.7,1.0": {
+   "err": 3.2060326771635225e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 50.73168873786926
+  },
+  "010-general_polish@0.37,0.61": {
+   "err": 4.347094734970588e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 657.4783029556274
+  },
+  "010-general_polish@0.91,0.23": {
+   "err": 3.4659998329438127e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 584.9510385990143
+  },
+  "010-general_polish@1.7,1.0": {
+   "err": 5.523398080203234e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 598.2289872169495
+  },
+  "011-qiskit_l3@0.37,0.61": {
+   "err": 4.121620556086836e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 592.0145545005798
+  },
+  "011-qiskit_l3@0.91,0.23": {
+   "err": 3.450612841012425e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 584.1387553215027
+  },
+  "011-qiskit_l3@1.7,1.0": {
+   "err": 5.221426043834572e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 595.4664001464844
+  }
+ },
+ "own_aer_max_err": 6.320492723450695e-15,
+ "paulo15_own": {
+  "n_qubits": 23,
+  "beta": 0.05,
+  "err_raw_vs_ungauged_target": 0.19966683329365637,
+  "err_vs_loop_gauge": 3.4170130603040575e-15,
+  "err_vs_own_gauge": 3.4170130603040575e-15,
+  "ancilla_leak_weight": 0.0,
+  "outer_changed": 0.0,
+  "n_components_of_big_entry_graph": 305,
+  "loop_gauge_n_minus_states": 128,
+  "loop_gauge_minus_data_codes": [
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "loop_gauge_pm1": true,
+  "len_gauge": 433,
+  "ratio_matrix_consistency": "no inconsistency raised",
+  "max_offdiag_diff_gauges": 0.0,
+  "states_with_data_code_in_8_15": 128,
+  "loop_minus_states_equal_that_set": true,
+  "err_with_random_8_negative_vector": 0.19966683329365625
+ },
+ "probe_b": {
+  "qiskit_l3_vs_fresh_transpile": [
+   {
+    "alpha": 0.37,
+    "beta": 0.61,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 5.551115123125783e-16
+   },
+   {
+    "alpha": 0.91,
+    "beta": 0.23,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 2.220446049250313e-16
+   },
+   {
+    "alpha": 1.7,
+    "beta": 1.0,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 6.661338147750939e-16
+   },
+   {
+    "alpha": 0.2179396337935982,
+    "beta": 1.2624585172027796,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 1.3322676295501878e-15
+   },
+   {
+    "alpha": 0.5303405390536159,
+    "beta": 1.2260120107725223,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 1.1102230246251565e-15
+   },
+   {
+    "alpha": 1.5570525543827585,
+    "beta": 1.11554462450237,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 8.881784197001252e-16
+   },
+   {
+    "alpha": 0.22844076500685767,
+    "beta": 1.4317280642082162,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 8.881784197001252e-16
+   },
+   {
+    "alpha": 1.2161709546601165,
+    "beta": 1.2704925093466115,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 2.4424906541753444e-15
+   },
+   {
+    "alpha": 1.0759211513242004,
+    "beta": 0.8015384460237042,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 1.7763568394002505e-15
+   },
+   {
+    "alpha": 0.08485527943442947,
+    "beta": 1.1297890700600726,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 4.440892098500626e-16
+   },
+   {
+    "alpha": 1.5982714584123374,
+    "beta": 1.3935644537183247,
+    "n_gates": 164,
+    "same_skeleton_as_fresh_transpile": true,
+    "max_angle_diff_vs_fresh": 8.881784197001252e-16
+   }
+  ],
+  "linearity": {
+   "max|A(2v)-2A(v)|": 0.0,
+   "max|A(3v)-3A(v)|": 2.220446049250313e-16,
+   "n_angles": 8
+  },
+  "n_rot": {
+   "qiskit_l3_prog": 8
+  },
+  "qiskit_l3_record": {
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "valid": true,
+   "mode": "full"
+  },
+  "feedback_keys": [
+   "discoveries",
+   "message",
+   "metrics",
+   "mode",
+   "program_sha256",
+   "reason",
+   "seeds",
+   "skeleton_equal",
+   "spec_sha256",
+   "summary",
+   "valid",
+   "verdict",
+   "verdicts_alt",
+   "wall_s"
+  ],
+  "verdicts_alt": [
+   {
+    "ok": true,
+    "op_norm_error": 1.3479791001351792e-14,
+    "alpha": null,
+    "beta": null
+   },
+   {
+    "ok": true,
+    "op_norm_error": 1.8011877783154115e-14,
+    "alpha": null,
+    "beta": null
+   }
+  ],
+  "l3_helper_equals_laptop_on_twelve": {
+   "gates_equal": true,
+   "n_gates": 842,
+   "global_phase": [
+    5.497787143782129,
+    5.497787143782129
+   ]
+  },
+  "l3_whole_helper_equals_laptop_on_twelve": {
+   "gates_equal": true,
+   "n_gates": 822
+  },
+  "polish_equal_on_twelve": true,
+  "window_const": 32,
+  "whitelists": {
+   "ALLOWED_PROJECT_IMPORTS": [
+    "su2plaq.compress.builder",
+    "su2plaq.compress.oracle",
+    "su2plaq.compress.spec"
+   ],
+   "FORBIDDEN_NAMES": [
+    "__import__",
+    "breakpoint",
+    "compile",
+    "eval",
+    "exec",
+    "input",
+    "open"
+   ]
+  }
+ },
+ "seed_round_dry": {
+  "wall_seed_round_s": 9.561195850372314,
+  "info": {
+   "round": 0,
+   "n_valid": 7,
+   "n_invalid": 0,
+   "best_key": [
+    34,
+    832,
+    1597,
+    19
+   ],
+   "entries": [
+    "r00-seed-000",
+    "r00-seed-001",
+    "r00-seed-002",
+    "r00-seed-003",
+    "r00-seed-004",
+    "r00-seed-010",
+    "r00-seed-011"
+   ],
+   "lean_seconds": 0.0,
+   "external": [
+    "qiskit_l3_whole",
+    "paulo15"
+   ]
+  },
+  "cands": [
+   {
+    "label": "general",
+    "id": "r00-seed-000",
+    "family": "seed",
+    "valid": true,
+    "key": [
+     54,
+     566,
+     861,
+     23
+    ],
+    "cell": [
+     46,
+     73
+    ],
+    "parent": null,
+    "round": 0,
+    "mode": "full",
+    "skeleton_equal": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "program_path": "compress/programs/spinnet/seed/000-general.py",
+    "lean": null
+   },
+   {
+    "label": "spinnet_v2_pairs9",
+    "id": "r00-seed-001",
+    "family": "seed",
+    "valid": true,
+    "key": [
+     34,
+     832,
+     1597,
+     19
+    ],
+    "cell": [
+     41,
+     77
+    ],
+    "parent": null,
+    "round": 0,
+    "mode": "full",
+    "skeleton_equal": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "program_path": "compress/programs/spinnet/seed/001-spinnet_v2_pairs9.py",
+    "lean": null
+   },
+   {
+    "label": "spinnet_v2_flags4",
+    "id": "r00-seed-002",
+    "family": "seed",
+    "valid": true,
+    "key": [
+     44,
+     554,
+     869,
+     19
+    ],
+    "cell": [
+     43,
+     72
+    ],
+    "parent": null,
+    "round": 0,
+    "mode": "full",
+    "skeleton_equal": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "program_path": "compress/programs/spinnet/seed/002-spinnet_v2_flags4.py",
+    "lean": null
+   },
+   {
+    "label": "spinnet_v2_flags5",
+    "id": "r00-seed-003",
+    "family": "seed",
+    "valid": true,
+    "key": [
+     42,
+     606,
+     1009,
+     19
+    ],
+    "cell": [
+     43,
+     73
+    ],
+    "parent": null,
+    "round": 0,
+    "mode": "full",
+    "skeleton_equal": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "program_path": "compress/programs/spinnet/seed/003-spinnet_v2_flags5.py",
+    "lean": null
+   },
+   {
+    "label": "spinnet_v2_flags6",
+    "id": "r00-seed-004",
+    "family": "seed",
+    "valid": true,
+    "key": [
+     36,
+     658,
+     1120,
+     19
+    ],
+    "cell": [
+     41,
+     74
+    ],
+    "parent": null,
+    "round": 0,
+    "mode": "full",
+    "skeleton_equal": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "program_path": "compress/programs/spinnet/seed/004-spinnet_v2_flags6.py",
+    "lean": null
+   },
+   {
+    "label": "general+polish",
+    "id": "r00-seed-010",
+    "family": "seed",
+    "valid": true,
+    "key": [
+     54,
+     566,
+     861,
+     23
+    ],
+    "cell": [
+     46,
+     73
+    ],
+    "parent": null,
+    "round": 0,
+    "mode": "full",
+    "skeleton_equal": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "program_path": "compress/programs/spinnet/seed/010-general_polish.py",
+    "lean": null
+   },
+   {
+    "label": "qiskit_l3",
+    "id": "r00-seed-011",
+    "family": "seed",
+    "valid": true,
+    "key": [
+     54,
+     566,
+     861,
+     23
+    ],
+    "cell": [
+     46,
+     73
+    ],
+    "parent": null,
+    "round": 0,
+    "mode": "full",
+    "skeleton_equal": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "program_path": "compress/programs/spinnet/seed/011-qiskit_l3.py",
+    "lean": null
+   }
+  ],
+  "external": [
+   {
+    "source": "qiskit_l3_whole",
+    "valid": false,
+    "reason": "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+    "metrics": {
+     "cx": 54,
+     "t_fixed": 56,
+     "n_rot": 8,
+     "t_eps": 534.3576456637802,
+     "depth_ct": 67,
+     "qubits": 23
+    }
+   },
+   {
+    "source": "paulo15",
+    "fixed_angle": true,
+    "kind": "UB",
+    "beta": 0.05,
+    "valid": true,
+    "reason": "ok",
+    "op_norm_error": 9.61272771348275e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.410557748946589e-16,
+    "certified": true,
+    "message": "fixed angle beta=0.05, kind UB; exact-angle tolerances 1e-10; target regauged with the sign gauge D (n_minus 8 inner codes with -1: [8, 9, 10, 11, 12, 13, 14, 15])",
+    "gauge_minus_codes": [
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ],
+    "n_minus": 8,
+    "metrics": {
+     "cx": 68,
+     "t_fixed": 64,
+     "n_rot": 4,
+     "t_eps": 316,
+     "depth_ct": 726,
+     "qubits": 23
+    }
+   }
+  ],
+  "synth": {
+   "entry": "r00-seed-001",
+   "ok": true,
+   "eps": 1e-06,
+   "n_rot": 13,
+   "t_total": 832,
+   "tolerances": {
+    "tol_err": 1.3001e-05,
+    "tol_gauss": 1.3001e-05
+   },
+   "op_norm_error": 5.062300439437067e-06,
+   "certified": true,
+   "reason": "ok"
+  },
+  "maxrss_gb": 0.274208
+ },
+ "counts": [
+  {
+   "label": "general",
+   "sha_equal": true,
+   "cx_own": 54,
+   "cx_key": 54,
+   "t_fixed_own": 56,
+   "t_fixed_metrics": 56,
+   "rot_own": 8,
+   "n_rot_metrics": 8,
+   "qubits_own": 23,
+   "qubits_key": 23
+  },
+  {
+   "label": "spinnet_v2_pairs9",
+   "sha_equal": true,
+   "cx_own": 34,
+   "cx_key": 34,
+   "t_fixed_own": 24,
+   "t_fixed_metrics": 24,
+   "rot_own": 13,
+   "n_rot_metrics": 13,
+   "qubits_own": 19,
+   "qubits_key": 19
+  },
+  {
+   "label": "spinnet_v2_flags4",
+   "sha_equal": true,
+   "cx_own": 44,
+   "cx_key": 44,
+   "t_fixed_own": 48,
+   "t_fixed_metrics": 48,
+   "rot_own": 8,
+   "n_rot_metrics": 8,
+   "qubits_own": 19,
+   "qubits_key": 19
+  },
+  {
+   "label": "spinnet_v2_flags5",
+   "sha_equal": true,
+   "cx_own": 42,
+   "cx_key": 42,
+   "t_fixed_own": 40,
+   "t_fixed_metrics": 40,
+   "rot_own": 9,
+   "n_rot_metrics": 9,
+   "qubits_own": 19,
+   "qubits_key": 19
+  },
+  {
+   "label": "spinnet_v2_flags6",
+   "sha_equal": true,
+   "cx_own": 36,
+   "cx_key": 36,
+   "t_fixed_own": 32,
+   "t_fixed_metrics": 32,
+   "rot_own": 10,
+   "n_rot_metrics": 10,
+   "qubits_own": 19,
+   "qubits_key": 19
+  },
+  {
+   "label": "general+polish",
+   "sha_equal": true,
+   "cx_own": 54,
+   "cx_key": 54,
+   "t_fixed_own": 56,
+   "t_fixed_metrics": 56,
+   "rot_own": 8,
+   "n_rot_metrics": 8,
+   "qubits_own": 23,
+   "qubits_key": 23
+  },
+  {
+   "label": "qiskit_l3",
+   "sha_equal": true,
+   "cx_own": 54,
+   "cx_key": 54,
+   "t_fixed_own": 56,
+   "t_fixed_metrics": 56,
+   "rot_own": 8,
+   "n_rot_metrics": 8,
+   "qubits_own": 23,
+   "qubits_key": 23
+  }
+ ],
+ "T_pygridsynth_1e-6": {
+  "pairs9": 832,
+  "general": 566,
+  "flags4": 554
+ }
+}

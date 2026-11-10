@@ -1,0 +1,158 @@
+{
+ "qiskit_l3_vs_fresh_transpile": [
+  {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 5.551115123125783e-16
+  },
+  {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 2.220446049250313e-16
+  },
+  {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 6.661338147750939e-16
+  },
+  {
+   "alpha": 0.2179396337935982,
+   "beta": 1.2624585172027796,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 1.3322676295501878e-15
+  },
+  {
+   "alpha": 0.5303405390536159,
+   "beta": 1.2260120107725223,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 1.1102230246251565e-15
+  },
+  {
+   "alpha": 1.5570525543827585,
+   "beta": 1.11554462450237,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 8.881784197001252e-16
+  },
+  {
+   "alpha": 0.22844076500685767,
+   "beta": 1.4317280642082162,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 8.881784197001252e-16
+  },
+  {
+   "alpha": 1.2161709546601165,
+   "beta": 1.2704925093466115,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 2.4424906541753444e-15
+  },
+  {
+   "alpha": 1.0759211513242004,
+   "beta": 0.8015384460237042,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 1.7763568394002505e-15
+  },
+  {
+   "alpha": 0.08485527943442947,
+   "beta": 1.1297890700600726,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 4.440892098500626e-16
+  },
+  {
+   "alpha": 1.5982714584123374,
+   "beta": 1.3935644537183247,
+   "n_gates": 164,
+   "same_skeleton_as_fresh_transpile": true,
+   "max_angle_diff_vs_fresh": 8.881784197001252e-16
+  }
+ ],
+ "linearity": {
+  "max|A(2v)-2A(v)|": 0.0,
+  "max|A(3v)-3A(v)|": 2.220446049250313e-16,
+  "n_angles": 8
+ },
+ "n_rot": {
+  "qiskit_l3_prog": 8
+ },
+ "qiskit_l3_record": {
+  "alt_ok": [
+   true,
+   true
+  ],
+  "skeleton_equal": true,
+  "valid": true,
+  "mode": "full"
+ },
+ "feedback_keys": [
+  "discoveries",
+  "message",
+  "metrics",
+  "mode",
+  "program_sha256",
+  "reason",
+  "seeds",
+  "skeleton_equal",
+  "spec_sha256",
+  "summary",
+  "valid",
+  "verdict",
+  "verdicts_alt",
+  "wall_s"
+ ],
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "op_norm_error": 1.3479791001351792e-14,
+   "alpha": null,
+   "beta": null
+  },
+  {
+   "ok": true,
+   "op_norm_error": 1.8011877783154115e-14,
+   "alpha": null,
+   "beta": null
+  }
+ ],
+ "l3_helper_equals_laptop_on_twelve": {
+  "gates_equal": true,
+  "n_gates": 842,
+  "global_phase": [
+   5.497787143782129,
+   5.497787143782129
+  ]
+ },
+ "l3_whole_helper_equals_laptop_on_twelve": {
+  "gates_equal": true,
+  "n_gates": 822
+ },
+ "polish_equal_on_twelve": true,
+ "window_const": 32,
+ "whitelists": {
+  "ALLOWED_PROJECT_IMPORTS": [
+   "su2plaq.compress.builder",
+   "su2plaq.compress.oracle",
+   "su2plaq.compress.spec"
+  ],
+  "FORBIDDEN_NAMES": [
+   "__import__",
+   "breakpoint",
+   "compile",
+   "eval",
+   "exec",
+   "input",
+   "open"
+  ]
+ }
+}

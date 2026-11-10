@@ -1,0 +1,62 @@
+"""SUMMARY: the vendored su2qc-trotter spinnet_v2 pairs9 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta.
+
+"""
+FAMILY = 'seed'
+PARENT = None
+
+from su2plaq.compress.builder import Builder
+
+
+def build(spec):
+    b = Builder(spec)
+    b.alloc(3, "work")
+    b.p(-0.75 * spec.alpha, 0)
+    b.p(-0.75 * spec.alpha, 1)
+    b.p(-0.75 * spec.alpha, 2)
+    b.p(-0.75 * spec.alpha, 3)
+    b.cx(3, 1)
+    b.cx(0, 3)
+    b.cx(0, 2)
+    b.h(0)
+    b.x(4)
+    b.x(5)
+    b.x(6)
+    b.x(7)
+    b.x(1)
+    b.x(2)
+    b.rccx(4, 6, 16)
+    b.rccx(5, 7, 17)
+    b.rccx(1, 2, 18)
+    b.rz(-0.24999999999999942 * spec.beta, 0)
+    b.cx(17, 0)
+    b.rz(0.24999999999999933 * spec.beta, 0)
+    b.cx(18, 0)
+    b.rz(-0.7499999999999999 * spec.beta, 0)
+    b.cx(16, 0)
+    b.rz(0.7500000000000003 * spec.beta, 0)
+    b.cx(18, 0)
+    b.rz(-0.24999999999999994 * spec.beta, 0)
+    b.cx(17, 0)
+    b.rz(-0.4999999999999998 * spec.beta, 0)
+    b.cx(3, 0)
+    b.rz(0.7499999999999996 * spec.beta, 0)
+    b.cx(18, 0)
+    b.rz(-0.7499999999999992 * spec.beta, 0)
+    b.cx(16, 0)
+    b.cx(3, 0)
+    b.rz(0.7499999999999999 * spec.beta, 0)
+    b.cx(18, 0)
+    b.rccx(1, 2, 18)
+    b.rccx(5, 7, 17)
+    b.rccx(4, 6, 16)
+    b.x(2)
+    b.x(1)
+    b.x(7)
+    b.x(6)
+    b.x(5)
+    b.x(4)
+    b.h(0)
+    b.cx(0, 2)
+    b.cx(0, 3)
+    b.cx(3, 1)
+    return b

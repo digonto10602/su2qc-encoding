@@ -1,0 +1,12 @@
+Counter({'cx': 31, 'rz': 13, 'x': 10, 'h': 10, 't': 8, 'tdg': 8, 'p': 4, 'sdg': 2, 's': 1})
+n non-commuting adjacent pairs probed: 0 all rejected: True
+reverse last cx: REJECT state 0 differs from the target
+retarget last cx: REJECT state 0 differs from the target
+program_sha256 changed (identifier only): ACCEPT
+first p exponent alpha +1: REJECT state 164 differs from the target
+s -> sdg: REJECT state 0 differs from the target
+drop last gate ( cx ): REJECT state 0 differs from the target
+x on outer qubit 8 at start: REJECT state 0 differs from the target
+x on ancilla 16 at start (dirty): REJECT state 0 differs from the target
+swap of consecutive cx sharing control/target (in-between gates ignored): 1 probes, 1 rejected
+    (55, 60, [4, 0], [0, 3], 'REJECT state 0 differs from the target')

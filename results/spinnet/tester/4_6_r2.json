@@ -1,0 +1,476 @@
+{
+ "commit_verified": "dcd080d (code identical to 57a94be / 8f1483a)",
+ "round": 2,
+ "prompt": "prompts/104",
+ "mode": "step",
+ "seeds": {
+  "angle_pairs_random": 20261107
+ },
+ "aer": {
+  "r02-F1-002": {
+   "0.37,0.61": {
+    "block_err_2norm": 1.392985180865375e-15,
+    "max_col_residual": 1.3297209902134086e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   },
+   "0.91,0.23": {
+    "block_err_2norm": 1.205322070906478e-15,
+    "max_col_residual": 1.1903388845558602e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   },
+   "1.7,1.0": {
+    "block_err_2norm": 2.0176003417992125e-15,
+    "max_col_residual": 1.7850424185070826e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   }
+  },
+  "r02-F2-002": {
+   "0.37,0.61": {
+    "block_err_2norm": 2.129869907828188e-15,
+    "max_col_residual": 1.882463350141981e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   },
+   "0.91,0.23": {
+    "block_err_2norm": 1.7901808365247242e-15,
+    "max_col_residual": 1.790180836524724e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   },
+   "1.7,1.0": {
+    "block_err_2norm": 2.653525932920149e-15,
+    "max_col_residual": 2.6535259329201464e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   }
+  },
+  "r02-F3-002": {
+   "0.37,0.61": {
+    "block_err_2norm": 2.0312308820057726e-15,
+    "max_col_residual": 1.8718044114782024e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   },
+   "0.91,0.23": {
+    "block_err_2norm": 1.7737528455652977e-15,
+    "max_col_residual": 1.773752845565297e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   },
+   "1.7,1.0": {
+    "block_err_2norm": 2.251703488323964e-15,
+    "max_col_residual": 2.0807889047828966e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   }
+  },
+  "r02-F5-002": {
+   "0.37,0.61": {
+    "block_err_2norm": 2.3341102430439353e-15,
+    "max_col_residual": 2.334110243043934e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   },
+   "0.91,0.23": {
+    "block_err_2norm": 2.563148888826739e-15,
+    "max_col_residual": 2.5631488888267375e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   },
+   "1.7,1.0": {
+    "block_err_2norm": 2.7758406539162692e-15,
+    "max_col_residual": 2.672185970663366e-15,
+    "ancilla_weight_sum": 0.0,
+    "leak_weight_sum": 0.0,
+    "outer_changed_weight_sum": 0.0
+   }
+  }
+ },
+ "keys_own": {
+  "r02-F1-002": {
+   "cx_own": 31,
+   "t_fixed_own": 16,
+   "n_rot_own": 17,
+   "t_total_own": 1086,
+   "depth_ct_own": 2258,
+   "qubits_own": 17,
+   "key_archive": [
+    31,
+    1086,
+    2258,
+    17
+   ],
+   "skeleton_same_8_pairs": true,
+   "linear_fit_worst_residual": 8.881784197001252e-16,
+   "nonzero_constant_term_rotations": 0,
+   "rot_coeffs_alpha_beta_const_over_pi": [
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.0,
+     0.31831,
+     0.0
+    ],
+    [
+     0.0,
+     -0.159155,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.159155,
+     0.0
+    ],
+    [
+     0.0,
+     -0.079577,
+     -0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     0.0,
+     -0.159155,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.159155,
+     0.0
+    ],
+    [
+     0.0,
+     -0.079577,
+     -0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ]
+   ]
+  },
+  "r02-F2-002": {
+   "cx_own": 32,
+   "t_fixed_own": 24,
+   "n_rot_own": 13,
+   "t_total_own": 832,
+   "depth_ct_own": 1554,
+   "qubits_own": 17,
+   "key_archive": [
+    32,
+    832,
+    1554,
+    17
+   ],
+   "skeleton_same_8_pairs": true,
+   "linear_fit_worst_residual": 8.881784197001252e-16,
+   "nonzero_constant_term_rotations": 0,
+   "rot_coeffs_alpha_beta_const_over_pi": [
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     0.0,
+     -0.159155,
+     -0.0
+    ]
+   ]
+  },
+  "r02-F3-002": {
+   "cx_own": 32,
+   "t_fixed_own": 24,
+   "n_rot_own": 13,
+   "t_total_own": 832,
+   "depth_ct_own": 1553,
+   "qubits_own": 18,
+   "key_archive": [
+    32,
+    832,
+    1553,
+    18
+   ],
+   "skeleton_same_8_pairs": true,
+   "linear_fit_worst_residual": 1.3322676295501878e-15,
+   "nonzero_constant_term_rotations": 4,
+   "rot_coeffs_alpha_beta_const_over_pi": [
+    [
+     -0.238732,
+     0.0,
+     0.5
+    ],
+    [
+     -0.238732,
+     0.0,
+     -0.5
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.5
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.5
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ],
+    [
+     0.0,
+     -0.159155,
+     -0.0
+    ]
+   ]
+  },
+  "r02-F5-002": {
+   "cx_own": 34,
+   "t_fixed_own": 32,
+   "n_rot_own": 10,
+   "t_total_own": 658,
+   "depth_ct_own": 1116,
+   "qubits_own": 17,
+   "key_archive": [
+    34,
+    658,
+    1116,
+    17
+   ],
+   "skeleton_same_8_pairs": true,
+   "linear_fit_worst_residual": 8.881784197001252e-16,
+   "nonzero_constant_term_rotations": 0,
+   "rot_coeffs_alpha_beta_const_over_pi": [
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     -0.238732,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     -0.238732,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     -0.0,
+     0.238732,
+     0.0
+    ],
+    [
+     0.0,
+     -0.477465,
+     -0.0
+    ],
+    [
+     -0.0,
+     0.159155,
+     0.0
+    ],
+    [
+     -0.0,
+     0.079577,
+     0.0
+    ]
+   ]
+  }
+ },
+ "lean_F1": {
+  "archived_cert": "/home/digonto/Projects/su2qc-spinnet/results/spinnet/certs/spinnet-step-o1-ec21654efa8e.json",
+  "cert_sha256": "47c71c5a31d70f0338061e2b39531263f8041adefaf120651dcfa3a5ff880d3d",
+  "checker_sha256": "ec00aa45fafa507a075313dc4650c11bf6d122cd9233588125f61a092f853de5",
+  "check_archived": "ACCEPT",
+  "same_circuit_id": true,
+  "fields_differing_besides_provenance": [],
+  "check_reexport": "ACCEPT",
+  "n_gates": 87,
+  "n_states": 433,
+  "schema": "su2plaq-cert-1",
+  "mutations": {
+   "drop_middle_gate": "REJECT state 0 differs from the target",
+   "swap_first_cx": "REJECT state 16 differs from the target",
+   "rz_plus_unit": "REJECT state 0 differs from the target",
+   "tdg_to_t": "REJECT state 0 differs from the target",
+   "phase_shift": "REJECT state 0 differs from the target",
+   "drop_state": "REJECT certificate has 432 states, the physical subspace has 433",
+   "swap_last_two_cx": "ACCEPT",
+   "insert_x": "REJECT state 0 differs from the target",
+   "remove_first_tdg": "REJECT state 0 differs from the target",
+   "last_rz_plus_unit": "REJECT state 0 differs from the target"
+  }
+ },
+ "acceptance": {
+  "G1G2G3": "3 passed 10.9 s (wall 11.3 s, 0.27 GB)",
+  "m4_all": "15 passed 2 failed (R1, L5 need step 4.7) 22 s, 0.83 GB",
+  "acceptance_check": "PASS acceptance-v12",
+  "check_lock": "LOCK OK"
+ }
+}

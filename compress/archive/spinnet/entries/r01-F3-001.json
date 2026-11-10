@@ -1,0 +1,188 @@
+{
+ "id": "r01-F3-001",
+ "program_path": "compress/programs/spinnet/F3/001-searched-flags-fused-boundary.py",
+ "program_sha256": "71527cc4c05239ea6a66fc29488fb1d28ea5e8145f8d4dd79d42f42742d22151",
+ "parent": null,
+ "family": "F3",
+ "round": 1,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  33,
+  832,
+  1570,
+  19
+ ],
+ "cell": [
+  40,
+  77
+ ],
+ "metrics_raw": {
+  "cx": 33,
+  "t_fixed": 24,
+  "n_rot": 13,
+  "t_eps": 832,
+  "t_estimate": {
+   "1e-06": 801.3311742036428,
+   "1e-10": 1319.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 832,
+   "1e-10": 1376
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 36,
+  "depth_ct": 1570,
+  "qubits": 19,
+  "gates": {
+   "cx": 33,
+   "x": 25,
+   "h": 16,
+   "rz": 13,
+   "t": 12,
+   "tdg": 12,
+   "s": 2,
+   "sdg": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 6.772541276978527e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -9.845857770347829e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.881301029635769e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.4616150789906e-15,
+  "block_error": 2.310926197987927e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.20574617385864258,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.0859196845419643e-15,
+   "max_dropped_l2": 1.1157999990503834e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.310926197987927e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.546090593649853e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    2.4614644425869556e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.299175624130714e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.584260223596557e-15,
+   "block_error": 1.961830370053296e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.19262290000915527,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8619006149354554e-15,
+    "max_dropped_l2": 1.182097426967487e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.961830370053296e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.40031800823996e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    0.0
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.405215745588179e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.787839532763714e-15,
+   "block_error": 2.612478475476247e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1856215000152588,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.4229430870376906e-15,
+    "max_dropped_l2": 1.1256044423083306e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.612478475476247e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: the ladder Clifford [CX(0,2) CX(0,1) H(0)] absorbs any pivot preload/unload from span(e,u) for free (3-qubit block CX(e->p) H CX(0,1) CX(0,2) = 2 CX), so the pivot walk may start/end at p, p^e, p^u, p^e^u at no cost.",
+  "DISCOVERY: with flags A, NOR(c0,c1), NOR(c2,c3) the minimal pivot polynomial has exactly 9 terms (10 solutions) and needs 9 pivot CX; the pair NOR(c0,c2),NOR(c1,c3) (the pairs9 seed) also reaches 9 with free endpoints.",
+  "DISCOVERY: single flag A gives 16 terms, but no parity network below 22 CX was found (beam/TSP/annealing over all 624 minimal sets), so 34 CX is that family's floor in this search."
+ ],
+ "summary": "searched U_B (scratch/proposer/f3): flags A=[u=v=0], NOR(c0,c1), NOR(c2,c3) (3 rccx pairs), a 9-term pivot phase polynomial (MILP enumeration + exact free-endpoint TSP: 9 pivot CX), and the final CX(e,p) unload fused with the ladder tail into one 2-CX Clifford; 33 CX, 13 rotations, angles k*beta/4 and -3*alpha/4 solved from the oracle and snapped to k/64.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "22d6061",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 1.636080265045166,
+ "written_utc": "2026-11-07T00:31:52Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.3e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

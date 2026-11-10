@@ -1,0 +1,1364 @@
+{
+ "commit": "de68cc8",
+ "seeds": {
+  "qiskit_ct": 12345
+ },
+ "json_provenance_commit": "7a716fc",
+ "checks": [
+  {
+   "check": "UE: own Aer error <= 1e-12 (json says 4.44e-16, ok=True)",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE: own leak/dirty/unitarity small",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE: own error vs json error (both < 1e-13..1e-14 scale)",
+   "expected": 4.440909640681155e-16,
+   "got": 1.5700924586837752e-16,
+   "tol": 5e-14,
+   "kind": "abs",
+   "ok": true
+  },
+  {
+   "check": "UB: own Aer error <= 1e-12 (json says 1.08e-14, ok=True)",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB: own leak/dirty/unitarity small",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB: own error vs json error (both < 1e-13..1e-14 scale)",
+   "expected": 1.0845947130763521e-14,
+   "got": 4.095956011446077e-15,
+   "tol": 5e-14,
+   "kind": "abs",
+   "ok": true
+  },
+  {
+   "check": "step: own Aer error <= 1e-12 (json says 1.15e-14, ok=True)",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step: own leak/dirty/unitarity small",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step: own error vs json error (both < 1e-13..1e-14 scale)",
+   "expected": 1.146616799837515e-14,
+   "got": 4.191068557469818e-15,
+   "tol": 5e-14,
+   "kind": "abs",
+   "ok": true
+  },
+  {
+   "check": "step_order2: own Aer error <= 1e-12 (json says 1.14e-14, ok=True)",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step_order2: own leak/dirty/unitarity small",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step_order2: own error vs json error (both < 1e-13..1e-14 scale)",
+   "expected": 1.1406638411595799e-14,
+   "got": 4.454513675163905e-15,
+   "tol": 5e-14,
+   "kind": "abs",
+   "ok": true
+  },
+  {
+   "check": "UB_beta_0_05: own Aer error <= 1e-12 (json says 8.41e-15, ok=True)",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_beta_0_05: own leak/dirty/unitarity small",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_beta_0_05: own error vs json error (both < 1e-13..1e-14 scale)",
+   "expected": 8.407536000786844e-15,
+   "got": 2.960499452880452e-15,
+   "tol": 5e-14,
+   "kind": "abs",
+   "ok": true
+  },
+  {
+   "check": "UB_pairs9: own Aer error <= 1e-12 (json says 7.90e-15, ok=True)",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_pairs9: own leak/dirty/unitarity small",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_pairs9: own error vs json error (both < 1e-13..1e-14 scale)",
+   "expected": 7.899945633867656e-15,
+   "got": 2.491828721524962e-15,
+   "tol": 5e-14,
+   "kind": "abs",
+   "ok": true
+  },
+  {
+   "check": "UB_flags4: own Aer error <= 1e-12 (json says 9.17e-15, ok=True)",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_flags4: own leak/dirty/unitarity small",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_flags4: own error vs json error (both < 1e-13..1e-14 scale)",
+   "expected": 9.170659027414456e-15,
+   "got": 4.190669057245939e-15,
+   "tol": 5e-14,
+   "kind": "abs",
+   "ok": true
+  },
+  {
+   "check": "paulo15 own error vs D V D at beta=0.05",
+   "expected": 9.733607918616853e-15,
+   "got": 3.4170130603040575e-15,
+   "tol": 5e-14,
+   "kind": "abs",
+   "ok": true
+  },
+  {
+   "check": "paulo15 ungauged target rejected (json 0.19967)",
+   "expected": 0.19966683329366303,
+   "got": 0.19966683329365637,
+   "tol": 1e-09,
+   "kind": "abs",
+   "ok": true
+  },
+  {
+   "check": "paulo15 expected ungauged error 2 sin(2 beta)=sin(0.1)*2?: 2*sin(0.1)",
+   "expected": 0.1996668332936563,
+   "got": 0.19966683329365637,
+   "tol": 0.002,
+   "kind": "abs",
+   "ok": true
+  },
+  {
+   "check": "paulo15 gauge: 8 minus codes (one per bright pair)",
+   "expected": 8,
+   "got": 8,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE: cx",
+   "expected": 0,
+   "got": 0,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE: t_fixed",
+   "expected": 0,
+   "got": 0,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE: n_rot",
+   "expected": 4,
+   "got": 4,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE: depth",
+   "expected": 1,
+   "got": 1,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE: qubits",
+   "expected": 8,
+   "got": 8,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE: ancilla",
+   "expected": 0,
+   "got": 0,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB: cx",
+   "expected": 54,
+   "got": 54,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB: t_fixed",
+   "expected": 56,
+   "got": 56,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB: n_rot",
+   "expected": 4,
+   "got": 4,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB: depth",
+   "expected": 67,
+   "got": 67,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB: qubits",
+   "expected": 15,
+   "got": 15,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB: ancilla",
+   "expected": 7,
+   "got": 7,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step: cx",
+   "expected": 54,
+   "got": 54,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step: t_fixed",
+   "expected": 56,
+   "got": 56,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step: n_rot",
+   "expected": 8,
+   "got": 8,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step: depth",
+   "expected": 67,
+   "got": 67,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step: qubits",
+   "expected": 15,
+   "got": 15,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step: ancilla",
+   "expected": 7,
+   "got": 7,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step_order2: cx",
+   "expected": 54,
+   "got": 54,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step_order2: t_fixed",
+   "expected": 56,
+   "got": 56,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step_order2: n_rot",
+   "expected": 12,
+   "got": 12,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step_order2: depth",
+   "expected": 67,
+   "got": 67,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step_order2: qubits",
+   "expected": 15,
+   "got": 15,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "step_order2: ancilla",
+   "expected": 7,
+   "got": 7,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE_outer_row: cx",
+   "expected": 0,
+   "got": 0,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE_outer_row: t_fixed",
+   "expected": 0,
+   "got": 0,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE_outer_row: n_rot",
+   "expected": 12,
+   "got": 12,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE_outer_row: depth",
+   "expected": 1,
+   "got": 1,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE_outer_row: qubits",
+   "expected": 16,
+   "got": 16,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UE_outer_row: ancilla",
+   "expected": 0,
+   "got": 0,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_paulo15: cx",
+   "expected": 68,
+   "got": 68,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_paulo15: t_fixed",
+   "expected": 64,
+   "got": 64,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_paulo15: n_rot",
+   "expected": 4,
+   "got": 4,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_paulo15: depth",
+   "expected": 90,
+   "got": 90,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_paulo15: qubits",
+   "expected": 15,
+   "got": 15,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_paulo15: ancilla",
+   "expected": 7,
+   "got": 7,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_beta_0_05: cx",
+   "expected": 54,
+   "got": 54,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_beta_0_05: t_fixed",
+   "expected": 56,
+   "got": 56,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_beta_0_05: n_rot",
+   "expected": 4,
+   "got": 4,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_beta_0_05: depth",
+   "expected": 67,
+   "got": 67,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_beta_0_05: qubits",
+   "expected": 15,
+   "got": 15,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_beta_0_05: ancilla",
+   "expected": 7,
+   "got": 7,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_pairs9: cx",
+   "expected": 34,
+   "got": 34,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_pairs9: t_fixed",
+   "expected": 24,
+   "got": 24,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_pairs9: n_rot",
+   "expected": 9,
+   "got": 9,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_pairs9: depth",
+   "expected": 38,
+   "got": 38,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_pairs9: qubits",
+   "expected": 11,
+   "got": 11,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_pairs9: ancilla",
+   "expected": 3,
+   "got": 3,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_flags4: cx",
+   "expected": 44,
+   "got": 44,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_flags4: t_fixed",
+   "expected": 48,
+   "got": 48,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_flags4: n_rot",
+   "expected": 4,
+   "got": 4,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_flags4: depth",
+   "expected": 60,
+   "got": 60,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_flags4: qubits",
+   "expected": 11,
+   "got": 11,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB_flags4: ancilla",
+   "expected": 3,
+   "got": 3,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief UB_paulo15: (cx,rot,T_fixed,anc)",
+   "expected": [
+    68,
+    4,
+    64,
+    7
+   ],
+   "got": [
+    68,
+    4,
+    64,
+    7
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief UB_pairs9: (cx,rot,T_fixed,anc)",
+   "expected": [
+    34,
+    9,
+    24,
+    3
+   ],
+   "got": [
+    34,
+    9,
+    24,
+    3
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief UB_flags4: (cx,rot,T_fixed,anc)",
+   "expected": [
+    44,
+    4,
+    48,
+    3
+   ],
+   "got": [
+    44,
+    4,
+    48,
+    3
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief UB: (cx,rot,T_fixed,anc)",
+   "expected": [
+    54,
+    4,
+    56,
+    7
+   ],
+   "got": [
+    54,
+    4,
+    56,
+    7
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief UB_beta_0_05: (cx,rot,T_fixed,anc)",
+   "expected": [
+    54,
+    4,
+    56,
+    7
+   ],
+   "got": [
+    54,
+    4,
+    56,
+    7
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief UE_outer_row: (cx,rot,T_fixed,anc)",
+   "expected": [
+    0,
+    12,
+    0,
+    0
+   ],
+   "got": [
+    0,
+    12,
+    0,
+    0
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UB eps=0.0001",
+   "expected": 230,
+   "got": 230,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UB eps=1e-06",
+   "expected": 310,
+   "got": 310,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UB eps=1e-08",
+   "expected": 396,
+   "got": 396,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UB eps=1e-10",
+   "expected": 468,
+   "got": 468,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UE eps=0.0001",
+   "expected": 176,
+   "got": 176,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UE eps=1e-06",
+   "expected": 256,
+   "got": 256,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UE eps=1e-08",
+   "expected": 328,
+   "got": 328,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UE eps=1e-10",
+   "expected": 416,
+   "got": 416,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total step eps=0.0001",
+   "expected": 406,
+   "got": 406,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total step eps=1e-06",
+   "expected": 566,
+   "got": 566,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total step eps=1e-08",
+   "expected": 724,
+   "got": 724,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total step eps=1e-10",
+   "expected": 884,
+   "got": 884,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UE_outer_row eps=0.0001",
+   "expected": 528,
+   "got": 528,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UE_outer_row eps=1e-06",
+   "expected": 768,
+   "got": 768,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UE_outer_row eps=1e-08",
+   "expected": 984,
+   "got": 984,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UE_outer_row eps=1e-10",
+   "expected": 1248,
+   "got": 1248,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total step_order2 eps=0.0001",
+   "expected": 566,
+   "got": 566,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total step_order2 eps=1e-06",
+   "expected": 838,
+   "got": 838,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total step_order2 eps=1e-08",
+   "expected": 1068,
+   "got": 1068,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total step_order2 eps=1e-10",
+   "expected": 1300,
+   "got": 1300,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UB_paulo15 eps=1e-6 (comparison row)",
+   "expected": 316,
+   "got": 316,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UB_pairs9 eps=1e-6 (comparison row)",
+   "expected": 576,
+   "got": 576,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UB_flags4 eps=1e-6 (comparison row)",
+   "expected": 298,
+   "got": 298,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UB eps=1e-6 (comparison row)",
+   "expected": 310,
+   "got": 310,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "T_total UB_beta_0_05 eps=1e-6 (comparison row)",
+   "expected": 304,
+   "got": 304,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief T(1e-6) UB_paulo15",
+   "expected": 316,
+   "got": 316,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief T(1e-6) UB_pairs9",
+   "expected": 576,
+   "got": 576,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief T(1e-6) UB_flags4",
+   "expected": 298,
+   "got": 298,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief T(1e-6) UB",
+   "expected": 310,
+   "got": 310,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief T(1e-6) UB_beta_0_05",
+   "expected": 304,
+   "got": 304,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "brief outer electric row T(1e-6)=768",
+   "expected": 768,
+   "got": 768,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "outer electric row synthesised verdict marked not evaluable",
+   "expected": true,
+   "got": true,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "Qiskit CT t,cx,depth UB_paulo15",
+   "expected": [
+    316,
+    68,
+    733
+   ],
+   "got": [
+    316,
+    68,
+    733
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "Qiskit CT t,cx,depth UB",
+   "expected": [
+    308,
+    54,
+    682
+   ],
+   "got": [
+    308,
+    54,
+    682
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "Qiskit CT t,cx,depth UB_beta_0_05",
+   "expected": [
+    293,
+    54,
+    657
+   ],
+   "got": [
+    293,
+    54,
+    657
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "Qiskit CT t,cx,depth UB_pairs9",
+   "expected": [
+    570,
+    34,
+    1413
+   ],
+   "got": [
+    570,
+    34,
+    1413
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "Qiskit CT t,cx,depth UB_flags4",
+   "expected": [
+    290,
+    44,
+    741
+   ],
+   "got": [
+    290,
+    44,
+    741
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "n_physical_states",
+   "expected": 433,
+   "got": 433,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "n physical (json)",
+   "expected": 433,
+   "got": 433,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "47 inner codes",
+   "expected": 47,
+   "got": 47,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "bright codes 16, pairs 8, dark 31",
+   "expected": [
+    16,
+    8,
+    31
+   ],
+   "got": [
+    16,
+    8,
+    31
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "couplings values (abs) sorted",
+   "expected": [
+    -2.0,
+    -0.5,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "got": [
+    -2.0,
+    -0.5,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "H_B spectrum multiplicities 16/96/16/177/16/96/16",
+   "expected": [
+    16,
+    96,
+    16,
+    177,
+    16,
+    96,
+    16
+   ],
+   "got": [
+    16,
+    96,
+    16,
+    177,
+    16,
+    96,
+    16
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "gauge minus count 64 (enc.gauge)",
+   "expected": 64,
+   "got": 64,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "outer patterns 128",
+   "expected": 128,
+   "got": 128,
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "outer pattern dims 2..17 hist",
+   "expected": {
+    "2": 41,
+    "3": 52,
+    "4": 8,
+    "5": 22,
+    "9": 4,
+    "17": 1
+   },
+   "got": {
+    "2": 41,
+    "3": 52,
+    "4": 8,
+    "5": 22,
+    "9": 4,
+    "17": 1
+   },
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "outer-pattern dims min/max",
+   "expected": [
+    2,
+    17
+   ],
+   "got": [
+    2,
+    17
+   ],
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  },
+  {
+   "check": "json physics histogram matches own",
+   "expected": {
+    "2": 41,
+    "3": 52,
+    "4": 8,
+    "5": 22,
+    "9": 4,
+    "17": 1
+   },
+   "got": {
+    "2": 41,
+    "3": 52,
+    "4": 8,
+    "5": 22,
+    "9": 4,
+    "17": 1
+   },
+   "tol": 0,
+   "kind": "exact",
+   "ok": true
+  }
+ ],
+ "verify": {
+  "UE": {
+   "err": 1.5700924586837752e-16,
+   "leak": 0.0,
+   "dirty": 0.0,
+   "unitarity": 2.221820545980345e-16,
+   "json_err": 4.440909640681155e-16
+  },
+  "UB": {
+   "err": 4.095956011446077e-15,
+   "leak": 2.312194919395957e-16,
+   "dirty": 5.490611379510695e-31,
+   "unitarity": 7.131885669670826e-15,
+   "json_err": 1.0845947130763521e-14
+  },
+  "step": {
+   "err": 4.191068557469818e-15,
+   "leak": 2.889862879602867e-16,
+   "dirty": 5.380498604227829e-31,
+   "unitarity": 6.9224084842748584e-15,
+   "json_err": 1.146616799837515e-14
+  },
+  "step_order2": {
+   "err": 4.454513675163905e-15,
+   "leak": 3.392389699771433e-16,
+   "dirty": 5.219702113155594e-31,
+   "unitarity": 7.788158638912555e-15,
+   "json_err": 1.1406638411595799e-14
+  },
+  "UB_beta_0_05": {
+   "err": 2.960499452880452e-15,
+   "leak": 1.8308904965675267e-16,
+   "dirty": 5.854072444290184e-31,
+   "unitarity": 5.902758829070863e-15,
+   "json_err": 8.407536000786844e-15
+  },
+  "UB_pairs9": {
+   "err": 2.491828721524962e-15,
+   "leak": 5.216347479708394e-16,
+   "dirty": 2.4531974712499494e-31,
+   "unitarity": 3.897999819571912e-15,
+   "json_err": 7.899945633867656e-15
+  },
+  "UB_flags4": {
+   "err": 4.190669057245939e-15,
+   "leak": 7.519033950566358e-16,
+   "dirty": 4.588491608250237e-31,
+   "unitarity": 6.661338147750949e-15,
+   "json_err": 9.170659027414456e-15
+  },
+  "paulo15": {
+   "err_gauged": 3.4170130603040575e-15,
+   "err_raw": 0.19966683329365637,
+   "leak": 2.234161302899046e-16,
+   "dirty": 9.46642421170866e-31
+  }
+ },
+ "T": {
+  "UB@0.0001": 230,
+  "UB@1e-06": 310,
+  "UB@1e-08": 396,
+  "UB@1e-10": 468,
+  "UE@0.0001": 176,
+  "UE@1e-06": 256,
+  "UE@1e-08": 328,
+  "UE@1e-10": 416,
+  "step@0.0001": 406,
+  "step@1e-06": 566,
+  "step@1e-08": 724,
+  "step@1e-10": 884,
+  "UE_outer_row@0.0001": 528,
+  "UE_outer_row@1e-06": 768,
+  "UE_outer_row@1e-08": 984,
+  "UE_outer_row@1e-10": 1248,
+  "step_order2@0.0001": 566,
+  "step_order2@1e-06": 838,
+  "step_order2@1e-08": 1068,
+  "step_order2@1e-10": 1300
+ },
+ "CT": {
+  "UB_paulo15": {
+   "t": 316,
+   "cx": 68,
+   "depth": 733
+  },
+  "UB": {
+   "t": 308,
+   "cx": 54,
+   "depth": 682
+  },
+  "UB_beta_0_05": {
+   "t": 293,
+   "cx": 54,
+   "depth": 657
+  },
+  "UB_pairs9": {
+   "t": 570,
+   "cx": 34,
+   "depth": 1413
+  },
+  "UB_flags4": {
+   "t": 290,
+   "cx": 44,
+   "depth": 741
+  }
+ },
+ "HB_spectrum": {
+  "-2.0": 16,
+  "-1.0": 96,
+  "-0.5": 16,
+  "0.0": 177,
+  "0.5": 16,
+  "1.0": 96,
+  "2.0": 16
+ }
+}

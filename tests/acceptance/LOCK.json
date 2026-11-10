@@ -22,6 +22,15 @@
   "tests/acceptance/m2/test_compress_machinery.py": "99fb8123d354b13f72f7764f0203af3d3b304b921fad3edbe8a9089ceda84b12",
   "tests/acceptance/m2/test_lean_formal.py": "facf0065d06f0cef6ffd28055754ba98451153f05fe32b8c01dfbfe59c0fa7c0",
   "tests/acceptance/m2/test_lean_structure.py": "7f3b67e5e914d962d240cfd6ddf206b0ba22e7345ea738bb56b15d7046a3f0be",
+  "tests/acceptance/m3/test_spinnet_circuits.py": "3690921eeb3e8e7a9e66a91647cd7f8c179f29eb25f5da69964623c4537daa1c",
+  "tests/acceptance/m3/test_spinnet_codec.py": "666035fd8c7f6fd11116e63c2d7bfe95527578247901380b7e56282f402dfcb0",
+  "tests/acceptance/m3/test_spinnet_external.py": "8ffb6f36f8f6fe41b2067a90eb2294e4b466c1d18aad8a6ac297bf45d27fc04b",
+  "tests/acceptance/m3/test_spinnet_lean.py": "350021fb6f7b8ec6f06a0672b9ad44a5bd97df7f007a3bb16213503c1cb2580a",
+  "tests/acceptance/m3/test_spinnet_metrics.py": "54dd1cefce1c7824aa621cdea0faf59472275cce8c23ec895138deb758897724",
+  "tests/acceptance/m3/test_spinnet_results.py": "b441e3886e14f3624212ab5ee0cee2187053267029b3122748fee90f0be98208",
+  "tests/acceptance/m3x/test_spinnet_lean_exact.py": "5b98b796cc317d735d6e1d45016716137634e6a4fa3376d08a8995939623eec8",
+  "tests/acceptance/m4/test_spinnet_compress.py": "0c2b653a6718a3992df5c5c9841ef7d8fa0e66f9c49d28171487ab81e7f0263f",
+  "tests/acceptance/m4/test_spinnet_compress_lean.py": "89ede4a2d921d69ec3534e3297305cc493d116af0ded16163fe7424bf2d69518",
   "tests/acceptance/m9/_fz.py": "9b9754c336c2e9ae839a2c95f9432b993e17b4fc20c83d86b8d415b02f273d5a",
   "tests/acceptance/m9/test_fuzzy_circuits.py": "a09df390cf3e464d4f0753c13055e3199ec82cb122341a6c48772b0af83907d2",
   "tests/acceptance/m9/test_fuzzy_codec_gauss.py": "555035d655224402a9597b6fac69c75588cd12f102526fd0008a6b466a398dea",
@@ -37,6 +46,9 @@
   "m1",
   "m2",
   "m9",
-  "m10"
+  "m10",
+  "m3",
+  "m3x",
+  "m4"
  ]
 }

@@ -1,0 +1,15 @@
+{
+ "commit": "a7f8dcf", "date": "2026-11-06", "mode": "full", "branch": "m3-spin-network",
+ "machine": "desktop, taskset -c 0-9, pytest -n 10, env su2qc-coding, OMP/OPENBLAS/MKL threads=1", "seed": "none (tests use their own fixed seeds)",
+ "lean_build": {"commands": ["lake build Su2Plaq.Gates Su2Plaq.Rewrites", "lake build Su2Plaq Su2PlaqCert", "lake build", "lake build --no-build"],
+   "wall_s": [7.61, 8.60, 2.70], "peak_rss_kb": [6907084, 6811944, 1100692], "counts_lean_rebuilt": false, "counts_olean_mtime": "2026-11-05 23:54 (unchanged)", "native_decide_in_Su2Plaq": 0},
+ "suites": {
+  "m0":  {"passed": 34,  "failed": 0, "skipped": 0, "wall_s": 12.4,  "peak_rss_kb": 663344},
+  "m1":  {"passed": 22,  "failed": 0, "skipped": 0, "wall_s": 101.3, "peak_rss_kb": 1595992},
+  "m2":  {"passed": 46,  "failed": 0, "skipped": 0, "wall_s": 125.1, "peak_rss_kb": 6820956},
+  "m3":  {"passed": 23,  "failed": 1, "skipped": 0, "wall_s": 6.4,   "peak_rss_kb": 6818392, "failing": ["test_M3_L3_native_certificate_general_step"]},
+  "m3x": {"passed": 4,   "failed": 0, "skipped": 0, "wall_s": 4.8,   "peak_rss_kb": 6818648},
+  "unit":{"passed": 489, "failed": 0, "skipped": 0, "wall_s": 137.5, "peak_rss_kb": 6808476}},
+ "acceptance_check": {"exit": 1, "reference_tag": "acceptance-v9", "changed": ["LOCK.json", "m2/test_compress_machinery.py", "m2/test_lean_formal.py"], "check_lock_py": "LOCK OK"},
+ "peak_rss_single_process_kb": 6810928, "peak_rss_sum_of_rss_sampled_kb": 19959116, "memguard_kills_during_run": 0
+}

@@ -1,0 +1,8 @@
+{"report": "reports/tests/110-m4-steps-4-0-4-1.md", "commit": "b346556 + uncommitted builder work (4.0/4.1)", "date": "2026-11-06",
+ "seed": "none (deterministic; no stochastic test)", "machine": "desktop, cores 0-9, OMP/OPENBLAS/MKL threads = 1",
+ "m4_acceptance": {"passed": 8, "failed": 9, "pending_labelled": 4, "failed_on_empty_archive_or_missing_results": 5},
+ "m0_m3x_nonslow": {"passed": 121, "failed": 0, "wall_s": 133.0, "max_rss_gb": 6.82},
+ "m0_m3x_slow": {"passed": 9, "failed": 0, "wall_s": 105.2, "max_rss_gb": 1.54},
+ "unit": {"passed": 537, "failed": 0, "wall_s": 183.3, "max_rss_gb": 6.81},
+ "m4_run": {"wall_s": 6.8, "max_rss_gb": 0.83},
+ "probe_b_twelve_general_key": {"plain": [294, 952, 1421, 50], "shim": [294, 952, 1421, 50], "committed": [294, 952, 1421, 50], "op_norm_error": 2.68813143571731e-13}}

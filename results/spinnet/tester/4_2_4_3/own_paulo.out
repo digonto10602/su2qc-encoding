@@ -1,0 +1,28 @@
+{
+ "n_qubits": 23,
+ "beta": 0.05,
+ "err_raw_vs_ungauged_target": 0.19966683329365637,
+ "err_vs_loop_gauge": 3.4170130603040575e-15,
+ "err_vs_own_gauge": 0.0999583385413568,
+ "ancilla_leak_weight": 0.0,
+ "outer_changed": 0.0,
+ "n_components_of_big_entry_graph": 417,
+ "loop_gauge_n_minus_states": 128,
+ "loop_gauge_minus_data_codes": [
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15
+ ],
+ "loop_gauge_pm1": true,
+ "len_gauge": 433,
+ "ratio_matrix_consistency": "no inconsistency raised",
+ "max_offdiag_diff_gauges": 0.0999583385413567,
+ "states_with_data_code_in_8_15": 128,
+ "loop_minus_states_equal_that_set": true,
+ "err_with_random_8_negative_vector": 0.19966683329365625
+}

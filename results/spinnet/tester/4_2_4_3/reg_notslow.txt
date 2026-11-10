@@ -1,0 +1,29 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [ 59%]
+.................................................                        [100%]
+121 passed in 110.75s (0:01:50)
+	Command being timed: "taskset -c 0-9 python -m pytest -p no:cacheprovider -n 10 -q -m not slow tests/acceptance/m0 tests/acceptance/m1 tests/acceptance/m2 tests/acceptance/m3 tests/acceptance/m3x"
+	User time (seconds): 749.56
+	System time (seconds): 30.60
+	Percent of CPU this job got: 702%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:50.98
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6823312
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2
+	Minor (reclaiming a frame) page faults: 5683191
+	Voluntary context switches: 27517
+	Involuntary context switches: 93802
+	Swaps: 0
+	File system inputs: 16
+	File system outputs: 30512
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

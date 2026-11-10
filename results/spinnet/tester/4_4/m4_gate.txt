@@ -1,0 +1,70 @@
+bringing up nodes...
+bringing up nodes...
+
+.F.F..                                                                   [100%]
+=================================== FAILURES ===================================
+_____________________ test_M4_R1_results_and_before_after ______________________
+[gw3] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+
+root = PosixPath('/home/digonto/Projects/su2qc-spinnet')
+
+    @pytest.mark.slow
+    def test_M4_R1_results_and_before_after(root):
+        """results/spinnet/m4-compressed.json (clean commit): the archive best re-verified, T(eps) tables with certified
+        synthesised verdicts, the before/after rows with a Lean column, the lineage and the outer electric row; the markdown
+        table names the global best."""
+        L = _loop()
+        A = api("su2plaq.compress.archive")
+        best = A.Archive.load(ENC, root=root).best()
+        f = root / "results" / ENC / "m4-compressed.json"
+>       assert f.exists(), "run scripts/m4_results.py on a clean commit"
+E       AssertionError: run scripts/m4_results.py on a clean commit
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/home/digonto/Projects/su2qc-spinnet/results/spinnet/m4-compressed.json').exists
+
+tests/acceptance/m4/test_spinnet_compress.py:498: AssertionError
+______________ test_M4_L5_final_best_lean_status_and_theorem_file ______________
+[gw1] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python
+
+root = PosixPath('/home/digonto/Projects/su2qc-spinnet')
+
+    @pytest.mark.slow
+    def test_M4_L5_final_best_lean_status_and_theorem_file(root):
+        """After the loop: the real archive's global best carries a Lean status (`certified`, or `n_a` for the two allowed
+        reasons); when certified, the theorem file lean/certs/spinnet-best-step.lean elaborates with the standard axioms plus
+        exactly one native axiom; the report has a Lean column."""
+        L = _loop()
+        _lean_dir(root)
+        A = api("su2plaq.compress.archive")
+        best = A.Archive.load(ENC, root=root).best()
+        assert best is not None and isinstance(best.lean, dict), best
+        assert best.lean["status"] in ("certified", "n_a"), best.lean
+        if best.lean["status"] == "n_a":
+            assert best.lean["reason"].startswith(("non_linear_angle", "phase_not_in_K")), best.lean
+        else:
+            f = root / "lean" / "certs" / "spinnet-best-step.lean"
+>           assert f.exists(), "write_theorem_file for the final best (step 4.7)"
+E           AssertionError: write_theorem_file for the final best (step 4.7)
+E           assert False
+E            +  where False = exists()
+E            +    where exists = PosixPath('/home/digonto/Projects/su2qc-spinnet/lean/certs/spinnet-best-step.lean').exists
+
+tests/acceptance/m4/test_spinnet_compress_lean.py:187: AssertionError
+==================================== PASSES ====================================
+============================== slowest durations ===============================
+41.64s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_G2_archive_best_second_engine_aer
+22.82s call     tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L2_seed_round_records_certificates
+4.71s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_G1_archive_best_reverified_from_source
+0.76s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_G3_loop_budget_and_lineage
+0.71s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_R1_results_and_before_after
+
+(13 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G3_loop_budget_and_lineage
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G1_archive_best_reverified_from_source
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L2_seed_round_records_certificates
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G2_archive_best_second_engine_aer
+FAILED tests/acceptance/m4/test_spinnet_compress.py::test_M4_R1_results_and_before_after
+FAILED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L5_final_best_lean_status_and_theorem_file
+2 failed, 4 passed in 44.00s

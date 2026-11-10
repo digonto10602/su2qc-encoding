@@ -1,0 +1,67 @@
+{
+ "C1_twoK_sympy_exact_equals_exported": true,
+ "C1_twoK_values_sorted_set": [
+  -4,
+  -1,
+  0,
+  2
+ ],
+ "C1_offflip_all_zero": true,
+ "C1_max|K_sympy - K_codes_production|": 1.7763568394002505e-15,
+ "C1_lean_kEntry_vs_sympy_mismatches_of_2209": 0,
+ "C1_lean_kEntry_none_count": 0,
+ "C2_lean_gate_list_equals_qiskit_build_UB": {
+  "1.0": true,
+  "0.61": true,
+  "0.05": true,
+  "2.3": true,
+  "-0.7": true
+ },
+ "C2_n_gates": 48,
+ "C2_gate_counts": {
+  "cx": 12,
+  "h": 2,
+  "x": 16,
+  "rccx": 14,
+  "rz": 4
+ },
+ "C3_lean_terms": 95,
+ "C3_max|lean_run - qiskit_statevector| (6 betas x 47 codes)": 9.857939381170189e-15,
+ "C3_max|lean_run - expm(-i beta K_production)|": 7.18018287290146e-15,
+ "C3_max qiskit ancilla/outside-data amplitude": 0.0,
+ "C4_max_dev": 2.220446049250313e-16,
+ "C4_n_cases": 26,
+ "C4_worst_case": "rz(0,)6",
+ "C5_n_eigvecs": 433,
+ "C5_H_symmetric_dev": 0.0,
+ "C5_max|H V - V diag(lambda)|": 1.7763568394002505e-15,
+ "C5_max offdiag Gram (orthogonality)": 0.0,
+ "C5_min diag Gram": 1.0,
+ "C5_rank V": 433,
+ "C5_lean_vs_eigvalsh_sorted_maxdev": 1.7763568394002505e-15,
+ "C5_multiplicities_2lambda": {
+  "-4": 16,
+  "-2": 96,
+  "-1": 16,
+  "0": 177,
+  "1": 16,
+  "2": 96,
+  "4": 16
+ },
+ "C5_pairs_per_block_dups": 0,
+ "C5_max|Lean hb2/2 - production h_magnetic| (433x433 dense)": 1.7763568394002505e-15,
+ "C5_hb2_nonzero_entries": 256,
+ "_meta": {
+  "commit": "d55fa94+uncommitted",
+  "seed": null,
+  "betas_C3": [
+   0.61,
+   1.0,
+   0.05,
+   2.3,
+   -0.7,
+   3.9
+  ],
+  "beta_C4": 0.61
+ }
+}

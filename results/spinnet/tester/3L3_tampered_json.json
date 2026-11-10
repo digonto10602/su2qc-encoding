@@ -1,0 +1,97 @@
+[
+ {
+  "name": "control_valid",
+  "line": "ACCEPT",
+  "ok": true
+ },
+ {
+  "name": "swap_two_states",
+  "line": "REJECT states differ from the pinned exact spin-network states (SHA-256)",
+  "ok": true
+ },
+ {
+  "name": "drop_last_state",
+  "line": "REJECT certificate has 432 states, the physical subspace has 433",
+  "ok": true
+ },
+ {
+  "name": "state_support_on_ancilla",
+  "line": "REJECT state has support on an ancilla qubit",
+  "ok": true
+ },
+ {
+  "name": "duplicate_state_code",
+  "line": "REJECT states 5 and 6 are not orthogonal",
+  "ok": true
+ },
+ {
+  "name": "state_not_normalised",
+  "line": "REJECT state 7 is not normalised",
+  "ok": true
+ },
+ {
+  "name": "target_coeff_changed",
+  "line": "REJECT target differs from the pinned exact step target (SHA-256)",
+  "ok": true
+ },
+ {
+  "name": "target_extra_term",
+  "line": "REJECT target differs from the pinned exact step target (SHA-256)",
+  "ok": true
+ },
+ {
+  "name": "kind_UB_with_step_target",
+  "line": "REJECT target differs from the pinned exact UB target (SHA-256)",
+  "ok": true
+ },
+ {
+  "name": "order2_with_order1_target",
+  "line": "REJECT base must be a positive multiple of the target's base",
+  "ok": true
+ },
+ {
+  "name": "base_doubled_unscaled",
+  "line": "REJECT target exponent not divisible by the base ratio",
+  "ok": true
+ },
+ {
+  "name": "phase_wrong",
+  "line": "REJECT state 0 differs from the target",
+  "ok": true
+ },
+ {
+  "name": "phase_omega",
+  "line": "REJECT state 0 differs from the target",
+  "ok": true
+ },
+ {
+  "name": "empty_gate_list",
+  "line": "REJECT state 0 differs from the target",
+  "ok": true
+ },
+ {
+  "name": "last_gate_dropped_json",
+  "line": "REJECT state 0 differs from the target",
+  "ok": true
+ },
+ {
+  "name": "n_data_12",
+  "line": "REJECT the spin-network encoding has 8 data and 8 outer qubits",
+  "ok": true
+ },
+ {
+  "name": "no_target",
+  "line": "REJECT certificate has no target",
+  "ok": true
+ },
+ {
+  "name": "bad_schema",
+  "line": "REJECT unknown schema su2plaq-cert-2",
+  "ok": true
+ },
+ {
+  "name": "laptop_checker_on_spinnet_cert",
+  "line": "REJECT states differ from the pinned exact physical basis (SHA-256)",
+  "ok": true
+ }
+]

@@ -10,3 +10,6 @@ import Su2Plaq.Structure.Counts
 import Su2Plaq.Structure.Commute
 import Su2Plaq.Fuzzy.Counts
 import Su2Plaq.Fuzzy.Link
+import Su2Plaq.SpinNet.Counts
+import Su2Plaq.SpinNet.Circuit
+import Su2Plaq.SpinNet.Bridge

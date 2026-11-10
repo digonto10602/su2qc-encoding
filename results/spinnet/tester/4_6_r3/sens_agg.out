@@ -1,0 +1,19 @@
+CX r03/r02: {31} {31}
+nominal (first pair): T r03, r02 = 1062 1086  (keys 1062, 1086)
+T(r03)-T(r02), 20 random pairs: n=20 mean=13.20 std=10.14 sem=2.27 min=-8 max=32 median=8.0  frac<0=0.05 frac==0=0.05 frac>0=0.90
+T(r03)-T(r02), all 23 pairs: n=23 mean=10.78 std=12.44 sem=2.59 min=-24 max=32 median=8.0  frac<0=0.09 frac==0=0.09 frac>0=0.83
+T(r03)-T(r02), 3 official pairs: n=3 mean=-5.33 std=16.65 sem=9.61 min=-24 max=8 median=0.0  frac<0=0.33 frac==0=0.33 frac>0=0.33
+   official (0.37, 0.61) 1062 1086 -24
+   official (0.91, 0.23) 1086 1078 8
+   official (1.7, 1.0) 1102 1102 0
+mean T r03 (20 random): 1091.2  mean T r02: 1078.0  F2-r02 (32CX) mean: 835.0 F2-r03 mean 1091.2
+F1-r03 == F2-r03 T at every pair: True
+mean T(r03 F2, 31 CX) - T(r02 F2, 32 CX) (20 random): 256.2  nominal: 230
+n_rot 17 17 kinds r03 pppprrrrrrrrrrrrr r02 pppprrrrrrrrrrrrr
+T_fixed r03: {np.int64(24)}  r02: {np.int64(16)}
+synth T (rot) r03-r02, 20 random: mean 5.20; fixed T diff = 8
+U_E (4 p gates) synth T: r03 mean 252.80 r02 mean 249.60 (20 random); nominal r03 232 r02 256
+walk (13 rz) synth T: r03 mean 814.40 r02 mean 812.40 (20 random); nominal r03 806 r02 814
+U_E net (synth + 4 explicit T): r03-r02 mean 7.20; walk net: 6.00
+expected T-per-rotation scale ~ 62.470588235294116
+number of random pairs (of 20) with D <= -24: 0  best: -8

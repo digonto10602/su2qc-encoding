@@ -1,0 +1,250 @@
+{
+ "commit": "1a942f2",
+ "mode": "step",
+ "report": "reports/tests/112-m4-round-000.md",
+ "angle_pairs": [
+  [
+   0.37,
+   0.61
+  ],
+  [
+   0.91,
+   0.23
+  ],
+  [
+   1.7,
+   1.0
+  ]
+ ],
+ "target": "scipy expm of exact.spinnet route-B H_B (6j) x diag e^{-i alpha H_E}",
+ "seeds": {
+  "paulo_random_gauge": 20261104
+ },
+ "aer_433_states": {
+  "000-general@0.37,0.61": {
+   "err": 4.347094734970588e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 731.6023948192596
+  },
+  "000-general@0.91,0.23": {
+   "err": 3.4659998329438127e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 714.230250120163
+  },
+  "000-general@1.7,1.0": {
+   "err": 5.523398080203234e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 631.9180233478546
+  },
+  "001-spinnet_v2_pairs9@0.37,0.61": {
+   "err": 2.6864232864032027e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 46.90682291984558
+  },
+  "001-spinnet_v2_pairs9@0.91,0.23": {
+   "err": 1.5321504547024511e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 47.835766315460205
+  },
+  "001-spinnet_v2_pairs9@1.7,1.0": {
+   "err": 2.8043111069756566e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 55.06881856918335
+  },
+  "002-spinnet_v2_flags4@0.37,0.61": {
+   "err": 4.40655437930855e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 56.64458441734314
+  },
+  "002-spinnet_v2_flags4@0.91,0.23": {
+   "err": 3.553147333202951e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 54.33167028427124
+  },
+  "002-spinnet_v2_flags4@1.7,1.0": {
+   "err": 6.320492723450695e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 57.80019927024841
+  },
+  "003-spinnet_v2_flags5@0.37,0.61": {
+   "err": 3.245762396157949e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 59.0898277759552
+  },
+  "003-spinnet_v2_flags5@0.91,0.23": {
+   "err": 3.1791949213824916e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 56.695855140686035
+  },
+  "003-spinnet_v2_flags5@1.7,1.0": {
+   "err": 4.483579947243754e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 60.717835426330566
+  },
+  "004-spinnet_v2_flags6@0.37,0.61": {
+   "err": 2.6862616286484514e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 46.929219484329224
+  },
+  "004-spinnet_v2_flags6@0.91,0.23": {
+   "err": 2.124706989126661e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 47.887253284454346
+  },
+  "004-spinnet_v2_flags6@1.7,1.0": {
+   "err": 3.2060326771635225e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 19,
+   "wall": 56.64137530326843
+  },
+  "010-general_polish@0.37,0.61": {
+   "err": 4.347094734970588e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 765.5085897445679
+  },
+  "010-general_polish@0.91,0.23": {
+   "err": 3.4659998329438127e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 709.2678773403168
+  },
+  "010-general_polish@1.7,1.0": {
+   "err": 5.523398080203234e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 621.4943749904633
+  },
+  "011-qiskit_l3@0.37,0.61": {
+   "err": 4.121620556086836e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 726.4370634555817
+  },
+  "011-qiskit_l3@0.91,0.23": {
+   "err": 3.450612841012425e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 708.6855654716492
+  },
+  "011-qiskit_l3@1.7,1.0": {
+   "err": 5.221426043834572e-15,
+   "ancilla_or_leak_weight_max_sum": 0.0,
+   "outer_changed_sum": 0.0,
+   "n_qubits": 23,
+   "wall": 616.0476324558258
+  }
+ },
+ "paulo15": {
+  "n_qubits": 23,
+  "beta": 0.05,
+  "err_raw_vs_ungauged_target": 0.19966683329365637,
+  "err_vs_loop_gauge": 3.4170130603040575e-15,
+  "err_vs_own_gauge": 3.4170130603040575e-15,
+  "ancilla_leak_weight": 0.0,
+  "outer_changed": 0.0,
+  "n_components_of_big_entry_graph": 305,
+  "loop_gauge_n_minus_states": 128,
+  "loop_gauge_minus_data_codes": [
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "loop_gauge_pm1": true,
+  "len_gauge": 433,
+  "ratio_matrix_consistency": "no inconsistency raised",
+  "max_offdiag_diff_gauges": 0.0,
+  "states_with_data_code_in_8_15": 128,
+  "loop_minus_states_equal_that_set": true,
+  "err_with_random_8_negative_vector": 0.19966683329365625
+ },
+ "memory": {
+  "m4_all.err": {
+   "max_rss_GB": 0.833264,
+   "wall": "0:35.55"
+  },
+  "m4_gate.err": {
+   "max_rss_GB": 0.830968,
+   "wall": "0:44.60"
+  },
+  "own_000-general.err": {
+   "max_rss_GB": 0.504724,
+   "wall": "34:39.59"
+  },
+  "own_001-spinnet.err": {
+   "max_rss_GB": 0.266656,
+   "wall": "2:31.14"
+  },
+  "own_002-spinnet.err": {
+   "max_rss_GB": 0.267752,
+   "wall": "2:50.27"
+  },
+  "own_003-spinnet.err": {
+   "max_rss_GB": 0.266824,
+   "wall": "2:58.57"
+  },
+  "own_004-spinnet.err": {
+   "max_rss_GB": 0.269156,
+   "wall": "2:33.02"
+  },
+  "own_010-general.err": {
+   "max_rss_GB": 0.506704,
+   "wall": "34:57.75"
+  },
+  "own_011-qiskit.err": {
+   "max_rss_GB": 0.50538,
+   "wall": "34:12.40"
+  },
+  "own_paulo2.err": {
+   "max_rss_GB": 0.480468,
+   "wall": "14:24.70"
+  },
+  "reg.err": {
+   "max_rss_GB": 6.82626,
+   "wall": "2:03.12"
+  },
+  "unit.err": {
+   "max_rss_GB": 6.81166,
+   "wall": "2:52.96"
+  }
+ }
+}

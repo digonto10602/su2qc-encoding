@@ -1,0 +1,1917 @@
+{
+ "commit": "9c0aee6",
+ "branch": "m3-spin-network",
+ "report": "reports/benchmarks/100-m3-spinnet.md",
+ "machine": {
+  "host": "SupremeCommander",
+  "cpu": "see report",
+  "cores_used": "taskset -c 0-9",
+  "other_track_concurrent": "rishon track jobs on cores 10-19 (not controlled)",
+  "env": {
+   "OMP_NUM_THREADS": 1,
+   "OPENBLAS_NUM_THREADS": 1,
+   "MKL_NUM_THREADS": 1,
+   "PYTHONHASHSEED": 20261104
+  }
+ },
+ "seeds": {
+  "ct_compile": 12345,
+  "transpiler_logical": 20261104,
+  "note": "no stochastic call timed"
+ },
+ "repeats": "enc_build 5 fresh processes; each eval/synth task 3 fresh processes (4 evaluate calls each: 1 cold + 3 warm; synth: 3+3); m3_results 3; pytest suites 3",
+ "scripts": [
+  "results/benchmarks/spinnet-m3-scripts/bench_worker_m3.py",
+  "results/benchmarks/spinnet-m3-scripts/bench_driver_m3.py"
+ ],
+ "raw": {
+  "tasks": {
+   "enc_build": [
+    {
+     "task": "enc_build",
+     "times": {
+      "import_evaluator": [
+       0.07832112399773905
+      ],
+      "import_spinnet": [
+       0.1067935250030132
+      ],
+      "SpinNet()": [
+       0.16095028099880437,
+       0.047285239001212176,
+       0.050086732997442596,
+       0.04977030400186777
+      ],
+      "target_UB": [
+       0.017781161001039436,
+       0.009600134999345755,
+       0.009064443998795468
+      ],
+      "inner_target_UB": [
+       0.00013821899847243913,
+       3.2619998819427565e-05,
+       2.836299972841516e-05
+      ]
+     },
+     "rss_mb": 192.0703125,
+     "out": {
+      "n_phys": 433,
+      "n_inner": 47,
+      "gauge_residual": 2.6645352591003757e-15
+     }
+    },
+    {
+     "task": "enc_build",
+     "times": {
+      "import_evaluator": [
+       0.07930916300028912
+      ],
+      "import_spinnet": [
+       0.10747416300000623
+      ],
+      "SpinNet()": [
+       0.1624442469983478,
+       0.04792489900137298,
+       0.05022779499995522,
+       0.05005251000329736
+      ],
+      "target_UB": [
+       0.017843615998572204,
+       0.009693942000012612,
+       0.009271003000321798
+      ],
+      "inner_target_UB": [
+       0.00016181199680431746,
+       3.433099846006371e-05,
+       2.836400017258711e-05
+      ]
+     },
+     "rss_mb": 192.0234375,
+     "out": {
+      "n_phys": 433,
+      "n_inner": 47,
+      "gauge_residual": 2.6645352591003757e-15
+     }
+    },
+    {
+     "task": "enc_build",
+     "times": {
+      "import_evaluator": [
+       0.07814698700167355
+      ],
+      "import_spinnet": [
+       0.10627613199903863
+      ],
+      "SpinNet()": [
+       0.16102322100050515,
+       0.04715653499806649,
+       0.05065433399795438,
+       0.05091137799900025
+      ],
+      "target_UB": [
+       0.01841921300001559,
+       0.00968115900104749,
+       0.009127824996539857
+      ],
+      "inner_target_UB": [
+       0.0001374729981762357,
+       3.2814001315273345e-05,
+       2.8283997380640358e-05
+      ]
+     },
+     "rss_mb": 191.9921875,
+     "out": {
+      "n_phys": 433,
+      "n_inner": 47,
+      "gauge_residual": 2.6645352591003757e-15
+     }
+    },
+    {
+     "task": "enc_build",
+     "times": {
+      "import_evaluator": [
+       0.07779512200067984
+      ],
+      "import_spinnet": [
+       0.10584542599826818
+      ],
+      "SpinNet()": [
+       0.16154542799995397,
+       0.047288789002777776,
+       0.050307809997320874,
+       0.05028578999917954
+      ],
+      "target_UB": [
+       0.0180830609970144,
+       0.009473398000409361,
+       0.008956486999522895
+      ],
+      "inner_target_UB": [
+       0.00013388899969868362,
+       3.294199996162206e-05,
+       2.7870999474544078e-05
+      ]
+     },
+     "rss_mb": 192.0078125,
+     "out": {
+      "n_phys": 433,
+      "n_inner": 47,
+      "gauge_residual": 2.6645352591003757e-15
+     }
+    },
+    {
+     "task": "enc_build",
+     "times": {
+      "import_evaluator": [
+       0.0785594230001152
+      ],
+      "import_spinnet": [
+       0.10630140899957041
+      ],
+      "SpinNet()": [
+       0.16170240100109368,
+       0.047932387999026105,
+       0.050613121999049326,
+       0.04991487299776054
+      ],
+      "target_UB": [
+       0.017925396001373883,
+       0.009639034000429092,
+       0.009133141000347678
+      ],
+      "inner_target_UB": [
+       0.0001380930007144343,
+       3.270500019425526e-05,
+       3.1027000659378245e-05
+      ]
+     },
+     "rss_mb": 191.8984375,
+     "out": {
+      "n_phys": 433,
+      "n_inner": 47,
+      "gauge_residual": 2.6645352591003757e-15
+     }
+    }
+   ],
+   "eval_UB_outer_physical": [
+    {
+     "task": "eval_UB_outer_physical",
+     "times": {
+      "import_evaluator": [
+       0.07844633999775397
+      ],
+      "SpinNet()_in_task": [
+       0.16292338499988546
+      ],
+      "build_UB_outer_cold": [
+       0.049304039999697125
+      ],
+      "build_UB_outer_warm": [
+       0.0012816039998142514,
+       0.0012542130025394727,
+       0.0012593850005941931
+      ],
+      "evaluate": [
+       0.5092190710020077,
+       0.16738247799730743,
+       0.16732618000241928,
+       0.16586947499672533
+      ]
+     },
+     "rss_mb": 231.87890625,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.03477950855769e-14,
+      "block": 3.65186667140949e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "physical",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.1656818389892578,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "rz": 4,
+       "h": 2
+      },
+      "nq": 23
+     }
+    },
+    {
+     "task": "eval_UB_outer_physical",
+     "times": {
+      "import_evaluator": [
+       0.08083136200002627
+      ],
+      "SpinNet()_in_task": [
+       0.16188599800079828
+      ],
+      "build_UB_outer_cold": [
+       0.048997719000908546
+      ],
+      "build_UB_outer_warm": [
+       0.0012750460009556264,
+       0.0012488030006352346,
+       0.0012261359988769982
+      ],
+      "evaluate": [
+       0.4966317459984566,
+       0.1681267599997227,
+       0.16645774499920662,
+       0.16581980000046315
+      ]
+     },
+     "rss_mb": 231.58984375,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.03477950855769e-14,
+      "block": 3.65186667140949e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "physical",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16562557220458984,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "rz": 4,
+       "h": 2
+      },
+      "nq": 23
+     }
+    },
+    {
+     "task": "eval_UB_outer_physical",
+     "times": {
+      "import_evaluator": [
+       0.07954412799881538
+      ],
+      "SpinNet()_in_task": [
+       0.16300785400017048
+      ],
+      "build_UB_outer_cold": [
+       0.050188705001346534
+      ],
+      "build_UB_outer_warm": [
+       0.001268086998607032,
+       0.0012253120003151707,
+       0.0012246340011188295
+      ],
+      "evaluate": [
+       0.49960943699989,
+       0.16825043100106996,
+       0.16554985800030408,
+       0.1658599080001295
+      ]
+     },
+     "rss_mb": 231.56640625,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.03477950855769e-14,
+      "block": 3.65186667140949e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "physical",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16567444801330566,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "rz": 4,
+       "h": 2
+      },
+      "nq": 23
+     }
+    }
+   ],
+   "eval_UB_auto": [
+    {
+     "task": "eval_UB_auto",
+     "times": {
+      "import_evaluator": [
+       0.07841560100132483
+      ],
+      "SpinNet()_in_task": [
+       0.16159842500201194
+      ],
+      "evaluate": [
+       0.5027783359983005,
+       0.16727447200173629,
+       0.16798016499888035,
+       0.16716818399800104
+      ]
+     },
+     "rss_mb": 233.1328125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.0845947130763521e-14,
+      "block": 4.15001871659611e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16695499420166016,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "rz": 4,
+       "h": 2
+      }
+     }
+    },
+    {
+     "task": "eval_UB_auto",
+     "times": {
+      "import_evaluator": [
+       0.0779156079988752
+      ],
+      "SpinNet()_in_task": [
+       0.16195106899976963
+      ],
+      "evaluate": [
+       0.5035151829979441,
+       0.16767741600051522,
+       0.16799205499773961,
+       0.16916698099885252
+      ]
+     },
+     "rss_mb": 232.74609375,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.0845947130763521e-14,
+      "block": 4.15001871659611e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.1689443588256836,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "rz": 4,
+       "h": 2
+      }
+     }
+    },
+    {
+     "task": "eval_UB_auto",
+     "times": {
+      "import_evaluator": [
+       0.07790420799938147
+      ],
+      "SpinNet()_in_task": [
+       0.1645151379998424
+      ],
+      "evaluate": [
+       0.49954047100254684,
+       0.16715076599939493,
+       0.16725181999936467,
+       0.16639670400036266
+      ]
+     },
+     "rss_mb": 233.1015625,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.0845947130763521e-14,
+      "block": 4.15001871659611e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16621160507202148,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "rz": 4,
+       "h": 2
+      }
+     }
+    }
+   ],
+   "eval_UE": [
+    {
+     "task": "eval_UE",
+     "times": {
+      "import_evaluator": [
+       0.07927743199979886
+      ],
+      "SpinNet()_in_task": [
+       0.1662513660012337
+      ],
+      "evaluate": [
+       0.14998468499834416,
+       0.1443021230006707,
+       0.14441544999863254,
+       0.14490467599898693
+      ]
+     },
+     "rss_mb": 190.8125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 4.440909640681155e-16,
+      "block": 4.440909640681155e-16,
+      "leak_amp": 0.0,
+      "gauss": 5.302695275805847e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.14468717575073242
+     }
+    },
+    {
+     "task": "eval_UE",
+     "times": {
+      "import_evaluator": [
+       0.0780075200018473
+      ],
+      "SpinNet()_in_task": [
+       0.16001656600201386
+      ],
+      "evaluate": [
+       0.155240412997955,
+       0.14534632899813005,
+       0.14568931199755752,
+       0.1442181009988417
+      ]
+     },
+     "rss_mb": 191.5703125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 4.440909640681155e-16,
+      "block": 4.440909640681155e-16,
+      "leak_amp": 0.0,
+      "gauss": 5.302695275805847e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.1440420150756836
+     }
+    },
+    {
+     "task": "eval_UE",
+     "times": {
+      "import_evaluator": [
+       0.07831592499860562
+      ],
+      "SpinNet()_in_task": [
+       0.16304883100019651
+      ],
+      "evaluate": [
+       0.14992817399979685,
+       0.14489848300218,
+       0.14446785100153647,
+       0.1443061089994444
+      ]
+     },
+     "rss_mb": 190.75390625,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 4.440909640681155e-16,
+      "block": 4.440909640681155e-16,
+      "leak_amp": 0.0,
+      "gauss": 5.302695275805847e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.14413166046142578
+     }
+    }
+   ],
+   "eval_step1": [
+    {
+     "task": "eval_step1",
+     "times": {
+      "import_evaluator": [
+       0.07867561699822545
+      ],
+      "SpinNet()_in_task": [
+       0.169537132998812
+      ],
+      "build_step_cold": [
+       0.049540658001205884
+      ],
+      "build_step_warm": [
+       0.0013171669997973368,
+       0.0012928770011058077,
+       0.0012859170019510202
+      ],
+      "evaluate": [
+       0.5010675080011424,
+       0.16783150899937027,
+       0.16778791999968234,
+       0.16728977800084976
+      ]
+     },
+     "rss_mb": 232.515625,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.146616799837515e-14,
+      "block": 4.151696870714565e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.53721994457912e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16706371307373047,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "p": 4,
+       "rz": 4,
+       "h": 2
+      }
+     }
+    },
+    {
+     "task": "eval_step1",
+     "times": {
+      "import_evaluator": [
+       0.07915507800134947
+      ],
+      "SpinNet()_in_task": [
+       0.16130177899685805
+      ],
+      "build_step_cold": [
+       0.049075465998612344
+      ],
+      "build_step_warm": [
+       0.0013348449974728283,
+       0.0012951620010426268,
+       0.001264611000806326
+      ],
+      "evaluate": [
+       0.501182959000289,
+       0.16775446700194152,
+       0.16706215199883445,
+       0.1685436439984187
+      ]
+     },
+     "rss_mb": 232.625,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.146616799837515e-14,
+      "block": 4.151696870714565e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.53721994457912e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16835355758666992,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "p": 4,
+       "rz": 4,
+       "h": 2
+      }
+     }
+    },
+    {
+     "task": "eval_step1",
+     "times": {
+      "import_evaluator": [
+       0.07782121600030223
+      ],
+      "SpinNet()_in_task": [
+       0.1622517350006092
+      ],
+      "build_step_cold": [
+       0.05056598500232212
+      ],
+      "build_step_warm": [
+       0.0013669340005435515,
+       0.001317041998845525,
+       0.001288069997826824
+      ],
+      "evaluate": [
+       0.5009628950028855,
+       0.16844015400056378,
+       0.16666494000310195,
+       0.1661657259974163
+      ]
+     },
+     "rss_mb": 232.40234375,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.146616799837515e-14,
+      "block": 4.151696870714565e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.53721994457912e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16597867012023926,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "p": 4,
+       "rz": 4,
+       "h": 2
+      }
+     }
+    }
+   ],
+   "eval_step2": [
+    {
+     "task": "eval_step2",
+     "times": {
+      "import_evaluator": [
+       0.07794886700139614
+      ],
+      "SpinNet()_in_task": [
+       0.16171611599929747
+      ],
+      "build_step_cold": [
+       0.048858191999897826
+      ],
+      "build_step_warm": [
+       0.0013576079982158262,
+       0.0013709129998460412,
+       0.0013337929995032027
+      ],
+      "evaluate": [
+       0.5019917200006603,
+       0.16804660500201862,
+       0.16666913600056432,
+       0.16728358600084903
+      ]
+     },
+     "rss_mb": 233.4921875,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.1406638411595799e-14,
+      "block": 4.0327919791605394e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.53721994457912e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16703248023986816,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "p": 8,
+       "rz": 4,
+       "h": 2
+      }
+     }
+    },
+    {
+     "task": "eval_step2",
+     "times": {
+      "import_evaluator": [
+       0.07950690299912822
+      ],
+      "SpinNet()_in_task": [
+       0.16359021999960532
+      ],
+      "build_step_cold": [
+       0.048915383998973994
+      ],
+      "build_step_warm": [
+       0.001307656002609292,
+       0.0013042149985267315,
+       0.001272475998121081
+      ],
+      "evaluate": [
+       0.49770122100017034,
+       0.16784021500279778,
+       0.16642606099776458,
+       0.16647528300018166
+      ]
+     },
+     "rss_mb": 232.40234375,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.1406638411595799e-14,
+      "block": 4.0327919791605394e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.53721994457912e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16628551483154297,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "p": 8,
+       "rz": 4,
+       "h": 2
+      }
+     }
+    },
+    {
+     "task": "eval_step2",
+     "times": {
+      "import_evaluator": [
+       0.07872261800002889
+      ],
+      "SpinNet()_in_task": [
+       0.15991174599912483
+      ],
+      "build_step_cold": [
+       0.049278270998911466
+      ],
+      "build_step_warm": [
+       0.0013626190011564177,
+       0.0013294750024215318,
+       0.0013153410000086296
+      ],
+      "evaluate": [
+       0.5076741609991586,
+       0.16815236799811828,
+       0.1673183130005782,
+       0.1667326629976742
+      ]
+     },
+     "rss_mb": 232.94140625,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.1406638411595799e-14,
+      "block": 4.0327919791605394e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.53721994457912e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.1665341854095459,
+      "ops": {
+       "x": 16,
+       "rccx": 14,
+       "cx": 12,
+       "p": 8,
+       "rz": 4,
+       "h": 2
+      }
+     }
+    }
+   ],
+   "eval_paulo15": [
+    {
+     "task": "eval_paulo15",
+     "times": {
+      "import_evaluator": [
+       0.0782017489982536
+      ],
+      "SpinNet()_in_task": [
+       0.16096904300138704
+      ],
+      "load_paulo": [
+       0.000820206001662882
+      ],
+      "gauge_alignment": [
+       0.0028791250006179325
+      ],
+      "evaluate": [
+       0.16921359400294023,
+       0.16737592099889298,
+       0.16612133599846857,
+       0.16585970100277336
+      ]
+     },
+     "rss_mb": 191.0078125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 9.733607918616853e-15,
+      "block": 3.008013445545084e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "physical",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16566085815429688,
+      "ops": {
+       "cx": 68,
+       "h": 34,
+       "t": 32,
+       "tdg": 32,
+       "x": 12,
+       "p": 4
+      },
+      "nq": 23,
+      "align_res": 2.8865960477134483e-15
+     }
+    },
+    {
+     "task": "eval_paulo15",
+     "times": {
+      "import_evaluator": [
+       0.08007166900279117
+      ],
+      "SpinNet()_in_task": [
+       0.16209622899987153
+      ],
+      "load_paulo": [
+       0.0007958980022522155
+      ],
+      "gauge_alignment": [
+       0.002915061999374302
+      ],
+      "evaluate": [
+       0.1684906860027695,
+       0.16614195600050152,
+       0.16549503300120705,
+       0.16729864800072392
+      ]
+     },
+     "rss_mb": 190.80078125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 9.733607918616853e-15,
+      "block": 3.008013445545084e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "physical",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16709232330322266,
+      "ops": {
+       "cx": 68,
+       "h": 34,
+       "t": 32,
+       "tdg": 32,
+       "x": 12,
+       "p": 4
+      },
+      "nq": 23,
+      "align_res": 2.8865960477134483e-15
+     }
+    },
+    {
+     "task": "eval_paulo15",
+     "times": {
+      "import_evaluator": [
+       0.07794473299873061
+      ],
+      "SpinNet()_in_task": [
+       0.16088723600114463
+      ],
+      "load_paulo": [
+       0.0008000749985512812
+      ],
+      "gauge_alignment": [
+       0.0028701599985652138
+      ],
+      "evaluate": [
+       0.16886575200260268,
+       0.16672918400217895,
+       0.16580491099739447,
+       0.1663531400008651
+      ]
+     },
+     "rss_mb": 190.7421875,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 9.733607918616853e-15,
+      "block": 3.008013445545084e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "physical",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.1661543846130371,
+      "ops": {
+       "cx": 68,
+       "h": 34,
+       "t": 32,
+       "tdg": 32,
+       "x": 12,
+       "p": 4
+      },
+      "nq": 23,
+      "align_res": 2.8865960477134483e-15
+     }
+    }
+   ],
+   "eval_pairs9": [
+    {
+     "task": "eval_pairs9",
+     "times": {
+      "import_evaluator": [
+       0.07883598599801189
+      ],
+      "SpinNet()_in_task": [
+       0.16194582599928253
+      ],
+      "evaluate": [
+       0.5046789429979981,
+       0.16593597899918677,
+       0.16547892399830744,
+       0.16554311199797667
+      ]
+     },
+     "rss_mb": 232.81640625,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 7.899945633867656e-15,
+      "block": 3.0148358610773768e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16535735130310059,
+      "ops": {
+       "cx": 16,
+       "x": 12,
+       "rz": 9,
+       "rccx": 6,
+       "h": 2
+      },
+      "nq": 11
+     }
+    },
+    {
+     "task": "eval_pairs9",
+     "times": {
+      "import_evaluator": [
+       0.07959674499943503
+      ],
+      "SpinNet()_in_task": [
+       0.16093334399920423
+      ],
+      "evaluate": [
+       0.5021186999983911,
+       0.1663355600030627,
+       0.1662294399975508,
+       0.16558681899914518
+      ]
+     },
+     "rss_mb": 232.578125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 7.899945633867656e-15,
+      "block": 3.0148358610773768e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.1653907299041748,
+      "ops": {
+       "cx": 16,
+       "x": 12,
+       "rz": 9,
+       "rccx": 6,
+       "h": 2
+      },
+      "nq": 11
+     }
+    },
+    {
+     "task": "eval_pairs9",
+     "times": {
+      "import_evaluator": [
+       0.07908496500022011
+      ],
+      "SpinNet()_in_task": [
+       0.16370372100209352
+      ],
+      "evaluate": [
+       0.50165283500246,
+       0.1662866419974307,
+       0.16559017699910328,
+       0.16560612300236244
+      ]
+     },
+     "rss_mb": 233.17578125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 7.899945633867656e-15,
+      "block": 3.0148358610773768e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16539883613586426,
+      "ops": {
+       "cx": 16,
+       "x": 12,
+       "rz": 9,
+       "rccx": 6,
+       "h": 2
+      },
+      "nq": 11
+     }
+    }
+   ],
+   "eval_flags4": [
+    {
+     "task": "eval_flags4",
+     "times": {
+      "import_evaluator": [
+       0.07811199100251542
+      ],
+      "SpinNet()_in_task": [
+       0.1622744539999985
+      ],
+      "evaluate": [
+       0.5039325280013145,
+       0.1684737559990026,
+       0.16828466699735145,
+       0.16653439800211345
+      ]
+     },
+     "rss_mb": 233.0078125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 9.170659027414456e-15,
+      "block": 4.587535271422856e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16635704040527344,
+      "ops": {
+       "cx": 20,
+       "x": 12,
+       "h": 10,
+       "t": 8,
+       "tdg": 8,
+       "rccx": 8,
+       "rz": 4
+      },
+      "nq": 11
+     }
+    },
+    {
+     "task": "eval_flags4",
+     "times": {
+      "import_evaluator": [
+       0.07855181899867603
+      ],
+      "SpinNet()_in_task": [
+       0.16277012600039598
+      ],
+      "evaluate": [
+       0.4985347969995928,
+       0.1673904390008829,
+       0.1657487240008777,
+       0.16544560300098965
+      ]
+     },
+     "rss_mb": 232.8984375,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 9.170659027414456e-15,
+      "block": 4.587535271422856e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.1652681827545166,
+      "ops": {
+       "cx": 20,
+       "x": 12,
+       "h": 10,
+       "t": 8,
+       "tdg": 8,
+       "rccx": 8,
+       "rz": 4
+      },
+      "nq": 11
+     }
+    },
+    {
+     "task": "eval_flags4",
+     "times": {
+      "import_evaluator": [
+       0.07871005299966782
+      ],
+      "SpinNet()_in_task": [
+       0.16601423300016904
+      ],
+      "evaluate": [
+       0.5071423720000894,
+       0.16446695699778502,
+       0.16380526300054044,
+       0.16436167400024715
+      ]
+     },
+     "rss_mb": 232.4921875,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 9.170659027414456e-15,
+      "block": 4.587535271422856e-15,
+      "leak_amp": 0.0,
+      "gauss": 5.410557748946589e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.16415667533874512,
+      "ops": {
+       "cx": 20,
+       "x": 12,
+       "h": 10,
+       "t": 8,
+       "tdg": 8,
+       "rccx": 8,
+       "rz": 4
+      },
+      "nq": 11
+     }
+    }
+   ],
+   "eval_twelve_UB": [
+    {
+     "task": "eval_twelve_UB",
+     "times": {
+      "import_evaluator": [
+       0.0781965019996278
+      ],
+      "evaluate": [
+       3.07161948400244,
+       0.7973785900030634,
+       0.7970495959998516,
+       0.7967577899980824
+      ]
+     },
+     "rss_mb": 652.66796875,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 2.4203192713469606e-13,
+      "block": 1.217814868793918e-13,
+      "leak_amp": 0.0,
+      "gauss": 7.595381372336548e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.7952210903167725
+     }
+    },
+    {
+     "task": "eval_twelve_UB",
+     "times": {
+      "import_evaluator": [
+       0.07798134200129425
+      ],
+      "evaluate": [
+       3.068917282998882,
+       0.7968221139999514,
+       0.7968302379995293,
+       0.7977617840006133
+      ]
+     },
+     "rss_mb": 653.1328125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 2.4203192713469606e-13,
+      "block": 1.217814868793918e-13,
+      "leak_amp": 0.0,
+      "gauss": 7.595381372336548e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.7962803840637207
+     }
+    },
+    {
+     "task": "eval_twelve_UB",
+     "times": {
+      "import_evaluator": [
+       0.07806735000121989
+      ],
+      "evaluate": [
+       3.0742610130000685,
+       0.8003428219999478,
+       0.801160830000299,
+       0.7952150079981948
+      ]
+     },
+     "rss_mb": 653.21484375,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 2.4203192713469606e-13,
+      "block": 1.217814868793918e-13,
+      "leak_amp": 0.0,
+      "gauss": 7.595381372336548e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 0.0,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.7936935424804688
+     }
+    }
+   ],
+   "synth_UB": [
+    {
+     "task": "synth_UB",
+     "times": {
+      "import_evaluator": [
+       0.08008617199811852
+      ],
+      "SpinNet()_in_task": [
+       0.16158988700044574
+      ],
+      "synthesize": [
+       0.42955197500123177,
+       0.0028822530002798885,
+       0.0027237479989707936
+      ],
+      "evaluate_synth": [
+       0.21262075400227332,
+       0.2008870499994373,
+       0.2016465069973492
+      ]
+     },
+     "rss_mb": 233.8046875,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.3031907744611765e-06,
+      "block": 8.79982829871529e-07,
+      "leak_amp": 4.232079381696971e-07,
+      "gauss": 5.460164424183067e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 1.7910495892984617e-13,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.20142483711242676,
+      "n_rot": 4,
+      "t_rot": 254,
+      "err_bound": 4e-06,
+      "err_meas": 1.4602671569955586e-06,
+      "tol": {
+       "tol_err": 4.0009999999999995e-06,
+       "tol_gauss": 4.0009999999999995e-06
+      },
+      "n_gates": 808,
+      "nq": 15
+     }
+    },
+    {
+     "task": "synth_UB",
+     "times": {
+      "import_evaluator": [
+       0.07843124899955001
+      ],
+      "SpinNet()_in_task": [
+       0.1632883940001193
+      ],
+      "synthesize": [
+       0.4236830119989463,
+       0.0029219110001577064,
+       0.0027147869986947626
+      ],
+      "evaluate_synth": [
+       0.2111355140004889,
+       0.2017827950003266,
+       0.20034935900184792
+      ]
+     },
+     "rss_mb": 233.26953125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.3031907744611765e-06,
+      "block": 8.79982829871529e-07,
+      "leak_amp": 4.232079381696971e-07,
+      "gauss": 5.460164424183067e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 1.7910495892984617e-13,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.20012998580932617,
+      "n_rot": 4,
+      "t_rot": 254,
+      "err_bound": 4e-06,
+      "err_meas": 1.4602671569955586e-06,
+      "tol": {
+       "tol_err": 4.0009999999999995e-06,
+       "tol_gauss": 4.0009999999999995e-06
+      },
+      "n_gates": 808,
+      "nq": 15
+     }
+    },
+    {
+     "task": "synth_UB",
+     "times": {
+      "import_evaluator": [
+       0.07893630800026585
+      ],
+      "SpinNet()_in_task": [
+       0.1652201819997572
+      ],
+      "synthesize": [
+       0.4228936210020038,
+       0.0028612030000658706,
+       0.0027178410018677823
+      ],
+      "evaluate_synth": [
+       0.21075460499923793,
+       0.19933395100088092,
+       0.19929520299774595
+      ]
+     },
+     "rss_mb": 233.5,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 1.3031907744611765e-06,
+      "block": 8.79982829871529e-07,
+      "leak_amp": 4.232079381696971e-07,
+      "gauss": 5.460164424183067e-16,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 1.7910495892984617e-13,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.1990816593170166,
+      "n_rot": 4,
+      "t_rot": 254,
+      "err_bound": 4e-06,
+      "err_meas": 1.4602671569955586e-06,
+      "tol": {
+       "tol_err": 4.0009999999999995e-06,
+       "tol_gauss": 4.0009999999999995e-06
+      },
+      "n_gates": 808,
+      "nq": 15
+     }
+    }
+   ],
+   "synth_step1": [
+    {
+     "task": "synth_step1",
+     "times": {
+      "import_evaluator": [
+       0.07866772600027616
+      ],
+      "SpinNet()_in_task": [
+       0.16686594500060892
+      ],
+      "synthesize": [
+       0.4458432510000421,
+       0.004254881001543254,
+       0.004159765001531923
+      ],
+      "evaluate_synth": [
+       0.2531375390026369,
+       0.23588275599831832,
+       0.23482615699685994
+      ]
+     },
+     "rss_mb": 235.08984375,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 2.3811827677735266e-06,
+      "block": 1.8534370823859617e-06,
+      "leak_amp": 5.277434924466636e-07,
+      "gauss": 5.11581386475374e-07,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 2.7851319381980156e-13,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.23453140258789062,
+      "n_rot": 8,
+      "t_rot": 510,
+      "err_bound": 8e-06,
+      "err_meas": 2.9900549812735845e-06,
+      "tol": {
+       "tol_err": 8.001e-06,
+       "tol_gauss": 8.001e-06
+      },
+      "n_gates": 1476,
+      "nq": 15
+     }
+    },
+    {
+     "task": "synth_step1",
+     "times": {
+      "import_evaluator": [
+       0.07798818200171809
+      ],
+      "SpinNet()_in_task": [
+       0.16195456299828948
+      ],
+      "synthesize": [
+       0.44689260400264175,
+       0.0042456619994482026,
+       0.004159210999205243
+      ],
+      "evaluate_synth": [
+       0.25358050800059573,
+       0.23743785500118975,
+       0.23497618599867565
+      ]
+     },
+     "rss_mb": 235.078125,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 2.3811827677735266e-06,
+      "block": 1.8534370823859617e-06,
+      "leak_amp": 5.277434924466636e-07,
+      "gauss": 5.11581386475374e-07,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 2.7851319381980156e-13,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.23466110229492188,
+      "n_rot": 8,
+      "t_rot": 510,
+      "err_bound": 8e-06,
+      "err_meas": 2.9900549812735845e-06,
+      "tol": {
+       "tol_err": 8.001e-06,
+       "tol_gauss": 8.001e-06
+      },
+      "n_gates": 1476,
+      "nq": 15
+     }
+    },
+    {
+     "task": "synth_step1",
+     "times": {
+      "import_evaluator": [
+       0.07826629700139165
+      ],
+      "SpinNet()_in_task": [
+       0.16125061700222432
+      ],
+      "synthesize": [
+       0.4420593299983011,
+       0.004263004000677029,
+       0.004158414001722122
+      ],
+      "evaluate_synth": [
+       0.25240067499908037,
+       0.23439459099972737,
+       0.2339223229973868
+      ]
+     },
+     "rss_mb": 235.16015625,
+     "out": {
+      "ok": true,
+      "reason": "ok",
+      "op": 2.3811827677735266e-06,
+      "block": 1.8534370823859617e-06,
+      "leak_amp": 5.277434924466636e-07,
+      "gauss": 5.11581386475374e-07,
+      "engine": "sparse",
+      "method": "inner_span",
+      "read": 0,
+      "n_blocks": 1,
+      "certified": true,
+      "max_leak": 2.7851319381980156e-13,
+      "dirty": 0.0,
+      "acc": 0.0,
+      "verdict_seconds": 0.2336416244506836,
+      "n_rot": 8,
+      "t_rot": 510,
+      "err_bound": 8e-06,
+      "err_meas": 2.9900549812735845e-06,
+      "tol": {
+       "tol_err": 8.001e-06,
+       "tol_gauss": 8.001e-06
+      },
+      "n_gates": 1476,
+      "nq": 15
+     }
+    }
+   ]
+  },
+  "cmds": {
+   "m3_results": {
+    "cmd": "/home/digonto/anaconda3/envs/su2qc-coding/bin/python scripts/m3_results.py --out /tmp/claude-1000/-home-digonto-Projects-su2qc-desktop-package/fbcc8d73-b256-4509-96f5-20b02443a448/scratchpad/b/m3_results_out",
+    "runs": [
+     {
+      "rc": 0,
+      "wall": 8.904200340002717,
+      "maxrss_kb": 298208,
+      "tail": "",
+      "load_before": [
+       "1.06",
+       "1.42",
+       "1.83"
+      ]
+     },
+     {
+      "rc": 0,
+      "wall": 8.925349493001704,
+      "maxrss_kb": 298332,
+      "tail": "",
+      "load_before": [
+       "1.13",
+       "1.42",
+       "1.83"
+      ]
+     },
+     {
+      "rc": 0,
+      "wall": 8.910864739002136,
+      "maxrss_kb": 298368,
+      "tail": "",
+      "load_before": [
+       "1.11",
+       "1.40",
+       "1.82"
+      ]
+     }
+    ]
+   },
+   "pytest_unit": {
+    "cmd": "/home/digonto/anaconda3/envs/su2qc-coding/bin/python -m pytest -n 10 -q tests/unit",
+    "runs": [
+     {
+      "rc": 0,
+      "wall": 25.732340313999885,
+      "maxrss_kb": 6818448,
+      "tail": "bringing up nodes...\nbringing up nodes...\n\n........................................................................ [ 24%]\n........................................................................ [ 48%]\n........................................................................ [ 73%]\n........................................................................ [ 97%]\n.......                                                                  [100%]\n295 passed in 25.56s\n",
+      "load_before": [
+       "2.56",
+       "1.75",
+       "1.92"
+      ]
+     },
+     {
+      "rc": 0,
+      "wall": 25.880184562000068,
+      "maxrss_kb": 6818572,
+      "tail": "bringing up nodes...\nbringing up nodes...\n\n........................................................................ [ 24%]\n........................................................................ [ 48%]\n........................................................................ [ 73%]\n........................................................................ [ 97%]\n.......                                                                  [100%]\n295 passed in 25.72s\n",
+      "load_before": [
+       "3.78",
+       "2.13",
+       "2.05"
+      ]
+     },
+     {
+      "rc": 0,
+      "wall": 25.534262156001205,
+      "maxrss_kb": 6818360,
+      "tail": "bringing up nodes...\nbringing up nodes...\n\n........................................................................ [ 24%]\n........................................................................ [ 48%]\n........................................................................ [ 73%]\n........................................................................ [ 97%]\n.......                                                                  [100%]\n295 passed in 25.37s\n",
+      "load_before": [
+       "4.40",
+       "2.44",
+       "2.15"
+      ]
+     }
+    ]
+   },
+   "pytest_m0_m1_m3": {
+    "cmd": "/home/digonto/anaconda3/envs/su2qc-coding/bin/python -m pytest -n 10 -q tests/acceptance/m0 tests/acceptance/m1 tests/acceptance/m3",
+    "runs": [
+     {
+      "rc": 1,
+      "wall": 66.94712364299994,
+      "maxrss_kb": 6812824,
+      "tail": "                                                  [100%]\n=================================== FAILURES ===================================\n__________________ test_M3_L3_native_certificate_general_step __________________\n[gw0] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python\nPENDING: Su2PlaqCert checker not yet delivered by the laptop (prompts/006 step 2.L4)\n=========================== short test summary info ============================\nFAILED tests/acceptance/m3/test_spinnet_lean.py::test_M3_L3_native_certificate_general_step\n1 failed, 79 passed in 66.76s (0:01:06)\n",
+      "load_before": [
+       "4.43",
+       "2.91",
+       "2.34"
+      ]
+     },
+     {
+      "rc": 1,
+      "wall": 67.88039267099884,
+      "maxrss_kb": 6812064,
+      "tail": "                                                  [100%]\n=================================== FAILURES ===================================\n__________________ test_M3_L3_native_certificate_general_step __________________\n[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python\nPENDING: Su2PlaqCert checker not yet delivered by the laptop (prompts/006 step 2.L4)\n=========================== short test summary info ============================\nFAILED tests/acceptance/m3/test_spinnet_lean.py::test_M3_L3_native_certificate_general_step\n1 failed, 79 passed in 67.69s (0:01:07)\n",
+      "load_before": [
+       "3.63",
+       "3.08",
+       "2.44"
+      ]
+     },
+     {
+      "rc": 1,
+      "wall": 68.98486013500224,
+      "maxrss_kb": 6812288,
+      "tail": "                                                  [100%]\n=================================== FAILURES ===================================\n__________________ test_M3_L3_native_certificate_general_step __________________\n[gw2] linux -- Python 3.12.16 /home/digonto/anaconda3/envs/su2qc-coding/bin/python\nPENDING: Su2PlaqCert checker not yet delivered by the laptop (prompts/006 step 2.L4)\n=========================== short test summary info ============================\nFAILED tests/acceptance/m3/test_spinnet_lean.py::test_M3_L3_native_certificate_general_step\n1 failed, 79 passed in 68.79s (0:01:08)\n",
+      "load_before": [
+       "3.41",
+       "3.27",
+       "2.56"
+      ]
+     }
+    ]
+   }
+  },
+  "load_before": [
+   "1.20",
+   "1.54",
+   "1.90"
+  ],
+  "t0": "2026-11-06T03:06:03-0500",
+  "t1": "2026-11-06T03:12:17-0500",
+  "load_after": [
+   "3.41",
+   "3.27",
+   "2.56"
+  ]
+ },
+ "like_for_like_suites": {
+  "unit_baseline_files": [
+   {
+    "rc": 0,
+    "wall": 24.42042322999987,
+    "maxrss_kb": 6818720,
+    "tail": "........... [ 66%]\n........................................................................ [ 99%]\n..                                                                       [100%]\n218 passed in 24.26s\n",
+    "load": [
+     "3.35",
+     "3.24",
+     "2.58"
+    ]
+   },
+   {
+    "rc": 0,
+    "wall": 22.465501512997434,
+    "maxrss_kb": 6819308,
+    "tail": "........... [ 66%]\n........................................................................ [ 99%]\n..                                                                       [100%]\n218 passed in 22.31s\n",
+    "load": [
+     "4.17",
+     "3.47",
+     "2.68"
+    ]
+   },
+   {
+    "rc": 0,
+    "wall": 23.319734087999677,
+    "maxrss_kb": 6818600,
+    "tail": "........... [ 66%]\n........................................................................ [ 99%]\n..                                                                       [100%]\n218 passed in 23.16s\n",
+    "load": [
+     "4.93",
+     "3.72",
+     "2.78"
+    ]
+   }
+  ],
+  "m0_m1": [
+   {
+    "rc": 0,
+    "wall": 64.79752790600105,
+    "maxrss_kb": 1949628,
+    "tail": "bringing up nodes...\nbringing up nodes...\n\n........................................................                 [100%]\n56 passed in 64.61s (0:01:04)\n",
+    "load": [
+     "3.72",
+     "3.67",
+     "2.83"
+    ]
+   },
+   {
+    "rc": 0,
+    "wall": 64.98304336300134,
+    "maxrss_kb": 1949724,
+    "tail": "bringing up nodes...\nbringing up nodes...\n\n........................................................                 [100%]\n56 passed in 64.80s (0:01:04)\n",
+    "load": [
+     "3.16",
+     "3.58",
+     "2.86"
+    ]
+   },
+   {
+    "rc": 0,
+    "wall": 63.47934183199686,
+    "maxrss_kb": 1950124,
+    "tail": "bringing up nodes...\nbringing up nodes...\n\n........................................................                 [100%]\n56 passed in 63.29s (0:01:03)\n",
+    "load": [
+     "2.97",
+     "3.51",
+     "2.88"
+    ]
+   }
+  ]
+ }
+}

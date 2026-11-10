@@ -1,0 +1,196 @@
+{
+ "id": "r03-F1-003",
+ "program_path": "compress/programs/spinnet/F1/003-cheap-angle-forms.py",
+ "program_sha256": "4d848ccd7307c5b187812a3c93f8580c49462103332cd1d6f898487adbd89d18",
+ "parent": "r02-F1-002",
+ "family": "F1",
+ "round": 3,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  31,
+  1062,
+  2189,
+  17
+ ],
+ "cell": [
+  40,
+  80
+ ],
+ "metrics_raw": {
+  "cx": 31,
+  "t_fixed": 24,
+  "n_rot": 17,
+  "t_eps": 1062,
+  "t_estimate": {
+   "1e-06": 1040.5099970355327,
+   "1e-10": 1718.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1062,
+   "1e-10": 1752
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 68,
+  "depth_ct": 2189,
+  "qubits": 17,
+  "gates": {
+   "cx": 31,
+   "x": 30,
+   "rz": 17,
+   "t": 16,
+   "h": 10,
+   "s": 9,
+   "tdg": 8,
+   "z": 4,
+   "sdg": 2
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 6.812583761452679e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.8956986856800475,
+   -0.4446615167417072
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.410557748946589e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.632179788704574e-15,
+  "block_error": 3.1804039727481045e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.5218262672424316,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.994737223810257e-15,
+   "max_dropped_l2": 1.8832709986375987e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 3.1804039727481045e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.602687477921731e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.4000694775924196,
+    0.9164848133487692
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.410557748946589e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.036727395153572e-15,
+   "block_error": 1.565960082768159e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.18387627601623535,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.2658490090568415e-15,
+    "max_dropped_l2": 8.638833066955088e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.565960082768159e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.676802545593081e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.9258146823277326,
+    -0.37797774271297996
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.410557748946589e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.5157991374744766e-15,
+   "block_error": 3.1610034081186043e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1867988109588623,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.7277833526183947e-15,
+    "max_dropped_l2": 1.5955768806469943e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.1610034081186043e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: pygridsynth T (eps=1e-6) of rz(th) is unchanged by th -> -th and th -> th + pi/2 but not by th -> th + pi/4, and rz(th) = rz(th + pi/4) tdg exactly, so each rotation costs min(T(th), T(th + pi/4) + 1): -3alpha/4 drops 64 -> 59 and beta/2 66 -> 65 (24 T at zero CX); sign flips (X on the pivot commutes with every toggle CX(g -> pivot)) and pi/2 shifts keep T and only shorten words (depth_CT -69).",
+  "DISCOVERY: no 30-CX walk in the two-AND F1 space: exact walk DFS (free ends span(e, v) via the 2-CX merged block CX(0,2)CX(0,3)H(0)CX(2,0)CX(3,0), after which q2 = v, q3 = e stay readable) over 150 designs (corner NOR N_ij and A, each in an ancilla or XORed into a corner, e or the other flag, both orders, all qubits toggles; MILP >= 12 terms each) finds no 12-toggle walk, nor do the 10 diagonal-NOR direct-rccx-pair designs at 12 linear toggles; 13-toggle walks exist only for the parent register set (also with u, v or c2 added) and all keep 13 rotations."
+ ],
+ "summary": "parent circuit unchanged in gates that cost CX (dimer frame, pivot b; flag a1=[c0=c2=0], A=[u=v=0] XORed into c0; 13-toggle all-linear H-frame walk over c1, c3, c0^A, a1, e; 31 CX, 17 qubits), but every rotation is emitted in its cheapest exact Clifford+T-equivalent form sg*|th| + m*pi/4 followed by p(-m*pi/4): the 4 electric p(-3alpha/4) and the 4 rz(+-beta/2) take a pi/4 shift (pygridsynth T 64 -> 58+1, 66 -> 64+1), signs ride on X frame flips (pivot or link qubit) and pi/2 shifts on S/Z fixes, picked for the shortest word; T 1086 -> 1062, depth_CT 2258 -> 2189.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "49d8b6e",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 1.5436036586761475,
+ "written_utc": "2026-11-08T03:20:19Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.7e-05
+ },
+ "lean": {
+  "status": "n_a",
+  "reason": "non_linear_angle:p:1.0628981633974481",
+  "cert_path": null,
+  "seconds": 0.000377655029296875,
+  "checker_sha256": "",
+  "theorem_path": null,
+  "axioms": []
+ },
+ "mode": "full"
+}

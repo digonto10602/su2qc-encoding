@@ -1,0 +1,135 @@
+PASS  UE: own Aer error <= 1e-12 (json says 4.44e-16, ok=True) expected True got True tol 0
+PASS  UE: own leak/dirty/unitarity small expected True got True tol 0
+PASS  UE: own error vs json error (both < 1e-13..1e-14 scale) expected 4.440909640681155e-16 got 1.5700924586837752e-16 tol 5e-14
+PASS  UB: own Aer error <= 1e-12 (json says 1.02e-14, ok=True) expected True got True tol 0
+PASS  UB: own leak/dirty/unitarity small expected True got True tol 0
+PASS  UB: own error vs json error (both < 1e-13..1e-14 scale) expected 1.0241655583865579e-14 got 3.845684345637453e-15 tol 5e-14
+PASS  step: own Aer error <= 1e-12 (json says 1.16e-14, ok=True) expected True got True tol 0
+PASS  step: own leak/dirty/unitarity small expected True got True tol 0
+PASS  step: own error vs json error (both < 1e-13..1e-14 scale) expected 1.1639205549665716e-14 got 3.7067000630606605e-15 tol 5e-14
+PASS  step_order2: own Aer error <= 1e-12 (json says 1.16e-14, ok=True) expected True got True tol 0
+PASS  step_order2: own leak/dirty/unitarity small expected True got True tol 0
+PASS  step_order2: own error vs json error (both < 1e-13..1e-14 scale) expected 1.1629672116424432e-14 got 4.0054214009113174e-15 tol 5e-14
+PASS  UB_beta_0_05: own Aer error <= 1e-12 (json says 8.61e-15, ok=True) expected True got True tol 0
+PASS  UB_beta_0_05: own leak/dirty/unitarity small expected True got True tol 0
+PASS  UB_beta_0_05: own error vs json error (both < 1e-13..1e-14 scale) expected 8.605412351747395e-15 got 3.132038781617982e-15 tol 5e-14
+PASS  UB_pairs9: own Aer error <= 1e-12 (json says 8.22e-15, ok=True) expected True got True tol 0
+PASS  UB_pairs9: own leak/dirty/unitarity small expected True got True tol 0
+PASS  UB_pairs9: own error vs json error (both < 1e-13..1e-14 scale) expected 8.217476282673193e-15 got 1.7326642316467182e-15 tol 5e-14
+PASS  UB_flags4: own Aer error <= 1e-12 (json says 8.09e-15, ok=True) expected True got True tol 0
+PASS  UB_flags4: own leak/dirty/unitarity small expected True got True tol 0
+PASS  UB_flags4: own error vs json error (both < 1e-13..1e-14 scale) expected 8.0917786189073e-15 got 3.2904423874379595e-15 tol 5e-14
+PASS  paulo15 own error vs D V D at beta=0.05 expected 9.733607918616853e-15 got 3.4170130603040575e-15 tol 5e-14
+PASS  paulo15 ungauged target rejected (json 0.19967) expected 0.19966683329366303 got 0.19966683329365637 tol 1e-09
+PASS  paulo15 expected ungauged error 2 sin(2 beta)=sin(0.1)*2?: 2*sin(0.1) expected 0.1996668332936563 got 0.19966683329365637 tol 0.002
+PASS  paulo15 gauge: 8 minus codes (one per bright pair) expected 8 got 8 tol 0
+PASS  UE: cx expected 0 got 0 tol 0
+PASS  UE: t_fixed expected 0 got 0 tol 0
+PASS  UE: n_rot expected 4 got 4 tol 0
+PASS  UE: depth expected 1 got 1 tol 0
+PASS  UE: qubits expected 8 got 8 tol 0
+PASS  UE: ancilla expected 0 got 0 tol 0
+PASS  UB: cx expected 54 got 54 tol 0
+PASS  UB: t_fixed expected 56 got 56 tol 0
+PASS  UB: n_rot expected 4 got 4 tol 0
+PASS  UB: depth expected 67 got 67 tol 0
+PASS  UB: qubits expected 15 got 15 tol 0
+PASS  UB: ancilla expected 7 got 7 tol 0
+PASS  step: cx expected 54 got 54 tol 0
+PASS  step: t_fixed expected 56 got 56 tol 0
+PASS  step: n_rot expected 8 got 8 tol 0
+PASS  step: depth expected 67 got 67 tol 0
+PASS  step: qubits expected 15 got 15 tol 0
+PASS  step: ancilla expected 7 got 7 tol 0
+PASS  step_order2: cx expected 54 got 54 tol 0
+PASS  step_order2: t_fixed expected 56 got 56 tol 0
+PASS  step_order2: n_rot expected 12 got 12 tol 0
+PASS  step_order2: depth expected 67 got 67 tol 0
+PASS  step_order2: qubits expected 15 got 15 tol 0
+PASS  step_order2: ancilla expected 7 got 7 tol 0
+PASS  UE_outer_row: cx expected 0 got 0 tol 0
+PASS  UE_outer_row: t_fixed expected 0 got 0 tol 0
+PASS  UE_outer_row: n_rot expected 12 got 12 tol 0
+PASS  UE_outer_row: depth expected 1 got 1 tol 0
+PASS  UE_outer_row: qubits expected 16 got 16 tol 0
+PASS  UE_outer_row: ancilla expected 0 got 0 tol 0
+PASS  UB_paulo15: cx expected 68 got 68 tol 0
+PASS  UB_paulo15: t_fixed expected 64 got 64 tol 0
+PASS  UB_paulo15: n_rot expected 4 got 4 tol 0
+PASS  UB_paulo15: depth expected 90 got 90 tol 0
+PASS  UB_paulo15: qubits expected 15 got 15 tol 0
+PASS  UB_paulo15: ancilla expected 7 got 7 tol 0
+PASS  UB_beta_0_05: cx expected 54 got 54 tol 0
+PASS  UB_beta_0_05: t_fixed expected 56 got 56 tol 0
+PASS  UB_beta_0_05: n_rot expected 4 got 4 tol 0
+PASS  UB_beta_0_05: depth expected 67 got 67 tol 0
+PASS  UB_beta_0_05: qubits expected 15 got 15 tol 0
+PASS  UB_beta_0_05: ancilla expected 7 got 7 tol 0
+PASS  UB_pairs9: cx expected 34 got 34 tol 0
+PASS  UB_pairs9: t_fixed expected 24 got 24 tol 0
+PASS  UB_pairs9: n_rot expected 9 got 9 tol 0
+PASS  UB_pairs9: depth expected 38 got 38 tol 0
+PASS  UB_pairs9: qubits expected 11 got 11 tol 0
+PASS  UB_pairs9: ancilla expected 3 got 3 tol 0
+PASS  UB_flags4: cx expected 44 got 44 tol 0
+PASS  UB_flags4: t_fixed expected 48 got 48 tol 0
+PASS  UB_flags4: n_rot expected 4 got 4 tol 0
+PASS  UB_flags4: depth expected 60 got 60 tol 0
+PASS  UB_flags4: qubits expected 11 got 11 tol 0
+PASS  UB_flags4: ancilla expected 3 got 3 tol 0
+PASS  brief UB_paulo15: (cx,rot,T_fixed,anc) expected [68, 4, 64, 7] got [68, 4, 64, 7] tol 0
+PASS  brief UB_pairs9: (cx,rot,T_fixed,anc) expected [34, 9, 24, 3] got [34, 9, 24, 3] tol 0
+PASS  brief UB_flags4: (cx,rot,T_fixed,anc) expected [44, 4, 48, 3] got [44, 4, 48, 3] tol 0
+PASS  brief UB: (cx,rot,T_fixed,anc) expected [54, 4, 56, 7] got [54, 4, 56, 7] tol 0
+PASS  brief UB_beta_0_05: (cx,rot,T_fixed,anc) expected [54, 4, 56, 7] got [54, 4, 56, 7] tol 0
+PASS  brief UE_outer_row: (cx,rot,T_fixed,anc) expected [0, 12, 0, 0] got [0, 12, 0, 0] tol 0
+PASS  T_total UB eps=0.0001 expected 230 got 230 tol 0
+PASS  T_total UB eps=1e-06 expected 310 got 310 tol 0
+PASS  T_total UB eps=1e-08 expected 396 got 396 tol 0
+PASS  T_total UB eps=1e-10 expected 468 got 468 tol 0
+PASS  T_total UE eps=0.0001 expected 176 got 176 tol 0
+PASS  T_total UE eps=1e-06 expected 256 got 256 tol 0
+PASS  T_total UE eps=1e-08 expected 328 got 328 tol 0
+PASS  T_total UE eps=1e-10 expected 416 got 416 tol 0
+PASS  T_total step eps=0.0001 expected 406 got 406 tol 0
+PASS  T_total step eps=1e-06 expected 566 got 566 tol 0
+PASS  T_total step eps=1e-08 expected 724 got 724 tol 0
+PASS  T_total step eps=1e-10 expected 884 got 884 tol 0
+PASS  T_total UE_outer_row eps=0.0001 expected 528 got 528 tol 0
+PASS  T_total UE_outer_row eps=1e-06 expected 768 got 768 tol 0
+PASS  T_total UE_outer_row eps=1e-08 expected 984 got 984 tol 0
+PASS  T_total UE_outer_row eps=1e-10 expected 1248 got 1248 tol 0
+PASS  T_total step_order2 eps=0.0001 expected 566 got 566 tol 0
+PASS  T_total step_order2 eps=1e-06 expected 838 got 838 tol 0
+PASS  T_total step_order2 eps=1e-08 expected 1068 got 1068 tol 0
+PASS  T_total step_order2 eps=1e-10 expected 1300 got 1300 tol 0
+PASS  T_total UB_paulo15 eps=1e-6 (comparison row) expected 316 got 316 tol 0
+PASS  T_total UB_pairs9 eps=1e-6 (comparison row) expected 576 got 576 tol 0
+PASS  T_total UB_flags4 eps=1e-6 (comparison row) expected 298 got 298 tol 0
+PASS  T_total UB eps=1e-6 (comparison row) expected 310 got 310 tol 0
+PASS  T_total UB_beta_0_05 eps=1e-6 (comparison row) expected 304 got 304 tol 0
+PASS  brief T(1e-6) UB_paulo15 expected 316 got 316 tol 0
+PASS  brief T(1e-6) UB_pairs9 expected 576 got 576 tol 0
+PASS  brief T(1e-6) UB_flags4 expected 298 got 298 tol 0
+PASS  brief T(1e-6) UB expected 310 got 310 tol 0
+PASS  brief T(1e-6) UB_beta_0_05 expected 304 got 304 tol 0
+PASS  brief outer electric row T(1e-6)=768 expected 768 got 768 tol 0
+PASS  outer electric row synthesised verdict marked not evaluable expected True got True tol 0
+PASS  Qiskit CT t,cx,depth UB_paulo15 expected [316, 68, 733] got [316, 68, 733] tol 0
+PASS  Qiskit CT t,cx,depth UB expected [308, 54, 682] got [308, 54, 682] tol 0
+PASS  Qiskit CT t,cx,depth UB_beta_0_05 expected [293, 54, 657] got [293, 54, 657] tol 0
+PASS  Qiskit CT t,cx,depth UB_pairs9 expected [570, 34, 1413] got [570, 34, 1413] tol 0
+PASS  Qiskit CT t,cx,depth UB_flags4 expected [290, 44, 741] got [290, 44, 741] tol 0
+PASS  n_physical_states expected 433 got 433 tol 0
+PASS  n physical (json) expected 433 got 433 tol 0
+PASS  47 inner codes expected 47 got 47 tol 0
+PASS  bright codes 16, pairs 8, dark 31 expected [16, 8, 31] got [16, 8, 31] tol 0
+PASS  couplings values (abs) sorted expected [-2.0, -0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0] got [-2.0, -0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0] tol 0
+PASS  H_B spectrum multiplicities 16/96/16/177/16/96/16 expected [16, 96, 16, 177, 16, 96, 16] got [16, 96, 16, 177, 16, 96, 16] tol 0
+PASS  gauge minus count 64 (enc.gauge) expected 64 got 64 tol 0
+PASS  outer patterns 128 expected 128 got 128 tol 0
+PASS  outer pattern dims 2..17 hist expected {2: 41, 3: 52, 4: 8, 5: 22, 9: 4, 17: 1} got {2: 41, 3: 52, 4: 8, 5: 22, 9: 4, 17: 1} tol 0
+PASS  outer-pattern dims min/max expected [2, 17] got [2, 17] tol 0
+PASS  json physics histogram matches own expected {'2': 41, '3': 52, '4': 8, '5': 22, '9': 4, '17': 1} got {'2': 41, '3': 52, '4': 8, '5': 22, '9': 4, '17': 1} tol 0
+checks 133 failed 0
+wall 28.37 s, maxrss 328348 kB
