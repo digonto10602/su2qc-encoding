@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Run any heavy command (pytest, lake build, compression round, evaluator) inside the shared su2qc.slice
+# (~/.config/systemd/user/su2qc.slice: MemoryMax=24G, no swap, shared by ALL su2qc jobs on this machine) plus a
+# per-job cap.  If memory runs out, the kernel kills the biggest process in the slice -- never the terminal.
+# Why: 2026-11-09/10 systemd-oomd killed the whole terminal (incl. Claude Code) twice; see tools/pytest-safe.
+#   tools/run-capped lake build            PER_JOB_MEM=12G tools/run-capped python -m ...
+set -euo pipefail
+systemctl --user start su2qc.slice 2>/dev/null || true
+exec systemd-run --user --scope -q --slice=su2qc.slice -p MemoryMax="${PER_JOB_MEM:-22G}" -p MemorySwapMax=0 \
+  -p OOMPolicy=continue -- "$@"
