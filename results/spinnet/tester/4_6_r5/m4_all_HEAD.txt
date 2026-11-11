@@ -1,0 +1,30 @@
+bringing up nodes...
+bringing up nodes...
+
+...................                                                      [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S0_spec_oracle_builder_spinnet
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S7_shim_leaves_twelve_untouched
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S2_worker_registers_encoding_and_keeps_sandbox
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S1_general_program_valid_angle_linear
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S5_evaluator_rejections_on_spinnet
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S6_external_seeds_paulo15_and_spinnet_v2
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S8_angle_set_and_robust_metrics
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S3_seed_round_dry_run
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S4_round_one_dry_run_and_brief
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S9_headline_selection_on_seed_round
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G1_archive_best_reverified_from_source
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_R1_results_and_before_after
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L1_certificate_general_and_seeds
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G2_archive_best_second_engine_aer
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G3_loop_budget_and_lineage
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L4_polish_rules_lean_certified_on_spinnet
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L5_final_best_lean_status_and_theorem_file
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L2_seed_round_records_certificates
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L3_structure_facts_match_lean_sources
+19 passed in 65.29s (0:01:05)
+
+real	1m5.523s
+user	1m57.469s
+sys	0m7.730s

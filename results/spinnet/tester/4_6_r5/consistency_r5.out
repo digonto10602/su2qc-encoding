@@ -1,0 +1,286 @@
+{
+ "n_entries_23": {
+  "pass": true,
+  "got": [
+   23,
+   23
+  ]
+ },
+ "key_r05-F1-005": {
+  "pass": true,
+  "got": [
+   32,
+   834,
+   1565,
+   18
+  ]
+ },
+ "key_r05-F2-005": {
+  "pass": true,
+  "got": [
+   31,
+   1086,
+   2262,
+   17
+  ]
+ },
+ "key_r05-F3-005": {
+  "pass": true,
+  "got": [
+   32,
+   832,
+   1552,
+   17
+  ]
+ },
+ "best_is_min_key": {
+  "pass": true,
+  "got": [
+   "r04-F1-004",
+   "r04-F1-004",
+   [
+    31,
+    1062,
+    2173,
+    17
+   ]
+  ]
+ },
+ "min_key_unique": {
+  "pass": true,
+  "got": null
+ },
+ "elites_recomputed": {
+  "pass": true,
+  "got": {
+   "r05-F1-005": [
+    [
+     40,
+     77
+    ],
+    "r04-F3-004"
+   ],
+   "r05-F2-005": [
+    [
+     40,
+     80
+    ],
+    "r04-F1-004"
+   ],
+   "r05-F3-005": [
+    [
+     40,
+     77
+    ],
+    "r04-F3-004"
+   ]
+  }
+ },
+ "cell_formula": {
+  "pass": true,
+  "got": null
+ },
+ "family_bests_recomputed": {
+  "pass": true,
+  "got": {
+   "F1": {
+    "best": "r04-F1-004"
+   },
+   "F2": {
+    "best": "r03-F2-003"
+   },
+   "F3": {
+    "best": "r04-F3-004"
+   },
+   "F5": {
+    "best": "r02-F5-002"
+   },
+   "seed": {
+    "best": "r00-seed-001"
+   }
+  }
+ },
+ "attempts_23_lines": {
+  "pass": true,
+  "got": 23
+ },
+ "attempts_match_entries": {
+  "pass": true,
+  "got": null
+ },
+ "attempts_ids_unique": {
+  "pass": true,
+  "got": null
+ },
+ "attempts_first20_unchanged": {
+  "pass": true,
+  "got": 20
+ },
+ "round_json": {
+  "pass": true,
+  "got": {
+   "round": 5,
+   "n_valid": 3,
+   "n_invalid": 0,
+   "best_key": [
+    31,
+    1062,
+    2173,
+    17
+   ]
+  }
+ },
+ "round_candidates_match_entries": {
+  "pass": true,
+  "got": null
+ },
+ "program_files_sha_equal_archive_all23": {
+  "pass": true,
+  "got": 23
+ },
+ "feedback_files_23": {
+  "pass": true,
+  "got": [
+   23,
+   23
+  ]
+ },
+ "feedback_round5_valid": {
+  "pass": true,
+  "got": {
+   "r05-F1-005": 5.606482394400899e-15,
+   "r05-F2-005": 4.989682288025805e-15,
+   "r05-F3-005": 5.594163421680758e-15
+  }
+ },
+ "verdicts_nominal_alt_ok": {
+  "pass": true,
+  "got": {
+   "r05-F1-005": [
+    5.606482394400899e-15,
+    5.035775401831711e-15,
+    5.815012810890532e-15
+   ],
+   "r05-F2-005": [
+    4.989682288025805e-15,
+    5.839438749800294e-15,
+    5.8679137114096886e-15
+   ],
+   "r05-F3-005": [
+    5.594163421680758e-15,
+    5.642889076312193e-15,
+    6.584650345267174e-15
+   ]
+  }
+ },
+ "no_leak_dirty_outer_in_verdicts": {
+  "pass": true,
+  "got": null
+ },
+ "discoveries_tail_equals_round5_entries": {
+  "pass": true,
+  "got": {
+   "n_new": 8,
+   "file_lines": 43
+  }
+ },
+ "discoveries_prefix_unchanged": {
+  "pass": true,
+  "got": 35
+ },
+ "synthesis_verification_null_since_best_unchanged": {
+  "pass": true,
+  "got": null
+ },
+ "lean_status_round5_none": {
+  "pass": true,
+  "got": {
+   "r05-F1-005": null,
+   "r05-F2-005": null,
+   "r05-F3-005": null
+  }
+ },
+ "old_entries_unchanged_vs_base": {
+  "pass": true,
+  "got": null
+ },
+ "old_feedback_unchanged_vs_base": {
+  "pass": true,
+  "got": null
+ },
+ "robust_json_old_entries_unchanged": {
+  "pass": true,
+  "got": null
+ },
+ "robust_json_has_all_23": {
+  "pass": true,
+  "got": null
+ },
+ "round_provenance": {
+  "pass": true,
+  "got": {
+   "git_commit": "9145258",
+   "git_dirty": true,
+   "entries_dirty": {
+    "r05-F1-005": true,
+    "r05-F2-005": true,
+    "r05-F3-005": true
+   },
+   "entries_git_commit": {
+    "r05-F1-005": "9145258",
+    "r05-F2-005": "9145258",
+    "r05-F3-005": "9145258"
+   }
+  }
+ },
+ "parents": {
+  "pass": true,
+  "got": {
+   "r05-F1-005": "r04-F1-004",
+   "r05-F2-005": "r03-F2-003",
+   "r05-F3-005": "r04-F3-004"
+  }
+ },
+ "seeds": {
+  "pass": true,
+  "got": {
+   "trial_seed": 0,
+   "transpiler_logical": 20261104,
+   "clifford_t_pass_manager": 12345,
+   "gridsynth": 0
+  }
+ },
+ "alt_pairs_true": {
+  "pass": true,
+  "got": null
+ },
+ "best_certified_is_r02_F1_002": {
+  "pass": true,
+  "got": null
+ },
+ "hashes": {
+  "pass": true,
+  "got": [
+   "0bd7e7d91d9d",
+   "0bd7e7d91d9d",
+   "7f5bb7f8e65f",
+   "7f5bb7f8e65f"
+  ]
+ },
+ "summary_json": {
+  "pass": true,
+  "got": {
+   "n_rounds": 6,
+   "n_candidates": 23,
+   "n_valid": 23,
+   "global_best": "r04-F1-004",
+   "global_best_key": [
+    31,
+    1062,
+    2173,
+    17
+   ]
+  }
+ }
+}
+ALL PASS []

@@ -1,0 +1,140 @@
+{
+ "sha_qpy": "30c898a91d5c283bef623f0c4bd5cb6b9ab5bcf7cbb855f0f1c4da5753534534",
+ "sha_qasm3": "709aab7b4d8c5a04eb9b5046eb3309f4f1d960e13af7f55f213f23a6e7c70466",
+ "json_sha_equals_qpy_file": true,
+ "qpy": {
+  "block_err_2norm": 1.392985180865375e-15,
+  "ancilla_weight": 0.0,
+  "leak_weight": 0.0,
+  "n_qubits": 17
+ },
+ "qasm3": {
+  "block_err_2norm": 1.392985180865375e-15,
+  "ancilla_weight": 0.0,
+  "leak_weight": 0.0,
+  "n_qubits": 17
+ },
+ "headline_nominal": {
+  "cx": 31,
+  "t_fixed": 16,
+  "n_rot": 17,
+  "qubits": 17,
+  "T@0.0001": 734,
+  "T@1e-06": 1086,
+  "T@1e-08": 1432,
+  "T@1e-10": 1784
+ },
+ "claimed_t_table": [
+  [
+   0.0001,
+   734
+  ],
+  [
+   1e-06,
+   1086
+  ],
+  [
+   1e-08,
+   1432
+  ],
+  [
+   1e-10,
+   1784
+  ]
+ ],
+ "claimed_logical": {
+  "cx": 31,
+  "depth": 48,
+  "n_rot": 17,
+  "t_fixed": 16,
+  "qubits": 17,
+  "ancilla": 1
+ },
+ "T_avg_own": 1092.0,
+ "T_sum_own": 21840,
+ "row_general": {
+  "entry": "r00-seed-000",
+  "own": {
+   "cx": 54,
+   "t_fixed": 56,
+   "n_rot": 8,
+   "qubits": 23,
+   "T@1e-06": 566,
+   "T@1e-10": 884
+  },
+  "claimed": {
+   "cx": 54,
+   "t_fixed": 56,
+   "n_rot": 8,
+   "qubits": 23
+  }
+ },
+ "row_spinnet_v2_pairs9": {
+  "entry": "r00-seed-001",
+  "own": {
+   "cx": 34,
+   "t_fixed": 24,
+   "n_rot": 13,
+   "qubits": 19,
+   "T@1e-06": 832,
+   "T@1e-10": 1376
+  },
+  "claimed": {
+   "cx": 34,
+   "t_fixed": 24,
+   "n_rot": 13,
+   "qubits": 19
+  }
+ },
+ "row_best_family_F2": {
+  "entry": "r05-F2-005",
+  "own": {
+   "cx": 31,
+   "t_fixed": 16,
+   "n_rot": 17,
+   "qubits": 17,
+   "T@1e-06": 1086,
+   "T@1e-10": 1784
+  },
+  "claimed": {
+   "cx": 31,
+   "t_fixed": 16,
+   "n_rot": 17,
+   "qubits": 17
+  }
+ },
+ "row_best_family_F3": {
+  "entry": "r05-F3-005",
+  "own": {
+   "cx": 32,
+   "t_fixed": 24,
+   "n_rot": 13,
+   "qubits": 17,
+   "T@1e-06": 832,
+   "T@1e-10": 1376
+  },
+  "claimed": {
+   "cx": 32,
+   "t_fixed": 24,
+   "n_rot": 13,
+   "qubits": 17
+  }
+ },
+ "row_global_best": {
+  "entry": "r04-F1-004",
+  "own": {
+   "cx": 31,
+   "t_fixed": 24,
+   "n_rot": 17,
+   "qubits": 17,
+   "T@1e-06": 1062,
+   "T@1e-10": 1752
+  },
+  "claimed": {
+   "cx": 31,
+   "t_fixed": 24,
+   "n_rot": 17,
+   "qubits": 17
+  }
+ }
+}

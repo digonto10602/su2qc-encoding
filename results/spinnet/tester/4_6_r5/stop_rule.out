@@ -1,0 +1,7 @@
+round 0 n 7 round-min ((34, 16948, 0, 33064, 19), 'r00-seed-001') | global before None | improved True | counter(from r3) -
+round 1 n 4 round-min ((32, 16948, 0, 33256, 18), 'r01-F1-001') | global before r00-seed-001 | improved True | counter(from r3) -
+round 2 n 4 round-min ((31, 21840, 0, 46024, 17), 'r02-F1-002') | global before r01-F1-001 | improved True | counter(from r3) -
+round 3 n 3 round-min ((31, 21840, 1, 45882, 17), 'r03-F2-003') | global before r02-F1-002 | improved False | counter(from r3) 1
+round 4 n 2 round-min ((31, 21840, 1, 45876, 17), 'r04-F1-004') | global before r02-F1-002 | improved False | counter(from r3) 2
+round 5 n 3 round-min ((31, 21840, 0, 46104, 17), 'r05-F2-005') | global before r02-F1-002 | improved False | counter(from r3) 3
+global robust best ((31, 21840, 0, 46024, 17), 'r02-F1-002')

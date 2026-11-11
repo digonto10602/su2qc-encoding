@@ -1,0 +1,17 @@
+r05-F1-005 {'own_sum': 16950, 'cache_sum': 16950, 'max_abs_pair_diff': 0, 'mean': 847.5, 'std': 11.785361124806709, 'min': 828, 'max': 864, 'nominal_T_key': 834, 'nominal_minus_mean': -13.5}
+r05-F2-005 {'own_sum': 21840, 'cache_sum': 21840, 'max_abs_pair_diff': 0, 'mean': 1092.0, 'std': 13.97742540858765, 'min': 1072, 'max': 1114, 'nominal_T_key': 1086, 'nominal_minus_mean': -6.0}
+r05-F3-005 {'own_sum': 16948, 'cache_sum': 16948, 'max_abs_pair_diff': 0, 'mean': 847.4, 'std': 11.931382767175066, 'min': 828, 'max': 864, 'nominal_T_key': 832, 'nominal_minus_mean': -15.399999999999977}
+r02-F1-002 {'own_sum': 21840, 'cache_sum': 21840, 'max_abs_pair_diff': 0, 'mean': 1092.0, 'std': 13.97742540858765, 'min': 1072, 'max': 1114, 'nominal_T_key': 1086, 'nominal_minus_mean': -6.0}
+r03-F1-003 {'own_sum': 21840, 'cache_sum': 21840, 'max_abs_pair_diff': 0, 'mean': 1092.0, 'std': 18.80649383926509, 'min': 1056, 'max': 1126, 'nominal_T_key': 1062, 'nominal_minus_mean': -30.0}
+r03-F2-003 {'own_sum': 21840, 'cache_sum': 21840, 'max_abs_pair_diff': 0, 'mean': 1092.0, 'std': 18.80649383926509, 'min': 1056, 'max': 1126, 'nominal_T_key': 1062, 'nominal_minus_mean': -30.0}
+r04-F1-004 {'own_sum': 21840, 'cache_sum': 21840, 'max_abs_pair_diff': 0, 'mean': 1092.0, 'std': 18.80649383926509, 'min': 1056, 'max': 1126, 'nominal_T_key': 1062, 'nominal_minus_mean': -30.0}
+r04-F3-004 {'own_sum': 16954, 'cache_sum': 16954, 'max_abs_pair_diff': 0, 'mean': 847.7, 'std': 12.570223797362939, 'min': 823, 'max': 871, 'nominal_T_key': 811, 'nominal_minus_mean': -36.700000000000045}
+r03-F3-003 {'own_sum': 16948, 'cache_sum': 16948, 'max_abs_pair_diff': 0, 'mean': 847.4, 'std': 11.931382767175066, 'min': 828, 'max': 864, 'nominal_T_key': 832, 'nominal_minus_mean': -15.399999999999977}
+T(r05-F2-005)-T(r02-F1-002): mean 0.00, sem 0.00, min 0, max 0, neg 0, zero 20, pos 0
+T(r05-F2-005)-T(r03-F2-003): mean 0.00, sem 3.67, min -32, max 32, neg 9, zero 3, pos 8
+T(r05-F3-005)-T(r04-F3-004): mean -0.30, sem 1.83, min -11, max 15, neg 11, zero 0, pos 9
+T(r05-F3-005)-T(r03-F3-003): mean 0.00, sem 0.00, min 0, max 0, neg 0, zero 20, pos 0
+T(r05-F1-005)-T(r04-F1-004): mean -244.50, sem 2.88, min -264, max -220, neg 20, zero 0, pos 0
+T(r05-F1-005)-T(r05-F3-005): mean 0.10, sem 0.55, min -6, max 4, neg 5, zero 8, pos 7
+T(r05-F3-005)-T(r02-F1-002): mean -244.60, sem 1.36, min -256, max -230, neg 20, zero 0, pos 0
+T(r05-F1-005)-T(r02-F1-002): mean -244.50, sem 1.65, min -260, max -228, neg 20, zero 0, pos 0

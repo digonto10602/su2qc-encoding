@@ -1,0 +1,84 @@
+{
+ "embedded_equals_cert_file": true,
+ "cert_sha256": "1445a52aa0715cead457cdeb1afa07378ec23682553f535c1f9da19882d9a1e3",
+ "header_sha_in_theorem_file": "1445a52aa0715cead457cdeb1afa07378ec23682553f535c1f9da19882d9a1e3",
+ "first_line": "-- entry r02-F1-002, program sha256 750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650",
+ "theorem_lines": [
+  "import Su2PlaqCert.SpinNet.Check",
+  "theorem spinnet_best : Su2PlaqCert.SpinNet.checkJsonString certJson = true := by native_decide",
+  "#print axioms spinnet_best"
+ ],
+ "n_gates": 87,
+ "n_states": 433,
+ "n_qubits": 17,
+ "circuit_id": "spinnet-step-o1-ec21654efa8e",
+ "archive_program_sha": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650",
+ "theorem_first_line_names_sha": true,
+ "archive_lean": {
+  "status": "certified",
+  "reason": "",
+  "cert_path": "results/spinnet/certs/spinnet-step-o1-ec21654efa8e.json",
+  "seconds": 2.193349838256836,
+  "checker_sha256": "ec00aa45fafa507a075313dc4650c11bf6d122cd9233588125f61a092f853de5",
+  "theorem_path": null,
+  "axioms": [],
+  "program_file_sha256": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650"
+ },
+ "checker_on_embedded": "ACCEPT",
+ "reexport_same_circuit_id": true,
+ "reexport_fields_differing_except_provenance": [],
+ "refusals": {
+  "states: term code flipped": "REFUSED: refusing to write a theorem file for a certificate that differs from the exporter's exact data: state 5 differ",
+  "states: one state dropped": "REFUSED: refusing to write a theorem file for a certificate that differs from the exporter's exact data: certificate ha",
+  "states: duplicate index": "REFUSED: refusing to write a theorem file for a certificate that differs from the exporter's exact data: bad or duplica",
+  "target: entry indices changed": "REFUSED: refusing to write a theorem file for a certificate that differs from the exporter's exact data: target blocks ",
+  "target: block entry dropped": "REFUSED: refusing to write a theorem file for a certificate that differs from the exporter's exact data: target blocks ",
+  "name: too long": "REFUSED: bad theorem name 'spinnet_best_xxxxxxxxx' (alphanumeric/underscore, at most 13 characters)",
+  "name: injection": "REFUSED: bad theorem name 'a b:=by sorry --' (alphanumeric/underscore, at most 13 characters)",
+  "name: empty": "REFUSED: bad theorem name '' (alphanumeric/underscore, at most 13 characters)",
+  "comment: newline": "REFUSED: comment must be a single line",
+  "not a cert (schema)": "REFUSED: refusing to write a theorem file for a certificate that differs from the exporter's exact data: not a su2plaq-"
+ },
+ "regenerated_equals_committed_file": true,
+ "hand_built_theorem_files": {
+  "gate_dropped": {
+   "rc": 1,
+   "checker_cli": "REJECT state 0 differs from the target",
+   "msg": [
+    "certs/_tester118_gate_dropped.lean:5:71: error: Tactic `native_decide` evaluated that the proposition",
+    "  Su2PlaqCert.SpinNet.checkJsonString certJson = true"
+   ]
+  },
+  "rz_shifted": {
+   "rc": 1,
+   "checker_cli": "REJECT state 0 differs from the target",
+   "msg": [
+    "certs/_tester118_rz_shifted.lean:5:71: error: Tactic `native_decide` evaluated that the proposition",
+    "  Su2PlaqCert.SpinNet.checkJsonString certJson = true"
+   ]
+  },
+  "state_term_code_flipped": {
+   "rc": 1,
+   "checker_cli": "REJECT states differ from the pinned exact spin-network states (SHA-256)",
+   "msg": [
+    "certs/_tester118_state_term_code_flipped.lean:5:71: error: Tactic `native_decide` evaluated that the proposition",
+    "  Su2PlaqCert.SpinNet.checkJsonString certJson = true"
+   ]
+  },
+  "target_entry_index_changed": {
+   "rc": 1,
+   "checker_cli": "REJECT target differs from the pinned exact step target (SHA-256)",
+   "msg": [
+    "certs/_tester118_target_entry_index_changed.lean:5:71: error: Tactic `native_decide` evaluated that the proposition",
+    "  Su2PlaqCert.SpinNet.checkJsonString certJson = true"
+   ]
+  },
+  "untampered_control": {
+   "rc": 0,
+   "checker_cli": "ACCEPT",
+   "msg": [
+    "'tt' depends on axioms: [propext, Classical.choice, Quot.sound, tt._native.native_decide.ax_1_1]"
+   ]
+  }
+ }
+}
