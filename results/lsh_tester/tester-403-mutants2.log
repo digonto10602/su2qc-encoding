@@ -1,0 +1,25 @@
+=== MUTANT M9 swap two link wires in wire map
+21 passed in 4.90s
+--- acceptance V1/L2 subset
+4 passed in 8.24s
+=== MUTANT M10 uncompute with forward transcoder instead of inverse
+FAILED tests/unit/test_lsh_circuits_unit.py::test_wrap_spinnet_structure_and_overhead
+1 failed, 19 passed in 5.09s
+--- acceptance V1/L2 subset
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[pairs9]
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[general7]
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[flags4]
+3 failed, 1 passed in 6.54s
+=== MUTANT M11 corner bits: mapped to w wires (2,5,8,11) instead of 1,4,7,10
+FAILED tests/unit/test_lsh_circuits_unit.py::test_wrap_spinnet_structure_and_overhead
+1 failed, 19 passed in 4.19s
+--- acceptance V1/L2 subset
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[flags4]
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[pairs9]
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[general7]
+3 failed, 1 passed in 6.06s
+=== MUTANT M12 drop metadata/with_outer: with_outer ignored (no o register)
+FAILED tests/unit/test_lsh_circuits_unit.py::test_build_UE_structure - Assert...
+1 failed, 7 passed in 2.36s
+--- acceptance V1/L2 subset
+4 passed in 5.88s

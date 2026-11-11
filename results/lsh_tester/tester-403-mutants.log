@@ -1,0 +1,52 @@
+=== MUTANT M1 drop inverse transcoder
+FAILED tests/unit/test_lsh_circuits_unit.py::test_wrap_spinnet_structure_and_overhead
+1 failed, 19 passed in 4.76s
+--- acceptance V1/L2 subset
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[pairs9]
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[flags4]
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[general7]
+3 failed, 1 passed in 8.01s
+=== MUTANT M2 drop forward transcoder
+FAILED tests/unit/test_lsh_circuits_unit.py::test_wrap_spinnet_structure_and_overhead
+1 failed, 19 passed in 4.83s
+--- acceptance V1/L2 subset
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[flags4]
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[pairs9]
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[general7]
+3 failed, 1 passed in 7.80s
+=== MUTANT M3 swap two corner-bit wires in wire map
+21 passed in 4.71s
+--- acceptance V1/L2 subset
+4 passed in 8.66s
+=== MUTANT M4 ancilla offset ignores outer register
+21 passed in 4.83s
+--- acceptance V1/L2 subset
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[flags4]
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[pairs9]
+FAILED tests/acceptance/m7/test_lsh_external.py::test_M7_V1_wrapped_spinnet[general7]
+3 failed, 1 passed in 8.04s
+=== MUTANT M5 swap two lshCoupling entries in Circuit.lean
+FAILED tests/unit/test_lsh_lean_export_unit.py::test_generated_block_equals_python
+1 failed, 14 passed in 3.51s
+--- acceptance V1/L2 subset
+FAILED tests/acceptance/m7/test_lsh_lean.py::test_M7_L2_general_circuit_structure_kernel_checked
+1 failed, 3 passed in 5.32s
+=== MUTANT M6 one lshAngles int changed in Circuit.lean
+FAILED tests/unit/test_lsh_lean_export_unit.py::test_generated_block_equals_python
+1 failed, 14 passed in 3.69s
+--- acceptance V1/L2 subset
+FAILED tests/acceptance/m7/test_lsh_lean.py::test_M7_L2_general_circuit_structure_kernel_checked
+1 failed, 3 passed in 5.82s
+=== MUTANT M7 exporter angle_ints returns wrong int (sign)
+FAILED tests/unit/test_lsh_lean_export_unit.py::test_integer_tables - assert ...
+FAILED tests/unit/test_lsh_lean_export_unit.py::test_generated_block_equals_python
+2 failed, 12 passed in 3.45s
+--- acceptance V1/L2 subset
+FAILED tests/acceptance/m7/test_lsh_lean.py::test_M7_L2_general_circuit_structure_kernel_checked
+1 failed, 3 passed in 5.36s
+=== MUTANT M8 swap two partner entries in Circuit.lean
+FAILED tests/unit/test_lsh_lean_export_unit.py::test_generated_block_equals_python
+1 failed, 14 passed in 3.79s
+--- acceptance V1/L2 subset
+FAILED tests/acceptance/m7/test_lsh_lean.py::test_M7_L2_general_circuit_structure_kernel_checked
+1 failed, 3 passed in 5.47s

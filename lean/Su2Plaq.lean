@@ -16,3 +16,5 @@ import Su2Plaq.SpinNet.Bridge
 import Su2Plaq.Rishon.Counts
 import Su2Plaq.Rishon.JW
 import Su2Plaq.Rishon.Bridge
+import Su2Plaq.LSH.Counts
+import Su2Plaq.LSH.Circuit

@@ -115,3 +115,44 @@ def test_build_step_orders():
         build_step(0.37, 0.61, 3)
     with pytest.raises(ValueError):
         W.build(W.skeleton(1)[0], 7, W.coupling_table(enc()), None, 0.61)      # electric layer without alpha
+
+
+# ---- step 7.7 mutants: the evaluator against the step target must reject a swapped or mis-wired electric layer ---------
+def _mutant_step(kind):
+    """Order-1 step with the electric layer (a) after the core instead of before, (b) on the corner-bit wires 1,4,7,10."""
+    steps, n_anc = W.skeleton(0)
+    n_t = len(W.TRANSCODE)
+    pre, rest = steps[:n_t], steps[n_t:]
+    post = rest[-n_t:]
+    core = rest[:-n_t]
+    wires = W.LINK if kind == "swap" else W.CBIT
+    layer = [("p_alpha", q) for q in wires]
+    mutated = pre + (layer + core if kind == "wires" else core + layer) + post
+    return W.build(mutated, n_anc, W.coupling_table(enc()), 0.37, 0.61, 1, False, f"mutant_{kind}")
+
+
+def test_step_electric_layer_position_and_wires():
+    from qiskit import QuantumCircuit  # noqa: F401
+    q1, q2 = build_step(0.37, 0.61, 1), build_step(0.37, 0.61, 2)
+    for qc, n_layers in ((q1, 1), (q2, 2)):
+        idx = lambda i: qc.find_bit(qc.data[i].qubits[0]).index  # noqa: E731
+        names = [x.operation.name for x in qc.data]
+        p_pos = [i for i, n in enumerate(names) if n == "p"]
+        rz_pos = [i for i, n in enumerate(names) if n == "rz"]
+        assert len(p_pos) == 4 * n_layers
+        assert {idx(i) for i in p_pos} == {0, 3, 6, 9}                  # the link wires j_b j_r j_t j_l
+        assert max(p_pos[:4]) < min(rz_pos)                               # first layer before every walk rotation
+        if n_layers == 2:
+            assert min(p_pos[4:]) > max(rz_pos)                           # second layer after the walk
+        else:
+            assert max(p_pos) < min(rz_pos)
+
+
+@pytest.mark.parametrize("kind", ["swap", "wires"])
+def test_step_mutants_are_rejected_by_the_evaluator(kind):
+    from su2plaq.evaluate.evaluator import evaluate
+    e = enc()
+    V = e.target("step", 0.37, 0.61, 1)
+    assert evaluate(build_step(0.37, 0.61, 1), e, V).ok
+    bad = evaluate(_mutant_step(kind), e, V)
+    assert not bad.ok

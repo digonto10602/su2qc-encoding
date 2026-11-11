@@ -1,5 +1,4 @@
-"""LSH circuits (prompts/400 section 2; docs/METHODS-lsh.md L7).  `build_UE` (step 7.5), `build_UB` (7.6) and `build_step` (7.7) are built;
-`wrap_spinnet` is a STUB (step 7.8) raising NotImplementedError.  Register order: d (12), o (12) if with_outer, then
+"""LSH circuits (prompts/400 section 2; docs/METHODS-lsh.md L7).  `build_UE` (step 7.5), `build_UB` (7.6), `build_step` (7.7) and `wrap_spinnet` (7.8).  Register order: d (12), o (12) if with_outer, then
 ancillas."""
 from __future__ import annotations
 
@@ -70,4 +69,29 @@ def build_step(alpha, beta, order=1, with_outer=False):
 
 
 def wrap_spinnet(sn_qc, with_outer=False):
-    _pending("wrap_spinnet", "7.8")
+    """A spin-network circuit (register d[8] = links b r t l + corner bits c0..c3, then ancillas; no outer register) between
+    the LSH transcoder T and its inverse: an LSH circuit on d[12] (+ o[12]) + the same ancillas.  T maps the 47 LSH inner
+    codes one-to-one onto the 47 spin-network inner codes (links on wires 0, 3, 6, 9, corner bits on 1, 4, 7, 10) and leaves
+    w_c on wires 2, 5, 8, 11, so T^dag C T is exact on the LSH codes whenever C is exact on the spin-network codes
+    (+40 CX, +32 T; docs/METHODS-lsh.md L8)."""
+    names = [r.name for r in sn_qc.qregs]
+    if not names or names[0] != "d" or sn_qc.qregs[0].size != 8 or "o" in names:
+        raise ValueError("wrap_spinnet needs a spin-network circuit with register d[8] first and no outer register")
+    n_anc = sn_qc.num_qubits - 8
+    regs = [QuantumRegister(N_DATA, "d")] + ([QuantumRegister(N_OUTER, "o")] if with_outer else []) \
+        + ([QuantumRegister(n_anc, "a")] if n_anc else [])
+    qc = QuantumCircuit(*regs, name=f"lsh_{sn_qc.name}")
+    off = N_DATA + N_OUTER if with_outer else N_DATA
+    wire = {i: W.LINK[i] for i in range(4)}
+    wire.update({4 + c: W.CBIT[c] for c in range(4)})
+    wire.update({8 + a: off + a for a in range(n_anc)})
+
+    def emit(steps):
+        for st in steps:
+            (qc.cx if st[0] == "cx" else qc.rccx)(*st[1:])
+
+    emit(W.TRANSCODE)
+    qc.compose(sn_qc, qubits=[wire[i] for i in range(sn_qc.num_qubits)], inplace=True)
+    emit(W.mirror(W.TRANSCODE))
+    qc.metadata = {**(sn_qc.metadata or {}), "wrapped": "lsh transcoder"}
+    return qc
