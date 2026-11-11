@@ -1,0 +1,757 @@
+{
+  "schema_version": 1,
+  "encoding": "lsh",
+  "circuit_id": "UB",
+  "kind": "UB",
+  "params": {
+    "alpha": null,
+    "beta": 0.61,
+    "order": 1
+  },
+  "provenance": {
+    "git_commit": "3d99f68",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+    "cpu_count": 20,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "trial_subset": 0
+    },
+    "timestamp_utc": "2026-11-11T05:21:48Z",
+    "provenance_captured_at": "2026-11-11T05:21:48Z",
+    "host": "omnicommander",
+    "command": "python scripts/m7_results.py",
+    "quick": false,
+    "wall_seconds": 8.073895454406738,
+    "peak_rss_mb": 281.31640625
+  },
+  "verification": {
+    "ok": true,
+    "reason": "ok",
+    "op_norm_error": 1.4412387114434048e-14,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      -2.755070654672497e-18
+    ],
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 5.410557748946589e-16,
+    "method": "inner_span",
+    "engine": "sparse",
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "dropped_total": 9.593315057977813e-15,
+    "block_error": 4.819072056456235e-15,
+    "leak_amplitude": 0.0,
+    "seconds": 0.18150544166564941,
+    "n_inputs": 433,
+    "extra": {
+      "op_norm_error_physical": 4.528950276280376e-15,
+      "max_dropped_l2": 2.6410083131561345e-15,
+      "max_span_leak": 0.0,
+      "op_norm_error_inner_span": 4.819072056456235e-15
+    }
+  },
+  "metrics": {
+    "logical": {
+      "cx": 94,
+      "depth": 87,
+      "n_rot": 4,
+      "t_fixed": 88,
+      "qubits": 19,
+      "ancilla": 7
+    },
+    "gates_lowered": {
+      "cx": 94,
+      "h": 46,
+      "t": 44,
+      "tdg": 44,
+      "x": 16,
+      "rz": 4
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 88,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 174,
+        "t_total": 262,
+        "t_est": 247.4525485545934,
+        "t_qiskit": null,
+        "cx_qiskit": null,
+        "depth_qiskit": null,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 174,
+          "error_bound_sum": 0.0004,
+          "error_measured_sum": 0.00013148077404153498,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 0.00010088609933458945,
+            "max_leak": 2.8197988077458596e-10,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.7071004046476729,
+              0.7071131576679203
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.460164424183067e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 0.00040000100000000003,
+              "tol_gauss": 0.00040000100000000003
+            },
+            "dropped_total": 9.143962800540705e-15,
+            "block_error": 8.409384275360304e-05,
+            "leak_amplitude": 1.6792256571842454e-05,
+            "seconds": 0.20577573776245117,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 8.409384275352526e-05,
+              "max_dropped_l2": 2.844938193704688e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 8.409384275360304e-05
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 88,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 254,
+        "t_total": 342,
+        "t_est": 327.1788228318901,
+        "t_qiskit": null,
+        "cx_qiskit": null,
+        "depth_qiskit": null,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 254,
+          "error_bound_sum": 4e-06,
+          "error_measured_sum": 1.4602671567298075e-06,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.3031907776506877e-06,
+            "max_leak": 1.7910495848288866e-13,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.7071067369417393,
+              -0.707106825431353
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.578801654593729e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 4.0009999999999995e-06,
+              "tol_gauss": 4.0009999999999995e-06
+            },
+            "dropped_total": 8.732537249292018e-15,
+            "block_error": 8.799828312765126e-07,
+            "leak_amplitude": 4.2320793764163807e-07,
+            "seconds": 0.21059250831604004,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 8.799828312765126e-07,
+              "max_dropped_l2": 2.7217005843235754e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 8.799828312186381e-07
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 88,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 340,
+        "t_total": 428,
+        "t_est": 406.9050971091868,
+        "t_qiskit": null,
+        "cx_qiskit": null,
+        "depth_qiskit": null,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 340,
+          "error_bound_sum": 4e-08,
+          "error_measured_sum": 1.5147013234482437e-08,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.5381645646648227e-08,
+            "max_leak": 4.736204918269838e-17,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              -6.79755684958823e-10,
+              1.0
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.410557748946589e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 4.1e-08,
+              "tol_gauss": 4.1e-08
+            },
+            "dropped_total": 8.710804837856556e-15,
+            "block_error": 8.499627840913452e-09,
+            "leak_amplitude": 6.882009094929938e-09,
+            "seconds": 0.21991944313049316,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 8.499627720691404e-09,
+              "max_dropped_l2": 2.6436286801025063e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 8.499627840913452e-09
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 88,
+        "n_rot": 4,
+        "t_rot_pygridsynth": 412,
+        "t_total": 500,
+        "t_est": 486.63137138648347,
+        "t_qiskit": null,
+        "cx_qiskit": null,
+        "depth_qiskit": null,
+        "synth": {
+          "n_rot": 4,
+          "t_rot": 412,
+          "error_bound_sum": 4e-10,
+          "error_measured_sum": 8.19172530193926e-11,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 7.427657731656752e-11,
+            "max_leak": 7.372050744186699e-23,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.7071067811835158,
+              0.7071067811895791
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.460164424183067e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1.4000000000000001e-09,
+              "tol_gauss": 1.4000000000000001e-09
+            },
+            "dropped_total": 9.126263645931654e-15,
+            "block_error": 6.568138632908758e-11,
+            "leak_amplitude": 8.586064723834021e-12,
+            "seconds": 0.22178125381469727,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 6.568138632908758e-11,
+              "max_dropped_l2": 2.7798494128165262e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 6.56813460597876e-11
+            }
+          }
+        }
+      }
+    ],
+    "macro_counts": {
+      "cx": 28,
+      "rccx": 22,
+      "x": 16,
+      "rz": 4,
+      "h": 2
+    }
+  },
+  "files": {
+    "qpy": "results/lsh/UB.qpy",
+    "sha256": "77104ea70824f196fc82c3a7649727fc0bda2a8598d5cac536e786349883d2d8",
+    "qasm3": "results/lsh/UB.qasm3"
+  },
+  "extra": {
+    "physics": {
+      "n_physical_states": 433,
+      "n_inner_codes": 47,
+      "n_bright_codes": 16,
+      "n_dark_codes": 31,
+      "n_bright_pairs": 8,
+      "n_outer_site_patterns": 305,
+      "n_raw_agl_states": 5920,
+      "n_raw_inner_codes": 82,
+      "n_agl_violating_data_valid_codes": 28942,
+      "qubits_data": 12,
+      "qubits_outer": 12,
+      "couplings": {
+        "-2.0": 1,
+        "-0.5": 1,
+        "1.0": 6
+      },
+      "couplings_note": "coupling value k of K_LSH -> number of bright pairs carrying it",
+      "gauge_minus_count": 64,
+      "gauge_residual": 8.881784197001252e-16,
+      "gauge_align_residual_recomputed": 8.881784197001252e-16,
+      "spectra_vs_route_A": {
+        "0.5": 1.021405182655144e-14,
+        "1.0": 5.218048215738236e-15,
+        "2.0": 7.105427357601002e-15
+      },
+      "spectra_vs_route_B": {
+        "0.5": 3.552713678800501e-15,
+        "1.0": 1.7763568394002505e-15,
+        "2.0": 4.996003610813204e-16
+      },
+      "K_minus_K6j": 1.7763568394002505e-15,
+      "H_B_minus_H_B_6j": 1.7763568394002505e-15
+    },
+    "comparison": {
+      "wrapped_spinnet": {
+        "general7": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.4001503032813388e-14,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              1.4901908486666607e-18
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.410557748946589e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "dropped_total": 9.307858483433182e-15,
+            "block_error": 4.6936445493802064e-15,
+            "leak_amplitude": 0.0,
+            "seconds": 0.17644691467285156,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 4.54449850734134e-15,
+              "max_dropped_l2": 2.689815818828565e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 4.6936445493802064e-15
+            }
+          },
+          "logical": {
+            "cx": 94,
+            "depth": 87,
+            "n_rot": 4,
+            "t_fixed": 88,
+            "qubits": 19,
+            "ancilla": 7
+          },
+          "spinnet_logical": {
+            "cx": 54,
+            "depth": 67,
+            "n_rot": 4,
+            "t_fixed": 56,
+            "qubits": 15,
+            "ancilla": 7
+          },
+          "t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 88,
+              "n_rot": 4,
+              "t_rot_pygridsynth": 254,
+              "t_total": 342,
+              "t_est": 327.1788228318901,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ],
+          "spinnet_t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 56,
+              "n_rot": 4,
+              "t_rot_pygridsynth": 254,
+              "t_total": 310,
+              "t_est": 295.1788228318901,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ]
+        },
+        "pairs9": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 9.742354487940209e-15,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              1.0234903110951728e-18
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.410557748946589e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "dropped_total": 6.9733513969792206e-15,
+            "block_error": 2.769003090960988e-15,
+            "leak_amplitude": 0.0,
+            "seconds": 0.17270278930664062,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 2.769003090960988e-15,
+              "max_dropped_l2": 1.7055731712988353e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 2.6536490819839333e-15
+            }
+          },
+          "logical": {
+            "cx": 74,
+            "depth": 57,
+            "n_rot": 9,
+            "t_fixed": 56,
+            "qubits": 15,
+            "ancilla": 3
+          },
+          "spinnet_logical": {
+            "cx": 34,
+            "depth": 38,
+            "n_rot": 9,
+            "t_fixed": 24,
+            "qubits": 11,
+            "ancilla": 3
+          },
+          "t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 56,
+              "n_rot": 9,
+              "t_rot_pygridsynth": 552,
+              "t_total": 608,
+              "t_est": 594.1523513717527,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ],
+          "spinnet_t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 24,
+              "n_rot": 9,
+              "t_rot_pygridsynth": 552,
+              "t_total": 576,
+              "t_est": 562.1523513717527,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ]
+        },
+        "flags4": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.0639675245205997e-14,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              1.276816283028809e-17
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.410557748946589e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "dropped_total": 6.465252266486883e-15,
+            "block_error": 4.174422978719115e-15,
+            "leak_amplitude": 0.0,
+            "seconds": 0.17579197883605957,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 3.997014550252132e-15,
+              "max_dropped_l2": 1.809093310536396e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 4.174422978719115e-15
+            }
+          },
+          "logical": {
+            "cx": 84,
+            "depth": 80,
+            "n_rot": 4,
+            "t_fixed": 80,
+            "qubits": 15,
+            "ancilla": 3
+          },
+          "spinnet_logical": {
+            "cx": 44,
+            "depth": 60,
+            "n_rot": 4,
+            "t_fixed": 48,
+            "qubits": 11,
+            "ancilla": 3
+          },
+          "t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 80,
+              "n_rot": 4,
+              "t_rot_pygridsynth": 250,
+              "t_total": 330,
+              "t_est": 319.1788228318901,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ],
+          "spinnet_t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 48,
+              "n_rot": 4,
+              "t_rot_pygridsynth": 250,
+              "t_total": 298,
+              "t_est": 287.1788228318901,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ]
+        },
+        "flags5": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.0903126427584413e-14,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.9999999999999999,
+              2.5367188809104886e-17
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.410557748946589e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "dropped_total": 7.185261132930995e-15,
+            "block_error": 3.717865294653417e-15,
+            "leak_amplitude": 0.0,
+            "seconds": 0.1778428554534912,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 3.474826783142665e-15,
+              "max_dropped_l2": 1.8250781181472955e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 3.717865294653417e-15
+            }
+          },
+          "logical": {
+            "cx": 82,
+            "depth": 87,
+            "n_rot": 5,
+            "t_fixed": 72,
+            "qubits": 15,
+            "ancilla": 3
+          },
+          "spinnet_logical": {
+            "cx": 42,
+            "depth": 67,
+            "n_rot": 5,
+            "t_fixed": 40,
+            "qubits": 11,
+            "ancilla": 3
+          },
+          "t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 72,
+              "n_rot": 5,
+              "t_rot_pygridsynth": 310,
+              "t_total": 382,
+              "t_est": 370.9735285398626,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ],
+          "spinnet_t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 40,
+              "n_rot": 5,
+              "t_rot_pygridsynth": 310,
+              "t_total": 350,
+              "t_est": 338.9735285398626,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ]
+        },
+        "flags6": {
+          "verification": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 9.857894395875105e-15,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              2.984066256879576e-18
+            ],
+            "outer_bits_read": 0,
+            "n_blocks": 1,
+            "gauss_residual": 5.410557748946589e-16,
+            "method": "inner_span",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 1e-10,
+              "tol_gauss": 1e-10
+            },
+            "dropped_total": 6.510033698899012e-15,
+            "block_error": 3.3478606969760936e-15,
+            "leak_amplitude": 0.0,
+            "seconds": 0.17331576347351074,
+            "n_inputs": 433,
+            "extra": {
+              "op_norm_error_physical": 3.3478606969760936e-15,
+              "max_dropped_l2": 1.7593548852832016e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": 3.3050079290971373e-15
+            }
+          },
+          "logical": {
+            "cx": 76,
+            "depth": 71,
+            "n_rot": 6,
+            "t_fixed": 64,
+            "qubits": 15,
+            "ancilla": 3
+          },
+          "spinnet_logical": {
+            "cx": 36,
+            "depth": 51,
+            "n_rot": 6,
+            "t_fixed": 32,
+            "qubits": 11,
+            "ancilla": 3
+          },
+          "t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 64,
+              "n_rot": 6,
+              "t_rot_pygridsynth": 370,
+              "t_total": 434,
+              "t_est": 422.76823424783515,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ],
+          "spinnet_t_table_pygridsynth": [
+            {
+              "eps": 1e-06,
+              "t_fixed": 32,
+              "n_rot": 6,
+              "t_rot_pygridsynth": 370,
+              "t_total": 402,
+              "t_est": 390.76823424783515,
+              "t_qiskit": null,
+              "cx_qiskit": null,
+              "depth_qiskit": null
+            }
+          ]
+        }
+      },
+      "transcoder": {
+        "cx": 20,
+        "t_fixed": 16,
+        "n_rot": 0,
+        "ancilla": 0
+      },
+      "spinnet": {
+        "logical": {
+          "cx": 54,
+          "depth": 67,
+          "n_rot": 4,
+          "t_fixed": 56,
+          "qubits": 15,
+          "ancilla": 7
+        },
+        "t_table_pygridsynth": [
+          {
+            "eps": 1e-06,
+            "t_fixed": 56,
+            "n_rot": 4,
+            "t_rot_pygridsynth": 254,
+            "t_total": 310,
+            "t_est": 295.1788228318901,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null
+          }
+        ]
+      },
+      "eps_per_rotation": 1e-06,
+      "note": "Like-for-like at the same per-rotation eps = 1e-6 (pygridsynth sums): the LSH register costs the spin-network circuit plus the transcoder, +40 CX and +32 T (2 x 4 x (2 cx + 1 rccx)); beta = 0.61 for all rows."
+    }
+  }
+}
