@@ -16,13 +16,13 @@ Gu-et-al-style LLM loop → report. Full plan: `prompts/001-plaquette-five-encod
 | rishon (M5/M6) | 200–299 | prompts/204 (det term, prune cap 10 %) on 203 | m5, m5x, m6 | milestone-5, -5x |
 | fuzzy (M9/M10) | 300–399 | prompts/302 | m9, m10 | milestone-9, -10 |
 | LSH (M7/M8) | 400–499 | prompts/400 | m7 | — |
-Latest acceptance tag: acceptance-v17 (tags v8–v13 are old track-local locks; v14 = merged tree).
+Latest acceptance tag: acceptance-v18 (m2c consolidation, prompts/008) (tags v8–v13 are old track-local locks; v14 = merged tree).
 
 ## Current milestone / step (per track)
 - spinnet M4: compression round 5 (proposers F1–F3, sessions 16–18/20; stop counter 2/3) → then 4.L1/4.L2 Lean, 4.7 results, 4.8 gate → Report 4.
 - rishon M5d/M6: prompts/204 steps D1–D7 (det term λ_D, milestone-5d, Report 5 addendum), then C1–C6 (replay rounds 0–4, rounds 5+, Lean 6.L, gate → Report 6).
 - fuzzy M10 follow-up: fuzzy_ub round 4 (proposers F1–F3); then Lean per-circuit certs + audit A1/A2 (planner).
-- LSH M7: 7.0–7.7 done (6beb713); 7.8–7.10 + 7.L1–7.L2 built (m7 28/29, L3 pending) → tester 403; then clean-worktree m7_results run, 7.L3, 7.11, gate → Report 7; then M8.
+- LSH M7: 7.0–7.10 + 7.L1–7.L2 done (3d99f68; clean results 0bdb045); builder on 7.L3 + 7.11; then gate → Report 7; then M8.
 - consolidation: planner writing prompts/008 (shared-code registries replacing shims, robust-T key, hash refresh) — runs after the loops close.
 
 ## Open failures (attempt counters)
@@ -146,3 +146,8 @@ Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer
 - 2026-11-10 ~19:00: API 5-hour usage limit stopped 6 agents mid-work; resumed all after reset (tester 118 spinnet, tester 402 LSH, builder D1-D2 rishon, fuzzy proposers F1/F3, planner 008). Spinnet 4.L1/4.L2 + 4.7 committed (b0d3db7); m4 results regenerated on clean commit in worktree ~/Projects/su2qc-regen-m4 (232bb5e, git_dirty False). Tester 118 scope extended to the 4.L/4.7 checks; then M4 gate (tester full -> auditor -> benchmark -> milestone-4 -> Report 4). Note: global deny rules block `rm -rf` and `git clean` (use new dirs / git worktree instead).
 - 2026-11-10: LSH tester 402 PASS: U_B error <= 8.4e-15 on all 433 states, step orders <= 1.0e-14, counts CX 94 / T_fixed 88 / 4 rotations / 19 qubits, 31/31 mutants caught; m7 20 pass / 9 pending -> committed 6beb713, pushed. Builder resumed on 7.8-7.10 + 7.L1-7.L2 (+ unit tests for 2 mutants only acceptance caught). Fuzzy r4 F1: 004-single-tour-branch-fold (116 CX / 1774 / 4394 / 12) -> waiting for F3.
 - 2026-11-10: rishon tester 222 PASS (D1-D2): det term matches independent JW build to 6.6e-15; slopes 1.994/2.994; [H_D,H_E]=0; prune cap re-judging 54/54 mutants; shared code byte-identical. M6_G4 failure was a missing summary.json headline (fixed by `robust report`), not the hash; C2 replay still needed for G1/S3/G5. Committed 6d9bae8 -> builder D3-D7 (+ NaN reject in _rejudge, spec gate-count sentence). LSH builder 7.8-7.10 + 7.L1-7.L2 done (m7 28/29; unit 909; Lean LSH.Counts/Circuit build 16.6 s) -> tester 403 (cores 14-19).
+- 2026-11-11: planner 008 done -> locked acceptance-v18 (d905746): prompts/008 consolidation (registry, robust T = headline rule not archive key, span leak N3 as exact op norm, A1 NaN not_checked, A2 extra angle pairs, encoding_sha256), 28 m2c tests (PENDING), research 005. Phase A (flaky unit test, write_structure_json idempotent) -> builder (cores 18-19); Phase B window opens after milestone-4 + fuzzy loops closed + rishon between D7 and C2. Defaults D1, D2, D8, D10 -> for Digonto's later review.
+- 2026-11-11: spinnet tester 118 PASS (6a392f8): m4 19/19 incl. slow; round-5 keys and robust keys reproduced; stop 3/3; Lean best-step cert elaborates, tamper probes rejected. Note for Report 4: headline buys CX not T (1086 T vs 566 general; r05-F3-005 has 22 % lower T_avg at +1 CX). -> M4 gate tester full (cores 0-5).
+- 2026-11-11: LSH tester 403 PASS: wrap_spinnet exact on 433 states (<= 7.3e-15) for 5 skeletons, counts recomputed from qpy, Lean tables = regenerated, mutants caught -> committed 3d99f68; results regenerated in clean worktree (0bdb045). Builder -> 7.L3 + 7.11.
+- 2026-11-11: rishon builder D3-D6 done (D6 script only; m5/m5x/m6 74 pass / 12 PENDING; unit 922; rishon evaluator hash now 055b2107; structure.json unchanged) -> tester 223 (cores 6-11). Flag: det leaving_weight 2.3e-10 vs plan quote 6e-11 (test bound 1e-9).
+- 2026-11-11: fuzzy r4 F3 004-cz-knob-fold-constfree-group (130 CX / 1881 / 4673 / 12); programs committed 5d5d502; round 4 evaluation running (cores 12-13).
