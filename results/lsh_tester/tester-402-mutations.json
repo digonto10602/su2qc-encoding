@@ -1,0 +1,760 @@
+[
+ {
+  "mutation": "baseline",
+  "acc_failed": [],
+  "unit_failed": [],
+  "acc": "8 passed in 8.67s",
+  "unit": "39 passed in 4.44s",
+  "indep_fails": 1
+ },
+ {
+  "mutation": "transcoder: drop gate 0 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 1.07e+00"
+ },
+ {
+  "mutation": "transcoder: drop gate 1 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 7.43e-01"
+ },
+ {
+  "mutation": "transcoder: drop gate 2 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 7.43e-01"
+ },
+ {
+  "mutation": "transcoder: drop gate 3 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 1.07e+00"
+ },
+ {
+  "mutation": "transcoder: drop gate 4 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 7.43e-01"
+ },
+ {
+  "mutation": "transcoder: drop gate 5 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 7.43e-01"
+ },
+ {
+  "mutation": "transcoder: drop gate 6 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 1.07e+00"
+ },
+ {
+  "mutation": "transcoder: drop gate 7 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 7.43e-01"
+ },
+ {
+  "mutation": "transcoder: drop gate 8 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 7.43e-01"
+ },
+ {
+  "mutation": "transcoder: drop gate 9 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 1.07e+00"
+ },
+ {
+  "mutation": "transcoder: drop gate 10 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 7.43e-01"
+ },
+ {
+  "mutation": "transcoder: drop gate 11 (forward AND inverse use the same TRANSCODE)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 7.43e-01"
+ },
+ {
+  "mutation": "transcoder: drop gate 0 of the INVERSE only",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_skeleton_variants"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL UB beta=0.400000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc) | expected 0 | got 1.0 | tol 1e-10",
+   "FAIL UB beta=0.400000: leak weight / opnorm, dirty ancilla weight, outer-changed weight | expected 0 | got 9.20e+01/1.00e+00/0.00e+00/0.00e+00 | tol 1e-20"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "transcoder: drop gate 1 of the INVERSE only",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_skeleton_variants"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL UB beta=0.400000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc) | expected 0 | got 1.0 | tol 1e-10",
+   "FAIL UB beta=0.400000: leak weight / opnorm, dirty ancilla weight, outer-changed weight | expected 0 | got 1.51e+02/1.00e+00/0.00e+00/0.00e+00 | tol 1e-20"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "transcoder: drop gate 2 of the INVERSE only",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_skeleton_variants"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL UB beta=0.400000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc) | expected 0 | got 1.0 | tol 1e-10",
+   "FAIL UB beta=0.400000: leak weight / opnorm, dirty ancilla weight, outer-changed weight | expected 0 | got 1.51e+02/1.00e+00/0.00e+00/0.00e+00 | tol 1e-20"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "transcoder: drop gate 3 of the INVERSE only",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_skeleton_variants"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL UB beta=0.400000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc) | expected 0 | got 1.0 | tol 1e-10",
+   "FAIL UB beta=0.400000: leak weight / opnorm, dirty ancilla weight, outer-changed weight | expected 0 | got 9.20e+01/1.00e+00/0.00e+00/0.00e+00 | tol 1e-20"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "transcoder: drop gate 5 of the INVERSE only",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_skeleton_variants"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL UB beta=0.400000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc) | expected 0 | got 1.0 | tol 1e-10",
+   "FAIL UB beta=0.400000: leak weight / opnorm, dirty ancilla weight, outer-changed weight | expected 0 | got 1.51e+02/1.00e+00/0.00e+00/0.00e+00 | tol 1e-20"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "transcoder: drop gate 6 of the INVERSE only",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_skeleton_variants"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL UB beta=0.400000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc) | expected 0 | got 1.0000000000000004 | tol 1e-10",
+   "FAIL UB beta=0.400000: leak weight / opnorm, dirty ancilla weight, outer-changed weight | expected 0 | got 9.20e+01/1.00e+00/0.00e+00/0.00e+00 | tol 1e-20"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "transcoder: drop gate 8 of the INVERSE only",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_skeleton_variants"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL UB beta=0.400000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc) | expected 0 | got 1.0000000000000004 | tol 1e-10",
+   "FAIL UB beta=0.400000: leak weight / opnorm, dirty ancilla weight, outer-changed weight | expected 0 | got 1.51e+02/1.00e+00/0.00e+00/0.00e+00 | tol 1e-20"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "transcoder: drop gate 11 of the INVERSE only",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_skeleton_variants"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL UB beta=0.400000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc) | expected 0 | got 1.0 | tol 1e-10",
+   "FAIL UB beta=0.400000: leak weight / opnorm, dirty ancilla weight, outer-changed weight | expected 0 | got 1.51e+02/1.00e+00/0.00e+00/0.00e+00 | tol 1e-20"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "walk: sign of angle 0 flipped",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 3,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_solved_angles_and_fractions"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 2.80e+00"
+ },
+ {
+  "mutation": "walk: sign of angle 1 flipped",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 3,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_solved_angles_and_fractions"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 8.00e-01"
+ },
+ {
+  "mutation": "walk: sign of angle 2 flipped",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 3,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_solved_angles_and_fractions"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 2.40e+00"
+ },
+ {
+  "mutation": "walk: sign of angle 3 flipped",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 3,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_solved_angles_and_fractions"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 1.20e+00"
+ },
+ {
+  "mutation": "walk: angle 2 off by 1e-3 relative",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 3,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_solved_angles_and_fractions"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 1.20e-03"
+ },
+ {
+  "mutation": "walk: all angles x(-1) (beta -> -beta)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 3,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_solved_angles_and_fractions"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 3.20e+00"
+ },
+ {
+  "mutation": "step: order-1 layers swapped (U_E applied after U_B)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_S1_step_orders[1]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": false,
+  "n_unit_failed": 0,
+  "unit_first": [],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL step o1 (a,b)=(0.3700,0.6100): err vs U_B U_E | expected 0 | got 0.9897042280751311 | tol 1e-10",
+   "FAIL step o1 (0.3700,0.6100): wrong targets rejected (>1e-3): other order target=0.515, target at -beta=1.596, layer-swapped U_E U_B=0.000 | expected >1e-3 | got [0.515, 1.596, 0.0] | tol 0.001"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "step: order-2 second electric layer dropped",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_S1_step_orders[2]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 2,
+  "unit_first": [
+   "test_build_step_orders",
+   "test_skeleton_variants"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL step o2 (a,b)=(0.3700,0.6100): err vs U_E(a/2) U_B U_E(a/2) | expected 0 | got 0.34325791198092054 | tol 1e-10",
+   "FAIL step o2 (a,b)=(0.9100,0.2300): err vs U_E(a/2) U_B U_E(a/2) | expected 0 | got 0.8252168465355643 | tol 1e-10"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "step: electric layer on the CBIT wires instead of LINK wires",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": false,
+  "n_unit_failed": 0,
+  "unit_first": [],
+  "caught_by_independent": true,
+  "indep_first": [
+   "FAIL step o1 (a,b)=(0.3700,0.6100): err vs U_B U_E | expected 0 | got 0.5641535013922282 | tol 1e-10",
+   "FAIL step o2 (a,b)=(0.3700,0.6100): err vs U_E(a/2) U_B U_E(a/2) | expected 0 | got 0.5318397233541284 | tol 1e-10"
+  ],
+  "indep_crash": ""
+ },
+ {
+  "mutation": "frame: first cx of FRAME dropped",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 6,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_classical_slots_independent_of_pair_member",
+   "test_constants_and_transcoder"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 2.10e+00"
+ },
+ {
+  "mutation": "flags: one X on a CBIT dropped (first)",
+  "caught": true,
+  "caught_by_acceptance": true,
+  "acc_failed": [
+   "test_M7_B1_magnetic_inner_block[0.61]",
+   "test_M7_B2_physical_states",
+   "test_M7_B3_gauss_and_clean_ancillas",
+   "test_M7_S1_step_orders[1]",
+   "test_M7_S1_step_orders[2]",
+   "test_M7_T1_t_table_and_synth_verify[UB]",
+   "test_M7_T1_t_table_and_synth_verify[step]"
+  ],
+  "caught_by_unit": true,
+  "n_unit_failed": 3,
+  "unit_first": [
+   "test_build_UB_gate_counts_and_metadata",
+   "test_build_step_orders",
+   "test_solved_angles_and_fractions"
+  ],
+  "caught_by_independent": true,
+  "indep_first": [],
+  "indep_crash": "ValueError: skeleton does not reproduce the coupling table: residual 1.73e+00"
+ }
+]

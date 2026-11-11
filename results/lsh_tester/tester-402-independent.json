@@ -1,0 +1,673 @@
+{
+ "commit": "9145258",
+ "seed": 20261110,
+ "checks": [
+  {
+   "check": "UB beta=0.400000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc)",
+   "expected": 0,
+   "got": 9.420554752102651e-16,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "UB beta=0.400000: leak weight / opnorm, dirty ancilla weight, outer-changed weight",
+   "expected": 0,
+   "got": "0.00e+00/0.00e+00/0.00e+00/0.00e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "UB beta=0.400000: outer qubits 12..23 untouched by any gate; unitary block",
+   "expected": true,
+   "got": "touched&outer=[], |M^dM-1|=4.7e-16",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "UB beta=0.400000: with/without outer register: identical gate list (after relabelling)",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB beta=0.610000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc)",
+   "expected": 0,
+   "got": 2.777822379948887e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "UB beta=0.610000: leak weight / opnorm, dirty ancilla weight, outer-changed weight",
+   "expected": 0,
+   "got": "0.00e+00/0.00e+00/0.00e+00/0.00e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "UB beta=0.610000: outer qubits 12..23 untouched by any gate; unitary block",
+   "expected": true,
+   "got": "touched&outer=[], |M^dM-1|=4.4e-16",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "UB beta=0.610000: with/without outer register: identical gate list (after relabelling)",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB beta=1.000000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc)",
+   "expected": 0,
+   "got": 3.8677781678961035e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "UB beta=1.000000: leak weight / opnorm, dirty ancilla weight, outer-changed weight",
+   "expected": 0,
+   "got": "2.14e-28/1.10e-15/0.00e+00/0.00e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "UB beta=1.000000: outer qubits 12..23 untouched by any gate; unitary block",
+   "expected": true,
+   "got": "touched&outer=[], |M^dM-1|=6.9e-16",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "UB beta=1.000000: with/without outer register: identical gate list (after relabelling)",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB beta=2.000000: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc)",
+   "expected": 0,
+   "got": 8.40916075373026e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "UB beta=2.000000: leak weight / opnorm, dirty ancilla weight, outer-changed weight",
+   "expected": 0,
+   "got": "1.05e-27/2.43e-15/0.00e+00/0.00e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "UB beta=2.000000: outer qubits 12..23 untouched by any gate; unitary block",
+   "expected": true,
+   "got": "touched&outer=[], |M^dM-1|=8.9e-16",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "UB beta=2.000000: with/without outer register: identical gate list (after relabelling)",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB beta=1.896933: block err vs expm(-i beta H_B^6j) (433 states, 24 data+outer + 7 anc)",
+   "expected": 0,
+   "got": 8.282293932751909e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "UB beta=1.896933: leak weight / opnorm, dirty ancilla weight, outer-changed weight",
+   "expected": 0,
+   "got": "5.28e-28/1.73e-15/0.00e+00/0.00e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "UB beta=1.896933: outer qubits 12..23 untouched by any gate; unitary block",
+   "expected": true,
+   "got": "touched&outer=[], |M^dM-1|=5.6e-16",
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "UB beta=1.896933: with/without outer register: identical gate list (after relabelling)",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB(0.61) rz angles / beta (sorted)",
+   "expected": [
+    -3.5,
+    -1.0,
+    1.5,
+    3.0
+   ],
+   "got": [
+    -3.5,
+    -1.0,
+    1.5,
+    3.0
+   ],
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "UB angle linearity: angles(beta=2.0)/2.0 == angles(0.61)/0.61",
+   "expected": true,
+   "got": true,
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "step o1 (a,b)=(0.3700,0.6100): err vs U_B U_E",
+   "expected": 0,
+   "got": 2.910953343464425e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.3700,0.6100): leak/dirty/outer-changed weight",
+   "expected": 0,
+   "got": "0.0e+00/0.0e+00/0.0e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.3700,0.6100): wrong targets rejected (>1e-3): other order target=0.515, target at -beta=1.878, layer-swapped U_E U_B=0.990",
+   "expected": ">1e-3",
+   "got": [
+    0.515,
+    1.878,
+    0.99
+   ],
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.3700,0.6100): outer qubits untouched",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o2 (a,b)=(0.3700,0.6100): err vs U_E(a/2) U_B U_E(a/2)",
+   "expected": 0,
+   "got": 2.898490290405123e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.3700,0.6100): leak/dirty/outer-changed weight",
+   "expected": 0,
+   "got": "0.0e+00/0.0e+00/0.0e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.3700,0.6100): wrong targets rejected (>1e-3): other order target=0.515, target at -beta=1.878",
+   "expected": ">1e-3",
+   "got": [
+    0.515,
+    1.878
+   ],
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.3700,0.6100): outer qubits untouched",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o1 (a,b)=(0.9100,0.2300): err vs U_B U_E",
+   "expected": 0,
+   "got": 1.2587921318249344e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.9100,0.2300): leak/dirty/outer-changed weight",
+   "expected": 0,
+   "got": "0.0e+00/0.0e+00/0.0e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.9100,0.2300): wrong targets rejected (>1e-3): other order target=0.560, target at -beta=0.888, layer-swapped U_E U_B=0.869",
+   "expected": ">1e-3",
+   "got": [
+    0.56,
+    0.888,
+    0.869
+   ],
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.9100,0.2300): outer qubits untouched",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o2 (a,b)=(0.9100,0.2300): err vs U_E(a/2) U_B U_E(a/2)",
+   "expected": 0,
+   "got": 1.4814949414419638e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.9100,0.2300): leak/dirty/outer-changed weight",
+   "expected": 0,
+   "got": "0.0e+00/0.0e+00/0.0e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.9100,0.2300): wrong targets rejected (>1e-3): other order target=0.560, target at -beta=0.888",
+   "expected": ">1e-3",
+   "got": [
+    0.56,
+    0.888
+   ],
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.9100,0.2300): outer qubits untouched",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o1 (a,b)=(1.7000,1.0000): err vs U_B U_E",
+   "expected": 0,
+   "got": 3.926538208249901e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "step o1 (1.7000,1.0000): leak/dirty/outer-changed weight",
+   "expected": 0,
+   "got": "2.6e-28/0.0e+00/0.0e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "step o1 (1.7000,1.0000): wrong targets rejected (>1e-3): other order target=1.740, target at -beta=1.819, layer-swapped U_E U_B=1.610",
+   "expected": ">1e-3",
+   "got": [
+    1.74,
+    1.819,
+    1.61
+   ],
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "check": "step o1 (1.7000,1.0000): outer qubits untouched",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o2 (a,b)=(1.7000,1.0000): err vs U_E(a/2) U_B U_E(a/2)",
+   "expected": 0,
+   "got": 3.935959119313607e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "step o2 (1.7000,1.0000): leak/dirty/outer-changed weight",
+   "expected": 0,
+   "got": "2.5e-28/0.0e+00/0.0e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "step o2 (1.7000,1.0000): wrong targets rejected (>1e-3): other order target=1.740, target at -beta=1.819",
+   "expected": ">1e-3",
+   "got": [
+    1.74,
+    1.819
+   ],
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "check": "step o2 (1.7000,1.0000): outer qubits untouched",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o1 (a,b)=(0.5121,1.9494): err vs U_B U_E",
+   "expected": 0,
+   "got": 9.8497168583256e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.5121,1.9494): leak/dirty/outer-changed weight",
+   "expected": 0,
+   "got": "5.9e-28/0.0e+00/0.0e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.5121,1.9494): wrong targets rejected (>1e-3): other order target=0.515, target at -beta=1.858, layer-swapped U_E U_B=0.955",
+   "expected": ">1e-3",
+   "got": [
+    0.515,
+    1.858,
+    0.955
+   ],
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.5121,1.9494): outer qubits untouched",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o2 (a,b)=(0.5121,1.9494): err vs U_E(a/2) U_B U_E(a/2)",
+   "expected": 0,
+   "got": 9.99604067810284e-15,
+   "tol": 1e-10,
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.5121,1.9494): leak/dirty/outer-changed weight",
+   "expected": 0,
+   "got": "5.6e-28/0.0e+00/0.0e+00",
+   "tol": 1e-20,
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.5121,1.9494): wrong targets rejected (>1e-3): other order target=0.515, target at -beta=1.858",
+   "expected": ">1e-3",
+   "got": [
+    0.515,
+    1.858
+   ],
+   "tol": 0.001,
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.5121,1.9494): outer qubits untouched",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "47 distinct inner data codes (own labels)",
+   "expected": 47,
+   "got": 47,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "a data code determines (J_c, inner j) uniquely",
+   "expected": true,
+   "got": true,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "transcoder (own simulation of W.TRANSCODE) -> wires [j_n=1/2], [J=1], [J=1/2] per site, all 47 inner codes",
+   "expected": 0,
+   "got": 0,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "transcoder injective on the 47 inner codes",
+   "expected": 47,
+   "got": 47,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "transcoded (LINK, CBIT) wires == SpinNet code_of_label low 8 bits, all 433 labels",
+   "expected": 0,
+   "got": 0,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB(0.61): CX recount vs logical_metrics",
+   "expected": "94",
+   "got": 94,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB(0.61): T_fixed recount vs logical_metrics",
+   "expected": "88",
+   "got": 88,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB(0.61): n_rot recount vs logical_metrics",
+   "expected": "4",
+   "got": 4,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB(0.61): depth recount vs logical_metrics (logical rz/p = 1 layer)",
+   "expected": "87",
+   "got": 87,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB(0.61): qubits touched / num_qubits / logical qubits",
+   "expected": "19/19/19",
+   "got": "19/19/19",
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.37,0.61): CX recount vs logical_metrics",
+   "expected": "94",
+   "got": 94,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.37,0.61): T_fixed recount vs logical_metrics",
+   "expected": "88",
+   "got": 88,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.37,0.61): n_rot recount vs logical_metrics",
+   "expected": "8",
+   "got": 8,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.37,0.61): depth recount vs logical_metrics (logical rz/p = 1 layer)",
+   "expected": "87",
+   "got": 87,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o1 (0.37,0.61): qubits touched / num_qubits / logical qubits",
+   "expected": "19/19/19",
+   "got": "19/19/19",
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.37,0.61): CX recount vs logical_metrics",
+   "expected": "94",
+   "got": 94,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.37,0.61): T_fixed recount vs logical_metrics",
+   "expected": "88",
+   "got": 88,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.37,0.61): n_rot recount vs logical_metrics",
+   "expected": "12",
+   "got": 12,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.37,0.61): depth recount vs logical_metrics (logical rz/p = 1 layer)",
+   "expected": "87",
+   "got": 87,
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o2 (0.37,0.61): qubits touched / num_qubits / logical qubits",
+   "expected": "19/19/19",
+   "got": "19/19/19",
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "UB: CX/n_rot/T_fixed/ancilla builder claim 94/4/88/7",
+   "expected": "94/4/88/7",
+   "got": "94/4/88/7",
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o1/o2 CX 94/94; n_rot 8/12",
+   "expected": "94/94/8/12",
+   "got": "94/94/8/12",
+   "tol": "exact",
+   "ok": true
+  },
+  {
+   "check": "step o1 p angles = -3 alpha/4 (4x); o2 = -3 alpha/8 (8x)",
+   "expected": true,
+   "got": [
+    4,
+    8
+   ],
+   "tol": 1e-12,
+   "ok": true
+  },
+  {
+   "check": "UB(0.61): T_total(eps=1e-6) own pygridsynth vs t_table",
+   "expected": 342,
+   "got": 342,
+   "tol": "exact",
+   "ok": true,
+   "T_total": 342
+  },
+  {
+   "check": "step o1: T_total(eps=1e-6) own pygridsynth vs t_table",
+   "expected": 598,
+   "got": 598,
+   "tol": "exact",
+   "ok": true,
+   "T_total": 598
+  },
+  {
+   "check": "step o2: T_total(eps=1e-6) own pygridsynth vs t_table",
+   "expected": 870,
+   "got": 870,
+   "tol": "exact",
+   "ok": true,
+   "T_total": 870
+  },
+  {
+   "check": "synth UB(0.61): block err + leak opnorm + sqrt(dirty) <= N_rot eps + 1e-9 (N_rot=4); ratio to budget",
+   "expected": "<= 4.001e-06",
+   "got": "1.303e-06 (block 8.800e-07, leak 4.23e-07, dirty 0.00e+00, outer-changed 0.0e+00); ratio 0.326",
+   "tol": 4.0009999999999995e-06,
+   "ok": true
+  },
+  {
+   "check": "synth UB(0.61): T in synthesised gate list == t_fixed + own pygridsynth sum",
+   "expected": true,
+   "got": "342 vs 342",
+   "tol": "exact",
+   "ok": true,
+   "synth_ratio": 0.32571626356933564
+  },
+  {
+   "check": "synth step o1 (0.37,0.61): block err + leak opnorm + sqrt(dirty) <= N_rot eps + 1e-9 (N_rot=8); ratio to budget",
+   "expected": "<= 8.001e-06",
+   "got": "2.032e-06 (block 1.504e-06, leak 5.28e-07, dirty 0.00e+00, outer-changed 0.0e+00); ratio 0.254",
+   "tol": 8.001e-06,
+   "ok": true
+  },
+  {
+   "check": "synth step o1 (0.37,0.61): T in synthesised gate list == t_fixed + own pygridsynth sum",
+   "expected": true,
+   "got": "598 vs 598",
+   "tol": "exact",
+   "ok": true,
+   "synth_ratio": 0.2539151025313599
+  },
+  {
+   "check": "synth step o2 (0.37,0.61): block err + leak opnorm + sqrt(dirty) <= N_rot eps + 1e-9 (N_rot=12); ratio to budget",
+   "expected": "<= 1.200e-05",
+   "got": "3.357e-06 (block 2.906e-06, leak 4.51e-07, dirty 0.00e+00, outer-changed 0.0e+00); ratio 0.280",
+   "tol": 1.2001e-05,
+   "ok": true
+  },
+  {
+   "check": "synth step o2 (0.37,0.61): T in synthesised gate list == t_fixed + own pygridsynth sum",
+   "expected": true,
+   "got": "870 vs 870",
+   "tol": "exact",
+   "ok": true,
+   "synth_ratio": 0.27974076468055925
+  },
+  {
+   "check": "synth step o1 (0.91,0.23): block err + leak opnorm + sqrt(dirty) <= N_rot eps + 1e-9 (N_rot=8); ratio to budget",
+   "expected": "<= 8.001e-06",
+   "got": "2.917e-06 (block 1.952e-06, leak 9.65e-07, dirty 0.00e+00, outer-changed 0.0e+00); ratio 0.365",
+   "tol": 8.001e-06,
+   "ok": true
+  },
+  {
+   "check": "synth step o1 (0.91,0.23): T in synthesised gate list == t_fixed + own pygridsynth sum",
+   "expected": true,
+   "got": "598 vs 598",
+   "tol": "exact",
+   "ok": true,
+   "synth_ratio": 0.36461330401567377
+  }
+ ],
+ "wall_s": 35.855355739593506,
+ "n_checks": 88,
+ "n_failed": 0
+}

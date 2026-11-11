@@ -223,3 +223,48 @@ def test_inner_target_and_tables():
         W.coupling_table(Fake())
     with pytest.raises(ValueError):
         W.partner_table(Fake())
+
+
+def test_decode_fallback_end_conventions():
+    """Pins METHODS-lsh L6 for every AGL-violating code: each spin-1/2 link end at a corner is a G^z eigenstate (inner ends
+    +1/2 if J_in != 1 else -1/2; outer ends -1/2 if J_out != 1 else +1/2; G^z = -m_L on an 'out' end, +m_R on an 'in' end)
+    and the FAR end of every spin-1/2 outer link has m = +1/2 (mL = mR = +1/2 for the unused end)."""
+    e = enc()
+    ls = e._ls
+    phys = set(O.physical_codes().tolist())
+    outer = [sum(s << (3 * i) for i, s in enumerate(ss)) for ss in itertools.product(O.VALID_SITE, repeat=4)]
+    bad = [int(c) | (o << 12) for c in O.inner_codes() for o in outer if (int(c) | (o << 12)) not in phys]
+    corners = e.basis.diagram.corners
+    corner_end = {}                                         # (link, role) -> corner index
+    for c, corner in enumerate(corners):
+        for li, role in corner.ends:
+            corner_end[(li, role)] = c
+    n_far_checked = 0
+    for code in bad:
+        keys, _amps = e.decode_state(np.array([code]), np.array([1.0 + 0j]))
+        key = int(keys[0])
+        digits = [(key // 5 ** i) % 5 for i in range(12)]
+        sites = [O.site_flux((code >> (3 * k)) & 7) for k in range(8)]
+        for i, dg in enumerate(digits):
+            links_ends = [(li, role, c) for (li, role), c in corner_end.items() if li == i]
+            n_spin_half = 0
+            if dg == 0:
+                assert all(((i < 4 and (sites[c][0] if i == O.CORNER_PN[c][0] else sites[c][1]) == 0)
+                            or (i >= 4 and (sites[4 + c][0] if i == O.CORNER_OUT[c][0] else sites[4 + c][1]) == 0))
+                           for _li, _role, c in links_ends)
+                continue
+            j, mL, mR = ls.states[dg]
+            assert j == 0.5
+            for _li, role, c in links_ends:
+                if i < 4:
+                    g_expect = -0.5 if sites[c][2] == 2 else 0.5
+                else:
+                    g_expect = 0.5 if sites[4 + c][2] == 2 else -0.5
+                g = -mL if role == "out" else mR
+                assert g == g_expect
+            if i >= 4:                                       # outer link: exactly one corner end, the other end is far
+                assert len(links_ends) == 1
+                far_m = mR if links_ends[0][1] == "out" else mL
+                assert far_m == 0.5
+                n_far_checked += 1
+    assert n_far_checked > 10000
