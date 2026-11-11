@@ -22,6 +22,9 @@
   "tests/acceptance/m2/test_compress_machinery.py": "99fb8123d354b13f72f7764f0203af3d3b304b921fad3edbe8a9089ceda84b12",
   "tests/acceptance/m2/test_lean_formal.py": "facf0065d06f0cef6ffd28055754ba98451153f05fe32b8c01dfbfe59c0fa7c0",
   "tests/acceptance/m2/test_lean_structure.py": "7f3b67e5e914d962d240cfd6ddf206b0ba22e7345ea738bb56b15d7046a3f0be",
+  "tests/acceptance/m2c/test_consolidation_evaluator.py": "2454e6d97ba2693ed017574ad114786c25790391bb09d46c971e2d4756540fea",
+  "tests/acceptance/m2c/test_consolidation_gate.py": "9becb1973c1ace2e615486fb1cbf2bd98cee5033eda4b4f33e4138506de8e054",
+  "tests/acceptance/m2c/test_consolidation_registry.py": "f227d0592a49b5ae09393a98ebc2367a0ef024edf64b48fc0877f70d3d408cb0",
   "tests/acceptance/m3/test_spinnet_circuits.py": "3690921eeb3e8e7a9e66a91647cd7f8c179f29eb25f5da69964623c4537daa1c",
   "tests/acceptance/m3/test_spinnet_codec.py": "666035fd8c7f6fd11116e63c2d7bfe95527578247901380b7e56282f402dfcb0",
   "tests/acceptance/m3/test_spinnet_external.py": "8ffb6f36f8f6fe41b2067a90eb2294e4b466c1d18aad8a6ac297bf45d27fc04b",
@@ -85,6 +88,7 @@
   "m5",
   "m5x",
   "m6",
-  "m7"
+  "m7",
+  "m2c"
  ]
 }
