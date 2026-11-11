@@ -142,3 +142,48 @@ def test_unitary_gate_is_n_a(tmp_path, lean_ready):
     qc.append(UnitaryGate(np.array([[0, 1], [1, 0]], dtype=complex)), [0])
     r = LE.certify(qc, enc(), "UB", 0.37, 0.61, 1, out_dir=tmp_path)
     assert r["status"] == "n_a", r
+
+
+# ----------------------------------------------------------------------------------------- 4.L1: theorem file
+def test_theorem_file_of_UE_elaborates_with_one_native_axiom(tmp_path, lean_ready):
+    """write_theorem_file -> `lake env lean` exits 0; axioms = standard + exactly one native_decide axiom on ONE line; a
+    certificate with a wrong phase gives a theorem that fails; a tampered state / bad name is refused by the writer."""
+    from su2plaq.lean import project as P
+
+    r = LE.certify(build_UE(0.37, with_outer=True), enc(), "UE", 0.37, 0.61, 1, out_dir=tmp_path)
+    assert r["status"] == "certified", r
+    f = LE.write_theorem_file(r["cert_path"], "spin_ue_ok", tmp_path / "ue.lean", comment="entry test, program sha256 abc")
+    text = f.read_text()
+    assert text.startswith("-- entry test, program sha256 abc\nimport Su2PlaqCert.SpinNet.Check\n")
+    assert "Su2PlaqCert.SpinNet.checkJsonString certJson = true := by native_decide" in text and "sorry" not in text
+    p = P.lake(["env", "lean", str(f)], timeout=900)
+    assert p.returncode == 0, p.stdout[-1500:] + p.stderr[-1500:]
+    lines = [ln for ln in p.stdout.splitlines() if "depends on axioms" in ln]
+    assert len(lines) == 1
+    ax = {a.strip(" ,[]'\"") for a in lines[0].split("axioms:")[1].split(",")} - {""}
+    extra = ax - P.STANDARD_AXIOMS
+    assert len(extra) == 1 and all(P.is_native_axiom(a) for a in extra), ax
+    # wrong phase: still a valid-looking certificate (states and target are the exact ones), but the theorem is false
+    d = json.loads(open(r["cert_path"]).read())
+    d["phase"]["m"][0] += 1
+    bad = tmp_path / "bad.json"
+    bad.write_text(json.dumps(d, separators=(",", ":")))
+    f2 = LE.write_theorem_file(bad, "spin_ue_bad", tmp_path / "bad.lean")
+    assert P.lake(["env", "lean", str(f2)], timeout=900).returncode != 0
+    # writer refusals: tampered state, tampered target, bad name
+    d = json.loads(open(r["cert_path"]).read())
+    d["states"][0]["terms"][0]["code"] ^= 1
+    bad.write_text(json.dumps(d, separators=(",", ":")))
+    with pytest.raises(ValueError, match="state 0 differs"):
+        LE.write_theorem_file(bad, "spin_x", tmp_path / "x.lean")
+    d = json.loads(open(r["cert_path"]).read())
+    d["target"]["blocks"][0]["entries"][0][2][0][1][0] = "2"
+    bad.write_text(json.dumps(d, separators=(",", ":")))
+    with pytest.raises(ValueError, match="target blocks differ"):
+        LE.write_theorem_file(bad, "spin_x", tmp_path / "x.lean")
+    with pytest.raises(ValueError, match="bad theorem name"):
+        LE.write_theorem_file(r["cert_path"], "a_far_too_long_theorem_name", tmp_path / "x.lean")
+
+
+def test_exporter_mismatch_accepts_the_exporters_own_certificate(ub_cert):
+    assert LE._exporter_mismatch(ub_cert["cert_path"]) is None

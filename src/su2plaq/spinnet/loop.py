@@ -980,11 +980,11 @@ def certify_best(root=None) -> dict:
     sp = spec()
     arch = A.Archive.load(ENC, root=root, n_alt=len(sp.alt_angles), strict=True)
     e = next(x for x in arch.entries() if x.id == h["id"])
-    circ, err = R._circuit_of(sp, e.program_path, e.id, None, root)
+    circ, err = R._circuit_of(sp, e.program_path, e.id, None, root, expected_sha256=e.program_sha256)
     if circ is None:
         new, sec = {"status": "failed", "reason": f"cannot rebuild the headline circuit: {err}"}, 0.0
     else:
-        new, sec = R._certify(circ, sp)
+        new, sec = R._certify(circ, sp, program_file_sha256=e.program_sha256)
     before = e.lean
     R._store_lean(e, new, root, ENC, "certify_best: headline")
     arch.save()

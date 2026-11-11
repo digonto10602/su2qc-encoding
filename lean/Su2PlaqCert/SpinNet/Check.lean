@@ -75,4 +75,17 @@ def check (c : Cert) : Option String :=
         | some e => some e
         | none => t.get) none
 
+/-- Accepted by the spin-network checker (`SpinNet.check` finds no violated state). -/
+def accepts (c : Cert) : Bool := (check c).isNone
+
+/-- Parse and check a spin-network certificate given as JSON text (the statement proved by `lean/certs/spinnet-*.lean` via
+`native_decide`; the analogue of `Su2PlaqCert.checkJsonString`, with the spin-network pins). -/
+def checkJsonString (s : String) : Bool :=
+  match Lean.Json.parse s with
+  | .error _ => false
+  | .ok j =>
+    match parseCert j with
+    | .error _ => false
+    | .ok c => accepts c
+
 end Su2PlaqCert.SpinNet
