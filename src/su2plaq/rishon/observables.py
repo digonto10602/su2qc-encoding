@@ -27,11 +27,14 @@ def _group(ev: np.ndarray, tol: float = 1e-9) -> tuple[list[float], list[int]]:
     return [float(np.mean(v)) for v in vals], [len(v) for v in vals]
 
 
-def closed_spectra(g2_list=(0.5, 1.0, 2.0)) -> dict:
+def closed_spectra(g2_list=(0.5, 1.0, 2.0), lam_d: float = 0.0) -> dict:
     """Closed-sector spectra of H(g2).  Rishon: per outer singlet choice the 17 closed states (16 vacuum codes + loop) are diagonalised
     as the full block `operators.closed_block_full` (its 3x3 bright part is `operators.closed_block`; the 14 remaining levels
     are whatever the model gives, not typed in).  KS: the 2x2 block `ks_closed_block`.
+    `lam_d` = lambda_D (METHODS-rishon R13): the rishon block gains lam_d H_D^in (KS has no det term); 0.0 is unchanged.
     -> {"rishon": {g2: {"eigenvalues", "multiplicities"}}, "ks": {...}}."""
+    if lam_d != 0.0:
+        raise NotImplementedError("PENDING: closed_spectra(lam_d != 0) (prompts/204 step D4)")
     out: dict = {"rishon": {}, "ks": {}}
     for g2 in g2_list:
         g2 = float(g2)
@@ -69,10 +72,13 @@ def _evolve(U: np.ndarray, psi0: np.ndarray, n_steps: int) -> list[np.ndarray]:
     return out
 
 
-def observables(alpha: float, beta: float, n_steps: int = 2, order: int = 1) -> dict:
+def observables(alpha: float, beta: float, n_steps: int = 2, order: int = 1, eta: float | None = None) -> dict:
     """E_link(n) = <H_E^inner>/4, P(n) = -<H_B>/2, echo(n) = |<Omega|U_1^n|Omega>|^2 from the vacuum, n = 1..n_steps
     (METHODS-rishon R5).  Rishon: vac_A and the 1296-dim inner target; KS: the closed vacuum and the laptop's
-    433-dim physical target.  -> {"rishon": {n: {...}}, "ks": {n: {...}}} (n integer keys)."""
+    433-dim physical target.  -> {"rishon": {n: {...}}, "ks": {n: {...}}} (n integer keys).
+    `eta` (prompts/204): the "rishon" rows use the three-layer step; "ks" rows unchanged.  Not built yet (step D4)."""
+    if eta is not None:
+        raise NotImplementedError("PENDING: observables(eta=...) (prompts/204 step D4)")
     out: dict = {"rishon": {}, "ks": {}}
     va, _, _ = _ops.closed_codes()
     codes = _ops.inner_codes()
@@ -124,3 +130,8 @@ def observables_table(angles=((0.37, 0.61), (0.91, 0.23), (1.70, 1.00))) -> dict
         "E_link": "(1/4) <H_E^inner>", "P": "<Re Tr U_P> = -(1/2) <H_B>", "echo": "|<Omega|U_1^n|Omega>|^2",
         "theta_KS": "2 beta", "theta_R": "4 sqrt(2) beta"}
     return tab
+
+
+def det_observables_table(triples=((0.37, 0.61, 0.29), (0.91, 0.23, 0.53), (1.70, 1.00, 1.07)), lam_d_list=(0.0, 0.2, 0.5)) -> dict:
+    """The JSON of results/rishon/observables_det.json (prompts/204 section 7, DT7).  STUB (prompts/204 step D4)."""
+    raise NotImplementedError("PENDING: observables.det_observables_table (prompts/204 step D4)")

@@ -173,11 +173,28 @@ def build_UB(beta: float, with_outer: bool = False, ladder: str = "ccx"):
     return qc
 
 
-def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = False, ladder: str = "ccx"):
+def build_UD(eta: float, with_outer: bool = False, include_outer_det: bool = False):
+    """Det layer U_D(eta) = exp(-i eta H_D^in) on d (+ o): the general 8-CX gadget per link (prompts/204 section 4).
+    include_outer_det (needs with_outer) adds the gadget on the 8 outer links.  metadata {"kind": "UD", "eta": eta}.
+    STUB (prompts/204 step D3)."""
+    raise NotImplementedError("PENDING: circuits.rishon.build_UD (prompts/204 step D3)")
+
+
+def prepend_det_layer(unit, eta: float):
+    """New circuit on `unit`'s registers (first register must be d[16], else ValueError): the det gadgets on d, then all of
+    `unit`'s instructions unchanged and in order (prompts/204 sections 5, 6.1).  STUB (prompts/204 step D3)."""
+    raise NotImplementedError("PENDING: circuits.rishon.prepend_det_layer (prompts/204 step D3)")
+
+
+def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = False, ladder: str = "ccx", eta: float | None = None):
     """One Trotter step on d (+ o) and the U_B ancillas: order 1 = U_B(beta) U_E(alpha) (electric layer applied first),
-    order 2 = U_E(alpha/2) U_B(beta) U_E(alpha/2)  (prompts/200 METHODS §2).  `ladder` as in `build_UB`.  metadata {"kind": "step", ...}."""
+    order 2 = U_E(alpha/2) U_B(beta) U_E(alpha/2)  (prompts/200 METHODS §2).  `ladder` as in `build_UB`.  metadata {"kind": "step", ...}.
+    `eta` (prompts/204): angle of the det layer; with it the step is U_B U_D(eta) U_E (order 2: half-angle det gadgets), not built yet;
+    `eta=None` is the two-layer circuit above."""
     if order not in (1, 2):
         raise ValueError(f"step order must be 1 or 2, got {order}")
+    if eta is not None:
+        raise NotImplementedError("PENDING: build_step(eta=...) three-layer step (prompts/204 step D3)")
     _ladder_names(ladder, 1)
     n_anc = _n_ancillas()
     qc, anc = _registers(with_outer, n_anc, f"step{order}")

@@ -499,3 +499,10 @@ def inner_span_rank_by_corners() -> int:
             prod *= int(np.linalg.matrix_rank(np.array(rows), tol=1e-9))
         total += prod
     return int(total)
+
+
+def det_sector_structure(basis=None) -> dict:
+    """Block structure of the physical space under the det term (METHODS-rishon R13; locked in M5-DT5):
+    {"dim", "u1_sectors", "blocks": {"lam0", "inner_det", "full_det"}, "max_block", "ref_block_dim", "ref_block_u1_sectors",
+    "charge_change_rank", "leaving_weight"}; reference state = closed_indices(basis)[0].  STUB (prompts/204 step D4)."""
+    raise NotImplementedError("PENDING: physical.det_sector_structure (prompts/204 step D4)")

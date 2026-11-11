@@ -43,6 +43,13 @@ def _commands(kind: str) -> str:
             "[--column j] [--element i j] [--codec [--state k]] [--pairs [--closed]] [--block]`")
 
 
+def _prune_cap(kind: str) -> float:
+    """The rishon prune cap in `dropped_total` units: RISHON_PRUNE_FRACTION x tol_err (prompts/204 section 3); one constant."""
+    from su2plaq.rishon.verify import RISHON_PRUNE_FRACTION
+
+    return RISHON_PRUNE_FRACTION * S.rishon_spec(kind).tol_err
+
+
 def _overrides(kind: str) -> list:
     """The rishon rules that differ from the laptop proposer agent file (and from the twelve brief)."""
     return [
@@ -54,7 +61,7 @@ def _overrides(kind: str) -> list:
         "with no Gauss sample; a wrong controlled rotation acting on few codes can pass it (reports/tests/215: most single-gate errors passed it). "
         "Only `--full` decides validity (all codes, three angle pairs with an identical skeleton, Gauss sample, prune cap): run it "
         "before you finish, and never conclude a design is correct from a trial `valid`.",
-        "- The prune cap (`dropped_total` <= 1e-12) is part of validity: see the Correctness section of the specification "
+        f"- The prune cap (`dropped_total` <= {_prune_cap(kind):g}) is part of validity: see the Correctness section of the specification "
         "(prune budget: see Correctness); a program that is exact but over the cap is recorded as `pruning_bound` (invalid).",
         "- Programs import only numpy / maths modules / qiskit / `su2plaq.compress.{oracle,builder,spec}` (`get_encoding(\"rishon\")` "
         "gives the pairs, targets and codes); never `su2plaq.rishon.*`. Do not ship `.lean` lemma files (not checked for rishon).",

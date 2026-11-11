@@ -20,6 +20,10 @@ if TYPE_CHECKING:
     from su2plaq.rishon.physical import RishonBasis
 
 RISHON_NOMINAL = (0.37, 0.61)    # NOT in encodings/base.NOMINAL_ANGLES (laptop-owned file)
+# det layer (prompts/204 section 2.4): eta = lambda_D dt, the angle of U_D; nominal triple (0.37, 0.61, 0.29), alternates (0.91, 0.23, 0.53),
+# (1.70, 1.00, 1.07).  Generic test angles, not physics values.
+RISHON_NOMINAL_ETA = 0.29
+RISHON_ALT_ETA = (0.53, 1.07)
 
 _LINK_NAMES = ("b", "r", "t", "l")
 _N_LINKS = 12
@@ -140,11 +144,12 @@ class RishonEncoding(Encoding):
         return EncodedBasis([b.keys[k] for k in idx], [b.amps[k] for k in idx], self.n_data, self.n_outer)
 
     # ------------------------------------------------------------------ targets
-    def inner_target(self, kind, alpha, beta, order=1) -> np.ndarray:
-        return _ops.inner_target(kind, alpha, beta, order)
+    def inner_target(self, kind, alpha, beta, order=1, eta=None) -> np.ndarray:
+        return _ops.inner_target(kind, alpha, beta, order, eta=eta)
 
-    def target(self, kind, alpha, beta, order=1, states: list[int] | None = None) -> np.ndarray:
-        """<Psi_k'|(V_in (x) 1_outer)|Psi_k> for k, k' in `states` (exact: summed over the common outer patterns)."""
+    def target(self, kind, alpha, beta, order=1, states: list[int] | None = None, eta=None) -> np.ndarray:
+        """<Psi_k'|(V_in (x) 1_outer)|Psi_k> for k, k' in `states` (exact: summed over the common outer patterns).
+        `eta`: angle of the det layer (kind 'UD' or the three-layer 'step', METHODS-rishon R13); None = the two-layer target."""
         if states is None:
             raise ValueError("the 38432-dim physical target is never materialised; use inner_target or pass states")
         b = self.basis
@@ -160,7 +165,7 @@ class RishonEncoding(Encoding):
             outs.append(keys >> 16)
             vals.append(np.asarray(b.amps[k], dtype=np.complex128))
         ids, rows, outs, vals = (np.concatenate(x) for x in (ids, rows, outs, vals))
-        V = _ops.inner_target(kind, alpha, beta, order)
+        V = _ops.inner_target(kind, alpha, beta, order, eta=eta)
         n = len(states)
         out = np.zeros((n, n), dtype=np.complex128)
         # <psi_k'|V (x) 1|psi_k> = sum over outer patterns o of <z_k'^o|V|z_k^o>

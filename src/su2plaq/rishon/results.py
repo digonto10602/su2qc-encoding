@@ -228,3 +228,9 @@ def outer_electric_certify(qc, enc, alpha: float, tol_err: float = 1e-10) -> dic
     return {**base, "certified": certified, "ok": certified, "reason": "ok" if certified else "error", "link_errors": errs,
             "max_link_error": float(max(errs)), "error_bound": bound, "phase": complex(np.prod(phases)),
             "gates_per_link": counts}
+
+
+def outer_det_certify(qc, enc, eta: float, tol_err: float = 1e-10) -> dict:
+    """Per-link certificate of the 12-link det row, as `outer_electric_certify` (method "outer_det_gadgets", target
+    exp(-i eta (det U + det U^dag)) on the 6 sector codes; prompts/204 section 5).  STUB (prompts/204 step D5)."""
+    raise NotImplementedError("PENDING: results.outer_det_certify (prompts/204 step D5)")

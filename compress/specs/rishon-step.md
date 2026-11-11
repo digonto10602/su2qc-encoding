@@ -36,7 +36,7 @@ Gates `cx cz h p rz s sdg t tdg x z` and macros `ccx ccz ch cp crx crz rccx swap
 
 ## Correctness
 
-`op_norm_error` = block error + leak amplitude + certified pruning bound must be at most 1e-10 after one global phase; `dropped_total` must be at most 1e-12 (**prune cap** = 0.01 x tolerance; measured on this task the engine's certified pruning bound grows by about 1.1e-15 per branching gate of its lowering (h, sx, u; ch, crx and rccx count 2; macro ccx/ccz and all permutation/phase gates count 0), so the cap allows about 909 branching gates; exact circuits above that are rejected as `pruning_bound` - the uncompressed circuit in bare h/t form, its rccx-ladder variants and its Qiskit L3 transpile all are); Gauss residual of the outputs on 273 sampled physical states (17 closed + 256 seeded) at most 1e-10; identical skeleton at the three angle pairs; evaluation wall at most 300 s and at most 5000000 stored amplitudes; synthesised re-verification of the round's best at $\varepsilon=1e-06$ with $N_{\rm rot}\varepsilon+1e-09$. The evaluator is ground truth.
+`op_norm_error` = block error + leak amplitude + certified pruning bound must be at most 1e-10 after one global phase; `dropped_total` must be at most 1e-11 (**prune cap** = 0.1 x tolerance for this encoding; measured on this task the engine's certified pruning bound grows by about 1.1e-15 per branching gate of its lowering (h, sx, u; ch, crx and rccx count 2; macro ccx/ccz and all permutation/phase gates count 0), so the cap allows about 9090 branching gates; exact circuits above that are rejected as `pruning_bound` - the uncompressed circuit in bare h/t form, its rccx-ladder variants and its Qiskit L3 transpile use about 3 500-4 400 of them and pass); Gauss residual of the outputs on 273 sampled physical states (17 closed + 256 seeded) at most 1e-10; identical skeleton at the three angle pairs; evaluation wall at most 300 s and at most 5000000 stored amplitudes; synthesised re-verification of the round's best at $\varepsilon=1e-06$ with $N_{\rm rot}\varepsilon+1e-09$. The evaluator is ground truth.
 
 ## Cost
 
@@ -66,7 +66,7 @@ Numerical structure (not proved in Lean):
 - `closed_bright_block`: the kappa = 4 sqrt2 pair is u = (vac_A + vac_B)/sqrt2, v = loop ~ W vac_A (checked: True); the closed 3x3 block lives on (vac_A, loop, vac_B)
 - `inner_span_rank`: 1296 -- the inner components of the physical states span all 1296 inner codes (R6 item 1: inner-block soundness)
 - `u1_sectors`: 431 -- distinct U(1) charge sectors of the physical states (corner occupation quartets)
-- `prune_rates`: growth of the sparse engine's certified pruning bound: 1.1e-15 per branching gate of its lowering (budget at the cap: 909 branching gates; macro ccx/ccz and permutation/phase gates cost 0)
+- `prune_rates`: growth of the sparse engine's certified pruning bound: 1.1e-15 per branching gate of its lowering (budget at the cap: 9090 branching gates; macro ccx/ccz and permutation/phase gates cost 0)
 
 ## Headline rule (track R)
 

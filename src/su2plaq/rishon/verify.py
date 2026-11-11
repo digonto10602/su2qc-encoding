@@ -9,10 +9,15 @@ import numpy as np
 import scipy.sparse as sp
 
 from su2plaq.evaluate import sparse_sim as ss
-from su2plaq.evaluate.evaluator import TOL_GAUSS, Verdict, classify_outer_gates, evaluate, synth_tolerances  # noqa: F401
+from su2plaq.evaluate.evaluator import (PRUNE_FRACTION as _SHARED_PRUNE_FRACTION, TOL_GAUSS, Verdict,  # noqa: F401
+                                        classify_outer_gates, evaluate, synth_tolerances)
 from su2plaq.rishon import operators as _ops
 from su2plaq.rishon import physical as _phys
 
+# Rishon prune cap (prompts/204 section 3, METHODS-rishon R15; Digonto 2026-11-10): `pruning_bound` iff
+# dropped_total > RISHON_PRUNE_FRACTION * tol_err.  The shared evaluator's constant (1e-2) is untouched; a shared `pruning_bound`
+# verdict is re-judged here with the shared cascade and this cap.
+RISHON_PRUNE_FRACTION = 1e-1
 _AMP_DROP = 1e-14          # output amplitudes below this are dropped before the Gauss check (as in the laptop evaluator)
 _CACHE: dict = {}
 
@@ -117,7 +122,21 @@ def _early(inner: Verdict | None, reason: str, t0: float, tols: dict, nread: int
                          "inner_block", "sparse", time.time() - t0, dict(tols), [("message", msg)] if msg else [], inner)
 
 
-def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: int = 1, *, tol_err: float = 1e-10,
+def _rejudge(iv: Verdict, cap: float, tol_err: float) -> tuple[str, list]:
+    """Shared cascade (prune cap, leak, error) applied to a shared verdict that stopped at `pruning_bound`, with the rishon cap.
+    -> (reason before the Gauss sample, failing_inputs); the reason is 'ok' when the Gauss sample is the only check left.
+    The shared cascade tests the cap first, so the leak / error tests had not been reached; their inputs are all in `iv`."""
+    if iv.dropped_total > cap:
+        return "pruning_bound", [("dropped_total", float(iv.dropped_total)), ("prune_cap", float(cap))]
+    if iv.leak_amplitude > tol_err:          # label only: the shared Verdict does not carry the invalid-code weight
+        return ("dirty_ancilla" if iv.dirty_ancilla >= 0.5 * iv.max_leak else "leak"), [("leak_amplitude", float(iv.leak_amplitude))]
+    if iv.op_norm_error > tol_err:
+        return "error", [("op_norm_error", float(iv.op_norm_error)), ("tol_err", float(tol_err))]
+    return "ok", []
+
+
+def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: int = 1, *, eta: float | None = None,
+           prune_fraction: float | None = None, tol_err: float = 1e-10,
            tol_gauss: float | None = None, gauss: bool = True, gauss_sample: int = 256, seed: int = 20261104,
            engine: str = "auto", cap: int = 5_000_000, target: np.ndarray | None = None,
            states=None) -> RishonVerdict:
@@ -129,7 +148,20 @@ def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: i
     3. sampled Gauss residual of the circuit outputs on 17 closed + `gauss_sample` seeded physical states (sparse engine).
 
     `states` (M6 trial mode, prompts/203 section 2): optional subset of inner-code positions; only those columns are formed
-    (laptop `evaluate(states=...)`, phase / errors refer to them); use with `gauss=False`."""
+    (laptop `evaluate(states=...)`, phase / errors refer to them); use with `gauss=False`.
+
+    Prune cap (prompts/204 section 3): `pruning_bound` iff dropped_total > prune_fraction * tol_err, `prune_fraction` default
+    RISHON_PRUNE_FRACTION (0.1); a value below the shared evaluator's PRUNE_FRACTION raises ValueError (a stricter cap cannot
+    be re-judged from a shared `ok`).  A shared verdict other than `pruning_bound` is passed through; a shared `pruning_bound`
+    is re-judged (`_rejudge`), then the Gauss sample decides as before.  `inner_verdict` keeps the shared verdict.
+    `eta` (det layer, prompts/204 D3): not built yet."""
+    frac = RISHON_PRUNE_FRACTION if prune_fraction is None else float(prune_fraction)
+    if frac < _SHARED_PRUNE_FRACTION:
+        raise ValueError(f"prune_fraction {frac:g} is below the shared evaluator's {_SHARED_PRUNE_FRACTION:g}; "
+                         "a stricter cap cannot be re-judged from a shared verdict")
+    if eta is not None or kind == "UD":
+        raise NotImplementedError("PENDING: verify(eta=...) / kind 'UD' (prompts/204 step D3)")
+    prune_cap = frac * tol_err
     t0 = time.time()
     tg = TOL_GAUSS if tol_gauss is None else float(tol_gauss)
     tols = {"tol_err": tol_err, "tol_gauss": tg}
@@ -148,17 +180,20 @@ def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: i
         raise RuntimeError(f"classify_outer_gates raised ({classify_error}) but evaluate returned reason "
                            f"{iv.reason!r} (ok={iv.ok}); expected one of {sorted(_CLASSIFY_REASONS)}")
     gres, gstates, reason = float("nan"), 0, iv.reason
+    failing = list(iv.failing_inputs)
+    if iv.reason == "pruning_bound":
+        reason, failing = _rejudge(iv, prune_cap, tol_err)
+    pre_ok = reason == "ok"          # every check but the Gauss sample passed (iv.ok, or re-judged ok under the rishon cap)
     simulated = np.isfinite(iv.op_norm_error)
     if gauss and simulated:
         try:
             gres, gstates = _gauss_sample(qc, enc, gauss_sample, seed, cap)
         except ss.SimCapExceeded:
-            if iv.ok:
+            if pre_ok:
                 reason = "unsimulable_gauss"
         else:
-            if iv.ok and gres > tg:
+            if pre_ok and gres > tg:
                 reason = "gauss"
-    failing = list(iv.failing_inputs)
     if reason == "gauss":
         failing = [("gauss_residual", gres), ("tol_gauss", tg)]
     return RishonVerdict(ok=reason == "ok", reason=reason, certified=iv.certified, op_norm_error=iv.op_norm_error,
@@ -168,13 +203,16 @@ def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: i
                          engine=iv.engine, seconds=time.time() - t0, tolerances=dict(iv.tolerances),
                          failing_inputs=failing, inner_verdict=iv,
                          extra={"inner_method": iv.method, "gauss_sample": gauss_sample, "seed": seed,
+                                "prune_fraction": frac, "prune_cap": prune_cap, "laptop_reason": iv.reason,
                                 **({"classify_error": classify_error} if classify_error else {})})
 
 
-def physical_cross_check(qc, enc, kind, alpha, beta, order=1, states: list[int] | None = None) -> dict:
+def physical_cross_check(qc, enc, kind, alpha, beta, order=1, states: list[int] | None = None, eta: float | None = None) -> dict:
     """Explicit A_{k'k} = <Psi_k'|U|Psi_k> on `states` (default: 17 closed + 256 seeded) against
     <Psi_k'|V_in (x) 1|Psi_k> = enc.target(..., states); -> {"max_abs_diff", "n_states", "phase"} (one global phase fitted).
-    Sampled tester tool, not a verdict input."""
+    Sampled tester tool, not a verdict input.  `eta` (det layer): prompts/204 step D3, not built yet."""
+    if eta is not None or kind == "UD":
+        raise NotImplementedError("PENDING: physical_cross_check(eta=...) (prompts/204 step D3)")
     b = enc.basis
     ids = _sample_ids(b, 256, 20261104) if states is None else list(states)
     Z, pst, pout = _pairs(b, ids)

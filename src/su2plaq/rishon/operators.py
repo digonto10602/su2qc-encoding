@@ -239,21 +239,59 @@ def _ub(beta: float | None) -> np.ndarray:
     return out
 
 
-def inner_target(kind: str, alpha: float | None, beta: float | None, order: int = 1) -> np.ndarray:
-    """Unitary 1296 x 1296 target: 'UE' = exp(-i alpha H_E), 'UB' = exp(-i beta H_B^in), 'step' order 1 = UB UE,
-    order 2 = UE(alpha/2) UB UE(alpha/2) (METHODS §2)."""
+def _ud(eta: float | None) -> np.ndarray:
+    """exp(-i eta H_D^in) = tensor over the four inner links of the link-local layer
+    1 + (cos 2eta - 1)(|A><A| + |B><B|) - i sin 2eta (|A><B| + |B><A|), embedded on the 1296 inner codes (METHODS-rishon R13).
+    Built from the 6 x 6 sector operator `det`, not from a diagonalisation: H_D^link = det + det^dag = 2 (|B><A| + |A><B|)."""
+    if eta is None:
+        raise ValueError("eta is required for kind 'UD' / the three-layer 'step'")
+    h = _sector_ops()["det"]
+    h = h + h.conj().T                                   # 6 x 6, entries 0 / 2 (the A, B block is 2 sigma_x)
+    c, s = np.cos(2.0 * float(eta)), np.sin(2.0 * float(eta))
+    P = (h @ h) / 4.0                                    # projector on span{|A>, |B>} (h^2 = 4 P)
+    layer = np.eye(6, dtype=np.complex128) + (c - 1.0) * P - 1j * s * (h / 2.0)
+    return _kron4([layer] * _N_INNER)
+
+
+def h_det_inner() -> np.ndarray:
+    """H_D^in = sum over the four inner links of (det U_l + h.c.) on the 1296 inner codes: real symmetric, entries 0 / 2
+    (METHODS-rishon R13).  The same matrix as `det_term_inner()` (complex dtype, kept), here real float64."""
+    return det_term_inner().real.astype(np.float64)
+
+
+def hamiltonian_inner(g2: float, lam_d: float = 0.0) -> np.ndarray:
+    """H = (g2/2) H_E^in + H_B^in / g2 + lam_d H_D^in on the 1296 inner codes (complex128).  lam_d is the det coupling lambda_D
+    (Wiese's gamma; the letter gamma is reserved for the sqrt2 beta slot of the angle rule, prompts/204 section 2.1)."""
+    H = 0.5 * float(g2) * np.diag(_HE()) + h_magnetic_inner() / float(g2) + float(lam_d) * h_det_inner()
+    return np.asarray(H, dtype=np.complex128)
+
+
+def inner_target(kind: str, alpha: float | None, beta: float | None, order: int = 1, eta: float | None = None) -> np.ndarray:
+    """Unitary 1296 x 1296 target: 'UE' = exp(-i alpha H_E), 'UB' = exp(-i beta H_B^in), 'UD' = exp(-i eta H_D^in) (eta required),
+    'step' order 1 = UB UE, order 2 = UE(alpha/2) UB UE(alpha/2) (METHODS §2).  With the det layer (R13; `eta` a number): 'step' order 1 =
+    UB(beta) UD(eta) UE(alpha) (circuit order: electric, det, magnetic), order 2 = UE(alpha/2) UD(eta/2) UB(beta) UD(eta/2) UE(alpha/2).
+    `eta=None` on 'step' is the two-layer M5 target, bit-identical to before; 'UE' / 'UB' with an eta raise ValueError."""
+    if kind == "UD":
+        return _ud(eta)
+    if kind in ("UE", "UB") and eta is not None:
+        raise ValueError(f"kind {kind!r} does not take eta (only 'UD' and the three-layer 'step' do)")
     if kind == "UE":
         return _ue(alpha)
     if kind == "UB":
         return _ub(beta)
     if kind == "step":
-        if order == 1:
-            return _ub(beta) @ _ue(alpha)
-        if order == 2:
+        if order not in (1, 2):
+            raise ValueError(f"step order must be 1 or 2, got {order}")
+        if eta is None:
+            if order == 1:
+                return _ub(beta) @ _ue(alpha)
             half = _ue(None if alpha is None else float(alpha) / 2)
             return half @ _ub(beta) @ half
-        raise ValueError(f"step order must be 1 or 2, got {order}")
-    raise ValueError(f"unknown kind {kind!r}; expected 'UE', 'UB' or 'step'")
+        if order == 1:
+            return _ub(beta) @ _ud(eta) @ _ue(alpha)
+        half = _ud(float(eta) / 2) @ _ue(None if alpha is None else float(alpha) / 2)       # [U_D, U_E] = 0
+        return half @ _ub(beta) @ half
+    raise ValueError(f"unknown kind {kind!r}; expected 'UE', 'UB', 'UD' or 'step'")
 
 
 @functools.lru_cache(maxsize=1)
@@ -287,8 +325,9 @@ def closed_block(g2: float) -> np.ndarray:
     return (B @ H @ B.T).astype(np.complex128)
 
 
-def closed_block_full(g2: float) -> np.ndarray:
-    """17x17 closed-sector block of H(g2) = (g2/2) H_E + H_B^in / g2 in the basis (the 16 vacuum codes {A,B}^4, loop).
+def closed_block_full(g2: float, lam_d: float = 0.0) -> np.ndarray:
+    """17x17 closed-sector block of H(g2, lam_d) = (g2/2) H_E + H_B^in / g2 + lam_d H_D^in in the basis (the 16 vacuum codes {A,B}^4,
+    loop); `lam_d = 0.0` returns the M5 block unchanged (the det term maps the closed sector into itself, METHODS-rishon R13).
 
     The 16 vacuum codes are the inner codes with every link in A or B (all link heights 0 or 2, j = 0 on every link).
     The block is computed from the full 1296-dim operators; the span must be invariant under H and orthonormal, otherwise
@@ -306,6 +345,8 @@ def closed_block_full(g2: float) -> np.ndarray:
     if np.abs(B @ B.T - np.eye(len(B))).max() > 1e-12:
         raise ValueError("the closed-sector basis (16 vacuum codes, loop) is not orthonormal")
     H = 0.5 * g2 * np.diag(_HE()) + h_magnetic_inner().real / g2
+    if lam_d != 0.0:
+        H = H + float(lam_d) * h_det_inner()
     HB_ = H @ B.T
     if np.abs(HB_ - B.T @ (B @ HB_)).max() > 1e-10:
         raise ValueError("the closed sector (16 vacuum codes, loop) is not invariant under H")
@@ -313,7 +354,7 @@ def closed_block_full(g2: float) -> np.ndarray:
 
 
 def det_term_inner() -> np.ndarray:
-    """sum over the four inner links of (det U_l + h.c.) on the inner codes (gamma = 0 in M5: defined, not used)."""
+    """sum over the four inner links of (det U_l + h.c.) on the inner codes (the det layer H_D^in of METHODS-rishon R13; `h_det_inner()` is the real-dtype alias)."""
     det = _sector_ops()["det"]
     D = np.zeros((1296, 1296), dtype=np.complex128)
     for l in range(_N_INNER):

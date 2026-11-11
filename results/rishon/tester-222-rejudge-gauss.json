@@ -1,0 +1,64 @@
+{
+ "rows": [
+  {
+   "circuit": "rz(0.7) q1",
+   "faked_shared": "pruning_bound, dropped 5e-12, errors 1e-13",
+   "ok": false,
+   "reason": "gauss",
+   "gauss_residual": 0.34289780745545156,
+   "failing_inputs": [
+    [
+     "gauss_residual",
+     "0.34289780745545156"
+    ],
+    [
+     "tol_gauss",
+     "1e-10"
+    ]
+   ]
+  },
+  {
+   "circuit": "cz(0,4)",
+   "faked_shared": "pruning_bound, dropped 5e-12, errors 1e-13",
+   "ok": false,
+   "reason": "gauss",
+   "gauss_residual": 1.0,
+   "failing_inputs": [
+    [
+     "gauss_residual",
+     "1.0"
+    ],
+    [
+     "tol_gauss",
+     "1e-10"
+    ]
+   ]
+  },
+  {
+   "circuit": "swap(0,4)",
+   "faked_shared": "pruning_bound, dropped 5e-12, errors 1e-13",
+   "ok": false,
+   "reason": "gauss",
+   "gauss_residual": 0.5000000000000003,
+   "failing_inputs": [
+    [
+     "gauss_residual",
+     "0.5000000000000003"
+    ],
+    [
+     "tol_gauss",
+     "1e-10"
+    ]
+   ]
+  },
+  {
+   "circuit": "rx(0.7) q1 (leaves valid codes)",
+   "faked_shared": "pruning_bound, dropped 5e-12, errors 1e-13",
+   "ok": true,
+   "reason": "ok",
+   "gauss_residual": 1.7554167342883506e-16,
+   "failing_inputs": []
+  }
+ ],
+ "git": "6beb713"
+}

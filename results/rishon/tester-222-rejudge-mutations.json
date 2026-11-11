@@ -1,0 +1,684 @@
+{
+ "cases": [
+  {
+   "case": "control: real verdict",
+   "overrides": {},
+   "ok": true,
+   "reason": "ok",
+   "laptop_reason": "ok",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=error dropped=0",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "error",
+    "dropped_total": 0.0
+   },
+   "ok": false,
+   "reason": "error",
+   "laptop_reason": "error",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=error dropped=1e-13",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "error",
+    "dropped_total": 1e-13
+   },
+   "ok": false,
+   "reason": "error",
+   "laptop_reason": "error",
+   "dropped_total": 1e-13,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=error dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "error",
+    "dropped_total": 5e-12
+   },
+   "ok": false,
+   "reason": "error",
+   "laptop_reason": "error",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=leak dropped=0",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "leak",
+    "dropped_total": 0.0
+   },
+   "ok": false,
+   "reason": "leak",
+   "laptop_reason": "leak",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=leak dropped=1e-13",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "leak",
+    "dropped_total": 1e-13
+   },
+   "ok": false,
+   "reason": "leak",
+   "laptop_reason": "leak",
+   "dropped_total": 1e-13,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=leak dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "leak",
+    "dropped_total": 5e-12
+   },
+   "ok": false,
+   "reason": "leak",
+   "laptop_reason": "leak",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=dirty_ancilla dropped=0",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "dirty_ancilla",
+    "dropped_total": 0.0
+   },
+   "ok": false,
+   "reason": "dirty_ancilla",
+   "laptop_reason": "dirty_ancilla",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=dirty_ancilla dropped=1e-13",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "dirty_ancilla",
+    "dropped_total": 1e-13
+   },
+   "ok": false,
+   "reason": "dirty_ancilla",
+   "laptop_reason": "dirty_ancilla",
+   "dropped_total": 1e-13,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=dirty_ancilla dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "dirty_ancilla",
+    "dropped_total": 5e-12
+   },
+   "ok": false,
+   "reason": "dirty_ancilla",
+   "laptop_reason": "dirty_ancilla",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=gauss dropped=0",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "gauss",
+    "dropped_total": 0.0
+   },
+   "ok": false,
+   "reason": "gauss",
+   "laptop_reason": "gauss",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=gauss dropped=1e-13",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "gauss",
+    "dropped_total": 1e-13
+   },
+   "ok": false,
+   "reason": "gauss",
+   "laptop_reason": "gauss",
+   "dropped_total": 1e-13,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=gauss dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "gauss",
+    "dropped_total": 5e-12
+   },
+   "ok": false,
+   "reason": "gauss",
+   "laptop_reason": "gauss",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=bad_layout dropped=0",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "bad_layout",
+    "dropped_total": 0.0
+   },
+   "ok": false,
+   "reason": "bad_layout",
+   "laptop_reason": "bad_layout",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=bad_layout dropped=1e-13",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "bad_layout",
+    "dropped_total": 1e-13
+   },
+   "ok": false,
+   "reason": "bad_layout",
+   "laptop_reason": "bad_layout",
+   "dropped_total": 1e-13,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=bad_layout dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "bad_layout",
+    "dropped_total": 5e-12
+   },
+   "ok": false,
+   "reason": "bad_layout",
+   "laptop_reason": "bad_layout",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=writes_outer dropped=0",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "writes_outer",
+    "dropped_total": 0.0
+   },
+   "ok": false,
+   "reason": "writes_outer",
+   "laptop_reason": "writes_outer",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=writes_outer dropped=1e-13",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "writes_outer",
+    "dropped_total": 1e-13
+   },
+   "ok": false,
+   "reason": "writes_outer",
+   "laptop_reason": "writes_outer",
+   "dropped_total": 1e-13,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=writes_outer dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "writes_outer",
+    "dropped_total": 5e-12
+   },
+   "ok": false,
+   "reason": "writes_outer",
+   "laptop_reason": "writes_outer",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=disallowed_gate dropped=0",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "disallowed_gate",
+    "dropped_total": 0.0
+   },
+   "ok": false,
+   "reason": "disallowed_gate",
+   "laptop_reason": "disallowed_gate",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=disallowed_gate dropped=1e-13",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "disallowed_gate",
+    "dropped_total": 1e-13
+   },
+   "ok": false,
+   "reason": "disallowed_gate",
+   "laptop_reason": "disallowed_gate",
+   "dropped_total": 1e-13,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=disallowed_gate dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "disallowed_gate",
+    "dropped_total": 5e-12
+   },
+   "ok": false,
+   "reason": "disallowed_gate",
+   "laptop_reason": "disallowed_gate",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=unsimulable dropped=0",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "unsimulable",
+    "dropped_total": 0.0
+   },
+   "ok": false,
+   "reason": "unsimulable",
+   "laptop_reason": "unsimulable",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=unsimulable dropped=1e-13",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "unsimulable",
+    "dropped_total": 1e-13
+   },
+   "ok": false,
+   "reason": "unsimulable",
+   "laptop_reason": "unsimulable",
+   "dropped_total": 1e-13,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=unsimulable dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "unsimulable",
+    "dropped_total": 5e-12
+   },
+   "ok": false,
+   "reason": "unsimulable",
+   "laptop_reason": "unsimulable",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=eval_budget dropped=0",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "eval_budget",
+    "dropped_total": 0.0
+   },
+   "ok": false,
+   "reason": "eval_budget",
+   "laptop_reason": "eval_budget",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=eval_budget dropped=1e-13",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "eval_budget",
+    "dropped_total": 1e-13
+   },
+   "ok": false,
+   "reason": "eval_budget",
+   "laptop_reason": "eval_budget",
+   "dropped_total": 1e-13,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=eval_budget dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "eval_budget",
+    "dropped_total": 5e-12
+   },
+   "ok": false,
+   "reason": "eval_budget",
+   "laptop_reason": "eval_budget",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=weird_new_reason dropped=0",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "weird_new_reason",
+    "dropped_total": 0.0
+   },
+   "ok": false,
+   "reason": "weird_new_reason",
+   "laptop_reason": "weird_new_reason",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=weird_new_reason dropped=1e-13",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "weird_new_reason",
+    "dropped_total": 1e-13
+   },
+   "ok": false,
+   "reason": "weird_new_reason",
+   "laptop_reason": "weird_new_reason",
+   "dropped_total": 1e-13,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared reason=weird_new_reason dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "weird_new_reason",
+    "dropped_total": 5e-12
+   },
+   "ok": false,
+   "reason": "weird_new_reason",
+   "laptop_reason": "weird_new_reason",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared pruning_bound dropped=5e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12
+   },
+   "ok": true,
+   "reason": "ok",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared pruning_bound dropped=9.99e-12",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 9.99e-12
+   },
+   "ok": true,
+   "reason": "ok",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 9.99e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared pruning_bound dropped=1.001e-11",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 1.0009999999999998e-11
+   },
+   "ok": false,
+   "reason": "pruning_bound",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 1.0009999999999998e-11,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared pruning_bound dropped=1e-09",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 1e-09
+   },
+   "ok": false,
+   "reason": "pruning_bound",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 1e-09,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "fake shared pruning_bound dropped=0.5",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 0.5
+   },
+   "ok": false,
+   "reason": "pruning_bound",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 0.5,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "pruning_bound + leak_amplitude 1e-9 (ancilla-dominated)",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12,
+    "leak_amplitude": 1e-09,
+    "max_leak": 1e-18,
+    "dirty_ancilla": 1e-18
+   },
+   "ok": false,
+   "reason": "dirty_ancilla",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "pruning_bound + leak_amplitude 1e-9 (invalid-code dominated)",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12,
+    "leak_amplitude": 1e-09,
+    "max_leak": 1e-18,
+    "dirty_ancilla": 0.0
+   },
+   "ok": false,
+   "reason": "leak",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "pruning_bound + op_norm_error 2e-10",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12,
+    "op_norm_error": 2e-10
+   },
+   "ok": false,
+   "reason": "error",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "pruning_bound + op_norm_error 1.0000001e-10",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12,
+    "op_norm_error": 1.0000001e-10
+   },
+   "ok": false,
+   "reason": "error",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "pruning_bound + op_norm_error 0.99e-10 (inside tol)",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12,
+    "op_norm_error": 9.9e-11
+   },
+   "ok": true,
+   "reason": "ok",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "pruning_bound + NaN dropped_total",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": NaN
+   },
+   "ok": true,
+   "reason": "ok",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": NaN,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "pruning_bound + NaN op_norm_error",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12,
+    "op_norm_error": NaN
+   },
+   "ok": true,
+   "reason": "ok",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": null
+  },
+  {
+   "case": "pruning_bound + NaN leak_amplitude",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12,
+    "leak_amplitude": NaN
+   },
+   "ok": true,
+   "reason": "ok",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "pruning_bound + inf op_norm_error",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12,
+    "op_norm_error": Infinity
+   },
+   "ok": false,
+   "reason": "error",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": null
+  },
+  {
+   "case": "Gauss: circuit with rx on d[1], faked clean pruning_bound",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12,
+    "op_norm_error": 1e-13,
+    "leak_amplitude": 0.0,
+    "block_error": 1e-13
+   },
+   "ok": true,
+   "reason": "ok",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "real wrong circuit (rx 0.7)",
+   "overrides": {},
+   "ok": false,
+   "reason": "leak",
+   "laptop_reason": "leak",
+   "dropped_total": 0.0,
+   "gauss_residual": 1.7554167342883506e-16
+  },
+  {
+   "case": "prune_fraction=0.001",
+   "ValueError": true
+  },
+  {
+   "case": "prune_fraction=0.00999",
+   "ValueError": true
+  },
+  {
+   "case": "prune_fraction=0.01",
+   "ValueError": false
+  },
+  {
+   "case": "prune_fraction=0.1",
+   "ValueError": false
+  },
+  {
+   "case": "prune_fraction=0.5",
+   "ValueError": false
+  },
+  {
+   "case": "prune_fraction=1e-2 + dropped 5e-12",
+   "reason": "pruning_bound",
+   "ok": false,
+   "extra_prune_cap": 1e-12
+  },
+  {
+   "case": "extra fields",
+   "overrides": {
+    "ok": 0.0,
+    "reason": "pruning_bound",
+    "dropped_total": 5e-12
+   },
+   "ok": true,
+   "reason": "ok",
+   "laptop_reason": "pruning_bound",
+   "dropped_total": 5e-12,
+   "gauss_residual": 1.7554167342883506e-16
+  }
+ ],
+ "shared_PRUNE_FRACTION": 0.01,
+ "RISHON_PRUNE_FRACTION": 0.1,
+ "violations": [
+  "NaN dropped_total accepted",
+  "NaN op_norm_error accepted",
+  "NaN leak_amplitude accepted",
+  "Gauss-violating circuit accepted through the re-judge"
+ ],
+ "gauss_case_reason": "ok",
+ "extra_keys": {
+  "prune_fraction": 0.1,
+  "prune_cap": 1.0000000000000001e-11,
+  "laptop_reason": "pruning_bound"
+ },
+ "inner_verdict_untouched": {
+  "reason": "pruning_bound",
+  "ok": false,
+  "dropped_total": 5e-12
+ },
+ "shared_PRUNE_FRACTION_after": 0.01,
+ "n_cases": 54,
+ "wall_s": 481.83789587020874,
+ "git": "6beb713"
+}

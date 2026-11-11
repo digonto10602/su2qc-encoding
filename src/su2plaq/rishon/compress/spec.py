@@ -360,11 +360,12 @@ def _default_root() -> pathlib.Path:
 
 # ------------------------------------------------------------------------------------------------ spec text
 def prune_budget(spec) -> int:
-    """How many branching gates of the engine's lowering the prune cap (PRUNE_FRACTION x tol_err) allows at the measured
-    PRUNE_RATE_PER_BRANCHING_GATE: floor(cap / rate).  The single source of the number in the proposers' spec text."""
-    from su2plaq.evaluate.evaluator import PRUNE_FRACTION
+    """How many branching gates of the engine's lowering the rishon prune cap (RISHON_PRUNE_FRACTION x tol_err, prompts/204
+    section 3) allows at the measured PRUNE_RATE_PER_BRANCHING_GATE: floor(cap / rate).  The single source of the number in
+    the proposers' spec text."""
+    from su2plaq.rishon.verify import RISHON_PRUNE_FRACTION
 
-    return int(math.floor(PRUNE_FRACTION * spec.tol_err / PRUNE_RATE_PER_BRANCHING_GATE))
+    return int(math.floor(RISHON_PRUNE_FRACTION * spec.tol_err / PRUNE_RATE_PER_BRANCHING_GATE))
 
 
 def _fmt_num(x: float) -> str:
@@ -422,7 +423,8 @@ def _structure_section(facts: dict) -> str:
 def render_spec(spec) -> str:
     """The hand-text of prompts/203 section 4 with every number from the spec / encoding / MACRO_COST / structure_facts()."""
     from su2plaq.compress.builder import BASIS, MACRO_COST, MACROS
-    from su2plaq.evaluate.evaluator import PRUNE_FRACTION, synth_tolerances
+    from su2plaq.evaluate.evaluator import synth_tolerances
+    from su2plaq.rishon.verify import RISHON_PRUNE_FRACTION as PRUNE_FRACTION
 
     register()
     view = _VIEW
@@ -469,11 +471,11 @@ def render_spec(spec) -> str:
         f"{spec.peak_qubit_cap()}); no measurement; emission-time classical computation is allowed "
         "(`su2plaq.compress.oracle`, `su2plaq.compress.spec.get_encoding(\"rishon\")`, numpy).\n\n"
         f"## Correctness\n\n`op_norm_error` = block error + leak amplitude + certified pruning bound must be at most {spec.tol_err:g} "
-        f"after one global phase; `dropped_total` must be at most {cap:g} (**prune cap** = {PRUNE_FRACTION:g} x tolerance; measured on "
+        f"after one global phase; `dropped_total` must be at most {cap:g} (**prune cap** = {PRUNE_FRACTION:g} x tolerance for this encoding; measured on "
         f"this task the engine's certified pruning bound grows by about {PRUNE_RATE_PER_BRANCHING_GATE:.1e} per branching gate of its lowering "
         f"(h, sx, u; ch, crx and rccx count 2; macro ccx/ccz and all permutation/phase gates count 0), so the cap allows about {n_budget} "
         "branching gates; exact circuits above that are rejected as `pruning_bound` - the uncompressed circuit in bare h/t form, its "
-        "rccx-ladder variants and its Qiskit L3 transpile all are); "
+        "rccx-ladder variants and its Qiskit L3 transpile use about 3 500-4 400 of them and pass); "
         f"Gauss residual of the outputs on {n_closed + n_sample} sampled "
         f"physical states ({n_closed} closed + {n_sample} seeded) at most {spec.tol_gauss:g}; identical skeleton at the three angle "
         f"pairs; evaluation wall at most {spec.eval_budget_s:g} s and at most {spec.support_cap} stored amplitudes; synthesised "

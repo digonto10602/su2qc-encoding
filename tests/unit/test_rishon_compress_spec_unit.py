@@ -96,7 +96,7 @@ def test_render_and_write(tmp_path):
     assert t.count("outer register") == 2 and t.count("neither write it nor read it") == 1           # no repeated sentence
     assert "not a validity verdict" in t and "reports/tests/215" in t
     nb = S.prune_budget(sp)
-    assert isinstance(nb, int) and nb == int(np.floor(1e-12 / S.PRUNE_RATE_PER_BRANCHING_GATE))
+    assert isinstance(nb, int) and nb == int(np.floor(1e-11 / S.PRUNE_RATE_PER_BRANCHING_GATE)) == 9090
     assert f"allows about {nb} branching gates" in t and "ccx/ccz and all permutation/phase gates count 0" in t and "Qiskit L3" in t
     pr = {f["name"]: f for f in S.structure_facts()["facts"]}["prune_rates"]["value"]
     assert pr["per_branching_gate"] == S.PRUNE_RATE_PER_BRANCHING_GATE and pr["budget_at_cap"] == nb
