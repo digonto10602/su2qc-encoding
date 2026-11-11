@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.855759516317304e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -0.7071067811865475,
+   0.7071067811865477
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.991482812214944e-14,
+  "block_error": 1.86427670410236e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.04520297050476074,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.86427670410236e-14,
+   "max_dropped_l2": 4.143379688536693e-15,
+   "max_span_leak": 2.220446049250313e-16,
+   "op_norm_error_inner_span": 1.8548385933003183e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.2250973060000304e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.7071067811865474,
+    0.7071067811865476
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.0077065263445654e-14,
+   "block_error": 1.2173907796554652e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.046659231185913086,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.2108435036115115e-14,
+    "max_dropped_l2": 2.888649083782029e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.2173907796554652e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.428730317272943e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.7071067811865475,
+    0.7071067811865477
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.642280024557978e-14,
+   "block_error": 1.786450292714964e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04559469223022461,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.786450292714964e-14,
+    "max_dropped_l2": 7.309070302447683e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.780074117632211e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 130,
+  "t_fixed": 97,
+  "n_rot": 28,
+  "t_eps": 1881,
+  "t_estimate": {
+   "1e-06": 1771.2517598232307,
+   "1e-10": 2887.4195997053844
+  },
+  "t_measured": {
+   "1e-06": 1881,
+   "1e-10": 3009
+  },
+  "synth_error_bound": 2.8e-05,
+  "depth": 207,
+  "depth_ct": 4673,
+  "qubits": 12,
+  "gates": {
+   "cx": 130,
+   "h": 81,
+   "t": 51,
+   "tdg": 46,
+   "rz": 28,
+   "z": 16,
+   "x": 12,
+   "s": 12,
+   "sdg": 10
+  },
+  "measured": true
+ },
+ "program_sha256": "536b7edbb0f691c51e895550d1afb2b787aed29e9dcc0b226b1a2be75e03a87f",
+ "wall_s": 2.21465802192688,
+ "discoveries": [
+  "DISCOVERY: A CZ(F,k) next to a parity CX(F->k) costs no CX ([cx,cz] = sdg(k) cx s(k) s(F)); these free (-1)^r and (-1)^l sign knobs make the r-fold of sectors 1,5 CZ-free and let the t=1 group take an r-signed angle function.",
+  "DISCOVERY: The t=1 group (sectors 2,3,6,7) stays diagonal after Bell decoding of pairs (0,1),(2,3) at four common frames (2,1,0,3),(2,0,1,3),(3,1,0,2),(3,0,1,2); each admits a constant-free 11-term phase polynomial with walk 14 CX.",
+  "DISCOVERY: With a single AND ancilla a=t&l the one-hot sector lines are affine in (t,l,a); a DP over CX among PT,PL,a gives all line changes in 5 CX; fitting the group with only one singlet AND instead of two needs 23-27 terms (worse)."
+ ],
+ "summary": "r-fold of sectors 1,5 onto 0,4 with OR-merged first Fredkin, CZ(F,PR)/CZ(F,PL) sign knobs absorbed into the parity CX, t=1 group at the (0 2) frame fitted constant-free (11 terms, walk 14), one-AND selector lines (5 CX)."
+}

@@ -1,0 +1,192 @@
+{
+ "id": "r04-F1-004",
+ "program_path": "compress/programs/fuzzy_ub/F1/004-single-tour-branch-fold.py",
+ "program_sha256": "2525cb01ee66f390047de7f93a8489f782423e01678a512323586314f1686861",
+ "parent": "r03-F3-003",
+ "family": "F1",
+ "round": 4,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  116,
+  1774,
+  4394,
+  12
+ ],
+ "cell": [
+  54,
+  86
+ ],
+ "metrics_raw": {
+  "cx": 116,
+  "t_fixed": 98,
+  "n_rot": 26,
+  "t_eps": 1774,
+  "t_estimate": {
+   "1e-06": 1652.6623484072857,
+   "1e-10": 2689.103914012143
+  },
+  "t_measured": {
+   "1e-06": 1774,
+   "1e-10": 2802
+  },
+  "synth_error_bound": 2.6e-05,
+  "depth": 188,
+  "depth_ct": 4394,
+  "qubits": 12,
+  "gates": {
+   "cx": 116,
+   "h": 74,
+   "t": 56,
+   "tdg": 42,
+   "rz": 26,
+   "x": 22,
+   "s": 16,
+   "z": 10,
+   "sdg": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 4.972998531533743e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -1.0,
+   3.951697299890413e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.12333770307347e-14,
+  "block_error": 1.849660828460273e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.4030337333679199,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.8349648709740793e-14,
+   "max_dropped_l2": 3.3261880328941083e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.849660828460273e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.936755253664886e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    3.3600117596700505e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.8112162479620755e-14,
+   "block_error": 1.1255390057028103e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.040103912353515625,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.1238022994717859e-14,
+    "max_dropped_l2": 2.906320110276258e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.1255390057028103e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.185481398129862e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    3.4873543577137645e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.3826570851741114e-14,
+   "block_error": 1.8028243129557505e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.03952431678771973,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7847901793917447e-14,
+    "max_dropped_l2": 3.478194542736913e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.8028243129557505e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: per-sector branch control of a frame swap (none / f=0 / f=1 / both) acts as a fold: with leg (0 2),(0 1),(2 3) the states (sector 0 none, 1 f=0 only, 4 f=1 only, 5 both) at the (0 2) swap put sectors 0,1,4,5 into the sector-4 normal form at G (decoder (1,2), value 2 with sign (-1)^(p_r^p_l)); no separate fold Fredkin, no sector-0 frame, one t=0 middle.",
+  "DISCOVERY: that control is one rccx toggle on a persistent u=p_r&~p_t line using e=~p_t&~(p_r^p_l); a Z on the line while it holds c multiplies the t=0 couplings by (-1)^(p_r^p_l) (t=1 by -1), making the four t=0 sectors identical.",
+  "DISCOVERY: with p_l'=p_r^p_l made by the parity frame itself (cx(q1^r,q1^l) first, still 3 CX) the t=1 group function needs no one-hot: its full Walsh expansion on (p_t, p_l', p_r, w01, w23) has 18 terms and a 20-CX closed walk (vs 8 CX one-hot + 2 CX l-restore + 16-CX walk); both group decoders cancel against the first two Fredkins of the closing leg."
+ ],
+ "summary": "one f-controlled frame tour id -> G=(3,0,1,2) -> id (6 Fredkins) for all 8 parity sectors: the first and last (0 2) swap is controlled by c = (p_r&~p_t) xor f&(p_t|p_r^p_l) (= f for t=1), which routes sectors 0,1,4,5 onto the sector-4 normal form at G, so one 3-control middle on ~p_t serves t=0 and the t=1 group polynomial is fitted directly on (p_t, p_r^p_l, p_r, w01, w23) without a one-hot; 116 CX, 12 qubits.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "5d5d502",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 5.691896915435791,
+ "written_utc": "2026-11-11T05:23:20Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 2.6e-05
+ },
+ "lean": {
+  "status": "n_a",
+  "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+ },
+ "mode": "full"
+}
