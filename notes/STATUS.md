@@ -22,7 +22,7 @@ Latest acceptance tag: acceptance-v18 (m2c consolidation, prompts/008) (tags v8�
 - spinnet M4: compression round 5 (proposers F1–F3, sessions 16–18/20; stop counter 2/3) → then 4.L1/4.L2 Lean, 4.7 results, 4.8 gate → Report 4.
 - rishon M5d/M6: prompts/204 steps D1–D7 (det term λ_D, milestone-5d, Report 5 addendum), then C1–C6 (replay rounds 0–4, rounds 5+, Lean 6.L, gate → Report 6).
 - fuzzy M10 follow-up: fuzzy_ub round 4 (proposers F1–F3); then Lean per-circuit certs + audit A1/A2 (planner).
-- LSH M7: 7.0–7.10 + 7.L1–7.L2 done (3d99f68; clean results 0bdb045); builder on 7.L3 + 7.11; then gate → Report 7; then M8.
+- LSH M7: all steps done (7.L3 731da36, METHODS-lsh L11 87ab391); gate: tester full PASS (407) → auditor running → benchmark → milestone-7 → Report 7; then M8.
 - consolidation: planner writing prompts/008 (shared-code registries replacing shims, robust-T key, hash refresh) — runs after the loops close.
 
 ## Open failures (attempt counters)
@@ -155,3 +155,7 @@ Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer
 - 2026-11-11: M4 gate step 1 tester full PASS (reports/tests/404, 89752b4): m0-m4 149/149 incl. slow, unit 932, acceptance-check v18 -> auditor (step 2) launched.
 - 2026-11-11: rishon tester 405 PASS (D3-D6): det circuits exact to 1.4e-15 on 1296 inner codes, steps <= 2.2e-14, slopes 1.995/2.992, sector structure reproduced, leaving_weight 2.3e-10 = float cancellation (residual form <= 1.6e-25), 11/11 mutants -> committed 6fea036; D6 results running in clean worktree ../su2qc-regen-rishon-d6 (cores 6-11, --jobs 4).
 - 2026-11-11: LSH builder 7.L3 done (m7 29/29; su2plaq_cert_lsh checker; step o1 cert 252 gates / 31 q in ~1 s) and consolidation Phase A done (hashes unchanged) -> one tester for both (cores 14-19).
+- 2026-11-11: M4 auditor PASS WITH NOTES (reports/audits/302; number fell in the fuzzy range because next-num is per folder): no physics error; headline binding + 10 tamper probes OK. N1 (m4_results eps-key bug: paulo15 row lacks T) fixed by builder -> tester 408; then clean-worktree m4_results re-run, benchmark, milestone-4, Report 4. N2 (robust skeleton check omits nominal circuit), N3 (id/sha inside cert JSON), N6 (strict linearity), eps-key helper, cert_path fallback, CT-depth-only ties -> prompts/008 Phase B. N4 Report-4 wording (CX vs T Pareto front 31/1092.0 ... 46/486.7; native-certified, not kernel-checked; first-order step only).
+- 2026-11-11: LSH tester 406 PASS (7.L3 + consolidation Phase A) -> committed 731da36, 980b468. METHODS-lsh L11 filled (87ab391). M7 gate tester full PASS (reports/tests/407): 178/178 acceptance incl. slow, unit 934, results reproduce byte-identically at HEAD -> auditor launched.
+- 2026-11-12: fuzzy_ub round 5 (50dd915): 3/3 valid; best 116 -> 94 CX (r05-F3-005, T_eps 658, depth_CT 1530, 12 q; Clifford+T re-verified 2.3e-6 <= 9.0e-6); F1 98, F2 113. Round-6 briefs + proposers F1 (12-13), F2 (2-3), F3 (4-5).
+- 2026-11-12: rishon D6 clean-worktree run: 13/15 synth jobs done (step3 synth 4070 s).
