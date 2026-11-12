@@ -1,0 +1,252 @@
+[
+ {
+  "name": "untampered",
+  "line": "ACCEPT",
+  "rc": 0,
+  "ok": true
+ },
+ {
+  "name": "gate_cx_target_changed",
+  "line": "REJECT state 32 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_cx_reversed",
+  "line": "REJECT state 0 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_t_to_tdg",
+  "line": "REJECT state 0 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_h_replaced_by_x",
+  "line": "REJECT state 0 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_rz_exponent_plus1",
+  "line": "REJECT rz exponent vector must be even",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_rz_alpha_exponent_plus1",
+  "line": "REJECT rz exponent vector must be even",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_p_exponent_changed",
+  "line": "REJECT state 164 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_removed",
+  "line": "REJECT state 72 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_appended_x_on_data",
+  "line": "REJECT state 0 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_appended_x_on_outer",
+  "line": "REJECT state 0 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_appended_x_on_ancilla",
+  "line": "REJECT state 0 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_prepended_x_on_ancilla",
+  "line": "REJECT state 0 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "gate_qubit_out_of_range",
+  "line": "REJECT gate qubit 99 out of range (n = 31)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "state_removed_last",
+  "line": "REJECT certificate has 432 states, the physical subspace has 433",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "state_removed_middle",
+  "line": "REJECT state index 432 out of range",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "states_swapped",
+  "line": "ACCEPT",
+  "rc": 0,
+  "ok": false
+ },
+ {
+  "name": "state_code_flipped_bit",
+  "line": "REJECT states differ from the pinned exact LSH states (SHA-256)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "state_sign_flipped",
+  "line": "REJECT states differ from the pinned exact LSH states (SHA-256)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "state_support_on_ancilla",
+  "line": "REJECT state has support on an ancilla qubit",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "state_duplicated_extra",
+  "line": "REJECT duplicate state index 0",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "state_replaced_by_other",
+  "line": "REJECT duplicate state index 4",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "target_coeff_changed",
+  "line": "REJECT target differs from the pinned exact step target (SHA-256)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "target_exponent_changed",
+  "line": "REJECT target differs from the pinned exact step target (SHA-256)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "target_entry_removed",
+  "line": "REJECT target differs from the pinned exact step target (SHA-256)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "target_block_removed",
+  "line": "REJECT target differs from the pinned exact step target (SHA-256)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "target_ks_reversed",
+  "line": "REJECT target differs from the pinned exact step target (SHA-256)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "target_kind_label_changed",
+  "line": "REJECT target differs from the pinned exact UB target (SHA-256)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "target_order_label_changed",
+  "line": "REJECT base must be a positive multiple of the target's base",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "phase_m_changed",
+  "line": "REJECT state 0 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "phase_k_changed",
+  "line": "REJECT state 0 differs from the target",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "base_dbeta_8",
+  "line": "REJECT target differs from the pinned exact step target (SHA-256)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "base_dalpha_3",
+  "line": "REJECT base must be a positive multiple of the target's base",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "n_data_11",
+  "line": "REJECT the LSH encoding has 12 data and 12 outer qubits",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "n_outer_11",
+  "line": "REJECT the LSH encoding has 12 data and 12 outer qubits",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "n_data_outer_8_spinnet",
+  "line": "REJECT the LSH encoding has 12 data and 12 outer qubits",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "n_qubits_20",
+  "line": "REJECT register sizes exceed n_qubits",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "n_qubits_63",
+  "line": "REJECT more than 62 qubits",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "n_qubits_30_ancilla_use",
+  "line": "REJECT gate qubit 30 out of range (n = 30)",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "schema_changed",
+  "line": "REJECT unknown schema su2plaq-cert-2",
+  "rc": 1,
+  "ok": true
+ },
+ {
+  "name": "spinnet_cert_in_lsh_checker",
+  "line": "REJECT the LSH encoding has 12 data and 12 outer qubits",
+  "ok": true
+ },
+ {
+  "name": "lsh_cert_in_spinnet_checker",
+  "line": "REJECT the spin-network encoding has 8 data and 8 outer qubits",
+  "ok": true
+ }
+]

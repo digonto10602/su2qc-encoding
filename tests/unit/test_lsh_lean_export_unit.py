@@ -1,8 +1,10 @@
 """Unit tests for su2plaq.lsh.lean_export (prompts/400 step 7.L2): integer tables, circuit segments, generated block of
 lean/Su2Plaq/LSH/Circuit.lean equals the Python objects, source hygiene of the Lean files."""
 import functools
+import json
 import pathlib
 import shutil
+import subprocess
 
 import numpy as np
 import pytest
@@ -101,7 +103,106 @@ def test_lean_sources_hygiene():
         assert f"= {v}" in src.split(f"theorem {name}", 1)[1].split("\n", 1)[0]
 
 
-def test_certificate_functions_are_stubs():
-    for f, args in ((LE.certify, (None, None, "step", 0.37, 0.61, 1)), (LE.write_pins, ())):
-        with pytest.raises(NotImplementedError):
-            f(*args)
+# ---- step 7.L3: native certificate -----------------------------------------------------------------------------------
+from su2plaq.circuits.lsh import build_UE, build_step  # noqa: E402
+from su2plaq.lsh import operators as O  # noqa: E402
+
+
+@pytest.mark.parametrize("kind,order", LE.LSH_TARGETS)
+def test_exact_target_equals_float_target(kind, order):
+    """Exact Laurent target evaluated at the three angle pairs equals `enc.target` (1e-12)."""
+    e = enc()
+    for a, b in ((0.37, 0.61), (0.91, 0.23), (1.70, 1.00)):
+        assert np.abs(LE.laurent_target_matrix(e, kind, a, b, order) - e.target(kind, a, b, order)).max() <= 1e-12
+
+
+def test_exact_states_and_electric_weight():
+    e = enc()
+    st = LE.exact_states(e)
+    assert len(st) == 433 and all(len(s["codes"]) == 1 for s in st)
+    assert sorted(int(s["codes"][0]) for s in st) == O.physical_codes().tolist()
+    nel = LE._n_inner_half(e)
+    assert np.abs(e.h_electric() - 0.75 * np.array(nel)).max() < 1e-12 and set(nel) == {0, 1, 2, 3, 4}
+    assert LE.target_base("UB") == (4, 4) and LE.target_base("step", 2) == (8, 4) and LE.target_base("step", 1) == (4, 4)
+    with pytest.raises(ValueError):
+        LE.exact_target_blocks(e, "nope")
+    with pytest.raises(ValueError):
+        LE.exact_target_blocks(e, "step", 3)
+
+
+def test_pins_file_is_current(tmp_path):
+    out = LE.write_pins(tmp_path / "Pins.lean")
+    assert out.read_text() == LE.LSH_PINS_FILE.read_text()
+    p = LE.compute_pins(enc())
+    assert len(p["states"]) == 64 and set(p["targets"]) == {"UE:1", "UB:1", "step:1", "step:2"}
+    assert len(set(p["targets"].values())) == 4
+
+
+def test_certify_certified_rejected_n_a(tmp_path):
+    e = enc()
+    ok = LE.certify(build_step(0.37, 0.61, 1, with_outer=True), e, "step", 0.37, 0.61, 1, out_dir=tmp_path)
+    assert ok["status"] == "certified" and ok["axioms"] == [] and pathlib.Path(ok["cert_path"]).exists()
+    cert = json.loads(pathlib.Path(ok["cert_path"]).read_text())
+    assert cert["n_data"] == 12 and cert["n_outer"] == 12 and cert["n_qubits"] == 31 and len(cert["states"]) == 433
+    assert cert["circuit_id"].startswith("lsh-step-o1-") and cert["provenance"]["exporter"] == "su2plaq.lsh.lean_export"
+    for qc, kind, order in ((build_step(0.37, 0.61, 2, with_outer=True), "step", 2), (build_step(0.37, 0.61, 1), "step", 1),
+                            (build_UE(0.37, with_outer=True), "UE", 1)):
+        assert LE.certify(qc, e, "UE" if kind == "UE" else kind, 0.37, 0.61, order, out_dir=tmp_path)["status"] == "certified"
+    from su2plaq.circuits.lsh import build_UB
+    assert LE.certify(build_UB(0.61, with_outer=True), e, "UB", 0.37, 0.61, 1, out_dir=tmp_path)["status"] == "certified"
+    # wrong target kind, wrong sign of beta: rejected by the exact checker
+    r = LE.certify(build_UB(0.61, with_outer=True), e, "step", 0.37, 0.61, 1, out_dir=tmp_path)
+    assert r["status"] == "rejected" and "differs from the target" in r["reason"]
+    assert LE.certify(build_step(0.37, -0.61, 1, with_outer=True), e, "step", 0.37, 0.61, 1, out_dir=tmp_path)["status"] == "rejected"
+    # an angle that is not a rational multiple of alpha / beta is not representable: n_a
+    r = LE.certify(build_step(0.37, 0.61 * (1 + 1e-6), 1, with_outer=True), e, "step", 0.37, 0.61, 1, out_dir=tmp_path)
+    assert r["status"] == "n_a" and r["reason"].startswith("non_linear_angle") and r["cert_path"] is None
+    # too many qubits / bad layout / unknown kind
+    from qiskit import QuantumCircuit
+    assert LE.export_certificate(QuantumCircuit(63), e, "UB", 0.37, 0.61, 1, tmp_path / "x.json") == "too_many_qubits"
+    assert LE.export_certificate(QuantumCircuit(5), e, "UB", 0.37, 0.61, 1, tmp_path / "x.json").startswith("bad_layout")
+    with pytest.raises(ValueError):
+        LE.export_certificate(build_UE(0.37), e, "nope", 0.37, 0.61, 1, tmp_path / "x.json")
+
+
+def test_checker_rejects_tampered_certificates(tmp_path):
+    """Changing a pinned state, a target entry or the register size makes the Lean checker REJECT (pins / validation)."""
+    e = enc()
+    res = LE.certify(build_step(0.37, 0.61, 1, with_outer=True), e, "step", 0.37, 0.61, 1, out_dir=tmp_path)
+    path = pathlib.Path(res["cert_path"])
+    base = json.loads(path.read_text())
+
+    def check(d):
+        q = tmp_path / "t.json"
+        q.write_text(json.dumps(d, separators=(",", ":")))
+        return LE.check_certificate(q)
+
+    assert LE.check_certificate(path)["status"] == "certified"
+    d = json.loads(json.dumps(base))
+    d["states"][5]["terms"][0]["code"] = (1 << 24) - 1                 # a basis state no physical state uses
+    r = check(d)
+    assert r["status"] == "rejected" and "pinned" in r["reason"]
+    d = json.loads(json.dumps(base))
+    d["n_data"], d["n_outer"] = 8, 8
+    r = check(d)
+    assert r["status"] == "rejected" and "12 data and 12 outer" in r["reason"]
+    d = json.loads(json.dumps(base))
+    ents = [en for b in d["target"]["blocks"] for en in b["entries"]]
+    other = next(en[2] for en in ents if en[2] != ents[0][2])
+    ents[0][2] = other                                                   # a different Laurent polynomial in one entry
+    r = check(d)
+    assert r["status"] == "rejected"
+    d = json.loads(json.dumps(base))
+    d["gates"][len(d["gates"]) // 2] = d["gates"][0]                   # one gate replaced
+    assert check(d)["status"] == "rejected"
+    bad = tmp_path / "garbage.json"
+    bad.write_text("{not json")
+    assert LE.check_certificate(bad)["status"] == "rejected"
+
+
+def test_fingerprint_matches_pins(tmp_path):
+    e = enc()
+    res = LE.certify(build_step(0.37, 0.61, 1, with_outer=True), e, "step", 0.37, 0.61, 1, out_dir=tmp_path)
+    out = subprocess.run([str(LE.checker_exe()), "fingerprint", res["cert_path"]], capture_output=True, text=True, check=True).stdout
+    p = LE.compute_pins(e)
+    assert f"states {p['states']}" in out and f"target {p['targets']['step:1']}" in out

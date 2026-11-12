@@ -60,6 +60,11 @@ def test_wrap_spinnet_structure_and_overhead():
     assert [r.name for r in qo.qregs] == ["d", "o", "a"] and qo.num_qubits == sn.num_qubits + 16
     # ancillas of C are the ancillas of the wrapped circuit (same count, after the outer register)
     assert qo.qregs[2].size == sn.num_qubits - 8
+    # the ancillas sit after the outer register (wire offset 24): the evaluator on all 433 states catches a wrong offset
+    vo = evaluate(qo, enc, enc.target("UB", None, 0.61), method="physical")
+    assert vo.ok and vo.outer_bits_read == 0 and vo.n_inputs == 433 and vo.dirty_ancilla <= 1e-20
+    used = {qo.find_bit(q).index for inst in qo.data for q in inst.qubits}
+    assert used.isdisjoint(range(12, 24)) and used <= set(range(12)) | set(range(24, qo.num_qubits))
     with pytest.raises(ValueError):
         wrap_spinnet(CS.build_UB(0.61, with_outer=True))
     from qiskit import QuantumCircuit

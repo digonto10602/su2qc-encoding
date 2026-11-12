@@ -1,0 +1,46 @@
+{
+ "second_run_identical_fresh": true,
+ "worktree_file_copy_unchanged_by_run": true,
+ "head_file_rewritten_by_run(exporter_sha changed)": true,
+ "git_commit_only": {
+  "rewritten": false,
+  "expected": false,
+  "ok": true
+ },
+ "cert_seconds_only": {
+  "rewritten": false,
+  "expected": false,
+  "ok": true
+ },
+ "both_volatile": {
+  "rewritten": false,
+  "expected": false,
+  "ok": true
+ },
+ "fact_changed": {
+  "rewritten": true,
+  "expected": true,
+  "ok": true
+ },
+ "fact_dropped": {
+  "rewritten": true,
+  "expected": true,
+  "ok": true
+ },
+ "symmetry_changed": {
+  "rewritten": true,
+  "expected": true,
+  "ok": true
+ },
+ "cert_status_changed": {
+  "rewritten": true,
+  "expected": true,
+  "ok": true
+ },
+ "checker_sha_changed": {
+  "rewritten": true,
+  "expected": true,
+  "ok": true
+ },
+ "corrupt_file_rewritten": true
+}

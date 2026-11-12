@@ -24,3 +24,9 @@ root = "Su2PlaqCert.Main"
 [[lean_exe]]
 name = "su2plaq_cert_spinnet"
 root = "Su2PlaqCert.SpinNet.Main"
+
+# SHARED APPEND (track L, prompts/400 step 7.L3): checker for the LSH encoding (pins its own 433 unit-code states, 12 + 12
+# qubits, and the LSH targets; reuses Su2PlaqCert.Check/Json/Gates read-only).  Sources: Su2PlaqCert/LSH/.
+[[lean_exe]]
+name = "su2plaq_cert_lsh"
+root = "Su2PlaqCert.LSH.Main"
