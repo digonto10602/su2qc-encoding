@@ -9,12 +9,12 @@ GLOBAL BEST (laptop key): r04-F1-004.  HEADLINE (robust key): r02-F1-002.
 | general | r00-seed-000 | 23 | 54 | 56 | 8 | 566 | 560.6 | 534.4 | 884 | 861 | valid (err 1.23e-14, leak 0) | certified |
 | general+polish | r00-seed-010 | 23 | 54 | 56 | 8 | 566 | 560.6 | 534.4 | 884 | 861 | valid (err 1.23e-14, leak 0) | not_run |
 | qiskit_l3 | r00-seed-011 | 23 | 54 | 56 | 8 | 566 | 560.6 | 534.4 | 884 | 861 | valid (err 1.67e-14, leak 0) | not_run |
-| qiskit_l3_whole | - | 23 | 54 | 56 | 8 | - | - | - | - | 67 | unverifiable (counts only): unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine | n_a |
+| qiskit_l3_whole | - | 23 | 54 | 56 | 8 | - | - | 534.4 | - | - | unverifiable (counts only): unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine | n_a |
 | spinnet_v2_pairs9 | r00-seed-001 | 19 | 34 | 24 | 13 | 832 | 847.4 | 801.3 | 1376 | 1597 | valid (err 7.9e-15, leak 0) | certified |
 | spinnet_v2_flags4 | r00-seed-002 | 19 | 44 | 48 | 8 | 554 | 553.1 | 526.4 | 880 | 869 | valid (err 9.28e-15, leak 0) | not_run |
 | spinnet_v2_flags5 | r00-seed-003 | 19 | 42 | 40 | 9 | 606 | 609.1 | 578.2 | 976 | 1009 | valid (err 8.79e-15, leak 0) | not_run |
 | spinnet_v2_flags6 | r00-seed-004 | 19 | 36 | 32 | 10 | 658 | 665.6 | 629.9 | 1074 | 1120 | valid (err 8.02e-15, leak 0) | not_run |
-| paulo15 | - | 23 | 68 | 64 | 4 | - | - | - | - | 726 | valid at its own angle (beta = 0.05), err 9.61e-15 | n_a |
+| paulo15 | - | 23 | 68 | 64 | 4 | 316 | - | 303.2 | 478 | 726 | valid at its own angle (beta = 0.05), err 9.61e-15 | n_a |
 | best_family_F1 | r02-F1-002 | 17 | 31 | 16 | 17 | 1086 | 1092.0 | 1032.5 | 1784 | 2258 | valid (err 5.13e-15, leak 0) | certified |
 | best_family_F2 | r05-F2-005 | 17 | 31 | 16 | 17 | 1086 | 1092.0 | 1032.5 | 1784 | 2262 | valid (err 4.99e-15, leak 0) | not_run |
 | best_family_F3 | r05-F3-005 | 17 | 32 | 24 | 13 | 832 | 847.4 | 801.3 | 1376 | 1552 | valid (err 5.59e-15, leak 0) | not_run |

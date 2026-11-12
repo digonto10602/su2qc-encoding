@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "b0d3db7",
+    "git_commit": "7d06d8e",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -27,13 +27,13 @@
       "trial_subset": 0,
       "angle_set": 20261107
     },
-    "timestamp_utc": "2026-11-11T00:48:26Z",
-    "provenance_captured_at": "2026-11-11T00:48:26Z",
+    "timestamp_utc": "2026-11-12T13:40:46Z",
+    "provenance_captured_at": "2026-11-12T13:40:46Z",
     "host": "omnicommander",
     "command": "python scripts/m4_results.py",
     "quick": false,
-    "wall_seconds": 5.861337900161743,
-    "peak_rss_mb": 298.875
+    "wall_seconds": 6.072173118591309,
+    "peak_rss_mb": 300.83984375
   },
   "verification": {
     "ok": true,
@@ -59,7 +59,7 @@
     "dropped_total": 3.2596231561562225e-15,
     "block_error": 1.8670686707337984e-15,
     "leak_amplitude": 0.0,
-    "seconds": 0.521965742111206,
+    "seconds": 0.5697968006134033,
     "n_inputs": 433,
     "extra": {
       "op_norm_error_physical": 1.5453706261318547e-15,
@@ -127,7 +127,7 @@
             "dropped_total": 4.217654152210112e-13,
             "block_error": 0.0002112546940307766,
             "leak_amplitude": 0.00021015506677173767,
-            "seconds": 0.276043176651001,
+            "seconds": 0.2854804992675781,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 0.00020256914458772067,
@@ -177,7 +177,7 @@
             "dropped_total": 2.158712784987411e-12,
             "block_error": 3.167191694857737e-06,
             "leak_amplitude": 1.722902552441339e-06,
-            "seconds": 0.28354716300964355,
+            "seconds": 0.29311561584472656,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 2.885386031696785e-06,
@@ -227,7 +227,7 @@
             "dropped_total": 3.2232678135736638e-15,
             "block_error": 2.5031944686343552e-08,
             "leak_amplitude": 2.882564327098633e-08,
-            "seconds": 0.30857086181640625,
+            "seconds": 0.32226991653442383,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 2.4939677276982285e-08,
@@ -277,7 +277,7 @@
             "dropped_total": 2.7419711795447737e-15,
             "block_error": 2.910649761900019e-10,
             "leak_amplitude": 4.2824032765862183e-10,
-            "seconds": 0.3403458595275879,
+            "seconds": 0.35419464111328125,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 2.384937255643536e-10,
@@ -1093,9 +1093,9 @@
         "t_fixed": 56,
         "n_rot": 8,
         "t_1e-6": null,
-        "t_est_1e-6": null,
+        "t_est_1e-6": 534.3576456637802,
         "t_1e-10": null,
-        "depth_ct": 67,
+        "depth_ct": null,
         "t_avg": null,
         "verdict": "unverifiable (counts only): unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
         "lean": "n_a",
@@ -1214,9 +1214,9 @@
         "cx": 68,
         "t_fixed": 64,
         "n_rot": 4,
-        "t_1e-6": null,
-        "t_est_1e-6": null,
-        "t_1e-10": null,
+        "t_1e-6": 316,
+        "t_est_1e-6": 303.1788228318901,
+        "t_1e-10": 478,
         "depth_ct": 726,
         "t_avg": null,
         "verdict": "valid at its own angle (beta = 0.05), err 9.61e-15",
@@ -1683,7 +1683,7 @@
         "dropped_total": 0.0,
         "block_error": 5.551115123125783e-16,
         "leak_amplitude": 0.0,
-        "seconds": 0.16518735885620117,
+        "seconds": 0.18143820762634277,
         "n_inputs": 433,
         "extra": {
           "op_norm_error_physical": 5.551115123125783e-16,
@@ -1832,7 +1832,7 @@
         "dropped_total": 3.0637669773203746e-15,
         "block_error": 1.2658490090568397e-15,
         "leak_amplitude": 0.0,
-        "seconds": 0.16466021537780762,
+        "seconds": 0.17963337898254395,
         "n_inputs": 433,
         "extra": {
           "op_norm_error_physical": 1.2658490090568397e-15,
@@ -1874,7 +1874,7 @@
       "cert_sha256": "1445a52aa0715cead457cdeb1afa07378ec23682553f535c1f9da19882d9a1e3",
       "theorem_file": "lean/certs/spinnet-best-step.lean",
       "theorem_name": "spinnet_best",
-      "elaboration_seconds": 0.9504687786102295,
+      "elaboration_seconds": 0.8819332122802734,
       "elaboration_returncode": 0,
       "axioms": [
         "Classical.choice",
