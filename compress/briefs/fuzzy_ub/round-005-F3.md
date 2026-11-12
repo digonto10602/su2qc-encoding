@@ -1,0 +1,62 @@
+# Brief: `fuzzy_ub` / `UB`, round 5, family `F3`
+
+**Task.** Rewrite the parent to improve the key; return the complete program.
+
+- Task specification: `compress/specs/fuzzy_ub-UB.md`
+- Proved structure (Lean): `compress/specs/fuzzy-structure.json` (machine-proved facts about the fuzzy units: counts, K1/K2 spectra; the same facts are in the section 'Proved structure (Lean)' of the specification)
+- Check a draft: `python scripts/m10_round.py candidate <program.py> --encoding fuzzy_ub --kind UB --trial` (seconds), `--full` before you finish; the oracle: `python scripts/m10_round.py oracle ...`
+
+## Parent
+- program: `compress/programs/fuzzy_ub/F3/004-cz-knob-fold-constfree-group.py` (entry `r04-F3-004`, sha256 536b7edbb0f6)
+- feedback: `results/compress/fuzzy_ub/feedback/r04-F3-004.json`
+- cost: CX 130, T_eps 1881, depth_CT 4673, qubits 12
+- summary: r-fold of sectors 1,5 onto 0,4 with OR-merged first Fredkin, CZ(F,PR)/CZ(F,PL) sign knobs absorbed into the parity CX, t=1 group at the (0 2) frame fitted constant-free (11 terms, walk 14), one-AND selector lines (5 CX).
+
+## Archive alternatives (paths and costs only)
+- `compress/programs/fuzzy_ub/F1/004-single-tour-branch-fold.py` (entry `r04-F1-004`, family `F1`): CX 116, T_eps 1774, depth_CT 4394, qubits 12; one f-controlled frame tour id -> G=(3,0,1,2) -> id (6 Fredkins) for all 8 parity sectors: the first and last (0 2) swap is controlled by c = (p_r&~p_t) xor f&(p_t|p_r^p_l) (= f for t=1), which routes sectors 0,1,4,5 onto the sector-4 normal form at G, so one 3-control middle on ~p_t serves t=0 and the t=1 group polynomial is fitted directly on (p_t, p_r^p_l, p_r, w01, w23) without a one-hot; 116 CX, 12 qubits.
+- `compress/programs/fuzzy_ub/F2/004-fold-merged-relaxed-frames.py` (entry `r04-F2-004`, family `F2`): CX 129, T_eps 1895, depth_CT 4674, qubits 12; r03-F3-003 r-fold kept, but the t=1 group sits in the 1-swap frame (0 2) using relaxed (spectator-swap) sector forms, the frame walk becomes (0 2) | G | (0 1)(2 3) | S4 | (1 3) | S0 | (0 1)(2 3), the forward fold swap is merged into the first frame swap as one (f OR u)-controlled Fredkin, the fold Paulis become free Z gates, and the one-hot needs only one AND (y = t l): 7 Fredkins in total (6 routing, one of them (f|u)-controlled, + 1 inverse-fold), 12 qubits, 129 CX.
+- `compress/programs/fuzzy_ub/seed/010-general_polish.py` (entry `r00-seed-010`, family `seed`): CX 1596, T_eps 2682, depth_CT 4912, qubits 15; the reference circuit after the deterministic polish passes.
+
+## Last 4 attempts of family `F3`
+- `r01-F3-001`: valid, key [390, 1392, 2882, 14]; per-sector f-controlled Fredkin routing of q2 spins so each parity sector is X_f (x) (vertex-singlet projector); Bell-decode the singlet pairs into flags and apply one multi-controlled R_x(-4 beta sigma) on f per sector.
+- `r02-F3-002`: valid, key [192, 3820, 9543, 16]; F1 layout (parity frame, 8 f-controlled Fredkins DP-ordered over sectors, Bell decode, persistent sector one-hot, Gray-code C^3-R_x middles) with each Fredkin emitted as a 7-CX Clifford+T circuit instead of cx+ccx+cx (8 CX); 192 CX.
+- `r03-F3-003`: valid, key [151, 1902, 4682, 13]; r02-F1-002 layout, but a (p_r & ~p_t & ~f)-controlled [Z q2^0 Z q2^1, then Fredkin(q2^0,q2^2)] at start/end maps sectors 1,5 exactly onto 0,4, so r drops out of the t=0 sectors: 6 frame Fredkins (7-CX), no r-split one-hot, 4 middles instead of 6; 151 CX.
+- `r04-F3-004`: valid, key [130, 1881, 4673, 12]; r-fold of sectors 1,5 onto 0,4 with OR-merged first Fredkin, CZ(F,PR)/CZ(F,PL) sign knobs absorbed into the parity CX, t=1 group at the (0 2) frame fitted constant-free (11 terms, walk 14), one-AND selector lines (5 CX).
+
+## DISCOVERY notes of all programs (last 29 of at most 30 lines)
+- r01-F1-001: DISCOVERY: every parity sector p of fuzzy_ub becomes sigma*c*X_f (x) (Bell projectors) under some f-controlled permutation of the four q2 wires; a DP over sector order and (branch0, branch1) layouts gives 8 Fredkins total (sectors 4,6,2,3,7 share one layout).
+- r01-F1-001: DISCOVERY: keep a 6-ancilla one-hot of the parity p alive for the whole circuit (partly in place on the p_t/p_l wires, 24 CX each way); each rank-4 sector then is a 3-control R_x = 8-CX Gray-code phase polynomial with angles +-beta (Lean-friendly).
+- r01-F2-001: DISCOVERY: every parity sector p of fuzzy_ub becomes sigma_p X_f (x) |1_S><1_S| after one f-controlled permutation of the four q2 qubits plus 0/1/2 CX+H Bell decoders; perm (3,0,1,2) (q2^i -> pi[i]) serves sectors 2,3,4,6,7 at once.
+- r01-F2-001: DISCOVERY: sector frames need no parity control (the middle rotation is identity off-sector), so consecutive frames merge to f-controlled transposition chains; ordered 0,1,2,3,4,6,7,5 only 8 Fredkins (64 CX) are needed in total.
+- r01-F3-001: DISCOVERY: with f-controlled swaps of q2 (control q1^b) every parity sector becomes exactly sigma X_f (x) |S><S|_pairs (x) I: p0 (b r)(t l)->rt, p1 (r t)(r l)->br, p2 (b r)(r t)->tl, p3 (b t)->br&tl sigma 4, p4 (b r)(r l)->rt, p5 (b l)(r t)->br, p6 (b r)(r t)(t l)->identity sigma 1, p7 (b t)(t l)->br.
+- r01-F3-001: DISCOVERY: no product of <=3 raw-q1-controlled q2 swaps brings all 8 sectors into that normal form simultaneously.
+- r02-F1-002: DISCOVERY: sectors 2,3,6,7 are exactly the t=1 parity sectors and share one frame; on that frame their four C^k-R_x merge into one 12-term phase polynomial (16-CX closed walk) over x=t&~l, y=t&l, r, w01=fl0&fl1, w23=fl2&fl3, fitted exactly on the reachable domain (x,y exclusive), so the one-hot needs no r-split for t=1 (saves 16 CX).
+- r02-F1-002: DISCOVERY: in that merged polynomial the bare w01, w23 and constant Walsh terms of sectors 2,3,7,6 cancel exactly (angles 8b,-16b,8b,-4b), the merge is lossless.
+- r02-F1-002: DISCOVERY: the last frame (0 3)(1 3)(2 3) equals (1 2)(0 3)(1 3) (time order); starting it with cswap(2,1) cancels the final Bell-decoder CX(q2^r->q2^t) against the Fredkin's first CX (-2 CX).
+- r02-F2-002: DISCOVERY: sectors {2,3} and {6,7} differ only in p_r and share the frame rho=(3,0,1,2) with decoded pairs (0,1),(2,3); leaving their (t,l) one-hot lines unsplit by p_r (-16 CX) and doing one Walsh-Gray R_x per pair over (line&w23 | line, p_r, w01) costs 16 CX rotations + 18 CX ANDs for all four sectors.
+- r02-F2-002: DISCOVERY: exhaustive DP over sector order and relative f-controlled q2 permutations (2 valid rho per sector, 8 for p3, 1 for p6) shows 8 Fredkins is minimal, also with the {2,3,6,7} block forced; no rho is shared by sectors 0&1 or 4&5.
+- r02-F2-002: DISCOVERY: level-3 resynthesis of the beta-free segments saves 1 CX per Fredkin (8->7); 4-CX relative-phase Toffolis in paired same-wire Fredkins do not cancel (error ~1).
+- r02-F3-002: DISCOVERY: no global routing exists for fuzzy_ub with <=4 controlled q2 swaps even when controls may be any GF(2)-linear function of (f, p_r, p_t, p_l) and uncontrolled relabels are free (exhaustive BFS over 12.7M distinct routings); the condition per sector is only on the relative element g0^-1 g1, whose allowed set R_p has 2 elements (8 for p3, 1 for p6).
+- r02-F3-002: DISCOVERY: a Fredkin costs 7 CX (Clifford+T, 9 T) rather than the 8 of cx+ccx+cx; it applies to every f-controlled q2 swap of the routing families.
+- r03-F1-003: DISCOVERY: the 7-CX Clifford+T Fredkin combines with the decoder cancellation of r02-F1-002: Fredkin is self-inverse, so its dagger form starts with cx(q2^j -> q2^i) and the -1 CX cancellation still applies (6 CX for that swap), 62 -> 54 CX on the frames.
+- r03-F1-003: DISCOVERY: replacing the Toffoli of a Fredkin by rccx (5-CX relative-phase Fredkin) leaves a diagonal residue with >= 3 two/three-body parities (f^a, a^b, f^a^b) whose correction costs >= 3 CX even after cancelling against the Fredkin tail, so it never beats 7 CX; qiskit level-3 resynthesis of the beta-free runs between rz finds nothing further.
+- r03-F2-003: DISCOVERY: the F1 merged-group polynomial (-6 CX vs pair Walsh R_x with u-AND) and the F2 segment resynthesis compose: 172 -> 165 CX, 14 qubits; the final-frame (1 2) refactor survives resynthesis.
+- r03-F2-003: DISCOVERY: exhaustive frame search (24 f-controlled q2 permutations x all Bell-decoder pair sets, any diagonal R_x angle function) finds no common frame for t=0 sector pairs {0,4},{1,5},{0,1},{4,5}; {0,5} share perm (2,3,0,1) and {1,4} share (0,3,2,1) only with incompatible decoder pairs, so sectors 0,1,4,5 cannot be merged like 2,3,6,7.
+- r03-F3-003: DISCOVERY: sectors 1 and 5 are exactly equivalent to 0 and 4 (c=+1) under V=(V0,V1) on q2 with V1=I and V0=SWAP(0,2) Z0 Z1 (Z first) (or V0 = a 3-cycle on wires 0,1,2, no Paulis); no f-uniform signed permutation does it (64 joint solutions, all f-dependent); sectors 3/2 and 7/6 differ in rank (1 vs 4, 4 vs 16) so no r-merge exists there.
+- r03-F3-003: DISCOVERY: with 1,5 folded the frame sequence (2 3)(0 1) | (0 2)(1 3)(0 2)=(1 3) | back needs 6 Fredkins instead of 8.
+- r04-F1-004: DISCOVERY: per-sector branch control of a frame swap (none / f=0 / f=1 / both) acts as a fold: with leg (0 2),(0 1),(2 3) the states (sector 0 none, 1 f=0 only, 4 f=1 only, 5 both) at the (0 2) swap put sectors 0,1,4,5 into the sector-4 normal form at G (decoder (1,2), value 2 with sign (-1)^(p_r^p_l)); no separate fold Fredkin, no sector-0 frame, one t=0 middle.
+- r04-F1-004: DISCOVERY: that control is one rccx toggle on a persistent u=p_r&~p_t line using e=~p_t&~(p_r^p_l); a Z on the line while it holds c multiplies the t=0 couplings by (-1)^(p_r^p_l) (t=1 by -1), making the four t=0 sectors identical.
+- r04-F1-004: DISCOVERY: with p_l'=p_r^p_l made by the parity frame itself (cx(q1^r,q1^l) first, still 3 CX) the t=1 group function needs no one-hot: its full Walsh expansion on (p_t, p_l', p_r, w01, w23) has 18 terms and a 20-CX closed walk (vs 8 CX one-hot + 2 CX l-restore + 16-CX walk); both group decoders cancel against the first two Fredkins of the closing leg.
+- r04-F2-004: DISCOVERY: every parity sector also accepts 2 "relaxed" frames where P(rho) D_p = c Pi_S(pair) (1 - 2 Pi_S(other pair)); with them the t=1 sectors 2,3,6,7 share the single-swap frame rho = (0 2) with pairing (01)(23) (11-term merged polynomial, 14-CX walk instead of 16), and an exhaustive Dijkstra over (f,u)-controlled swap walks (both sector tracks, any control function) gives 61 Fredkin-equivalent CX as the routing optimum.
+- r04-F2-004: DISCOVERY: the fold V0 = SWAP(q2^0,q2^2) on the (u & ~f) branch commutes with every f-controlled frame and with the t=1 rotations, so it merges with any f-controlled (0 2) swap into one Fredkin controlled by v = f OR u (one rccx); its sign c=-1 is fixed for free by Z(v) Z(f) = (-1)^(u ~f) instead of CZ(v,q2^0) CZ(v,q2^1).
+- r04-F2-004: DISCOVERY: with y = t&l the four (t,l) lines are linear: ~t~l = 1+t+l+y, ~t l = l+y, t~l = t+y, so the one-hot costs 6 + 4 CX instead of 16, and the group polynomial can use the raw t wire (x = t + y) at the same walk length.
+- r04-F3-004: DISCOVERY: A CZ(F,k) next to a parity CX(F->k) costs no CX ([cx,cz] = sdg(k) cx s(k) s(F)); these free (-1)^r and (-1)^l sign knobs make the r-fold of sectors 1,5 CZ-free and let the t=1 group take an r-signed angle function.
+- r04-F3-004: DISCOVERY: The t=1 group (sectors 2,3,6,7) stays diagonal after Bell decoding of pairs (0,1),(2,3) at four common frames (2,1,0,3),(2,0,1,3),(3,1,0,2),(3,0,1,2); each admits a constant-free 11-term phase polynomial with walk 14 CX.
+- r04-F3-004: DISCOVERY: With a single AND ancilla a=t&l the one-hot sector lines are affine in (t,l,a); a DP over CX among PT,PL,a gives all line changes in 5 CX; fitting the group with only one singlet AND instead of two needs 23-27 terms (worse).
+
+## Output
+Write ONE program to `compress/programs/fuzzy_ub/F3/005-<slug>.py` (docstring starting with `SUMMARY:`, at most 3 `DISCOVERY:` lines, `FAMILY`, `PARENT`, `def build(spec) -> Builder`); scratch files only under `scratch/proposer/`. The file is immutable once evaluated; a change needs a new number.
+
+## Fuzzy hook (M10)
+
+Use `python scripts/m10_round.py candidate <program> --encoding fuzzy_ub --kind UB --trial|--full` instead of `python -m su2plaq.compress.run_candidate`, and `python scripts/m10_round.py oracle ...` instead of the oracle module. Programs import only `su2plaq.compress.{builder,oracle,spec}`, numpy, qiskit. Frame qubits 0..7 are the row qubits (see the specification); ancillas via `Builder.alloc`.
