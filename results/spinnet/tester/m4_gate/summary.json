@@ -1,0 +1,7 @@
+{"commit_at_start":"5d5d502","head_at_end":"0dfe4ae","machine":"omnicommander","cores":"0-5","blas_threads":1,
+ "acceptance":{"cmd":"tools/pytest-safe -n 6 tests/acceptance/m0 m1 m2 m3 m3x m4 (PYTEST_MEM_MAX=14G, taskset -c 0-5)","passed":149,"failed":0,"per_dir":{"m0":34,"m1":22,"m2":46,"m3":24,"m3x":4,"m4":19},"wall_s":445},
+ "unit":{"cmd":"tools/pytest-safe -n 6 -q tests/unit","passed":932,"failed":0,"wall_s":644},
+ "collect_only":{"total":341,"errors":0},
+ "lean":{"lake_build":"Build completed successfully (43 jobs)","theorem_axioms":["propext","Classical.choice","Quot.sound","spinnet_best._native.native_decide.ax_1_1"]},
+ "check_lock":"LOCK OK","acceptance_check":"PASS matches acceptance-v18",
+ "seeds":{"angle_set":20261107,"transpiler_logical":20261104,"clifford_t_pass_manager":12345}}

@@ -1,0 +1,5 @@
+⚠ [3/43] Replayed Su2PlaqCert.Sha256
+warning: Su2PlaqCert/Sha256.lean:53:52: `String.get` has been deprecated: Use `String.Pos.Raw.get` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.get` to `String.Pos.Raw.get x`).
+Build completed successfully (43 jobs).

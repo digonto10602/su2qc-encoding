@@ -1,0 +1,187 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/digimonk/Projects/su2qc-encoding
+configfile: pytest.ini
+plugins: platformdirs-4.14.5, anyio-4.16.0, cov-7.1.0, xdist-3.8.0
+created: 6/6 workers
+6 workers [149 items]
+
+........................................................................ [ 48%]
+........................................................................ [ 96%]
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+tests/acceptance/m0/test_algebra.py: 96 warnings
+tests/acceptance/m3x/test_spinnet_lean_exact.py: 20 warnings
+  /home/digimonk/miniforge3/envs/coding/lib/python3.12/site-packages/mpmath/libmp/libintmath.py:75: DeprecationWarning: bitcount function is deprecated
+    warnings.warn("bitcount function is deprecated",
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+============================= slowest 15 durations =============================
+353.59s call     tests/acceptance/m1/test_twelve_outer.py::test_M1_O1_outer_dont_care_table
+135.14s call     tests/acceptance/m2/test_lean_formal.py::test_round_records_lean_certificate
+120.63s call     tests/acceptance/m2/test_compress_machinery.py::test_round_dry_run_end_to_end
+79.00s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_S9_headline_selection_on_seed_round
+78.98s call     tests/acceptance/m2/test_lean_formal.py::test_lean_theorem_file_general
+78.42s call     tests/acceptance/m2/test_compress_machinery.py::test_seed_import_declared[paulo34]
+74.75s call     tests/acceptance/m1/test_twelve_paulo.py::test_M1_P1_paulo_qpy_verifies
+73.24s call     tests/acceptance/m2/test_lean_formal.py::test_lean_certificate_general_circuit
+73.04s call     tests/acceptance/m2/test_lean_structure.py::test_lean_structure_certificate_accept_reject
+71.11s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_S3_seed_round_dry_run
+66.53s call     tests/acceptance/m2/test_lean_formal.py::test_polish_rules_are_lean_certified
+55.94s call     tests/acceptance/m2/test_lean_structure.py::test_structure_json_and_spec_section
+50.67s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_S4_round_one_dry_run_and_brief
+46.55s call     tests/acceptance/m2/test_compress_machinery.py::test_report_table_from_results
+44.91s call     tests/acceptance/m2/test_compress_machinery.py::test_archive_best_valid_and_not_worse_than_seed
+=========================== short test summary info ============================
+PASSED tests/acceptance/m0/test_algebra.py::test_M0_A1_link_algebra[0.5]
+PASSED tests/acceptance/m0/test_algebra.py::test_M0_A1_link_algebra[1.0]
+PASSED tests/acceptance/m0/test_sparse_sim.py::test_M0_E2_vs_dense_operator
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C4_ambiguous
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C5_far_end_weighted
+PASSED tests/acceptance/m0/test_metrics.py::test_M0_M2_pygridsynth_band[1e-06]
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X7_closed_block[1.0]
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X7_closed_block[2.0]
+PASSED tests/acceptance/m0/test_spinnet.py::test_M0_X4_spectra_A_vs_B
+PASSED tests/acceptance/m0/test_metrics.py::test_M0_M2_pygridsynth_band[1e-08]
+PASSED tests/acceptance/m0/test_algebra.py::test_M0_A2_six_j_vs_sympy
+PASSED tests/acceptance/m0/test_algebra.py::test_M0_A3_paulo_adapter
+PASSED tests/acceptance/m0/test_spinnet.py::test_M0_X5_outer_block_structure_and_J
+PASSED tests/acceptance/m0/test_spinnet.py::test_M0_X6_gauge_align_K
+PASSED tests/acceptance/m0/test_metrics.py::test_M0_M3_qiskit_ct_pm
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X2_plaquette_leak
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X3_hermitian_and_electric
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X7_closed_block[0.5]
+PASSED tests/acceptance/m0/test_operators.py::test_M0_X8_target_properties
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C6_jmax1_count_slow
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C1_dimension
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C2_closed
+PASSED tests/acceptance/m0/test_physical.py::test_M0_C3_link_strings
+PASSED tests/acceptance/m0/test_physical.py::test_M0_X1_gauss_and_gram
+PASSED tests/acceptance/m0/test_results.py::test_M0_R1_results_json_and_report
+PASSED tests/acceptance/m0/test_sparse_sim.py::test_M0_E1_vs_aer
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_oracle_matches_exact_step
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_builder_gateset
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_macro_costs_match_lowering
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_builder_mcx_chain
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_wrong_gate
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_dirty_ancilla
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_small_ancilla_leak
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_angle_error
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_accepts_general_circuit
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_partial
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_rejects_control_change
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_evaluator_accepts_global_phase
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_t_eps_deterministic
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_metrics_match_qiskit_count_ops
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_t_eps_in_ross_selinger_band[0.0001]
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_t_eps_in_ross_selinger_band[1e-06]
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_t_eps_in_ross_selinger_band[1e-08]
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_t_estimate_formula
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_archive_roundtrip_and_elites
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_archive_rejects_invalid
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_cache_keyed_by_code_hash
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_seed_import_declared[lean22_v2]
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_seed_import_declared[spinnet15]
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_entry_has_provenance_fields
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_polish_valid_and_not_worse
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_qiskit_l3_baseline_valid
+PASSED tests/acceptance/m1/test_evaluator_prune.py::test_M1_V1_pruning_cap_is_relative_to_tol_err
+PASSED tests/acceptance/m1/test_twelve_metrics.py::test_M1_T1_t_table_and_synth_verify[step]
+PASSED tests/acceptance/m0/test_evaluator.py::test_M0_E5_gauss_of_outputs
+PASSED tests/acceptance/m0/test_evaluator.py::test_M0_E3_sensitivity
+PASSED tests/acceptance/m1/test_evaluator_prune.py::test_M1_V2_pruning_bound_is_max_over_outer_groups
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_skeleton_angle_independent_general
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B4_outer_blind_and_clean
+PASSED tests/acceptance/m0/test_evaluator.py::test_M0_E4_outer_control_blocks
+PASSED tests/acceptance/m0/test_evaluator.py::test_M0_E6_leak_is_judged_as_amplitude
+PASSED tests/acceptance/m0/test_geometry.py::test_M0_G1_diagram
+PASSED tests/acceptance/m0/test_geometry.py::test_M0_G2_point_split
+PASSED tests/acceptance/m0/test_metrics.py::test_M0_M1_macro_costs
+PASSED tests/acceptance/m0/test_metrics.py::test_M0_M2_pygridsynth_band[0.0001]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_E1_electric_step[0.37]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_E1_electric_step[0.91]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_S1_step_orders[1]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B1_magnetic_inner_block[0.4]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B1_magnetic_inner_block[1.0]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_S1_step_orders[2]
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B1_magnetic_inner_block[2.0]
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_run_candidate_cli_trial_and_full
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B2_physical_states
+PASSED tests/acceptance/m1/test_twelve_circuits.py::test_M1_B3_gauss_outputs
+PASSED tests/acceptance/m1/test_twelve_codec.py::test_M1_C1_codec_and_vectors
+PASSED tests/acceptance/m2/test_lean_formal.py::test_lean_generic_theorems_standard_axioms
+PASSED tests/acceptance/m2/test_lean_formal.py::test_lean_checker_semantics_match_sparse_sim
+PASSED tests/acceptance/m1/test_twelve_metrics.py::test_M1_T1_t_table_and_synth_verify[UE]
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_seed_import_declared[paulo34]
+PASSED tests/acceptance/m1/test_twelve_metrics.py::test_M1_T1_t_table_and_synth_verify[UB]
+PASSED tests/acceptance/m2/test_lean_formal.py::test_lean_certificate_small_accept_reject_na
+PASSED tests/acceptance/m2/test_lean_formal.py::test_lean_theorem_file_general
+PASSED tests/acceptance/m2/test_lean_structure.py::test_lean_structure_certificate_accept_reject
+PASSED tests/acceptance/m2/test_lean_formal.py::test_polish_rules_are_lean_certified
+PASSED tests/acceptance/m2/test_lean_formal.py::test_lean_certificate_general_circuit
+PASSED tests/acceptance/m3/test_spinnet_circuits.py::test_M3_E1_electric_step[0.37]
+PASSED tests/acceptance/m3/test_spinnet_circuits.py::test_M3_E1_electric_step[0.91]
+PASSED tests/acceptance/m3/test_spinnet_circuits.py::test_M3_B1_magnetic_inner_block[1.0]
+PASSED tests/acceptance/m3/test_spinnet_circuits.py::test_M3_B1_magnetic_inner_block[2.0]
+PASSED tests/acceptance/m3/test_spinnet_circuits.py::test_M3_B2_physical_states
+PASSED tests/acceptance/m3/test_spinnet_circuits.py::test_M3_B3_gauss_and_clean_ancillas
+PASSED tests/acceptance/m2/test_lean_formal.py::test_program_lemma_file_checked
+PASSED tests/acceptance/m3/test_spinnet_circuits.py::test_M3_B1_magnetic_inner_block[0.4]
+PASSED tests/acceptance/m3/test_spinnet_circuits.py::test_M3_B1_magnetic_inner_block[0.61]
+PASSED tests/acceptance/m3/test_spinnet_circuits.py::test_M3_S1_step_orders[1]
+PASSED tests/acceptance/m3/test_spinnet_codec.py::test_M3_C1_codec_and_vectors
+PASSED tests/acceptance/m2/test_lean_formal.py::test_round_records_lean_certificate
+PASSED tests/acceptance/m2/test_lean_formal.py::test_archive_best_lean_status_recorded
+PASSED tests/acceptance/m3/test_spinnet_codec.py::test_M3_K1_route_b_target_with_gauge
+PASSED tests/acceptance/m3/test_spinnet_circuits.py::test_M3_S1_step_orders[2]
+PASSED tests/acceptance/m3/test_spinnet_external.py::test_M3_V1_trotter_spinnet_v2[pairs9-34-9]
+PASSED tests/acceptance/m3/test_spinnet_external.py::test_M3_P1_paulo15_open_states
+PASSED tests/acceptance/m2/test_lean_structure.py::test_lean_counts_kernel_checked
+PASSED tests/acceptance/m3/test_spinnet_lean.py::test_M3_L1_spinnet_counts_kernel_checked
+PASSED tests/acceptance/m3/test_spinnet_lean.py::test_M3_L2_general_circuit_structure_kernel_checked
+PASSED tests/acceptance/m3/test_spinnet_external.py::test_M3_V1_trotter_spinnet_v2[flags4-44-4]
+PASSED tests/acceptance/m3/test_spinnet_metrics.py::test_M3_T1_t_table_and_synth_verify[UE]
+PASSED tests/acceptance/m3/test_spinnet_results.py::test_M3_R1_results_files[UE]
+PASSED tests/acceptance/m3/test_spinnet_results.py::test_M3_R1_results_files[step]
+PASSED tests/acceptance/m3/test_spinnet_lean.py::test_M3_L3_native_certificate_general_step
+PASSED tests/acceptance/m3/test_spinnet_metrics.py::test_M3_T1_t_table_and_synth_verify[UB]
+PASSED tests/acceptance/m3/test_spinnet_results.py::test_M3_R1_results_files[UB]
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_round_dry_run_end_to_end
+PASSED tests/acceptance/m3/test_spinnet_metrics.py::test_M3_T1_t_table_and_synth_verify[step]
+PASSED tests/acceptance/m3x/test_spinnet_lean_exact.py::test_M3X_W1_recoupling_matches_wigner_and_codec
+PASSED tests/acceptance/m3x/test_spinnet_lean_exact.py::test_M3X_W3_spectrum_states_and_multiplicities
+PASSED tests/acceptance/m3x/test_spinnet_lean_exact.py::test_M3X_L_exact_theorems_kernel_checked
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S0_spec_oracle_builder_spinnet
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S2_worker_registers_encoding_and_keeps_sandbox
+PASSED tests/acceptance/m2/test_lean_structure.py::test_structure_json_and_spec_section
+PASSED tests/acceptance/m2/test_lean_structure.py::test_symmetry_candidates_verified
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S5_evaluator_rejections_on_spinnet
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S1_general_program_valid_angle_linear
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S6_external_seeds_paulo15_and_spinnet_v2
+PASSED tests/acceptance/m3x/test_spinnet_lean_exact.py::test_M3X_W2_semantics_gate_list_and_qiskit_matrices
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S7_shim_leaves_twelve_untouched
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G3_loop_budget_and_lineage
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_R1_results_and_before_after
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L1_certificate_general_and_seeds
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_report_table_from_results
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S4_round_one_dry_run_and_brief
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L2_seed_round_records_certificates
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L3_structure_facts_match_lean_sources
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S8_angle_set_and_robust_metrics
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L5_final_best_lean_status_and_theorem_file
+PASSED tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L4_polish_rules_lean_certified_on_spinnet
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S3_seed_round_dry_run
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G1_archive_best_reverified_from_source
+PASSED tests/acceptance/m2/test_compress_machinery.py::test_archive_best_valid_and_not_worse_than_seed
+PASSED tests/acceptance/m2/test_lean_formal.py::test_lean_project_present_and_builds_checker
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_S9_headline_selection_on_seed_round
+PASSED tests/acceptance/m4/test_spinnet_compress.py::test_M4_G2_archive_best_second_engine_aer
+PASSED tests/acceptance/m1/test_twelve_outer.py::test_M1_O1_outer_dont_care_table
+PASSED tests/acceptance/m1/test_twelve_paulo.py::test_M1_P1_paulo_qpy_verifies
+PASSED tests/acceptance/m1/test_twelve_paulo.py::test_M1_P2_port_reproduces_counts
+PASSED tests/acceptance/m1/test_twelve_results.py::test_M1_R1_results_files[UE]
+PASSED tests/acceptance/m1/test_twelve_results.py::test_M1_R1_results_files[UB]
+PASSED tests/acceptance/m1/test_twelve_results.py::test_M1_R1_results_files[step]
+================ 149 passed, 116 warnings in 445.03s (0:07:25) =================
+exit 0 wall 445

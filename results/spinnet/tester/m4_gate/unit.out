@@ -1,0 +1,29 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [  7%]
+........................................................................ [ 15%]
+........................................................................ [ 23%]
+........................................................................ [ 30%]
+........................................................................ [ 38%]
+........................................................................ [ 46%]
+........................................................................ [ 54%]
+........................................................................ [ 61%]
+........................................................................ [ 69%]
+........................................................................ [ 77%]
+........................................................................ [ 84%]
+........................................................................ [ 92%]
+....................................................................     [100%]
+============================= slowest 10 durations =============================
+198.46s call     tests/unit/test_rishon_det_unit.py::test_verify_refuses_fraction_below_shared_and_det_paths_pending
+171.05s setup    tests/unit/test_rishon_results_unit.py::test_quick_observables_and_register_rows
+163.48s setup    tests/unit/test_rishon_results_unit.py::test_quick_result_files[UE]
+109.00s call     tests/unit/test_fuzzy_verify.py::test_verify_step_samples_small[2]
+92.88s call     tests/unit/test_rishon_compress_evaluate_unit.py::test_verify_synthesised_on_ue
+87.82s call     tests/unit/test_rishon_det_unit.py::test_step_with_and_without_eta
+81.76s call     tests/unit/test_fuzzy_verify.py::test_verify_step_samples_small[1]
+75.88s call     tests/unit/test_m9_results_script_unit.py::test_isolated_plaquette_basis_is_the_gauss_kernel
+74.72s call     tests/unit/test_rishon_ks_projection.py::test_rank_and_overlap_on_groups_up_to_1024
+72.64s call     tests/unit/test_rishon_compress_evaluate_unit.py::test_full_mode_gauss_sample_fields
+932 passed in 644.04s (0:10:44)
+exit 0 wall 644
