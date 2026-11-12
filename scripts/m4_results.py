@@ -54,13 +54,25 @@ SEED_ROWS = (("general", "000-general"), ("general+polish", "010-general_polish"
              ("spinnet_v2_flags5", "003-spinnet_v2_flags5"), ("spinnet_v2_flags6", "004-spinnet_v2_flags6"))
 
 
+def _eps_get(table, eps):
+    """Value of an {eps: value} table whose keys are floats (1e-6, as in a fresh metrics dict) or strings ("1e-06", as after a JSON
+    round trip); None if the table is missing or has no such key."""
+    if not table:
+        return None
+    want = float(eps)
+    for k, v in table.items():
+        if float(k) == want:
+            return v
+    return None
+
+
 def _entry_row(name, e, arch_entry_t_avg, extra=None) -> dict:
     """One before/after row from an archive entry (valid: its nominal-pair metrics and verdict)."""
     m = e.metrics_raw
     v = e.verdict_nominal or {}
     out = {"row": name, "entry": e.id, "family": e.family, "round": e.round, "commit": e.git_commit, "program_path": str(e.program_path),
-           "qubits": m["qubits"], "cx": m["cx"], "t_fixed": m["t_fixed"], "n_rot": m["n_rot"], "t_1e-6": m["t_measured"]["1e-06"],
-           "t_est_1e-6": m["t_estimate"]["1e-06"], "t_1e-10": m["t_measured"]["1e-10"], "depth_ct": m["depth_ct"],
+           "qubits": m["qubits"], "cx": m["cx"], "t_fixed": m["t_fixed"], "n_rot": m["n_rot"], "t_1e-6": _eps_get(m["t_measured"], 1e-6),
+           "t_est_1e-6": _eps_get(m["t_estimate"], 1e-6), "t_1e-10": _eps_get(m["t_measured"], 1e-10), "depth_ct": m["depth_ct"],
            "t_avg": arch_entry_t_avg.get(e.id), "key": [int(x) for x in e.key],
            "verdict": f"valid (err {v.get('op_norm_error', float('nan')):.3g}, leak {v.get('leak_amplitude', float('nan')):.3g})"
                       if e.valid else "invalid",
@@ -79,9 +91,11 @@ def _external_rows(sp) -> list[dict]:
         verdict = ("unverifiable (counts only): " + r["reason"]) if not r.get("valid") and r["source"] == "qiskit_l3_whole" else \
             f"valid at its own angle (beta = {r.get('beta')}), err {r.get('op_norm_error'):.3g}" if r.get("valid") else f"invalid: {r.get('reason')}"
         rows.append({"row": name, "entry": None, "qubits": m.get("qubits"), "cx": m.get("cx"), "t_fixed": m.get("t_fixed"),
-                     "n_rot": m.get("n_rot"), "t_1e-6": (m.get("t_measured") or {}).get("1e-06"),
-                     "t_est_1e-6": (m.get("t_estimate") or {}).get("1e-06"), "t_1e-10": (m.get("t_measured") or {}).get("1e-10"),
-                     "depth_ct": m.get("depth_ct"), "t_avg": None, "verdict": verdict, "lean": "n_a",
+                     "n_rot": m.get("n_rot"), "t_1e-6": _eps_get(m.get("t_measured"), 1e-6),
+                     "t_est_1e-6": _eps_get(m.get("t_estimate"), 1e-6), "t_1e-10": _eps_get(m.get("t_measured"), 1e-10),
+                     # depth_ct = depth after Clifford+T synthesis; a counts-only (measured = False) row has only the uncompiled depth
+                     "depth_ct": m.get("depth_ct") if m.get("measured", True) else None, "t_avg": None, "verdict": verdict,
+                     "lean": "n_a",
                      "lean_reason": "external circuit (counts only / fixed angle): no native certificate",
                      "fixed_angle": r.get("fixed_angle", False), "gauge_minus_codes": r.get("gauge_minus_codes")})
     return rows
