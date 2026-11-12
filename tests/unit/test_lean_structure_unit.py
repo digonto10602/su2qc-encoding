@@ -146,6 +146,25 @@ def test_write_structure_json(tmp_path):
     assert by["spectrum_multiplicities"]["proved_by"] == "native" and by["card_physical"]["value"] == 433
 
 
+def test_write_structure_json_keeps_unchanged_file_and_rewrites_changed(tmp_path):
+    """prompts/008 A2: same facts / hashes / certificate status -> the file is not touched (volatile git_commit, seconds stay);
+    a changed stable field (here the exporter fingerprint) -> the file is rewritten."""
+    f = tmp_path / "structure.json"
+    S.write_structure_json(f)
+    doc = json.loads(f.read_text())
+    doc["provenance"]["git_commit"] = "first00"
+    doc["provenance"]["structure_certificate"]["seconds"] = 123.0
+    f.write_text(json.dumps(doc, indent=1))
+    before = f.read_bytes()
+    S.write_structure_json(f)
+    assert f.read_bytes() == before
+    doc["provenance"]["exporter_sha256"] = "stale"
+    f.write_text(json.dumps(doc, indent=1))
+    S.write_structure_json(f)
+    new = json.loads(f.read_text())
+    assert new["provenance"]["exporter_sha256"] != "stale" and new["provenance"]["git_commit"] != "first00"
+
+
 def test_note_n4_facts_are_native_only_after_a_checker_run(monkeypatch):
     monkeypatch.setattr(S, "_CERT_STATUS", {})
     calls = []

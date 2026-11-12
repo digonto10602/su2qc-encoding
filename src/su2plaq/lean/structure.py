@@ -481,16 +481,36 @@ def structure_facts(certified: bool | None = None) -> dict:
                                    "evaluator remains ground truth"}}
 
 
+def _stable_part(doc: dict) -> dict:
+    """The content of a structure.json that decides whether the file must be rewritten: facts, symmetries, provenance without
+    the volatile `git_commit` and the checker `seconds` (prompts/008 step A2)."""
+    prov = dict(doc.get("provenance", {}))
+    prov.pop("git_commit", None)
+    cert = dict(prov.get("structure_certificate", {}))
+    cert.pop("seconds", None)
+    prov["structure_certificate"] = cert
+    return {"facts": doc.get("facts"), "symmetries": doc.get("symmetries"), "provenance": prov}
+
+
 def write_structure_json(path=None) -> pathlib.Path:
     """compress/lean/structure.json: {"facts": [...], "symmetries": [...], "provenance": {...}}.  The exact structure certificate
-    is exported and checked first; if it is not accepted the native facts are recorded as `numerical`."""
+    is exported and checked first; if it is not accepted the native facts are recorded as `numerical`.  An existing file whose
+    content is unchanged (see `_stable_part`) is not rewritten, so `git status` stays empty."""
     path = pathlib.Path(path) if path is not None else STRUCTURE_JSON
     cert_path = export_structure_certificate(STRUCTURE_CERT)
     res = check_structure(cert_path)
     doc = structure_facts(certified=(res.status == "certified"))
     doc["provenance"]["structure_certificate"] = {"status": res.status, "reason": res.reason, "seconds": res.seconds}
+    new = json.loads(json.dumps(doc, default=str))
+    if path.exists():
+        try:
+            old = json.loads(path.read_text())
+        except ValueError:
+            old = None
+        if old is not None and _stable_part(old) == _stable_part(new):
+            return path                           # unchanged content: keep the file (and its git_commit / seconds) as first written
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(doc, indent=1, default=str))
+    path.write_text(json.dumps(new, indent=1))
     return path
 
 

@@ -35,19 +35,36 @@ def test_verdict_roundtrip_and_optional_keys(tmp_path):
         assert d["files"] == {} and d["extra"] == {}
 
 
-def test_render_is_deterministic_and_contains_only_json_numbers(tmp_path):
+def _render_two(tmp_path, snapshot=None):
     ver = verdict_to_dict(_verdict())
     mets = {"logical": {"cx": 123, "depth": 7, "n_rot": 2, "t_fixed": 11, "qubits": 5, "ancilla": 1},
             "t_table": [{"eps": 1e-6, "t_fixed": 11, "n_rot": 2, "t_rot_pygridsynth": 126, "t_total": 137, "t_est": 130.7}]}
-    paths = [save_result(tmp_path / f"{i}.json", encoding="twelve", circuit_id=f"c{i}", kind="UB", params={"beta": 0.5},
-                         verification=ver, metrics=mets) for i in range(2)]
+    # circuit ids that cannot occur in a hexadecimal commit hash or a timestamp (prompts/008 A1)
+    kw = {} if snapshot is None else {"provenance_snapshot": snapshot}
+    return [save_result(tmp_path / f"{i}.json", encoding="twelve", circuit_id=cid, kind="UB", params={"beta": 0.5},
+                        verification=ver, metrics=mets, **kw) for i, cid in enumerate(("zq-first", "zq-second"))]
+
+
+def test_render_is_deterministic_and_contains_only_json_numbers(tmp_path):
+    paths = _render_two(tmp_path)
     t = render(paths)
-    assert t == render(paths) and "c0" in t and "c1" in t and "137" in t and "123" in t and "130.7" in t
+    assert t == render(paths) and "zq-first" in t and "zq-second" in t and "137" in t and "123" in t and "130.7" in t
     t_noq = render(paths[:1])
-    assert "c1" not in t_noq
+    assert "zq-second" not in t_noq
     # a result without t_table has no T-count section
+    ver = verdict_to_dict(_verdict())
     p = save_result(tmp_path / "n.json", encoding="twelve", circuit_id="n", kind="UE", params={}, verification=ver, metrics={})
     assert "T-count" not in render([p])
+
+
+def test_render_negative_check_with_commit_containing_old_ids(tmp_path):
+    """Forces the provenance commit to a string that contains the ids the old test used ("c1"); the negative check is on the id."""
+    snap = provenance({"s": 1})
+    snap["git_commit"] = "c1c1c1c"
+    paths = _render_two(tmp_path, snapshot=snap)
+    t = render(paths)
+    assert "c1c1c1c" in t and "zq-first" in t and "zq-second" in t
+    assert "zq-second" not in render(paths[:1]) and t == render(paths)
 
 
 def test_non_serialisable_numpy_types_are_converted(tmp_path):
