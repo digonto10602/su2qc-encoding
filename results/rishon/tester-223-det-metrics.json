@@ -1,0 +1,130 @@
+{
+ "nominal": {
+  "0.29": {
+   "T_per_rotation": 62,
+   "word_error": 4.915213048611297e-07,
+   "T_total_8_rotations": 496
+  },
+  "0.53": {
+   "T_per_rotation": 62,
+   "word_error": 3.6856180461213625e-07,
+   "T_total_8_rotations": 496
+  },
+  "1.07": {
+   "T_per_rotation": 64,
+   "word_error": 3.427577200663158e-07,
+   "T_total_8_rotations": 512
+  }
+ },
+ "verify": {
+  "0.29": {
+   "ok": true,
+   "certified": true,
+   "reason": "ok",
+   "method": "inner_block",
+   "op_norm_error": 2.7562859870816844e-15,
+   "block_error": 1.481222263080711e-15,
+   "leak_amplitude": 0.0,
+   "dropped_total": 1.2750637240009737e-15,
+   "gauss_residual": 2.1499376424746292e-16,
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "depth": 10,
+   "count_ops": {
+    "cx": 32,
+    "h": 16,
+    "rz": 8
+   }
+  },
+  "0.53": {
+   "ok": true,
+   "certified": true,
+   "reason": "ok",
+   "method": "inner_block",
+   "op_norm_error": 4.602916798949597e-15,
+   "block_error": 1.6319239955030623e-15,
+   "leak_amplitude": 0.0,
+   "dropped_total": 2.9709928034465346e-15,
+   "gauss_residual": 1.962615573354719e-16,
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "depth": 10,
+   "count_ops": {
+    "cx": 32,
+    "h": 16,
+    "rz": 8
+   }
+  },
+  "1.07": {
+   "ok": true,
+   "certified": true,
+   "reason": "ok",
+   "method": "inner_block",
+   "op_norm_error": 4.116743415294277e-15,
+   "block_error": 1.5326004567970987e-15,
+   "leak_amplitude": 0.0,
+   "dropped_total": 2.5841429584971782e-15,
+   "gauss_residual": 1.962615573354719e-16,
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "depth": 10,
+   "count_ops": {
+    "cx": 32,
+    "h": 16,
+    "rz": 8
+   }
+  }
+ },
+ "eta_set20": {
+  "eta": [
+   0.7699906732973948,
+   0.21343577916215123,
+   0.7833969579324586,
+   0.6533343570248575,
+   0.8640430622180368,
+   0.7533165991563959,
+   1.0644732952696332,
+   0.3467251520177583,
+   0.8353397515921765,
+   0.24155056675653058,
+   0.2993442723902191,
+   0.08858981133062849,
+   0.3613793077257386,
+   0.42899612348195276,
+   0.7606495576336426,
+   0.5792429273458993,
+   1.084574458609753,
+   0.07152064322891662,
+   0.9875058577911827,
+   0.9870365022065123
+  ],
+  "T_det": [
+   512,
+   512,
+   496,
+   512,
+   512,
+   496,
+   496,
+   480,
+   480,
+   496,
+   480,
+   512,
+   512,
+   496,
+   512,
+   496,
+   496,
+   512,
+   496,
+   512
+  ],
+  "mean": 500.8,
+  "min": 480,
+  "max": 512,
+  "sum": 10016
+ },
+ "git": "0dfe4ae",
+ "t_total_s": 50.059016704559326
+}

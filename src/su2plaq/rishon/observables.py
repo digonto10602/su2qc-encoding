@@ -33,12 +33,10 @@ def closed_spectra(g2_list=(0.5, 1.0, 2.0), lam_d: float = 0.0) -> dict:
     are whatever the model gives, not typed in).  KS: the 2x2 block `ks_closed_block`.
     `lam_d` = lambda_D (METHODS-rishon R13): the rishon block gains lam_d H_D^in (KS has no det term); 0.0 is unchanged.
     -> {"rishon": {g2: {"eigenvalues", "multiplicities"}}, "ks": {...}}."""
-    if lam_d != 0.0:
-        raise NotImplementedError("PENDING: closed_spectra(lam_d != 0) (prompts/204 step D4)")
     out: dict = {"rishon": {}, "ks": {}}
     for g2 in g2_list:
         g2 = float(g2)
-        ev = np.linalg.eigvalsh(_ops.closed_block_full(g2))
+        ev = np.linalg.eigvalsh(_ops.closed_block_full(g2, lam_d))
         vals, mult = _group(ev)
         out["rishon"][g2] = {"eigenvalues": vals, "multiplicities": mult}
         vals, mult = _group(np.linalg.eigvalsh(ks_closed_block(g2)))
@@ -76,9 +74,8 @@ def observables(alpha: float, beta: float, n_steps: int = 2, order: int = 1, eta
     """E_link(n) = <H_E^inner>/4, P(n) = -<H_B>/2, echo(n) = |<Omega|U_1^n|Omega>|^2 from the vacuum, n = 1..n_steps
     (METHODS-rishon R5).  Rishon: vac_A and the 1296-dim inner target; KS: the closed vacuum and the laptop's
     433-dim physical target.  -> {"rishon": {n: {...}}, "ks": {n: {...}}} (n integer keys).
-    `eta` (prompts/204): the "rishon" rows use the three-layer step; "ks" rows unchanged.  Not built yet (step D4)."""
-    if eta is not None:
-        raise NotImplementedError("PENDING: observables(eta=...) (prompts/204 step D4)")
+    `eta` (prompts/204): the "rishon" rows use the three-layer step U_B U_D(eta) U_E (order 2: the symmetric form); "ks" rows are
+    unchanged (Kogut-Susskind has no det term); `eta=None` is the two-layer M5 result, bit-identical."""
     out: dict = {"rishon": {}, "ks": {}}
     va, _, _ = _ops.closed_codes()
     codes = _ops.inner_codes()
@@ -87,7 +84,7 @@ def observables(alpha: float, beta: float, n_steps: int = 2, order: int = 1, eta
     psi0[i0] = 1.0
     HE = _ops.h_electric_inner()
     HB = _ops.h_magnetic_inner().real
-    U = _ops.inner_target("step", alpha, beta, order)
+    U = _ops.inner_target("step", alpha, beta, order, eta=eta)
     for n, psi in enumerate(_evolve(U, psi0, n_steps), start=1):
         p = np.abs(psi) ** 2
         out["rishon"][n] = {"E_link": float(0.25 * (p @ HE)), "P": float(-0.5 * np.real(np.conj(psi) @ (HB @ psi))),
@@ -132,6 +129,36 @@ def observables_table(angles=((0.37, 0.61), (0.91, 0.23), (1.70, 1.00))) -> dict
     return tab
 
 
-def det_observables_table(triples=((0.37, 0.61, 0.29), (0.91, 0.23, 0.53), (1.70, 1.00, 1.07)), lam_d_list=(0.0, 0.2, 0.5)) -> dict:
-    """The JSON of results/rishon/observables_det.json (prompts/204 section 7, DT7).  STUB (prompts/204 step D4)."""
-    raise NotImplementedError("PENDING: observables.det_observables_table (prompts/204 step D4)")
+DET_TRIPLES = ((0.37, 0.61, 0.29), (0.91, 0.23, 0.53), (1.70, 1.00, 1.07))
+
+
+def det_observables_table(triples=DET_TRIPLES, lam_d_list=(0.0, 0.2, 0.5), g2_list=(0.5, 1.0, 2.0)) -> dict:
+    """The JSON of results/rishon/observables_det.json (prompts/204 section 7, DT7), JSON-able (string keys for n):
+    {"triples", "rishon" (per triple {"1": {...}, "2": {...}} with the det layer), "rishon_no_det" (same triples, eta = None),
+    "ks" (unchanged), "closed_spectra": {"g2", "lam_d", "rishon": {str(lam_d): [per g2 {"eigenvalues","multiplicities"}]}},
+    "sector_structure" (physical.det_sector_structure), "definitions"}.  Provenance is added by scripts/m5_det_results.py."""
+    from su2plaq.rishon import physical as _phys
+
+    tab: dict = {"triples": [list(map(float, t)) for t in triples], "rishon": [], "rishon_no_det": [], "ks": []}
+    for a, b, e in triples:
+        ob = observables(a, b, n_steps=2, eta=e)
+        base = observables(a, b, n_steps=2)
+        tab["rishon"].append({str(n): v for n, v in ob["rishon"].items()})
+        tab["rishon_no_det"].append({str(n): v for n, v in base["rishon"].items()})
+        tab["ks"].append({str(n): v for n, v in ob["ks"].items()})
+    cs = {"g2": [float(g) for g in g2_list], "lam_d": [float(x) for x in lam_d_list], "rishon": {}}
+    for lam in lam_d_list:
+        sp = closed_spectra(g2_list, lam_d=lam)
+        cs["rishon"][str(float(lam))] = [sp["rishon"][float(g)] for g in g2_list]
+    tab["closed_spectra"] = cs
+    tab["sector_structure"] = _phys.det_sector_structure()
+    tab["definitions"] = {
+        "lambda_D": "coefficient of H_D = sum over the 12 links of (det U + det U^dag) in H = (g2/2) H_E + H_B/g2 + lambda_D H_D "
+                    "(Wiese's gamma, BCW's J'); the letter gamma is reserved for the sqrt2 beta slot of the angle rule",
+        "eta": "lambda_D dt = angle of the det layer U_D(eta) = exp(-i eta H_D^in)",
+        "state": "n first-order three-layer steps U_1 = U_B(beta) U_D(eta) U_E(alpha) from vac_A (the KS column has no det term)",
+        "E_link": "(1/4) <H_E^inner>", "P": "<Re Tr U_P> = -(1/2) <H_B>", "echo": "|<vac_A|U_1^n|vac_A>|^2",
+        "closed_spectra": "17 closed levels (16 electric vacua + loop) of H(g2, lambda_D) with inner det terms only, per outer singlet choice",
+        "sector_structure": "connected components of H on the 38 432 physical states: lam0 = H_E + H_B, inner_det = + det on the 4 inner "
+                            "links, full_det = + det on all 12 links (METHODS-rishon R13)"}
+    return tab

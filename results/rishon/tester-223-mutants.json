@@ -1,0 +1,90 @@
+{
+ "git": "0dfe4ae",
+ "plugin": "scratch plugin mut223.py (in-process monkeypatch; src untouched)",
+ "mutants": {
+  "rz_sign": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_det_layer_exact_on_inner_codes_and_wrong_sign_rejected",
+    "tests/unit/test_rishon_det_unit.py::test_outer_det_certify_basic",
+    "tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_det_layer_circuit[0.29]"
+   ],
+   "summary": "3 failed, 26 passed in 217.38s (0:03:37)"
+  },
+  "rz_eta_not_2eta": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_det_layer_exact_on_inner_codes_and_wrong_sign_rejected",
+    "tests/unit/test_rishon_det_unit.py::test_outer_det_certify_basic",
+    "tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_det_layer_circuit[0.29]"
+   ],
+   "summary": "3 failed, 26 passed in 217.29s (0:03:37)"
+  },
+  "missing_H": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_det_layer_exact_on_inner_codes_and_wrong_sign_rejected",
+    "tests/unit/test_rishon_det_unit.py::test_outer_det_certify_basic",
+    "tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_det_layer_circuit[0.29]"
+   ],
+   "summary": "3 failed, 26 passed in 212.57s (0:03:32)"
+  },
+  "wrong_link_wiring": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_det_layer_exact_on_inner_codes_and_wrong_sign_rejected",
+    "tests/unit/test_rishon_det_unit.py::test_outer_det_certify_basic",
+    "tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_det_layer_circuit[0.29]"
+   ],
+   "summary": "3 failed, 26 passed in 213.79s (0:03:33)"
+  },
+  "drop_last_link": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_build_UD_counts_registers_and_errors",
+    "tests/unit/test_rishon_det_unit.py::test_det_layer_exact_on_inner_codes_and_wrong_sign_rejected",
+    "tests/unit/test_rishon_det_unit.py::test_outer_det_certify_basic",
+    "tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_det_layer_circuit[0.29]"
+   ],
+   "summary": "4 failed, 25 passed in 205.43s (0:03:25)"
+  },
+  "outer_sign_flip": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_outer_det_certify_basic",
+    "tests/acceptance/m5x/test_rishon_outer_det_row.py::test_M5X_O2_outer_det_row_certified"
+   ],
+   "summary": "2 failed, 28 passed in 232.28s (0:03:52)"
+  },
+  "det_after_B": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_build_step_eta_structure[2]",
+    "tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_three_layer_step[1]"
+   ],
+   "summary": "2 failed, 27 passed in 222.82s (0:03:42)"
+  },
+  "order2_full_angle": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_build_step_eta_structure[2]",
+    "tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_three_layer_step[2]"
+   ],
+   "summary": "2 failed, 27 passed in 223.92s (0:03:43)"
+  },
+  "prepend_after": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_prepend_det_layer",
+    "tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_physical_cross_check_and_compose"
+   ],
+   "summary": "2 failed, 27 passed in 214.73s (0:03:34)"
+  },
+  "rejudge_old_nan": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_rejudge_rejects_non_finite[nan-dropped_total-pruning_bound]",
+    "tests/unit/test_rishon_det_unit.py::test_rejudge_rejects_non_finite[nan-leak_amplitude-leak]",
+    "tests/unit/test_rishon_det_unit.py::test_rejudge_rejects_non_finite[nan-op_norm_error-error]"
+   ],
+   "summary": "3 failed, 25 passed in 209.45s (0:03:29)"
+  },
+  "outer_certify_wrong_target_sign": {
+   "failed_tests": [
+    "tests/unit/test_rishon_det_unit.py::test_outer_det_certify_basic",
+    "tests/acceptance/m5x/test_rishon_outer_det_row.py::test_M5X_O2_outer_det_row_certified"
+   ],
+   "summary": "2 failed, 27 passed in 145.66s (0:02:25)"
+  }
+ }
+}

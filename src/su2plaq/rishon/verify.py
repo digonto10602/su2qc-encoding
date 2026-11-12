@@ -125,12 +125,14 @@ def _early(inner: Verdict | None, reason: str, t0: float, tols: dict, nread: int
 def _rejudge(iv: Verdict, cap: float, tol_err: float) -> tuple[str, list]:
     """Shared cascade (prune cap, leak, error) applied to a shared verdict that stopped at `pruning_bound`, with the rishon cap.
     -> (reason before the Gauss sample, failing_inputs); the reason is 'ok' when the Gauss sample is the only check left.
-    The shared cascade tests the cap first, so the leak / error tests had not been reached; their inputs are all in `iv`."""
-    if iv.dropped_total > cap:
+    The shared cascade tests the cap first, so the leak / error tests had not been reached; their inputs are all in `iv`.
+    A non-finite dropped_total / leak_amplitude / op_norm_error is rejected (pruning_bound / leak / error), never judged ok."""
+    # written as `not (x <= bound)` so that NaN and inf are rejected, never read as "ok" (a NaN comparison is False)
+    if not iv.dropped_total <= cap:
         return "pruning_bound", [("dropped_total", float(iv.dropped_total)), ("prune_cap", float(cap))]
-    if iv.leak_amplitude > tol_err:          # label only: the shared Verdict does not carry the invalid-code weight
+    if not iv.leak_amplitude <= tol_err:     # label only: the shared Verdict does not carry the invalid-code weight
         return ("dirty_ancilla" if iv.dirty_ancilla >= 0.5 * iv.max_leak else "leak"), [("leak_amplitude", float(iv.leak_amplitude))]
-    if iv.op_norm_error > tol_err:
+    if not iv.op_norm_error <= tol_err:
         return "error", [("op_norm_error", float(iv.op_norm_error)), ("tol_err", float(tol_err))]
     return "ok", []
 
@@ -154,13 +156,12 @@ def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: i
     RISHON_PRUNE_FRACTION (0.1); a value below the shared evaluator's PRUNE_FRACTION raises ValueError (a stricter cap cannot
     be re-judged from a shared `ok`).  A shared verdict other than `pruning_bound` is passed through; a shared `pruning_bound`
     is re-judged (`_rejudge`), then the Gauss sample decides as before.  `inner_verdict` keeps the shared verdict.
-    `eta` (det layer, prompts/204 D3): not built yet."""
+    `eta` (det layer, METHODS-rishon R13): angle of U_D; kind 'UD' = exp(-i eta H_D^in) (alpha, beta unused), kind 'step' with an eta =
+    the three-layer target of `operators.inner_target`; eta=None is the two-layer M5 target."""
     frac = RISHON_PRUNE_FRACTION if prune_fraction is None else float(prune_fraction)
     if frac < _SHARED_PRUNE_FRACTION:
         raise ValueError(f"prune_fraction {frac:g} is below the shared evaluator's {_SHARED_PRUNE_FRACTION:g}; "
                          "a stricter cap cannot be re-judged from a shared verdict")
-    if eta is not None or kind == "UD":
-        raise NotImplementedError("PENDING: verify(eta=...) / kind 'UD' (prompts/204 step D3)")
     prune_cap = frac * tol_err
     t0 = time.time()
     tg = TOL_GAUSS if tol_gauss is None else float(tol_gauss)
@@ -174,7 +175,7 @@ def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: i
         return _early(None, "outer_read_unsupported", t0, tols, len(read),
                       f"outer qubits {sorted(read)} are read by the circuit; the block-wise path is M6")
     view = enc.inner_view()
-    V = enc.inner_target(kind, alpha, beta, order) if target is None else np.asarray(target, dtype=np.complex128)
+    V = enc.inner_target(kind, alpha, beta, order, eta=eta) if target is None else np.asarray(target, dtype=np.complex128)
     iv = evaluate(qc, view, V, tol_err=tol_err, tol_gauss=tg, gauss=False, engine=engine, cap=cap, states=states)
     if classify_error and (iv.ok or iv.reason not in _CLASSIFY_REASONS):
         raise RuntimeError(f"classify_outer_gates raised ({classify_error}) but evaluate returned reason "
@@ -210,9 +211,7 @@ def verify(qc, enc, kind: str, alpha: float | None, beta: float | None, order: i
 def physical_cross_check(qc, enc, kind, alpha, beta, order=1, states: list[int] | None = None, eta: float | None = None) -> dict:
     """Explicit A_{k'k} = <Psi_k'|U|Psi_k> on `states` (default: 17 closed + 256 seeded) against
     <Psi_k'|V_in (x) 1|Psi_k> = enc.target(..., states); -> {"max_abs_diff", "n_states", "phase"} (one global phase fitted).
-    Sampled tester tool, not a verdict input.  `eta` (det layer): prompts/204 step D3, not built yet."""
-    if eta is not None or kind == "UD":
-        raise NotImplementedError("PENDING: physical_cross_check(eta=...) (prompts/204 step D3)")
+    Sampled tester tool, not a verdict input.  `eta`: angle of the det layer (three-layer target / kind 'UD')."""
     b = enc.basis
     ids = _sample_ids(b, 256, 20261104) if states is None else list(states)
     Z, pst, pout = _pairs(b, ids)
@@ -223,7 +222,7 @@ def physical_cross_check(qc, enc, kind, alpha, beta, order=1, states: list[int] 
     same = pout[G.row] == pout[G.col]
     A = np.zeros((len(ids), len(ids)), dtype=np.complex128)
     np.add.at(A, (pst[G.row[same]], pst[G.col[same]]), G.data[same])
-    T = enc.target(kind, alpha, beta, order, states=ids)
+    T = enc.target(kind, alpha, beta, order, states=ids, eta=eta)
     tr = np.trace(T.conj().T @ A)
     phase = tr / abs(tr) if abs(tr) > 1e-300 else 1.0 + 0j
     return {"max_abs_diff": float(np.abs(A - phase * T).max()), "n_states": len(ids), "phase": complex(phase)}

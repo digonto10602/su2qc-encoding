@@ -1,0 +1,326 @@
+{
+ "outer_row": {
+  "0.29": {
+   "count_ops": {
+    "cx": 96,
+    "h": 48,
+    "rz": 24
+   },
+   "n_qubits": 48,
+   "links_touched": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "cross_link_gates": 0,
+   "max_amp_err_vs_own_product_target_24_inputs": 3.4416913763379853e-15,
+   "phase_fitted_first": "(1+0j)",
+   "outer_det_certify": {
+    "certified": true,
+    "ok": true,
+    "method": "outer_det_gadgets",
+    "n_links": 12,
+    "link_errors": [
+     3.3310928468020272e-16,
+     3.3310928468020272e-16,
+     3.3310928468020272e-16,
+     3.3310928468020272e-16,
+     3.3310928468020272e-16,
+     3.3310928468020272e-16,
+     3.3310928468020272e-16,
+     3.3310928468020272e-16,
+     3.3310928468020272e-16,
+     3.3310928468020272e-16,
+     3.3310928468020272e-16,
+     3.3310928468020272e-16
+    ],
+    "max_link_error": 3.3310928468020272e-16,
+    "error_bound": 3.997311416162433e-15,
+    "gates_per_link": "[14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14]",
+    "reason": "ok"
+   }
+  },
+  "0.53": {
+   "count_ops": {
+    "cx": 96,
+    "h": 48,
+    "rz": 24
+   },
+   "n_qubits": 48,
+   "links_touched": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "cross_link_gates": 0,
+   "max_amp_err_vs_own_product_target_24_inputs": 3.9968028886505635e-15,
+   "phase_fitted_first": "(1+0j)",
+   "outer_det_certify": {
+    "certified": true,
+    "ok": true,
+    "method": "outer_det_gadgets",
+    "n_links": 12,
+    "link_errors": [
+     3.3306721280397484e-16,
+     3.3306721280397484e-16,
+     3.3306721280397484e-16,
+     3.3306721280397484e-16,
+     3.3306721280397484e-16,
+     3.3306721280397484e-16,
+     3.3306721280397484e-16,
+     3.3306721280397484e-16,
+     3.3306721280397484e-16,
+     3.3306721280397484e-16,
+     3.3306721280397484e-16,
+     3.3306721280397484e-16
+    ],
+    "max_link_error": 3.3306721280397484e-16,
+    "error_bound": 3.9968065536476985e-15,
+    "gates_per_link": "[14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14]",
+    "reason": "ok"
+   }
+  },
+  "1.07": {
+   "count_ops": {
+    "cx": 96,
+    "h": 48,
+    "rz": 24
+   },
+   "n_qubits": 48,
+   "links_touched": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "cross_link_gates": 0,
+   "max_amp_err_vs_own_product_target_24_inputs": 2.3314683517128287e-15,
+   "phase_fitted_first": "(1+0j)",
+   "outer_det_certify": {
+    "certified": true,
+    "ok": true,
+    "method": "outer_det_gadgets",
+    "n_links": 12,
+    "link_errors": [
+     3.659040948677333e-16,
+     3.659040948677333e-16,
+     3.659040948677333e-16,
+     3.659040948677333e-16,
+     3.659040948677333e-16,
+     3.659040948677333e-16,
+     3.659040948677333e-16,
+     3.659040948677333e-16,
+     3.659040948677333e-16,
+     3.659040948677333e-16,
+     3.659040948677333e-16,
+     3.659040948677333e-16
+    ],
+    "max_link_error": 3.659040948677333e-16,
+    "error_bound": 4.3908491384128e-15,
+    "gates_per_link": "[14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14]",
+    "reason": "ok"
+   }
+  }
+ },
+ "prepend": [
+  {
+   "triple": [
+    0.37,
+    0.61,
+    0.29
+   ],
+   "max_abs_err_vs_own_UB_UD_UE": 1.4557898631611723e-14,
+   "distance_to_wrong_order_UD_UB_UE": 0.5252066683343056,
+   "max_leak": 0.0,
+   "cx_unit": 1126,
+   "cx_full": 1158,
+   "rz_added": 8,
+   "h_added": 16,
+   "unit_instructions_preserved_in_order": true,
+   "qregs": [
+    [
+     "d",
+     16
+    ],
+    [
+     "anc",
+     10
+    ]
+   ],
+   "metadata": {
+    "kind": "step",
+    "alpha": 0.37,
+    "beta": 0.61,
+    "order": 1,
+    "n_pairs": 81,
+    "angle_over_beta_abs_counts": {
+     "2": 32,
+     "4": 48,
+     "11.313708499": 1
+    },
+    "pivots": [
+     0,
+     1,
+     2,
+     3,
+     6,
+     7
+    ],
+    "n_controls": [
+     11
+    ],
+    "gates_before_cancel": 8307,
+    "gates_after_cancel": 4277,
+    "eta": 0.29,
+    "det_layer_prepended": true
+   }
+  },
+  {
+   "triple": [
+    0.91,
+    0.23,
+    0.53
+   ],
+   "max_abs_err_vs_own_UB_UD_UE": 1.5342784118229898e-14,
+   "distance_to_wrong_order_UD_UB_UE": 0.3872805649880476,
+   "max_leak": 0.0,
+   "cx_unit": 1126,
+   "cx_full": 1158,
+   "rz_added": 8,
+   "h_added": 16,
+   "unit_instructions_preserved_in_order": true,
+   "qregs": [
+    [
+     "d",
+     16
+    ],
+    [
+     "anc",
+     10
+    ]
+   ],
+   "metadata": {
+    "kind": "step",
+    "alpha": 0.91,
+    "beta": 0.23,
+    "order": 1,
+    "n_pairs": 81,
+    "angle_over_beta_abs_counts": {
+     "2": 32,
+     "4": 48,
+     "11.313708499": 1
+    },
+    "pivots": [
+     0,
+     1,
+     2,
+     3,
+     6,
+     7
+    ],
+    "n_controls": [
+     11
+    ],
+    "gates_before_cancel": 8307,
+    "gates_after_cancel": 4277,
+    "eta": 0.53,
+    "det_layer_prepended": true
+   }
+  },
+  {
+   "triple": [
+    1.7,
+    1.0,
+    1.07
+   ],
+   "max_abs_err_vs_own_UB_UD_UE": 1.4659253816302255e-14,
+   "distance_to_wrong_order_UD_UB_UE": 0.7659288940241633,
+   "max_leak": 0.0,
+   "cx_unit": 1126,
+   "cx_full": 1158,
+   "rz_added": 8,
+   "h_added": 16,
+   "unit_instructions_preserved_in_order": true,
+   "qregs": [
+    [
+     "d",
+     16
+    ],
+    [
+     "anc",
+     10
+    ]
+   ],
+   "metadata": {
+    "kind": "step",
+    "alpha": 1.7,
+    "beta": 1.0,
+    "order": 1,
+    "n_pairs": 81,
+    "angle_over_beta_abs_counts": {
+     "2": 32,
+     "4": 48,
+     "11.313708499": 1
+    },
+    "pivots": [
+     0,
+     1,
+     2,
+     3,
+     6,
+     7
+    ],
+    "n_controls": [
+     11
+    ],
+    "gates_before_cancel": 8307,
+    "gates_after_cancel": 4277,
+    "eta": 1.07,
+    "det_layer_prepended": true
+   }
+  }
+ ],
+ "prepend_value_error": [
+  "d15",
+  "x16"
+ ],
+ "eta_none_vs_HEAD": {
+  "n_circuits": 48,
+  "all_identical": true,
+  "detail_non_true": [],
+  "UE(0.37)": true,
+  "UE(1.1)": true,
+  "UB(0.61,ccx)": true,
+  "UB(0.61,rccx)": true,
+  "UB(1.0,ccx)": true,
+  "UB(1.0,rccx)": true
+ },
+ "git": "0dfe4ae",
+ "t_total_s": 31.443392992019653
+}

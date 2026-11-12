@@ -1,0 +1,88 @@
+{
+ "applier_selftest": 4.965068306494546e-16,
+ "etas": {
+  "0.29": {
+   "count_ops": {
+    "cx": 32,
+    "h": 16,
+    "rz": 8
+   },
+   "gate_names_subset_of_h_cx_rz": true,
+   "rz_angles": [
+    0.58
+   ],
+   "two_eta": 0.58,
+   "n_qubits": 16,
+   "global_phase_attr": 0.0,
+   "max_amp_error_vs_own_target_on_1296_codes": 1.3322676295501878e-15,
+   "global_phase_fitted": [
+    "(1+0j)"
+   ],
+   "max_phase_spread": 0.0,
+   "max_amplitude_on_invalid_codes": 0.0,
+   "closed_form_vs_eigh_valid_block": 2.035816845835405e-15,
+   "sign_flipped_target_distance": 0.9168031087717665,
+   "t_s": 109.31700468063354
+  },
+  "0.53": {
+   "count_ops": {
+    "cx": 32,
+    "h": 16,
+    "rz": 8
+   },
+   "gate_names_subset_of_h_cx_rz": true,
+   "rz_angles": [
+    1.06
+   ],
+   "two_eta": 1.06,
+   "n_qubits": 16,
+   "global_phase_attr": 0.0,
+   "max_amp_error_vs_own_target_on_1296_codes": 1.4432899320127035e-15,
+   "global_phase_fitted": [
+    "(0.9999999999999999+0j)"
+   ],
+   "max_phase_spread": 1.1102230246251565e-16,
+   "max_amplitude_on_invalid_codes": 0.0,
+   "closed_form_vs_eigh_valid_block": 3.2705570159081625e-15,
+   "sign_flipped_target_distance": 0.8529404815528756,
+   "t_s": 96.36633944511414
+  },
+  "1.07": {
+   "count_ops": {
+    "cx": 32,
+    "h": 16,
+    "rz": 8
+   },
+   "gate_names_subset_of_h_cx_rz": true,
+   "rz_angles": [
+    2.14
+   ],
+   "two_eta": 2.14,
+   "n_qubits": 16,
+   "global_phase_attr": 0.0,
+   "max_amp_error_vs_own_target_on_1296_codes": 1.2212453270876722e-15,
+   "global_phase_fitted": [
+    "(1+0j)"
+   ],
+   "max_phase_spread": 0.0,
+   "max_amplitude_on_invalid_codes": 0.0,
+   "closed_form_vs_eigh_valid_block": 3.9645398320593e-15,
+   "sign_flipped_target_distance": 0.9079672606164049,
+   "t_s": 117.42508554458618
+  }
+ },
+ "own_HDin_spectrum_ok": {
+  "-8.0": 1,
+  "-6.0": 16,
+  "-4.0": 100,
+  "-2.0": 304,
+  "0.0": 454,
+  "2.0": 304,
+  "4.0": 100,
+  "6.0": 16,
+  "8.0": 1
+ },
+ "prepend_equals_UD_then_unit": true,
+ "git": "0dfe4ae",
+ "t_total_s": 323.74163031578064
+}

@@ -1,0 +1,200 @@
+{
+ "cases": [
+  {
+   "case": "control: finite 5e-12",
+   "ok": true,
+   "reason": "ok",
+   "failing": []
+  },
+  {
+   "case": "dropped_total=nan",
+   "ok": false,
+   "reason": "pruning_bound",
+   "failing": [
+    [
+     "dropped_total",
+     "nan"
+    ],
+    [
+     "prune_cap",
+     "1.0000000000000001e-11"
+    ]
+   ]
+  },
+  {
+   "case": "leak_amplitude=nan",
+   "ok": false,
+   "reason": "dirty_ancilla",
+   "failing": [
+    [
+     "leak_amplitude",
+     "nan"
+    ]
+   ]
+  },
+  {
+   "case": "op_norm_error=nan",
+   "ok": false,
+   "reason": "error",
+   "failing": [
+    [
+     "op_norm_error",
+     "nan"
+    ],
+    [
+     "tol_err",
+     "1e-10"
+    ]
+   ]
+  },
+  {
+   "case": "dropped_total=+inf",
+   "ok": false,
+   "reason": "pruning_bound",
+   "failing": [
+    [
+     "dropped_total",
+     "inf"
+    ],
+    [
+     "prune_cap",
+     "1.0000000000000001e-11"
+    ]
+   ]
+  },
+  {
+   "case": "leak_amplitude=+inf",
+   "ok": false,
+   "reason": "dirty_ancilla",
+   "failing": [
+    [
+     "leak_amplitude",
+     "inf"
+    ]
+   ]
+  },
+  {
+   "case": "op_norm_error=+inf",
+   "ok": false,
+   "reason": "error",
+   "failing": [
+    [
+     "op_norm_error",
+     "inf"
+    ],
+    [
+     "tol_err",
+     "1e-10"
+    ]
+   ]
+  },
+  {
+   "case": "dropped_total=-inf",
+   "ok": true,
+   "reason": "ok",
+   "failing": [],
+   "note": "-inf dropped_total is impossible (a norm); recorded only"
+  },
+  {
+   "case": "leak_amplitude=-inf",
+   "ok": true,
+   "reason": "ok",
+   "failing": []
+  },
+  {
+   "case": "op_norm_error=-inf",
+   "ok": true,
+   "reason": "ok",
+   "failing": []
+  },
+  {
+   "case": "leak=nan,err=nan",
+   "ok": false,
+   "reason": "dirty_ancilla",
+   "failing": [
+    [
+     "leak_amplitude",
+     "nan"
+    ]
+   ]
+  },
+  {
+   "case": "leak=nan,err=+inf",
+   "ok": false,
+   "reason": "dirty_ancilla",
+   "failing": [
+    [
+     "leak_amplitude",
+     "nan"
+    ]
+   ]
+  },
+  {
+   "case": "leak=+inf,err=nan",
+   "ok": false,
+   "reason": "dirty_ancilla",
+   "failing": [
+    [
+     "leak_amplitude",
+     "inf"
+    ]
+   ]
+  },
+  {
+   "case": "leak=+inf,err=+inf",
+   "ok": false,
+   "reason": "dirty_ancilla",
+   "failing": [
+    [
+     "leak_amplitude",
+     "inf"
+    ]
+   ]
+  },
+  {
+   "case": "_rejudge direct dropped_total=nan",
+   "reason": "pruning_bound"
+  },
+  {
+   "case": "_rejudge direct dropped_total=+inf",
+   "reason": "pruning_bound"
+  },
+  {
+   "case": "_rejudge direct leak_amplitude=nan",
+   "reason": "dirty_ancilla"
+  },
+  {
+   "case": "_rejudge direct leak_amplitude=+inf",
+   "reason": "dirty_ancilla"
+  },
+  {
+   "case": "_rejudge direct op_norm_error=nan",
+   "reason": "error"
+  },
+  {
+   "case": "_rejudge direct op_norm_error=+inf",
+   "reason": "error"
+  },
+  {
+   "case": "_rejudge direct all finite",
+   "reason": "ok"
+  },
+  {
+   "case": "boundary dropped_total=1e-11 (equal to bound)",
+   "reason": "ok"
+  },
+  {
+   "case": "boundary leak_amplitude=1e-10 (equal to bound)",
+   "reason": "ok"
+  },
+  {
+   "case": "boundary op_norm_error=1e-10 (equal to bound)",
+   "reason": "ok"
+  }
+ ],
+ "violations": [
+  "leak_amplitude=-inf: ok=True reason=ok",
+  "op_norm_error=-inf: ok=True reason=ok"
+ ],
+ "git": "0dfe4ae"
+}

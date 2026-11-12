@@ -502,7 +502,86 @@ def inner_span_rank_by_corners() -> int:
 
 
 def det_sector_structure(basis=None) -> dict:
-    """Block structure of the physical space under the det term (METHODS-rishon R13; locked in M5-DT5):
-    {"dim", "u1_sectors", "blocks": {"lam0", "inner_det", "full_det"}, "max_block", "ref_block_dim", "ref_block_u1_sectors",
-    "charge_change_rank", "leaving_weight"}; reference state = closed_indices(basis)[0].  STUB (prompts/204 step D4)."""
-    raise NotImplementedError("PENDING: physical.det_sector_structure (prompts/204 step D4)")
+    """Block structure of the 38 432-state physical space under the det term (METHODS-rishon R13; locked in M5-DT5).
+
+    Matrices are formed at the code level on the union of the physical states' 48-bit codes and projected as P^dag T P: H_B from
+    `operators.h_magnetic_inner` acting on the inner 16 bits (outer bits spectators), the det term of link l as the nibble flip
+    A (3) <-> B (12) with amplitude 2.  Blocks = connected components of H_B (lam0), H_B + inner det (links 0-3), H_B + all 12 det
+    terms.  -> {"dim", "u1_sectors", "blocks": {"lam0","inner_det","full_det"}, "max_block", "ref_block_dim", "ref_block_u1_sectors",
+    "charge_change_rank": {...}, "leaving_weight"}; leaving_weight = largest weight that any det / H_B term sends out of the
+    physical space (0 up to rounding: SU(2) Gauss law kept); reference state = closed_indices(basis)[0] (vac_A)."""
+    from scipy.sparse.csgraph import connected_components
+
+    from su2plaq.rishon import operators as _o
+
+    b = rishon_basis() if basis is None else basis
+    n = int(b.dim)
+    lens = np.array([len(k) for k in b.keys])
+    allk = np.concatenate([np.asarray(k, dtype=np.int64) for k in b.keys])
+    alla = np.concatenate([np.asarray(a, dtype=np.complex128) for a in b.amps])
+    uk, row = np.unique(allk, return_inverse=True)
+    nu = len(uk)
+    P = sp.csr_matrix((alla, (row, np.repeat(np.arange(n), lens))), shape=(nu, n))
+    codes = _o.inner_codes()
+    ipos = np.searchsorted(codes, uk & 0xFFFF)
+    outer = uk >> 16
+    M = sp.csc_matrix(_o.h_magnetic_inner())
+    rr, cc, vv = [], [], []
+    for i in range(len(codes)):
+        src = np.flatnonzero(ipos == i)
+        if not len(src):
+            continue
+        for j, val in zip(M.indices[M.indptr[i]:M.indptr[i + 1]], M.data[M.indptr[i]:M.indptr[i + 1]]):
+            if abs(val) < 1e-14:
+                continue
+            tgt = (outer[src] << 16) | codes[j]
+            p = np.minimum(np.searchsorted(uk, tgt), nu - 1)
+            ok = uk[p] == tgt
+            rr.append(p[ok]); cc.append(src[ok]); vv.append(np.full(int(ok.sum()), val))
+    TB = sp.csr_matrix((np.concatenate(vv), (np.concatenate(rr), np.concatenate(cc))), shape=(nu, nu))
+
+    def det_link(link: int):
+        sh = 4 * link
+        nib = (uk >> sh) & 15
+        src = np.flatnonzero((nib == CODE_A) | (nib == CODE_B))
+        tgt = uk[src] ^ (np.int64(15) << sh)             # A = 0b0011 <-> B = 0b1100: flip the whole nibble
+        p = np.minimum(np.searchsorted(uk, tgt), nu - 1)
+        ok = uk[p] == tgt
+        return sp.csr_matrix((np.full(int(ok.sum()), 2.0), (p[ok], src[ok])), shape=(nu, nu))
+
+    leaving = [0.0]
+
+    def phys(T):
+        X = T @ P
+        Mp = (P.conj().T @ X).tocsr()
+        leaving[0] = max(leaving[0], abs(float(X.multiply(X.conj()).sum().real - Mp.multiply(Mp.conj()).sum().real)))
+        Mp.data[np.abs(Mp.data) < 1e-12] = 0
+        Mp.eliminate_zeros()
+        return Mp
+
+    HB = phys(TB)
+    Din = phys(sum((det_link(l) for l in range(1, 4)), det_link(0)))
+    Dout = phys(sum((det_link(l) for l in range(5, 12)), det_link(4)))
+    ch = np.array([b.u1_charges(k) for k in range(n)], dtype=np.int64)
+
+    def comps(Mx):
+        return connected_components((abs(Mx) > 1e-12).astype(np.int8), directed=False)
+
+    def dq_rank(Ms):
+        rows = set()
+        for Mx in Ms:
+            coo = Mx.tocoo()
+            rows |= {tuple(int(y) for y in x) for x in (ch[coo.row] - ch[coo.col])}
+        return int(np.linalg.matrix_rank(np.array(sorted(rows)))) if rows else 0
+
+    names = ("lam0", "inner_det", "full_det")
+    parts = [comps(HB), comps(HB + Din), comps(HB + Din + Dout)]
+    k0 = closed_indices(b)[0]
+    u1 = lambda mask: len({tuple(int(y) for y in x) for x in ch[mask]})
+    return {"dim": n, "u1_sectors": u1(np.ones(n, dtype=bool)),
+            "blocks": {nm: int(c) for nm, (c, _) in zip(names, parts)},
+            "max_block": {nm: int(np.bincount(lab).max()) for nm, (_, lab) in zip(names, parts)},
+            "ref_block_dim": {nm: int(np.sum(lab == lab[k0])) for nm, (_, lab) in zip(names, parts)},
+            "ref_block_u1_sectors": {nm: u1(lab == lab[k0]) for nm, (_, lab) in zip(names, parts)},
+            "charge_change_rank": {"lam0": dq_rank([HB]), "inner_det": dq_rank([HB, Din]), "full_det": dq_rank([HB, Din, Dout])},
+            "leaving_weight": float(leaving[0]), "reference_state": int(k0)}

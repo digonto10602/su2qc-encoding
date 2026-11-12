@@ -231,6 +231,60 @@ def outer_electric_certify(qc, enc, alpha: float, tol_err: float = 1e-10) -> dic
 
 
 def outer_det_certify(qc, enc, eta: float, tol_err: float = 1e-10) -> dict:
-    """Per-link certificate of the 12-link det row, as `outer_electric_certify` (method "outer_det_gadgets", target
-    exp(-i eta (det U + det U^dag)) on the 6 sector codes; prompts/204 section 5).  STUB (prompts/204 step D5)."""
-    raise NotImplementedError("PENDING: results.outer_det_certify (prompts/204 step D5)")
+    """Exhaustive per-link certificate of the 12-link det row (prompts/204 section 5, step D5; METHODS-rishon R14), as
+    `outer_electric_certify`: the row is a tensor product of 12 per-link gadgets on disjoint qubits (link l = qubits 4l..4l+3);
+    gates are partitioned by link (a gate across links -> `cross_link_gate`; qubits beyond the 12 links -> `ancilla_register`).
+    Per link, V_l = exact 16 x 16 operator of the link's sub-circuit; T_l = exp(-i eta (det U + det U^dag)) restricted to the 6 sector
+    codes (16 x 6 block, from `RishonLink`, not typed in); phi_l = arg tr(T^dag V) (fitted: |tr| = 6 for the correct gadget at every
+    eta, so no anchor is needed; any phase gives a valid bound); eps_l = ||V_l[:, sector] - exp(i phi_l) T_l||_2 (includes leak out of
+    the sector).  On every superposition of products of sector codes, hence on all 38 432 physical states,
+    ||(prod V_l - exp(i sum phi) prod T_l) Psi|| <= sum eps_l = `error_bound` (telescoping of a tensor product of unitaries).
+    Never raises on a syntactically valid circuit (a non-simulable instruction gives reason `error`, message in `detail`)."""
+    from qiskit import QuantumCircuit
+    from qiskit.exceptions import QiskitError
+    from qiskit.quantum_info import Operator
+
+    from su2plaq.rishon.algebra import N_MODES, RishonLink
+
+    n_links = (enc.n_data + enc.n_outer) // N_MODES
+    base = {"certified": False, "ok": False, "method": "outer_det_gadgets", "n_links": n_links, "link_errors": [],
+            "max_link_error": float("inf"), "error_bound": float("inf"), "phase": 1.0 + 0j, "gates_per_link": [],
+            "tol_err": tol_err, "eta": float(eta),
+            "target": "exp(-i eta (det U + det U^dag)) per link on the 6 sector codes; bound = sum over links (tensor product)"}
+    if qc.num_qubits != N_MODES * n_links:
+        return {**base, "reason": "ancilla_register"}
+    per_link = [[] for _ in range(n_links)]
+    for ins in qc.data:
+        if ins.operation.name == "barrier":
+            continue
+        if ins.clbits:
+            return {**base, "reason": "error", "detail": "classical bits are not supported"}
+        qs = [qc.find_bit(q).index for q in ins.qubits]
+        links = {q // N_MODES for q in qs}
+        if len(links) != 1:
+            return {**base, "reason": "cross_link_gate"}
+        l = links.pop()
+        per_link[l].append((ins.operation, [q - N_MODES * l for q in qs]))
+    counts = [len(g) for g in per_link]
+    rl = RishonLink()
+    sector = [int(s) for s in rl.sector]
+    hd = np.asarray(rl.det_U + rl.det_U.conj().T)
+    w, v = np.linalg.eigh(hd)
+    T = ((v * np.exp(-1j * float(eta) * w)) @ v.conj().T)[:, sector]
+    errs, phases = [], []
+    for l in range(n_links):
+        sub = QuantumCircuit(N_MODES)
+        for op, qs in per_link[l]:
+            sub.append(op, qs)
+        try:
+            V = Operator(sub).data[:, sector]
+        except QiskitError as e:
+            return {**base, "reason": "error", "detail": f"link {l}: {e}", "gates_per_link": counts}
+        z = np.vdot(T, V)
+        ph = z / abs(z) if abs(z) > 1e-300 else 1.0 + 0j
+        errs.append(float(np.linalg.norm(V - ph * T, 2)))
+        phases.append(complex(ph))
+    bound = float(sum(errs))
+    certified = bool(bound <= tol_err)
+    return {**base, "certified": certified, "ok": certified, "reason": "ok" if certified else "error", "link_errors": errs,
+            "max_link_error": float(max(errs)), "error_bound": bound, "phase": complex(np.prod(phases)), "gates_per_link": counts}

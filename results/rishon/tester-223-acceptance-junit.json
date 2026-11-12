@@ -1,0 +1,346 @@
+{
+ "test_M5_DT1_link_det_operator": [
+  "pass",
+  0.006
+ ],
+ "test_M5_D1_link_algebra": [
+  "pass",
+  0.022
+ ],
+ "test_M5_B1_physical_with_outer_and_gauss": [
+  "pass",
+  40.411
+ ],
+ "test_M5_DT3_targets[1.7-1.0-1.07]": [
+  "pass",
+  35.086
+ ],
+ "test_M5_B1_magnetic_inner_block[0.61]": [
+  "pass",
+  43.564
+ ],
+ "test_M5_DT2_inner_det_hamiltonian": [
+  "pass",
+  26.782
+ ],
+ "test_M5_D1_string_free_and_sector": [
+  "pass",
+  0.25
+ ],
+ "test_M5_E1_electric_step[0.37]": [
+  "pass",
+  47.974
+ ],
+ "test_M5_DT3_targets[0.37-0.61-0.29]": [
+  "pass",
+  49.1
+ ],
+ "test_M5_DT3_trotter_orders": [
+  "pass",
+  27.97
+ ],
+ "test_M5_S1_step_orders[1]": [
+  "pass",
+  77.669
+ ],
+ "test_M5_B1_magnetic_inner_block[0.23]": [
+  "pass",
+  32.517
+ ],
+ "test_M5_E1_electric_step[0.91]": [
+  "pass",
+  40.545
+ ],
+ "test_M5_DT4_det_layer_circuit[0.29]": [
+  "pass",
+  45.193
+ ],
+ "test_M5_DT3_targets[0.91-0.23-0.53]": [
+  "pass",
+  81.304
+ ],
+ "test_M5_B1_magnetic_inner_block[1.0]": [
+  "pass",
+  38.264
+ ],
+ "test_M5_DT4_det_layer_circuit[1.07]": [
+  "pass",
+  65.825
+ ],
+ "test_M5_DT4_det_layer_circuit[0.53]": [
+  "pass",
+  70.041
+ ],
+ "test_M5_B1_magnetic_inner_block[2.0]": [
+  "pass",
+  58.415
+ ],
+ "test_M5_S1_step_orders[2]": [
+  "pass",
+  97.399
+ ],
+ "test_M5_DT4_three_layer_step[1]": [
+  "pass",
+  195.75
+ ],
+ "test_M5_DT6_observables_with_det[0.37-0.61-0.29]": [
+  "pass",
+  18.018
+ ],
+ "test_M5_L2_jw_facts_kernel_checked": [
+  "pass",
+  7.267
+ ],
+ "test_M5_DT6_observables_with_det[0.91-0.23-0.53]": [
+  "pass",
+  13.697
+ ],
+ "test_M5_DT7_det_results_files[step3-step-1]": [
+  "fail",
+  0.001
+ ],
+ "test_M5_DT7_det_results_files[step3_order2-step-2]": [
+  "fail",
+  0.001
+ ],
+ "test_M5_DT7_det_observables_file": [
+  "fail",
+  0.001
+ ],
+ "test_M5_L1_counts_kernel_checked": [
+  "pass",
+  14.542
+ ],
+ "test_M5_T1_t_table_and_synth_verify[UE]": [
+  "pass",
+  28.154
+ ],
+ "test_M5_DT6_observables_with_det[1.7-1.0-1.07]": [
+  "pass",
+  13.654
+ ],
+ "test_M5_O1_observables_after_steps[0.37-0.61]": [
+  "pass",
+  20.653
+ ],
+ "test_M5_DT6_closed_spectrum_with_det": [
+  "pass",
+  3.621
+ ],
+ "test_M5_DT7_det_results_files[UD-UD-None]": [
+  "fail",
+  0.002
+ ],
+ "test_M5_X1_plaquette_structure": [
+  "pass",
+  37.015
+ ],
+ "test_M5_T1_t_table_and_synth_verify[UB]": [
+  "pass",
+  989.124
+ ],
+ "test_M5_O1_observables_after_steps[0.91-0.23]": [
+  "pass",
+  21.36
+ ],
+ "test_M5_C1_encoding_codec_and_vectors": [
+  "pass",
+  21.715
+ ],
+ "test_M5_O1_observables_after_steps[1.7-1.0]": [
+  "pass",
+  33.468
+ ],
+ "test_M5_X1_inner_target_properties[1.7-1.0]": [
+  "pass",
+  56.072
+ ],
+ "test_M5_X1_bright_pairs_and_closed_block": [
+  "pass",
+  6.814
+ ],
+ "test_M5_X1_inner_target_properties[0.37-0.61]": [
+  "pass",
+  55.797
+ ],
+ "test_M5_C1_inner_span_full": [
+  "pass",
+  12.664
+ ],
+ "test_M5_V2_rishon_prune_cap": [
+  "pass",
+  263.3
+ ],
+ "test_M5_C1_counts_two_routes": [
+  "pass",
+  2.315
+ ],
+ "test_M5_C1_states_gauss_orthonormal": [
+  "pass",
+  3.628
+ ],
+ "test_M5_B1_verifier_sensitivity": [
+  "pass",
+  215.008
+ ],
+ "test_M5_R1_results_files[UE]": [
+  "pass",
+  0.006
+ ],
+ "test_M5_R1_results_files[UB]": [
+  "pass",
+  0.002
+ ],
+ "test_M5X_W2_corner_kernel_dims_match_production": [
+  "pass",
+  4.944
+ ],
+ "test_M5X_W3_ue_semantics_gate_list_and_qiskit_matrices": [
+  "pass",
+  15.128
+ ],
+ "test_M5X_L_exact_theorems_kernel_checked": [
+  "pass",
+  12.205
+ ],
+ "test_M5X_O2_outer_det_row_certified": [
+  "pass",
+  8.731
+ ],
+ "test_M5X_O2_outer_det_row_results_file": [
+  "fail",
+  0.001
+ ],
+ "test_M5X_O1_outer_electric_row_certified": [
+  "pass",
+  0.162
+ ],
+ "test_M5X_O1_outer_row_results_file": [
+  "pass",
+  0.01
+ ],
+ "test_M6_E1_evaluator_sensitivity": [
+  "pass",
+  51.067
+ ],
+ "test_M5_DT4_three_layer_step[2]": [
+  "pass",
+  217.924
+ ],
+ "test_M6_E2_metrics_match_qiskit_and_T_band": [
+  "pass",
+  6.312
+ ],
+ "test_M6_E3_full_mode_ue_program_and_cache": [
+  "pass",
+  216.983
+ ],
+ "test_M5X_W1_hb_link_ops_tied_to_jw": [
+  "pass",
+  0.02
+ ],
+ "test_M6_G3_best_touches_no_outer_qubit": [
+  "pass",
+  0.1
+ ],
+ "test_M6_G4_summary_and_budgets": [
+  "pass",
+  287.957
+ ],
+ "test_M5_R1_results_files[step]": [
+  "pass",
+  0.004
+ ],
+ "test_M5_R1_observables_and_register_rows": [
+  "pass",
+  0.002
+ ],
+ "test_M6_L1_structure_facts_axioms_and_spec_section": [
+  "pass",
+  13.403
+ ],
+ "test_M6_L2_cert3_builds_and_semantics": [
+  "fail",
+  0.001
+ ],
+ "test_M6_L3_cert3_accept_reject_na": [
+  "fail",
+  0.001
+ ],
+ "test_M6_L9_det_layer_certificate": [
+  "fail",
+  0.002
+ ],
+ "test_M6_L8_polish_rules_lean_certified": [
+  "pass",
+  7.624
+ ],
+ "test_M6_R1_run_candidate_cli_trial": [
+  "pass",
+  8.483
+ ],
+ "test_M5_DT4_physical_cross_check_and_compose": [
+  "pass",
+  74.787
+ ],
+ "test_M6_R2_round_dry_run_brief_and_report": [
+  "pass",
+  323.036
+ ],
+ "test_M6_G2_best_synthesised_reverified": [
+  "pass",
+  0.009
+ ],
+ "test_M6_S2_polish_and_l3_trial": [
+  "pass",
+  0.913
+ ],
+ "test_M6_K0_ladder_variants_and_casimir": [
+  "pass",
+  0.61
+ ],
+ "test_M6_K1_spec_view_and_oracle": [
+  "pass",
+  7.675
+ ],
+ "test_M6_K2_structure_facts_and_spec_text": [
+  "pass",
+  0.335
+ ],
+ "test_M6_K3_builder_registers_and_cap": [
+  "pass",
+  0.001
+ ],
+ "test_M6_H3_det_layer_metrics_and_eta_set": [
+  "fail",
+  0.001
+ ],
+ "test_M6_H4_three_layer_headline": [
+  "fail",
+  173.257
+ ],
+ "test_M5_DT5_sector_structure_with_det": [
+  "pass",
+  5.561
+ ],
+ "test_M6_G6_three_layer_summary": [
+  "fail",
+  0.016
+ ],
+ "test_M6_H1_angle_set_and_robust_metrics": [
+  "pass",
+  30.802
+ ],
+ "test_M6_G5_replay_record": [
+  "fail",
+  0.004
+ ],
+ "test_M6_S1_seed_programs_and_import_reasons": [
+  "pass",
+  2.391
+ ],
+ "test_M5_O1_closed_spectra": [
+  "pass",
+  0.236
+ ]
+}

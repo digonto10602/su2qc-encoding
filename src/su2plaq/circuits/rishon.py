@@ -173,28 +173,70 @@ def build_UB(beta: float, with_outer: bool = False, ladder: str = "ccx"):
     return qc
 
 
+def _emit_ud(qc, eta: float, n_links: int = 4) -> None:
+    """Det gadget on each of the first `n_links` links (prompts/204 section 4; METHODS-rishon R14), qubits (L1, L2, R1, R2) = 4l..4l+3.
+    Frame cx(L1,L2), cx(R1,R2) sends A -> (1,0,0,0), B -> (0,0,1,0), every quartet code to (., 1, ., 1); on the block L2 = 0 the
+    Pauli X_L1 X_R1 exchanges the images of A and B (the other two patterns are invalid codes, don't-care), so
+    exp(-2i eta (|A><B| + h.c.)) = exp(-i eta X_L1 X_R1) exp(-i eta X_L1 X_R1 Z_L2): H H, cx(L1,R1), rz(2 eta, R1), cx(L2,R1),
+    rz(2 eta, R1), cx(L2,R1), cx(L1,R1), H H, then the frame inverse.  8 CX, 2 rotations (both rz(2 eta)), 4 H per link, no ancilla."""
+    for link in range(n_links):
+        l1, l2, r1, r2 = 4 * link, 4 * link + 1, 4 * link + 2, 4 * link + 3
+        qc.cx(l1, l2)
+        qc.cx(r1, r2)
+        qc.h(l1)
+        qc.h(r1)
+        qc.cx(l1, r1)
+        qc.rz(2 * eta, r1)
+        qc.cx(l2, r1)
+        qc.rz(2 * eta, r1)
+        qc.cx(l2, r1)
+        qc.cx(l1, r1)
+        qc.h(l1)
+        qc.h(r1)
+        qc.cx(r1, r2)
+        qc.cx(l1, l2)
+
+
 def build_UD(eta: float, with_outer: bool = False, include_outer_det: bool = False):
-    """Det layer U_D(eta) = exp(-i eta H_D^in) on d (+ o): the general 8-CX gadget per link (prompts/204 section 4).
-    include_outer_det (needs with_outer) adds the gadget on the 8 outer links.  metadata {"kind": "UD", "eta": eta}.
-    STUB (prompts/204 step D3)."""
-    raise NotImplementedError("PENDING: circuits.rishon.build_UD (prompts/204 step D3)")
+    """Det layer U_D(eta) = exp(-i eta H_D^in) on the 1296 inner codes (METHODS-rishon R13-R14): the general gadget of `_emit_ud`
+    on each inner link; registers d[16] (+ o[32] if `with_outer`); metadata {"kind": "UD", "eta": eta}.
+    include_outer_det (needs with_outer) adds the gadget on the 8 outer links: a separate row that WRITES the outer register
+    (A <-> B on outer links) and is certified by `results.outer_det_certify`, not by the inner-block verdict."""
+    from qiskit import QuantumCircuit, QuantumRegister
+
+    if include_outer_det and not with_outer:
+        raise ValueError("include_outer_det needs with_outer=True")
+    regs = [QuantumRegister(N_DATA, "d")] + ([QuantumRegister(N_OUTER, "o")] if with_outer else [])
+    qc = QuantumCircuit(*regs, name="UD")
+    _emit_ud(qc, float(eta), 4 + (8 if include_outer_det else 0))
+    qc.metadata = {"kind": "UD", "eta": float(eta)}
+    return qc
 
 
 def prepend_det_layer(unit, eta: float):
     """New circuit on `unit`'s registers (first register must be d[16], else ValueError): the det gadgets on d, then all of
-    `unit`'s instructions unchanged and in order (prompts/204 sections 5, 6.1).  STUB (prompts/204 step D3)."""
-    raise NotImplementedError("PENDING: circuits.rishon.prepend_det_layer (prompts/204 step D3)")
+    `unit`'s instructions unchanged and in order.  With U_D commuting with U_E this is the three-layer step
+    U_B U_D U_E = [U_B U_E] U_D for a two-layer first-order unit (prompts/204 section 6.1)."""
+    from qiskit import QuantumCircuit
+
+    if not unit.qregs or unit.qregs[0].name != "d" or unit.qregs[0].size != N_DATA:
+        raise ValueError("the first register of the unit must be d[16]")
+    full = QuantumCircuit(*unit.qregs, *unit.cregs, name=f"{unit.name}+UD")
+    _emit_ud(full, float(eta))
+    full.global_phase = unit.global_phase
+    for inst in unit.data:
+        full.append(inst.operation, list(inst.qubits), list(inst.clbits))
+    full.metadata = {**(unit.metadata or {}), "eta": float(eta), "det_layer_prepended": True}
+    return full
 
 
 def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = False, ladder: str = "ccx", eta: float | None = None):
     """One Trotter step on d (+ o) and the U_B ancillas: order 1 = U_B(beta) U_E(alpha) (electric layer applied first),
     order 2 = U_E(alpha/2) U_B(beta) U_E(alpha/2)  (prompts/200 METHODS §2).  `ladder` as in `build_UB`.  metadata {"kind": "step", ...}.
-    `eta` (prompts/204): angle of the det layer; with it the step is U_B U_D(eta) U_E (order 2: half-angle det gadgets), not built yet;
-    `eta=None` is the two-layer circuit above."""
+    `eta` (prompts/204): angle of the det layer; with it the step is U_B U_D(eta) U_E (circuit order electric, det, magnetic) and
+    for order 2 U_E(alpha/2) U_D(eta/2) U_B U_D(eta/2) U_E(alpha/2); `eta=None` is the two-layer circuit above, gate for gate."""
     if order not in (1, 2):
         raise ValueError(f"step order must be 1 or 2, got {order}")
-    if eta is not None:
-        raise NotImplementedError("PENDING: build_step(eta=...) three-layer step (prompts/204 step D3)")
     _ladder_names(ladder, 1)
     n_anc = _n_ancillas()
     qc, anc = _registers(with_outer, n_anc, f"step{order}")
@@ -202,12 +244,20 @@ def build_step(alpha: float, beta: float, order: int = 1, with_outer: bool = Fal
     def electric(a):
         _emit_ue(qc, a)
 
+    def det(e):
+        if eta is not None:
+            _emit_ud(qc, e)
+
     if order == 1:
         electric(float(alpha))
+        det(None if eta is None else float(eta))
         meta = _emit_ub(qc, float(beta), anc, ladder)
     else:
         electric(float(alpha) / 2)
+        det(None if eta is None else float(eta) / 2)
         meta = _emit_ub(qc, float(beta), anc, ladder)
+        det(None if eta is None else float(eta) / 2)
         electric(float(alpha) / 2)
-    qc.metadata = {"kind": "step", "alpha": float(alpha), "beta": float(beta), "order": order, **meta}
+    qc.metadata = {"kind": "step", "alpha": float(alpha), "beta": float(beta), "order": order,
+                   **({} if eta is None else {"eta": float(eta)}), **meta}
     return qc

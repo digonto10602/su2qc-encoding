@@ -37,6 +37,9 @@ PRUNE_RATE_PER_BRANCHING_GATE = 1.1e-15
 PRUNE_BRANCHING = ["h", "sx", "u", "ch (2)", "crx (2)", "rccx (2)", "crz (0)", "cp (0)"]
 PRUNE_ENGINE_EXACT = ["x", "z", "s", "sdg", "t", "tdg", "p", "rz", "cx", "cz", "cp", "swap", "ccx", "ccz"]
 PRUNE_PROVENANCE = "prompts/203 §13 E2 table"
+# measured `dropped_total` of the exact round-0 seeds that the old 1 % cap rejected on simulator rounding alone (research 203 section 3.6,
+# results/compress/rishon/round-000.json before the replay); the spec quotes them as gate-equivalents at the worst rate above.
+PRUNE_SEEDS_MEASURED = {"general-mcx": 2.7e-12, "general-rccx": 2.9e-12, "qiskit_l3": 3.8e-12}
 
 _STATE_INDEXING = ("**State indexing.** Inner codes 0..1295 in sorted code order (the 6^4 = 1296 valid inner codes are the "
                    "single-code input states of the evaluator, outer bits 0); `oracle --codec --state k` prints the code of "
@@ -437,6 +440,8 @@ def render_spec(spec) -> str:
     alph = ", ".join("\\pm" + _alphabet_tex(a) for a in by["amplitude_alphabet"]["value"])
     cap = PRUNE_FRACTION * spec.tol_err
     n_budget = prune_budget(spec)
+    seed_lo, seed_hi = min(PRUNE_SEEDS_MEASURED.values()), max(PRUNE_SEEDS_MEASURED.values())
+    gate_lo, gate_hi = (int(round(x / PRUNE_RATE_PER_BRANCHING_GATE / 50.0)) * 50 for x in (seed_lo, seed_hi))
     slack = synth_tolerances(0, spec.eps)["tol_err"]
     n_closed, n_sample = _gauss_count()
     alts = ", ".join(f"({a:g}, {b:g})" for a, b in spec.alt_angles)
@@ -474,8 +479,9 @@ def render_spec(spec) -> str:
         f"after one global phase; `dropped_total` must be at most {cap:g} (**prune cap** = {PRUNE_FRACTION:g} x tolerance for this encoding; measured on "
         f"this task the engine's certified pruning bound grows by about {PRUNE_RATE_PER_BRANCHING_GATE:.1e} per branching gate of its lowering "
         f"(h, sx, u; ch, crx and rccx count 2; macro ccx/ccz and all permutation/phase gates count 0), so the cap allows about {n_budget} "
-        "branching gates; exact circuits above that are rejected as `pruning_bound` - the uncompressed circuit in bare h/t form, its "
-        "rccx-ladder variants and its Qiskit L3 transpile use about 3 500-4 400 of them and pass); "
+        "branching gates; exact circuits above that are rejected as `pruning_bound`; "
+        f"the uncompressed circuit with rccx / mcx ladders and its Qiskit L3 transpile measure `dropped_total` {seed_lo:g} to {seed_hi:g}, "
+        f"i.e. about {gate_lo} to {gate_hi} branching gates at that rate, and pass); "
         f"Gauss residual of the outputs on {n_closed + n_sample} sampled "
         f"physical states ({n_closed} closed + {n_sample} seeded) at most {spec.tol_gauss:g}; identical skeleton at the three angle "
         f"pairs; evaluation wall at most {spec.eval_budget_s:g} s and at most {spec.support_cap} stored amplitudes; synthesised "

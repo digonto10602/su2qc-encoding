@@ -36,6 +36,15 @@ def test_rejudge_cascade(kw, reason):
         assert dict(failing) == {"dropped_total": 2e-11, "prune_cap": pytest.approx(1e-11, rel=1e-12)}
 
 
+@pytest.mark.parametrize("field,reason", [("dropped_total", "pruning_bound"), ("leak_amplitude", "leak"), ("op_norm_error", "error")])
+@pytest.mark.parametrize("bad", [float("nan"), float("inf")])
+def test_rejudge_rejects_non_finite(field, reason, bad):
+    v = _verdict(dropped=5e-12)
+    setattr(v, field, bad)
+    got, failing = V._rejudge(v, V.RISHON_PRUNE_FRACTION * 1e-10, 1e-10)
+    assert got in ({"leak", "dirty_ancilla"} if reason == "leak" else {reason}) and failing != []     # leak vs dirty_ancilla is a label
+
+
 def test_rejudge_cap_scales_with_fraction():
     v = _verdict(dropped=5e-12)
     assert V._rejudge(v, 1e-2 * 1e-10, 1e-10)[0] == "pruning_bound"        # the shared cap reproduces the shared verdict
@@ -51,8 +60,8 @@ def test_verify_refuses_fraction_below_shared_and_det_paths_pending():
     assert v.ok and v.extra["prune_fraction"] == 0.5 and v.extra["prune_cap"] == pytest.approx(5e-11) and v.extra["laptop_reason"] == "ok"
     d = V.verify(qc, enc, "UE", 0.0, None, gauss=False)
     assert d.extra["prune_fraction"] == V.RISHON_PRUNE_FRACTION and d.inner_verdict.ok
-    with pytest.raises(NotImplementedError, match="PENDING"):
-        V.verify(qc, enc, "step", 0.1, 0.1, eta=0.2, gauss=False)
+    v = V.verify(qc, enc, "UD", None, None, eta=0.0, gauss=False)           # det layer of angle 0 is the identity
+    assert v.ok and v.reason == "ok"
 
 
 # ------------------------------------------------------------------------------------------------ D2: operators
@@ -126,3 +135,86 @@ def test_encoding_pass_through_and_constants():
     assert T3.shape == (3, 3) and np.linalg.norm(T3, 2) <= 1.0 + 1e-9
     U = enc.target("UD", None, None, states=list(range(5)), eta=0.29)
     assert U.shape == (5, 5) and np.linalg.norm(U, 2) <= 1.0 + 1e-9
+
+
+# ------------------------------------------------------------------------------------------------ D3: circuits
+def test_build_UD_counts_registers_and_errors():
+    from su2plaq.circuits.rishon import build_UD
+    from su2plaq.metrics.logical import logical_metrics
+
+    qc = build_UD(0.29)
+    m = logical_metrics(qc)
+    assert qc.num_qubits == 16 and [r.name for r in qc.qregs] == ["d"] and m["cx"] == 32 and m["n_rot"] == 8 and m["t_fixed"] == 0
+    assert qc.metadata == {"kind": "UD", "eta": 0.29}
+    assert [i.operation.name for i in qc.data] == [i.operation.name for i in build_UD(0.83).data]
+    qo = build_UD(0.29, with_outer=True, include_outer_det=True)
+    assert qo.num_qubits == 48 and logical_metrics(qo)["cx"] == 96 and logical_metrics(qo)["n_rot"] == 24
+    with pytest.raises(ValueError):
+        build_UD(0.29, include_outer_det=True)
+
+
+def test_det_layer_exact_on_inner_codes_and_wrong_sign_rejected():
+    enc = RishonEncoding()
+    from su2plaq.circuits.rishon import build_UD
+
+    v = V.verify(build_UD(0.29), enc, "UD", None, None, eta=0.29, gauss=False)
+    assert v.ok and v.certified and v.op_norm_error <= 1e-12 and v.outer_bits_read == 0
+    assert not V.verify(build_UD(-0.29), enc, "UD", None, None, eta=0.29, gauss=False).ok
+
+
+@pytest.mark.parametrize("order", [1, 2])
+def test_build_step_eta_structure(order):
+    from su2plaq.circuits.rishon import build_step, build_UD
+    from su2plaq.metrics.logical import logical_metrics
+
+    two, three = build_step(0.37, 0.61, order), build_step(0.37, 0.61, order, eta=0.29)
+    assert [(i.operation.name, tuple(two.find_bit(q).index for q in i.qubits)) for i in two.data] == \
+           [(i.operation.name, tuple(two.find_bit(q).index for q in i.qubits)) for i in build_step(0.37, 0.61, order, eta=None).data]
+    m2, m3, md = logical_metrics(two), logical_metrics(three), logical_metrics(build_UD(0.29))
+    assert m3["cx"] == m2["cx"] + order * md["cx"] and m3["n_rot"] == m2["n_rot"] + order * md["n_rot"] and m3["qubits"] == m2["qubits"]
+    assert three.metadata["eta"] == 0.29 and "eta" not in two.metadata
+
+
+def test_prepend_det_layer():
+    from qiskit import QuantumCircuit, QuantumRegister
+
+    from su2plaq.circuits.rishon import build_step, build_UD, prepend_det_layer
+
+    unit = build_step(0.37, 0.61, 1, with_outer=True)
+    full = prepend_det_layer(unit, 0.29)
+    ud = build_UD(0.29)
+    assert full.num_qubits == unit.num_qubits and [r.name for r in full.qregs] == [r.name for r in unit.qregs]
+    assert len(full.data) == len(unit.data) + len(ud.data) and [i.operation.name for i in full.data][-len(unit.data):] == [i.operation.name for i in unit.data]
+    assert [i.operation.name for i in full.data][:len(ud.data)] == [i.operation.name for i in ud.data]
+    assert len(unit.data) == len(build_step(0.37, 0.61, 1, with_outer=True).data)      # the input is not modified
+    with pytest.raises(ValueError):
+        prepend_det_layer(QuantumCircuit(QuantumRegister(8, "x")), 0.1)
+
+
+def test_outer_det_certify_basic():
+    from su2plaq.circuits.rishon import build_UD
+    from su2plaq.rishon.results import outer_det_certify
+
+    enc = RishonEncoding()
+    r = outer_det_certify(build_UD(0.29, with_outer=True, include_outer_det=True), enc, 0.29)
+    assert r["certified"] and r["method"] == "outer_det_gadgets" and r["n_links"] == 12 and r["error_bound"] <= 1e-10
+    assert abs(abs(r["phase"]) - 1.0) <= 1e-12 and r["gates_per_link"] == [14] * 12
+    assert not outer_det_certify(build_UD(-0.29, with_outer=True, include_outer_det=True), enc, 0.29)["certified"]
+    assert outer_det_certify(build_UD(0.29), enc, 0.29)["reason"] == "ancilla_register"
+    assert outer_det_certify(build_UD(0.29, with_outer=True), enc, 0.29)["certified"] is False     # outer links lack their rotation
+
+
+# ------------------------------------------------------------------------------------------------ D4: observables
+def test_observables_eta_and_closed_spectra():
+    from su2plaq.rishon import observables as Ob
+
+    base = Ob.observables(0.37, 0.61)
+    assert Ob.observables(0.37, 0.61, eta=None)["rishon"] == base["rishon"]
+    z = Ob.observables(0.37, 0.61, eta=0.0)
+    assert all(abs(z["rishon"][n][k] - base["rishon"][n][k]) <= 1e-12 for n in (1, 2) for k in ("E_link", "P", "echo"))
+    d = Ob.observables(0.37, 0.61, eta=0.29)
+    assert d["ks"] == base["ks"] and abs(d["rishon"][1]["P"]) <= 1e-12 and abs(d["rishon"][1]["echo"] - base["rishon"][1]["echo"]) > 1e-4
+    s0 = Ob.closed_spectra((1.0,))["rishon"][1.0]
+    assert s0 == Ob.closed_spectra((1.0,), lam_d=0.0)["rishon"][1.0] and s0["multiplicities"] == [1, 15, 1]
+    s = Ob.closed_spectra((1.0,), lam_d=0.2)["rishon"][1.0]
+    assert sum(s["multiplicities"]) == 17 and 15 not in s["multiplicities"]
