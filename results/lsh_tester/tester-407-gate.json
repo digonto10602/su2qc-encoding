@@ -1,0 +1,37 @@
+{
+ "commit": "f8cc138",
+ "mode": "full",
+ "cores": "14-19",
+ "n": 6,
+ "counts": {
+  "m0": 34,
+  "m1": 22,
+  "m2": 46,
+  "m3": 24,
+  "m3x": 4,
+  "m4": 19,
+  "m7": 29,
+  "unit": 934
+ },
+ "failed": 0,
+ "pending": 0,
+ "wall_s": {
+  "m7": 11,
+  "m0": 18,
+  "m1": 96,
+  "m3": 11,
+  "m3x": 7,
+  "m4": 44,
+  "m2": 173,
+  "unit": 355
+ },
+ "collect": 341,
+ "lock": "OK",
+ "acceptance_check": "PASS acceptance-v18",
+ "results_regen": {
+  "files": "UE,UB,step json (modulo provenance/seconds), qpy, qasm3",
+  "json_diffs": 0,
+  "binary_identical": 10,
+  "regen_wall_s": 8.4
+ }
+}
