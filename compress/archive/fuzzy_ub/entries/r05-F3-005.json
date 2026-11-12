@@ -1,0 +1,192 @@
+{
+ "id": "r05-F3-005",
+ "program_path": "compress/programs/fuzzy_ub/F3/005-two-swap-single-middle.py",
+ "program_sha256": "68cd3d5853dbe8675497717cd8a41fc789d21cd7e3f7087bbd03488447156af9",
+ "parent": "r04-F3-004",
+ "family": "F3",
+ "round": 5,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  94,
+  658,
+  1530,
+  12
+ ],
+ "cell": [
+  52,
+  74
+ ],
+ "metrics_raw": {
+  "cx": 94,
+  "t_fixed": 92,
+  "n_rot": 9,
+  "t_eps": 658,
+  "t_estimate": {
+   "1e-06": 630.1523513717527,
+   "1e-10": 988.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 658,
+   "1e-10": 1028
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 96,
+  "depth_ct": 1530,
+  "qubits": 12,
+  "gates": {
+   "cx": 94,
+   "h": 70,
+   "t": 52,
+   "tdg": 40,
+   "x": 28,
+   "s": 16,
+   "rz": 9,
+   "z": 8,
+   "sdg": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 6.579333527330168e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -1.0,
+   3.65299189667427e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.7330096287393287e-14,
+  "block_error": 1.8463238985908403e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.04012799263000488,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.8331831648458773e-14,
+   "max_dropped_l2": 5.1422615691106096e-15,
+   "max_span_leak": 2.220446049250313e-16,
+   "op_norm_error_inner_span": 1.8463238985908403e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.1097682102422214e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    3.675083340364268e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.0109601195646157e-14,
+   "block_error": 1.0988080906776054e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04127907752990723,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.0988080906776054e-14,
+    "max_dropped_l2": 3.2463064047500174e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.0951262744545871e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.454736721955013e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    3.4263485725362584e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.6699890958674166e-14,
+   "block_error": 1.7847476260875974e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04001665115356445,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7847476260875974e-14,
+    "max_dropped_l2": 5.959973778064356e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.7787759086377816e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: with per-sector branch patterns c(p,f) on each swap, the 2-swap word (1 3)[c2](0 2)[c1] puts all 8 sectors (incl. p3 -> 4 w01 w23 and p6 -> (1-2w01)(1-2w23)) into diagonal form at the common decoder (0,1),(2,3); exhaustive search finds no such apex with <=4 swaps whose controls are affine in (f,p_r,p_t,p_l), nor with 3 swaps when only one control is an AND, so nonlinear controls are essential.",
+  "DISCOVERY: for that word the f-coefficient b(p) of one of the two controls is always nonlinear (forced by sectors 0,1,2,4,5,7), so 30 CX of control (one persistent AND line g + an rccx compute/uncompute pair per Fredkin use) is minimal for single-rccx lines; routing costs 4*7+30 = 58 CX against 64 in r04-F1-004, with one middle instead of two.",
+  "DISCOVERY: using the persistent g line as a polynomial variable cuts the merged middle from 15 to 9 Walsh terms (walk 16 -> 14 CX); an IDA* over general CX parity networks (all wires as targets) proves 14 optimal for every MILP support with <= 12 terms."
+ ],
+ "summary": "two-swap frame for all 8 parity sectors at once: swap(q2^1,q2^3) controlled by c2 = ~p_t & ~s_r and swap(q2^0,q2^2) controlled by c1 = f & ~g (g = ~p_t & (p_r^p_l), one persistent AND line) bring every sector to a diagonal form under the single Bell pairing (0,1),(2,3), so ONE R_x phase polynomial on f over (p_r, p_r^p_l, p_t, w01, w23, g) (9 terms, 14-CX walk) replaces both middles; 4 Fredkins instead of 6, 94 CX, 12 qubits.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "f8cc138",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.4765901565551758,
+ "written_utc": "2026-11-12T04:58:35Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9e-06
+ },
+ "lean": {
+  "status": "n_a",
+  "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+ },
+ "mode": "full"
+}
