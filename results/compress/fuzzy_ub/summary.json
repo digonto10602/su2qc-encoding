@@ -1,21 +1,21 @@
 {
  "encoding": "fuzzy_ub",
  "kind": "UB",
- "n_rounds": 7,
- "n_candidates": 21,
- "n_valid": 20,
- "global_best": "r06-F3-006",
+ "n_rounds": 8,
+ "n_candidates": 24,
+ "n_valid": 23,
+ "global_best": "r07-F1-007",
  "global_best_key": [
-  87,
-  650,
-  1571,
+  84,
+  646,
+  1562,
   11
  ],
  "best_by_family": {
   "seed": "r00-seed-010",
-  "F1": "r06-F1-006",
-  "F2": "r06-F2-006",
-  "F3": "r06-F3-006"
+  "F1": "r07-F1-007",
+  "F2": "r07-F2-007",
+  "F3": "r07-F3-007"
  },
  "header": [
   "row",
@@ -112,47 +112,47 @@
   [
    "best of family F1",
    "11",
-   "88",
+   "84",
    "80",
    "9",
    "646",
    "618.152",
    "1016",
    "-",
-   "1566",
-   "valid (err 5.3647e-14, leak 0)",
-   "not_run",
-   "r06-F1-006 @ 49e247e"
+   "1562",
+   "valid (err 5.47259e-14, leak 0)",
+   "n_a",
+   "r07-F1-007 @ e873737"
   ],
   [
    "best of family F2",
    "11",
-   "88",
+   "86",
    "80",
    "9",
    "646",
    "618.152",
    "1016",
    "-",
-   "1567",
-   "valid (err 6.26438e-14, leak 0)",
+   "1568",
+   "valid (err 4.44139e-14, leak 0)",
    "not_run",
-   "r06-F2-006 @ 49e247e"
+   "r07-F2-007 @ e873737"
   ],
   [
    "best of family F3",
    "11",
-   "87",
-   "84",
+   "86",
+   "80",
    "9",
-   "650",
-   "622.152",
-   "1020",
+   "646",
+   "618.152",
+   "1016",
    "-",
-   "1571",
-   "valid (err 4.56378e-14, leak 0)",
-   "n_a",
-   "r06-F3-006 @ 49e247e"
+   "1568",
+   "valid (err 4.43896e-14, leak 0)",
+   "not_run",
+   "r07-F3-007 @ e873737"
   ],
   [
    "best of family seed",
@@ -172,17 +172,17 @@
   [
    "GLOBAL BEST",
    "11",
-   "87",
    "84",
+   "80",
    "9",
-   "650",
-   "622.152",
-   "1020",
+   "646",
+   "618.152",
+   "1016",
    "-",
-   "1571",
-   "valid (err 4.56378e-14, leak 0)",
+   "1562",
+   "valid (err 5.47259e-14, leak 0)",
    "n_a",
-   "r06-F3-006 @ 49e247e"
+   "r07-F1-007 @ e873737"
   ]
  ],
  "lineage": [
@@ -364,6 +364,33 @@
    "round": 6,
    "cx": 87,
    "t_eps": 650,
+   "parent_known": true
+  },
+  {
+   "id": "r07-F1-007",
+   "parent": "r06-F1-006",
+   "family": "F1",
+   "round": 7,
+   "cx": 84,
+   "t_eps": 646,
+   "parent_known": true
+  },
+  {
+   "id": "r07-F2-007",
+   "parent": "r06-F2-006",
+   "family": "F2",
+   "round": 7,
+   "cx": 86,
+   "t_eps": 646,
+   "parent_known": true
+  },
+  {
+   "id": "r07-F3-007",
+   "parent": "r06-F3-006",
+   "family": "F3",
+   "round": 7,
+   "cx": 86,
+   "t_eps": 646,
    "parent_known": true
   }
  ]
