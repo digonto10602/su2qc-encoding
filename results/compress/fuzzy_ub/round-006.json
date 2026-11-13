@@ -1,0 +1,275 @@
+{
+ "round": 6,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  87,
+  650,
+  1571,
+  11
+ ],
+ "entries": [
+  "r06-F1-006",
+  "r06-F2-006",
+  "r06-F3-006"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "fuzzy_ub",
+ "kind": "UB",
+ "provenance": {
+  "git_commit": "49e247e",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-13T12:20:08Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "006-chained-control-line",
+   "id": "r06-F1-006",
+   "family": "F1",
+   "program_sha256": "312004b05ae7c3f812800fe0541795fe0c7fc07c6514a644f9973711b554a88e",
+   "program_path": "compress/programs/fuzzy_ub/F1/006-chained-control-line.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    88,
+    646,
+    1566,
+    11
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 88,
+    "t_fixed": 80,
+    "n_rot": 9,
+    "t_eps": 646,
+    "t_estimate": {
+     "1e-06": 618.1523513717527,
+     "1e-10": 976.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 646,
+     "1e-10": 1016
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 129,
+    "depth_ct": 1566,
+    "qubits": 11,
+    "gates": {
+     "cx": 88,
+     "h": 62,
+     "t": 46,
+     "tdg": 34,
+     "x": 24,
+     "s": 16,
+     "rz": 9,
+     "z": 8,
+     "sdg": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.364698873381517e-14,
+    "block_error": 1.8192600002818078e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r05-F1-005",
+   "parent_known": true,
+   "git_commit": "49e247e",
+   "summary": "r05-F1/F3 two-swap single-middle frame ((1 3)[c2], (0 2)[c1], Bell pairs (0,1),(2,3), one 9-term R_x phase polynomial on f, 14-CX walk) with the c2 control line and the persistent g line merged into ONE ancilla chain L: 0 -> c2 = ~p_t&~s_r -> g = ~p_t&(s_r^s_l) (the second rccx adds ~p_t&~s_l), so g costs no compute/uncompute of its own; the two rccx on the c1/w01 ancilla are fused (-2 T each side); 88 CX, 11 qubits.",
+   "lean": null,
+   "round": 6,
+   "mode": "full"
+  },
+  {
+   "label": "006-shared-factor-g-chain",
+   "id": "r06-F2-006",
+   "family": "F2",
+   "program_sha256": "4971c0ef585b4bea55e7be1e8975dad9915da63d1aed4771d50aaa90293e5d5d",
+   "program_path": "compress/programs/fuzzy_ub/F2/006-shared-factor-g-chain.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    88,
+    646,
+    1567,
+    11
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 88,
+    "t_fixed": 80,
+    "n_rot": 9,
+    "t_eps": 646,
+    "t_estimate": {
+     "1e-06": 618.1523513717527,
+     "1e-10": 976.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 646,
+     "1e-10": 1016
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 130,
+    "depth_ct": 1567,
+    "qubits": 11,
+    "gates": {
+     "cx": 88,
+     "h": 62,
+     "t": 46,
+     "tdg": 34,
+     "x": 24,
+     "s": 16,
+     "rz": 9,
+     "z": 8,
+     "sdg": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 6.264380777908103e-14,
+    "block_error": 1.824508569506115e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r05-F2-005",
+   "parent_known": true,
+   "git_commit": "49e247e",
+   "summary": "r05-F3-005 two-swap single-middle datapath with a shared-factor toggle chain on one line G: G = c2 = ~p_t & ~z_r (rccx) controls swap(q2^1,q2^3), then ONE rccx with the raw ~z_l wire turns it into the persistent g = ~p_t & (z_r^z_l) (c2 ^ ~p_t&~z_l = g) used by the c1 = f&~g swap(q2^0,q2^2) and the 9-term middle polynomial; mirrored on the way back; the separate g line and its 2 rccx disappear (-6 CX), and the c1-uncompute/w01-compute rccx pairs on one target are fused (Tdg H H T = I, -4 T); 88 CX, 11 qubits.",
+   "lean": null,
+   "round": 6,
+   "mode": "full"
+  },
+  {
+   "label": "006-convert-line-g-free",
+   "id": "r06-F3-006",
+   "family": "F3",
+   "program_sha256": "69d2f3afdd068b89164699c33c687e40b35da03559151bf531e786f07f21745e",
+   "program_path": "compress/programs/fuzzy_ub/F3/006-convert-line-g-free.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    87,
+    650,
+    1571,
+    11
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 87,
+    "t_fixed": 84,
+    "n_rot": 9,
+    "t_eps": 650,
+    "t_estimate": {
+     "1e-06": 622.1523513717527,
+     "1e-10": 980.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 650,
+     "1e-10": 1020
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 137,
+    "depth_ct": 1571,
+    "qubits": 11,
+    "gates": {
+     "cx": 87,
+     "h": 66,
+     "t": 48,
+     "tdg": 36,
+     "x": 20,
+     "s": 17,
+     "rz": 9,
+     "z": 8,
+     "sdg": 6
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 4.563780790004487e-14,
+    "block_error": 1.839336439118392e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r05-F3-005",
+   "parent_known": true,
+   "git_commit": "49e247e",
+   "summary": "g-line-free two-swap frame: the (0 2) control c02 = ~lp & s_t (one rccx) is converted after its Fredkin by U ^= f & ~lp into the invariant line u = p_t & ~lp, which both feeds the (1 3) control ~(s_r & ~u) (one rccx) and serves as the g-class middle variable, so the persistent g line disappears (control cost 24 instead of 30 CX); R_x polynomial (8 terms + constant, 9 rotations) on (r, lp, t, u, w01, w23) with an open walk whose closing r toggle merges into the leg-2 parity CX (13 CX); 87 CX, 11 qubits.",
+   "lean": {
+    "status": "n_a",
+    "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+   },
+   "round": 6,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r06-F3-006",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 9,
+  "t_total": 650,
+  "tolerances": {
+   "tol_err": 9.001e-06,
+   "tol_gauss": 9.001e-06
+  },
+  "op_norm_error": 2.2693059537474163e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 2.3436765670776367,
+ "written_utc": "2026-11-13T12:20:08Z"
+}
