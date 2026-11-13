@@ -1,0 +1,428 @@
+{
+ "commit": "1cd9bf9",
+ "files": {
+  "UE": {
+   "params": {
+    "alpha": 0.37,
+    "beta": null,
+    "order": 1
+   },
+   "prov_commit": "b4c1917",
+   "dirty": false,
+   "ok": true,
+   "certified": true,
+   "reason": "ok",
+   "op_norm_error": 1.1102230246251565e-16,
+   "block_error": 1.1102230246251565e-16,
+   "leak": 0.0,
+   "dropped": 0.0,
+   "gauss_residual": 1.7554167342883506e-16,
+   "gauss_states": 273,
+   "tol": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "engine": "sparse",
+   "method": "inner_block",
+   "logical": {
+    "cx": 8,
+    "depth": 3,
+    "n_rot": 4,
+    "t_fixed": 0,
+    "qubits": 16,
+    "ancilla": 0
+   },
+   "t_table": [
+    [
+     0.0001,
+     176,
+     4
+    ],
+    [
+     1e-06,
+     256,
+     4
+    ],
+    [
+     1e-08,
+     328,
+     4
+    ],
+    [
+     1e-10,
+     416,
+     4
+    ]
+   ],
+   "extra_keys": [
+    "register_variants",
+    "physics",
+    "physics_detail",
+    "seconds",
+    "outer_electric_row"
+   ]
+  },
+  "UB": {
+   "params": {
+    "alpha": null,
+    "beta": 0.61,
+    "order": 1
+   },
+   "prov_commit": "b4c1917",
+   "dirty": false,
+   "ok": true,
+   "certified": true,
+   "reason": "ok",
+   "op_norm_error": 3.434066627820508e-13,
+   "block_error": 4.1436388124413177e-14,
+   "leak": 0.0,
+   "dropped": 3.0197027465763763e-13,
+   "gauss_residual": 2.2614139732385464e-15,
+   "gauss_states": 273,
+   "tol": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "engine": "sparse",
+   "method": "inner_block",
+   "logical": {
+    "cx": 10094,
+    "depth": 13682,
+    "n_rot": 162,
+    "t_fixed": 10218,
+    "qubits": 26,
+    "ancilla": 10
+   },
+   "t_table": [
+    [
+     0.0001,
+     17150,
+     162
+    ],
+    [
+     1e-06,
+     20394,
+     162
+    ],
+    [
+     1e-08,
+     23954,
+     162
+    ],
+    [
+     1e-10,
+     27066,
+     162
+    ]
+   ],
+   "extra_keys": [
+    "register_variants",
+    "physics",
+    "physics_detail",
+    "seconds"
+   ]
+  },
+  "UD": {
+   "params": {
+    "eta": 0.29,
+    "order": null
+   },
+   "prov_commit": "6fea036",
+   "dirty": false,
+   "ok": true,
+   "certified": true,
+   "reason": "ok",
+   "op_norm_error": 2.7562859870816844e-15,
+   "block_error": 1.481222263080711e-15,
+   "leak": 0.0,
+   "dropped": 1.2750637240009737e-15,
+   "gauss_residual": 2.1499376424746292e-16,
+   "gauss_states": 273,
+   "tol": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "engine": "sparse",
+   "method": "inner_block",
+   "logical": {
+    "cx": 32,
+    "depth": 10,
+    "n_rot": 8,
+    "t_fixed": 0,
+    "qubits": 16,
+    "ancilla": 0
+   },
+   "t_table": [
+    [
+     0.0001,
+     352,
+     8
+    ],
+    [
+     1e-06,
+     496,
+     8
+    ],
+    [
+     1e-08,
+     688,
+     8
+    ],
+    [
+     1e-10,
+     816,
+     8
+    ]
+   ],
+   "extra_keys": [
+    "physics",
+    "physics_detail",
+    "symbols",
+    "seconds",
+    "outer_det_row"
+   ]
+  },
+  "step": {
+   "params": {
+    "alpha": 0.37,
+    "beta": 0.61,
+    "order": 1
+   },
+   "prov_commit": "b4c1917",
+   "dirty": false,
+   "ok": true,
+   "certified": true,
+   "reason": "ok",
+   "op_norm_error": 4.1246060086071064e-13,
+   "block_error": 4.489833056565055e-14,
+   "leak": 0.0,
+   "dropped": 3.675622702950601e-13,
+   "gauss_residual": 2.6597966961250314e-15,
+   "gauss_states": 273,
+   "tol": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "engine": "sparse",
+   "method": "inner_block",
+   "logical": {
+    "cx": 10102,
+    "depth": 13685,
+    "n_rot": 166,
+    "t_fixed": 10218,
+    "qubits": 26,
+    "ancilla": 10
+   },
+   "t_table": [
+    [
+     0.0001,
+     17326,
+     166
+    ],
+    [
+     1e-06,
+     20650,
+     166
+    ],
+    [
+     1e-08,
+     24282,
+     166
+    ],
+    [
+     1e-10,
+     27482,
+     166
+    ]
+   ],
+   "extra_keys": [
+    "register_variants",
+    "physics",
+    "physics_detail",
+    "seconds"
+   ]
+  },
+  "step_order2": {
+   "params": {
+    "alpha": 0.37,
+    "beta": 0.61,
+    "order": 2
+   },
+   "prov_commit": "b4c1917",
+   "dirty": false,
+   "ok": true,
+   "certified": true,
+   "reason": "ok",
+   "op_norm_error": 4.0961286783138846e-13,
+   "block_error": 4.505799488143801e-14,
+   "leak": 0.0,
+   "dropped": 3.6455487294995047e-13,
+   "gauss_residual": 2.2694320561057443e-15,
+   "gauss_states": 273,
+   "tol": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "engine": "sparse",
+   "method": "inner_block",
+   "logical": {
+    "cx": 10110,
+    "depth": 13688,
+    "n_rot": 170,
+    "t_fixed": 10218,
+    "qubits": 26,
+    "ancilla": 10
+   },
+   "t_table": [
+    [
+     0.0001,
+     17486,
+     170
+    ],
+    [
+     1e-06,
+     20922,
+     170
+    ],
+    [
+     1e-08,
+     24626,
+     170
+    ],
+    [
+     1e-10,
+     27898,
+     170
+    ]
+   ],
+   "extra_keys": [
+    "register_variants",
+    "physics",
+    "physics_detail",
+    "seconds"
+   ]
+  },
+  "step3": {
+   "params": {
+    "eta": 0.29,
+    "order": 1,
+    "alpha": 0.37,
+    "beta": 0.61
+   },
+   "prov_commit": "6fea036",
+   "dirty": false,
+   "ok": true,
+   "certified": true,
+   "reason": "ok",
+   "op_norm_error": 4.980007388836005e-13,
+   "block_error": 4.743010379915744e-14,
+   "leak": 0.0,
+   "dropped": 4.5057063508444296e-13,
+   "gauss_residual": 3.618690551027049e-15,
+   "gauss_states": 273,
+   "tol": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "engine": "sparse",
+   "method": "inner_block",
+   "logical": {
+    "cx": 10134,
+    "depth": 13695,
+    "n_rot": 174,
+    "t_fixed": 10218,
+    "qubits": 26,
+    "ancilla": 10
+   },
+   "t_table": [
+    [
+     0.0001,
+     17678,
+     174
+    ],
+    [
+     1e-06,
+     21146,
+     174
+    ],
+    [
+     1e-08,
+     24970,
+     174
+    ],
+    [
+     1e-10,
+     28298,
+     174
+    ]
+   ],
+   "extra_keys": [
+    "physics",
+    "physics_detail",
+    "symbols",
+    "seconds"
+   ]
+  },
+  "step3_order2": {
+   "params": {
+    "eta": 0.29,
+    "order": 2,
+    "alpha": 0.37,
+    "beta": 0.61
+   },
+   "prov_commit": "6fea036",
+   "dirty": false,
+   "ok": true,
+   "certified": true,
+   "reason": "ok",
+   "op_norm_error": 4.746927044272761e-13,
+   "block_error": 4.8612304009437593e-14,
+   "leak": 0.0,
+   "dropped": 4.2608040041783856e-13,
+   "gauss_residual": 2.359823351203418e-15,
+   "gauss_states": 273,
+   "tol": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "engine": "sparse",
+   "method": "inner_block",
+   "logical": {
+    "cx": 10174,
+    "depth": 13708,
+    "n_rot": 186,
+    "t_fixed": 10218,
+    "qubits": 26,
+    "ancilla": 10
+   },
+   "t_table": [
+    [
+     0.0001,
+     18190,
+     186
+    ],
+    [
+     1e-06,
+     21946,
+     186
+    ],
+    [
+     1e-08,
+     25970,
+     186
+    ],
+    [
+     1e-10,
+     29530,
+     186
+    ]
+   ],
+   "extra_keys": [
+    "physics",
+    "physics_detail",
+    "symbols",
+    "seconds"
+   ]
+  }
+ }
+}

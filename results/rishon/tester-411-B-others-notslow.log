@@ -1,0 +1,217 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [ 28%]
+FFFFFF.FFFFFFFF............FFFF......................................... [ 56%]
+............................FFFFFFFF....F............................... [ 84%]
+.........................FFF.......FF...                                 [100%]
+=================================== FAILURES ===================================
+____________________ test_M2C_G2_structure_json_is_current _____________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+_________________________ test_M2C_R1_registry_content _________________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+________ test_M2C_R2_fresh_process_and_stock_worker_know_every_encoding ________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+___________________ test_M2C_R3_track_facades_patch_nothing ____________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+______________________ test_M2C_P1_code_hash_per_encoding ______________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+_________________ test_M2C_P2_shared_round_stamps_both_hashes __________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+______________ test_M2C_E5_gauss_not_checked_is_reported_as_such _______________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+______________________ test_M2C_E6_inner_target_dispatch _______________________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+_______________ test_M2C_Y1_replay_on_a_copy_of_the_link_archive _______________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.compress.replay'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'
+_________ test_M2C_G1_archive_replayed_under_current_code[twelve-step] _________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.compress.replay'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'
+________ test_M2C_G1_archive_replayed_under_current_code[spinnet-step] _________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.compress.replay'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'
+_________ test_M2C_G1_archive_replayed_under_current_code[rishon-step] _________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.compress.replay'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'
+_________ test_M2C_G1_archive_replayed_under_current_code[fuzzy_ub-UB] _________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.compress.replay'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'
+________ test_M2C_G1_archive_replayed_under_current_code[fuzzy_link-UE] ________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.compress.replay'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'
+_____________ test_M2C_E1_span_leak_exact_against_dense_reference ______________
+[gw0] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)
+________ test_M2C_E2_span_leak_zero_on_exact_circuits_and_trial_subset _________
+[gw0] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)
+____________________ test_M2C_E3_span_leak_decides_validity ____________________
+[gw0] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)
+______________________ test_M2C_E4_prune_fraction_keyword ______________________
+[gw0] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: evaluator.evaluate has no keyword prune_fraction (prompts/008 step B2)
+____________ test_M8_E2_fresh_process_stock_worker_and_no_patching _____________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+______________________ test_M8_S0_spec_oracle_builder_lsh ______________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+________________ test_M8_S2_general_program_worker_and_sandbox _________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+____________________ test_M8_S5_evaluator_rejections_on_lsh ____________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+________________________ test_M8_S3_seed_round_dry_run _________________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+______________ test_M8_S4_round_one_dry_run_briefs_and_stop_state ______________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+___________________ test_M8_H1_robust_metrics_and_hardenings ___________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+________________ test_M8_L2_structure_facts_match_lean_sources _________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+________________________ test_M8_E1_registry_entry_lsh _________________________
+[gw5] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+No module named 'su2plaq.encodings.registry'
+
+During handling of the above exception, another exception occurred:
+PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'
+____________________ test_M6_L2_cert3_builds_and_semantics _____________________
+[gw1] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: lean/Su2PlaqCert/Rishon/Laurent3.lean missing (step 6.L2)
+______________________ test_M6_L3_cert3_accept_reject_na _______________________
+[gw1] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: lean/Su2PlaqCert/Rishon/Laurent3.lean missing (step 6.L2)
+_______________________ test_M6_L9_det_layer_certificate _______________________
+[gw1] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+module 'su2plaq.rishon.lean_cert' has no attribute 'recognise_angle_single'
+
+During handling of the above exception, another exception occurred:
+PENDING: su2plaq.rishon.lean_cert has no attribute recognise_angle_single
+___________________________ test_M6_G5_replay_record ___________________________
+[gw0] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: results/compress/rishon/replay-204.json missing (prompts/204 step C2)
+________________________ test_M6_G6_three_layer_summary ________________________
+[gw0] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: results/compress/rishon/three-layer.json missing (prompts/204 step C5)
+=============================== warnings summary ===============================
+tests/acceptance/m0/test_algebra.py: 96 warnings
+tests/acceptance/m3x/test_spinnet_lean_exact.py: 20 warnings
+  /home/digimonk/miniforge3/envs/coding/lib/python3.12/site-packages/mpmath/libmp/libintmath.py:75: DeprecationWarning: bitcount function is deprecated
+    warnings.warn("bitcount function is deprecated",
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G2_structure_json_is_current
+FAILED tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R1_registry_content
+FAILED tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R2_fresh_process_and_stock_worker_know_every_encoding
+FAILED tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R3_track_facades_patch_nothing
+FAILED tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_P1_code_hash_per_encoding
+FAILED tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_P2_shared_round_stamps_both_hashes
+FAILED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E5_gauss_not_checked_is_reported_as_such
+FAILED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E6_inner_target_dispatch
+FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_Y1_replay_on_a_copy_of_the_link_archive
+FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[twelve-step]
+FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[spinnet-step]
+FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[rishon-step]
+FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[fuzzy_ub-UB]
+FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[fuzzy_link-UE]
+FAILED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E1_span_leak_exact_against_dense_reference
+FAILED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E2_span_leak_zero_on_exact_circuits_and_trial_subset
+FAILED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E3_span_leak_decides_validity
+FAILED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E4_prune_fraction_keyword
+FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E2_fresh_process_stock_worker_and_no_patching
+FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S0_spec_oracle_builder_lsh
+FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S2_general_program_worker_and_sandbox
+FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S5_evaluator_rejections_on_lsh
+FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S3_seed_round_dry_run
+FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S4_round_one_dry_run_briefs_and_stop_state
+FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H1_robust_metrics_and_hardenings
+FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L2_structure_facts_match_lean_sources
+FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E1_registry_entry_lsh
+FAILED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L2_cert3_builds_and_semantics
+FAILED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L3_cert3_accept_reject_na
+FAILED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L9_det_layer_certificate
+FAILED tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G5_replay_record
+FAILED tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G6_three_layer_summary
+32 failed, 224 passed, 116 warnings in 914.26s (0:15:14)

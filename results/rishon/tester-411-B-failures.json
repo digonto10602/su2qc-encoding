@@ -1,0 +1,130 @@
+[
+ [
+  "test_consolidation_gate::test_M2C_G2_structure_json_is_current",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_consolidation_registry::test_M2C_R1_registry_content",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_consolidation_registry::test_M2C_R2_fresh_process_and_stock_worker_know_every_encoding",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_consolidation_registry::test_M2C_R3_track_facades_patch_nothing",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_consolidation_registry::test_M2C_P1_code_hash_per_encoding",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_consolidation_registry::test_M2C_P2_shared_round_stamps_both_hashes",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_consolidation_evaluator::test_M2C_E5_gauss_not_checked_is_reported_as_such",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_consolidation_evaluator::test_M2C_E6_inner_target_dispatch",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_consolidation_gate::test_M2C_Y1_replay_on_a_copy_of_the_link_archive",
+  "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+ ],
+ [
+  "test_consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[twelve-step]",
+  "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+ ],
+ [
+  "test_consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[spinnet-step]",
+  "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+ ],
+ [
+  "test_consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[rishon-step]",
+  "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+ ],
+ [
+  "test_consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[fuzzy_ub-UB]",
+  "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+ ],
+ [
+  "test_consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[fuzzy_link-UE]",
+  "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+ ],
+ [
+  "test_consolidation_evaluator::test_M2C_E1_span_leak_exact_against_dense_reference",
+  "Failed: PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)"
+ ],
+ [
+  "test_consolidation_evaluator::test_M2C_E2_span_leak_zero_on_exact_circuits_and_trial_subset",
+  "Failed: PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)"
+ ],
+ [
+  "test_consolidation_evaluator::test_M2C_E3_span_leak_decides_validity",
+  "Failed: PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)"
+ ],
+ [
+  "test_consolidation_evaluator::test_M2C_E4_prune_fraction_keyword",
+  "Failed: PENDING: evaluator.evaluate has no keyword prune_fraction (prompts/008 step B2)"
+ ],
+ [
+  "test_lsh_m8_loop::test_M8_E2_fresh_process_stock_worker_and_no_patching",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_lsh_m8_loop::test_M8_S0_spec_oracle_builder_lsh",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_lsh_m8_loop::test_M8_S2_general_program_worker_and_sandbox",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_lsh_m8_loop::test_M8_S5_evaluator_rejections_on_lsh",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_lsh_m8_loop::test_M8_S3_seed_round_dry_run",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_lsh_m8_loop::test_M8_S4_round_one_dry_run_briefs_and_stop_state",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_lsh_m8_loop::test_M8_H1_robust_metrics_and_hardenings",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_lsh_m8_loop::test_M8_L2_structure_facts_match_lean_sources",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_lsh_m8_loop::test_M8_E1_registry_entry_lsh",
+  "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+ ],
+ [
+  "test_rishon_m6_lean::test_M6_L2_cert3_builds_and_semantics",
+  "Failed: PENDING: lean/Su2PlaqCert/Rishon/Laurent3.lean missing (step 6.L2)"
+ ],
+ [
+  "test_rishon_m6_lean::test_M6_L3_cert3_accept_reject_na",
+  "Failed: PENDING: lean/Su2PlaqCert/Rishon/Laurent3.lean missing (step 6.L2)"
+ ],
+ [
+  "test_rishon_m6_lean::test_M6_L9_det_layer_certificate",
+  "Failed: PENDING: su2plaq.rishon.lean_cert has no attribute recognise_angle_single"
+ ],
+ [
+  "test_rishon_m6_three_layer::test_M6_G5_replay_record",
+  "Failed: PENDING: results/compress/rishon/replay-204.json missing (prompts/204 step C2)"
+ ],
+ [
+  "test_rishon_m6_three_layer::test_M6_G6_three_layer_summary",
+  "Failed: PENDING: results/compress/rishon/three-layer.json missing (prompts/204 step C5)"
+ ]
+]
