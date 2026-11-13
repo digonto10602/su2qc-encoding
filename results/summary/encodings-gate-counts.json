@@ -1,0 +1,440 @@
+{
+ "general": [
+  {
+   "encoding": "1. 12-qubit (Paulo)",
+   "circuit": "U_E (electric)",
+   "qubits": 12,
+   "cx": 0,
+   "n_rot": 4,
+   "t_fixed": 0,
+   "t_1e6": 256,
+   "error": 1.206819431111926e-13,
+   "source": "results/twelve/UE.json @ a9702e5"
+  },
+  {
+   "encoding": "1. 12-qubit (Paulo)",
+   "circuit": "U_B (magnetic)",
+   "qubits": 34,
+   "cx": 294,
+   "n_rot": 6,
+   "t_fixed": 312,
+   "t_1e6": 696,
+   "error": 2.4203192713469606e-13,
+   "source": "results/twelve/UB.json @ a9702e5"
+  },
+  {
+   "encoding": "1. 12-qubit (Paulo)",
+   "circuit": "step, order 1",
+   "qubits": 34,
+   "cx": 294,
+   "n_rot": 10,
+   "t_fixed": 312,
+   "t_1e6": 952,
+   "error": 2.6881639264162316e-13,
+   "source": "results/twelve/step.json @ a9702e5"
+  },
+  {
+   "encoding": "2. Spin network",
+   "circuit": "U_E (electric)",
+   "qubits": 8,
+   "cx": 0,
+   "n_rot": 4,
+   "t_fixed": 0,
+   "t_1e6": 256,
+   "error": 4.440909640681155e-16,
+   "source": "results/spinnet/UE.json @ d82a472"
+  },
+  {
+   "encoding": "2. Spin network",
+   "circuit": "U_B (magnetic)",
+   "qubits": 15,
+   "cx": 54,
+   "n_rot": 4,
+   "t_fixed": 56,
+   "t_1e6": 310,
+   "error": 1.0845947130763521e-14,
+   "source": "results/spinnet/UB.json @ d82a472"
+  },
+  {
+   "encoding": "2. Spin network",
+   "circuit": "step, order 1",
+   "qubits": 15,
+   "cx": 54,
+   "n_rot": 8,
+   "t_fixed": 56,
+   "t_1e6": 566,
+   "error": 1.146616799837515e-14,
+   "source": "results/spinnet/step.json @ d82a472"
+  },
+  {
+   "encoding": "3. Rishon",
+   "circuit": "U_E (electric)",
+   "qubits": 16,
+   "cx": 8,
+   "n_rot": 4,
+   "t_fixed": 0,
+   "t_1e6": 256,
+   "error": 1.1102230246251565e-16,
+   "source": "results/rishon/UE.json @ b4c1917"
+  },
+  {
+   "encoding": "3. Rishon",
+   "circuit": "U_B (magnetic)",
+   "qubits": 26,
+   "cx": 10094,
+   "n_rot": 162,
+   "t_fixed": 10218,
+   "t_1e6": 20394,
+   "error": 3.434066627820508e-13,
+   "source": "results/rishon/UB.json @ b4c1917"
+  },
+  {
+   "encoding": "3. Rishon",
+   "circuit": "step, order 1",
+   "qubits": 26,
+   "cx": 10102,
+   "n_rot": 166,
+   "t_fixed": 10218,
+   "t_1e6": 20650,
+   "error": 4.1246060086071064e-13,
+   "source": "results/rishon/step.json @ b4c1917"
+  },
+  {
+   "encoding": "3. Rishon",
+   "circuit": "U_D (det layer)",
+   "qubits": 16,
+   "cx": 32,
+   "n_rot": 8,
+   "t_fixed": 0,
+   "t_1e6": 496,
+   "error": 2.7562859870816844e-15,
+   "source": "results/rishon/UD.json @ 6fea036"
+  },
+  {
+   "encoding": "3. Rishon",
+   "circuit": "step + det, order 1",
+   "qubits": 26,
+   "cx": 10134,
+   "n_rot": 174,
+   "t_fixed": 10218,
+   "t_1e6": 21146,
+   "error": 4.980007388836005e-13,
+   "source": "results/rishon/step3.json @ 6fea036"
+  },
+  {
+   "encoding": "4. Loop-string-hadron",
+   "circuit": "U_E (electric)",
+   "qubits": 12,
+   "cx": 0,
+   "n_rot": 8,
+   "t_fixed": 0,
+   "t_1e6": 512,
+   "error": 4.440892098500626e-16,
+   "source": "results/lsh/UE.json @ 3d99f68"
+  },
+  {
+   "encoding": "4. Loop-string-hadron",
+   "circuit": "U_B (magnetic)",
+   "qubits": 19,
+   "cx": 94,
+   "n_rot": 4,
+   "t_fixed": 88,
+   "t_1e6": 342,
+   "error": 1.4412387114434048e-14,
+   "source": "results/lsh/UB.json @ 3d99f68"
+  },
+  {
+   "encoding": "4. Loop-string-hadron",
+   "circuit": "step, order 1",
+   "qubits": 19,
+   "cx": 94,
+   "n_rot": 8,
+   "t_fixed": 88,
+   "t_1e6": 598,
+   "error": 1.5911416978087472e-14,
+   "source": "results/lsh/step.json @ 3d99f68"
+  },
+  {
+   "encoding": "5. Fuzzy",
+   "circuit": "U_E (electric)",
+   "qubits": 16,
+   "cx": 72,
+   "n_rot": 24,
+   "t_fixed": 0,
+   "t_1e6": 1584,
+   "error": 4.290266420504479e-16,
+   "source": "results/fuzzy/UE.json @ 8e71c38 (dirty)"
+  },
+  {
+   "encoding": "5. Fuzzy",
+   "circuit": "U_K (fuzzy kinetic)",
+   "qubits": 16,
+   "cx": 72,
+   "n_rot": 16,
+   "t_fixed": 0,
+   "t_1e6": 992,
+   "error": 1.5487086826676482e-15,
+   "source": "results/fuzzy/UK.json @ 8e71c38 (dirty)"
+  },
+  {
+   "encoding": "5. Fuzzy",
+   "circuit": "U_B (magnetic)",
+   "qubits": 23,
+   "cx": 1718,
+   "n_rot": 16,
+   "t_fixed": 1826,
+   "t_1e6": 2822,
+   "error": 3.8132407978577384e-14,
+   "source": "results/fuzzy/UB.json @ 8e71c38 (dirty)"
+  },
+  {
+   "encoding": "5. Fuzzy",
+   "circuit": "step, order 1",
+   "qubits": 23,
+   "cx": 1862,
+   "n_rot": 56,
+   "t_fixed": 1826,
+   "t_1e6": 5398,
+   "error": 1.0460098385370535e-14,
+   "source": "results/fuzzy/step.json @ 8e71c38 (dirty)"
+  }
+ ],
+ "loops": [
+  {
+   "loop": "1. 12-qubit, step",
+   "general": {
+    "row": "general",
+    "qubits": "50",
+    "CX": "294",
+    "T_fixed": "312",
+    "N_rot": "10",
+    "T(1e-6)": "952",
+    "T_est(1e-6)": "909.947",
+    "T(1e-10)": "1352",
+    "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
+    "depth_CT": "1421",
+    "verdict": "valid (err 2.68813e-13, leak 0)",
+    "Lean": "not_run",
+    "entry / commit": "r00-seed-000 @ a4c28a6"
+   },
+   "best": {
+    "row": "GLOBAL BEST",
+    "qubits": "31",
+    "CX": "111",
+    "T_fixed": "104",
+    "N_rot": "13",
+    "T(1e-6)": "912",
+    "T_est(1e-6)": "881.331",
+    "T(1e-10)": "1456",
+    "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
+    "depth_CT": "1663",
+    "verdict": "valid (err 1.00444e-13, leak 0)",
+    "Lean": "certified",
+    "entry / commit": "r05-F2-005 @ d05f973"
+   },
+   "state": "stopped after round 5",
+   "rounds": 6
+  },
+  {
+   "loop": "2. Spin network, step",
+   "general": {
+    "row": "general",
+    "qubits": "23",
+    "CX": "54",
+    "T_fixed": "56",
+    "N_rot": "8",
+    "T(1e-6)": "566",
+    "T_est(1e-6)": "534.358",
+    "T(1e-10)": "884",
+    "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
+    "depth_CT": "861",
+    "verdict": "valid (err 1.22976e-14, leak 0)",
+    "Lean": "certified",
+    "entry / commit": "r00-seed-000 @ 2fd5b3d"
+   },
+   "best": {
+    "qubits": 17,
+    "CX": 31,
+    "N_rot": 17,
+    "T(1e-6)": 1086,
+    "verdict": "valid (err 5.1e-15)",
+    "Lean": "certified",
+    "entry / commit": "r02-F1-002 (headline) @ 7d06d8e"
+   },
+   "state": "stopped after round 5",
+   "rounds": 6
+  },
+  {
+   "loop": "3. Rishon, step (no det)",
+   "general": {
+    "row": "general",
+    "qubits": "58",
+    "CX": "10102",
+    "T_fixed": "10218",
+    "N_rot": "166",
+    "T(1e-6)": "20650",
+    "T_est(1e-6)": "20143.9",
+    "T(1e-10)": "27482",
+    "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
+    "depth_CT": "35639",
+    "verdict": "valid (err 4.12516e-13, leak 0)",
+    "Lean": "n_a",
+    "entry / commit": "r00-seed-000 @ d68fdec"
+   },
+   "best": {
+    "row": "GLOBAL BEST",
+    "qubits": "53",
+    "CX": "228",
+    "T_fixed": "210",
+    "N_rot": "10",
+    "T(1e-6)": "846",
+    "T_est(1e-6)": "807.947",
+    "T(1e-10)": "1242",
+    "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
+    "depth_CT": "1417",
+    "verdict": "valid (err 1.45095e-13, leak 0)",
+    "Lean": "n_a",
+    "entry / commit": "r04-F1-004 @ 68b8b76"
+   },
+   "state": "paused: replay rounds 0-4 under 10 % cap",
+   "rounds": 5
+  },
+  {
+   "loop": "5. Fuzzy, U_B",
+   "general": {
+    "row": "general",
+    "qubits": "15",
+    "CX": "1718",
+    "T_fixed": "1826",
+    "N_rot": "16",
+    "T(1e-6)": "2822",
+    "T_est(1e-6)": "2782.72",
+    "T(1e-10)": "3494",
+    "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
+    "depth_CT": "4916",
+    "verdict": "valid (err 3.81199e-14, leak 0)",
+    "Lean": "not_run",
+    "entry / commit": "r00-seed-000 @ 4f7126f"
+   },
+   "best": {
+    "row": "GLOBAL BEST",
+    "qubits": "11",
+    "CX": "87",
+    "T_fixed": "84",
+    "N_rot": "9",
+    "T(1e-6)": "650",
+    "T_est(1e-6)": "622.152",
+    "T(1e-10)": "1020",
+    "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
+    "depth_CT": "1571",
+    "verdict": "valid (err 4.56378e-14, leak 0)",
+    "Lean": "n_a",
+    "entry / commit": "r06-F3-006 @ 49e247e"
+   },
+   "state": "running (round 7)",
+   "rounds": 7
+  },
+  {
+   "loop": "5. Fuzzy, link U_E",
+   "general": {
+    "row": "general",
+    "qubits": "4",
+    "CX": "36",
+    "T_fixed": "0",
+    "N_rot": "10",
+    "T(1e-6)": "644",
+    "T_est(1e-6)": "597.947",
+    "T(1e-10)": "1028",
+    "depth_CT": "1515",
+    "verdict": "valid (err 3.41658e-15, leak 0)",
+    "Lean": "not_run",
+    "entry / commit": "r00-seed-000 @ 4f7126f"
+   },
+   "best": {
+    "row": "GLOBAL BEST",
+    "qubits": "4",
+    "CX": "12",
+    "T_fixed": "0",
+    "N_rot": "10",
+    "T(1e-6)": "644",
+    "T_est(1e-6)": "597.947",
+    "T(1e-10)": "1028",
+    "depth_CT": "1183",
+    "verdict": "valid (err 5.61492e-15, leak 0)",
+    "Lean": "n_a",
+    "entry / commit": "r02-F2-001 @ 6d221d5"
+   },
+   "state": "finished",
+   "rounds": 3
+  }
+ ],
+ "fuzzy_composed_step": {
+  "general": {
+   "cx": 2150,
+   "depth": 2690,
+   "n_rot": 136,
+   "t_fixed": 1826,
+   "qubits": 55,
+   "ancilla": 7,
+   "gates": {
+    "cx": 2150,
+    "t": 1036,
+    "tdg": 790,
+    "h": 716,
+    "x": 176,
+    "rz": 136,
+    "s": 52,
+    "sdg": 52,
+    "z": 8
+   },
+   "t_estimate": 9958.079976284262
+  },
+  "composed": {
+   "cx": 295,
+   "depth": 255,
+   "n_rot": 148,
+   "t_fixed": 118,
+   "qubits": 53,
+   "ancilla": 5,
+   "gates": {
+    "h": 375,
+    "cx": 295,
+    "rz": 148,
+    "s": 136,
+    "t": 70,
+    "tdg": 48,
+    "x": 26,
+    "z": 26,
+    "sdg": 7
+   },
+   "t_estimate": 8967.616444779933
+  },
+  "units": {
+   "fuzzy_ub": {
+    "entry": "r03-F3-003",
+    "key": [
+     151.0,
+     1902.0,
+     4682.0,
+     13.0
+    ]
+   },
+   "fuzzy_link": {
+    "entry": "r02-F2-001",
+    "key": [
+     12.0,
+     644.0,
+     1183.0,
+     4.0
+    ]
+   }
+  },
+  "commit": "7b0e5d0"
+ },
+ "provenance": {
+  "git_commit": "964bc05",
+  "results_dirty": true,
+  "command": "python scripts/summary_table.py",
+  "written_utc": "2026-11-13T13:08:08+00:00"
+ }
+}
