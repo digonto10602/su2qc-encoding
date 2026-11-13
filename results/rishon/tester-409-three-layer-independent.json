@@ -1,0 +1,94 @@
+{
+ "entry": "r04-F1-004",
+ "program": "compress/programs/rishon/F1/004-pz-selector-walsh6.py",
+ "n_inputs": 64,
+ "seed": 20261110,
+ "triples": [
+  {
+   "triple": [
+    0.37,
+    0.61,
+    0.29
+   ],
+   "max_col_err_vs_own_UB_UD_UE": 1.2725710728619145e-14,
+   "max_abs_entry_err": 1.0031404150080652e-14,
+   "max_leak_out_of_code_space": 4.098983391555972e-16,
+   "dist_to_unit_only_target": 1.0104080565397853,
+   "dist_to_wrong_order_UD_UB_UE": 0.8803852756697402,
+   "cx_unit": 116,
+   "cx_full": 148,
+   "cx_added": 32,
+   "rz_added": 8,
+   "n_qubits": 53,
+   "t_sim_s": 1.0724108219146729
+  },
+  {
+   "triple": [
+    0.91,
+    0.23,
+    0.53
+   ],
+   "max_col_err_vs_own_UB_UD_UE": 1.2986580799051558e-14,
+   "max_abs_entry_err": 9.987688754437923e-15,
+   "max_leak_out_of_code_space": 2.3418766925686896e-16,
+   "dist_to_unit_only_target": 1.3732304641576067,
+   "dist_to_wrong_order_UD_UB_UE": 0.7059052600324329,
+   "cx_unit": 116,
+   "cx_full": 148,
+   "cx_added": 32,
+   "rz_added": 8,
+   "n_qubits": 53,
+   "t_sim_s": 1.0670888423919678
+  },
+  {
+   "triple": [
+    1.7,
+    1.0,
+    1.07
+   ],
+   "max_col_err_vs_own_UB_UD_UE": 1.6789863339302587e-14,
+   "max_abs_entry_err": 1.0044911157318666e-14,
+   "max_leak_out_of_code_space": 3.634527719048154e-16,
+   "dist_to_unit_only_target": 1.7544010085493555,
+   "dist_to_wrong_order_UD_UB_UE": 1.7536680498362271,
+   "cx_unit": 116,
+   "cx_full": 148,
+   "cx_added": 32,
+   "rz_added": 8,
+   "n_qubits": 53,
+   "t_sim_s": 1.1075160503387451
+  }
+ ],
+ "det_T_nominal": {
+  "0.29": 496,
+  "0.53": 496,
+  "1.07": 512
+ },
+ "det_T_eta_set_mean": 500.8,
+ "det_T_eta_set": [
+  512,
+  512,
+  496,
+  512,
+  512,
+  496,
+  496,
+  480,
+  480,
+  496,
+  480,
+  512,
+  512,
+  496,
+  512,
+  496,
+  496,
+  512,
+  496,
+  512
+ ],
+ "unit_T_mean_from_robust_json": 843.8,
+ "three_layer_T_mean_own": 1344.6,
+ "git": "77b68ce",
+ "t_total_s": 19.177395343780518
+}

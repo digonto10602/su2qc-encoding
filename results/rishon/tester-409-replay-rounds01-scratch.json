@@ -1,0 +1,332 @@
+{
+ "tag": "204",
+ "encoding": "rishon",
+ "kind": "step",
+ "prune_fraction": 0.1,
+ "rounds": [
+  0,
+  1
+ ],
+ "evaluator_sha256": "a4dbd16ca363770eeb5e25e959154fac2e1d12916febe2fa5b657cb76ed431d6",
+ "evaluator_sha256_old": [
+  "d45ffb3116894a24f75864ed708c79b3ad174398e358af0ed5b8bc03845d2793"
+ ],
+ "entries": [
+  {
+   "id": "r00-seed-000",
+   "old_id": "r00-seed-000",
+   "round": 0,
+   "label": "general",
+   "program_path": "compress/programs/rishon/seed/000-general.py",
+   "program_sha256": "6757d91f5a90ad008f83f54549c526cb82bdb61f69dec61258a30c6d0d63e1f2",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     10102,
+     20650,
+     35639,
+     58
+    ],
+    "dropped_total": 3.675622702950601e-13
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     10102,
+     20650,
+     35639,
+     58
+    ],
+    "dropped_total": 3.675622702950601e-13
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-010",
+   "old_id": "r00-seed-010",
+   "round": 0,
+   "label": "general+polish",
+   "program_path": "compress/programs/rishon/seed/010-general_polish.py",
+   "program_sha256": "38d3d2e1780b1da62a6e04aa939d196c89e3c402316382a6458c4828afd3154f",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     10102,
+     20650,
+     35639,
+     58
+    ],
+    "dropped_total": 3.675622702950601e-13
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     10102,
+     20650,
+     35639,
+     58
+    ],
+    "dropped_total": 3.675622702950601e-13
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-qiskit_l3",
+   "old_id": "r00-seed-qiskit_l3",
+   "round": 0,
+   "label": "qiskit_l3",
+   "program_path": "compress/programs/rishon/seed/qiskit_l3.circuit",
+   "program_sha256": "",
+   "old": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "key": null,
+    "dropped_total": 3.788445874152248e-12
+   },
+   "new": {
+    "valid": false,
+    "reason": "eval_budget",
+    "key": null,
+    "dropped_total": null
+   },
+   "key_equal": null
+  },
+  {
+   "id": "r00-seed-001",
+   "old_id": "r00-seed-001",
+   "round": 0,
+   "label": "general-rccx",
+   "program_path": "compress/programs/rishon/seed/001-general-rccx.py",
+   "program_sha256": "d68f2aad1ba4788a5e22dc578aea89a15280e67bf701c56efdfa9d03871e836c",
+   "old": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "key": null,
+    "dropped_total": 2.914751031257563e-12
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     6874,
+     17694,
+     31954,
+     58
+    ],
+    "dropped_total": 2.914751031257563e-12
+   },
+   "key_equal": null
+  },
+  {
+   "id": "r00-seed-002",
+   "old_id": "r00-seed-002",
+   "round": 0,
+   "label": "general-mcx",
+   "program_path": "compress/programs/rishon/seed/002-general-mcx.py",
+   "program_sha256": "43a41238a8d4f3751dbb12fdc5001fa3aa81a4c4ca7922c683a85e7e61e8d877",
+   "old": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "key": null,
+    "dropped_total": 2.694869884405747e-12
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     7360,
+     18180,
+     32428,
+     58
+    ],
+    "dropped_total": 2.694869884405747e-12
+   },
+   "key_equal": null
+  },
+  {
+   "id": "r01-F1-001",
+   "old_id": "r01-F1-001",
+   "round": 1,
+   "label": "001-ghz-frame-cx-tau",
+   "program_path": "compress/programs/rishon/F1/001-ghz-frame-cx-tau.py",
+   "program_sha256": "2c58c7b56c048216da58f37b4f62bb2ecd26df763b322cd3d28bececcf3185fc",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     256,
+     1020,
+     1714,
+     58
+    ],
+    "dropped_total": 1.266583758745341e-13
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     256,
+     1020,
+     1714,
+     58
+    ],
+    "dropped_total": 1.266583758745341e-13
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F2-001",
+   "old_id": "r01-F2-001",
+   "round": 1,
+   "label": "001-direction-qubit-walsh",
+   "program_path": "compress/programs/rishon/F2/001-direction-qubit-walsh.py",
+   "program_sha256": "d56116b4b8c420bbf18884e211d94e253cf8c0da5bcc1b184e71bf528175c1b4",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     354,
+     1818,
+     3557,
+     62
+    ],
+    "dropped_total": 1.528586614032662e-13
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     354,
+     1818,
+     3557,
+     62
+    ],
+    "dropped_total": 1.528586614032662e-13
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F4-001",
+   "old_id": "r01-F4-001",
+   "round": 1,
+   "label": "001-flat-dilation",
+   "program_path": "compress/programs/rishon/F4/001-flat-dilation.py",
+   "program_sha256": "3ef8c9394f9daf49c18d6782cf7db5739bab2fa0d131c3607412ef0d9bdd9b21",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     390,
+     1304,
+     1871,
+     62
+    ],
+    "dropped_total": 1.7340984731938027e-13
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     390,
+     1304,
+     1871,
+     62
+    ],
+    "dropped_total": 1.7340984731938027e-13
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F5-001",
+   "old_id": "r01-F5-001",
+   "round": 1,
+   "label": "001-class-batched-givens",
+   "program_path": "compress/programs/rishon/F5/001-class-batched-givens.py",
+   "program_sha256": "c64fedb561c112e8416e011b7a3be06e30c93be768d5a301ead314847c2fbd85",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     492,
+     1739,
+     3142,
+     51
+    ],
+    "dropped_total": 1.5787722973716423e-13
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     492,
+     1739,
+     3142,
+     51
+    ],
+    "dropped_total": 1.5787722973716423e-13
+   },
+   "key_equal": true
+  }
+ ],
+ "newly_valid": [
+  "r00-seed-001",
+  "r00-seed-002"
+ ],
+ "lost": [],
+ "best_old": {
+  "id": "r04-F1-004",
+  "key": [
+   228,
+   846,
+   1417,
+   53
+  ]
+ },
+ "best_new": {
+  "id": "r01-F1-001",
+  "key": [
+   256,
+   1020,
+   1714,
+   58
+  ]
+ },
+ "attempts_unchanged": true,
+ "discoveries_unchanged": true,
+ "backup": [
+  "results/compress/rishon/pre-204/round-000.json",
+  "results/compress/rishon/pre-204/round-001.json",
+  "results/compress/rishon/pre-204/feedback",
+  "results/compress/rishon/pre-204/robust.json",
+  "results/compress/rishon/pre-204/summary.json",
+  "compress/archive/rishon-pre-204"
+ ],
+ "lean": false,
+ "wall_s": 2254.090147256851,
+ "round_wall_s": [
+  2147.170849084854,
+  106.91684317588806
+ ],
+ "provenance": {
+  "git_commit": "13a35ab",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "replay_tag": "204"
+  },
+  "timestamp_utc": "2026-11-13T14:23:05Z"
+ }
+}

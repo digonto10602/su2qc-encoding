@@ -218,3 +218,12 @@ def test_observables_eta_and_closed_spectra():
     assert s0 == Ob.closed_spectra((1.0,), lam_d=0.0)["rishon"][1.0] and s0["multiplicities"] == [1, 15, 1]
     s = Ob.closed_spectra((1.0,), lam_d=0.2)["rishon"][1.0]
     assert sum(s["multiplicities"]) == 17 and 15 not in s["multiplicities"]
+
+
+def test_det_sector_structure_leaving_weight_is_a_residual():
+    from su2plaq.rishon.physical import det_sector_structure
+
+    d = det_sector_structure()
+    assert d["dim"] == 38432 and d["blocks"] == {"lam0": 31870, "inner_det": 4976, "full_det": 305}
+    assert d["leaving_weight"] <= 1e-20, d["leaving_weight"]          # residual form (~1e-25); the old difference showed 2^-32 ~ 2.3e-10
+    assert d["leaving_weight"] != 2.0 ** -32

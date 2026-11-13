@@ -509,7 +509,7 @@ def det_sector_structure(basis=None) -> dict:
     A (3) <-> B (12) with amplitude 2.  Blocks = connected components of H_B (lam0), H_B + inner det (links 0-3), H_B + all 12 det
     terms.  -> {"dim", "u1_sectors", "blocks": {"lam0","inner_det","full_det"}, "max_block", "ref_block_dim", "ref_block_u1_sectors",
     "charge_change_rank": {...}, "leaving_weight"}; leaving_weight = largest weight that any det / H_B term sends out of the
-    physical space (0 up to rounding: SU(2) Gauss law kept); reference state = closed_indices(basis)[0] (vac_A)."""
+    physical space, the squared Frobenius norm of the residual (1 - P P^dag) T P (about 1e-25: SU(2) Gauss law kept); reference state = closed_indices(basis)[0] (vac_A)."""
     from scipy.sparse.csgraph import connected_components
 
     from su2plaq.rishon import operators as _o
@@ -554,7 +554,10 @@ def det_sector_structure(basis=None) -> dict:
     def phys(T):
         X = T @ P
         Mp = (P.conj().T @ X).tocsr()
-        leaving[0] = max(leaving[0], abs(float(X.multiply(X.conj()).sum().real - Mp.multiply(Mp.conj()).sum().real)))
+        # weight leaving the physical space = ||(1 - P P^dag) T P||_F^2, summed entrywise from the residual (P has orthonormal columns);
+        # not ||T P||^2 - ||P^dag T P||^2, a difference of two sums of size ~1e6 that only shows a rounding quantum (2^-32 ~ 2.3e-10)
+        res = (X - P @ Mp).tocsr()
+        leaving[0] = max(leaving[0], float(np.sum(np.abs(res.data) ** 2)))
         Mp.data[np.abs(Mp.data) < 1e-12] = 0
         Mp.eliminate_zeros()
         return Mp
