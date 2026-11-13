@@ -20,8 +20,8 @@ Latest acceptance tag: acceptance-v19 (m8 LSH compression, prompts/401) (tags v8
 
 ## Current milestone / step (per track)
 - spinnet M4: DONE (milestone-4). Report 4 not written: the docs agent was stopped by an API safeguards error (req_011Ch12fhwMhxbYeQWWUcy2M); reported to Digonto, not redone.
-- rishon M5d/M6: D1–D6 committed; C1 + leaving_weight fix with tester; prompts/205 (M6_S3 accepts eval_budget for qiskit_l3) WRITTEN, NOT LOCKED — awaits Digonto's approval (locked-test change); then milestone-5d gate, C2 replay in the 008 window.
-- fuzzy M10 follow-up: fuzzy_ub best 84 CX (r07-F1-007); round 8 proposers F1 (12-13), F2 (2-3), F3 (4-5) running; stop counter 0/3.
+- rishon M5d/M6: D1–D6 + C1 committed (a97e5b1, reports/tests/410); milestone-5d gate step 1 (tester full, cores 14-19) running; prompts/205 (M6_S3 accepts eval_budget for qiskit_l3) WRITTEN, NOT LOCKED — awaits Digonto's approval (locked-test change); then milestone-5d gate, C2 replay in the 008 window.
+- fuzzy M10 follow-up: fuzzy_ub best 83 CX (r08-F2-008; 7-T Fredkin idea in r08-F1/F3 at 84/638); round 9 proposers F1 (12-13), F2 (2-3), F3 (4-5) running; stop counter 0/3.
 - LSH M8: Phase 0 done (76fd221, reports/tests/409) + 8.A2 clean regeneration (13a35ab); m8 not-slow: 9 PENDING on registry, rest green. Phase 1/2 wait for the 008 registry (8.R in B1). Report 7 not written (same safeguards stop).
 - consolidation 008: Phase A done; Phase B after the fuzzy loop closes.
 
@@ -171,3 +171,4 @@ Wait: fuzzy round-8 proposers, rishon C1 tester, Digonto's answer on prompts/205
 - 2026-11-13: fuzzy_ub round 7 (9aa0320): best 87 -> 84 CX (r07-F1-007, T_eps 646, depth_CT 1562, 11 q). Round-8 briefs a2d847a; proposers launched.
 - 2026-11-13: planner (rishon qiskit_l3 budget): prompts/205 option (b) narrowed; research 204; METHODS-rishon R10/R15 edit uncommitted; erratum needs Digonto's approval (agent believes locked M6_S3 too strict) -> asked.
 - 2026-11-13: LSH M8 Phase 0 tester PASS (reports/tests/409: m8 15 green, 18 PENDING-only; m7 29/29; unit 961) -> committed 76fd221. Clean-worktree regeneration (first try deleted the cert -> dirty, discarded) -> 13a35ab, M8_A2 committed-cert green.
+- 2026-11-13: rishon C1 tester PASS (reports/tests/410) -> a97e5b1. fuzzy_ub round 8 (6d3b841 programs): best 84 -> 83 CX (r08-F2-008). Round-9 briefs 9231f0d, proposers launched. milestone-5d gate: tester full launched.
