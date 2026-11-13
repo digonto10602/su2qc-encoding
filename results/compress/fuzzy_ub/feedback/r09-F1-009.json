@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.95507546804511e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -1.0,
+   6.839385495209053e-18
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.032060387705155e-14,
+  "block_error": 1.9230150803399544e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.060839176177978516,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9125233298823177e-14,
+   "max_dropped_l2": 4.2183137159530684e-15,
+   "max_span_leak": 2.220446049250313e-16,
+   "op_norm_error_inner_span": 1.9230150803399544e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.5137375354538624e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    -2.2888693095257668e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.358724816044922e-14,
+   "block_error": 1.1550127194089407e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04491591453552246,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.1550127194089407e-14,
+    "max_dropped_l2": 3.590382447847053e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.1505738041714285e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.805159790354933e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    -1.2117639717615474e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.9446971672589885e-14,
+   "block_error": 1.8604626230959447e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04594087600708008,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8604626230959447e-14,
+    "max_dropped_l2": 5.103133218672075e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.8506920758404308e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 83,
+  "t_fixed": 72,
+  "n_rot": 9,
+  "t_eps": 638,
+  "t_estimate": {
+   "1e-06": 610.1523513717527,
+   "1e-10": 968.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 638,
+   "1e-10": 1008
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 136,
+  "depth_ct": 1523,
+  "qubits": 11,
+  "gates": {
+   "cx": 83,
+   "h": 74,
+   "tdg": 36,
+   "t": 36,
+   "sdg": 15,
+   "s": 13,
+   "rz": 9,
+   "z": 6,
+   "x": 1
+  },
+  "measured": true
+ },
+ "program_sha256": "7ea742d54f3832ea4969ff56de11b8cb3df68c164869ae7f554318d034a38acb",
+ "wall_s": 0.5419409275054932,
+ "discoveries": [
+  "DISCOVERY: negative: the 8-CX q2 skeleton floor of r08-F1-008 survives relaxing the middle frame: IDA* (54 CX cosets, local Cliffords and wire labels free, admissible bound = max over pending Paulis of weight - 1) with the w01 and w23 toggles as separately scheduled 3-CX line patterns (Q, P, Q with P, Q in G01 resp. G23 weight-1 at their CX times), and even with w steps allowed before pending Fredkin rotations whose Paulis commute with them, finds no skeleton with <= 7 CX (9.6e8 nodes at bound 7), so 16 + 6 CX per leg is the floor of line-target patterns.",
+  "DISCOVERY: rz(theta + j pi) = rz(theta) (-i Z_f)^j, and inside the R_x walk Z_f = Z of the parity f currently holds, so an even set of odd pi shifts costs only Z on the XOR of their parities (control wires, off the critical path) and an x(f) flips the sign of all later rotations; with 2 pi shifts (pure global phase) this picks among ~8 gridsynth words per angle at equal T (0.61: 157 -> 155, -0.61: 164 -> 156): -26 depth_CT here, -34 together with the x(f) sign block and the rccx sign flips.",
+  "DISCOVERY: negative (walk side): the target's Pauli symmetries are only the q1 parities and X^4, Z^4 on the q2 wires, and no single controlled-Pauli gate, SWAP, or product of two controlled-Pauli gates on q2 commutes with it (no free skeleton prefix); making w01 a free walk end needs a 7th CX on the fused c1 -> w01 pair (exhaustive <= 6-CX search over line paths and rotation offsets), and the free re-encoding a = w01 ^ g or merging w01/w23 into L gives walks of >= 11 CX, so 9 stays."
+ ],
+ "summary": "r08-F1-008 leg (Pauli-scheduled q2 block, 16 CX and two 7-T Fredkins per leg) with the r08-F2-008 g free walk end (CZ(g, f) = Z(a) Z(f) while a = f&~g; 9-CX open walk), 83 CX, T_eps 638, plus two depth-only rewrites (depth_CT 1557 -> 1523): every walk rotation is emitted as rz(+-theta + j pi) with j picked for the shortest pygridsynth word (even j = global phase; the odd-j rotations form an even set whose parities XOR to {p_l, p_r, g}, fixed by Z on those idle control wires; the sign of the last 6 rotations is flipped by one x(f) inside the walk, the closing x(f) cancels the z(f) of the g toggle), and negated rccx controls are realised by T/Tdg sign flips instead of X gates (c1: flip r2, r3; c0: flip r1, r2 with Z(t) before, trivial on a clean target, or r3, r4 with Z(t) after, an invariant line phase that commutes with the walk and is dropped)."
+}

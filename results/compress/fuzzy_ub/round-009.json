@@ -1,0 +1,274 @@
+{
+ "round": 9,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  83,
+  638,
+  1522,
+  11
+ ],
+ "entries": [
+  "r09-F1-009",
+  "r09-F2-009",
+  "r09-F3-009"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "fuzzy_ub",
+ "kind": "UB",
+ "provenance": {
+  "git_commit": "24d6c44",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-13T23:32:48Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "009-shortest-word-angle-shifts",
+   "id": "r09-F1-009",
+   "family": "F1",
+   "program_sha256": "7ea742d54f3832ea4969ff56de11b8cb3df68c164869ae7f554318d034a38acb",
+   "program_path": "compress/programs/fuzzy_ub/F1/009-shortest-word-angle-shifts.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    83,
+    638,
+    1523,
+    11
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 83,
+    "t_fixed": 72,
+    "n_rot": 9,
+    "t_eps": 638,
+    "t_estimate": {
+     "1e-06": 610.1523513717527,
+     "1e-10": 968.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 638,
+     "1e-10": 1008
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 136,
+    "depth_ct": 1523,
+    "qubits": 11,
+    "gates": {
+     "cx": 83,
+     "h": 74,
+     "tdg": 36,
+     "t": 36,
+     "sdg": 15,
+     "s": 13,
+     "rz": 9,
+     "z": 6,
+     "x": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.95507546804511e-14,
+    "block_error": 1.9230150803399544e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r08-F1-008",
+   "parent_known": true,
+   "git_commit": "24d6c44",
+   "summary": "r08-F1-008 leg (Pauli-scheduled q2 block, 16 CX and two 7-T Fredkins per leg) with the r08-F2-008 g free walk end (CZ(g, f) = Z(a) Z(f) while a = f&~g; 9-CX open walk), 83 CX, T_eps 638, plus two depth-only rewrites (depth_CT 1557 -> 1523): every walk rotation is emitted as rz(+-theta + j pi) with j picked for the shortest pygridsynth word (even j = global phase; the odd-j rotations form an even set whose parities XOR to {p_l, p_r, g}, fixed by Z on those idle control wires; the sign of the last 6 rotations is flipped by one x(f) inside the walk, the closing x(f) cancels the z(f) of the g toggle), and negated rccx controls are realised by T/Tdg sign flips instead of X gates (c1: flip r2, r3; c0: flip r1, r2 with Z(t) before, trivial on a clean target, or r3, r4 with Z(t) after, an invariant line phase that commutes with the walk and is dropped).",
+   "lean": null,
+   "round": 9,
+   "mode": "full"
+  },
+  {
+   "label": "009-short-window-fredkin",
+   "id": "r09-F2-009",
+   "family": "F2",
+   "program_sha256": "f6d92912b4f150c0b90c65877c1f6941eba23e38c653aada527d312e266d50b0",
+   "program_path": "compress/programs/fuzzy_ub/F2/009-short-window-fredkin.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    83,
+    638,
+    1522,
+    11
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 83,
+    "t_fixed": 72,
+    "n_rot": 9,
+    "t_eps": 638,
+    "t_estimate": {
+     "1e-06": 610.1523513717527,
+     "1e-10": 968.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 638,
+     "1e-10": 1008
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 116,
+    "depth_ct": 1522,
+    "qubits": 11,
+    "gates": {
+     "cx": 83,
+     "h": 42,
+     "t": 36,
+     "tdg": 36,
+     "z": 15,
+     "sdg": 14,
+     "s": 14,
+     "rz": 9,
+     "x": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.2145602505294825e-14,
+    "block_error": 1.8280837429993895e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r08-F2-008",
+   "parent_known": true,
+   "git_commit": "24d6c44",
+   "summary": "r08-F2-008 datapath unchanged in CX (83: parity frame, L: 0 -> ~p_t&~s_r [(1 3) Fredkin] -> g, a: f&~g [(0 2) Fredkin] -> w01, w23, 9-term open R_x walk with free ends {p_r, p_t, p_l, g}) with every Fredkin a 7-CX 7-T word (T_fixed 80 -> 72, T_eps 646 -> 638) chosen from an exhaustive class-BFS enumeration for the shortest control-line window (3 control CX + 1 T, data-only prefix/suffix run beside the neighbouring rccx's), X-free negated rccx controls (T <-> Tdg swaps), free control order on clean-target rccx, Z gates parked in idle control slots, the parity CX(f -> p_r) moved next to the rccx that last reads s_r, and rz(theta) = rz(theta - k pi/2) S^k with k fixed per term for shorter gridsynth words (k = 2 Z's pushed off the f wire through the walk CX's); depth_CT 1560 -> 1522, 11 qubits.",
+   "lean": {
+    "status": "n_a",
+    "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+   },
+   "round": 9,
+   "mode": "full"
+  },
+  {
+   "label": "009-and-toggle-on-pr-wire",
+   "id": "r09-F3-009",
+   "family": "F3",
+   "program_sha256": "15b0c151bcf71b259811458c42b718f07c73473e31a6e79418e561f76be103a7",
+   "program_path": "compress/programs/fuzzy_ub/F3/009-and-toggle-on-pr-wire.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    83,
+    638,
+    1550,
+    10
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 83,
+    "t_fixed": 72,
+    "n_rot": 9,
+    "t_eps": 638,
+    "t_estimate": {
+     "1e-06": 610.1523513717527,
+     "1e-10": 968.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 638,
+     "1e-10": 1008
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 139,
+    "depth_ct": 1550,
+    "qubits": 10,
+    "gates": {
+     "cx": 83,
+     "h": 74,
+     "t": 37,
+     "tdg": 35,
+     "s": 11,
+     "sdg": 10,
+     "rz": 9,
+     "z": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 6.17217690310403e-14,
+    "block_error": 1.909512351860434e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r08-F2-008",
+   "parent_known": true,
+   "git_commit": "24d6c44",
+   "summary": "r08-F2-008 datapath (parity frame, L: 0 -> ~p_t&~s_r -> g, a = f&~g, two-swap frame, 9-term R_x walk on f with free ends {p_r, p_t, p_l, g}) with the F1-008 Pauli-scheduled q2 skeleton (7-T Fredkins) and the w23 ancilla removed: inside the H(f) window the w01 AND is toggled onto the p_r wire itself (rccx; p_r holds p_r^w01 between the two toggles, a palindromic phase-permutation of a control wire, so the rccx phases cancel) and w23 onto the a line right after c1 is cleared (fused with the c1 uncompute), and a Dijkstra over (visited terms, f content, toggle phase) gives the same 9-CX walk; negated rccx controls cost no X gates (T signs flipped), the CZ(g,f) free end is folded into the fresh a-compute, and f is the twice-used control of that compute, so depth_CT 1585 -> 1550; 83 CX, T_eps 638, 10 qubits.",
+   "lean": null,
+   "round": 9,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r09-F2-009",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 9,
+  "t_total": 638,
+  "tolerances": {
+   "tol_err": 9.001e-06,
+   "tol_gauss": 9.001e-06
+  },
+  "op_norm_error": 2.0628451127892582e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 1.9959323406219482,
+ "written_utc": "2026-11-13T23:32:48Z"
+}

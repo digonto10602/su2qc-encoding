@@ -1,0 +1,192 @@
+{
+ "id": "r09-F2-009",
+ "program_path": "compress/programs/fuzzy_ub/F2/009-short-window-fredkin.py",
+ "program_sha256": "f6d92912b4f150c0b90c65877c1f6941eba23e38c653aada527d312e266d50b0",
+ "parent": "r08-F2-008",
+ "family": "F2",
+ "round": 9,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  83,
+  638,
+  1522,
+  11
+ ],
+ "cell": [
+  51,
+  74
+ ],
+ "metrics_raw": {
+  "cx": 83,
+  "t_fixed": 72,
+  "n_rot": 9,
+  "t_eps": 638,
+  "t_estimate": {
+   "1e-06": 610.1523513717527,
+   "1e-10": 968.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 638,
+   "1e-10": 1008
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 116,
+  "depth_ct": 1522,
+  "qubits": 11,
+  "gates": {
+   "cx": 83,
+   "h": 42,
+   "t": 36,
+   "tdg": 36,
+   "z": 15,
+   "sdg": 14,
+   "s": 14,
+   "rz": 9,
+   "x": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.2145602505294825e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -3.7485832957056214e-17,
+   -1.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.3864765075300927e-14,
+  "block_error": 1.8280837429993895e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.036879777908325195,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.8280837429993895e-14,
+   "max_dropped_l2": 4.031507802666978e-15,
+   "max_span_leak": 2.220446049250313e-16,
+   "op_norm_error_inner_span": 1.818949234657302e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.3887548279304446e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.737079460620472e-17,
+    -1.0
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.430247865406998e-14,
+   "block_error": 9.585069625234464e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.03649282455444336,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 9.585069625234464e-15,
+    "max_dropped_l2": 2.509701189345432e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 9.56297740219664e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.072375633121672e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -4.0040419478864173e-17,
+    -1.0
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.2990262404959024e-14,
+   "block_error": 1.77334939262577e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.03713035583496094,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.77334939262577e-14,
+    "max_dropped_l2": 3.990579775106516e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.7638846123365628e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: a class-level BFS for the Fredkin (3-qubit Clifford frames modulo left local Cliffords: 6720 classes x 128 masks of the 7 commuting pi/8 rotations <Z_c, Z_aZ_d, X_aX_d>) confirms 7 CX minimal and gives 221184 class paths over 8704 CX orders; with the best rotation placement the control line of the order (1,2)(0,2)(2,1)(0,1)(1,2)(0,2)(1,2) needs only 7 layers (3 control CX + its T, all other gates on the data pair before/after), against 13 for the r08-F3-008 word; in the L -> a leg chain this is the main depth lever (-21 depth_CT) since CX and T are unchanged.",
+  "DISCOVERY: rccx with negated controls needs no X gates: negating c1 (used twice) swaps T and Tdg on the parities t+c1 and t+c0+c1, negating c0 swaps them on t+c0 and t+c0+c1 and adds one Z on the target after the final H (a diagonal phase that can be parked in any idle slot of the control line, or cancelled against the CZ(g, f) Z(a)); on a clean target rccx(c0, c1) and rccx(c1, c0) agree on every reachable state, so the a-line compute may read L in its middle CX while the uncompute reads f there.",
+  "DISCOVERY: negative: for the 9-term support with free ends {p_r, p_t, p_l, g} no general CX network (any wire as CX target, rotations on any wire) has 8 CX, and all 8 networks with 9 CX target only f, so the 9 rotations are strictly serial on f (depth_CT >= sum of gridsynth word lengths ~ 1400); putting w23 into L (L: g -> g^w23 mid-walk) or both ANDs on the a line (w01 -> w01^w23 -> w23) saves the third ancilla but needs a 10-CX walk (84 CX, 10 qubits)."
+ ],
+ "summary": "r08-F2-008 datapath unchanged in CX (83: parity frame, L: 0 -> ~p_t&~s_r [(1 3) Fredkin] -> g, a: f&~g [(0 2) Fredkin] -> w01, w23, 9-term open R_x walk with free ends {p_r, p_t, p_l, g}) with every Fredkin a 7-CX 7-T word (T_fixed 80 -> 72, T_eps 646 -> 638) chosen from an exhaustive class-BFS enumeration for the shortest control-line window (3 control CX + 1 T, data-only prefix/suffix run beside the neighbouring rccx's), X-free negated rccx controls (T <-> Tdg swaps), free control order on clean-target rccx, Z gates parked in idle control slots, the parity CX(f -> p_r) moved next to the rccx that last reads s_r, and rz(theta) = rz(theta - k pi/2) S^k with k fixed per term for shorter gridsynth words (k = 2 Z's pushed off the f wire through the walk CX's); depth_CT 1560 -> 1522, 11 qubits.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "24d6c44",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.462141752243042,
+ "written_utc": "2026-11-13T23:32:48Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9e-06
+ },
+ "lean": {
+  "status": "n_a",
+  "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+ },
+ "mode": "full"
+}

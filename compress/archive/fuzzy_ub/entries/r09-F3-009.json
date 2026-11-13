@@ -1,0 +1,188 @@
+{
+ "id": "r09-F3-009",
+ "program_path": "compress/programs/fuzzy_ub/F3/009-and-toggle-on-pr-wire.py",
+ "program_sha256": "15b0c151bcf71b259811458c42b718f07c73473e31a6e79418e561f76be103a7",
+ "parent": "r08-F2-008",
+ "family": "F3",
+ "round": 9,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  83,
+  638,
+  1550,
+  10
+ ],
+ "cell": [
+  51,
+  74
+ ],
+ "metrics_raw": {
+  "cx": 83,
+  "t_fixed": 72,
+  "n_rot": 9,
+  "t_eps": 638,
+  "t_estimate": {
+   "1e-06": 610.1523513717527,
+   "1e-10": 968.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 638,
+   "1e-10": 1008
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 139,
+  "depth_ct": 1550,
+  "qubits": 10,
+  "gates": {
+   "cx": 83,
+   "h": 74,
+   "t": 37,
+   "tdg": 35,
+   "s": 11,
+   "sdg": 10,
+   "rz": 9,
+   "z": 2
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 6.17217690310403e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -5.3059434404045744e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.262664551243596e-14,
+  "block_error": 1.909512351860434e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.046285152435302734,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.909512351860434e-14,
+   "max_dropped_l2": 4.648502910181099e-15,
+   "max_span_leak": 3.3306690738754696e-16,
+   "op_norm_error_inner_span": 1.909512351860434e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.047313115368114e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -5.753462847686304e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.9231321708439036e-14,
+   "block_error": 1.1241809445242103e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04429340362548828,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.1241809445242103e-14,
+    "max_dropped_l2": 2.71063213332109e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.1241809445242103e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.895585954940365e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    3.5331276678213466e-18
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.065018928194167e-14,
+   "block_error": 1.8305670267461983e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04484701156616211,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8305670267461983e-14,
+    "max_dropped_l2": 6.979212695929456e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.8305670267461983e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: AND toggles of the middle may target any walk control wire inside the H(f) window (w01 onto p_r, w23 onto the cleared a line) at the same 3 CX as a dedicated line; Dijkstra over (visited terms, f content, toggle phase) for the 16 minimal k0 supports, every pair of target lines in {a, new line, p_r, p_t, p_l, g} and every toggle order finds 9 CX as the minimum (8 nowhere), 9 CX with 10 qubits only for w01 on p_r and w23 on a (2 supports); one line carrying both ANDs is infeasible with 4 toggles (the W, V and WV terms need w-parts w01, w23 and w01^w23, and inside the w01^w23 phase of a single line the f content can only flip by w01^w23).",
+  "DISCOVERY: general CX networks inside the window (targets f, p_r, p_t, p_l, g or a; a rotation on any wire holding f~ + term) with the same toggles: a DFS with the one-new-term-per-CX bound finds no 9-CX network that splits the 9 rotations onto two wires for any minimal k0 support, so depth_CT stays bound by the 9 serial gridsynth words (1451 of the 1550 levels).",
+  "DISCOVERY: negated rccx controls are free: X on the twice-used control flips the signs of the two middle T phases, X on the once-used control flips two adjacent phases and leaves one Z on the target before the first or after the last H, which vanishes on a fresh/cleared line or cancels against the mirrored leg (L conversion); a Z right after a fresh rccx is all four phases flipped (so Z(a) of the CZ(g,f) free end costs nothing, it commutes through the SEG_B parity window), and rccx on a fresh or cleared target is symmetric in its controls."
+ ],
+ "summary": "r08-F2-008 datapath (parity frame, L: 0 -> ~p_t&~s_r -> g, a = f&~g, two-swap frame, 9-term R_x walk on f with free ends {p_r, p_t, p_l, g}) with the F1-008 Pauli-scheduled q2 skeleton (7-T Fredkins) and the w23 ancilla removed: inside the H(f) window the w01 AND is toggled onto the p_r wire itself (rccx; p_r holds p_r^w01 between the two toggles, a palindromic phase-permutation of a control wire, so the rccx phases cancel) and w23 onto the a line right after c1 is cleared (fused with the c1 uncompute), and a Dijkstra over (visited terms, f content, toggle phase) gives the same 9-CX walk; negated rccx controls cost no X gates (T signs flipped), the CZ(g,f) free end is folded into the fresh a-compute, and f is the twice-used control of that compute, so depth_CT 1585 -> 1550; 83 CX, T_eps 638, 10 qubits.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "24d6c44",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.4781341552734375,
+ "written_utc": "2026-11-13T23:32:48Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9e-06
+ },
+ "lean": null,
+ "mode": "full"
+}

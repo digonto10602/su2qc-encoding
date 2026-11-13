@@ -1,21 +1,21 @@
 {
  "encoding": "fuzzy_ub",
  "kind": "UB",
- "n_rounds": 9,
- "n_candidates": 27,
- "n_valid": 26,
- "global_best": "r08-F2-008",
+ "n_rounds": 10,
+ "n_candidates": 30,
+ "n_valid": 29,
+ "global_best": "r09-F2-009",
  "global_best_key": [
   83,
-  646,
-  1560,
+  638,
+  1522,
   11
  ],
  "best_by_family": {
   "seed": "r00-seed-010",
-  "F1": "r08-F1-008",
-  "F2": "r08-F2-008",
-  "F3": "r08-F3-008"
+  "F1": "r09-F1-009",
+  "F2": "r09-F2-009",
+  "F3": "r09-F3-009"
  },
  "header": [
   "row",
@@ -112,47 +112,47 @@
   [
    "best of family F1",
    "11",
-   "84",
+   "83",
    "72",
    "9",
    "638",
    "610.152",
    "1008",
    "-",
-   "1559",
-   "valid (err 5.95453e-14, leak 0)",
+   "1523",
+   "valid (err 5.95508e-14, leak 0)",
    "not_run",
-   "r08-F1-008 @ 6d3b841"
+   "r09-F1-009 @ 24d6c44"
   ],
   [
    "best of family F2",
    "11",
    "83",
-   "80",
-   "9",
-   "646",
-   "618.152",
-   "1016",
-   "-",
-   "1560",
-   "valid (err 5.47259e-14, leak 0)",
-   "n_a",
-   "r08-F2-008 @ 6d3b841"
-  ],
-  [
-   "best of family F3",
-   "11",
-   "84",
    "72",
    "9",
    "638",
    "610.152",
    "1008",
    "-",
-   "1587",
-   "valid (err 5.66195e-14, leak 0)",
+   "1522",
+   "valid (err 5.21456e-14, leak 0)",
+   "n_a",
+   "r09-F2-009 @ 24d6c44"
+  ],
+  [
+   "best of family F3",
+   "10",
+   "83",
+   "72",
+   "9",
+   "638",
+   "610.152",
+   "1008",
+   "-",
+   "1550",
+   "valid (err 6.17218e-14, leak 0)",
    "not_run",
-   "r08-F3-008 @ 6d3b841"
+   "r09-F3-009 @ 24d6c44"
   ],
   [
    "best of family seed",
@@ -173,16 +173,16 @@
    "GLOBAL BEST",
    "11",
    "83",
-   "80",
+   "72",
    "9",
-   "646",
-   "618.152",
-   "1016",
+   "638",
+   "610.152",
+   "1008",
    "-",
-   "1560",
-   "valid (err 5.47259e-14, leak 0)",
+   "1522",
+   "valid (err 5.21456e-14, leak 0)",
    "n_a",
-   "r08-F2-008 @ 6d3b841"
+   "r09-F2-009 @ 24d6c44"
   ]
  ],
  "lineage": [
@@ -417,6 +417,33 @@
    "family": "F3",
    "round": 8,
    "cx": 84,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r09-F1-009",
+   "parent": "r08-F1-008",
+   "family": "F1",
+   "round": 9,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r09-F2-009",
+   "parent": "r08-F2-008",
+   "family": "F2",
+   "round": 9,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r09-F3-009",
+   "parent": "r08-F2-008",
+   "family": "F3",
+   "round": 9,
+   "cx": 83,
    "t_eps": 638,
    "parent_known": true
   }
