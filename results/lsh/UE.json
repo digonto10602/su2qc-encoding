@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "3d99f68",
+    "git_commit": "76fd221",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -25,13 +25,13 @@
       "transpiler_logical": 20261104,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-11T05:21:48Z",
-    "provenance_captured_at": "2026-11-11T05:21:48Z",
+    "timestamp_utc": "2026-11-13T14:12:04Z",
+    "provenance_captured_at": "2026-11-13T14:12:04Z",
     "host": "omnicommander",
     "command": "python scripts/m7_results.py",
     "quick": false,
-    "wall_seconds": 8.073895454406738,
-    "peak_rss_mb": 281.31640625
+    "wall_seconds": 11.227045774459839,
+    "peak_rss_mb": 357.40234375
   },
   "verification": {
     "ok": true,
@@ -57,7 +57,7 @@
     "dropped_total": 0.0,
     "block_error": 4.440892098500626e-16,
     "leak_amplitude": 0.0,
-    "seconds": 0.1655888557434082,
+    "seconds": 0.17003726959228516,
     "n_inputs": 433,
     "extra": {
       "op_norm_error_physical": 1.1102230246251565e-16,
@@ -118,7 +118,7 @@
             "dropped_total": 1.0222744738120894e-13,
             "block_error": 9.738665454212556e-05,
             "leak_amplitude": 2.718233716367282e-05,
-            "seconds": 0.24004840850830078,
+            "seconds": 0.2344646453857422,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 9.738665454212554e-05,
@@ -168,7 +168,7 @@
             "dropped_total": 5.633297756519432e-12,
             "block_error": 1.7317614410126194e-06,
             "leak_amplitude": 4.458884070494252e-07,
-            "seconds": 0.2212815284729004,
+            "seconds": 0.23305225372314453,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.7317614410126185e-06,
@@ -218,7 +218,7 @@
             "dropped_total": 1.0374054078482484e-15,
             "block_error": 1.6768175423131814e-09,
             "leak_amplitude": 9.477394292068136e-09,
-            "seconds": 0.23048782348632812,
+            "seconds": 0.23783063888549805,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.6768175422918472e-09,
@@ -268,7 +268,7 @@
             "dropped_total": 6.717973962392439e-20,
             "block_error": 1.869624231313152e-12,
             "leak_amplitude": 7.626718891292439e-11,
-            "seconds": 0.24733543395996094,
+            "seconds": 0.2637655735015869,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.869605402344972e-12,
@@ -349,7 +349,7 @@
         "dropped_total": 0.0,
         "block_error": 7.696856831808123e-16,
         "leak_amplitude": 0.0,
-        "seconds": 0.21401238441467285,
+        "seconds": 0.22987771034240723,
         "n_inputs": 433,
         "extra": {
           "op_norm_error_physical": 7.696856831808123e-16,

@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "3d99f68",
+    "git_commit": "76fd221",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -25,13 +25,13 @@
       "transpiler_logical": 20261104,
       "trial_subset": 0
     },
-    "timestamp_utc": "2026-11-11T05:21:48Z",
-    "provenance_captured_at": "2026-11-11T05:21:48Z",
+    "timestamp_utc": "2026-11-13T14:12:04Z",
+    "provenance_captured_at": "2026-11-13T14:12:04Z",
     "host": "omnicommander",
     "command": "python scripts/m7_results.py",
     "quick": false,
-    "wall_seconds": 8.073895454406738,
-    "peak_rss_mb": 281.31640625
+    "wall_seconds": 11.227045774459839,
+    "peak_rss_mb": 357.40234375
   },
   "verification": {
     "ok": true,
@@ -57,7 +57,7 @@
     "dropped_total": 1.0905978999653e-14,
     "block_error": 5.005437978434474e-15,
     "leak_amplitude": 0.0,
-    "seconds": 0.18004655838012695,
+    "seconds": 0.191666841506958,
     "n_inputs": 433,
     "extra": {
       "op_norm_error_physical": 4.890025172686942e-15,
@@ -123,7 +123,7 @@
             "dropped_total": 1.3094962000297024e-13,
             "block_error": 0.00014917213329132734,
             "leak_amplitude": 2.5522923177726393e-05,
-            "seconds": 0.23149371147155762,
+            "seconds": 0.2533559799194336,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 0.00014917213329125717,
@@ -173,7 +173,7 @@
             "dropped_total": 2.1960543391434364e-12,
             "block_error": 1.50383124195384e-06,
             "leak_amplitude": 5.277434930595577e-07,
-            "seconds": 0.2388014793395996,
+            "seconds": 0.2611064910888672,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 1.5038312418008407e-06,
@@ -223,7 +223,7 @@
             "dropped_total": 1.0781932216117116e-14,
             "block_error": 8.172369374808978e-09,
             "leak_amplitude": 9.605859570055585e-09,
-            "seconds": 0.2501487731933594,
+            "seconds": 0.26533055305480957,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 8.172369169788276e-09,
@@ -273,7 +273,7 @@
             "dropped_total": 1.0289501732624428e-14,
             "block_error": 6.604576659000854e-11,
             "leak_amplitude": 5.46080377073643e-11,
-            "seconds": 0.2944936752319336,
+            "seconds": 0.2830464839935303,
             "n_inputs": 433,
             "extra": {
               "op_norm_error_physical": 6.604565744095024e-11,
@@ -364,7 +364,7 @@
         "dropped_total": 1.0904201607271585e-14,
         "block_error": 5.201446663151346e-15,
         "leak_amplitude": 0.0,
-        "seconds": 0.17560720443725586,
+        "seconds": 0.19103789329528809,
         "n_inputs": 433,
         "extra": {
           "op_norm_error_physical": 5.163636208214352e-15,
@@ -430,7 +430,7 @@
                 "dropped_total": 1.3350138363388184e-13,
                 "block_error": 0.00010354794338348185,
                 "leak_amplitude": 0.0001879173092291931,
-                "seconds": 0.24653935432434082,
+                "seconds": 0.26394224166870117,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 0.00010354794338348185,
@@ -480,7 +480,7 @@
                 "dropped_total": 1.0016245458965393e-12,
                 "block_error": 2.905904763176038e-06,
                 "leak_amplitude": 4.5126415366938474e-07,
-                "seconds": 0.2713906764984131,
+                "seconds": 0.28110241889953613,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 2.905904763176038e-06,
@@ -530,7 +530,7 @@
                 "dropped_total": 1.1909697590382149e-14,
                 "block_error": 1.410621113806724e-08,
                 "leak_amplitude": 1.721129714122421e-08,
-                "seconds": 0.28525376319885254,
+                "seconds": 0.30438947677612305,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 1.4106211088699204e-08,
@@ -580,7 +580,7 @@
                 "dropped_total": 1.0702583697087992e-14,
                 "block_error": 6.37789173709111e-11,
                 "leak_amplitude": 1.7090508404716756e-10,
-                "seconds": 0.3020360469818115,
+                "seconds": 0.3197476863861084,
                 "n_inputs": 433,
                 "extra": {
                   "op_norm_error_physical": 6.377881705099373e-11,
@@ -606,6 +606,16 @@
         "sha256": "02d9e85198f6aab4b5f7c3908d539406ac36ef9c94dc2036b8cc2fb8a148205c",
         "qasm3": "results/lsh/step_order2.qasm3"
       }
+    },
+    "lean": {
+      "status": "certified",
+      "trust": "native-certified",
+      "circuit": "build_step(0.37, 0.61, 1, with_outer=True)",
+      "n_qubits": 31,
+      "circuit_id": "lsh-step-o1-ddc1571c27bd",
+      "cert_path": "results/lsh/certs/lsh-step-o1-ddc1571c27bd.json",
+      "cert_sha256": "3946f4517969a38734815dedb38032e165fa3f4899d47f3a675fc0a284d36bff",
+      "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61"
     }
   }
 }
