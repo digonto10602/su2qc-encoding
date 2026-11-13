@@ -20,8 +20,8 @@ Latest acceptance tag: acceptance-v19 (m8 LSH compression, prompts/401) (tags v8
 
 ## Current milestone / step (per track)
 - spinnet M4: DONE (milestone-4). Report 4 not written: the docs agent was stopped by an API safeguards error (req_011Ch12fhwMhxbYeQWWUcy2M); reported to Digonto, not redone.
-- rishon M5d/M6: D1–D6 + C1 committed (a97e5b1, reports/tests/410); milestone-5d gate step 1 PAUSED (first tester run broke: exit 127 on every pytest call, logs parked in should-be-deleted/tester-411-broken-run-20261113; rerun needed); prompts/205 (M6_S3 accepts eval_budget for qiskit_l3) WRITTEN, NOT LOCKED — awaits Digonto's approval (locked-test change); then milestone-5d gate, C2 replay in the 008 window.
-- fuzzy M10 follow-up: fuzzy_ub best 83 CX (r08-F2-008; 7-T Fredkin idea in r08-F1/F3 at 84/638); round 9 PAUSED (proposers stopped 10:45 on Digonto's request, no 009 programs yet; briefs 9231f0d stay valid); stop counter 0/3.
+- rishon M5d/M6: D1–D6 + C1 committed (a97e5b1, reports/tests/410); milestone-5d gate step 1 (tester full, cores 14-19) relaunched 11:21 (first run broke with exit 127, logs parked in should-be-deleted/tester-411-broken-run-20261113); prompts/205 (M6_S3 accepts eval_budget for qiskit_l3) WRITTEN, NOT LOCKED — awaits Digonto's approval (locked-test change); then milestone-5d gate, C2 replay in the 008 window.
+- fuzzy M10 follow-up: fuzzy_ub best 83 CX (r08-F2-008; 7-T Fredkin idea in r08-F1/F3 at 84/638); round 9 proposers F1 (12-13), F2 (2-3), F3 (4-5) running again since 11:21; stop counter 0/3.
 - LSH M8: Phase 0 done (76fd221, reports/tests/409) + 8.A2 clean regeneration (13a35ab); m8 not-slow: 9 PENDING on registry, rest green. Phase 1/2 wait for the 008 registry (8.R in B1). Report 7 not written (same safeguards stop).
 - consolidation 008: Phase A done; Phase B after the fuzzy loop closes.
 
@@ -64,7 +64,7 @@ Latest acceptance tag: acceptance-v19 (m8 LSH compression, prompts/401) (tags v8
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: SETTLED by M0-X5 (reports/tests/006): in the (inner|outer) pairing H_B is block-diagonal in outer spins, 128 blocks all equal to one 47×47 K (2.7e-15), J conserved → Paulo right; in a mixed pairing amplitudes depend on outer spins → note §4.2 right there.
 
 ## Next action
-RESUME 2026-11-13 11:21 (Digonto): (1) relaunch fuzzy_ub round-9 proposers F1 (12-13), F2 (2-3), F3 (4-5) from compress/briefs/fuzzy_ub/round-009-*; (2) relaunch tester full for milestone-5d (cores 14-19; tell it to source conda in any script it writes); (3) still waiting on Digonto: prompts/205 approve/decline (draft + METHODS-rishon.md R10/R15 edit uncommitted on purpose). Then as before: round 9 evaluate; loop closes -> 008 Phase B (incl. LSH 8.R) -> rishon C2, LSH Phase 1/2.
+Wait: fuzzy round-9 proposers, milestone-5d tester full; Digonto's answer on prompts/205 (draft + METHODS-rishon.md R10/R15 edit uncommitted on purpose). Then round 9 evaluate; 5d gate -> auditor -> benchmark (vs report 200) -> tag milestone-5d; fuzzy loop closes -> 008 Phase B (incl. LSH 8.R) -> rishon C2, LSH Phase 1/2.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -173,3 +173,4 @@ RESUME 2026-11-13 11:21 (Digonto): (1) relaunch fuzzy_ub round-9 proposers F1 (1
 - 2026-11-13: LSH M8 Phase 0 tester PASS (reports/tests/409: m8 15 green, 18 PENDING-only; m7 29/29; unit 961) -> committed 76fd221. Clean-worktree regeneration (first try deleted the cert -> dirty, discarded) -> 13a35ab, M8_A2 committed-cert green.
 - 2026-11-13: rishon C1 tester PASS (reports/tests/410) -> a97e5b1. fuzzy_ub round 8 (6d3b841 programs): best 84 -> 83 CX (r08-F2-008). Round-9 briefs 9231f0d, proposers launched. milestone-5d gate: tester full launched.
 - 2026-11-13 10:45: paused on Digonto's request (save + restart at 11:21): stopped round-9 proposers and 5d tester; broken tester-411 logs parked.
+- 2026-11-13 11:21: resumed as scheduled: fuzzy round-9 proposers F1-F3 and milestone-5d tester full relaunched.
