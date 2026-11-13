@@ -1,0 +1,157 @@
+{
+ "commit": "a2d847a",
+ "dirty": true,
+ "rows": [
+  {
+   "label": "general",
+   "skipped": "touches outer register (with_outer=True); covered by tester-403 step-exact and M8-S1 acceptance"
+  },
+  {
+   "label": "wrap_pairs9",
+   "cx": 74,
+   "n_rot": 13,
+   "t_fixed": 56,
+   "T_eps1e-6": 864,
+   "depth_CT": 1580,
+   "qubits": 27,
+   "alt_angles": [
+    0.83,
+    0.29
+   ],
+   "op_norm_err": 2.9733048409733813e-15,
+   "max_entry_err": 2.8951074449790722e-15,
+   "unitarity_dev": 6.147465892889998e-15,
+   "anc_leak_max": 2.943642649270605e-31,
+   "invalid_data_leak_max": 5.388630129960152e-31,
+   "span_leak_max": 1.4289255450552926e-31,
+   "control_wrong_target_err": 1.409174185366845,
+   "seconds": 7.97679877281189
+  },
+  {
+   "label": "wrap_flags4",
+   "cx": 84,
+   "n_rot": 8,
+   "t_fixed": 80,
+   "T_eps1e-6": 586,
+   "depth_CT": 908,
+   "qubits": 27,
+   "alt_angles": [
+    0.83,
+    0.29
+   ],
+   "op_norm_err": 5.28406680140859e-15,
+   "max_entry_err": 5.284066801408589e-15,
+   "unitarity_dev": 1.054714646311117e-14,
+   "anc_leak_max": 6.444546571763563e-31,
+   "invalid_data_leak_max": 7.866225742117561e-31,
+   "span_leak_max": 1.6199809259330539e-31,
+   "control_wrong_target_err": 1.4091741853668431,
+   "seconds": 7.00399112701416
+  },
+  {
+   "label": "wrap_flags5",
+   "cx": 82,
+   "n_rot": 9,
+   "t_fixed": 72,
+   "T_eps1e-6": 638,
+   "depth_CT": 982,
+   "qubits": 27,
+   "alt_angles": [
+    0.83,
+    0.29
+   ],
+   "op_norm_err": 4.432557604889172e-15,
+   "max_entry_err": 4.432557604889171e-15,
+   "unitarity_dev": 8.892391484997657e-15,
+   "anc_leak_max": 5.71034851042324e-31,
+   "invalid_data_leak_max": 5.728089808923779e-31,
+   "span_leak_max": 1.875915629487525e-31,
+   "control_wrong_target_err": 1.4091741853668434,
+   "seconds": 7.501688480377197
+  },
+  {
+   "label": "wrap_flags6",
+   "cx": 76,
+   "n_rot": 10,
+   "t_fixed": 64,
+   "T_eps1e-6": 690,
+   "depth_CT": 1111,
+   "qubits": 27,
+   "alt_angles": [
+    0.83,
+    0.29
+   ],
+   "op_norm_err": 3.520063666060795e-15,
+   "max_entry_err": 3.4635577716560776e-15,
+   "unitarity_dev": 7.245225097590314e-15,
+   "anc_leak_max": 5.247698527902426e-31,
+   "invalid_data_leak_max": 4.3063689462742095e-31,
+   "span_leak_max": 1.510407045083533e-31,
+   "control_wrong_target_err": 1.4091741853668442,
+   "seconds": 6.9348673820495605
+  },
+  {
+   "label": "wrap_sn_headline",
+   "cx": 71,
+   "n_rot": 17,
+   "t_fixed": 48,
+   "T_eps1e-6": 1118,
+   "depth_CT": 2228,
+   "qubits": 25,
+   "alt_angles": [
+    0.83,
+    0.29
+   ],
+   "op_norm_err": 2.4949159465319784e-15,
+   "max_entry_err": 2.4949159465319764e-15,
+   "unitarity_dev": 5.2218758803776264e-15,
+   "anc_leak_max": 2.555694332151568e-31,
+   "invalid_data_leak_max": 6.641044540237017e-31,
+   "span_leak_max": 4.122541839082169e-31,
+   "control_wrong_target_err": 1.409174185366845,
+   "seconds": 4.136104583740234
+  },
+  {
+   "label": "wrap_sn_r05F3",
+   "cx": 72,
+   "n_rot": 13,
+   "t_fixed": 56,
+   "T_eps1e-6": 864,
+   "depth_CT": 1846,
+   "qubits": 25,
+   "alt_angles": [
+    0.83,
+    0.29
+   ],
+   "op_norm_err": 3.2196467714129548e-15,
+   "max_entry_err": 3.219646771412954e-15,
+   "unitarity_dev": 6.439302121980334e-15,
+   "anc_leak_max": 3.3447134526794327e-31,
+   "invalid_data_leak_max": 5.273459530083845e-31,
+   "span_leak_max": 1.631753455319614e-31,
+   "control_wrong_target_err": 1.4091741853668458,
+   "seconds": 4.825435638427734
+  },
+  {
+   "label": "wrap_sn_r02F5",
+   "cx": 74,
+   "n_rot": 10,
+   "t_fixed": 64,
+   "T_eps1e-6": 690,
+   "depth_CT": 1432,
+   "qubits": 25,
+   "alt_angles": [
+    0.83,
+    0.29
+   ],
+   "op_norm_err": 3.5422900465195845e-15,
+   "max_entry_err": 3.5422900465195845e-15,
+   "unitarity_dev": 7.030581441213658e-15,
+   "anc_leak_max": 3.233133863678325e-31,
+   "invalid_data_leak_max": 5.718189895717553e-31,
+   "span_leak_max": 3.0894507766386078e-31,
+   "control_wrong_target_err": 1.409174185366845,
+   "seconds": 3.97653865814209
+  }
+ ]
+}

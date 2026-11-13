@@ -18,6 +18,7 @@ from su2plaq.metrics.logical import logical_metrics
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 CIRCUIT = ROOT / "lean" / "Su2Plaq" / "LSH" / "Circuit.lean"
 COUNTS = ROOT / "lean" / "Su2Plaq" / "LSH" / "Counts.lean"
+FACTS = ROOT / "lean" / "Su2Plaq" / "LSH" / "Facts.lean"
 
 
 @functools.lru_cache(maxsize=1)
@@ -89,10 +90,14 @@ def test_op_rendering():
 
 
 def test_lean_sources_hygiene():
-    for p in (COUNTS, CIRCUIT):
+    for p in (COUNTS, CIRCUIT, FACTS):
         src = p.read_text()
         assert "native_decide" not in src and "sorry" not in src and "admit" not in src
         assert "namespace Su2Plaq.LSH" in src and "end Su2Plaq.LSH" in src
+    for p in sorted((ROOT / "lean" / "Su2PlaqCert" / "LSH").glob("*.lean")):      # audit 303 N8: the checker folder too
+        src = p.read_text()
+        assert "native_decide" not in src and "sorry" not in src and "admit" not in src, p.name
+        assert "import Mathlib" not in src, p.name
     assert "import Su2Plaq.SpinNet.Circuit" in CIRCUIT.read_text()
     root = (ROOT / "lean" / "Su2Plaq.lean").read_text()
     assert "import Su2Plaq.LSH.Counts" in root and "import Su2Plaq.LSH.Circuit" in root

@@ -18,3 +18,4 @@ import Su2Plaq.Rishon.JW
 import Su2Plaq.Rishon.Bridge
 import Su2Plaq.LSH.Counts
 import Su2Plaq.LSH.Circuit
+import Su2Plaq.LSH.Facts

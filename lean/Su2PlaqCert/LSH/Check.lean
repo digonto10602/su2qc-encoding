@@ -7,7 +7,7 @@ import Su2PlaqCert.LSH.Pins
 Same statement as `Su2PlaqCert.Cert.check` (every physical state `ψ_k`: `U ψ_k = c ∑ V[k',k] ψ_k'` as exact Laurent-`K`
 vectors; the gate replay, target expansion and per-state comparison are `Cert.stateOf`, `Cert.expected`, `Cert.checkRange`
 of the laptop's checker, reused read-only), but the pinned data are the LSH ones (`Su2PlaqCert.LSH.Pins`: 433
-unit codes of the data|outer register = 12 + 12 qubits, route-B targets at base `(d_alpha, d_beta) = (4, 4)`), not the
+unit codes of the data|outer register = 12 + 12 qubits, route-B targets at base `(d_alpha, d_beta) = (4, 4)`; step order 2: `(8, 4)`), not the
 twelve-qubit ones.  Only `validate` differs from the laptop's: no twelve-qubit pins, register sizes 12 + 12.
 (M7 step 7.L3, prompts/400; copy of `Su2PlaqCert.SpinNet.Check`.)
 -/

@@ -1,0 +1,67 @@
+{
+ "n_inner": 47,
+ "site_valid": [
+  0,
+  1,
+  2,
+  4,
+  6
+ ],
+ "codes_match_production": true,
+ "codes_match_lean_text": true,
+ "n_bright": 16,
+ "n_dark": 31,
+ "dark_iff_site_AND": true,
+ "n_dark_by_rule": 31,
+ "coupling_by_ysum": {
+  "0": [
+   -2.0
+  ],
+  "1": [
+   1.0
+  ],
+  "2": [
+   -0.5
+  ]
+ },
+ "coupling_ratio_to_k_pattern(-2,1,-1/2)": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "one_value_per_ysum": true,
+ "y_parity_invariant": true,
+ "parity_equals_flag(sy odd <-> K>0)": true,
+ "link_bit_two_ways": true,
+ "move_per_site": {
+  "w0": [
+   1
+  ],
+  "w1": [
+   6
+  ]
+ },
+ "n_distinct_differences": 8,
+ "json_agrees": {
+  "card_inner_codes": true,
+  "card_bright": true,
+  "card_dark": true,
+  "site_valid_list": true,
+  "coupling_by_y_weight": true,
+  "move_per_site": true,
+  "eight_differences": true,
+  "card_states": true,
+  "n_outer_patterns": true
+ },
+ "2K_ratios_in_json": [
+  -4,
+  2,
+  -1
+ ],
+ "lean_sha_match": {
+  "lean/Su2Plaq/LSH/Counts.lean": true,
+  "lean/Su2Plaq/LSH/Facts.lean": true,
+  "lean/Su2Plaq/LSH/Circuit.lean": true
+ },
+ "commit": "e873737"
+}

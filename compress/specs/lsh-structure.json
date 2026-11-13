@@ -1,0 +1,183 @@
+{
+ "facts": [
+  {
+   "name": "card_site_codes",
+   "value": 5,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.card_site_codes",
+   "file": "lean/Su2Plaq/LSH/Counts.lean",
+   "note": "valid loop-number codes of one site (the flux cap: virtual spin at most 1)"
+  },
+  {
+   "name": "card_inner_codes",
+   "value": 47,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.card_inner_codes",
+   "file": "lean/Su2Plaq/LSH/Counts.lean",
+   "note": "inner codes: four valid sites obeying the Abelian Gauss law on the four inner links"
+  },
+  {
+   "name": "card_bright_codes",
+   "value": 16,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.card_bright_codes",
+   "file": "lean/Su2Plaq/LSH/Counts.lean",
+   "note": "inner codes on which the plaquette coupling is non-zero"
+  },
+  {
+   "name": "card_dark_codes",
+   "value": 31,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.card_dark_codes",
+   "file": "lean/Su2Plaq/LSH/Counts.lean",
+   "note": "inner codes on which the plaquette coupling is zero"
+  },
+  {
+   "name": "card_states_lsh",
+   "value": 433,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.card_states_lsh",
+   "file": "lean/Su2Plaq/LSH/Counts.lean",
+   "note": "physical states = valid data codes with a valid outer-site pattern"
+  },
+  {
+   "name": "card_bright_states",
+   "value": 256,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.card_bright_states",
+   "file": "lean/Su2Plaq/LSH/Counts.lean",
+   "note": "physical states whose inner code is bright"
+  },
+  {
+   "name": "site_valid_list",
+   "value": [
+    0,
+    1,
+    2,
+    4,
+    6
+   ],
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.site_valid_list",
+   "file": "lean/Su2Plaq/LSH/Counts.lean",
+   "note": "the five valid site codes (bit 0 = l_pn, bit 1 = l_nv, bit 2 = l_vp)"
+  },
+  {
+   "name": "inner_codes_from_rules",
+   "value": true,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.inner_codes_from_rules",
+   "file": "lean/Su2Plaq/LSH/Facts.lean",
+   "note": "the 47 inner codes are exactly the codes cut out by the flux cap and the Abelian Gauss law"
+  },
+  {
+   "name": "coupling_zero_iff_dark",
+   "value": true,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.coupling_zero_iff_dark",
+   "file": "lean/Su2Plaq/LSH/Facts.lean",
+   "note": "the coupling is zero exactly on dark codes"
+  },
+  {
+   "name": "dark_site_is_and",
+   "value": true,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.dark_site_is_and",
+   "file": "lean/Su2Plaq/LSH/Facts.lean",
+   "note": "a site is dark iff l_nv AND l_vp are both set (one AND of raw bits)"
+  },
+  {
+   "name": "coupling_by_y_weight",
+   "value": {
+    "0": -4,
+    "1": 2,
+    "2": -1
+   },
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.coupling_by_y_weight",
+   "file": "lean/Su2Plaq/LSH/Facts.lean",
+   "note": "on bright codes 2K depends only on the number of set l_nv bits: {number of set l_nv bits: 2K}"
+  },
+  {
+   "name": "link_bit_two_ways",
+   "value": true,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.link_bit_two_ways",
+   "file": "lean/Su2Plaq/LSH/Facts.lean",
+   "note": "every inner link bit is readable at two sites: l_pn xor l_nv at one site = l_pn xor l_vp at the next"
+  },
+  {
+   "name": "move_per_site",
+   "value": {
+    "w0": 1,
+    "w1": 6
+   },
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.move_per_site",
+   "file": "lean/Su2Plaq/LSH/Facts.lean",
+   "note": "the plaquette move flips l_pn where w = l_nv xor l_vp is 0 and l_nv, l_vp where w is 1; value: the site XOR pattern {w=0, w=1}"
+  },
+  {
+   "name": "y_parity_invariant",
+   "value": true,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.y_parity_invariant",
+   "file": "lean/Su2Plaq/LSH/Facts.lean",
+   "note": "the parity of the four l_nv bits is unchanged by the move and equals [2K = +2]"
+  },
+  {
+   "name": "eight_differences",
+   "value": 8,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.eight_differences",
+   "file": "lean/Su2Plaq/LSH/Facts.lean",
+   "note": "the eight difference vectors (code XOR partner) of the move are pairwise different: no CNOT-only frame exists"
+  },
+  {
+   "name": "transcode_into_spinnet",
+   "value": true,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.transcode_into_spinnet",
+   "file": "lean/Su2Plaq/LSH/Circuit.lean",
+   "note": "the per-site transcoder maps the 47 LSH inner codes onto valid spin-network codes"
+  },
+  {
+   "name": "coupling_matches_spinnet",
+   "value": true,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.LSH.coupling_matches_spinnet",
+   "file": "lean/Su2Plaq/LSH/Circuit.lean",
+   "note": "the LSH coupling table equals the spin-network coupling on the transcoded codes"
+  },
+  {
+   "name": "n_outer_site_patterns",
+   "value": 305,
+   "proved_by": "numerical",
+   "theorem": "",
+   "file": "",
+   "note": "distinct outer-site patterns (the 12 read-only outer qubits take 305 values on the physical states); measured, not proved"
+  },
+  {
+   "name": "transcoder_overhead",
+   "value": {
+    "cx": 40,
+    "t_fixed": 32
+   },
+   "proved_by": "numerical",
+   "theorem": "",
+   "file": "",
+   "note": "CX and fixed T of the per-site transcoder and its inverse around a spin-network circuit; measured on the circuit"
+  }
+ ],
+ "provenance": {
+  "lean_files": {
+   "lean/Su2Plaq/LSH/Counts.lean": "e8f0ff5b8b975996b7818725ed1a88b9584b6a5a77162a1546604eba746539f6",
+   "lean/Su2Plaq/LSH/Facts.lean": "1bec22c1ab12525d0cfd456f64601b3d40fc8775a8088bd7a350536e231af1d3",
+   "lean/Su2Plaq/LSH/Circuit.lean": "ba520cd4a2c7b69ae37b65b20cec1c3f869d25d346f3c6d4401bde8353023060"
+  },
+  "values_from": "Lean theorem statements, cross-checked against the Python encoding; two facts are numerical",
+  "plan": "prompts/401",
+  "methods": "docs/METHODS-lsh.md L13",
+  "trust": "kernel-checked (by decide, standard axioms only) except the facts marked numerical"
+ }
+}

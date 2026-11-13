@@ -33,6 +33,7 @@ from su2plaq.evaluate.evaluator import evaluate, synth_tolerances
 from su2plaq.exact.compare import gauge_align, spectra_match
 from su2plaq.exact.operators import h_electric_inner, h_magnetic_phys
 from su2plaq.exact.spinnet import K_inner, h_electric_6j, h_magnetic_phys_6j, inner_labels, labels as route_b_labels
+from su2plaq.lsh import lean_export as LE
 from su2plaq.lsh import operators as O
 from su2plaq.lsh import walk as W
 from su2plaq.metrics.cliffordt import synthesize, t_table
@@ -193,6 +194,23 @@ def _comparison(enc) -> dict:
                     "circuit plus the transcoder, +40 CX and +32 T (2 x 4 x (2 cx + 1 rccx)); beta = 0.61 for all rows."}
 
 
+def _lean_block(enc, out: pathlib.Path) -> dict:
+    """Native Lean certificate of the general step on the full 31-qubit register (prompts/401 step 8.A2): exported and checked by
+    the compiled `su2plaq_cert_lsh`, written to <out>/certs/<circuit_id>.json (an unchanged certificate is not rewritten).
+    Trust label: native-certified (compiler + checker source), not kernel-checked."""
+    qc = C.build_step(ALPHA, BETA, 1, with_outer=True)
+    r = LE.certify(qc, enc, "step", ALPHA, BETA, 1, out_dir=out / "certs")
+    block = {"status": r["status"], "trust": "native-certified", "circuit": "build_step(0.37, 0.61, 1, with_outer=True)",
+             "n_qubits": qc.num_qubits}
+    if r.get("reason"):
+        block["reason"] = r["reason"]
+    if r.get("cert_path"):
+        cp = pathlib.Path(r["cert_path"])
+        block.update({"circuit_id": cp.stem, "cert_path": _rel(cp), "cert_sha256": hashlib.sha256(cp.read_bytes()).hexdigest(),
+                      "checker_sha256": r.get("checker_sha256", "")})
+    return block
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(ROOT / "results" / "lsh"))
@@ -226,6 +244,8 @@ def main(argv=None):
     s2 = _entry(C.build_step(ALPHA, BETA, 2), enc, enc.target("step", ALPHA, BETA, 2), out, "step_order2", grid)
     step_extra = {"physics": physics, "order2": {"params": {"alpha": ALPHA, "beta": BETA, "order": 2},
                                                  **{k: s2[k] for k in ("verification", "metrics", "files")}}}
+    if not args.quick:
+        step_extra["lean"] = _lean_block(enc, out)
 
     snap["wall_seconds"] = time.time() - t_start
     snap["peak_rss_mb"] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024.0

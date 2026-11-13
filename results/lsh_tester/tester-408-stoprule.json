@@ -1,0 +1,145 @@
+{
+ "same record -> False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "first headline (old None) -> True": {
+  "want": true,
+  "got": true,
+  "ref": true,
+  "ok": true
+ },
+ "no new headline -> False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "both None -> False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "dT=-340 (=20 Nrot) same structure, equal rho,q -> tie -> False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "dT=-341 (> band) -> improves True": {
+  "want": true,
+  "got": true,
+  "ref": true,
+  "ok": true
+ },
+ "dT=+340 tie, equal -> False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "dT=+341 beyond band, worse -> False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "dT=+100 but rho 1->0 improves (tie decided by rho)": {
+  "want": true,
+  "got": true,
+  "ref": true,
+  "ok": true
+ },
+ "dT=-100 but rho 0->1 (tie, rho worse) -> False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "dT=-100, rho equal, qubits 25->24 -> True": {
+  "want": true,
+  "got": true,
+  "ref": true,
+  "ok": true
+ },
+ "dT=-100, rho equal, qubits 25->26 -> False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "depth change only (ignored) -> False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "CX 71->70 with huge T rise -> True": {
+  "want": true,
+  "got": true,
+  "ref": true,
+  "ok": true
+ },
+ "CX 71->72 with huge T drop -> False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "n_rot changed (no band), dT=-5 -> lexi True": {
+  "want": true,
+  "got": true,
+  "ref": true,
+  "ok": true
+ },
+ "n_rot changed (no band), dT=+5 -> lexi False": {
+  "want": false,
+  "got": false,
+  "ref": false,
+  "ok": true
+ },
+ "t_fixed changed (no band), dT=-5 -> True": {
+  "want": true,
+  "got": true,
+  "ref": true,
+  "ok": true
+ },
+ "rho worse and T better beyond band -> True (lexi on T first)": {
+  "want": true,
+  "got": true,
+  "ref": true,
+  "ok": true
+ },
+ "stop_key_is_(cx,t_sum,rho,qubits)": {
+  "got": [
+   71,
+   1118,
+   0,
+   25
+  ],
+  "ok": true
+ },
+ "stop_key_ignores_depth": {
+  "ok": true
+ },
+ "constants": {
+  "got": [
+   8,
+   3,
+   20,
+   1,
+   20
+  ],
+  "ok": true
+ },
+ "fuzz_20000_vs_reference_mismatches": {
+  "got": 0,
+  "ok": true
+ },
+ "antisymmetry_both_improve_count": 0,
+ "all_ok": true,
+ "commit": "a2d847a"
+}

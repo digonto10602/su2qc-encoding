@@ -1,0 +1,86 @@
+{
+ "1_same_twice": {
+  "status": [
+   "certified",
+   "certified"
+  ],
+  "files": [
+   "lsh-step-o1-ddc1571c27bd.json"
+  ],
+  "bytes_and_mtime_identical": true,
+  "pending_files_left": []
+ },
+ "1_binding_fields_present": {
+  "gates_sha256": true,
+  "git_dirty": true
+ },
+ "2_extra_added_rewrites": {
+  "rewritten": true,
+  "has_fields": true,
+  "status": "certified"
+ },
+ "2_extra_same_no_rewrite": true,
+ "2_extra_changed_rewrites": {
+  "rewritten": true,
+  "entry_id": "t-2"
+ },
+ "3_different_circuit_new_cert": {
+  "status": "certified",
+  "new_file": [
+   "lsh-step-o1-210d8def80c5.json"
+  ],
+  "old_files_unchanged": true
+ },
+ "3b_wrong_circuit": {
+  "status": "rejected",
+  "reason": "state 0 differs from the target"
+ },
+ "4_tampered_existing_replaced": {
+  "replaced": true,
+  "status": "certified"
+ },
+ "4b_gate_record_example": [
+  {
+   "g": "cx",
+   "q": [
+    1,
+    2
+   ]
+  },
+  {
+   "g": "cx",
+   "q": [
+    1,
+    0
+   ]
+  },
+  {
+   "g": "h",
+   "q": [
+    1
+   ]
+  }
+ ],
+ "5_same_up_to_volatile": {
+  "volatile_git_commit_changes": true,
+  "volatile_git_dirty_changes": true,
+  "volatile_export_seconds_changes": true,
+  "float_spread +1e-10 (tol 1e-9 -> same)": true,
+  "float_spread +1e-8 (-> different)": false,
+  "float_cross_check None->0 (-> different)": false,
+  "phase m changed (-> different)": false,
+  "first cx control/target swapped (-> different)": false,
+  "first rotation exponent m_alpha +1 (-> different)": false,
+  "gates_sha256 changed (-> different)": false,
+  "program_sha256 changed (-> different)": false,
+  "entry_id changed (-> different)": false,
+  "extra key dropped (-> different)": false,
+  "state term changed (-> different)": false,
+  "target entry changed (-> different)": false,
+  "n_qubits changed (-> different)": false,
+  "alpha_nominal changed (-> different)": false,
+  "encoding changed (-> different)": false,
+  "identity": true
+ },
+ "commit": "9aa0320"
+}

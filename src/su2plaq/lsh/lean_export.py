@@ -140,6 +140,10 @@ _CERT_TOL = 1e-12
 _PREFER = {"UE": "a", "UB": "b", "step": "ab"}
 _EXACT_CACHE: dict = {}
 _BUILT = False
+# provenance fields that change on every export without changing what the certificate says (audit 303 N2, prompts/401 8.A2):
+# `certify` keeps an existing certificate that differs from a fresh export only in these.
+VOLATILE_PROVENANCE = ("git_commit", "git_dirty", "export_seconds")
+_FLOAT_PROVENANCE = ("float_phase_spread", "float_phase_cross_check")   # float simulation residuals, equal up to rounding
 
 
 def target_base(kind: str, order: int = 1) -> tuple:
@@ -317,14 +321,26 @@ def write_pins(path=None) -> pathlib.Path:
 
 
 # ----- export
-def export_certificate(qc, enc, kind, alpha, beta, order, out_path, *, verdict_phases=None):
+def _git_dirty() -> bool | None:
+    """Uncommitted changes to tracked files (as `su2plaq.metrics.provenance`); None outside a repository."""
+    try:
+        r = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=ROOT, capture_output=True, text=True,
+                           timeout=30)
+    except (OSError, subprocess.SubprocessError):
+        return None
+    return bool(r.stdout.strip()) if r.returncode == 0 else None
+
+
+def export_certificate(qc, enc, kind, alpha, beta, order, out_path, *, verdict_phases=None, extra_provenance: dict | None = None):
     """prompts/006 section 4 JSON certificate (schema su2plaq-cert-1) of `qc` against the exact LSH target (kind, order):
     gates via `sparse_sim._translate` (program order, angle exponents of the gate's own angle in units of
     alpha / d_alpha, beta / d_beta), states = the 433 unit codes (K-coefficient 1), target blocks = exact Laurent
     polynomials over K with base `target_base`, phase c = omega^j z_alpha^a z_beta^b fitted from the float simulation at
     three angle pairs.  Returns the path or an n_a reason string (`non_linear_angle:<gate>:<theta>`, `unitary_gate`,
     `phase_not_in_K`, `too_many_qubits`, ...).  `verdict_phases` (float evaluator phases at the nominal pair) are only
-    cross-checked."""
+    cross-checked.  `extra_provenance` (e.g. `{"entry_id": ..., "program_file_sha256": ...}`) is merged into the certificate's
+    `provenance` block (binding fields); the certificate also records `git_dirty` and `gates_sha256` (the gate-list hash,
+    alias of `program_sha256`)."""
     from su2plaq.encodings.base import ALT_ANGLES
     from su2plaq.evaluate import sparse_sim as ss
 
@@ -393,7 +409,8 @@ def export_certificate(qc, enc, kind, alpha, beta, order, out_path, *, verdict_p
         residual = float(abs(cs[0] / abs(cs[0]) * np.exp(1j * gphase) - verdict_phases[0]))
     gates_hash = hashlib.sha256(json.dumps(recs).encode()).hexdigest()
     cert = {
-        "schema": "su2plaq-cert-1", "circuit_id": f"lsh-{kind}-o{order}-{gates_hash[:12]}", "program_sha256": gates_hash,
+        "schema": "su2plaq-cert-1", "circuit_id": f"lsh-{kind}-o{order}-{gates_hash[:12]}", "gates_sha256": gates_hash,
+        "program_sha256": gates_hash,
         "n_qubits": n_cert, "n_data": N_DATA, "n_outer": N_OUTER, "base": {"d_alpha": base[0], "d_beta": base[1]},
         "gates": recs,
         "states": [{"k": k, "label": str(enc.labels[k]),
@@ -403,9 +420,9 @@ def export_certificate(qc, enc, kind, alpha, beta, order, out_path, *, verdict_p
                    "blocks": [{"ks": b["ks"], "entries": [[i, j, lp.to_json()] for i, j, lp in b["entries"]]}
                               for b in blocks]},
         "phase": {"k": E.omega_power(j_).to_json(), "m": [a_, b_]},
-        "provenance": {"git_commit": C._git_commit(), "encoding": enc.name, "alpha_nominal": alpha, "beta_nominal": beta,
+        "provenance": {"git_commit": C._git_commit(), "git_dirty": _git_dirty(), "encoding": enc.name, "alpha_nominal": alpha, "beta_nominal": beta,
                        "float_phase_spread": spread, "float_phase_cross_check": residual,
-                       "exporter": "su2plaq.lsh.lean_export", "export_seconds": time.time() - t0},
+                       "exporter": "su2plaq.lsh.lean_export", "export_seconds": time.time() - t0, **(extra_provenance or {})},
     }
     out_path = pathlib.Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -447,24 +464,138 @@ def check_certificate(path, timeout: float = 900.0) -> dict:
             "checker_sha256": sha}
 
 
-def certify(qc, enc, kind, alpha, beta, order, out_dir=None, timeout: float = 900.0) -> dict:
+def _same_up_to_volatile(a: dict, b: dict) -> bool:
+    """True iff two certificates are equal after dropping VOLATILE_PROVENANCE (and comparing the float-simulation residuals
+    of the provenance block up to 1e-9)."""
+    a, b = json.loads(json.dumps(a)), json.loads(json.dumps(b))
+    pa, pb = a.get("provenance", {}), b.get("provenance", {})
+    for k in VOLATILE_PROVENANCE:
+        pa.pop(k, None)
+        pb.pop(k, None)
+    for k in _FLOAT_PROVENANCE:
+        x, y = pa.pop(k, None), pb.pop(k, None)
+        if (x is None) != (y is None) or (x is not None and abs(float(x) - float(y)) > 1e-9):
+            return False
+    return a == b
+
+
+def certify(qc, enc, kind, alpha, beta, order, out_dir=None, timeout: float = 900.0, extra_provenance: dict | None = None) -> dict:
     """Export + check: {"status": "certified"|"rejected"|"n_a"|"failed", "reason", "cert_path", "seconds", "axioms": [],
     "check_seconds", "checker_sha256"}.  The checker is a compiled executable (computable Lean code, no kernel axiom is
     involved: `axioms` is empty); `n_a` carries the exporter's reason (angles that are not rational multiples of
-    alpha / beta, unitary gates, ...).  Certificates go to results/lsh/certs/<circuit_id>.json by default."""
+    alpha / beta, unitary gates, ...).  Certificates go to results/lsh/certs/<circuit_id>.json by default.
+    `extra_provenance` is written inside the certificate (binding fields).  An existing certificate of the same name that
+    differs from the fresh export only in VOLATILE_PROVENANCE is left untouched (no rewrite, no dirty tree); a changed
+    binding or content replaces it.  The temporary file never outlives the call."""
     t0 = time.time()
     out_dir = pathlib.Path(out_dir) if out_dir is not None else CERT_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
     tmp = out_dir / f"lsh-{kind}-o{order}-pending-{os.getpid()}-{abs(hash(id(qc))) % 10**8}.json"
     try:
-        res = export_certificate(qc, enc, kind, alpha, beta, order, tmp)
-    except E.ExactError as exc:
-        return {"status": "failed", "reason": f"exact export failed: {exc}", "cert_path": None,
-                "seconds": time.time() - t0, "axioms": []}
-    if isinstance(res, str):
-        return {"status": "n_a", "reason": res, "cert_path": None, "seconds": time.time() - t0, "axioms": []}
-    final = out_dir / (json.loads(res.read_text())["circuit_id"] + ".json")
-    res.replace(final)
+        try:
+            res = export_certificate(qc, enc, kind, alpha, beta, order, tmp, extra_provenance=extra_provenance)
+        except E.ExactError as exc:
+            return {"status": "failed", "reason": f"exact export failed: {exc}", "cert_path": None,
+                    "seconds": time.time() - t0, "axioms": []}
+        if isinstance(res, str):
+            return {"status": "n_a", "reason": res, "cert_path": None, "seconds": time.time() - t0, "axioms": []}
+        fresh = json.loads(res.read_text())
+        final = out_dir / (fresh["circuit_id"] + ".json")
+        keep = False
+        if final.exists():
+            try:
+                keep = _same_up_to_volatile(json.loads(final.read_text()), fresh)
+            except (OSError, ValueError):
+                keep = False
+        if keep:
+            res.unlink()
+        else:
+            res.replace(final)
+    finally:
+        if tmp.exists():
+            tmp.unlink()
     out = check_certificate(final, timeout=timeout)
     return {"status": out["status"], "reason": out["reason"], "cert_path": str(final), "seconds": time.time() - t0,
             "axioms": [], "check_seconds": out["seconds"], "checker_sha256": out["checker_sha256"]}
+
+
+# ----- theorem file (step 8.L)
+def _exporter_mismatch(path, enc=None) -> str | None:
+    """Compare the trusted inputs of an LSH certificate -- the 433 states and the target blocks -- with the exact data of
+    this exporter entry by entry (the Lean checker re-verifies both through the SHA-256 pins; this refuses early and for the
+    theorem-file writer).  Returns a reason or None."""
+    if enc is None:
+        from su2plaq.encodings.lsh import LSH
+        enc = LSH()
+    try:
+        d = json.loads(pathlib.Path(path).read_text())
+        if not isinstance(d, dict) or d.get("schema") != "su2plaq-cert-1":
+            return "not a su2plaq-cert-1 certificate"
+        if d.get("n_data") != N_DATA or d.get("n_outer") != N_OUTER or "states" not in d or "target" not in d:
+            return "not an LSH certificate (n_data 12, n_outer 12, states, target)"
+        exp = exact_states(enc)
+        if len(d["states"]) != len(exp):
+            return f"certificate has {len(d['states'])} states, the physical basis has {len(exp)}"
+        seen = set()
+        for st in d["states"]:
+            k = st["k"]
+            if k in seen or not 0 <= k < len(exp):
+                return f"bad or duplicate state index {k}"
+            seen.add(k)
+            want = {int(c): a for c, a in zip(exp[k]["codes"], exp[k]["amps"])}
+            have = {int(t["code"]): E.KNum.from_json(t["c"]) for t in st["terms"]}
+            if len(have) != len(st["terms"]) or have != want:
+                return f"state {k} differs from the exact physical basis"
+        tgt = d["target"]
+        kind, order = tgt["kind"], int(tgt.get("order", 1))
+        if (kind, order if kind == "step" else 1) not in LSH_TARGETS:
+            return f"unknown target kind {kind!r} order {order}"
+        t_base = target_base(kind, order)
+        fa, fb = d["base"]["d_alpha"] // t_base[0], d["base"]["d_beta"] // t_base[1]
+        if d["base"]["d_alpha"] != fa * t_base[0] or d["base"]["d_beta"] != fb * t_base[1] or fa < 1 or fb < 1:
+            return "base is not a positive multiple of the target's base"
+        blocks = [{"ks": b["ks"], "entries": [[i, j, C._scale_laurent(lp, fa, fb).to_json()] for i, j, lp in b["entries"]]}
+                  for b in exact_target_blocks(enc, kind, order)]
+        got = [{"ks": b["ks"], "entries": [[i, j, lp] for i, j, lp in b["entries"]]} for b in tgt["blocks"]]
+        if json.dumps(got, sort_keys=True) != json.dumps(blocks, sort_keys=True):
+            return f"target blocks differ from the exact {kind} target"
+    except (KeyError, TypeError, ValueError, E.ExactError) as exc:
+        return f"malformed certificate: {type(exc).__name__}: {exc}"
+    return None
+
+
+def write_theorem_file(cert_path, theorem_name: str, out_path, comment: str | None = None) -> pathlib.Path:
+    """Write `import Su2PlaqCert.LSH.Check` + the certificate JSON as a Lean string literal + `theorem <name> :
+    Su2PlaqCert.LSH.checkJsonString certJson = true := by native_decide` + `#print axioms <name>` (standard axioms plus one
+    per-theorem `native_decide` axiom: compiler trust).  Elaborate with `cd lean && lake env lean <out_path>`.  As
+    `su2plaq.spinnet.lean_export.write_theorem_file`; refuses (ValueError) a certificate whose states / target differ from
+    this exporter's exact LSH data.  `comment` (optional) becomes a first line `-- <comment>`."""
+    cert_path, out_path = pathlib.Path(cert_path), pathlib.Path(out_path)
+    why = _exporter_mismatch(cert_path)
+    if why is not None:
+        raise ValueError(f"refusing to write a theorem file for a certificate that differs from the exporter's exact data: {why}")
+    text = cert_path.read_text()
+    d = json.loads(text)
+    if not theorem_name.replace("_", "").isalnum() or len(theorem_name) > 13:
+        # `#print axioms` prints one line only if the whole message fits in 120 columns: 92 + 2 * len(name)
+        raise ValueError(f"bad theorem name {theorem_name!r} (alphanumeric/underscore, at most 13 characters)")
+    lit = text.replace("\\", "\\\\").replace('"', '\\"')
+    if "\n" in lit or "\r" in lit:
+        raise ValueError("certificate JSON must be a single line")
+    if comment is not None and ("\n" in comment or "\r" in comment):
+        raise ValueError("comment must be a single line")
+    prov = d.get("provenance", {})
+    first = f"-- {comment}\n" if comment else ""
+    head = (
+        first +
+        "import Su2PlaqCert.LSH.Check\n\n"
+        "/-! Generated by `su2plaq.lsh.lean_export.write_theorem_file` -- do not edit.\n"
+        f"circuit_id {d.get('circuit_id')}; git {prov.get('git_commit')}; exporter {prov.get('exporter')};\n"
+        f"certificate sha256 {hashlib.sha256(text.encode()).hexdigest()}; {len(d['gates'])} gates, {d['n_qubits']} qubits.\n"
+        "`native_decide` runs the compiled checker `Su2PlaqCert.LSH.checkJsonString` (trust: Lean compiler + checker source). -/\n\n")
+    body = (f'def certJson : String := "{lit}"\n\n'
+            f"theorem {theorem_name} : Su2PlaqCert.LSH.checkJsonString certJson = true := by native_decide\n\n"
+            f"#print axioms {theorem_name}\n")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(head + body)
+    return out_path
