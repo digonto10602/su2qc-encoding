@@ -12,17 +12,17 @@ Gu-et-al-style LLM loop → report. Full plan: `prompts/001-plaquette-five-encod
 | Track | Range | Plan | Locked tests | Milestones done |
 |---|---|---|---|---|
 | twelve (M0–M2) | 000–099 | prompts/006 (+007 m9 erratum, 008 consolidation pending) | m0, m1, m2 | milestone-0, -1, -2, -2-gate |
-| spinnet (M3/M4) | 100–199 | prompts/104 (§11 E1–E3) | m3, m3x, m4 | milestone-3 |
+| spinnet (M3/M4) | 100–199 | prompts/104 (§11 E1–E3) | m3, m3x, m4 | milestone-3, -4 |
 | rishon (M5/M6) | 200–299 | prompts/204 (det term, prune cap 10 %) on 203 | m5, m5x, m6 | milestone-5, -5x |
 | fuzzy (M9/M10) | 300–399 | prompts/302 | m9, m10 | milestone-9, -10 |
-| LSH (M7/M8) | 400–499 | prompts/400 | m7 | — |
-Latest acceptance tag: acceptance-v18 (m2c consolidation, prompts/008) (tags v8–v13 are old track-local locks; v14 = merged tree).
+| LSH (M7/M8) | 400–499 | prompts/401 (on 400) | m7, m8 | milestone-7 |
+Latest acceptance tag: acceptance-v19 (m8 LSH compression, prompts/401) (tags v8–v13 are old track-local locks; v14 = merged tree).
 
 ## Current milestone / step (per track)
 - spinnet M4: compression round 5 (proposers F1–F3, sessions 16–18/20; stop counter 2/3) → then 4.L1/4.L2 Lean, 4.7 results, 4.8 gate → Report 4.
 - rishon M5d/M6: prompts/204 steps D1–D7 (det term λ_D, milestone-5d, Report 5 addendum), then C1–C6 (replay rounds 0–4, rounds 5+, Lean 6.L, gate → Report 6).
 - fuzzy M10 follow-up: fuzzy_ub round 4 (proposers F1–F3); then Lean per-circuit certs + audit A1/A2 (planner).
-- LSH M7: all steps done (7.L3 731da36, METHODS-lsh L11 87ab391); gate: tester full PASS (407) → auditor running → benchmark → milestone-7 → Report 7; then M8.
+- LSH: milestone-7 tagged (08f811d); Report 7 being written; M8 (prompts/401, v19) Phase 0 builder running (8.0, 8.A1, 8.A2, 8.1, 8.U, 8.L); Phase 1/2 wait for the 008 registry window.
 - consolidation: planner writing prompts/008 (shared-code registries replacing shims, robust-T key, hash refresh) — runs after the loops close.
 
 ## Open failures (attempt counters)
@@ -164,3 +164,5 @@ Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer
 - 2026-11-13: rishon D6 results on clean 6fea036 (38cd483): step3 synth at eps 1e-4 took 52 070 s (14.5 h); U_D 32 CX; general three-layer step 10134 CX / 174 rot / 26 q; outer det row certified 4.0e-15; DT7 x4 + results_file green. Builder -> leaving_weight residual form, D7 code parts, C1 (not C2).
 - 2026-11-13: fuzzy_ub round 6 (776deb4): best 94 -> 87 CX (r06-F3-006, T_eps 650, depth_CT 1571, 11 q; Clifford+T re-verified 2.3e-6); F1/F2 88. Round 7 started (F1 12-13, F2 2-3, F3 4-5).
 - 2026-11-13: M4 + M7 gate step 3 benchmarks -> tester (cores 14-19).
+- 2026-11-13: M8 planner done -> prompts/401 + 33 m8 tests locked acceptance-v19 (5245256), METHODS-lsh L12-L16 (a36d829). Round-0 best known: M4 headline wrapped by the transcoder = 71 CX (31 + 40). Defaults D1-D13 for Digonto.
+- 2026-11-13: M4 + M7 benchmarks PASS (reports/benchmarks/301, 302; flag +16-31 % spinnet evaluate vs report 100 = environment: control at 9c0aee6 gives HEAD/old 0.94-1.05) -> tagged milestone-4 and milestone-7 (08f811d), pushed. Reports 4 and 7 being drafted; LSH M8 Phase 0 builder (cores 14-19). Gate counts summary PDF results/summary/encodings-gate-counts.pdf (scripts/summary_table.py).
