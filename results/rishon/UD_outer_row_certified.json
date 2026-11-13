@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "encoding": "rishon",
+  "circuit_id": "UD_outer_row_certified",
+  "kind": "UD",
+  "params": {
+    "eta": 0.29
+  },
+  "provenance": {
+    "git_commit": "6fea036",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+    "cpu_count": 20,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "gauss_sample": 20261104,
+      "outer_row_sample": 20261104,
+      "trial_subset": 0,
+      "outer_det_row": null
+    },
+    "timestamp_utc": "2026-11-12T02:37:11Z",
+    "provenance_captured_at": "2026-11-12T02:37:11Z",
+    "host": "omnicommander",
+    "command": "python scripts/m5_det_results.py --jobs 4",
+    "quick": false,
+    "only": null,
+    "jobs": 4,
+    "wall_seconds": 55530.78576350212,
+    "peak_rss_mb": 534.890625,
+    "peak_rss_mb_largest_worker": 2246.0234375
+  },
+  "verification": {
+    "certified": true,
+    "ok": true,
+    "method": "outer_det_gadgets",
+    "n_links": 12,
+    "link_errors": [
+      3.3310928468020272e-16,
+      3.3310928468020272e-16,
+      3.3310928468020272e-16,
+      3.3310928468020272e-16,
+      3.3310928468020272e-16,
+      3.3310928468020272e-16,
+      3.3310928468020272e-16,
+      3.3310928468020272e-16,
+      3.3310928468020272e-16,
+      3.3310928468020272e-16,
+      3.3310928468020272e-16,
+      3.3310928468020272e-16
+    ],
+    "max_link_error": 3.3310928468020272e-16,
+    "error_bound": 3.997311416162433e-15,
+    "phase": [
+      1.0,
+      -6.375913312633964e-17
+    ],
+    "gates_per_link": [
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14
+    ],
+    "tol_err": 1e-10,
+    "eta": 0.29,
+    "target": "exp(-i eta (det U + det U^dag)) per link on the 6 sector codes; bound = sum over links (tensor product)",
+    "reason": "ok"
+  },
+  "metrics": {
+    "logical": {
+      "cx": 96,
+      "depth": 10,
+      "n_rot": 24,
+      "t_fixed": 0,
+      "qubits": 48,
+      "ancilla": 0
+    }
+  },
+  "files": {
+    "qpy": "results/rishon/UD_outer_row.qpy",
+    "sha256": "c0959b8db18e3ae49898414bf9de2e9c3384ccaeeca011bedb48730b6866cdf0",
+    "qasm3": "results/rishon/UD_outer_row.qasm3"
+  },
+  "extra": {
+    "note": "det row over all 12 links (inner det layer + 8 outer links); the outer part writes the outer register (A <-> B), so it is certified per link by outer_det_certify, not by the inner-block verdict",
+    "analogous_file": "results/rishon/UE_outer_row_certified.json"
+  }
+}

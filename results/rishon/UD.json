@@ -1,0 +1,533 @@
+{
+  "schema_version": 1,
+  "encoding": "rishon",
+  "circuit_id": "UD",
+  "kind": "UD",
+  "params": {
+    "eta": 0.29,
+    "order": null
+  },
+  "provenance": {
+    "git_commit": "6fea036",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+    "cpu_count": 20,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "gauss_sample": 20261104,
+      "outer_row_sample": 20261104,
+      "trial_subset": 0,
+      "outer_det_row": null
+    },
+    "timestamp_utc": "2026-11-12T02:37:11Z",
+    "provenance_captured_at": "2026-11-12T02:37:11Z",
+    "host": "omnicommander",
+    "command": "python scripts/m5_det_results.py --jobs 4",
+    "quick": false,
+    "only": null,
+    "jobs": 4,
+    "wall_seconds": 55530.78576350212,
+    "peak_rss_mb": 534.890625,
+    "peak_rss_mb_largest_worker": 2246.0234375
+  },
+  "verification": {
+    "ok": true,
+    "reason": "ok",
+    "certified": true,
+    "op_norm_error": 2.7562859870816844e-15,
+    "block_error": 1.481222263080711e-15,
+    "leak_amplitude": 0.0,
+    "dropped_total": 1.2750637240009737e-15,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      0.0
+    ],
+    "gauss_residual": 2.1499376424746292e-16,
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "method": "inner_block",
+    "engine": "sparse",
+    "seconds": 8.325457096099854,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "failing_inputs": [],
+    "inner_verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 2.7562859870816844e-15,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": [
+        1.0,
+        0.0
+      ],
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": NaN,
+      "method": "inner_span",
+      "engine": "sparse",
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+      },
+      "dropped_total": 1.2750637240009737e-15,
+      "block_error": 1.481222263080711e-15,
+      "leak_amplitude": 0.0,
+      "seconds": 8.281025409698486,
+      "n_inputs": 1296,
+      "failing_inputs": [],
+      "extra": {
+        "op_norm_error_physical": 1.481222263080711e-15,
+        "max_dropped_l2": 5.2765589584392414e-17,
+        "max_span_leak": 1.1102230246251565e-16,
+        "op_norm_error_inner_span": 1.481222263080711e-15
+      }
+    },
+    "extra": {
+      "inner_method": "inner_span",
+      "gauss_sample": 256,
+      "seed": 20261104,
+      "prune_fraction": 0.1,
+      "prune_cap": 1.0000000000000001e-11,
+      "laptop_reason": "ok"
+    }
+  },
+  "metrics": {
+    "logical": {
+      "cx": 32,
+      "depth": 10,
+      "n_rot": 8,
+      "t_fixed": 0,
+      "qubits": 16,
+      "ancilla": 0
+    },
+    "gates_lowered": {
+      "cx": 32,
+      "h": 16,
+      "rz": 8
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 0,
+        "n_rot": 8,
+        "t_rot_pygridsynth": 352,
+        "t_total": 352,
+        "t_est": 318.9050971091868,
+        "t_qiskit": 352,
+        "cx_qiskit": 32,
+        "depth_qiskit": 230,
+        "synth": {
+          "n_rot": 8,
+          "t_rot": 352,
+          "error_bound_sum": 0.0008,
+          "error_measured_sum": 0.0003722397620149051,
+          "t_gates_in_synthesised_circuit": 352,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "certified": true,
+            "op_norm_error": 0.0003666914994290858,
+            "block_error": 0.0003666914994282896,
+            "leak_amplitude": 0.0,
+            "dropped_total": 7.961657110103069e-16,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              -1.3690522077375197e-14
+            ],
+            "gauss_residual": 1.4292185140174794e-05,
+            "gauss_states": 273,
+            "outer_bits_read": 0,
+            "method": "inner_block",
+            "engine": "sparse",
+            "seconds": 12.013205528259277,
+            "tolerances": {
+              "tol_err": 0.000800001,
+              "tol_gauss": 0.000800001
+            },
+            "failing_inputs": [],
+            "inner_verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 0.0003666914994290858,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "phase": [
+                1.0,
+                -1.3690522077375197e-14
+              ],
+              "outer_bits_read": 0,
+              "n_blocks": 1,
+              "gauss_residual": NaN,
+              "method": "inner_span",
+              "engine": "sparse",
+              "engine_accuracy": 0.0,
+              "certified": true,
+              "tolerances": {
+                "tol_err": 0.000800001,
+                "tol_gauss": 0.000800001
+              },
+              "dropped_total": 7.961657110103069e-16,
+              "block_error": 0.0003666914994282896,
+              "leak_amplitude": 0.0,
+              "seconds": 11.495599269866943,
+              "n_inputs": 1296,
+              "failing_inputs": [],
+              "extra": {
+                "op_norm_error_physical": 0.0003666914994282896,
+                "max_dropped_l2": 4.419087097386804e-17,
+                "max_span_leak": 4.440892098500626e-16,
+                "op_norm_error_inner_span": 0.0003666914994282896
+              }
+            },
+            "extra": {
+              "inner_method": "inner_span",
+              "gauss_sample": 256,
+              "seed": 20261104,
+              "prune_fraction": 0.1,
+              "prune_cap": 8.000010000000001e-05,
+              "laptop_reason": "ok"
+            }
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 12.023613452911377
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 0,
+        "n_rot": 8,
+        "t_rot_pygridsynth": 496,
+        "t_total": 496,
+        "t_est": 478.3576456637802,
+        "t_qiskit": 456,
+        "cx_qiskit": 32,
+        "depth_qiskit": 292,
+        "synth": {
+          "n_rot": 8,
+          "t_rot": 496,
+          "error_bound_sum": 8e-06,
+          "error_measured_sum": 3.932170438889037e-06,
+          "t_gates_in_synthesised_circuit": 496,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "certified": true,
+            "op_norm_error": 3.8420129496749956e-06,
+            "block_error": 3.842012949662267e-06,
+            "leak_amplitude": 0.0,
+            "dropped_total": 1.2728613328441058e-17,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              -1.9481007232012967e-14
+            ],
+            "gauss_residual": 2.147841127819219e-09,
+            "gauss_states": 273,
+            "outer_bits_read": 0,
+            "method": "inner_block",
+            "engine": "sparse",
+            "seconds": 11.419214963912964,
+            "tolerances": {
+              "tol_err": 8.001e-06,
+              "tol_gauss": 8.001e-06
+            },
+            "failing_inputs": [],
+            "inner_verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 3.8420129496749956e-06,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "phase": [
+                1.0,
+                -1.9481007232012967e-14
+              ],
+              "outer_bits_read": 0,
+              "n_blocks": 1,
+              "gauss_residual": NaN,
+              "method": "inner_span",
+              "engine": "sparse",
+              "engine_accuracy": 0.0,
+              "certified": true,
+              "tolerances": {
+                "tol_err": 8.001e-06,
+                "tol_gauss": 8.001e-06
+              },
+              "dropped_total": 1.2728613328441058e-17,
+              "block_error": 3.842012949662267e-06,
+              "leak_amplitude": 0.0,
+              "seconds": 10.578558444976807,
+              "n_inputs": 1296,
+              "failing_inputs": [],
+              "extra": {
+                "op_norm_error_physical": 3.842012949662267e-06,
+                "max_dropped_l2": 5.987571382717804e-19,
+                "max_span_leak": 4.440892098500626e-16,
+                "op_norm_error_inner_span": 3.842012949662267e-06
+              }
+            },
+            "extra": {
+              "inner_method": "inner_span",
+              "gauss_sample": 256,
+              "seed": 20261104,
+              "prune_fraction": 0.1,
+              "prune_cap": 8.001000000000001e-07,
+              "laptop_reason": "ok"
+            }
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 11.426563262939453
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 0,
+        "n_rot": 8,
+        "t_rot_pygridsynth": 688,
+        "t_total": 688,
+        "t_est": 637.8101942183736,
+        "t_qiskit": 688,
+        "cx_qiskit": 32,
+        "depth_qiskit": 450,
+        "synth": {
+          "n_rot": 8,
+          "t_rot": 688,
+          "error_bound_sum": 8e-08,
+          "error_measured_sum": 3.991687642858744e-08,
+          "t_gates_in_synthesised_circuit": 688,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "certified": true,
+            "op_norm_error": 3.972301158232002e-08,
+            "block_error": 3.972301158008415e-08,
+            "leak_amplitude": 0.0,
+            "dropped_total": 2.235869427507512e-18,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              -2.6964969660256835e-14
+            ],
+            "gauss_residual": 9.001932980908624e-10,
+            "gauss_states": 273,
+            "outer_bits_read": 0,
+            "method": "inner_block",
+            "engine": "sparse",
+            "seconds": 9.316880941390991,
+            "tolerances": {
+              "tol_err": 8.1e-08,
+              "tol_gauss": 8.1e-08
+            },
+            "failing_inputs": [],
+            "inner_verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 3.972301158232002e-08,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "phase": [
+                1.0,
+                -2.6964969660256835e-14
+              ],
+              "outer_bits_read": 0,
+              "n_blocks": 1,
+              "gauss_residual": NaN,
+              "method": "inner_span",
+              "engine": "sparse",
+              "engine_accuracy": 0.0,
+              "certified": true,
+              "tolerances": {
+                "tol_err": 8.1e-08,
+                "tol_gauss": 8.1e-08
+              },
+              "dropped_total": 2.235869427507512e-18,
+              "block_error": 3.972301158008415e-08,
+              "leak_amplitude": 0.0,
+              "seconds": 8.60251522064209,
+              "n_inputs": 1296,
+              "failing_inputs": [],
+              "extra": {
+                "op_norm_error_physical": 3.972301158008415e-08,
+                "max_dropped_l2": 1.0517592914532476e-19,
+                "max_span_leak": 2.220446049250313e-16,
+                "op_norm_error_inner_span": 3.972301158008415e-08
+              }
+            },
+            "extra": {
+              "inner_method": "inner_span",
+              "gauss_sample": 256,
+              "seed": 20261104,
+              "prune_fraction": 0.1,
+              "prune_cap": 8.1e-09,
+              "laptop_reason": "ok"
+            }
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 9.324597120285034
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 0,
+        "n_rot": 8,
+        "t_rot_pygridsynth": 816,
+        "t_total": 816,
+        "t_est": 797.2627427729669,
+        "t_qiskit": 816,
+        "cx_qiskit": 32,
+        "depth_qiskit": 532,
+        "synth": {
+          "n_rot": 8,
+          "t_rot": 816,
+          "error_bound_sum": 8e-10,
+          "error_measured_sum": 2.1230890960334533e-10,
+          "t_gates_in_synthesised_circuit": 816,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "certified": true,
+            "op_norm_error": 2.0351233650305238e-10,
+            "block_error": 2.0351233650059627e-10,
+            "leak_amplitude": 0.0,
+            "dropped_total": 2.4561115798129327e-21,
+            "max_leak": 0.0,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              1.0,
+              -3.2243917120808966e-14
+            ],
+            "gauss_residual": 2.983644759791619e-11,
+            "gauss_states": 273,
+            "outer_bits_read": 0,
+            "method": "inner_block",
+            "engine": "sparse",
+            "seconds": 9.444130182266235,
+            "tolerances": {
+              "tol_err": 1.8e-09,
+              "tol_gauss": 1.8e-09
+            },
+            "failing_inputs": [],
+            "inner_verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 2.0351233650305238e-10,
+              "max_leak": 0.0,
+              "dirty_ancilla": 0.0,
+              "phase": [
+                1.0,
+                -3.2243917120808966e-14
+              ],
+              "outer_bits_read": 0,
+              "n_blocks": 1,
+              "gauss_residual": NaN,
+              "method": "inner_span",
+              "engine": "sparse",
+              "engine_accuracy": 0.0,
+              "certified": true,
+              "tolerances": {
+                "tol_err": 1.8e-09,
+                "tol_gauss": 1.8e-09
+              },
+              "dropped_total": 2.4561115798129327e-21,
+              "block_error": 2.0351233650059627e-10,
+              "leak_amplitude": 0.0,
+              "seconds": 8.620994091033936,
+              "n_inputs": 1296,
+              "failing_inputs": [],
+              "extra": {
+                "op_norm_error_physical": 2.0351233650059627e-10,
+                "max_dropped_l2": 1.1554223541490403e-22,
+                "max_span_leak": 2.220446049250313e-16,
+                "op_norm_error_inner_span": 2.0351233650059627e-10
+              }
+            },
+            "extra": {
+              "inner_method": "inner_span",
+              "gauss_sample": 256,
+              "seed": 20261104,
+              "prune_fraction": 0.1,
+              "prune_cap": 1.8e-10,
+              "laptop_reason": "ok"
+            }
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 9.452269077301025
+      }
+    ],
+    "macro": {
+      "depth": 10,
+      "depth_label": "depth of the circuit as built (macro gates such as rccx/mcx/crx counted as one layer each); the headline `logical.depth` is the depth of the level-0 lowered circuit (logical_metrics)",
+      "size": 56
+    },
+    "macro_counts": {
+      "cx": 32,
+      "h": 16,
+      "rz": 8
+    }
+  },
+  "files": {
+    "qpy": "results/rishon/UD.qpy",
+    "sha256": "735e4312124a821e3bb67f435330dc02ba02f7b02e258ef12fba1257f0a35feb",
+    "qasm3": "results/rishon/UD.qasm3"
+  },
+  "extra": {
+    "physics": {
+      "dim": 38432,
+      "closed": 4352,
+      "u2_sector": 2192,
+      "inner_span_rank": 1296,
+      "bright_pairs": 81
+    },
+    "physics_detail": {
+      "n_u1_sectors": 431,
+      "type_patterns": 35073,
+      "kappa_multiset": {
+        "1": 32,
+        "2": 48,
+        "5.65685425": 1
+      },
+      "n_inner_codes": 1296,
+      "n_dark_codes": 990,
+      "inner_span_rank_by_corners": 1296,
+      "counts_by_fusion": {
+        "dim": 38432,
+        "closed": 4352,
+        "n_u1_sectors": 431,
+        "u2_sector": 2192,
+        "type_patterns": 35073
+      },
+      "coo_entries": 508688,
+      "max_components": 1296
+    },
+    "symbols": "lambda_D = det coupling, eta = lambda_D dt = angle of the det layer (prompts/204 section 2.1)",
+    "seconds": {
+      "verify_exact": 8.32721757888794
+    },
+    "outer_det_row": {
+      "file": "UD_outer_row_certified.json",
+      "n_rot": 24,
+      "cx": 96
+    }
+  }
+}

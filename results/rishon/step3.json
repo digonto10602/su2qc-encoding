@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "encoding": "rishon",
+  "circuit_id": "step3",
+  "kind": "step",
+  "params": {
+    "eta": 0.29,
+    "order": 1,
+    "alpha": 0.37,
+    "beta": 0.61
+  },
+  "provenance": {
+    "git_commit": "6fea036",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+    "cpu_count": 20,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "gauss_sample": 20261104,
+      "outer_row_sample": 20261104,
+      "trial_subset": 0,
+      "outer_det_row": null
+    },
+    "timestamp_utc": "2026-11-12T02:37:11Z",
+    "provenance_captured_at": "2026-11-12T02:37:11Z",
+    "host": "omnicommander",
+    "command": "python scripts/m5_det_results.py --jobs 4",
+    "quick": false,
+    "only": null,
+    "jobs": 4,
+    "wall_seconds": 55530.78576350212,
+    "peak_rss_mb": 534.890625,
+    "peak_rss_mb_largest_worker": 2246.0234375
+  },
+  "verification": {
+    "ok": true,
+    "reason": "ok",
+    "certified": true,
+    "op_norm_error": 4.980007388836005e-13,
+    "block_error": 4.743010379915744e-14,
+    "leak_amplitude": 0.0,
+    "dropped_total": 4.5057063508444296e-13,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      1.315819881037275e-15
+    ],
+    "gauss_residual": 3.618690551027049e-15,
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "method": "inner_block",
+    "engine": "sparse",
+    "seconds": 22.583890676498413,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "failing_inputs": [],
+    "inner_verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 4.980007388836005e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": [
+        1.0,
+        1.315819881037275e-15
+      ],
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": NaN,
+      "method": "inner_span",
+      "engine": "sparse",
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+      },
+      "dropped_total": 4.5057063508444296e-13,
+      "block_error": 4.743010379915744e-14,
+      "leak_amplitude": 0.0,
+      "seconds": 16.421600818634033,
+      "n_inputs": 1296,
+      "failing_inputs": [],
+      "extra": {
+        "op_norm_error_physical": 4.743010379915744e-14,
+        "max_dropped_l2": 1.7808687806879462e-14,
+        "max_span_leak": 9.992007221626409e-16,
+        "op_norm_error_inner_span": 4.743010379915744e-14
+      }
+    },
+    "extra": {
+      "inner_method": "inner_span",
+      "gauss_sample": 256,
+      "seed": 20261104,
+      "prune_fraction": 0.1,
+      "prune_cap": 1.0000000000000001e-11,
+      "laptop_reason": "ok"
+    }
+  },
+  "metrics": {
+    "logical": {
+      "cx": 10134,
+      "depth": 13695,
+      "n_rot": 174,
+      "t_fixed": 10218,
+      "qubits": 26,
+      "ancilla": 10
+    },
+    "gates_lowered": {
+      "cx": 10134,
+      "t": 5810,
+      "tdg": 4408,
+      "h": 3820,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 174,
+      "z": 16
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 10218,
+        "n_rot": 174,
+        "t_rot_pygridsynth": 7460,
+        "t_total": 17678,
+        "t_est": 17154.18586212481,
+        "t_qiskit": 16026,
+        "cx_qiskit": 9610,
+        "depth_qiskit": 26803,
+        "synth": {
+          "n_rot": 174,
+          "t_rot": 7460,
+          "error_bound_sum": 0.017400000000000002,
+          "error_measured_sum": 0.006267691708764043,
+          "t_gates_in_synthesised_circuit": 17678,
+          "verdict": {
+            "ok": false,
+            "reason": "leak",
+            "certified": true,
+            "op_norm_error": 0.021361592785117223,
+            "block_error": 0.0020746418133916413,
+            "leak_amplitude": 0.019286950971725583,
+            "dropped_total": 0.0,
+            "max_leak": 0.00037198647778574644,
+            "dirty_ancilla": 2.171027895226908e-19,
+            "phase": [
+              0.9999999998434139,
+              1.7696661482318747e-05
+            ],
+            "gauss_residual": NaN,
+            "gauss_states": 0,
+            "outer_bits_read": 0,
+            "method": "inner_block",
+            "engine": "aer_mps",
+            "seconds": 52069.25792837143,
+            "tolerances": {
+              "tol_err": 0.017400001000000002,
+              "tol_gauss": 0.017400001000000002
+            },
+            "failing_inputs": [
+              [
+                "inner_code_index 331",
+                0.0007691939958822433
+              ],
+              [
+                "inner_code_index 367",
+                0.0007473021330540265
+              ],
+              [
+                "inner_code_index 369",
+                0.0007411020002240777
+              ],
+              [
+                "inner_code_index 311",
+                0.0007402996690645624
+              ],
+              [
+                "inner_code_index 496",
+                0.0007261927120254732
+              ],
+              [
+                "inner_code_index 403",
+                0.0007249183412494131
+              ],
+              [
+                "inner_code_index 275",
+                0.0007241643892938027
+              ],
+              [
+                "inner_code_index 263",
+                0.0007233172122215507
+              ],
+              [
+                "inner_code_index 520",
+                0.0007230652843130871
+              ],
+              [
+                "inner_code_index 295",
+                0.0007208706995262464
+              ]
+            ],
+            "inner_verdict": {
+              "ok": false,
+              "reason": "leak",
+              "op_norm_error": 0.021361592785117223,
+              "max_leak": 0.00037198647778574644,
+              "dirty_ancilla": 2.171027895226908e-19,
+              "phase": [
+                0.9999999998434139,
+                1.7696661482318747e-05
+              ],
+              "outer_bits_read": 0,
+              "n_blocks": 1,
+              "gauss_residual": NaN,
+              "method": "inner_span",
+              "engine": "aer_mps",
+              "engine_accuracy": 2e-10,
+              "certified": true,
+              "tolerances": {
+                "tol_err": 0.017400001000000002,
+                "tol_gauss": 0.017400001000000002
+              },
+              "dropped_total": 0.0,
+              "block_error": 0.0020746418133916413,
+              "leak_amplitude": 0.019286950971725583,
+              "seconds": 50561.01842093468,
+              "n_inputs": 1296,
+              "failing_inputs": [
+                [
+                  "inner_code_index 331",
+                  0.0007691939958822433
+                ],
+                [
+                  "inner_code_index 367",
+                  0.0007473021330540265
+                ],
+                [
+                  "inner_code_index 369",
+                  0.0007411020002240777
+                ],
+                [
+                  "inner_code_index 311",
+                  0.0007402996690645624
+                ],
+                [
+                  "inner_code_index 496",
+                  0.0007261927120254732
+                ],
+                [
+                  "inner_code_index 403",
+                  0.0007249183412494131
+                ],
+                [
+                  "inner_code_index 275",
+                  0.0007241643892938027
+                ],
+                [
+                  "inner_code_index 263",
+                  0.0007233172122215507
+                ],
+                [
+                  "inner_code_index 520",
+                  0.0007230652843130871
+                ],
+                [
+                  "inner_code_index 295",
+                  0.0007208706995262464
+                ]
+              ],
+              "extra": {
+                "op_norm_error_physical": 0.0020746418133916413,
+                "max_dropped_l2": 0.0,
+                "max_span_leak": 1.1102230246251565e-15,
+                "op_norm_error_inner_span": 0.0020746418133916304
+              }
+            },
+            "extra": {
+              "inner_method": "inner_span",
+              "gauss_sample": 256,
+              "seed": 20261104,
+              "prune_fraction": 0.1,
+              "prune_cap": 0.0017400001000000003,
+              "laptop_reason": "leak"
+            }
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 52069.50151395798
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 10218,
+        "n_rot": 174,
+        "t_rot_pygridsynth": 10928,
+        "t_total": 21146,
+        "t_est": 20622.27879318722,
+        "t_qiskit": 19394,
+        "cx_qiskit": 9610,
+        "depth_qiskit": 34749,
+        "synth": {
+          "n_rot": 174,
+          "t_rot": 10928,
+          "error_bound_sum": 0.000174,
+          "error_measured_sum": 6.77815484380114e-05,
+          "t_gates_in_synthesised_circuit": 21146,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "certified": true,
+            "op_norm_error": 2.053598258339406e-05,
+            "block_error": 8.228311284652536e-06,
+            "leak_amplitude": 1.2305434309710159e-05,
+            "dropped_total": 2.236989031364984e-09,
+            "max_leak": 3.9270954512978996e-11,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              -0.9999999999999445,
+              3.3310866925594613e-07
+            ],
+            "gauss_residual": 4.420461779972475e-06,
+            "gauss_states": 273,
+            "outer_bits_read": 0,
+            "method": "inner_block",
+            "engine": "sparse",
+            "seconds": 4069.9307918548584,
+            "tolerances": {
+              "tol_err": 0.000174001,
+              "tol_gauss": 0.000174001
+            },
+            "failing_inputs": [],
+            "inner_verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 2.053598258339406e-05,
+              "max_leak": 3.9270954512978996e-11,
+              "dirty_ancilla": 0.0,
+              "phase": [
+                -0.9999999999999445,
+                3.3310866925594613e-07
+              ],
+              "outer_bits_read": 0,
+              "n_blocks": 1,
+              "gauss_residual": NaN,
+              "method": "inner_span",
+              "engine": "sparse",
+              "engine_accuracy": 0.0,
+              "certified": true,
+              "tolerances": {
+                "tol_err": 0.000174001,
+                "tol_gauss": 0.000174001
+              },
+              "dropped_total": 2.236989031364984e-09,
+              "block_error": 8.228311284652536e-06,
+              "leak_amplitude": 1.2305434309710159e-05,
+              "seconds": 2217.5830047130585,
+              "n_inputs": 1296,
+              "failing_inputs": [],
+              "extra": {
+                "op_norm_error_physical": 8.228311284652536e-06,
+                "max_dropped_l2": 7.956985393011755e-11,
+                "max_span_leak": 4.440892098500626e-16,
+                "op_norm_error_inner_span": 8.22831128462122e-06
+              }
+            },
+            "extra": {
+              "inner_method": "inner_span",
+              "gauss_sample": 256,
+              "seed": 20261104,
+              "prune_fraction": 0.1,
+              "prune_cap": 1.74001e-05,
+              "laptop_reason": "ok"
+            }
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 4070.212809562683
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 10218,
+        "n_rot": 174,
+        "t_rot_pygridsynth": 14752,
+        "t_total": 24970,
+        "t_est": 24090.371724249624,
+        "t_qiskit": 22892,
+        "cx_qiskit": 9610,
+        "depth_qiskit": 43223,
+        "synth": {
+          "n_rot": 174,
+          "t_rot": 14752,
+          "error_bound_sum": 1.74e-06,
+          "error_measured_sum": 5.287357844420502e-07,
+          "t_gates_in_synthesised_circuit": 24970,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "certified": true,
+            "op_norm_error": 1.3844306994318683e-07,
+            "block_error": 6.362719360654063e-08,
+            "leak_amplitude": 7.48108959765969e-08,
+            "dropped_total": 4.980360049298593e-12,
+            "max_leak": 1.0378849269045592e-15,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              -1.0,
+              1.9473544532775622e-09
+            ],
+            "gauss_residual": 2.509741785349797e-08,
+            "gauss_states": 273,
+            "outer_bits_read": 0,
+            "method": "inner_block",
+            "engine": "sparse",
+            "seconds": 2105.6193125247955,
+            "tolerances": {
+              "tol_err": 1.7410000000000001e-06,
+              "tol_gauss": 1.7410000000000001e-06
+            },
+            "failing_inputs": [],
+            "inner_verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 1.3844306994318683e-07,
+              "max_leak": 1.0378849269045592e-15,
+              "dirty_ancilla": 0.0,
+              "phase": [
+                -1.0,
+                1.9473544532775622e-09
+              ],
+              "outer_bits_read": 0,
+              "n_blocks": 1,
+              "gauss_residual": NaN,
+              "method": "inner_span",
+              "engine": "sparse",
+              "engine_accuracy": 0.0,
+              "certified": true,
+              "tolerances": {
+                "tol_err": 1.7410000000000001e-06,
+                "tol_gauss": 1.7410000000000001e-06
+              },
+              "dropped_total": 4.980360049298593e-12,
+              "block_error": 6.362719360654063e-08,
+              "leak_amplitude": 7.48108959765969e-08,
+              "seconds": 1204.154347896576,
+              "n_inputs": 1296,
+              "failing_inputs": [],
+              "extra": {
+                "op_norm_error_physical": 6.362719360654063e-08,
+                "max_dropped_l2": 1.9338736931075766e-13,
+                "max_span_leak": 3.3306690738754696e-16,
+                "op_norm_error_inner_span": 6.362719355320642e-08
+              }
+            },
+            "extra": {
+              "inner_method": "inner_span",
+              "gauss_sample": 256,
+              "seed": 20261104,
+              "prune_fraction": 0.1,
+              "prune_cap": 1.7410000000000003e-07,
+              "laptop_reason": "ok"
+            }
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 2105.9076313972473
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 10218,
+        "n_rot": 174,
+        "t_rot_pygridsynth": 18080,
+        "t_total": 28298,
+        "t_est": 27558.464655312033,
+        "t_qiskit": 26640,
+        "cx_qiskit": 9610,
+        "depth_qiskit": 51705,
+        "synth": {
+          "n_rot": 174,
+          "t_rot": 18080,
+          "error_bound_sum": 1.74e-08,
+          "error_measured_sum": 3.8105505270136624e-09,
+          "t_gates_in_synthesised_circuit": 28298,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "certified": true,
+            "op_norm_error": 8.947009455155945e-10,
+            "block_error": 3.7741499529143487e-10,
+            "leak_amplitude": 4.955686611064174e-10,
+            "dropped_total": 2.171728911774224e-11,
+            "max_leak": 6.937927698106238e-20,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              2.2807544604692946e-14,
+              1.0
+            ],
+            "gauss_residual": 1.844651312544043e-10,
+            "gauss_states": 273,
+            "outer_bits_read": 0,
+            "method": "inner_block",
+            "engine": "sparse",
+            "seconds": 2947.7733697891235,
+            "tolerances": {
+              "tol_err": 1.84e-08,
+              "tol_gauss": 1.84e-08
+            },
+            "failing_inputs": [],
+            "inner_verdict": {
+              "ok": true,
+              "reason": "ok",
+              "op_norm_error": 8.947009455155945e-10,
+              "max_leak": 6.937927698106238e-20,
+              "dirty_ancilla": 0.0,
+              "phase": [
+                2.2807544604692946e-14,
+                1.0
+              ],
+              "outer_bits_read": 0,
+              "n_blocks": 1,
+              "gauss_residual": NaN,
+              "method": "inner_span",
+              "engine": "sparse",
+              "engine_accuracy": 0.0,
+              "certified": true,
+              "tolerances": {
+                "tol_err": 1.84e-08,
+                "tol_gauss": 1.84e-08
+              },
+              "dropped_total": 2.171728911774224e-11,
+              "block_error": 3.7741499529143487e-10,
+              "leak_amplitude": 4.955686611064174e-10,
+              "seconds": 1686.5086743831635,
+              "n_inputs": 1296,
+              "failing_inputs": [],
+              "extra": {
+                "op_norm_error_physical": 3.774148975859309e-10,
+                "max_dropped_l2": 2.6132744658639165e-12,
+                "max_span_leak": 3.3306690738754696e-16,
+                "op_norm_error_inner_span": 3.7741499529143487e-10
+              }
+            },
+            "extra": {
+              "inner_method": "inner_span",
+              "gauss_sample": 256,
+              "seed": 20261104,
+              "prune_fraction": 0.1,
+              "prune_cap": 1.84e-09,
+              "laptop_reason": "ok"
+            }
+          },
+          "t_matches_table": true
+        },
+        "synth_seconds": 2948.0905842781067
+      }
+    ],
+    "macro": {
+      "depth": 2415,
+      "depth_label": "depth of the circuit as built (macro gates such as rccx/mcx/crx counted as one layer each); the headline `logical.depth` is the depth of the level-0 lowered circuit (logical_metrics)",
+      "size": 4345
+    },
+    "macro_counts": {
+      "ccx": 1402,
+      "x": 1224,
+      "cx": 1158,
+      "ch": 202,
+      "cz": 200,
+      "crx": 81,
+      "h": 50,
+      "z": 16,
+      "rz": 8,
+      "p": 4
+    }
+  },
+  "files": {
+    "qpy": "results/rishon/step3.qpy",
+    "sha256": "9c8390c9d8edac970183e44b1c802751f1cf96fd428e72cb93bcc71eb434bd59",
+    "qasm3": "results/rishon/step3.qasm3"
+  },
+  "extra": {
+    "physics": {
+      "dim": 38432,
+      "closed": 4352,
+      "u2_sector": 2192,
+      "inner_span_rank": 1296,
+      "bright_pairs": 81
+    },
+    "physics_detail": {
+      "n_u1_sectors": 431,
+      "type_patterns": 35073,
+      "kappa_multiset": {
+        "1": 32,
+        "2": 48,
+        "5.65685425": 1
+      },
+      "n_inner_codes": 1296,
+      "n_dark_codes": 990,
+      "inner_span_rank_by_corners": 1296,
+      "counts_by_fusion": {
+        "dim": 38432,
+        "closed": 4352,
+        "n_u1_sectors": 431,
+        "u2_sector": 2192,
+        "type_patterns": 35073
+      },
+      "coo_entries": 508688,
+      "max_components": 1296
+    },
+    "symbols": "lambda_D = det coupling, eta = lambda_D dt = angle of the det layer (prompts/204 section 2.1)",
+    "seconds": {
+      "verify_exact": 22.609753608703613
+    }
+  }
+}
