@@ -19,11 +19,11 @@ Gu-et-al-style LLM loop → report. Full plan: `prompts/001-plaquette-five-encod
 Latest acceptance tag: acceptance-v19 (m8 LSH compression, prompts/401) (tags v8–v13 are old track-local locks; v14 = merged tree).
 
 ## Current milestone / step (per track)
-- spinnet M4: compression round 5 (proposers F1–F3, sessions 16–18/20; stop counter 2/3) → then 4.L1/4.L2 Lean, 4.7 results, 4.8 gate → Report 4.
-- rishon M5d/M6: prompts/204 steps D1–D7 (det term λ_D, milestone-5d, Report 5 addendum), then C1–C6 (replay rounds 0–4, rounds 5+, Lean 6.L, gate → Report 6).
-- fuzzy M10 follow-up: fuzzy_ub round 4 (proposers F1–F3); then Lean per-circuit certs + audit A1/A2 (planner).
-- LSH: milestone-7 tagged (08f811d); Report 7 being written; M8 (prompts/401, v19) Phase 0 builder running (8.0, 8.A1, 8.A2, 8.1, 8.U, 8.L); Phase 1/2 wait for the 008 registry window.
-- consolidation: planner writing prompts/008 (shared-code registries replacing shims, robust-T key, hash refresh) — runs after the loops close.
+- spinnet M4: DONE (milestone-4). Report 4 not written: the docs agent was stopped by an API safeguards error (req_011Ch12fhwMhxbYeQWWUcy2M); reported to Digonto, not redone.
+- rishon M5d/M6: D1–D6 committed; C1 + leaving_weight fix with tester; prompts/205 (M6_S3 accepts eval_budget for qiskit_l3) WRITTEN, NOT LOCKED — awaits Digonto's approval (locked-test change); then milestone-5d gate, C2 replay in the 008 window.
+- fuzzy M10 follow-up: fuzzy_ub best 84 CX (r07-F1-007); round 8 proposers F1 (12-13), F2 (2-3), F3 (4-5) running; stop counter 0/3.
+- LSH M8: Phase 0 done (76fd221, reports/tests/409) + 8.A2 clean regeneration (13a35ab); m8 not-slow: 9 PENDING on registry, rest green. Phase 1/2 wait for the 008 registry (8.R in B1). Report 7 not written (same safeguards stop).
+- consolidation 008: Phase A done; Phase B after the fuzzy loop closes.
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -64,7 +64,7 @@ Latest acceptance tag: acceptance-v19 (m8 LSH compression, prompts/401) (tags v8
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: SETTLED by M0-X5 (reports/tests/006): in the (inner|outer) pairing H_B is block-diagonal in outer spins, 128 blocks all equal to one 47×47 K (2.7e-15), J conserved → Paulo right; in a mixed pairing amplitudes depend on outer spins → note §4.2 right there.
 
 ## Next action
-Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer' → mark not-verifiable; m1_results --out path) → benchmark → tag milestone-1 → Report 1.
+Wait: fuzzy round-8 proposers, rishon C1 tester, Digonto's answer on prompts/205 (approve -> git apply scratch/planner/p205/s3-erratum.patch, LOCK.json hash, acceptance-lock). Then fuzzy round 8 evaluate; when loop closes -> 008 Phase B (incl. LSH 8.R) -> rishon C2, LSH Phase 1/2.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -167,3 +167,7 @@ Auditor M1 → small fixes (outer-row synthesised verdicts flagged 'writes_outer
 - 2026-11-13: M8 planner done -> prompts/401 + 33 m8 tests locked acceptance-v19 (5245256), METHODS-lsh L12-L16 (a36d829). Round-0 best known: M4 headline wrapped by the transcoder = 71 CX (31 + 40). Defaults D1-D13 for Digonto.
 - 2026-11-13: M4 + M7 benchmarks PASS (reports/benchmarks/301, 302; flag +16-31 % spinnet evaluate vs report 100 = environment: control at 9c0aee6 gives HEAD/old 0.94-1.05) -> tagged milestone-4 and milestone-7 (08f811d), pushed. Reports 4 and 7 being drafted; LSH M8 Phase 0 builder (cores 14-19). Gate counts summary PDF results/summary/encodings-gate-counts.pdf (scripts/summary_table.py).
 - 2026-11-13: rishon builder: leaving_weight residual form (1.6e-25; rishon evaluator hash a4dbd16c), C1 three_layer + replay modules (M6_H3, H4 green); replay rehearsed on scratch copy: 2822 s, 2.1 GB, best unchanged r04-F1-004; headline + det layer (260, 1342, 1743, 53). Issue: r00-seed-qiskit_l3 becomes eval_budget (152/140/135 s vs 120 s alternate budget) -> locked M6_S3 would go red -> planner asked (cores 0-1). Tester on C1 + fix (cores 6-11). C2 replay held: per prompts/008 it is rishon's refresh inside the consolidation window (opens after fuzzy loop closes). Fuzzy r7 F2: 86 CX (007-lbasis-open-walk); F1, F3 running.
+
+- 2026-11-13: fuzzy_ub round 7 (9aa0320): best 87 -> 84 CX (r07-F1-007, T_eps 646, depth_CT 1562, 11 q). Round-8 briefs a2d847a; proposers launched.
+- 2026-11-13: planner (rishon qiskit_l3 budget): prompts/205 option (b) narrowed; research 204; METHODS-rishon R10/R15 edit uncommitted; erratum needs Digonto's approval (agent believes locked M6_S3 too strict) -> asked.
+- 2026-11-13: LSH M8 Phase 0 tester PASS (reports/tests/409: m8 15 green, 18 PENDING-only; m7 29/29; unit 961) -> committed 76fd221. Clean-worktree regeneration (first try deleted the cert -> dirty, discarded) -> 13a35ab, M8_A2 committed-cert green.
