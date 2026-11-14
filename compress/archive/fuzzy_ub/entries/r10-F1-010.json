@@ -1,0 +1,188 @@
+{
+ "id": "r10-F1-010",
+ "program_path": "compress/programs/fuzzy_ub/F1/010-ten-qubit-short-window-exact-angles.py",
+ "program_sha256": "9fa4444b76651f3bf3221c46621b30d66155034278f904a063431bf731555318",
+ "parent": "r09-F1-009",
+ "family": "F1",
+ "round": 10,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  83,
+  638,
+  1546,
+  10
+ ],
+ "cell": [
+  51,
+  74
+ ],
+ "metrics_raw": {
+  "cx": 83,
+  "t_fixed": 72,
+  "n_rot": 9,
+  "t_eps": 638,
+  "t_estimate": {
+   "1e-06": 610.1523513717527,
+   "1e-10": 968.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 638,
+   "1e-10": 1008
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 121,
+  "depth_ct": 1546,
+  "qubits": 10,
+  "gates": {
+   "cx": 83,
+   "h": 42,
+   "t": 36,
+   "tdg": 36,
+   "sdg": 13,
+   "s": 13,
+   "z": 12,
+   "rz": 9,
+   "x": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.4374444938559676e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -6.19324972897053e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.619301997060665e-14,
+  "block_error": 1.8181424967953028e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.052147865295410156,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.8181424967953028e-14,
+   "max_dropped_l2": 4.24222848157364e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.8181424967953028e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.2131995973263035e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -7.57966367310991e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.2554361847361302e-14,
+   "block_error": 9.577634125901729e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.03575301170349121,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 9.577634125901729e-15,
+    "max_dropped_l2": 2.6863719128039074e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 9.577634125901729e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.253202865916086e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    7.549037925407632e-18
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.508774818060351e-14,
+   "block_error": 1.7444280478557358e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.03694343566894531,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7444280478557358e-14,
+    "max_dropped_l2": 6.4461989110555416e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.7444280478557358e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: the 7-CX short-window Fredkins of r09-F2-009 and the in-window w01 -> p_r toggle of r09-F3-009 compose unchanged: the window toggle is a palindromic rccx pair on a wire that is only a CX control in between (its relative phase cancels exactly), and the F2 decoded frame defines w01 = AND(q2^b, q2^r), w23 = AND(q2^t, q2^l) without negations, so the F3 walk path fits the F2 legs directly (valid at all three angle pairs on the first try).",
+  "DISCOVERY: depth floor of this datapath without angle tuning: the f-critical leg chain is rccx 9 + window 7 + rccx 9 + a-compute 5 + window 7 + a-uncompute 5 = 42 layers per side (L-critical rccx read once in the middle, f read once in the middle of the uncompute; all 256 Fredkin diag-slot choices tried, the current one is best), the walk is 9 serial CX on f plus the exact-angle words (1467 layers); a rotation subset that vanishes on g = 0 sectors would let the a-uncompute slide into the walk, but no subset of the minimal 9-term supports does (the g = 0 restriction only has the dependencies {0, t, rl, trl} and {r, rt, l, rtl}, times w parts)."
+ ],
+ "summary": "r09-F2-009 leg (parity frame, L: 0 -> ~p_t&~s_r [(1 3) short-window 7-CX 7-T Fredkin] -> g, a: f&~g [(0 2) short-window Fredkin], Bell decoders) with the r09-F3-009 10-qubit middle (a: c1 -> 0 -> w23 fused, w01 toggled onto the p_r wire inside the H(f) window, 9-term open R_x walk with free ends {p_t, p_l, g} in, {p_r, p_t} out), so the w23 ancilla is gone; every rotation is emitted at its exact Walsh angle (no angle-specific word shifts), 83 CX, T_eps 638, depth_CT 1546, 10 qubits (like-for-like without word shifts: r09-F2-009 1546 at 11 qubits, r09-F3-009 1550 at 10).",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "8fae207",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.5142614841461182,
+ "written_utc": "2026-11-14T00:30:09Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9e-06
+ },
+ "lean": null,
+ "mode": "full"
+}
