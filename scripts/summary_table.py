@@ -29,7 +29,7 @@ LOOPS = [  # (label, compress dir, loop state, how the best is chosen)
     ("1. 12-qubit, step", "twelve", "stopped after round 5", "global"),
     ("2. Spin network, step", "spinnet", "stopped after round 5", "headline"),
     ("3. Rishon, step (no det)", "rishon", "paused: replay rounds 0-4 under 10 % cap", "global"),
-    ("5. Fuzzy, U_B", "fuzzy_ub", "running (round 7)", "global"),
+    ("5. Fuzzy, U_B", "fuzzy_ub", "stopped after round 13 (Digonto)", "global"),
     ("5. Fuzzy, link U_E", "fuzzy_link", "finished", "global"),
 ]
 
@@ -139,7 +139,7 @@ def build(out):
                "-", "-", "-", ""])
     t2.append(["", "composed", fmt(c["qubits"]), fmt(c["cx"]), fmt(c["n_rot"]), "-",
                fmt(fz["verification"]["err"]), "-", f"U_B {fz['units']['fuzzy_ub']['entry']}",
-               "uses the old U_B; to rebuild"])
+               "rebuilt with r12-F1-012"])
     t2.append(["4. Loop-string-hadron", "-", "-", "-", "-", "-", "-", "-", "-", "M8 not started"])
 
     notes = [
