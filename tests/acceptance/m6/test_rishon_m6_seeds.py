@@ -78,7 +78,9 @@ def test_M6_S2_polish_and_l3_trial():
 def test_M6_S3_round0_recorded(root):
     """The real round 0 (results/compress/rishon/round-000.json, step 6.5): five labelled seed rows, the external sources
     with reasons, valid rows satisfy the tolerances, the two ladder variants are recorded as the evaluator judged them
-    (ok or pruning_bound: both are physically exact, research 202 §3), and the archive best is the cheapest valid seed."""
+    (ok or pruning_bound: both are physically exact, research 202 §3), the windowed Qiskit L3 baseline likewise (ok,
+    pruning_bound, or eval_budget at an alternate pair with an exact nominal verdict: prompts/205), and the archive best is the
+    cheapest valid seed."""
     f = root / "results" / "compress" / ENC / "round-000.json"
     if not f.exists():
         pytest.fail("PENDING: results/compress/rishon/round-000.json missing (step 6.5)", pytrace=False)
@@ -102,16 +104,28 @@ def test_M6_S3_round0_recorded(root):
     # R11).  Under the rishon cap of prompts/204 (10 % = 1e-11; measured dropped_total 3.8e-12, 2.9e-12, 2.7e-12) they are expected
     # valid; the test keeps the "recorded as the evaluator judged them" form: a rejection must carry that reason, a bound above the
     # cap in force and its true error, never another one.
+    # prompts/205 (erratum): `eval_budget` is the evaluator's wall-clock verdict (nominal pair <= 300 s, each alternate pair <= 120 s,
+    # METHODS-rishon R10).  It says nothing about the physics and depends on the machine's load: the same verdict of the windowed
+    # Qiskit L3 circuit measured 135-152 s and 226-429 s per pair on this machine within one hour (research 204), against 34-59 s
+    # for the three ladder seeds.  For that one circuit-valued baseline (no program, never a parent) it is accepted as a third
+    # "as judged" outcome, under conditions that keep the row harmless and informative: the budget ran out at an alternate pair,
+    # the nominal verdict is recorded and exact, every alternate that finished is ok, the gate counts are recorded, and the row
+    # could not have been the round's best (more CX than the best valid seed).  The ladder seeds keep the two outcomes of prompts/204.
     for lab in ("qiskit_l3", "general-rccx", "general-mcx"):
         c = by[lab]
-        assert c["reason"] in ("ok", "pruning_bound"), (lab, c["reason"])
+        allowed = ("ok", "pruning_bound", "eval_budget") if lab == "qiskit_l3" else ("ok", "pruning_bound")
+        assert c["reason"] in allowed, (lab, c["reason"])
         assert c["valid"] == (c["reason"] == "ok") and c["mode"] == "full"
         v = c["verdict"]
         if c["reason"] == "ok":
             assert v["op_norm_error"] <= 1e-10 and v["certified"] and c["skeleton_equal"] and all(c["alt_ok"])
             assert v["dropped_total"] <= 1e-11, (lab, v)
-        else:
+        elif c["reason"] == "pruning_bound":
             assert v["block_error"] + v["leak_amplitude"] <= 1e-10 and v["dropped_total"] > 1e-11, (lab, v)
+        else:
+            assert v["ok"] is True and v["certified"] is True and v["op_norm_error"] <= 1e-10 and v["dropped_total"] <= 1e-11, (lab, v)
+            assert c["skeleton_equal"] is True and len(c["alt_ok"]) < len(_spec().alt_angles) and all(c["alt_ok"]), (lab, c["alt_ok"])
+            assert c["key"] is None and c["metrics"]["cx"] > d["best_key"][0], (lab, c["metrics"].get("cx"), d["best_key"])
     ext = {x["source"]: x for x in d["external"]}
     assert set(ext) == EXTERNAL
     for s in ("paulo34", "lean22", "lean22_v2", "spinnet15"):
