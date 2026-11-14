@@ -13,7 +13,7 @@ Gu-et-al-style LLM loop → report. Full plan: `prompts/001-plaquette-five-encod
 |---|---|---|---|---|
 | twelve (M0–M2) | 000–099 | prompts/006 (+007 m9 erratum, 008 consolidation pending) | m0, m1, m2 | milestone-0, -1, -2, -2-gate |
 | spinnet (M3/M4) | 100–199 | prompts/104 (§11 E1–E3) | m3, m3x, m4 | milestone-3, -4 |
-| rishon (M5/M6) | 200–299 | prompts/205 (M6_S3 erratum) on 204 (det term, prune cap 10 %) on 203 | m5, m5x, m6 | milestone-5, -5x |
+| rishon (M5/M6) | 200–299 | prompts/205 (M6_S3 erratum) on 204 (det term, prune cap 10 %) on 203 | m5, m5x, m6 | milestone-5, -5x, -5d |
 | fuzzy (M9/M10) | 300–399 | prompts/302 | m9, m10 | milestone-9, -10 |
 | LSH (M7/M8) | 400–499 | prompts/401 (on 400) | m7, m8 | milestone-7 |
 Latest acceptance tag: acceptance-v20 (m6 S3 erratum, prompts/205; v19 = m8 LSH compression, prompts/401) (tags v8–v13 are old track-local locks; v14 = merged tree).
@@ -181,3 +181,4 @@ Wait: fuzzy round-11 proposers, milestone-5d benchmark. Then round 9 evaluate; 5
 - 2026-11-13: prompts/205 approved by Digonto -> planner updated LOCK.json entry -> acceptance-v20 (da121c7); METHODS-rishon R10/R15 committed.
 - 2026-11-13 20:50: fuzzy_ub round 11: no improvement, stop counter 1/3 (proposers document the datapath floor 83 CX / 72 T_fixed). Round 12 launched (new-datapath brief). Usage 20:49: 5-hour 39 % (reset 23:30), 7-day 80 % (reset Sat 04:00).
 - 2026-11-13: noted for the final reports (Digonto's question): only twelve, spinnet, LSH encode the same model (KS j<=1/2, 433 states); rishon = SU(2) quantum link model + det term (38 432 physical states), fuzzy = fuzzy gauge theory (arXiv:2308.05253) -> different physics; offered a planner cross-check (spectra), not yet requested.
+- 2026-11-13: milestone-5d benchmark PASS (reports/benchmarks/303) -> tagged milestone-5d. Next rishon: Report 5 addendum (audit 304 N1/N3 wording), N2 (count dropped images in det_sector_structure) before C2; C2 in the 008 window.
