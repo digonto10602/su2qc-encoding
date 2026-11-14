@@ -23,7 +23,7 @@ Latest acceptance tag: acceptance-v20 (m6 S3 erratum, prompts/205; v19 = m8 LSH 
 - rishon M5d/M6: D1–D6 + C1 committed (a97e5b1, reports/tests/410); milestone-5d gate step 1 PASS (reports/tests/411), step 2 audit PASS WITH NOTES (reports/audits/304: N1 eps 1e-4 rows not certified -> Report 5 addendum wording; N2 count dropped images in det_sector_structure BEFORE C2; N3 quote 1.6e-25; N4 ValueErrors; N5 replay exit code/key_equal); step 3 benchmark running (cores 14-19); prompts/205 APPROVED by Digonto (2026-11-13) and locked acceptance-v20 (da121c7): M6_S3 accepts eval_budget for qiskit_l3 under 5 conditions; C2 replay in the 008 window under prompts/205 §6 run conditions (one quiet fast core, pre-flight L3 nominal <= 200 s).
 - fuzzy M10 follow-up: fuzzy_ub loop CLOSED after round 13 (Digonto 2026-11-14: CX/T unchanged since round 9); final best r12-F1-012 (83, 638, 1517, 10), T-lean elite r13-F3-013 (89, 514, 1242, 10); composed fuzzy step rebuilt: 2150 -> 227 CX (results/fuzzy/compressed_step.json @ 87271cd). Remaining fuzzy: Lean per-circuit certs + audit A1/A2, Report 10 update (told: no new nominal-angle word tuning; r09/r10 depth gains partly come from rz shifts chosen at beta=0.61 -> question for 008/planner: angle-robust depth_CT, like spinnet's robust T); stop counter 0/3.
 - LSH M8: Phase 0 done (76fd221, reports/tests/409) + 8.A2 clean regeneration (13a35ab); m8 not-slow: 9 PENDING on registry, rest green. Phase 1/2 wait for the 008 registry (8.R in B1). Report 7 not written (same safeguards stop).
-- consolidation 008: Phase A done; Phase B after the fuzzy loop closes.
+- consolidation 008: Phase A done; Phase B window OPEN (B0 2026-11-14: tag pre-consolidation-008; P1 milestone-4, P2 fuzzy closed, P3 c1, P4 none running). Hashes at B0: provenance.code_hash 0bd7e7d91d9d…0582, spinnet.loop.code_hash 7f5bb7f8e65f…0ed5, rishon.compress.code_hash 1ddae8a6edfc…0234. B1 (+ LSH 8.R) builder next. Expected red during window: 008 §8 list.
 
 ## Open failures (attempt counters)
 | Check | Builder attempts | Tester rounds w/o progress | Fixer runs | Notes |
@@ -187,3 +187,4 @@ Wait: fuzzy round-11 proposers, milestone-5d benchmark. Then round 9 evaluate; 5
 - 2026-11-13 23:28: fuzzy_ub round 13: no improvement (stop 1/3). Round-14 briefs e9feb92.
 - 2026-11-14 12:01: usage reset (5-hour 14 %, reset 14:00; 7-day 2 %, reset Sat 2026-11-21 04:00); round 14 proposers launched.
 - 2026-11-14: fuzzy_ub loop closed by Digonto after round 13; round 14 stopped. best-step rebuilt: composed fuzzy step 227 CX (was 295; general 2150), err 1.3e-14, clean 87271cd.
+- 2026-11-14: 008 B0 done: tag pre-consolidation-008, three hashes recorded; B1 + LSH 8.R -> builder.
