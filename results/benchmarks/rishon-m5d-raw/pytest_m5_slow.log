@@ -1,0 +1,10 @@
+bringing up nodes...
+bringing up nodes...
+
+..                                                                       [100%]
+============================== slowest durations ===============================
+580.87s call     tests/acceptance/m5/test_rishon_metrics.py::test_M5_T1_t_table_and_synth_verify[step]
+2.76s call     tests/acceptance/m5/test_rishon_lean.py::test_M5_L3_hb_structure_certificate
+
+(4 durations < 0.005s hidden.  Use -vv to show these durations.)
+2 passed in 581.65s (0:09:41)
