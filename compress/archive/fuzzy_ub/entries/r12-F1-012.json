@@ -1,0 +1,192 @@
+{
+ "id": "r12-F1-012",
+ "program_path": "compress/programs/fuzzy_ub/F1/012-diag-ccz-bell02-13-frame.py",
+ "program_sha256": "f0ff86ee07ff472271c075b65e7baa0e38df02d9791131a34c9e1a0d91de613f",
+ "parent": "r11-F1-011",
+ "family": "F1",
+ "round": 12,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  83,
+  638,
+  1517,
+  10
+ ],
+ "cell": [
+  51,
+  74
+ ],
+ "metrics_raw": {
+  "cx": 83,
+  "t_fixed": 72,
+  "n_rot": 9,
+  "t_eps": 638,
+  "t_estimate": {
+   "1e-06": 610.1523513717527,
+   "1e-10": 968.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 638,
+   "1e-10": 1008
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 116,
+  "depth_ct": 1517,
+  "qubits": 10,
+  "gates": {
+   "cx": 83,
+   "h": 50,
+   "tdg": 36,
+   "t": 36,
+   "sdg": 13,
+   "s": 12,
+   "rz": 9,
+   "x": 8,
+   "z": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.688131998904023e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.7071067811865476,
+   -0.7071067811865476
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.8347936882067347e-14,
+  "block_error": 1.853338310697289e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.056087493896484375,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.853338310697289e-14,
+   "max_dropped_l2": 4.4237326751486704e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.8441914540985455e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.859232735500093e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865476,
+    -0.7071067811865476
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.862636906380591e-14,
+   "block_error": 9.965958291195024e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.041008949279785156,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 9.965958291195024e-15,
+    "max_dropped_l2": 3.142664602466168e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 9.91786074874459e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.531475616486118e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865476,
+    -0.7071067811865475
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.769468220093202e-14,
+   "block_error": 1.762007396392915e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04092693328857422,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.762007396392915e-14,
+    "max_dropped_l2": 6.754832979328361e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.762007396392915e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: in the Bell(02)(13) basis both frame swaps are diagonal, so Fredkin[c] = CCZ(c, u_i, u_j) and the leg's q2 frame is E1 . CCZ . CCZ . E2; a CCZ followed by an in-pair CX costs 5 CX (not 6+1), but the recoupling to AND-decoded (01)(23) pairs needs >= 3 CX after any 2-CX (02)(13) decoder (exhaustive over all 2304 decoder images, local Cliffords free) and exactly 4 when both in-pair CX are fused, so 2 + 5 + 5 + 4 = 16 CX per leg ties the 7 + 7 + 2 Fredkin leg (no 15-CX solution); the gain is depth: control-line span 6 (incl. its T) vs 7.",
+  "DISCOVERY: negative: among controlled q2 words of length <= 2 over CX, CZ, SWAP, Toffoli-type and CH-built (c ? SWAP : CZ, 5 CX) gates only the F02, F13 pair makes all sectors commuting-Hermitian; the two Fredkins plus any third controlled Pauli/H/S/CX/CZ/SWAP gate admit no all-affine control set nor one with a single AND-of-affine control; a Pauli attached to either swap (c ? SWAP P : I, all 15 x 15 P) breaks validity; in all 2048 valid (c2, c1) pairs one control has ANF degree >= 3, and an extra f-free line (affine)&(affine) or (affine)&(+-g) keeps the minimal Walsh count at [4, 2, 2, 1] = 9.",
+  "DISCOVERY: a Z right after an rccx on a fresh target equals flipping all four of its T phases (for both controls negated up to a global -1), and a Z on a Fredkin/CCZ control line commutes with the whole CCZ block, so the deferred negation fixes Z(L), Z(a) leave the line critical path: head / tail chains 44 / 45 -> 42 / 43 levels (L rccx 9 + CCZ span 6 + conversion 9 + a compute 5 + CCZ span 6 + a uncompute 5 + H(f))."
+ ],
+ "summary": "r11-F1-011 control chain, middle and walk unchanged (parity frame; L: 0 -> ~p_t&~s_r -> g; a = f&~g; w23 fused onto a, w01 on the p_r wire; 9-term 9-CX R_x walk), but a new diagonal q2 frame: a Bell(02)(13) decoder E1 (2 CX), the two Fredkins as CCZ(L, P13) and CCZ(a, P02) phase networks (SWAP_ij = CZ on the decoded pair), each fused with one in-pair CX (5 CX, 7 T), and a 4-CX recoupling E2 to wires where the (01) / (23) singlet projectors are ANDs (q2^b&q2^r, q2^t&q2^l), checked at emission time against the Fredkin frame; 16 CX and 14 T per leg as before, but the control-line window is 6 layers instead of 7 and the deferred rccx Z fixes become all-four-phase flips on fresh targets: (83, 638, 1521 -> 1517, 10).",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "e823fac",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.9086625576019287,
+ "written_utc": "2026-11-14T03:01:32Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9e-06
+ },
+ "lean": {
+  "status": "n_a",
+  "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+ },
+ "mode": "full"
+}

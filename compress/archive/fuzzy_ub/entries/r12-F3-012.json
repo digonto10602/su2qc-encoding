@@ -1,0 +1,189 @@
+{
+ "id": "r12-F3-012",
+ "program_path": "compress/programs/fuzzy_ub/F3/012-su2-invariant-leg-floor.py",
+ "program_sha256": "2fd6a18a62ac1b41c62c64ac983c6ccd374119a50a4a2f1aafb709931b5c82fd",
+ "parent": "r10-F3-010",
+ "family": "F3",
+ "round": 12,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  83,
+  638,
+  1521,
+  10
+ ],
+ "cell": [
+  51,
+  74
+ ],
+ "metrics_raw": {
+  "cx": 83,
+  "t_fixed": 72,
+  "n_rot": 9,
+  "t_eps": 638,
+  "t_estimate": {
+   "1e-06": 610.1523513717527,
+   "1e-10": 968.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 638,
+   "1e-10": 1008
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 123,
+  "depth_ct": 1521,
+  "qubits": 10,
+  "gates": {
+   "cx": 83,
+   "h": 42,
+   "t": 36,
+   "tdg": 36,
+   "z": 15,
+   "sdg": 15,
+   "s": 14,
+   "rz": 9,
+   "x": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.747467244773324e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.7071067811865475,
+   -0.7071067811865478
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.888005249463372e-14,
+  "block_error": 1.859461995309952e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.03725576400756836,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.859461995309952e-14,
+   "max_dropped_l2": 4.274599498549082e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.8561555352051207e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.846650910105398e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865476,
+    -0.7071067811865476
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.872765337811096e-14,
+   "block_error": 9.738855722943018e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.03573203086853027,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 9.738855722943018e-15,
+    "max_dropped_l2": 2.9771822258781982e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 9.702785790943816e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.470380984299972e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865476,
+    -0.7071067811865476
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.712814466463113e-14,
+   "block_error": 1.7575665178368592e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.037050485610961914,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7575665178368592e-14,
+    "max_dropped_l2": 6.73175109539329e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.748728394856464e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: every D_p lies in the S_4 permutation algebra of the four q2 wires (it commutes with U^(x4), U in SU(2)), so it splits into total-spin blocks J = 2, 1, 0 with multiplicities 1, 3, 2: the J = 2 coupling is nonzero only in the unitary sector p6, J = 1 is rank 1 in p0,1,2,4,5,7 and zero in p3, J = 0 is rank 1 for p != 6. In the J = 1 pair basis ((10), (01), (11)) the f = 0 singular vectors are e(01) (p1,5,7), e(10) (p2), w = (1,-1,sqrt2)/2 (p0,4) and the f = 1 vectors are a = (1,-1,-sqrt2)/2 (p0,1,2), b = (-1,1,-sqrt2)/2 (p7), e(10) (p4,5). Overlaps of 1/2 force two frame classes on each f side, and p1, p2 (same f = 1 vector a, orthogonal f = 0 vectors) force a third (pair of frames), whatever unitaries are used.",
+  "DISCOVERY: negative, by exhaustive check in the 6-dim multiplicity space (exact K test: diagonal in the (01)(23) pair basis, real, equal (11) values across J): two controlled gates G2^c G1^f B with G = exp(i theta P_singlet(pair)) (theta on the k pi/12 grid, all pairs, all 24 global relabels B) have no solution with G1 controlled by f alone. With both controls arbitrary (theta in {pi, +-pi/2, +-2pi/3}), the only solutions are the swaps (0 2), (1 3) (32 relabelings). In all 4096 control pairs neither control is f-independent, alpha^beta is never affine and never a two-literal AND, and at most one control is a two-literal AND. Three partial-swap gates with affine controls: no solution (25^3 ordered gates x 3 middle pairings). So the 12 CX per side of control lines is the floor for every two-gate SU(2)-invariant leg.",
+  "DISCOVERY: CX ties at 83 for every local rewrite counted. Expanding W or V into decoded bits removes 6 AND CX but needs a 16-term walk (>= 15 CX with a free start). A singlet-indicator toggle t ^= s(q_i, q_j) done in the raw q2 frame (no Bell decoder; the 4 target-involving pi/8 rotations of <X_t, Z_iZ_j, X_iX_j>, end frame only required to keep Z_t) needs exactly 4 CX (BFS over 3-qubit Clifford classes mod local Cliffords: none with 3). So a toggle pair costs 8 CX, the same as 2 shared decoder CX + 2 rccx. The ch macro (1 CX) gives an exact AND onto a clean target as ch(b,t) cz(a,t) ch(b,t), which is also 3 CX and 4 T."
+ ],
+ "summary": "no new datapath beats the floor, so this is the r10-F2-010 circuit re-entered under F3 (parity frame, L: 0 -> ~p_t&~s_r [(1 3) 7-T Fredkin] -> g, a: 0 -> f&~g [(0 2) Fredkin] -> 0 -> w23 fused, w01 toggled onto the p_r wire inside the H(f) window, 9-term 9-CX open R_x walk, the archived per-class k pi/2 word shifts, no new angle choices); round 12 tested legs built from other SU(2)-invariant gates (controlled partial swaps exp(i theta c P_singlet) at any pair, angle and control) and found none valid (notes below); 83 CX, T_eps 638, depth_CT 1521, 10 qubits.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "e823fac",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.45476198196411133,
+ "written_utc": "2026-11-14T03:01:32Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9e-06
+ },
+ "lean": null,
+ "mode": "full"
+}

@@ -1,21 +1,21 @@
 {
  "encoding": "fuzzy_ub",
  "kind": "UB",
- "n_rounds": 12,
- "n_candidates": 36,
- "n_valid": 35,
- "global_best": "r10-F2-010",
+ "n_rounds": 13,
+ "n_candidates": 39,
+ "n_valid": 38,
+ "global_best": "r12-F1-012",
  "global_best_key": [
   83,
   638,
-  1521,
+  1517,
   10
  ],
  "best_by_family": {
   "seed": "r00-seed-010",
-  "F1": "r11-F1-011",
+  "F1": "r12-F1-012",
   "F2": "r10-F2-010",
-  "F3": "r10-F3-010"
+  "F3": "r12-F3-012"
  },
  "header": [
   "row",
@@ -119,10 +119,10 @@
    "610.152",
    "1008",
    "-",
-   "1521",
-   "valid (err 5.74747e-14, leak 0)",
-   "not_run",
-   "r11-F1-011 @ eacb8c3"
+   "1517",
+   "valid (err 5.68813e-14, leak 0)",
+   "n_a",
+   "r12-F1-012 @ e823fac"
   ],
   [
    "best of family F2",
@@ -149,10 +149,10 @@
    "610.152",
    "1008",
    "-",
-   "1546",
-   "valid (err 5.41453e-14, leak 0)",
+   "1521",
+   "valid (err 5.74747e-14, leak 0)",
    "not_run",
-   "r10-F3-010 @ 8fae207"
+   "r12-F3-012 @ e823fac"
   ],
   [
    "best of family seed",
@@ -179,10 +179,10 @@
    "610.152",
    "1008",
    "-",
-   "1521",
-   "valid (err 5.74747e-14, leak 0)",
+   "1517",
+   "valid (err 5.68813e-14, leak 0)",
    "n_a",
-   "r10-F2-010 @ 8fae207"
+   "r12-F1-012 @ e823fac"
   ]
  ],
  "lineage": [
@@ -497,6 +497,33 @@
    "parent": "r10-F3-010",
    "family": "F3",
    "round": 11,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r12-F1-012",
+   "parent": "r11-F1-011",
+   "family": "F1",
+   "round": 12,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r12-F2-012",
+   "parent": "r10-F2-010",
+   "family": "F2",
+   "round": 12,
+   "cx": 84,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r12-F3-012",
+   "parent": "r10-F3-010",
+   "family": "F3",
+   "round": 12,
    "cx": 83,
    "t_eps": 638,
    "parent_known": true

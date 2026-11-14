@@ -1,0 +1,189 @@
+{
+ "id": "r12-F2-012",
+ "program_path": "compress/programs/fuzzy_ub/F2/012-mirrored-chain-frame-floor.py",
+ "program_sha256": "f7d53e5e880d76459bdbbb733b7c2f0c32179a5c3ecd2f6451b94b32250e9698",
+ "parent": "r10-F2-010",
+ "family": "F2",
+ "round": 12,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  84,
+  638,
+  1538,
+  10
+ ],
+ "cell": [
+  51,
+  74
+ ],
+ "metrics_raw": {
+  "cx": 84,
+  "t_fixed": 72,
+  "n_rot": 9,
+  "t_eps": 638,
+  "t_estimate": {
+   "1e-06": 610.1523513717527,
+   "1e-10": 968.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 638,
+   "1e-10": 1008
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 136,
+  "depth_ct": 1538,
+  "qubits": 10,
+  "gates": {
+   "cx": 84,
+   "h": 42,
+   "t": 36,
+   "tdg": 36,
+   "z": 17,
+   "sdg": 16,
+   "s": 16,
+   "rz": 9,
+   "x": 8
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 4.7144460321044124e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.7071067811865474,
+   -0.7071067811865476
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 2.902537758743622e-14,
+  "block_error": 1.8119082733607905e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.03619551658630371,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.8028995835455925e-14,
+   "max_dropped_l2": 2.9934794544482872e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.8119082733607905e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.438626761408245e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865476,
+    -0.7071067811865476
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.454632164595483e-14,
+   "block_error": 9.839945968127624e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.03702545166015625,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 9.839945968127624e-15,
+    "max_dropped_l2": 2.3811079544860123e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 9.799313867613598e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.5241418625103716e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865476,
+    -0.7071067811865475
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.799047243303046e-14,
+   "block_error": 1.725094619207326e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.036180734634399414,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.725094619207326e-14,
+    "max_dropped_l2": 3.913449624468008e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.725094619207326e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: negative (exhaustive): for the (0 2)(1 3) word with decoder (0,1),(2,3), two lines each made by one rccx of wire literals (f, s_k, p_k, p_r^p_l, negations; the second may read the first only after its f-removing rccx) and each Fredkin control free up to complement give exactly 8 control designs: 4 g-line chains (best walks 9 = r10-F2-010, 10 = this program, > 11 for the other two with W toggled and V fused) and 4 q-line chains (q = p_t&~(p_r^p_l), sectors 3 and 6 on the other f-controlled swap, one Fredkin under an AND with ~(p_r^p_l), which needs the p_r^p_l wire) whose walks need >= 11 CX even if q were a free end (12 to 13 with the free ends that exist); the parent is the unique 83-CX point of this space.",
+  "DISCOVERY: negative: nine qubits (second Fredkin control toggled onto a parity wire as p_t ^ AND) are valid only for W/V role assignments whose best walk is >= 14 CX (>= 88 CX in total); for the four role assignments with 9- or 10-CX walks the required AND (s_t&~g onto p_t, or ~f&~g) either reads the target wire itself or needs its own line.",
+  "DISCOVERY: depth floor of r10-F2-010 without new angle tuning: 1521 = 43 (head chain + H) + 1423 (nine serial gridsynth words) + 9 walk CX (one 2-step) + 3 S^k gates of the odd-k terms (only f ever holds their parities, so they are serial on f wherever they sit) + 1 H + 42 (tail chain); reordering the walk only moves the last S^k into the middle at equal total."
+ ],
+ "summary": "new frame/line variant of r10-F2-010 (does NOT beat it; recorded as the best valid new-datapath attempt of round 12): mirrored g chain L: 0 -> c13 = ~p_t&~s_l [(1 3) 7-T Fredkin] -> g = ~p_t&(s_r^s_l) by the toggle ~s_r&~p_t, a = ~f&~g with the complemented (0 2) control (X on the line around the Fredkin; control polarity is free because an uncontrolled swap is a wire relabel), CZ(g, f) = Z(f) Z(a) Z(L) as the free walk end, so sectors 1 and 4 exchange their W/V roles; Bell decoders (0,1),(2,3), w23 fused onto a, w01 toggled onto p_r inside the H(f) window, 9-term R_x support (t, rt, tlv, rtlv, rtW, rtlW, rtlV, tlvV, rtlWV; same 4 x beta, 4 x 2 beta, 1 x 4 beta multiset and the parent's per-class k pi/2 shifts, no new angle tuning) walked in 10 CX from the free start {r, t, l, g} to the free end {r, t}; 84 CX, T_eps 638, depth_CT 1538, 10 qubits.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "e823fac",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.45792150497436523,
+ "written_utc": "2026-11-14T03:01:32Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9e-06
+ },
+ "lean": null,
+ "mode": "full"
+}
