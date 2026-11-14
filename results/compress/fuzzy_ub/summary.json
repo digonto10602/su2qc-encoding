@@ -1,9 +1,9 @@
 {
  "encoding": "fuzzy_ub",
  "kind": "UB",
- "n_rounds": 11,
- "n_candidates": 33,
- "n_valid": 32,
+ "n_rounds": 12,
+ "n_candidates": 36,
+ "n_valid": 35,
  "global_best": "r10-F2-010",
  "global_best_key": [
   83,
@@ -13,7 +13,7 @@
  ],
  "best_by_family": {
   "seed": "r00-seed-010",
-  "F1": "r09-F1-009",
+  "F1": "r11-F1-011",
   "F2": "r10-F2-010",
   "F3": "r10-F3-010"
  },
@@ -111,7 +111,7 @@
   ],
   [
    "best of family F1",
-   "11",
+   "10",
    "83",
    "72",
    "9",
@@ -119,10 +119,10 @@
    "610.152",
    "1008",
    "-",
-   "1523",
-   "valid (err 5.95508e-14, leak 0)",
+   "1521",
+   "valid (err 5.74747e-14, leak 0)",
    "not_run",
-   "r09-F1-009 @ 24d6c44"
+   "r11-F1-011 @ eacb8c3"
   ],
   [
    "best of family F2",
@@ -470,6 +470,33 @@
    "parent": "r09-F3-009",
    "family": "F3",
    "round": 10,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r11-F1-011",
+   "parent": "r10-F2-010",
+   "family": "F1",
+   "round": 11,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r11-F2-011",
+   "parent": "r10-F2-010",
+   "family": "F2",
+   "round": 11,
+   "cx": 89,
+   "t_eps": 514,
+   "parent_known": true
+  },
+  {
+   "id": "r11-F3-011",
+   "parent": "r10-F3-010",
+   "family": "F3",
+   "round": 11,
    "cx": 83,
    "t_eps": 638,
    "parent_known": true
