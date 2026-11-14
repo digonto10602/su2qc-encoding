@@ -13,14 +13,14 @@ Gu-et-al-style LLM loop → report. Full plan: `prompts/001-plaquette-five-encod
 |---|---|---|---|---|
 | twelve (M0–M2) | 000–099 | prompts/006 (+007 m9 erratum, 008 consolidation pending) | m0, m1, m2 | milestone-0, -1, -2, -2-gate |
 | spinnet (M3/M4) | 100–199 | prompts/104 (§11 E1–E3) | m3, m3x, m4 | milestone-3, -4 |
-| rishon (M5/M6) | 200–299 | prompts/204 (det term, prune cap 10 %) on 203 | m5, m5x, m6 | milestone-5, -5x |
+| rishon (M5/M6) | 200–299 | prompts/205 (M6_S3 erratum) on 204 (det term, prune cap 10 %) on 203 | m5, m5x, m6 | milestone-5, -5x |
 | fuzzy (M9/M10) | 300–399 | prompts/302 | m9, m10 | milestone-9, -10 |
 | LSH (M7/M8) | 400–499 | prompts/401 (on 400) | m7, m8 | milestone-7 |
-Latest acceptance tag: acceptance-v19 (m8 LSH compression, prompts/401) (tags v8–v13 are old track-local locks; v14 = merged tree).
+Latest acceptance tag: acceptance-v20 (m6 S3 erratum, prompts/205; v19 = m8 LSH compression, prompts/401) (tags v8–v13 are old track-local locks; v14 = merged tree).
 
 ## Current milestone / step (per track)
 - spinnet M4: DONE (milestone-4). Report 4 not written: the docs agent was stopped by an API safeguards error (req_011Ch12fhwMhxbYeQWWUcy2M); reported to Digonto, not redone.
-- rishon M5d/M6: D1–D6 + C1 committed (a97e5b1, reports/tests/410); milestone-5d gate step 1 PASS (reports/tests/411), step 2 audit PASS WITH NOTES (reports/audits/304: N1 eps 1e-4 rows not certified -> Report 5 addendum wording; N2 count dropped images in det_sector_structure BEFORE C2; N3 quote 1.6e-25; N4 ValueErrors; N5 replay exit code/key_equal); step 3 benchmark running (cores 14-19); prompts/205 (M6_S3 accepts eval_budget for qiskit_l3) WRITTEN, NOT LOCKED — awaits Digonto's approval (locked-test change); then milestone-5d gate, C2 replay in the 008 window.
+- rishon M5d/M6: D1–D6 + C1 committed (a97e5b1, reports/tests/410); milestone-5d gate step 1 PASS (reports/tests/411), step 2 audit PASS WITH NOTES (reports/audits/304: N1 eps 1e-4 rows not certified -> Report 5 addendum wording; N2 count dropped images in det_sector_structure BEFORE C2; N3 quote 1.6e-25; N4 ValueErrors; N5 replay exit code/key_equal); step 3 benchmark running (cores 14-19); prompts/205 APPROVED by Digonto (2026-11-13) and locked acceptance-v20 (da121c7): M6_S3 accepts eval_budget for qiskit_l3 under 5 conditions; C2 replay in the 008 window under prompts/205 §6 run conditions (one quiet fast core, pre-flight L3 nominal <= 200 s).
 - fuzzy M10 follow-up: fuzzy_ub best (83, 638, 1521, 10) r10-F2-010; round 11 proposers F1 (12-13), F2 (2-3), F3 (4-5) running (told: no new nominal-angle word tuning; r09/r10 depth gains partly come from rz shifts chosen at beta=0.61 -> question for 008/planner: angle-robust depth_CT, like spinnet's robust T); stop counter 0/3.
 - LSH M8: Phase 0 done (76fd221, reports/tests/409) + 8.A2 clean regeneration (13a35ab); m8 not-slow: 9 PENDING on registry, rest green. Phase 1/2 wait for the 008 registry (8.R in B1). Report 7 not written (same safeguards stop).
 - consolidation 008: Phase A done; Phase B after the fuzzy loop closes.
@@ -31,6 +31,7 @@ Latest acceptance tag: acceptance-v19 (m8 LSH compression, prompts/401) (tags v8
 | — | — | — | — | — |
 
 ## Decisions
+- 2026-11-13: Digonto approved prompts/205 (locked-test change M6_S3, explained in plain words in chat) -> acceptance-v20.
 - 2026-11-10 AUTONOMOUS DECISION (coordinator, under the 24 h grant): rishon prompts/204 planner defaults accepted (unit coefficient, + sign, nominal (alpha, beta, eta) = (0.37, 0.61, 0.29) i.e. lambda_D = 0.43, alternates (0.91, 0.23, 0.53), (1.70, 1.00, 1.07); det on all 12 links with the 8 outer as a separate certified row; compression unit stays U_B U_E with the det layer in front; replay of rounds 0-4 instead of in-place archive edits). Report 6 quotes BOTH the unit (228 CX) and the three-layer step (260 CX). Hand optimisation of the det layer (496 of 1342 T): later, optional. LSH D1-D8 defaults accepted.
 - 2026-11-10 ~16:00 EST (Digonto, chat): FULL AUTONOMY for 24 h (until 2026-11-11 ~16:00 EST): no permission requests for anything (git push, tags, commands); stay inside ~/Projects. Stop-and-ask items are decided by the coordinator and logged here with 'AUTONOMOUS DECISION' for later review; when stuck, ask the PLANNER, never Digonto. Project .claude/settings.local.json = bypassPermissions + all tools allowed (no approval prompts).
 - 2026-11-10 (Digonto, chat): (1) approve planner erratum for m9 `test_M9_S1_step_orders`: apply the 4-link UEK/H kron factor by factor (same math, same 1e-10 tolerance), re-lock; (2) rishon prune cap D2 raised to 10 % of tol_err (1e-12 -> 1e-11) before round 5; (3) rishon det coupling: ADD the det term (gamma != 0) as a third Trotter layer -> planner amendment for M5/M6 (audit 200 N1); (4) accepted as they stand: errata E1-E3 on both desktop tracks, rishon T1[step] marked slow (prompts/202 §7), 12-qubit loop stop after round 5 (audit 004 N11), angle-linearity preferred not required (audit N5).
@@ -64,7 +65,7 @@ Latest acceptance tag: acceptance-v19 (m8 LSH compression, prompts/401) (tags v8
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: SETTLED by M0-X5 (reports/tests/006): in the (inner|outer) pairing H_B is block-diagonal in outer spins, 128 blocks all equal to one 47×47 K (2.7e-15), J conserved → Paulo right; in a mixed pairing amplitudes depend on outer spins → note §4.2 right there.
 
 ## Next action
-Wait: fuzzy round-11 proposers, milestone-5d benchmark; Digonto's answer on prompts/205 (draft + METHODS-rishon.md R10/R15 edit uncommitted on purpose). Then round 9 evaluate; 5d gate -> auditor -> benchmark (vs report 200) -> tag milestone-5d; fuzzy loop closes -> 008 Phase B (incl. LSH 8.R) -> rishon C2, LSH Phase 1/2.
+Wait: fuzzy round-11 proposers, milestone-5d benchmark. Then round 9 evaluate; 5d gate -> auditor -> benchmark (vs report 200) -> tag milestone-5d; fuzzy loop closes -> 008 Phase B (incl. LSH 8.R) -> rishon C2, LSH Phase 1/2.
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
@@ -177,3 +178,4 @@ Wait: fuzzy round-11 proposers, milestone-5d benchmark; Digonto's answer on prom
 - 2026-11-13: milestone-5d tester full PASS (reports/tests/411: 1249 passed, 32 PENDING-only [m6 5, m8 9, m2c 18 = 008 Phase B]; note: step3 synthesised eps 1e-4 'leak' on aer_mps, no locked test) -> auditor. fuzzy_ub round 9: (83,646,1560,11) -> (83,638,1522,11) r09-F2-009; round-10 briefs b919daa, proposers launched.
 - 2026-11-13: 5d audit PASS WITH NOTES (304). fuzzy_ub round 10: -> (83,638,1521,10) r10-F2-010; round 11 launched; 5d benchmark launched.
 - 2026-11-13 19:35: usage rule (Digonto): at >=95 % Claude usage save + pause + resume at reset. tools/statusline-usage.sh (status line saves rate_limits to scratch/usage/statusline.json) + tools/usage-guard.sh (PostToolUse hook). At 19:31: 5-hour 11 % (reset 23:30), 7-day 76 % (reset Sat 04:00).
+- 2026-11-13: prompts/205 approved by Digonto -> planner updated LOCK.json entry -> acceptance-v20 (da121c7); METHODS-rishon R10/R15 committed.
