@@ -64,6 +64,8 @@ def verify_three_layer(entry_id: str | None = None, kind: str = "step", root=Non
     from su2plaq.rishon.compress import robust
     from su2plaq.rishon.verify import verify
 
+    if kind != "step":
+        raise ValueError(f"verify_three_layer supports kind='step' (first-order U_B U_D U_E) only, got {kind!r}")
     root = pathlib.Path(root) if root is not None else ROOT
     spec = _spec(kind)
     arch = A.Archive.load(ENC, root=root, n_alt=len(spec.alt_angles), strict=True)

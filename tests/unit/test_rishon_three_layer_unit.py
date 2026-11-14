@@ -26,3 +26,9 @@ def test_verify_three_layer_needs_an_entry(tmp_path):
         TL.verify_three_layer(root=tmp_path)
     with pytest.raises(ValueError):
         TL.verify_three_layer("r99-nope-000", root=tmp_path)
+
+
+def test_verify_three_layer_rejects_other_kinds(tmp_path):
+    for kind in ("UE", "UB", "unit", "step2"):
+        with pytest.raises(ValueError, match="kind='step'"):
+            TL.verify_three_layer(kind=kind, root=tmp_path)

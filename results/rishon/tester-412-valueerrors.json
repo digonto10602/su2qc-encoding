@@ -1,0 +1,31 @@
+{
+ "meta_step1": {
+  "kind": "step",
+  "order": 1
+ },
+ "prepend_step1": "OK (no error) 58",
+ "meta_step2": {
+  "kind": "step",
+  "order": 2
+ },
+ "prepend_step2": "ValueError: prepend_det_layer needs a first-order step unit (U_B U_E); metadata order is 2",
+ "meta_UE": {
+  "kind": "UE"
+ },
+ "prepend_UE": "ValueError: prepend_det_layer needs a first-order step unit; metadata kind is 'UE'",
+ "meta_UB": {
+  "kind": "UB"
+ },
+ "prepend_UB": "ValueError: prepend_det_layer needs a first-order step unit; metadata kind is 'UB'",
+ "meta_UD": {
+  "kind": "UD"
+ },
+ "prepend_UD": "ValueError: prepend_det_layer needs a first-order step unit; metadata kind is 'UD'",
+ "prepend_nometa": "OK (no error) 58",
+ "prepend_wrong_register": "ValueError: the first register of the unit must be d[16]",
+ "verify_three_layer_kind_UE": "ValueError: verify_three_layer supports kind='step' (first-order U_B U_D U_E) only, got 'UE'",
+ "verify_three_layer_kind_UB": "ValueError: verify_three_layer supports kind='step' (first-order U_B U_D U_E) only, got 'UB'",
+ "verify_three_layer_kind_step2": "ValueError: verify_three_layer supports kind='step' (first-order U_B U_D U_E) only, got 'step2'",
+ "verify_three_layer_kind_unit": "ValueError: verify_three_layer supports kind='step' (first-order U_B U_D U_E) only, got 'unit'",
+ "verify_three_layer_kind_step": "ValueError: 'r99-nope-000' is not a valid entry of the rishon archive"
+}

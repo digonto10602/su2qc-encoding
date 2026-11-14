@@ -1,0 +1,71 @@
+[
+ {
+  "key_equal": [
+   true,
+   null
+  ],
+  "lost": [],
+  "exit": 0,
+  "stderr": "",
+  "stdout_has_key_changed": true
+ },
+ {
+  "key_equal": [
+   null,
+   null
+  ],
+  "lost": [],
+  "exit": 0,
+  "stderr": "",
+  "stdout_has_key_changed": true
+ },
+ {
+  "key_equal": [],
+  "lost": [],
+  "exit": 0,
+  "stderr": "",
+  "stdout_has_key_changed": true
+ },
+ {
+  "key_equal": [
+   true,
+   false
+  ],
+  "lost": [],
+  "exit": 1,
+  "stderr": "REPLAY PROBLEM: key changed for ['e1']; lost (valid before, invalid now): []",
+  "stdout_has_key_changed": true
+ },
+ {
+  "key_equal": [
+   false
+  ],
+  "lost": [],
+  "exit": 1,
+  "stderr": "REPLAY PROBLEM: key changed for ['e0']; lost (valid before, invalid now): []",
+  "stdout_has_key_changed": true
+ },
+ {
+  "key_equal": [
+   true
+  ],
+  "lost": [
+   "x"
+  ],
+  "exit": 1,
+  "stderr": "REPLAY PROBLEM: key changed for []; lost (valid before, invalid now): ['x']",
+  "stdout_has_key_changed": true
+ },
+ {
+  "key_equal": [
+   true,
+   false
+  ],
+  "lost": [
+   "x"
+  ],
+  "exit": 1,
+  "stderr": "REPLAY PROBLEM: key changed for ['e1']; lost (valid before, invalid now): ['x']",
+  "stdout_has_key_changed": true
+ }
+]

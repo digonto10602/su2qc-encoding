@@ -130,6 +130,12 @@ def replay(kind: str = "step", root=None, tag: str = TAG, lean: bool = False) ->
     return res
 
 
+def problems(res: dict) -> dict:
+    """What prompts/204 section 12 says to stop on: entries valid before and after whose key changed (`key_equal` is False) and
+    entries that were valid and are not any more (`lost`).  -> {"key_changed": [ids], "lost": [ids]}."""
+    return {"key_changed": [e["id"] for e in res["entries"] if e["key_equal"] is False], "lost": list(res["lost"])}
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--kind", default="step")
@@ -138,9 +144,14 @@ def main(argv=None) -> int:
     ap.add_argument("--lean", action="store_true", help="also Lean-certify each round's best (default: no; C4 handles Lean)")
     a = ap.parse_args(argv)
     res = replay(a.kind, root=a.root, tag=a.tag, lean=a.lean)
+    bad = problems(res)
     print(json.dumps({"tag": res["tag"], "rounds": res["rounds"], "newly_valid": res["newly_valid"], "lost": res["lost"],
-                      "best_old": res["best_old"], "best_new": res["best_new"], "wall_s": round(res["wall_s"])}))
-    return 0 if not res["lost"] else 1
+                      "key_changed": bad["key_changed"], "best_old": res["best_old"], "best_new": res["best_new"],
+                      "wall_s": round(res["wall_s"])}))
+    if bad["key_changed"] or bad["lost"]:
+        print(f"REPLAY PROBLEM: key changed for {bad['key_changed']}; lost (valid before, invalid now): {bad['lost']}", file=sys.stderr)
+        return 1
+    return 0
 
 
 if __name__ == "__main__":

@@ -509,7 +509,10 @@ def det_sector_structure(basis=None) -> dict:
     A (3) <-> B (12) with amplitude 2.  Blocks = connected components of H_B (lam0), H_B + inner det (links 0-3), H_B + all 12 det
     terms.  -> {"dim", "u1_sectors", "blocks": {"lam0","inner_det","full_det"}, "max_block", "ref_block_dim", "ref_block_u1_sectors",
     "charge_change_rank": {...}, "leaving_weight"}; leaving_weight = largest weight that any det / H_B term sends out of the
-    physical space, the squared Frobenius norm of the residual (1 - P P^dag) T P (about 1e-25: SU(2) Gauss law kept); reference state = closed_indices(basis)[0] (vac_A)."""
+    physical space, the squared Frobenius norm of the residual (1 - P P^dag) T P (about 1e-25: SU(2) Gauss law kept).  The residual has
+    two parts that are summed: rows inside the union of the physical states' codes (X - P P^dag X) and the images T sends to a 48-bit code
+    that is not one of those codes at all (the dropped images, formed as extra rows and counted by their squared amplitude, never
+    discarded); reference state = closed_indices(basis)[0] (vac_A)."""
     from scipy.sparse.csgraph import connected_components
 
     from su2plaq.rishon import operators as _o
@@ -527,6 +530,7 @@ def det_sector_structure(basis=None) -> dict:
     outer = uk >> 16
     M = sp.csc_matrix(_o.h_magnetic_inner())
     rr, cc, vv = [], [], []
+    drop_t, drop_s, drop_v = [], [], []                  # images whose target code is not a code of any physical state
     for i in range(len(codes)):
         src = np.flatnonzero(ipos == i)
         if not len(src):
@@ -538,7 +542,9 @@ def det_sector_structure(basis=None) -> dict:
             p = np.minimum(np.searchsorted(uk, tgt), nu - 1)
             ok = uk[p] == tgt
             rr.append(p[ok]); cc.append(src[ok]); vv.append(np.full(int(ok.sum()), val))
+            drop_t.append(tgt[~ok]); drop_s.append(src[~ok]); drop_v.append(np.full(int((~ok).sum()), val))
     TB = sp.csr_matrix((np.concatenate(vv), (np.concatenate(rr), np.concatenate(cc))), shape=(nu, nu))
+    DB = (np.concatenate(drop_t), np.concatenate(drop_s), np.concatenate(drop_v))
 
     def det_link(link: int):
         sh = 4 * link
@@ -547,24 +553,36 @@ def det_sector_structure(basis=None) -> dict:
         tgt = uk[src] ^ (np.int64(15) << sh)             # A = 0b0011 <-> B = 0b1100: flip the whole nibble
         p = np.minimum(np.searchsorted(uk, tgt), nu - 1)
         ok = uk[p] == tgt
-        return sp.csr_matrix((np.full(int(ok.sum()), 2.0), (p[ok], src[ok])), shape=(nu, nu))
+        return (sp.csr_matrix((np.full(int(ok.sum()), 2.0), (p[ok], src[ok])), shape=(nu, nu)),
+                (tgt[~ok], src[~ok], np.full(int((~ok).sum()), 2.0)))
+
+    def det_sum(links):
+        parts = [det_link(l) for l in links]
+        return sum(m for m, _ in parts[1:]) + parts[0][0], tuple(np.concatenate([d[i] for _, d in parts]) for i in range(3))
 
     leaving = [0.0]
 
-    def phys(T):
+    def phys(T, dropped):
         X = T @ P
         Mp = (P.conj().T @ X).tocsr()
         # weight leaving the physical space = ||(1 - P P^dag) T P||_F^2, summed entrywise from the residual (P has orthonormal columns);
         # not ||T P||^2 - ||P^dag T P||^2, a difference of two sums of size ~1e6 that only shows a rounding quantum (2^-32 ~ 2.3e-10)
         res = (X - P @ Mp).tocsr()
-        leaving[0] = max(leaving[0], float(np.sum(np.abs(res.data) ** 2)))
+        # plus the images outside the code union (rows of T that were not formed above): orthogonal to the rows of X, so the weights add
+        dt, ds, dv = dropped
+        wdrop = 0.0
+        if len(dt):
+            ut, urow = np.unique(dt, return_inverse=True)
+            Xd = (sp.csr_matrix((dv.astype(np.complex128), (urow, ds)), shape=(len(ut), nu)) @ P).tocsr()
+            wdrop = float(np.sum(np.abs(Xd.data) ** 2))
+        leaving[0] = max(leaving[0], float(np.sum(np.abs(res.data) ** 2)) + wdrop)
         Mp.data[np.abs(Mp.data) < 1e-12] = 0
         Mp.eliminate_zeros()
         return Mp
 
-    HB = phys(TB)
-    Din = phys(sum((det_link(l) for l in range(1, 4)), det_link(0)))
-    Dout = phys(sum((det_link(l) for l in range(5, 12)), det_link(4)))
+    HB = phys(TB, DB)
+    Din = phys(*det_sum(range(0, 4)))
+    Dout = phys(*det_sum(range(4, 12)))
     ch = np.array([b.u1_charges(k) for k in range(n)], dtype=np.int64)
 
     def comps(Mx):

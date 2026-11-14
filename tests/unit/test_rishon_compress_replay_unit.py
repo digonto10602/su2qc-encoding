@@ -58,3 +58,25 @@ def test_replay_restores_logs_and_refuses_twice(replayed):
 def test_replay_refuses_empty_root_and_wrong_kind(tmp_path):
     with pytest.raises(ValueError):
         RP.replay("UE", root=tmp_path)
+
+
+def _fake(entries, lost):
+    return {"tag": "x", "rounds": [0], "newly_valid": [], "lost": lost, "entries": entries, "best_old": {"id": None, "key": None},
+            "best_new": {"id": None, "key": None}, "wall_s": 1.0}
+
+
+@pytest.mark.parametrize("key_equal, lost, code, text", [
+    ([True, None], [], 0, ""),
+    ([True, False], [], 1, "r00-b"),                     # key changed, nothing lost: used to exit 0 (audit 304 N5)
+    ([True, True], ["r00-c"], 1, "r00-c"),
+    ([False, None], ["r00-c"], 1, "r00-a"),
+])
+def test_main_exit_code_covers_changed_keys_and_lost(monkeypatch, capsys, key_equal, lost, code, text):
+    entries = [{"id": f"r00-{c}", "key_equal": k} for c, k in zip("ab", key_equal)]
+    monkeypatch.setattr(RP, "replay", lambda *a, **k: _fake(entries, lost))
+    assert RP.main(["--kind", "step", "--tag", "x"]) == code
+    cap = capsys.readouterr()
+    assert (text in cap.err) if code else cap.err == ""
+    if code:
+        assert "REPLAY PROBLEM" in cap.err
+    assert RP.problems(_fake(entries, lost))["lost"] == lost

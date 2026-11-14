@@ -216,11 +216,18 @@ def build_UD(eta: float, with_outer: bool = False, include_outer_det: bool = Fal
 def prepend_det_layer(unit, eta: float):
     """New circuit on `unit`'s registers (first register must be d[16], else ValueError): the det gadgets on d, then all of
     `unit`'s instructions unchanged and in order.  With U_D commuting with U_E this is the three-layer step
-    U_B U_D U_E = [U_B U_E] U_D for a two-layer first-order unit (prompts/204 section 6.1)."""
+    U_B U_D U_E = [U_B U_E] U_D for a two-layer first-order unit (prompts/204 section 6.1).  The identity holds only for a first-order
+    step: a unit whose metadata says it is not (`kind` present and != "step", or `order` present and != 1) raises ValueError; metadata
+    that is absent (units built from a compression program carry none) is accepted, the caller's verify() then decides."""
     from qiskit import QuantumCircuit
 
     if not unit.qregs or unit.qregs[0].name != "d" or unit.qregs[0].size != N_DATA:
         raise ValueError("the first register of the unit must be d[16]")
+    md = unit.metadata or {}
+    if md.get("kind", "step") != "step":
+        raise ValueError(f"prepend_det_layer needs a first-order step unit; metadata kind is {md['kind']!r}")
+    if md.get("order", 1) != 1:
+        raise ValueError(f"prepend_det_layer needs a first-order step unit (U_B U_E); metadata order is {md['order']!r}")
     full = QuantumCircuit(*unit.qregs, *unit.cregs, name=f"{unit.name}+UD")
     _emit_ud(full, float(eta))
     full.global_phase = unit.global_phase

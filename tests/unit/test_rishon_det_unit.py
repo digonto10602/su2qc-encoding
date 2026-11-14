@@ -191,6 +191,22 @@ def test_prepend_det_layer():
         prepend_det_layer(QuantumCircuit(QuantumRegister(8, "x")), 0.1)
 
 
+def test_prepend_det_layer_rejects_non_first_order_units():
+    """N4 (audit 304): [U_B U_E] U_D = U_B U_D U_E needs a first-order step; metadata that says otherwise is an error."""
+    from su2plaq.circuits.rishon import build_step, build_UD, build_UE, prepend_det_layer
+
+    for order in (2,):
+        with pytest.raises(ValueError, match="order"):
+            prepend_det_layer(build_step(0.37, 0.61, order, with_outer=True), 0.29)
+    with pytest.raises(ValueError, match="kind"):
+        prepend_det_layer(build_UE(0.37, with_outer=True), 0.29)
+    with pytest.raises(ValueError, match="kind"):
+        prepend_det_layer(build_UD(0.29, with_outer=True), 0.29)
+    unit = build_step(0.37, 0.61, 1, with_outer=True)
+    unit.metadata = {}                                   # program-built units carry no kind / order: accepted
+    assert prepend_det_layer(unit, 0.29).num_qubits == unit.num_qubits
+
+
 def test_outer_det_certify_basic():
     from su2plaq.circuits.rishon import build_UD
     from su2plaq.rishon.results import outer_det_certify
@@ -227,3 +243,31 @@ def test_det_sector_structure_leaving_weight_is_a_residual():
     assert d["dim"] == 38432 and d["blocks"] == {"lam0": 31870, "inner_det": 4976, "full_det": 305}
     assert d["leaving_weight"] <= 1e-20, d["leaving_weight"]          # residual form (~1e-25); the old difference showed 2^-32 ~ 2.3e-10
     assert d["leaving_weight"] != 2.0 ** -32
+
+
+def test_det_sector_structure_counts_images_outside_the_code_union(monkeypatch):
+    """N2 (audit 304): an operator that maps a physical code to a code that no physical state has must show up in leaving_weight
+    (it used to be dropped silently).  Mutants: (a) the det nibble pair (5 <-> 10) instead of (3 <-> 12): the image of every
+    quartet-code nibble is not a physical pattern; (b) H_B plus an extra column from one occupied inner code to all 1296 inner codes."""
+    import scipy.sparse as sp
+
+    from su2plaq.rishon import operators as O, physical as ph
+
+    b0 = ph.rishon_basis()
+    base = ph.det_sector_structure(b0)
+    assert base["leaving_weight"] <= 1e-20
+    kc = ph.closed_indices(b0)
+    monkeypatch.setattr(ph, "closed_indices", lambda b: kc)            # (closed_indices itself reads CODE_A)
+    monkeypatch.setattr(ph, "CODE_A", 5)                              # det_link: nibble 5 -> 10 (not a physical link pattern)
+    a = ph.det_sector_structure(b0)                                   # basis built before the mutation
+    assert a["leaving_weight"] > 1.0, a["leaving_weight"]
+    monkeypatch.undo()
+    codes = O.inner_codes()
+    i0 = int(np.searchsorted(codes, int(b0.keys[0][0]) & 0xFFFF))
+    M = sp.lil_matrix(O.h_magnetic_inner().shape, dtype=complex)
+    M[:, i0] = 0.5
+    M = M.tocsr()
+    real = O.h_magnetic_inner
+    monkeypatch.setattr(O, "h_magnetic_inner", lambda: real() + M.toarray())
+    d = ph.det_sector_structure(b0)
+    assert d["leaving_weight"] > 1e-3, d["leaving_weight"]
