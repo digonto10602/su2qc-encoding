@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.703174341341515e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.7071067811865477,
+   -0.7071067811865476
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.846996580252433e-14,
+  "block_error": 1.8561777610890812e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.04250955581665039,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.8561777610890812e-14,
+   "max_dropped_l2": 4.586682359669583e-15,
+   "max_span_leak": 2.220446049250313e-16,
+   "op_norm_error_inner_span": 1.850658535809063e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.794319722132613e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865475,
+    -0.7071067811865475
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.7947031009208463e-14,
+   "block_error": 9.996166212117665e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.0416562557220459,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 9.970788991675573e-15,
+    "max_dropped_l2": 2.9534412822202663e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 9.996166212117665e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.535346809325588e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865476,
+    -0.7071067811865475
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.767442396588552e-14,
+   "block_error": 1.7679044127370364e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04166102409362793,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7679044127370364e-14,
+    "max_dropped_l2": 7.071519757436679e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.7679044127370364e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 83,
+  "t_fixed": 72,
+  "n_rot": 9,
+  "t_eps": 638,
+  "t_estimate": {
+   "1e-06": 610.1523513717527,
+   "1e-10": 968.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 638,
+   "1e-10": 1008
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 126,
+  "depth_ct": 1517,
+  "qubits": 10,
+  "gates": {
+   "cx": 83,
+   "h": 54,
+   "tdg": 36,
+   "t": 36,
+   "sdg": 19,
+   "s": 18,
+   "rz": 9,
+   "x": 8,
+   "z": 4
+  },
+  "measured": true
+ },
+ "program_sha256": "8e4db9ef27121d18d63fc1e5d5cf75fc3eb012b0bd59bec5d8f01d4fd3f27e8c",
+ "wall_s": 1.5587928295135498,
+ "discoveries": [
+  "DISCOVERY: negative (exhaustive Pauli tracking): after the F1-012 CCZ blocks the singlet stabilizers are X1X0, X3X2Z1Z0 (pair 01) and Z3Z2X1X0, X3X2 (pair 23), no pair is wire-local; over all recouplings of <= 3 generalised CX (control basis -> Z, target basis -> X, 108 per step), also split into one block before the w23 toggle and one before the window, and also from the unfused CCZ frame, with toggles that are rccx words on parity controls (cost 2|twice-used| + |once-used|), the minimum of 2k + 2(c01 + c23) is 20 CX (k = 2 with 4 + 4, k = 3 with 3 + 4, F1-012 k = 4 with 3 + 3), so the q2 frame plus singlet toggles is 44 CX in every Bell(02)(13) variant, the same as the Fredkin + (01)(23) decoder leg.",
+  "DISCOVERY: negative: for each parity sector the permutation pairs (s0, s1) in S4 x S4 with s1 D_p s0^-1 in span{1, S01, S23, S01 S23} number 32 (p3 64, p6 96) and also give indicator normal forms (2 w23, 2 w01, k0 != 0) and lambda6 in {1, W, V, WV}; their relative elements s1 s0^-1 (4 to 20 per sector) and s0^-1 s1 (4 to 10) have empty intersection over the 8 sectors, so no leg made of an f-independent sector permutation Q(p) plus one fixed f-controlled permutation (control f alone, no f-dependent line) exists.",
+  "DISCOVERY: negative: parity controls do not shorten the T-lean h line: a single toggle a: c1 -> c1 ^ AND(X, Y) with X, Y affine in the wires is f-free only for (X, Y) = (f ^ alpha, ~g) or (f ^ alpha, f ^ alpha ^ g), leaving alpha ~g with alpha in span{1, r, t, l, g}, and none of these functions lies in [p=3] + span{1, r, t, l, g}; depth_CT 1517 = 40 (head line chain) + 1437 (H, nine words 1423, 9 walk CX with one 2-step, 3 S^k, H) + 40 (tail), E2 / E2' lie off the critical path."
+ ],
+ "summary": "r12-F1-012 datapath unchanged except the recoupling after the two CCZ blocks (parity frame; L: 0 -> ~p_t&~s_r -> g; a = f&~g; Bell(02)(13) decoder E1, CCZ(L, P13), CCZ(a, P02) with fused in-pair CX; w23 fused onto a, w01 toggled onto the p_r wire; 9-term 9-CX R_x walk, same per-class k pi/2 shifts, no new angle tuning): the 4-CX recoupling E2 is replaced by a 2-CX partial recoupling E2' (two generalised CX on the disjoint wire pairs (0,1), (2,3), control basis X, target basis Y, found by Pauli tracking of the four singlet stabilizers), after which each singlet projector is an AND of one wire bit and a two-wire parity; both singlet toggles become 4-CX rccx words whose once-used control is that parity (one CX per wire, negations as T <-> Tdg swaps), chosen and checked at emission time against the Fredkin frame; E2' saves 2 x 2 CX, the four parity toggles cost 4 x 1 CX more: (83, 638, 1517, 10), a tie with r12-F1-012 (does not beat it)."
+}

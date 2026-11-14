@@ -1,9 +1,9 @@
 {
  "encoding": "fuzzy_ub",
  "kind": "UB",
- "n_rounds": 13,
- "n_candidates": 39,
- "n_valid": 38,
+ "n_rounds": 14,
+ "n_candidates": 42,
+ "n_valid": 41,
  "global_best": "r12-F1-012",
  "global_best_key": [
   83,
@@ -14,7 +14,7 @@
  "best_by_family": {
   "seed": "r00-seed-010",
   "F1": "r12-F1-012",
-  "F2": "r10-F2-010",
+  "F2": "r13-F2-013",
   "F3": "r12-F3-012"
  },
  "header": [
@@ -134,10 +134,10 @@
    "610.152",
    "1008",
    "-",
-   "1521",
-   "valid (err 5.74747e-14, leak 0)",
-   "n_a",
-   "r10-F2-010 @ 8fae207"
+   "1517",
+   "valid (err 5.70317e-14, leak 0)",
+   "not_run",
+   "r13-F2-013 @ d4b38bf"
   ],
   [
    "best of family F3",
@@ -526,6 +526,33 @@
    "round": 12,
    "cx": 83,
    "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r13-F1-013",
+   "parent": "r12-F1-012",
+   "family": "F1",
+   "round": 13,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r13-F2-013",
+   "parent": "r12-F1-012",
+   "family": "F2",
+   "round": 13,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r13-F3-013",
+   "parent": "r11-F2-011",
+   "family": "F3",
+   "round": 13,
+   "cx": 89,
+   "t_eps": 514,
    "parent_known": true
   }
  ]

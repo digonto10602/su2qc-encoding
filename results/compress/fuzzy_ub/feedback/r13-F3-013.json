@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 4.368019881817178e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.7071067811865477,
+   -0.7071067811865476
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 2.5760686426804324e-14,
+  "block_error": 1.791951239136746e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.04178023338317871,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.791951239136746e-14,
+   "max_dropped_l2": 2.591551136551945e-15,
+   "max_span_leak": 2.220446049250313e-16,
+   "op_norm_error_inner_span": 1.786475401829891e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.17629886886186e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865477,
+    -0.7071067811865477
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.138099766176557e-14,
+   "block_error": 1.038199102685303e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.042424678802490234,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.038199102685303e-14,
+    "max_dropped_l2": 2.821663842844803e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.0316757600916195e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.243409974079704e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865476,
+    -0.7071067811865475
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.498254014733753e-14,
+   "block_error": 1.7451559593459505e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04147911071777344,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7451559593459505e-14,
+    "max_dropped_l2": 2.738392213554967e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.7451559593459505e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 89,
+  "t_fixed": 80,
+  "n_rot": 7,
+  "t_eps": 514,
+  "t_estimate": {
+   "1e-06": 498.5629399558077,
+   "1e-10": 777.6048999263461
+  },
+  "t_measured": {
+   "1e-06": 514,
+   "1e-10": 808
+  },
+  "synth_error_bound": 7e-06,
+  "depth": 146,
+  "depth_ct": 1242,
+  "qubits": 10,
+  "gates": {
+   "cx": 89,
+   "h": 54,
+   "tdg": 40,
+   "t": 40,
+   "sdg": 13,
+   "s": 10,
+   "x": 8,
+   "rz": 7,
+   "z": 4
+  },
+  "measured": true
+ },
+ "program_sha256": "bcf9e869a1de112ce8629620511e30d625f36f9248f0a1e1c4c3cca1e8f90cff",
+ "wall_s": 0.8508927822113037,
+ "discoveries": [
+  "DISCOVERY: the F1-012 CCZ frame and the F2-011 h-line chain compose unchanged (valid at all three angle pairs on the first try, 1246 -> 1242 depth_CT); a CX-neutral T gain at 83 CX is blocked because every route to h needs 2 extra AND toggles: c1 ^ h = s_r&~g ^ p_r&p_l is not x&(y^z) for wire literals (no 4-CX shared-control fusion), h ^ g has 3 true points over (p_r, p_t, p_l) so L: g -> h is not an XOR of two literal ANDs, and with a = h^w23 fused outside the window one inner toggle reaches h or V terms but not both.",
+  "DISCOVERY: [p=3] = p_r & (g ^ ~p_l) exactly, so h onto a fresh line is a 4-CX pair of rccx sharing the twice-used control p_r (AND(p_r, L) ^ AND(p_r, ~p_l)), 8 CX round trip; on the 83-CX datapath (a: c1 -> 0 -> w23 kept) a fresh h line gives 7 rotations at >= 91 CX (worse than 89), and k0 over (r, l, v) with y = g^~p_l on a wire still has 4 Walsh terms (the 32-function coset bound holds).",
+  "DISCOVERY: corner picture of the sectors (checked against the oracle): the q2 spin of link l sits at its head corner if q1 = 0 and at its tail corner if q1 = 1, so p6 is occupation (1111), p3 (2020), the rest (2110); the f=0 singlet pair is (12) for p0,p4, (01) for p1,p5,p7, (23) for p2, (01)(23) for p3, the f=1 pair (03) for p0-p3, (23) for p4,p5, (12) for p7, (03)(12) for p3, so the pairing ((01)(23) vs (03)(12)) changes between the f sides iff t|(r^l), and the per-side pairing indicator n(f,p) = ~f~r~t ^ f(~l|t) (p6 assigned either way) has ANF degree 3 in (f, p) and in the raw q1 bits: any frame that carries the pairing decision on one control (K4 two-swap words, S3 words X^a Y^b and X^a Y^b X^c, where it is one control or the XOR of two) needs a degree-3 line, i.e. 2 ANDs."
+ ],
+ "summary": "no construction beats (83, 638, 1517, 10) (CX and T floors of the two-line family re-derived below), so this is a T-lean Pareto point: the r11-F2-011 seven-rotation datapath (parity frame; L: 0 -> ~p_t&~s_r -> g; a: 0 -> c1 = f&~g -> p_r&~g (rccx with the raw s_r wire) -> h = [p=3]; w01 toggled onto p_r and w23 onto a inside the H(f) window; 7-term 9-CX R_x walk, archived per-class k pi/2 shifts, no new angle choices) on the r12-F1-012 diagonal q2 frame (Bell(02)(13) decoder E1, the two Fredkins as CCZ(L, P13), CCZ(a, P02) fused with one in-pair CX, 4-CX recoupling E2 to AND-decoded (01)/(23) pairs, Z fixes as phase flips on fresh rccx targets); cx(f -> p_r) moves after the a conversion; (89, 514, 1246 -> 1242, 10)."
+}
