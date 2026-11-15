@@ -16,6 +16,7 @@ EVALUATOR_FILES = [
     "metrics/logical.py", "metrics/cliffordt.py",
     "encodings/base.py", "encodings/twelve.py", "exact/operators.py", "exact/physical.py",
     "su2/algebra.py", "su2/wigner.py", "geometry.py",
+    "encodings/registry.py",
 ]
 
 
@@ -28,6 +29,38 @@ def code_hash(files: list[pathlib.Path] | None = None) -> str:
         f = pathlib.Path(f)
         h.update(f.name.encode() + b"\0" + f.read_bytes() + b"\0")
     return h.hexdigest()
+
+
+def evaluator_files(encoding: str | None = None) -> list[pathlib.Path]:
+    """The shared files (existing ones, in `EVALUATOR_FILES` order) followed by the files the registry lists for `encoding`
+    (prompts/008 §4).  An encoding that is not registered has no files of its own.  A registered own file that does not exist is an
+    error (a registry typo must not silently shrink a hash)."""
+    from su2plaq.encodings import registry
+
+    files = [_SRC / f for f in EVALUATOR_FILES if (_SRC / f).exists()]
+    info = registry.lookup(encoding) if encoding is not None else None
+    if info is not None:
+        own = [_SRC / f for f in info.evaluator_files]
+        missing = [str(f.relative_to(_SRC)) for f in own if not f.exists()]
+        if missing:
+            raise FileNotFoundError(f"evaluator files of encoding {encoding!r} missing under src/su2plaq: {missing}")
+        files += own
+    return files
+
+
+def code_hash_for(encoding: str | None = None) -> str:
+    """`code_hash` of `evaluator_files(encoding)`: shared list + that encoding's own files.  For twelve (and for an encoding that
+    is not registered) it equals `code_hash()`."""
+    return code_hash(files=evaluator_files(encoding))
+
+
+def stamp_hash(encoding: str | None = None) -> str:
+    """What the archive records as `Entry.evaluator_sha256`: `code_hash_for(encoding)` for an encoding registered with
+    stamp "encoding", else the shared `code_hash()`."""
+    from su2plaq.encodings import registry
+
+    info = registry.lookup(encoding) if encoding is not None else None
+    return code_hash_for(encoding) if info is not None and info.stamp == "encoding" else code_hash()
 
 
 def package_versions() -> dict:

@@ -46,8 +46,20 @@ def _rel(path, root: pathlib.Path) -> str:
 
 
 def _seed_candidates(spec: TaskSpec, root: pathlib.Path):
-    """[(label, program_path_or_None, circuit_fn_or_None)] for round 0.  Programs are written under `root`; circuit-valued
-    baselines get a generated program too (so that they can be parents) unless their skeleton depends on the angles."""
+    """[(label, program_path_or_None, circuit_fn_or_None)] for round 0: `info.seed_candidates(spec, root)` when the encoding is
+    registered with one, else `_seed_candidates_default`."""
+    from su2plaq.encodings import registry
+
+    info = registry.lookup(spec.encoding)
+    if info is not None and info.seed_candidates:
+        return registry.resolve(info.seed_candidates)(spec, root)
+    return _seed_candidates_default(spec, root)
+
+
+def _seed_candidates_default(spec: TaskSpec, root: pathlib.Path):
+    """The default seeds (general program, general + polish, Qiskit level 3, lean22_v2 / lean22).  Programs are written under
+    `root`; circuit-valued baselines get a generated program too (so that they can be parents) unless their skeleton depends on
+    the angles."""
     out = []
     d = root / "compress" / "programs" / spec.encoding / BL.SEED_FAMILY
     d.mkdir(parents=True, exist_ok=True)
@@ -183,7 +195,7 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
     known_ids = {x.id for x in archive.entries()}
     for label, r, pp, fam, fn, par in results:
         # PARENT of the program header: recorded as declared; `parent_known` says whether it names an existing entry
-        e = A.entry_from_result(r, program_path=pp, family=fam, round=round, parent=par)
+        e = A.entry_from_result(r, program_path=pp, family=fam, round=round, parent=par, encoding=encoding)
         parent_known = par is None or par in known_ids
         if pp.endswith(".circuit"):          # a circuit-valued baseline without a program file is named after its label
             e.id = f"r{round:02d}-{fam}-{label.replace('+', '_')}"
@@ -234,7 +246,8 @@ def run_round(encoding, kind, round: int, evaluate: bool, dry_run: bool = False,
     info = {"round": round, "n_valid": n_valid, "n_invalid": n_invalid, "best_key": list(best.key) if best else None,
             "entries": ids, "lean_seconds": lean_seconds}
     out = {**info, "encoding": encoding, "kind": kind, "provenance": provenance({"trial_seed": spec.trial_seed}),
-           "evaluator_sha256": P.code_hash(), "spec_sha256": spec.sha256(), "invalid": invalid, "external": external,
+           "evaluator_sha256": P.stamp_hash(encoding), "encoding_sha256": P.code_hash_for(encoding), "spec_sha256": spec.sha256(),
+           "invalid": invalid, "external": external,
            "candidates": [x[0] for x in records], "synthesis_verification": synth_check, "wall_s": time.time() - t0,
            "written_utc": _utc()}
     rdir = root / "results" / "compress" / encoding
@@ -302,15 +315,23 @@ def resolve_cert_path(lean: dict | None, root=None) -> pathlib.Path | None:
 def _certify(circ, spec, program_file_sha256=None):
     """(asdict(LeanCert) or a status dict, seconds).  Lean never changes validity; a failure is recorded, not hidden.  The
     certificate provenance and the returned dict carry `program_file_sha256` (the program source that was rebuilt) and
-    `gates_sha256` (hash of the exported gate list), so the certificate is tied to a program file (audit 004 N2)."""
-    t0 = time.time()
-    try:
-        from dataclasses import asdict
+    `gates_sha256` (hash of the exported gate list), so the certificate is tied to a program file (audit 004 N2).
+    Dispatch on the registry (prompts/008 §3.2): `info.lean_certify(circ, spec, timeout=, extra_provenance=)`; an encoding
+    registered without one gets `{"status": "n_a", "reason": info.lean_na_reason}`; an encoding that is not registered is
+    certified by the twelve-qubit exporter (which answers `n_a` for any other encoding)."""
+    from su2plaq.encodings import registry
 
-        from su2plaq.lean import certify
+    t0 = time.time()
+    info = registry.lookup(spec.encoding)
+    if info is not None and not info.lean_certify:
+        return {"status": "n_a", "reason": info.lean_na_reason}, time.time() - t0
+    dotted = info.lean_certify if info is not None else "su2plaq.lean.certify:certify_circuit"
+    try:
+        import dataclasses
 
         extra = {"program_file_sha256": program_file_sha256} if program_file_sha256 else None
-        d = asdict(certify.certify_circuit(circ, spec, timeout=1200.0, extra_provenance=extra))
+        cert = registry.resolve(dotted)(circ, spec, timeout=1200.0, extra_provenance=extra)
+        d = dataclasses.asdict(cert) if dataclasses.is_dataclass(cert) and not isinstance(cert, type) else dict(cert)
         if program_file_sha256:
             d["program_file_sha256"] = program_file_sha256
         if d.get("cert_path"):

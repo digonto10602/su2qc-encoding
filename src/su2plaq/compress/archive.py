@@ -54,6 +54,7 @@ class Entry:
     synthesis: dict | None = None      # pygridsynth details of the key's T_eps (eps, measured, error bound)
     lean: dict | None = None           # asdict(LeanCert) once the Lean certificate was tried (prompts/006); None = not run
     mode: str = "full"
+    encoding_sha256: str | None = None  # provenance.code_hash_for(encoding): shared files + the encoding's own (prompts/008 §4); None = not recorded
 
     def to_dict(self) -> dict:
         from su2plaq.results.store import _jsonable
@@ -61,6 +62,8 @@ class Entry:
         d = asdict(self)
         d["key"] = list(self.key)
         d["cell"] = None if self.cell is None else list(self.cell)
+        if d.get("encoding_sha256") is None:
+            d.pop("encoding_sha256", None)      # entries written before prompts/008 keep their serialised form byte for byte
         return _jsonable(d)               # numpy scalars -> plain numbers
 
     @staticmethod
@@ -219,9 +222,11 @@ def _nnn(program_path: str) -> str:
     return f"{int(m.group(1)):03d}" if m else "000"
 
 
-def entry_from_result(result, *, program_path: str, family: str, round: int, parent: str | None, k: int = 8) -> Entry:
+def entry_from_result(result, *, program_path: str, family: str, round: int, parent: str | None, k: int = 8,
+                      encoding: str | None = None) -> Entry:
     """Archive entry from a `ProgramResult` with full provenance.  The id is r<round>-<family>-<NNN> (NNN = the leading number
-    of the program file name)."""
+    of the program file name).  With `encoding`: `evaluator_sha256` = `provenance.stamp_hash(encoding)` and `encoding_sha256` =
+    `provenance.code_hash_for(encoding)` (prompts/008 §3.2); without it the shared `code_hash()` and no `encoding_sha256`."""
     from datetime import datetime, timezone
 
     from su2plaq.metrics.provenance import provenance
@@ -238,9 +243,10 @@ def entry_from_result(result, *, program_path: str, family: str, round: int, par
         metrics_raw=_jsonable(met or {}), metrics_polished=None,
         verdict_nominal=verdict_to_dict(result.verdict) if result.verdict is not None else {},
         verdicts_alt=[verdict_to_dict(v) for v in result.verdicts_alt], skeleton_equal=bool(result.skeleton_equal),
-        discoveries=list(result.discoveries), summary=result.summary, evaluator_sha256=P.code_hash(),
+        discoveries=list(result.discoveries), summary=result.summary,
+        evaluator_sha256=P.stamp_hash(encoding) if encoding is not None else P.code_hash(),
         spec_sha256=result.spec_sha256, git_commit=prov["git_commit"], versions=prov["versions"], seeds=dict(result.seeds),
         machine=P.machine(), wall_s=float(result.wall_s), written_utc=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         git_dirty=bool(prov["git_dirty"]), synthesis=({"measured": bool(met.get("measured")), "synth_error_bound": met.get("synth_error_bound")}
                                                       if met else None),
-        mode=result.mode)
+        mode=result.mode, encoding_sha256=P.code_hash_for(encoding) if encoding is not None else None)

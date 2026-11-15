@@ -58,10 +58,37 @@ def _next_number(root: pathlib.Path, encoding: str, family: str) -> int:
     return max(nums, default=0) + 1
 
 
-def _structure_pointer(root: pathlib.Path) -> str:
-    f = root / "compress" / "lean" / "structure.json"
+def _info(encoding):
+    from su2plaq.encodings import registry
+
+    return registry.lookup(encoding) if encoding is not None else None
+
+
+def _structure_pointer(root: pathlib.Path, encoding=None) -> str:
+    """The facts file shown to the proposer: `info.structure_json` of a registered encoding, else the twelve-qubit one."""
+    info = _info(encoding)
+    f = root / (info.structure_json if info is not None and info.structure_json else "compress/lean/structure.json")
     return (f"`{_rel(f, root)}` (machine-proved facts about the problem; the same facts are in the section 'Proved structure (Lean)' "
-            "of the specification)" if f.exists() else "pending: `compress/lean/structure.json` has not been generated yet")
+            f"of the specification)" if f.exists() else f"pending: `{_rel(f, root)}` has not been generated yet")
+
+
+def _commands(encoding) -> tuple:
+    """(candidate command, oracle command): `info.tools` or the stock CLIs."""
+    info = _info(encoding)
+    if info is not None and info.tools:
+        return tuple(info.tools)
+    return ("python -m su2plaq.compress.run_candidate", "python -m su2plaq.compress.oracle")
+
+
+def _note(encoding, kind) -> list:
+    """The registered `brief_note(encoding, kind)` text as lines to append (empty when there is none)."""
+    from su2plaq.encodings import registry
+
+    info = _info(encoding)
+    if info is None or not info.brief_note:
+        return []
+    text = registry.resolve(info.brief_note)(encoding, kind)
+    return ["", text] if text else []
 
 
 def _diverse(ranked: list, own_family: str, n: int = 3) -> list:
@@ -92,11 +119,12 @@ def make_ideation_brief(encoding, kind, root=None) -> pathlib.Path:
     out.write_text(
         f"# Ideation brief: `{encoding}` / `{kind}`\n\n"
         f"Read the task specification `{_rel(spec, root)}` and nothing else about previous solutions (no seeds, no archive).\n"
-        f"Proved structure (Lean): {_structure_pointer(root)}.\n\n"
+        f"Proved structure (Lean): {_structure_pointer(root, encoding)}.\n\n"
         f"Write `compress/ideation/{encoding}.md`: at most 5 families, one datapath idea each (what the registers hold, which gates carry "
         "the weight, why it should beat a generic circuit), most promising first. Use the oracle "
-        f"(`python -m su2plaq.compress.oracle --encoding {encoding} --kind {kind} ...`) to look at the target; write scratch files only "
-        "under `scratch/proposer/`. Do not write programs in this session.\n")
+        f"(`{_commands(encoding)[1]} --encoding {encoding} --kind {kind} ...`) to look at the target; write scratch files only "
+        "under `scratch/proposer/`. Do not write programs in this session.\n"
+        + "".join(line + "\n" for line in _note(encoding, kind)))
     return out
 
 
@@ -116,9 +144,9 @@ def make_brief(encoding, kind, round: int, family: str, root=None) -> pathlib.Pa
     lines = [f"# Brief: `{encoding}` / `{kind}`, round {round}, family `{family}`\n",
              f"**Task.** {TASK_LINE}.\n",
              f"- Task specification: `{_rel(spec, root)}`",
-             f"- Proved structure (Lean): {_structure_pointer(root)}",
-             f"- Check a draft: `python -m su2plaq.compress.run_candidate <program.py> --encoding {encoding} --kind {kind} --trial` "
-             "(seconds), `--full` before you finish; the oracle: `python -m su2plaq.compress.oracle ...`"]
+             f"- Proved structure (Lean): {_structure_pointer(root, encoding)}",
+             f"- Check a draft: `{_commands(encoding)[0]} <program.py> --encoding {encoding} --kind {kind} --trial` "
+             f"(seconds), `--full` before you finish; the oracle: `{_commands(encoding)[1]} ...`"]
     if parent is not None:
         lines += ["", "## Parent", f"- program: `{parent.program_path}` (entry `{parent.id}`, sha256 {parent.program_sha256[:12]})",
                   f"- feedback: `results/compress/{encoding}/feedback/{parent.id}.json`", f"- cost: {_cost(parent)}",
@@ -138,6 +166,7 @@ def make_brief(encoding, kind, round: int, family: str, root=None) -> pathlib.Pa
     lines += ["", "## Output", f"Write ONE program to `compress/programs/{encoding}/{family}/{n:03d}-<slug>.py` (docstring starting with "
               "`SUMMARY:`, at most 3 `DISCOVERY:` lines, `FAMILY`, `PARENT`, `def build(spec) -> Builder`); scratch files only under "
               "`scratch/proposer/`. The file is immutable once evaluated; a change needs a new number.", ""]
+    lines += _note(encoding, kind)
     out = root / "compress" / "briefs" / encoding / f"round-{round:03d}-{family}.md"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(lines))

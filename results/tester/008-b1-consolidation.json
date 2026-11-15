@@ -1,0 +1,360 @@
+{
+ "commit": "bb857c0 + uncommitted builder changes (008 B1 / 401 8.R)",
+ "prompt": "prompts/008 step B1, prompts/401 step 8.R",
+ "machine": "omnicommander cores 14-19",
+ "seed": "none (deterministic evaluator; trial_seed 0 default spec)",
+ "hashes": {
+  "code_hash": "1b38431d7995acef61c55d32e480545212f97a109a1d5e511777cbdd3805605c",
+  "code_hash_for_lsh": "bcdd4e4ea37d77608d138659a3809fa4bceefb9ec0cbecfa058a2258e3feaebb",
+  "spinnet_loop_code_hash": "f61b82b2d2a2937b6fd78b5888b3f53a47b180cc5fc0bd17fa1799b355ce7172",
+  "rishon_compress_code_hash": "2b6fbaa2b1871934dbbb813c9e727720f054433cd9f3dfa2c2056a75d232bec7",
+  "HEAD_code_hash": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+  "HEAD_spinnet": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "HEAD_rishon": "1ddae8a6edfc6449fb761c72324912f76252b5db23ee5e7e7364e7b0ad530234"
+ },
+ "twelve_seed000_full": {
+  "key": [
+   294,
+   952,
+   1421,
+   50
+  ],
+  "op_norm_error": 2.68813143571731e-13,
+  "spec_sha": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+  "differences_vs_HEAD": [
+   "encoding_sha256 (new field)",
+   "evaluator_sha256 (0bd7e7d9 -> 1b38431d, shared hash changed by registry.py + base.py)"
+  ]
+ },
+ "m2c_m8_states_head_vs_new": {
+  "new": {
+   "consolidation_evaluator::test_M2C_E1_span_leak_exact_against_dense_reference": [
+    "FAIL",
+    "Failed: PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)"
+   ],
+   "consolidation_evaluator::test_M2C_E3_span_leak_decides_validity": [
+    "FAIL",
+    "Failed: PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)"
+   ],
+   "consolidation_evaluator::test_M2C_E5_gauss_not_checked_is_reported_as_such": [
+    "FAIL",
+    "ValueError: unknown encoding 'fuzzy_link'"
+   ],
+   "consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[fuzzy_ub-UB]": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[spinnet-step]": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_gate::test_M2C_Y1_replay_on_a_copy_of_the_link_archive": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[fuzzy_link-UE]": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[rishon-step]": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_evaluator::test_M2C_E6_inner_target_dispatch": [
+    "FAIL",
+    "Failed: PENDING: NotImplementedError: inner_target is implemented for the twelve-qubit encoding"
+   ],
+   "consolidation_gate::test_M2C_G2_structure_json_is_current": [
+    "PASS",
+    ""
+   ],
+   "consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[twelve-step]": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_registry::test_M2C_R1_registry_content": [
+    "FAIL",
+    "AssertionError: assert ({'fuzzy_link'...et', 'twelve'} <= {'lsh', 'twelve'}      Extra items in the left set:   'fuzzy_ub'   'rishon'   'fuz"
+   ],
+   "consolidation_registry::test_M2C_P1_code_hash_per_encoding": [
+    "FAIL",
+    "ValueError: unknown encoding 'spinnet'; known: ['twelve', 'lsh']"
+   ],
+   "consolidation_registry::test_M2C_P2_shared_round_stamps_both_hashes": [
+    "FAIL",
+    "ValueError: unknown encoding 'fuzzy_link'"
+   ],
+   "lsh_m8_followups::test_M8_A1_lean_tables_tied_to_rules": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_followups::test_M8_A2_committed_certificate_clean_provenance": [
+    "PASS",
+    ""
+   ],
+   "consolidation_evaluator::test_M2C_E4_prune_fraction_keyword": [
+    "FAIL",
+    "Failed: PENDING: evaluator.evaluate has no keyword prune_fraction (prompts/008 step B2)"
+   ],
+   "lsh_m8_loop::test_M8_E2_fresh_process_stock_worker_and_no_patching": [
+    "FAIL",
+    "AssertionError: Traceback (most recent call last):     File \"<string>\", line 30, in <module>     File \"/home/digimonk/Projects/su2qc-encodin"
+   ],
+   "consolidation_evaluator::test_M2C_E2_span_leak_zero_on_exact_circuits_and_trial_subset": [
+    "FAIL",
+    "Failed: PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)"
+   ],
+   "lsh_m8_loop::test_M8_S2_general_program_worker_and_sandbox": [
+    "FAIL",
+    "Failed: PENDING: NotImplementedError: su2plaq.lsh.loop.general_program_path: prompts/401 step 8.2 (needs the registry of prompts/008, step 8"
+   ],
+   "lsh_m8_loop::test_M8_S5_evaluator_rejections_on_lsh": [
+    "FAIL",
+    "Failed: PENDING: NotImplementedError: su2plaq.lsh.loop.general_program_path: prompts/401 step 8.2 (needs the registry of prompts/008, step 8"
+   ],
+   "consolidation_registry::test_M2C_R2_fresh_process_and_stock_worker_know_every_encoding": [
+    "FAIL",
+    "AssertionError: Traceback (most recent call last):     File \"<string>\", line 10, in <module>     File \"/home/digimonk/Projects/su2qc-encodin"
+   ],
+   "consolidation_registry::test_M2C_R3_track_facades_patch_nothing": [
+    "FAIL",
+    "AssertionError: ['BL.general_circuit', 'BL.import_seed', 'BR.make_brief', 'BR.make_ideation_brief', 'E._build_in_subprocess', 'EV.evaluate',"
+   ],
+   "lsh_m8_loop::test_M8_S3_seed_round_dry_run": [
+    "FAIL",
+    "Failed: PENDING: NotImplementedError: su2plaq.lsh.loop.seed_round: prompts/401 step 8.3 (needs the registry of prompts/008, step 8.R)"
+   ],
+   "lsh_m8_loop::test_M8_L2_structure_facts_match_lean_sources": [
+    "FAIL",
+    "Failed: PENDING: NotImplementedError: su2plaq.lsh.loop.render_spec: prompts/401 step 8.2 (needs the registry of prompts/008, step 8.R)"
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[general]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_loop::test_M8_H1_robust_metrics_and_hardenings": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.robust: No module named 'su2plaq.compress.robust'"
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_flags4]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_loop::test_M8_E1_registry_entry_lsh": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_flags6]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_loop::test_M8_S4_round_one_dry_run_briefs_and_stop_state": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.robust: No module named 'su2plaq.compress.robust'"
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_sn_r05F3]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_loop::test_M8_S0_spec_oracle_builder_lsh": [
+    "FAIL",
+    "Failed: PENDING: NotImplementedError: su2plaq.lsh.loop.render_spec: prompts/401 step 8.2 (needs the registry of prompts/008, step 8.R)"
+   ],
+   "lsh_m8_seeds::test_M8_H3_stop_rule_comparison": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_U1_uniform_split_structure_row": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_flags5]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_pairs9]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_sn_headline]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_followups::test_M8_A4_lean_hygiene_both_folders": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_sn_r02F5]": [
+    "PASS",
+    ""
+   ]
+  },
+  "head": {
+   "consolidation_evaluator::test_M2C_E5_gauss_not_checked_is_reported_as_such": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[spinnet-step]": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_evaluator::test_M2C_E3_span_leak_decides_validity": [
+    "FAIL",
+    "Failed: PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)"
+   ],
+   "consolidation_evaluator::test_M2C_E1_span_leak_exact_against_dense_reference": [
+    "FAIL",
+    "Failed: PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)"
+   ],
+   "consolidation_gate::test_M2C_Y1_replay_on_a_copy_of_the_link_archive": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[fuzzy_ub-UB]": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_evaluator::test_M2C_E6_inner_target_dispatch": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[rishon-step]": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[twelve-step]": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "consolidation_gate::test_M2C_G2_structure_json_is_current": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "consolidation_registry::test_M2C_R2_fresh_process_and_stock_worker_know_every_encoding": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "consolidation_registry::test_M2C_R1_registry_content": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "consolidation_registry::test_M2C_R3_track_facades_patch_nothing": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "consolidation_registry::test_M2C_P1_code_hash_per_encoding": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "consolidation_registry::test_M2C_P2_shared_round_stamps_both_hashes": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "lsh_m8_followups::test_M8_A1_lean_tables_tied_to_rules": [
+    "FAIL",
+    "AssertionError: ['Su2Plaq.LSH.inner_codes_from_rules', 'Su2Plaq.LSH.coupling_zero_iff_dark', 'Su2Plaq.LSH.dark_site_is_and', 'Su2Plaq.LSH.co"
+   ],
+   "lsh_m8_followups::test_M8_A2_committed_certificate_clean_provenance": [
+    "FAIL",
+    "AssertionError: certificate commit 76fd221 does not contain the exporter (needs a descendant of 731da36) assert 128 == 0  +  where 128 = Com"
+   ],
+   "lsh_m8_followups::test_M8_A4_lean_hygiene_both_folders": [
+    "PASS",
+    ""
+   ],
+   "consolidation_gate::test_M2C_G1_archive_replayed_under_current_code[fuzzy_link-UE]": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.compress.replay: No module named 'su2plaq.compress.replay'"
+   ],
+   "lsh_m8_loop::test_M8_S0_spec_oracle_builder_lsh": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "lsh_m8_loop::test_M8_S2_general_program_worker_and_sandbox": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "lsh_m8_loop::test_M8_S3_seed_round_dry_run": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "lsh_m8_loop::test_M8_S4_round_one_dry_run_briefs_and_stop_state": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "lsh_m8_loop::test_M8_S5_evaluator_rejections_on_lsh": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "lsh_m8_loop::test_M8_E2_fresh_process_stock_worker_and_no_patching": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "lsh_m8_loop::test_M8_L2_structure_facts_match_lean_sources": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "lsh_m8_loop::test_M8_H1_robust_metrics_and_hardenings": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[general]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_flags4]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_pairs9]": [
+    "PASS",
+    ""
+   ],
+   "consolidation_evaluator::test_M2C_E4_prune_fraction_keyword": [
+    "FAIL",
+    "Failed: PENDING: evaluator.evaluate has no keyword prune_fraction (prompts/008 step B2)"
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_sn_r05F3]": [
+    "PASS",
+    ""
+   ],
+   "consolidation_evaluator::test_M2C_E2_span_leak_zero_on_exact_circuits_and_trial_subset": [
+    "FAIL",
+    "Failed: PENDING: evaluator.Verdict has no fields span_leak / total_error (prompts/008 step B2)"
+   ],
+   "lsh_m8_seeds::test_M8_H3_stop_rule_comparison": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_U1_uniform_split_structure_row": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_flags5]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_sn_headline]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_flags6]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_seeds::test_M8_S1_seed_circuits_exact[wrap_sn_r02F5]": [
+    "PASS",
+    ""
+   ],
+   "lsh_m8_loop::test_M8_E1_registry_entry_lsh": [
+    "FAIL",
+    "Failed: PENDING: cannot import su2plaq.encodings.registry: No module named 'su2plaq.encodings.registry'"
+   ]
+  }
+ },
+ "pytest": {
+  "acceptance_not_slow_m0_m1_m2_m2c_m3_m3x_m4_m5_m5x_m6_m8_m9_m10": "260 passed, 30 failed (25 m2c/m8 + 5 m6, all PENDING) 1325 s",
+  "unit": "998 passed 453 s",
+  "slow_expected_red_checked": "4 failed, all on evaluator_sha256 0bd7e7d9 != 1b38431d"
+ }
+}

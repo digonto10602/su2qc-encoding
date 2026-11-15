@@ -65,7 +65,8 @@ def _row_external(x) -> list:
     est = m.get("t_estimate") or {}
     if "metrics" not in x:
         return [f"{x['source']} (not applicable)", "-", "-", "-", "-", "-", "-", "-", "-", "-", x.get("reason", ""), "n_a", "-"]
-    verdict = ("valid at its own angle (beta = 1, kind " + str(x.get("kind")) + "), err " + _f(x.get("op_norm_error"))
+    own_beta = "1" if x.get("beta") is None else f"{x['beta']:g}"      # the row's own beta (spinnet M4 item 5); Paulo's file: beta = 1
+    verdict = ("valid at its own angle (beta = " + own_beta + ", kind " + str(x.get("kind")) + "), err " + _f(x.get("op_norm_error"))
                if x.get("valid") else f"not verified: {x.get('reason')}")
     if x.get("fixed_angle"):
         # a fixed-angle external is Clifford+T already: its T count comes from the other tool's own pass, so it is NOT put under

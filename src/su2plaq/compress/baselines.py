@@ -27,8 +27,21 @@ SEED_FAMILY = "seed"
 
 
 # ---------------------------------------------------------------------------------------------- general circuit
+def _hook(spec: TaskSpec, field: str):
+    """The callable the registry names in `field` for the spec's encoding, or None (not registered / no such hook)."""
+    from su2plaq.encodings import registry
+
+    info = registry.lookup(spec.encoding)
+    dotted = getattr(info, field, None) if info is not None else None
+    return registry.resolve(dotted) if dotted else None
+
+
 def general_circuit(spec: TaskSpec):
-    """The reference circuit for the spec (registers d, o, then the ancilla registers of the M1 port)."""
+    """The reference circuit for the spec: `info.general_circuit(spec)` when the encoding is registered with one (registry
+    dispatch, prompts/008 §3.2), else the twelve-qubit reference (registers d, o, then the ancilla registers of the M1 port)."""
+    hook = _hook(spec, "general_circuit")
+    if hook is not None:
+        return hook(spec)
     if spec.kind == "UE":
         return C.build_UE(spec.alpha, with_outer=True)
     if spec.kind == "UB":
@@ -217,7 +230,11 @@ def _seed_step_circuit(source: str, spec: TaskSpec):
 
 
 def import_seed(spec: TaskSpec, source: str):
-    """SeedCircuit or a reason string."""
+    """SeedCircuit or a reason string: `info.import_seed(spec, source)` when the encoding is registered with one, else the
+    twelve-qubit sources."""
+    hook = _hook(spec, "import_seed")
+    if hook is not None:
+        return hook(spec, source)
     if source == "spinnet15":
         return get_encoding(spec.encoding).import_map("spinnet15")
     if source == "paulo34":

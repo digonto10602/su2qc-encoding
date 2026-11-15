@@ -55,6 +55,13 @@ ALLOWED_IMPORTS = {"numpy", "math", "cmath", "itertools", "functools", "collecti
                    "operator", "heapq", "bisect", "qiskit", "__future__"}
 ALLOWED_PROJECT_IMPORTS = {"su2plaq.compress.oracle", "su2plaq.compress.builder", "su2plaq.compress.spec"}
 FORBIDDEN_NAMES = {"open", "exec", "eval", "compile", "__import__", "input", "breakpoint"}
+ENGINE_QUBIT_LIMIT = 62      # the sparse engine stores basis states in 64-bit keys (prompts/008 §3.2, D15)
+REASON_ENGINE_QUBIT_LIMIT = "engine_qubit_limit"
+
+
+def engine_qubit_message(n_qubits: int) -> str:
+    return (f"{n_qubits} qubits > the exact simulation engine's limit of {ENGINE_QUBIT_LIMIT} qubits "
+            f"(the circuit cannot be evaluated; use at most {ENGINE_QUBIT_LIMIT} qubits in total)")
 
 
 class ContractError(ValueError):
@@ -170,9 +177,18 @@ def _time_limit(seconds: float):
 
 
 def _one_verdict(qc, spec: TaskSpec, mode: str, budget: float):
+    """One verdict: `info.verdict` when the encoding is registered with its own evaluator, else the shared one with
+    `gauss=info.gauss_in_loop` (and `prune_fraction=info.prune_fraction` when the entry sets one)."""
     from su2plaq.compress import oracle
+    from su2plaq.encodings import registry
     from su2plaq.evaluate.evaluator import evaluate
 
+    info = registry.lookup(spec.encoding)
+    if info is not None and info.verdict:
+        return registry.resolve(info.verdict)(qc, spec, mode, budget)
+    extra = {}
+    if info is not None and info.prune_fraction is not None:
+        extra["prune_fraction"] = info.prune_fraction
     enc = get_encoding(spec.encoding)
     V = oracle.target(spec)
     states = None
@@ -181,8 +197,9 @@ def _one_verdict(qc, spec: TaskSpec, mode: str, budget: float):
         dim = V.shape[0]
         states = np.sort(rng.choice(dim, size=min(spec.trial_inputs, dim), replace=False))
     with _time_limit(budget):
-        return evaluate(qc, enc, V, tol_err=spec.tol_err, tol_gauss=spec.tol_gauss, gauss=True,
-                        engine="sparse" if mode == "trial" else "auto", cap=spec.support_cap, states=states)
+        return evaluate(qc, enc, V, tol_err=spec.tol_err, tol_gauss=spec.tol_gauss,
+                        gauss=True if info is None else info.gauss_in_loop,
+                        engine="sparse" if mode == "trial" else "auto", cap=spec.support_cap, states=states, **extra)
 
 
 def _classify(verdict, violations) -> tuple[bool, str]:
@@ -217,6 +234,8 @@ def evaluate_circuit(qc, spec: TaskSpec, mode: str = "full", alt_circuits=None, 
     violations = _gate_violations(qc)
     if qc.num_qubits > spec.peak_qubit_cap():
         return result(False, "max_qubits", message=f"{qc.num_qubits} qubits > cap {spec.peak_qubit_cap()}")
+    if qc.num_qubits > ENGINE_QUBIT_LIMIT:
+        return result(False, REASON_ENGINE_QUBIT_LIMIT, message=engine_qubit_message(qc.num_qubits))
     try:
         verdict = _one_verdict(qc, spec, mode, spec.eval_budget_s)
     except EvalTimeout:
@@ -338,7 +357,7 @@ def evaluate_program(path, spec: TaskSpec, mode: str = "full", *, cache: bool = 
     if cache and mode == "full":
         from su2plaq.compress import provenance as P
 
-        ev_sha = P.code_hash()
+        ev_sha = P.code_hash_for(spec.encoding)
         cpath = P.cache_path(ev_sha, sha, spec.sha256(), root=root)
         if cpath.exists():
             cached = _read_cache(cpath, ev_sha, sha, spec.sha256())
@@ -468,6 +487,17 @@ def _install_audit_guard(allowed_writes):
     sys.addaudithook(hook)
 
 
+def _warm_up(encodings) -> None:
+    """Run `info.worker_warmup` of every registered encoding of the specs (static registry table; nothing for an encoding that
+    is not registered)."""
+    from su2plaq.encodings import registry
+
+    for name in encodings:
+        info = registry.lookup(name)
+        if info is not None and info.worker_warmup:
+            registry.resolve(info.worker_warmup)()
+
+
 def _worker(path, spec_json, out, meta):
     # heavy imports first (so that importing them is not subject to the guard), then the guard, then the program
     import qiskit  # noqa: F401
@@ -479,12 +509,13 @@ def _worker(path, spec_json, out, meta):
 
     metap = pathlib.Path(meta)
     outp = pathlib.Path(out)
-    _install_audit_guard([outp, metap])
     try:
         specs = []
         for d in json.loads(pathlib.Path(spec_json).read_text()):
             d["alt_angles"] = tuple(tuple(x) for x in d["alt_angles"])
             specs.append(TaskSpec(**d))
+        _warm_up(sorted({sp.encoding for sp in specs}))   # registry hooks that import heavy / lazy modules, BEFORE the guard
+        _install_audit_guard([outp, metap])
         mod = load_program(path)
         circuits, discoveries = [], []
         for sp in specs:
