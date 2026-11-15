@@ -1,0 +1,71 @@
+{
+ "provenance": "4b6657169787aec981b96e18f65d174c9cff55370d4e6417bdd4437e9e9a1f08",
+ "lsh": "c28d3d7921fc6715153d24849a0d259a7a5e21ef08645b0133f5e82a55823425",
+ "spinnet_loop": "e4f1ff1d5a435db9ca3fe27ba941cb7301feea3e75a99edfe15dc63f47db9f34",
+ "rishon": "3af33130e35e96f3f1852498ac097e433fb2e595aa8f8a64a2cfd8e5b68d418a",
+ "code_hash_for_spinnet": "8f9ada7824d7722ecde3a567da5ee04c33039897e55f5c74a18cd2e42cc31c6e",
+ "n_shared": 21,
+ "spinnet_files": [
+  "encodings/spinnet.py",
+  "circuits/spinnet.py",
+  "spinnet/walk.py",
+  "spinnet/trotter_v2.py",
+  "spinnet/paulo.py"
+ ],
+ "loop_files": [
+  "encodings/spinnet.py",
+  "circuits/spinnet.py",
+  "spinnet/walk.py",
+  "spinnet/trotter_v2.py",
+  "spinnet/paulo.py"
+ ],
+ "lsh_files": [
+  "encodings/lsh.py",
+  "lsh/operators.py",
+  "exact/spinnet.py",
+  "exact/compare.py",
+  "lsh/walk.py",
+  "circuits/lsh.py"
+ ],
+ "rishon_files": [
+  "compress/builder.py",
+  "compress/evaluate.py",
+  "compress/metrics.py",
+  "compress/synth.py",
+  "compress/passes.py",
+  "compress/archive.py",
+  "compress/spec.py",
+  "compress/oracle.py",
+  "evaluate/evaluator.py",
+  "evaluate/sparse_sim.py",
+  "evaluate/aer_check.py",
+  "metrics/logical.py",
+  "metrics/cliffordt.py",
+  "encodings/base.py",
+  "encodings/twelve.py",
+  "exact/operators.py",
+  "exact/physical.py",
+  "su2/algebra.py",
+  "su2/wigner.py",
+  "geometry.py",
+  "encodings/registry.py",
+  "encodings/rishon.py",
+  "circuits/rishon.py",
+  "rishon/algebra.py",
+  "rishon/physical.py",
+  "rishon/operators.py",
+  "rishon/frames.py",
+  "rishon/verify.py",
+  "rishon/compress/spec.py",
+  "rishon/compress/evaluate.py",
+  "rishon/compress/baselines.py"
+ ],
+ "project": {
+  "provenance": "4b6657169787aec981b96e18f65d174c9cff55370d4e6417bdd4437e9e9a1f08",
+  "lsh": "c28d3d7921fc6715153d24849a0d259a7a5e21ef08645b0133f5e82a55823425",
+  "spinnet_loop": "e4f1ff1d5a435db9ca3fe27ba941cb7301feea3e75a99edfe15dc63f47db9f34",
+  "rishon": "3af33130e35e96f3f1852498ac097e433fb2e595aa8f8a64a2cfd8e5b68d418a",
+  "code_hash_for_spinnet": "8f9ada7824d7722ecde3a567da5ee04c33039897e55f5c74a18cd2e42cc31c6e"
+ },
+ "commit": "7e9bb5d"
+}

@@ -1,0 +1,305 @@
+{
+ "commit": "7e9bb5d + uncommitted B3 changes",
+ "step": "008 B3",
+ "machine": "omnicommander",
+ "seed": "trial_seed 0 (evaluator default); angle pairs nominal (0.37,0.61)+alts",
+ "seed_program_eval_new": {
+  "trial": {
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    54,
+    534.3576456637802,
+    67,
+    23
+   ],
+   "skeleton_equal": true,
+   "program_sha256": "b608b9b20a3b3ccd8faac116c1a5ff7ea4405e40649516be04c80800acfd6132",
+   "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+   "verdicts": [
+    {
+     "op_norm_error": 1.1799226524067892e-14,
+     "span_leak": 0.0,
+     "total_error": 1.1799226524067892e-14,
+     "gauss_residual": 5.300424800310707e-16,
+     "block_error": 3.691491556878646e-15,
+     "leak_amplitude": 0.0,
+     "dropped_total": 8.107734967189246e-15,
+     "n_inputs": 64,
+     "ok": true,
+     "reason": "ok",
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0
+    }
+   ]
+  },
+  "full": {
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    54,
+    566,
+    861,
+    23
+   ],
+   "skeleton_equal": true,
+   "program_sha256": "b608b9b20a3b3ccd8faac116c1a5ff7ea4405e40649516be04c80800acfd6132",
+   "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+   "verdicts": [
+    {
+     "op_norm_error": 1.229760974694126e-14,
+     "span_leak": 0.0,
+     "total_error": 1.229760974694126e-14,
+     "gauss_residual": 5.300424800310707e-16,
+     "block_error": 4.189874779752014e-15,
+     "leak_amplitude": 0.0,
+     "dropped_total": 8.107734967189246e-15,
+     "n_inputs": 433,
+     "ok": true,
+     "reason": "ok",
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0
+    },
+    {
+     "op_norm_error": 1.143136891868367e-14,
+     "span_leak": 0.0,
+     "total_error": 1.143136891868367e-14,
+     "gauss_residual": 5.405215745588179e-16,
+     "block_error": 3.303263339929219e-15,
+     "leak_amplitude": 0.0,
+     "dropped_total": 8.128105578754451e-15,
+     "n_inputs": 433,
+     "ok": true,
+     "reason": "ok",
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0
+    },
+    {
+     "op_norm_error": 1.5769971861959752e-14,
+     "span_leak": 0.0,
+     "total_error": 1.5769971861959752e-14,
+     "gauss_residual": 5.233232634728414e-16,
+     "block_error": 5.136676268768898e-15,
+     "leak_amplitude": 0.0,
+     "dropped_total": 1.0633295593190855e-14,
+     "n_inputs": 433,
+     "ok": true,
+     "reason": "ok",
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0
+    }
+   ]
+  }
+ },
+ "seed_program_eval_head_tree": {
+  "trial": {
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    54,
+    534.3576456637802,
+    67,
+    23
+   ],
+   "skeleton_equal": true,
+   "program_sha256": "b608b9b20a3b3ccd8faac116c1a5ff7ea4405e40649516be04c80800acfd6132",
+   "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+   "verdicts": [
+    {
+     "op_norm_error": 1.1799226524067892e-14,
+     "span_leak": 0.0,
+     "total_error": 1.1799226524067892e-14,
+     "gauss_residual": 5.300424800310707e-16,
+     "block_error": 3.691491556878646e-15,
+     "leak_amplitude": 0.0,
+     "dropped_total": 8.107734967189246e-15,
+     "n_inputs": 64,
+     "ok": true,
+     "reason": "ok",
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0
+    }
+   ]
+  },
+  "full": {
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    54,
+    566,
+    861,
+    23
+   ],
+   "skeleton_equal": true,
+   "program_sha256": "b608b9b20a3b3ccd8faac116c1a5ff7ea4405e40649516be04c80800acfd6132",
+   "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+   "verdicts": [
+    {
+     "op_norm_error": 1.229760974694126e-14,
+     "span_leak": 0.0,
+     "total_error": 1.229760974694126e-14,
+     "gauss_residual": 5.300424800310707e-16,
+     "block_error": 4.189874779752014e-15,
+     "leak_amplitude": 0.0,
+     "dropped_total": 8.107734967189246e-15,
+     "n_inputs": 433,
+     "ok": true,
+     "reason": "ok",
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0
+    },
+    {
+     "op_norm_error": 1.143136891868367e-14,
+     "span_leak": 0.0,
+     "total_error": 1.143136891868367e-14,
+     "gauss_residual": 5.405215745588179e-16,
+     "block_error": 3.303263339929219e-15,
+     "leak_amplitude": 0.0,
+     "dropped_total": 8.128105578754451e-15,
+     "n_inputs": 433,
+     "ok": true,
+     "reason": "ok",
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0
+    },
+    {
+     "op_norm_error": 1.5769971861959752e-14,
+     "span_leak": 0.0,
+     "total_error": 1.5769971861959752e-14,
+     "gauss_residual": 5.233232634728414e-16,
+     "block_error": 5.136676268768898e-15,
+     "leak_amplitude": 0.0,
+     "dropped_total": 1.0633295593190855e-14,
+     "n_inputs": 433,
+     "ok": true,
+     "reason": "ok",
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0
+    }
+   ]
+  }
+ },
+ "acceptance_not_slow": {
+  "passed": 264,
+  "failed": 26,
+  "red_ids": [
+   "tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E2_span_leak_zero_on_exact_circuits_and_trial_subset",
+   "tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E5_gauss_not_checked_is_reported_as_such",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[fuzzy_link-UE]",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[fuzzy_ub-UB]",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[rishon-step]",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[spinnet-step]",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[twelve-step]",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_Y1_replay_on_a_copy_of_the_link_archive",
+   "tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_P1_code_hash_per_encoding",
+   "tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_P2_shared_round_stamps_both_hashes",
+   "tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R1_registry_content",
+   "tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R2_fresh_process_and_stock_worker_know_every_encoding",
+   "tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R3_track_facades_patch_nothing",
+   "tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L2_cert3_builds_and_semantics",
+   "tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L3_cert3_accept_reject_na",
+   "tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L9_det_layer_certificate",
+   "tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G5_replay_record",
+   "tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G6_three_layer_summary",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E2_fresh_process_stock_worker_and_no_patching",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H1_robust_metrics_and_hardenings",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L2_structure_facts_match_lean_sources",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S0_spec_oracle_builder_lsh",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S2_general_program_worker_and_sandbox",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S3_seed_round_dry_run",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S4_round_one_dry_run_briefs_and_stop_state",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S5_evaluator_rejections_on_lsh"
+  ],
+  "wall_s": 1052.63
+ },
+ "acceptance_slow_m4_m3_serial": {
+  "passed": 6,
+  "failed": 2,
+  "red": [
+   "m4::test_M4_G1_archive_best_reverified_from_source (expected, 008 s8)",
+   "m4::test_M4_L2_seed_round_records_certificates (NEW: KeyError gates_sha256)"
+  ]
+ },
+ "acceptance_slow_m4_parallel_n4": {
+  "passed": 4,
+  "failed": 3,
+  "note": "M4_G3 failed only under xdist: concurrent writes of results/compress/spinnet/robust.json.tmp (same code as HEAD); passes serially"
+ },
+ "unit": {
+  "passed": 1005,
+  "failed": 1,
+  "failed_id": "tests/unit/test_tester_b3_certify.py::test_shared_certify_accepts_the_spinnet_certificate (added by tester, reproduces the KeyError)",
+  "wall_s": 311.42
+ },
+ "hashes": {
+  "provenance": "4b6657169787aec981b96e18f65d174c9cff55370d4e6417bdd4437e9e9a1f08",
+  "lsh": "c28d3d7921fc6715153d24849a0d259a7a5e21ef08645b0133f5e82a55823425",
+  "spinnet_loop": "e4f1ff1d5a435db9ca3fe27ba941cb7301feea3e75a99edfe15dc63f47db9f34",
+  "rishon": "3af33130e35e96f3f1852498ac097e433fb2e595aa8f8a64a2cfd8e5b68d418a",
+  "code_hash_for_spinnet": "8f9ada7824d7722ecde3a567da5ee04c33039897e55f5c74a18cd2e42cc31c6e",
+  "n_shared": 21,
+  "spinnet_files": [
+   "encodings/spinnet.py",
+   "circuits/spinnet.py",
+   "spinnet/walk.py",
+   "spinnet/trotter_v2.py",
+   "spinnet/paulo.py"
+  ],
+  "loop_files": [
+   "encodings/spinnet.py",
+   "circuits/spinnet.py",
+   "spinnet/walk.py",
+   "spinnet/trotter_v2.py",
+   "spinnet/paulo.py"
+  ],
+  "lsh_files": [
+   "encodings/lsh.py",
+   "lsh/operators.py",
+   "exact/spinnet.py",
+   "exact/compare.py",
+   "lsh/walk.py",
+   "circuits/lsh.py"
+  ],
+  "rishon_files": [
+   "compress/builder.py",
+   "compress/evaluate.py",
+   "compress/metrics.py",
+   "compress/synth.py",
+   "compress/passes.py",
+   "compress/archive.py",
+   "compress/spec.py",
+   "compress/oracle.py",
+   "evaluate/evaluator.py",
+   "evaluate/sparse_sim.py",
+   "evaluate/aer_check.py",
+   "metrics/logical.py",
+   "metrics/cliffordt.py",
+   "encodings/base.py",
+   "encodings/twelve.py",
+   "exact/operators.py",
+   "exact/physical.py",
+   "su2/algebra.py",
+   "su2/wigner.py",
+   "geometry.py",
+   "encodings/registry.py",
+   "encodings/rishon.py",
+   "circuits/rishon.py",
+   "rishon/algebra.py",
+   "rishon/physical.py",
+   "rishon/operators.py",
+   "rishon/frames.py",
+   "rishon/verify.py",
+   "rishon/compress/spec.py",
+   "rishon/compress/evaluate.py",
+   "rishon/compress/baselines.py"
+  ],
+  "project": {
+   "provenance": "4b6657169787aec981b96e18f65d174c9cff55370d4e6417bdd4437e9e9a1f08",
+   "lsh": "c28d3d7921fc6715153d24849a0d259a7a5e21ef08645b0133f5e82a55823425",
+   "spinnet_loop": "e4f1ff1d5a435db9ca3fe27ba941cb7301feea3e75a99edfe15dc63f47db9f34",
+   "rishon": "3af33130e35e96f3f1852498ac097e433fb2e595aa8f8a64a2cfd8e5b68d418a",
+   "code_hash_for_spinnet": "8f9ada7824d7722ecde3a567da5ee04c33039897e55f5c74a18cd2e42cc31c6e"
+  },
+  "commit": "7e9bb5d"
+ }
+}
