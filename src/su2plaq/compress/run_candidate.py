@@ -41,6 +41,7 @@ def main(argv=None) -> int:
     if v is not None:
         print(f"op_norm_error {v.op_norm_error:.3e} (block {v.block_error:.3e}, leak {v.leak_amplitude:.3e}, pruning {v.dropped_total:.3e}), "
               f"gauss {v.gauss_residual:.3e}, engine {v.engine}, certified {v.certified}")
+        print(f"span_leak {v.span_leak:.3e}, total_error {v.total_error:.3e} (op_norm_error + span_leak)")
         if not v.ok and v.failing_inputs:
             print("worst inputs: " + ", ".join(f"{i}: {e:.3e}" if isinstance(e, float) else f"{i}: {e}" for i, e in v.failing_inputs[:5]))
     if r.verdicts_alt:

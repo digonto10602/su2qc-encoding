@@ -51,13 +51,15 @@ def trial_states(spec: TaskSpec) -> np.ndarray:
 def to_verdict(rv) -> Verdict:
     """Laptop `Verdict` with the fields of a `rishon.verify.RishonVerdict` (method 'rishon_inner_block')."""
     iv = rv.inner_verdict
+    span = iv.span_leak if iv is not None else float("nan")       # prompts/008 §5: copied from the inner verdict (0.0 on the inner view)
     return Verdict(
         ok=rv.ok, reason=rv.reason, op_norm_error=rv.op_norm_error, max_leak=rv.max_leak, dirty_ancilla=rv.dirty_ancilla,
         phase=rv.phase, outer_bits_read=rv.outer_bits_read, n_blocks=iv.n_blocks if iv is not None else 0,
         gauss_residual=rv.gauss_residual, method=_METHOD, engine=rv.engine, seconds=rv.seconds,
         failing_inputs=list(rv.failing_inputs), n_inputs=iv.n_inputs if iv is not None else 0, dropped_total=rv.dropped_total,
         engine_accuracy=iv.engine_accuracy if iv is not None else 0.0, certified=rv.certified, tolerances=dict(rv.tolerances),
-        block_error=rv.block_error, leak_amplitude=rv.leak_amplitude,
+        block_error=rv.block_error, leak_amplitude=rv.leak_amplitude, span_leak=span,
+        total_error=rv.op_norm_error + span if iv is not None else float("inf"),
         extra={"gauss_states": rv.gauss_states, "outer_bits_read": rv.outer_bits_read, "inner_method": rv.extra.get("inner_method"),
                "rishon": True})
 

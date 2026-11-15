@@ -133,7 +133,7 @@ def _record(label, e, r, parent_known=True) -> dict:
     return {"label": label, "id": e.id, "family": e.family, "program_sha256": e.program_sha256, "program_path": e.program_path, "valid": e.valid, "reason": e.reason,
             "key": list(e.key) if e.valid else None, "cell": list(e.cell) if e.cell else None, "metrics": e.metrics_raw,
             "verdict": {k: v.get(k) for k in ("ok", "op_norm_error", "block_error", "leak_amplitude", "gauss_residual", "certified",
-                                              "engine", "method")},
+                                              "engine", "method", "span_leak", "total_error")},
             "alt_ok": [bool(a.get("ok")) for a in e.verdicts_alt], "skeleton_equal": e.skeleton_equal, "parent": e.parent, "parent_known": parent_known,
             "git_commit": e.git_commit, "summary": e.summary, "lean": e.lean, "round": e.round, "mode": e.mode}
 

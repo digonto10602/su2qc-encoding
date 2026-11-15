@@ -19,6 +19,10 @@ Algorithm
      the physical span (`extra['max_span_leak']`) is controlled by the Gauss check: |s| <= 4 * gauss_residual.  The simulator's
      certified pruning bound `dropped_total` (max over outer groups) must stay <= PRUNE_FRACTION * tol_err (`pruning_bound`).
   6. Gauss residual of the decoded outputs U|psi_k>.
+  7. span leak (prompts/008 §5, METHODS §6): U Psi = Psi A + S + X; S is the output inside the code space but outside the physical
+     span.  `span_leak` = ||S||_2 is formed DIRECTLY per outer pattern (never as W - A^dag A, which loses half the digits) and
+     `total_error = op_norm_error + span_leak <= tol_err` is the last validity check (reason `span_leak`).  Exactly 0.0, nothing
+     computed, when the physical span is the whole code space (number of states = inner codes x outer patterns).
 Engines: `sparse` (run_batch), `aer_mps` (per-input MPS, accuracy ~2e-10, flagged in `engine_accuracy`/`certified`),
 `auto` (sparse; aer_mps on SimCapExceeded).
 """
@@ -224,6 +228,8 @@ class Verdict:
     block_error: float = float("nan")     # ||A - e^{i phi} V||_2 (inner_span: max(inner-span error, physical error))
     leak_amplitude: float = float("nan")  # ||X||_2 (sparse: exact; aer_mps: certified bound sqrt(max_o W_o))
     extra: dict = field(default_factory=dict)
+    span_leak: float = float("nan")       # ||S||_2: output inside the code space but outside the physical span (prompts/008 §5)
+    total_error: float = float("inf")     # op_norm_error + span_leak: the quantity judged against tol_err (reason `span_leak` last)
 
 
 def synth_tolerances(n_rot: int, eps: float) -> dict:
@@ -336,13 +342,32 @@ def _simulate(qcr, d, engine, cap):
     return M, None, None, 0.0, 0.0, "aer_mps", {"leak_cols": leak_c, **info}
 
 
+def _local_basis(d, oi, P_all):
+    """(B_o, R_o) with P_all = B_o R_o: B_o an orthonormal basis of the local span of the inner components of the states with
+    support on outer pattern `oi` (thin QR; an SVD basis if a diagonal entry of R_o is below 1e-12).  Cached on the encoding data."""
+    cache = d.setdefault("local_basis", {})
+    if oi not in cache:
+        B, Rq = np.linalg.qr(P_all)
+        if not (np.abs(np.diag(Rq)) > 1e-12).all():
+            U_, s_, _ = np.linalg.svd(P_all, full_matrices=False)
+            B = U_[:, s_ > 1e-12 * s_[0]]
+            Rq = B.conj().T @ P_all
+        cache[oi] = (B, Rq)
+    return cache[oi]
+
+
 def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
              tol_gauss: float | None = None, gauss: bool = True,
-             method: str = "auto", engine: str = "auto", cap: int = 5_000_000, states=None) -> Verdict:
+             method: str = "auto", engine: str = "auto", cap: int = 5_000_000, states=None,
+             prune_fraction: float | None = None) -> Verdict:
     """`states`: optional subset of physical-state indices (the 'trial' mode of the compression loop): only the columns of
     A = <psi_k'|U|psi_k> for k in the subset are formed (rows run over all physical states), the phase, block error, leak
-    amplitude and Gauss residual refer to those inputs, and the inner-span fast path is not used."""
+    amplitude and Gauss residual refer to those inputs, and the inner-span fast path is not used.
+    `prune_fraction`: `pruning_bound` iff dropped_total > prune_fraction * tol_err; None = PRUNE_FRACTION; must be in (0, 1]."""
     t0 = time.time()
+    pf = PRUNE_FRACTION if prune_fraction is None else float(prune_fraction)
+    if not 0.0 < pf <= 1.0:
+        raise ValueError(f"prune_fraction must be in (0, 1], got {prune_fraction!r}")
     tg = TOL_GAUSS if tol_gauss is None else float(tol_gauss)
     tols = {"tol_err": tol_err, "tol_gauss": tg}
     if method not in ("auto", "inner_span", "physical"):
@@ -400,6 +425,11 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
     w_inv = np.zeros(dim)
     XX = np.zeros((dim, dim), dtype=np.complex128)   # X^dag X, sparse engine (outputs of different outer patterns are orthogonal)
     have_x = False
+    # span leak S = (1 - Pi_phys) U Psi inside the code space: per outer pattern o, P_o = B_o R_o (local basis), Om_o = M P_o^in,
+    # Y_o = B_o^dag Om_o, C_o = Om_o - B_o Y_o, D_o = Y_o Pi_o - R_o A[o, :]  =>  S^dag S = sum_o Pi_o^T C_o^dag C_o Pi_o + sum_o D_o^dag D_o
+    full_space = dim == len(d["inner"]) * len(d["o_vals"])         # the physical span is the whole code space: S = 0 exactly
+    CC = np.zeros((dim, dim), dtype=np.complex128)                 # sum_o Pi_o^T C_o^dag C_o Pi_o
+    Ys = []                                                        # (oi, ks_all, ks (selected columns of o), Y_o)
     maxW, maxW_anc, maxW_inv, w_inputs = 0.0, 0.0, 0.0, np.zeros(len(d["inner"]))   # aer_mps bound bookkeeping
     out_codes: list[list] = [[] for _ in range(dim)]
     out_amps: list[list] = [[] for _ in range(dim)]
@@ -432,9 +462,17 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
             else:
                 sel = np.flatnonzero(insub[ks_all])
                 if sel.size == 0:
+                    if not full_space:      # no selected input here, but A[o, :] may be non-zero: D_o = - R_o A[o, :] still counts
+                        Ys.append((int(oi), ks_all, ks_all[:0], np.zeros((_local_basis(d, int(oi), P_all)[0].shape[1], 0), dtype=np.complex128)))
                     continue
                 ks, P, Pin = ks_all[sel], P_all, P_all[:, sel]
             Om = Ms @ Pin
+            if not full_space:
+                Bq, _Rq = _local_basis(d, int(oi), P_all)
+                Yo = Bq.conj().T @ Om
+                Cres = Om - Bq @ Yo
+                CC[np.ix_(ks, ks)] += Cres.conj().T @ Cres
+                Ys.append((int(oi), ks_all, ks, Yo))
             A[np.ix_(ks_all, ks)] += P.conj().T @ Om
             w_code[ks] += np.sum(np.abs(Om) ** 2, axis=0)
             for Xm, wv in ((Xa, w_anc), (Xi, w_inv)):
@@ -482,6 +520,31 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
         leak = (w_anc + w_inv)[cols]            # per selected physical state ||X psi_k||^2, summed directly
         max_leak, dirty, inv_max = float(leak.max()), float(w_anc[cols].max()), float(w_inv[cols].max())
     err_total = err + dropped_total + leak_amp
+    # span leak: ||S||_2 from S^dag S, formed directly (stacked in chunks; never W - A^dag A)
+    if full_space:
+        span_amp, span_cols_max = 0.0, 0.0
+    else:
+        colpos = -np.ones(dim, dtype=np.int64)
+        colpos[cols] = np.arange(len(cols))
+        SS = CC[np.ix_(cols, cols)].copy()
+        chunk, rows = [], 0
+        for k_chunk in range(len(Ys) + 1):
+            if k_chunk < len(Ys):
+                oi, ks_all_o, ks_o, Yo = Ys[k_chunk]
+                _B, Rq = _local_basis(d, oi, d["Psi"][oi])
+                Do = -(Rq @ A[np.ix_(ks_all_o, cols)])        # - B_o^dag (Psi A)_o
+                if len(ks_o):
+                    Do[:, colpos[ks_o]] += Yo
+                chunk.append(Do)
+                rows += Do.shape[0]
+            if chunk and (rows >= 4096 or k_chunk == len(Ys)):
+                Dst = np.vstack(chunk)
+                SS += Dst.conj().T @ Dst
+                chunk, rows = [], 0
+        SS = (SS + SS.conj().T) / 2
+        span_amp = float(np.sqrt(max(np.linalg.eigvalsh(SS)[-1], 0.0)))
+        span_cols_max = float(np.sqrt(max(np.real(np.diag(SS)).max(), 0.0)))
+    total_error = err_total + span_amp
     # 6: Gauss
     gres = float("nan")
     gk, gstates = np.zeros(0), []
@@ -501,7 +564,7 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
     acc = MPS_ACCURACY if eng_used == "aer_mps" else 0.0
     tmin = min(tol_err, tg) if gauss else tol_err
     certified = (acc <= tmin) and (acc == 0.0 or tmin >= MPS_CERTIFY_MIN)
-    if dropped_total > PRUNE_FRACTION * tol_err:
+    if dropped_total > pf * tol_err:
         reason = "pruning_bound"
     elif leak_amp > tol_err:
         reason = "dirty_ancilla" if dirty >= inv_max else "leak"
@@ -509,6 +572,8 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
         reason = "error"
     elif gauss and gres > tg:
         reason = "gauss"
+    elif total_error > tol_err:
+        reason = "span_leak"
     else:
         reason = "ok"
     colerr = np.linalg.norm(Dm, axis=0)
@@ -522,7 +587,9 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
     elif reason == "gauss":
         failing = [(int(gstates[i]), float(gk[i])) for i in np.argsort(-gk)[:10] if gk[i] > tg]
     elif reason == "pruning_bound":
-        failing = [("dropped_total", float(dropped_total)), ("prune_cap", float(PRUNE_FRACTION * tol_err))]
+        failing = [("dropped_total", float(dropped_total)), ("prune_cap", float(pf * tol_err))]
+    elif reason == "span_leak":
+        failing = [("span_leak", float(span_amp)), ("total_error", float(total_error))]
     else:
         worst = np.argsort(-colerr)[:10]
         failing = [(int(cols[k]), float(colerr[k])) for k in worst if colerr[k] > 0]
@@ -530,16 +597,20 @@ def evaluate(qc, enc, target: np.ndarray, *, tol_err: float = 1e-10,
                    phase=complex(phase), outer_bits_read=len(R), n_blocks=len(groups), gauss_residual=gres,
                    method=use_method, engine=eng_used or "sparse", seconds=time.time() - t0, failing_inputs=failing,
                    n_inputs=len(cols), dropped_total=dropped_total, engine_accuracy=acc, certified=certified, tolerances=tols,
-                   block_error=err, leak_amplitude=leak_amp,
+                   block_error=err, leak_amplitude=leak_amp, span_leak=span_amp, total_error=total_error,
                    extra={"op_norm_error_physical": err_phys, "max_dropped_l2": dropped_max, "max_span_leak": float(span_leak.max()),
-                          "op_norm_error_inner_span": err_inner})
+                          "op_norm_error_inner_span": err_inner, "span_leak_max_state": span_cols_max,
+                          "gauss": "checked" if gauss else "not_checked"})
 
 
 def inner_target(enc, kind, alpha, beta, order=1) -> np.ndarray:
     """625x625 inner operator in the encoding's local basis order (twelve: Paulo local order, link 0 least significant);
     on the span of the inner components of the physical states it equals the physical target."""
+    own = getattr(enc, "inner_target", None)
+    if callable(own):                       # the encoding's own inner operator (prompts/008 §5)
+        return own(kind, alpha, beta, order)
     if getattr(enc, "name", None) != "twelve":
-        raise NotImplementedError("inner_target is implemented for the twelve-qubit encoding")
+        raise NotImplementedError(f"inner_target: encoding {getattr(enc, 'name', enc)!r} defines no inner_target and is not 'twelve'")
     from su2plaq.exact.operators import plaquette_W
 
     idx = np.arange(625)

@@ -19,7 +19,7 @@ RESULT_KEYS = ("schema_version", "encoding", "circuit_id", "kind", "params", "pr
                "files", "extra")
 _VERDICT_KEYS = ("ok", "reason", "op_norm_error", "max_leak", "dirty_ancilla", "phase", "outer_bits_read", "n_blocks",
                  "gauss_residual", "method", "engine", "engine_accuracy", "certified", "tolerances", "dropped_total",
-                 "block_error", "leak_amplitude", "seconds", "n_inputs")
+                 "block_error", "leak_amplitude", "seconds", "n_inputs", "span_leak", "total_error")
 
 
 def _jsonable(x):

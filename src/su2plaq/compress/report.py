@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import pathlib
 import sys
 
@@ -46,7 +47,9 @@ def _verdict(rec) -> str:
     if not rec.get("valid"):
         return f"invalid: {rec.get('reason', '?')}"
     v = rec.get("verdict") or {}
-    err = v.get("op_norm_error")
+    err = v.get("total_error")                     # prompts/008: the judged quantity; rounds written before it carry op_norm_error only
+    if err is None or not math.isfinite(err):
+        err = v.get("op_norm_error")
     leak = v.get("leak_amplitude")
     return "valid (err " + _f(err) + ", leak " + _f(leak) + ")" if err is not None else "valid"
 
