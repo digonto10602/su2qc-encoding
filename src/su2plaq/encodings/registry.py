@@ -38,8 +38,9 @@ class EncodingInfo:
     angle_linear: str | None = None           # "module:attr"(circuit, spec) -> (bool, str); None -> the generic linear fit
 
 
-# The static table (registration order).  twelve: B1; lsh: step 8.R of prompts/401 (pure data, lazy strings; su2plaq/lsh/loop.py
-# decides no verdict and is in no hash list).  spinnet B3, fuzzy_ub / fuzzy_link B4, rishon B5 are added by their steps.
+# The static table (registration order).  twelve: B1; spinnet: B3; lsh: step 8.R of prompts/401 (pure data, lazy strings;
+# su2plaq/lsh/loop.py and su2plaq/spinnet/loop.py decide no verdict and are in no hash list).  fuzzy_ub / fuzzy_link B4, rishon B5
+# are added by their steps.
 _TABLE: dict = {}
 
 
@@ -50,6 +51,15 @@ def _add(info: EncodingInfo) -> None:
 _add(EncodingInfo(
     name="twelve", factory="su2plaq.encodings.twelve:TwelveQubit",
     lean_certify="su2plaq.lean.certify:certify_circuit"))     # the twelve-qubit exporter / checker (evaluator files: all in the shared list)
+
+_add(EncodingInfo(
+    name="spinnet", factory="su2plaq.encodings.spinnet:SpinNet", kinds=("step", "UB", "UE"), loop_kind="step",
+    evaluator_files=("encodings/spinnet.py", "circuits/spinnet.py", "spinnet/walk.py", "spinnet/trotter_v2.py", "spinnet/paulo.py"),
+    stamp="shared", gauss_in_loop=True,
+    general_circuit="su2plaq.spinnet.loop:general_circuit", seed_candidates="su2plaq.spinnet.loop:seed_candidates",
+    import_seed="su2plaq.spinnet.loop:import_seed", lean_certify="su2plaq.spinnet.loop:lean_certify",
+    render_spec="su2plaq.spinnet.loop:render_spec", structure_json="compress/specs/spinnet-structure.json",
+    tools=("python -m su2plaq.spinnet.loop candidate", "python -m su2plaq.spinnet.loop oracle")))
 
 _add(EncodingInfo(
     name="lsh", factory="su2plaq.encodings.lsh:LSH", kinds=("step", "UB", "UE"), loop_kind="step",

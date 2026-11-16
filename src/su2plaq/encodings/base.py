@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     from su2plaq.exact.physical import PhysicalBasis
 
 # One literal key per registered encoding (prompts/008 §3.1); the other encodings are added with their registry entries.
-NOMINAL_ANGLES = {"twelve": (0.37, 0.61), "lsh": (0.37, 0.61)}
+NOMINAL_ANGLES = {"twelve": (0.37, 0.61), "spinnet": (0.37, 0.61), "lsh": (0.37, 0.61)}
 ALT_ANGLES = ((0.91, 0.23), (1.70, 1.00))
 
 

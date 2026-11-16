@@ -1,0 +1,77 @@
+{
+ "commit": "1e31938 + uncommitted B3 + F1/O1 fixes",
+ "step": "008 B3 recheck",
+ "machine": "omnicommander",
+ "acceptance_not_slow": {
+  "passed": 264,
+  "failed": 26,
+  "red_ids": [
+   "tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E2_span_leak_zero_on_exact_circuits_and_trial_subset",
+   "tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E5_gauss_not_checked_is_reported_as_such",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[fuzzy_link-UE]",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[fuzzy_ub-UB]",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[rishon-step]",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[spinnet-step]",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[twelve-step]",
+   "tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_Y1_replay_on_a_copy_of_the_link_archive",
+   "tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_P1_code_hash_per_encoding",
+   "tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_P2_shared_round_stamps_both_hashes",
+   "tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R1_registry_content",
+   "tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R2_fresh_process_and_stock_worker_know_every_encoding",
+   "tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R3_track_facades_patch_nothing",
+   "tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L2_cert3_builds_and_semantics",
+   "tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L3_cert3_accept_reject_na",
+   "tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L9_det_layer_certificate",
+   "tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G5_replay_record",
+   "tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G6_three_layer_summary",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E2_fresh_process_stock_worker_and_no_patching",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H1_robust_metrics_and_hardenings",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L2_structure_facts_match_lean_sources",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S0_spec_oracle_builder_lsh",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S2_general_program_worker_and_sandbox",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S3_seed_round_dry_run",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S4_round_one_dry_run_briefs_and_stop_state",
+   "tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S5_evaluator_rejections_on_lsh"
+  ],
+  "identical_to_report_415": true,
+  "wall_s": 1043.02
+ },
+ "acceptance_slow_m4_m3_n1": {
+  "passed": 7,
+  "failed": 1,
+  "red": [
+   "m4::test_M4_G1_archive_best_reverified_from_source (expected, 008 s8)"
+  ],
+  "wall_s": 88.97
+ },
+ "unit": {
+  "passed": 1019,
+  "failed": 0,
+  "wall_s": 286.96
+ },
+ "f1": {
+  "spinnet_cert_keys": 8,
+  "spinnet_dict": {
+   "status": "certified",
+   "reason": "",
+   "cert_path": "/home/digimonk/Projects/su2qc-encoding/results/spinnet/certs/spinnet-step-o1-b0a415d9322f.json",
+   "seconds": 2.9926555156707764,
+   "checker_sha256": "ec00aa45fafa507a075313dc4650c11bf6d122cd9233588125f61a092f853de5",
+   "theorem_path": null,
+   "axioms": [],
+   "program_file_sha256": "b608b9b20a3b3ccd8faac116c1a5ff7ea4405e40649516be04c80800acfd6132"
+  },
+  "twelve_dict": {
+   "status": "certified",
+   "reason": "",
+   "cert_path": "/home/digimonk/Projects/su2qc-encoding/compress/lean/certs/step-o1-46d991552e2e.json",
+   "seconds": 113.13842296600342,
+   "checker_sha256": "befbd27e3ed4e8229f11320189441597e04c89c7bf7746cf93f1c55de261bfd5",
+   "theorem_path": null,
+   "axioms": [],
+   "program_file_sha256": "21874db4838605485056abbc85490273bd886dd4524876d2924541750b193bd1",
+   "gates_sha256": "46d991552e2eb817f2ac0a40635f97b2c32cbeee21784d512dfa9a5118bb4edb"
+  }
+ },
+ "mutation_check": "reverting the F1 line in a scratchpad plugin makes both new unit tests fail (KeyError); 3 other selected tests pass"
+}

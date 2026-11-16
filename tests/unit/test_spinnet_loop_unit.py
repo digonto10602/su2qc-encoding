@@ -1,4 +1,4 @@
-"""Unit tests for su2plaq.spinnet.loop (M4 steps 4.0-4.3; prompts/104 §2): interface, shim, facts, spec text, worker, seeds, rounds, CLI."""
+"""Unit tests for su2plaq.spinnet.loop (M4 steps 4.0-4.3; prompts/104 §2): interface, facade, facts, spec text, worker, seeds, rounds, CLI."""
 import dataclasses
 import json
 import numpy as np
@@ -40,44 +40,99 @@ def test_seed_circuit_dataclass_fields():
     assert f["gauge"].default is None
 
 
-# ------------------------------------------------------------------------------------------------------- shim (4.1)
-def test_install_is_idempotent_and_registers_the_four_overrides(sp):
+# ------------------------------------------------------------------------------------------------------- facade (prompts/008 B3)
+def test_install_is_idempotent_and_replaces_nothing(sp):
+    ids = lambda: {"build": id(E._build_in_subprocess), "certify": id(R._certify), "render": id(S.TaskSpec.render),
+                   "get_encoding": id(S.get_encoding)}
+    before = ids()
     L.install()
-    first = dict(L.INSTALLED)
     L.install()
-    assert L.INSTALLED == first and set(L.INSTALLED) == {"encoding", "build_in_subprocess", "certify"}
+    assert L.INSTALLED == {"encoding": True} and ids() == before
+    assert not getattr(E._build_in_subprocess, "_spinnet_shim", False) and not getattr(R._certify, "_spinnet_shim", False)
     assert S.get_encoding("spinnet").name == "spinnet"
+    from su2plaq.encodings import registry
     from su2plaq.encodings.base import NOMINAL_ANGLES
 
-    assert NOMINAL_ANGLES["spinnet"] == (0.37, 0.61)
-    assert E._build_in_subprocess is not L.INSTALLED["build_in_subprocess"] and E._build_in_subprocess._spinnet_shim
-    assert R._certify is not L.INSTALLED["certify"] and R._certify._spinnet_shim
-    assert not getattr(L.INSTALLED["build_in_subprocess"], "_spinnet_shim", False)
-    src = __import__("inspect").getsource(L.INSTALLED["build_in_subprocess"])
-    assert "su2plaq.compress.evaluate" in src and "su2plaq.spinnet.loop" not in src      # the original was not modified
+    assert NOMINAL_ANGLES["spinnet"] == (0.37, 0.61) and registry.info("spinnet").stamp == "shared"
+    assert S._ENCODINGS.get("spinnet") is None or S._ENCODINGS["spinnet"] is registry.get("spinnet")
 
 
-def test_certify_dispatch_leaves_other_encodings_to_the_original(sp):
-    L.install()
-    seen = []
-    orig = L.INSTALLED["certify"]
-    wrapped = L._certify_dispatch(lambda circ, spec: seen.append((circ, spec.encoding)) or ({"status": "x"}, 0.0))
-    tw = S.default_spec("twelve", "step")
-    assert wrapped("circ", tw) == ({"status": "x"}, 0.0) and seen == [("circ", "twelve")]
-    assert callable(orig)
+def test_fresh_interpreter_install_leaves_the_stock_worker_in_place():
+    code = ("import json\nfrom su2plaq.compress import evaluate as E, round as R\nb, c, w = id(E._build_in_subprocess), id(R._certify), id(E._worker)\n"
+            "from su2plaq.spinnet import loop as L\nL.install(); L.install()\n"
+            "print(json.dumps({'same': (id(E._build_in_subprocess), id(R._certify), id(E._worker)) == (b, c, w), "
+            "'mark': hasattr(E._build_in_subprocess, '_spinnet_shim'), 'installed': L.INSTALLED}))")
+    env = {"PYTHONPATH": str(ROOT / "src"), "PATH": "/usr/bin:/bin", "OMP_NUM_THREADS": "1"}
+    p = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, timeout=300, env=env, cwd=str(ROOT))
+    assert p.returncode == 0, p.stderr[-800:]
+    assert json.loads(p.stdout.strip().splitlines()[-1]) == {"same": True, "mark": False, "installed": {"encoding": True}}
 
 
-def test_worker_copy_rejects_a_changed_laptop_function():
-    def not_the_function():
-        return 1
-
-    with pytest.raises(RuntimeError, match="worker command"):
-        L._worker_copy(not_the_function)
+def test_shim_machinery_is_gone():
+    for name in ("_worker_copy", "_certify_dispatch", "_need", "_TOOL_REWRITES", "_rewrite_text", "_finish_brief", "_SHIM_MARK"):
+        assert not hasattr(L, name), name
 
 
-def test_need_names_the_missing_attribute():
-    with pytest.raises(RuntimeError, match="no_such_attribute"):
-        L._need(E, "no_such_attribute", "test")
+def test_registry_entry_hooks_resolve_to_this_module():
+    from su2plaq.encodings import registry
+
+    info = registry.info("spinnet")
+    assert set(L.SPINNET_CODE_FILES) <= set(info.evaluator_files)
+    for field in ("general_circuit", "seed_candidates", "import_seed", "lean_certify", "render_spec"):
+        dotted = getattr(info, field)
+        assert dotted.startswith("su2plaq.spinnet.loop:") and callable(registry.resolve(dotted)), field
+    assert info.tools == ("python -m su2plaq.spinnet.loop candidate", "python -m su2plaq.spinnet.loop oracle")
+    assert info.structure_json == "compress/specs/spinnet-structure.json" and info.worker_warmup is None and info.verdict is None
+
+
+def test_general_circuit_hook_is_the_reference_circuit(sp):
+    assert L.general_circuit is L._reference_circuit
+    from su2plaq.compress import baselines as BL
+
+    assert BL.general_circuit(sp).num_qubits == L.general_circuit(sp).num_qubits > 16      # registry dispatch, not the twelve circuit
+
+
+def test_lean_certify_hook_is_dispatched_by_the_shared_round(sp, monkeypatch):
+    from su2plaq.lean.certify import LeanCert
+    from su2plaq.spinnet import lean_export
+
+    seen = {}
+
+    def fake(circ, enc, kind, alpha, beta, order, timeout=0):
+        seen.update(kind=kind, alpha=alpha, beta=beta, order=order, timeout=timeout, enc=enc.name)
+        return {"status": "certified", "cert_path": None, "seconds": 0.5, "checker_sha256": "c" * 64, "axioms": ["propext"]}
+
+    monkeypatch.setattr(lean_export, "certify", fake)
+    cert = L.lean_certify("circ", sp, timeout=7.0, extra_provenance={"x": 1})
+    assert isinstance(cert, LeanCert) and cert.status == "certified" and cert.axioms == ["propext"] and cert.checker_sha256 == "c" * 64
+    assert seen == {"kind": "step", "alpha": 0.37, "beta": 0.61, "order": 1, "timeout": 7.0, "enc": "spinnet"}
+    d, _sec = R._certify("circ", sp, program_file_sha256="f" * 64)
+    assert d["status"] == "certified" and d["program_file_sha256"] == "f" * 64 and seen["timeout"] == 1200.0
+
+
+def test_seed_candidates_hook_lists_the_seven_programs(sp, tmp_path):
+    cands = L.seed_candidates(sp, tmp_path)
+    assert [c[0] for c in cands] == [lab for lab, _ in L._SEED_FILES] and all(c[2] is None and c[1].exists() for c in cands)
+
+
+def test_stock_round_zero_import_seed_answers_with_reasons(sp):
+    from su2plaq.compress import baselines as BL
+
+    for src in ("paulo34", "spinnet15", "lean22", "lean22_v2"):
+        assert isinstance(BL.import_seed(sp, src), str), src
+
+
+def test_write_structure_is_idempotent(tmp_path):
+    p = L.write_structure(root=tmp_path)
+    assert p == tmp_path / "compress" / "specs" / "spinnet-structure.json"
+    before = p.stat().st_mtime_ns
+    assert L.write_structure(root=tmp_path) == p and p.stat().st_mtime_ns == before
+    assert json.loads(p.read_text())["facts"][0]["name"] == "card_inner_labels"
+
+
+def test_committed_structure_file_is_current():
+    p = ROOT / "compress" / "specs" / "spinnet-structure.json"
+    assert p.exists() and json.loads(p.read_text()) == json.loads(json.dumps(L.structure_facts()))
 
 
 def test_spec_orders(sp):
@@ -143,7 +198,7 @@ def test_render_spec_has_our_commands_and_facts(sp, tmp_path):
     for needle in ("python -m su2plaq.spinnet.loop candidate", "python -m su2plaq.spinnet.loop oracle", "card_inner_labels",
                    "spectrum_multiplicities", "couplings_2k", "ub_exact_semantics", "433"):
         assert needle in t, needle
-    assert "su2plaq.compress.run_candidate" not in t and "--encoding" not in t
+    assert "su2plaq.compress.run_candidate" not in t and "--encoding" not in t and t == sp.render()
     assert t.index("## Cost") < t.index("## Proved structure (Lean)") < t.index("## Tools")
     p = L.write_spec(root=tmp_path)
     assert p == tmp_path / "compress" / "specs" / "spinnet-step.md" and p.read_text() == t
@@ -164,7 +219,7 @@ def test_general_program_path_generated_once_and_angle_linear(sp, tmp_path):
     assert L.general_program_path(sp, root=tmp_path).read_text().endswith("# marker\n")      # immutable once generated
 
 
-def test_worker_cli_builds_the_general_program_in_a_subprocess(sp, tmp_path):
+def test_worker_cli_alias_builds_the_general_program_in_a_subprocess(sp, tmp_path):
     gp = L.general_program_path(sp, root=tmp_path)
     specs = [sp] + [sp.with_angles(a, b) for a, b in sp.alt_angles]
     (tmp_path / "specs.json").write_text(json.dumps([s.to_dict() for s in specs]))
@@ -270,7 +325,7 @@ def test_seed_round_writes_labels_external_rows_and_our_key(round0):
     assert info["n_valid"] == 7 and info["external"] == ["qiskit_l3_whole", "paulo15"]
     p = d["external"][1]
     assert p["beta"] == 0.05 and p["n_minus"] == 8 and p["gauge_minus_codes"] == list(range(8, 16)) and p["valid"] and p["certified"]
-    assert d["spinnet"] == {"code_sha256": L.code_hash(), "shim": sorted(L.INSTALLED)}
+    assert d["spinnet"] == {"code_sha256": L.code_hash(), "shim": ["encoding"]}
     assert tuple(info["best_key"]) == min(tuple(c["key"]) for c in d["candidates"])
 
 
@@ -290,19 +345,15 @@ def test_seed_programs_are_immutable_once_written(round0):
 def test_briefs_name_our_commands_and_the_spec_file_is_ours(round0):
     root, _ = round0
     b = L.make_brief(2, "F3", root=root).read_text()
-    assert "python -m su2plaq.spinnet.loop candidate <program.py> --trial" in b and "python -m su2plaq.spinnet.loop oracle" in b
-    assert "su2plaq.compress.run_candidate" not in b and "su2plaq.compress.oracle" not in b and "structure.json" not in b
+    assert "python -m su2plaq.spinnet.loop candidate <program.py> --encoding spinnet --kind step --trial" in b
+    assert "python -m su2plaq.spinnet.loop oracle" in b
+    assert "su2plaq.compress.run_candidate" not in b and "su2plaq.compress.oracle" not in b
+    assert "`compress/specs/spinnet-structure.json`" in b and "compress/lean/structure.json" not in b
     assert "Proved structure (Lean)" in b
     ib = L.make_ideation_brief(root=root).read_text()
     assert "su2plaq.spinnet.loop oracle" in ib and "su2plaq.compress.oracle" not in ib and "compress/ideation/spinnet.md" in ib
     assert (root / "compress" / "specs" / "spinnet-step.md").read_text() == L.render_spec()
-
-
-def test_brief_rewrite_refuses_a_changed_laptop_text(tmp_path):
-    with pytest.raises(RuntimeError, match="laptop module shape changed"):
-        L._rewrite_text("nothing to rewrite here", tmp_path, False)
-    with pytest.raises(RuntimeError, match="laptop module shape changed"):
-        L._rewrite_text("nothing to rewrite here", tmp_path, True)
+    assert (root / "compress" / "specs" / "spinnet-structure.json").exists()
 
 
 def test_report_and_run_round_one_annotation(round0, tmp_path):
@@ -316,7 +367,7 @@ def test_report_and_run_round_one_annotation(round0, tmp_path):
     assert d["spinnet"]["code_sha256"] == L.code_hash()
 
 
-def test_certify_best_goes_through_the_laptop_with_the_shim(round0, monkeypatch):
+def test_certify_best_goes_through_the_shared_round_and_the_registry_hook(round0, monkeypatch):
     from su2plaq.spinnet import lean_export
 
     root, _ = round0
@@ -371,18 +422,12 @@ def test_spec_carries_the_headline_rule_before_the_tools_section(sp):
     assert "will not count" in text and "multiples of pi/2" in text
 
 
-def test_round_brief_gets_the_headline_rule_after_output_but_not_the_ideation_brief(tmp_path):
-    from su2plaq.compress import brief as BR
-
-    base = (f"x {BR._structure_pointer(tmp_path)} y\n`python -m su2plaq.compress.run_candidate <program.py> --encoding spinnet --kind step "
-            "--trial` and `--full` before you finish; the oracle: `python -m su2plaq.compress.oracle ...`\n\n## Output\nWrite ONE program.\n")
-    out = L._rewrite_text(base, tmp_path, False)
-    assert out.count("## Headline rule (track S)") == 1 and out.index("## Output") < out.index("## Headline rule (track S)")
-    assert out.rstrip().endswith(L.HEADLINE_RULE_SECTION.rstrip())
-    with pytest.raises(RuntimeError, match="laptop module shape changed"):
-        L._rewrite_text(out, tmp_path, False)                 # the rule is added exactly once
-    ideation = (f"x {BR._structure_pointer(tmp_path)} (`python -m su2plaq.compress.oracle --encoding spinnet --kind step ...`)\n")
-    assert "Headline rule" not in L._rewrite_text(ideation, tmp_path, True)
+def test_round_brief_points_to_the_spec_that_carries_the_headline_rule(round0):
+    root, _ = round0
+    b = L.make_brief(3, "F2", root=root).read_text()
+    assert "compress/specs/spinnet-step.md" in b and "## Output" in b
+    spec_text = (root / "compress" / "specs" / "spinnet-step.md").read_text()
+    assert spec_text.count("## Headline rule (track S)") == 1 and spec_text == L.render_spec()
 
 
 def _fake_archive(monkeypatch, tmp_path, specs):
@@ -468,3 +513,34 @@ def test_certify_best_also_certifies_a_different_headline(round0, monkeypatch):
     out = L.certify_best(root=root)
     assert len(calls) == 2 and out["headline"]["entry"] == other and out["headline"]["lean"]["status"] == "n_a"
     assert A.Archive.load("spinnet", root=root, n_alt=len(L.spec().alt_angles), strict=True).entries()
+
+
+def test_real_spinnet_certificate_goes_through_the_shared_certify():
+    """The spin-network exporter writes the gate-list hash as `program_sha256` (no `gates_sha256`): the shared `round._certify`
+    must still return the entry's lean dict with exactly the fields of the existing spinnet archive entries (plus
+    `program_file_sha256`).  Uses the compiled checker (about 3 s); rewrites the tracked certificate byproducts."""
+    import hashlib
+
+    from su2plaq.compress import baselines as BL
+
+    sp = L.spec()
+    src = ROOT / "compress" / "programs" / "spinnet" / "seed" / "000-general.py"
+    sha = hashlib.sha256(src.read_bytes()).hexdigest()
+    d, _ = R._certify(BL.general_circuit(sp), sp, program_file_sha256=sha)
+    assert d["status"] == "certified" and d["program_file_sha256"] == sha, d
+    old = json.loads((ROOT / "compress" / "archive" / "spinnet" / "entries" / "r00-seed-000.json").read_text())["lean"]
+    assert set(d) == set(old) | {"program_file_sha256"}, (sorted(d), sorted(old))
+    assert d["checker_sha256"] == old["checker_sha256"] and d["axioms"] == old["axioms"] and d["theorem_path"] is None
+    assert "gates_sha256" not in d
+
+
+def test_certify_records_gates_sha256_when_the_certificate_names_it(tmp_path, monkeypatch):
+    """Exporters that write `gates_sha256` (twelve-qubit, LSH) keep it in the dict; an exporter without it adds no field."""
+    from su2plaq.encodings import registry
+
+    cert = tmp_path / "c.json"
+    for body, expect in (({"gates_sha256": "g" * 64}, "g" * 64), ({"program_sha256": "p" * 64}, None)):
+        cert.write_text(json.dumps(body))
+        monkeypatch.setattr(registry, "resolve", lambda dotted, c=str(cert): (lambda circ, spec, **kw: {"status": "certified", "cert_path": c}))
+        d, _ = R._certify("circ", L.spec())
+        assert d.get("gates_sha256") == expect and ("gates_sha256" in d) == (expect is not None)

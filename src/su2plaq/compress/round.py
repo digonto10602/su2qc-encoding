@@ -335,7 +335,9 @@ def _certify(circ, spec, program_file_sha256=None):
         if program_file_sha256:
             d["program_file_sha256"] = program_file_sha256
         if d.get("cert_path"):
-            d["gates_sha256"] = json.loads(pathlib.Path(d["cert_path"]).read_text())["gates_sha256"]
+            cert_file = json.loads(pathlib.Path(d["cert_path"]).read_text())
+            if "gates_sha256" in cert_file:          # the twelve-qubit and LSH exporters name the gate-list hash so; the spin-network
+                d["gates_sha256"] = cert_file["gates_sha256"]       # exporter calls it program_sha256 and its entries never carried it
         return d, time.time() - t0
     except NotImplementedError as exc:
         return {"status": "not_run", "reason": f"Lean certification not available: {exc}"}, time.time() - t0

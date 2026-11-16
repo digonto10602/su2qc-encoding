@@ -1,0 +1,136 @@
+{
+ "facts": [
+  {
+   "name": "card_inner_labels",
+   "value": 47,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.card_inner_labels",
+   "file": "lean/Su2Plaq/SpinNet/Counts.lean",
+   "note": "number of inner labels = admissible data codes (4 link bits + 4 corner bits)"
+  },
+  {
+   "name": "card_bright_labels",
+   "value": 16,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.card_bright_labels",
+   "file": "lean/Su2Plaq/SpinNet/Counts.lean",
+   "note": "inner labels with no corner bit set (the codes K acts on)"
+  },
+  {
+   "name": "card_dark_labels",
+   "value": 31,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.card_dark_labels",
+   "file": "lean/Su2Plaq/SpinNet/Counts.lean",
+   "note": "inner labels with a corner bit set (K = 0 on them)"
+  },
+  {
+   "name": "card_bright_pairs",
+   "value": 8,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.card_bright_pairs",
+   "file": "lean/Su2Plaq/SpinNet/Counts.lean",
+   "note": "bright codes come in pairs y <-> y xor 0b1111 (K couples only the two members)"
+  },
+  {
+   "name": "card_states_spinnet",
+   "value": 433,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.card_states_spinnet",
+   "file": "lean/Su2Plaq/SpinNet/Counts.lean",
+   "note": "physical states = distinct computational-basis codes y + 256 o"
+  },
+  {
+   "name": "mult_two",
+   "value": 16,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.mult_two",
+   "file": "lean/Su2Plaq/SpinNet/Counts.lean",
+   "note": "states of the vacuum pair 0000 <-> 1111, |K| = 2 (multiplicity of the eigenvalues -2 and +2)"
+  },
+  {
+   "name": "mult_one",
+   "value": 96,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.mult_one",
+   "file": "lean/Su2Plaq/SpinNet/Counts.lean",
+   "note": "states of the six pairs with |K| = 1 (multiplicity of the eigenvalues -1 and +1)"
+  },
+  {
+   "name": "mult_half",
+   "value": 16,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.mult_half",
+   "file": "lean/Su2Plaq/SpinNet/Counts.lean",
+   "note": "states of the alternating pair 0101 <-> 1010, |K| = 1/2 (multiplicity of -1/2 and +1/2)"
+  },
+  {
+   "name": "spectrum_multiplicities",
+   "value": [
+    [
+     -2.0,
+     16
+    ],
+    [
+     -1.0,
+     96
+    ],
+    [
+     -0.5,
+     16
+    ],
+    [
+     0.0,
+     177
+    ],
+    [
+     0.5,
+     16
+    ],
+    [
+     1.0,
+     96
+    ],
+    [
+     2.0,
+     16
+    ]
+   ],
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.eig_mult",
+   "file": "lean/Su2Plaq/SpinNet/Spectrum.lean",
+   "note": "multiplicity of each eigenvalue of H_B (= the spectrum of K block by block) on the 433 states, as [eigenvalue, multiplicity]"
+  },
+  {
+   "name": "couplings_2k",
+   "value": {
+    "-4": 1,
+    "2": 6,
+    "-1": 1,
+    "0": 31
+   },
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.coupling_from_6j",
+   "file": "lean/Su2Plaq/SpinNet/Recoupling.lean",
+   "note": "2K from the Racah 6j symbols on all 47 inner codes; the map is 2K -> number of bright pairs with that coupling ('0': number of dark codes, K = 0). K = -2 (0000<->1111), -1/2 (0101<->1010), +1 (six pairs)"
+  },
+  {
+   "name": "ub_exact_semantics",
+   "value": true,
+   "proved_by": "decide",
+   "theorem": "Su2Plaq.SpinNet.ub_exact_all_codes",
+   "file": "lean/Su2Plaq/SpinNet/Semantics.lean",
+   "note": "the exact semantics of the reference U_B circuit equals exp(-i beta K) of every valid inner code, for all beta"
+  }
+ ],
+ "provenance": {
+  "lean_files": {
+   "lean/Su2Plaq/SpinNet/Counts.lean": "3aca1237ddc69b8060b3bad9a316318da9ec00bbfc2fff7f7ae8ac57408ea460",
+   "lean/Su2Plaq/SpinNet/Recoupling.lean": "d5cbf69ed0b755a73956335bafb7faaa59d3834603a23abb3fd5087246efef62",
+   "lean/Su2Plaq/SpinNet/Spectrum.lean": "17e7cb3b547da3b6690ff9e196580c1b5aa478a857e57d2f6bf56e2865a67d7d",
+   "lean/Su2Plaq/SpinNet/Semantics.lean": "6775778b196d619843912ae6e62c87c898345d8579b9af387f5a234cc26ee1b1"
+  },
+  "values_from": "Lean theorem statements, cross-checked against the Python encoding",
+  "trust": "kernel-checked (by decide, standard axioms only)"
+ }
+}

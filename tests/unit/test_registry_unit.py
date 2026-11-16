@@ -104,7 +104,7 @@ def _fresh(code: str) -> dict:
 
 # ---------------------------------------------------------------------------------------------------- registry
 def test_table_content_and_lookups():
-    assert registry.names()[:2] == ("twelve", "lsh")
+    assert registry.names()[:3] == ("twelve", "spinnet", "lsh")
     tw = registry.info("twelve")
     assert tw.name == "twelve" and tw.stamp == "shared" and tw.gauss_in_loop and tw.evaluator_files == ()
     assert tw.kinds == ("step", "UB", "UE") and tw.loop_kind == "step" and tw.prune_fraction is None and tw.verdict is None

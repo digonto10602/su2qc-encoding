@@ -1,24 +1,20 @@
-"""Compression of the spin-network step circuit with the laptop's loop (track S, milestone 4; prompts/104 §1, §2).
+"""Compression of the spin-network step circuit (track S, milestone 4; prompts/104 §1, §2; facade since prompts/008 step B3).
 
-The laptop's `su2plaq.compress.*` is the machinery (evaluator, archive, briefs, report, Lean integration).  This module
-only (a) registers the encoding `spinnet` in it at run time (`install`, four overrides, nothing else), (b) renders the
-spin-network task specification with OUR tool commands and the spin-network Lean facts, (c) builds the round-0 seeds.
+The shared `su2plaq.compress.*` is the machinery (evaluator, archive, briefs, report, Lean integration) and the encoding registry
+(`su2plaq.encodings.registry`, entry `spinnet`) tells it which objects and hooks to use.  This module replaces nothing in it:
+`install()` only records `INSTALLED = {"encoding": True}`.  What remains here are the registry hooks (`general_circuit`,
+`seed_candidates`, `import_seed`, `lean_certify`, `render_spec`), the spin-network Lean facts, the round-0 seeds, the headline rule
+(`ANGLE_SET`, `robust_metrics`, `headline`; prompts/104 §11 E3), the report and the command line
+(`python -m su2plaq.spinnet.loop candidate|oracle|seed|round|brief|ideation|report|certify-best|headline|--worker`).
 
-Step 4.0 created the interface, step 4.1 the shim / spec / `--worker`, step 4.2 the seeds (`import_seed`,
-`seed_program_source`, `evaluate_seed`), step 4.3 the rounds (`seed_round`, `run_round`, briefs, report, `certify_best`) and
-the command line (`python -m su2plaq.spinnet.loop candidate|oracle|seed|round|brief|ideation|report|certify-best|headline`),
-step 4.3b the headline rule (`ANGLE_SET`, `robust_metrics`, `headline`; prompts/104 §11 E3).
-
-No laptop-owned file is edited.  `SPINNET_CODE_FILES` are frozen during M4 (their hash is recorded in every round).
+`SPINNET_CODE_FILES` are in the registry entry's `evaluator_files` (their hash is `provenance.code_hash_for("spinnet")`).
 """
 from __future__ import annotations
 
 import dataclasses
 import hashlib
-import inspect
 import pathlib
 import re
-import subprocess
 import sys
 import time
 from dataclasses import dataclass
@@ -29,11 +25,10 @@ ENC, KIND = "spinnet", "step"
 SPINNET_CODE_FILES: tuple[str, ...] = ("encodings/spinnet.py", "circuits/spinnet.py", "spinnet/walk.py",
                                        "spinnet/trotter_v2.py", "spinnet/paulo.py")
 NOMINAL = (0.37, 0.61)
-INSTALLED: dict = {}                     # {} before install(); then {"encoding": True, "build_in_subprocess": <orig>, "certify": <orig>}
+INSTALLED: dict = {}                     # {} before install(); then {"encoding": True}: nothing in the shared code is replaced
 
 _SRC = pathlib.Path(__file__).resolve().parents[1]            # src/su2plaq
 _LEAN_SPINNET = pathlib.Path("lean") / "Su2Plaq" / "SpinNet"
-_SHIM_MARK = "_spinnet_shim"
 
 # headline rule (prompts/104 §11 erratum E3): the angle set on which T and depth_CT are averaged
 ANGLE_SET_SEED, ANGLE_SET_N = 20261107, 20
@@ -61,94 +56,11 @@ def _root(root=None) -> pathlib.Path:
     return pathlib.Path(root) if root is not None else ROOT
 
 
-# ------------------------------------------------------------------------------------------------------ shim (§1)
-def _need(module, name: str, what: str):
-    if not hasattr(module, name):
-        raise RuntimeError(f"laptop module shape changed: {module.__name__} has no attribute {name!r} ({what}); the shim of "
-                           "su2plaq.spinnet.loop.install() must be amended by the planner (prompts/104 §7)")
-    return getattr(module, name)
-
-
-def _worker_copy(original):
-    """A copy of the laptop's `_build_in_subprocess` whose worker command is `python -m su2plaq.spinnet.loop --worker ...`.
-    The copy is derived from the laptop function's own source (so it follows the laptop code); RuntimeError if the worker
-    command line is not found exactly once."""
-    from su2plaq.compress import evaluate as E
-
-    old = '"su2plaq.compress.evaluate", "--worker"'
-    src = inspect.getsource(original)
-    if src.count(old) != 1:
-        raise RuntimeError("laptop module shape changed: su2plaq.compress.evaluate._build_in_subprocess no longer contains the "
-                           f"worker command {old}; the shim must be amended by the planner (prompts/104 §7)")
-    src = src.replace(old, '"su2plaq.spinnet.loop", "--worker"')
-    ns: dict = {}
-    exec(compile(src, "<spinnet shim of su2plaq.compress.evaluate._build_in_subprocess>", "exec"), E.__dict__, ns)  # noqa: S102
-    fn = ns[original.__name__]
-    setattr(fn, _SHIM_MARK, True)
-    return fn
-
-
-def _certify_dispatch(original):
-    def _certify(circ, spec, program_file_sha256=None):
-        """Round._certify with `spinnet` routed to the spin-network exporter/checker (Lean never changes a verdict).
-        `program_file_sha256` (laptop audit-004 N2) is passed through for other encodings and recorded in the dict."""
-        if spec.encoding != ENC:
-            if program_file_sha256 is None:
-                return original(circ, spec)
-            return original(circ, spec, program_file_sha256=program_file_sha256)
-        t0 = time.time()
-        try:
-            from dataclasses import asdict
-
-            from su2plaq.compress.spec import get_encoding
-            from su2plaq.lean.certify import LeanCert
-            from su2plaq.spinnet import lean_export
-
-            res = lean_export.certify(circ, get_encoding(ENC), spec.kind, spec.alpha, spec.beta, spec.order, timeout=1200.0)
-            cert = LeanCert(status=res["status"], reason=res.get("reason", ""), cert_path=res.get("cert_path"),
-                            seconds=float(res.get("seconds", time.time() - t0)), checker_sha256=res.get("checker_sha256", ""),
-                            theorem_path=None, axioms=list(res.get("axioms", [])))
-            d = asdict(cert)
-            if program_file_sha256:
-                d["program_file_sha256"] = program_file_sha256
-            return d, time.time() - t0
-        except NotImplementedError as exc:
-            return {"status": "not_run", "reason": f"Lean certification not available: {exc}"}, time.time() - t0
-        except (ImportError, OSError, ValueError, RuntimeError, subprocess.SubprocessError) as exc:
-            return {"status": "failed", "reason": f"{type(exc).__name__}: {exc}"}, time.time() - t0
-
-    setattr(_certify, _SHIM_MARK, True)
-    return _certify
-
-
+# ------------------------------------------------------------------------------------------------------ registration
 def install() -> None:
-    """Register `spinnet` in the laptop's compression machinery.  Exactly four effects (prompts/104 §1):
-    (i) `spec._ENCODINGS["spinnet"]`; (ii) `encodings.base.NOMINAL_ANGLES["spinnet"]`; (iii) `evaluate._build_in_subprocess`
-    replaced by a copy that starts `python -m su2plaq.spinnet.loop --worker`; (iv) `round._certify` replaced by a dispatcher.
-    Idempotent.  RuntimeError (naming the missing attribute) if the laptop modules have another shape."""
-    from su2plaq.compress import evaluate as E
-    from su2plaq.compress import round as R
-    from su2plaq.compress import spec as S
-    from su2plaq.encodings import base
-
-    encodings = _need(S, "_ENCODINGS", "encoding registry")
-    nominal = _need(base, "NOMINAL_ANGLES", "nominal angle table")
-    _need(E, "_worker", "worker entry point called by --worker")
-    _need(S, "default_spec", "default spec")
-    original_build = _need(E, "_build_in_subprocess", "sandboxed program build")
-    original_certify = _need(R, "_certify", "round-level Lean certification")
-    if ENC not in encodings:
-        from su2plaq.encodings.spinnet import SpinNet
-
-        encodings[ENC] = SpinNet()
-    nominal[ENC] = NOMINAL
+    """Records `INSTALLED = {"encoding": True}` (idempotent).  The encoding is known to the shared machinery through its registry
+    entry (`su2plaq.encodings.registry`, prompts/008 §3.3); nothing is replaced, patched or inserted into a shared module."""
     INSTALLED["encoding"] = True
-    if not getattr(original_build, _SHIM_MARK, False):
-        INSTALLED["build_in_subprocess"] = original_build
-        E._build_in_subprocess = _worker_copy(original_build)
-    if not getattr(original_certify, _SHIM_MARK, False):
-        INSTALLED["certify"] = original_certify
-        R._certify = _certify_dispatch(original_certify)
 
 
 def spec(order: int = 1):
@@ -318,34 +230,27 @@ def _structure_markdown(facts: dict) -> str:
 
 
 # --------------------------------------------------------------------------------------------------- spec text (§1)
-_TOOL_REWRITES = (
-    ("`python -m su2plaq.compress.run_candidate <program.py> --encoding {enc} --kind {kind} --trial`",
-     "`python -m su2plaq.spinnet.loop candidate <program.py> --trial`"),
-    ("or `--full`.", "or `--full` (`--order 2` for the second-order step)."),
-    ("`python -m su2plaq.compress.oracle --encoding {enc} --kind {kind} [--column j]",
-     "`python -m su2plaq.spinnet.loop oracle [--column j]"),
-)
-
-
 def render_spec(sp=None) -> str:
-    """The laptop `TaskSpec.render()` with the "Proved structure (Lean)" section replaced by the spin-network facts and the
-    tool commands rewritten to `python -m su2plaq.spinnet.loop candidate|oracle`."""
-    install()
+    """Registry hook `render_spec(spec)`: the shared default text (`TaskSpec._render_default()`) with the "Proved structure (Lean)"
+    section replaced by the spin-network facts followed by the headline rule, and the "Tools" section naming the spin-network
+    commands `python -m su2plaq.spinnet.loop candidate|oracle` (no `--encoding` / `--kind`: they are implied).  `sp.render()`
+    reaches this function through the registry; without an argument the step spec of `spec()` is used."""
     sp = sp if sp is not None else spec()
-    text = sp.render()
-    head, tools = "## Proved structure (Lean)", "## Tools"
+    text = sp._render_default()
+    head, tools, contract = "## Proved structure (Lean)", "## Tools", "Program contract:"
     i, j = text.find(head), text.find(tools)
-    if i < 0 or j < i:
-        raise RuntimeError("laptop module shape changed: TaskSpec.render() lost its 'Proved structure (Lean)' / 'Tools' sections")
-    text = text[:i] + _structure_markdown(structure_facts()) + "\n" + HEADLINE_RULE_SECTION + "\n" + text[j:]
-    for old, new in _TOOL_REWRITES:
-        old = old.format(enc=sp.encoding, kind=sp.kind)
-        if text.count(old) != 1:
-            raise RuntimeError(f"laptop module shape changed: the tool text {old!r} was not found exactly once in TaskSpec.render()")
-        text = text.replace(old, new)
-    if "su2plaq.compress.run_candidate" in text or "--encoding" in text:
-        raise RuntimeError("laptop module shape changed: a laptop tool command remains in the rendered spin-network spec")
-    return text
+    k = text.find(contract)
+    if i < 0 or j < i or k < j:
+        raise RuntimeError("shared module shape changed: TaskSpec._render_default() lost its 'Proved structure (Lean)' / 'Tools' / "
+                           "'Program contract' sections")
+    tools_text = (
+        "## Tools\n\n"
+        f"`python -m su2plaq.spinnet.loop candidate <program.py> --trial` (seconds; {sp.trial_inputs} physical inputs, nominal angles, "
+        "T estimate) or `--full` (`--order 2` for the second-order step).\n"
+        "`python -m su2plaq.spinnet.loop oracle [--column j] [--element i j] [--codec] [--block o]` prints the exact target (matrix "
+        "column, element, codec, outer block); programs may call `su2plaq.compress.oracle` and `numpy`, nothing else from the "
+        "project.\n\n")
+    return text[:i] + _structure_markdown(structure_facts()) + "\n" + HEADLINE_RULE_SECTION + "\n" + tools_text + text[k:]
 
 
 def write_spec(path=None, root=None) -> pathlib.Path:
@@ -365,6 +270,9 @@ def _reference_circuit(s):
     if s.kind == "UB":
         return C.build_UB(s.beta, with_outer=True)
     return C.build_step(s.alpha, s.beta, s.order, with_outer=True)
+
+
+general_circuit = _reference_circuit        # registry hook `general_circuit(spec)`
 
 
 def general_program_path(sp, root=None) -> pathlib.Path:
@@ -467,6 +375,8 @@ def import_seed(sp, source: str):
             return f"{source} is a magnetic-layer circuit; it has no electric (U_E) part"
         return SeedCircuit(qc=_v2_circuit(skel, sp), source=source, fixed_angle=False, alpha=sp.alpha, beta=sp.beta, kind=sp.kind,
                            can_be_parent=True)
+    if source == "spinnet15":
+        return "spinnet15 is this encoding's own 15-qubit file: it is the external row 'paulo15' of the spin-network loop"
     if source in ("paulo34", "lean22", "lean22_v2"):
         reason = enc.import_map(source)
         if not isinstance(reason, str):
@@ -635,6 +545,44 @@ def seed_programs(sp, root=None) -> list[tuple[str, pathlib.Path]]:
     return out
 
 
+def seed_candidates(spec, root):
+    """Registry hook `seed_candidates(spec, root)`: [(label, program_path, None)] of the seven round-0 programs (the stock round
+    0 of `python -m su2plaq.compress.round --encoding spinnet --seed` evaluates them; `seed_round` adds the labels, the external
+    rows and the annotations of this track)."""
+    return [(label, path, None) for label, path in seed_programs(spec, root)]
+
+
+def lean_certify(circ, spec, *, timeout: float = 1200.0, extra_provenance: dict | None = None):
+    """Registry hook `lean_certify(circ, spec, *, timeout, extra_provenance)`: the spin-network exporter and checker
+    (`spinnet.lean_export.certify`); returns a `LeanCert` (the shared `round._certify` turns it into the entry's dict and records
+    `program_file_sha256`).  Lean never changes a verdict.  `extra_provenance` is accepted for the hook interface; the spin-network
+    certificate does not take it."""
+    from su2plaq.compress.spec import get_encoding
+    from su2plaq.lean.certify import LeanCert
+    from su2plaq.spinnet import lean_export
+
+    t0 = time.time()
+    res = lean_export.certify(circ, get_encoding(ENC), spec.kind, spec.alpha, spec.beta, spec.order, timeout=timeout)
+    return LeanCert(status=res["status"], reason=res.get("reason", ""), cert_path=res.get("cert_path"),
+                    seconds=float(res.get("seconds", time.time() - t0)), checker_sha256=res.get("checker_sha256", ""),
+                    theorem_path=None, axioms=list(res.get("axioms", [])))
+
+
+def write_structure(path=None, root=None) -> pathlib.Path:
+    """Write the facts file `compress/specs/spinnet-structure.json` that the briefs point to (registry `structure_json`) under
+    `root` (default: the repository); the facts are always read from the repository's Lean sources.  An unchanged file is not
+    rewritten."""
+    import json
+
+    p = pathlib.Path(path) if path is not None else _root(root) / "compress" / "specs" / "spinnet-structure.json"
+    text = json.dumps(structure_facts(), indent=1)
+    if p.exists() and p.read_text() == text:
+        return p
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(text)
+    return p
+
+
 def _annotate(root: pathlib.Path, round: int, *, relabel: bool = False, external=None, lean_general=None, extra_lean_seconds: float = 0.0):
     """Append our provenance key to results/compress/spinnet/round-rrr.json (and, for round 0, the labels, the external rows and
     the extra Lean record)."""
@@ -708,7 +656,7 @@ def seed_round(root=None, lean: bool = True, dry_run: bool = False) -> dict:
 
 
 def run_round(round: int, evaluate: bool = True, dry_run: bool = False, root=None, proposals=None, lean: bool = True) -> dict:
-    """Round 0: `seed_round`.  Round r >= 1: the laptop's `round.run_round("spinnet", "step", r)` after `install()` plus our
+    """Round 0: `seed_round`.  Round r >= 1: the shared `round.run_round("spinnet", "step", r)` plus our
     provenance key `spinnet = {code_sha256, shim}` in results/compress/spinnet/round-rrr.json."""
     from su2plaq.compress import round as R
 
@@ -720,63 +668,25 @@ def run_round(round: int, evaluate: bool = True, dry_run: bool = False, root=Non
     return info
 
 
-# briefs: the laptop's text with our commands (the proposer agent file is not edited; plan §9 decision 3)
-def _rewrite_text(text: str, root: pathlib.Path, ideation: bool) -> str:
-    """The laptop's brief text with OUR commands: every replaced snippet must occur exactly once (else the laptop text changed and
-    the shim needs the planner)."""
-    from su2plaq.compress import brief as BR
-
-    pairs = [(BR._structure_pointer(root), "the section 'Proved structure (Lean)' of the specification (kernel-checked facts about "
-                                          "the spin-network problem; there is no separate structure file)")]
-    if ideation:
-        pairs.append((f"(`python -m su2plaq.compress.oracle --encoding {ENC} --kind {KIND} ...`)",
-                      "(`python -m su2plaq.spinnet.loop oracle ...`)"))
-    else:
-        pairs += [(f"`python -m su2plaq.compress.run_candidate <program.py> --encoding {ENC} --kind {KIND} --trial`",
-                   "`python -m su2plaq.spinnet.loop candidate <program.py> --trial`"),
-                  ("`--full` before you finish; the oracle: `python -m su2plaq.compress.oracle ...`",
-                   "`--full` before you finish (`--order 2` for the second-order step); the oracle: "
-                   "`python -m su2plaq.spinnet.loop oracle ...`")]
-    for old, new in pairs:
-        if text.count(old) != 1:
-            raise RuntimeError(f"laptop module shape changed: brief text {old!r} found {text.count(old)} times (expected 1); the "
-                               "shim of su2plaq.spinnet.loop must be amended by the planner")
-        text = text.replace(old, new)
-    if not ideation:                     # E3: the headline rule follows the laptop's last section ("## Output")
-        if text.count("\n## Output") != 1 or "## Headline rule (track S)" in text:
-            raise RuntimeError("laptop module shape changed: the round brief must contain exactly one '## Output' section and no "
-                               "headline rule yet")
-        text = text.rstrip("\n") + "\n\n" + HEADLINE_RULE_SECTION
-    return text
-
-
-def _finish_brief(path, root: pathlib.Path, ideation: bool) -> pathlib.Path:
-    path = pathlib.Path(path)
-    text = _rewrite_text(path.read_text(), root, ideation)
-    if "su2plaq.compress.run_candidate" in text or "su2plaq.compress.oracle" in text:
-        raise RuntimeError(f"laptop module shape changed: a laptop tool command remains in {path}")
-    path.write_text(text)
-    write_spec(root=root)                  # the laptop's brief regenerated the spec file with its own text
-    return path
-
-
+# briefs: the shared brief code with the registry's commands, structure pointer and spec text (spinnet-structure.json is written first)
 def make_ideation_brief(root=None) -> pathlib.Path:
-    """compress/briefs/spinnet/ideation.md: spec only (laptop text) with our oracle command and the spin-network facts."""
+    """compress/briefs/spinnet/ideation.md (shared `brief.make_ideation_brief`; the spec file it writes is ours via the registry)."""
     from su2plaq.compress import brief as BR
 
     install()
     root = _root(root)
-    return _finish_brief(BR.make_ideation_brief(ENC, KIND, root), root, True)
+    write_structure(root=root)
+    return BR.make_ideation_brief(ENC, KIND, root)
 
 
 def make_brief(round: int, family: str, root=None) -> pathlib.Path:
-    """compress/briefs/spinnet/round-rrr-<family>.md: laptop brief with `python -m su2plaq.spinnet.loop candidate|oracle` and the
-    spin-network facts; the spec file the laptop regenerated is rewritten with ours."""
+    """compress/briefs/spinnet/round-rrr-<family>.md (shared `brief.make_brief`)."""
     from su2plaq.compress import brief as BR
 
     install()
     root = _root(root)
-    return _finish_brief(BR.make_brief(ENC, KIND, round, family, root), root, False)
+    write_structure(root=root)
+    return BR.make_brief(ENC, KIND, round, family, root)
 
 
 # ------------------------------------------------------------------------------------------ headline rule (E3)
@@ -963,7 +873,7 @@ def report_table(root=None) -> str:
 
 
 def certify_best(root=None) -> dict:
-    """Laptop `round.certify_best("spinnet", "step", root)` after `install()` (the spin-network checker through the shim) for the
+    """Shared `round.certify_best("spinnet", "step", root)` (the spin-network checker through the registry's `lean_certify`) for the
     archive's best by the laptop key, AND the headline entry (prompts/104 §11 E3) through the same `_certify` / `_store_lean` path
     when it is another entry.  -> the laptop's dict plus "headline": {"entry", "lean", "seconds", ...} (for the same entry:
     {"entry", "same_as_archive_best": True})."""
@@ -998,8 +908,8 @@ _USAGE = "python -m su2plaq.spinnet.loop {candidate|oracle|seed|round|brief|idea
 
 
 def main(argv=None) -> int:
-    """`--worker <prog> <specs.json> <out.qpy> <meta.json>`: install(), then the laptop's `evaluate._worker` (audit guard, QPY round
-    trip and contract checks are the laptop's).  `candidate <program.py> [--trial|--full] [--order 1|2] [--json out]` and
+    """`--worker <prog> <specs.json> <out.qpy> <meta.json>`: alias of the stock build worker, the shared `evaluate._worker` (audit guard,
+    QPY round trip and contract checks are the shared ones; the build subprocess itself is started with the stock command).  `candidate <program.py> [--trial|--full] [--order 1|2] [--json out]` and
     `oracle [--column j] [--element i j] [--codec] [--block o]` are the laptop's `run_candidate` / `oracle` CLIs for the spin-network
     step; `seed [--no-lean] [--dry-run]`, `round --round r [--evaluate] [--dry-run] [--no-lean]`, `brief --round r --family F`,
     `ideation`, `report [--out]`, `certify-best`, `headline [--refresh]` drive the loop (all take `--root`)."""
@@ -1010,8 +920,7 @@ def main(argv=None) -> int:
     if argv and argv[0] == "--worker":
         if len(argv) != 5:
             raise SystemExit("usage: python -m su2plaq.spinnet.loop --worker <program> <specs.json> <out.qpy> <meta.json>")
-        install()                        # heavy imports and the registration come before the worker's audit guard
-        from su2plaq.compress import evaluate as E
+        from su2plaq.compress import evaluate as E      # alias of the stock worker `python -m su2plaq.compress.evaluate --worker`
 
         E._worker(*argv[1:])
         return 0
