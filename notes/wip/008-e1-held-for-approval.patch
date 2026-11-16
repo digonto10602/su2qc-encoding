@@ -1,0 +1,48 @@
+diff --git i/prompts/008-merged-repo-consolidation.md w/prompts/008-merged-repo-consolidation.md
+index 6c8a59e..208463a 100644
+--- i/prompts/008-merged-repo-consolidation.md
++++ w/prompts/008-merged-repo-consolidation.md
+@@ -139,6 +139,8 @@ Option for the coordinator (not the default): develop Phase B on a branch in a `
+ ```
+ Justification: both lines test *how* the worker learns the encoding, not *that* it does; the behavioural parts of M4-S2 (the worker builds the general program at three angle pairs, an oracle call inside `build` works, the import whitelist and the audit guard hold) and of M4-S7 (twelve still valid) are untouched, and M2C-R2/R3 lock the new mechanism more strictly (fresh interpreter, no attribute of any shared module changes). No tolerance is involved.
+ 
++*E1 applied (date 2026-11-15, planner):* the two lines above replaced verbatim in `tests/acceptance/m4/test_spinnet_compress.py` (`test_M4_S2_worker_registers_encoding_and_keeps_sandbox`, `test_M4_S7_shim_leaves_twelve_untouched`); no other line, test or tolerance touched. File sha256 `0c2b653a…0263f` → `7fa28a77…36ca`, `tests/acceptance/LOCK.json` updated; coordinator re-locks (acceptance-v21). Until the builder's facade of §3.3 lands (step B3), `test_M4_S2…` is red at the new line (the old shim still marks `evaluate._build_in_subprocess` with `_spinnet_shim`); the new S7 line is already true under the old shim — "nothing is replaced" is enforced by M2C-R2/R3, not by that line.
++
+ **E2 (m6, only in case c2, before step C2).** `test_M6_G1`, `test_M6_G5`, `test_M6_S3` read `replay-204.json` by name. Change: read the latest replay record (`su2plaq.compress.replay.latest_record("rishon", root)`), require `tag in ("204", "008")`, take the `pre-<tag>` paths from the record's tag, and additionally require that `replay-204.json` still exists. Justification: `prompts/204` §6.2 itself says a later hashed edit needs a new replay with a new tag; the invariants tested (nothing lost, keys equal, current hash) are unchanged.
+ 
+ ## 10. Milestone M2c — steps
+diff --git i/tests/acceptance/LOCK.json w/tests/acceptance/LOCK.json
+index 3d239b1..1bbcb2e 100644
+--- i/tests/acceptance/LOCK.json
++++ w/tests/acceptance/LOCK.json
+@@ -32,7 +32,7 @@
+   "tests/acceptance/m3/test_spinnet_metrics.py": "54dd1cefce1c7824aa621cdea0faf59472275cce8c23ec895138deb758897724",
+   "tests/acceptance/m3/test_spinnet_results.py": "b441e3886e14f3624212ab5ee0cee2187053267029b3122748fee90f0be98208",
+   "tests/acceptance/m3x/test_spinnet_lean_exact.py": "5b98b796cc317d735d6e1d45016716137634e6a4fa3376d08a8995939623eec8",
+-  "tests/acceptance/m4/test_spinnet_compress.py": "0c2b653a6718a3992df5c5c9841ef7d8fa0e66f9c49d28171487ab81e7f0263f",
++  "tests/acceptance/m4/test_spinnet_compress.py": "7fa28a777d912f6a859b32213d23b01c4d52fbdeb181e3050be1cd7589aa36ca",
+   "tests/acceptance/m4/test_spinnet_compress_lean.py": "89ede4a2d921d69ec3534e3297305cc493d116af0ded16163fe7424bf2d69518",
+   "tests/acceptance/m5/_ref.py": "3055a0e39edbb664a03431cea889597eb12ca6c04c3631843fcd540208c72845",
+   "tests/acceptance/m5/test_rishon_algebra.py": "8ff2f85f886c34682a7873d65927067709313090fbf518df5917470292ec16ef",
+diff --git i/tests/acceptance/m4/test_spinnet_compress.py w/tests/acceptance/m4/test_spinnet_compress.py
+index c7100ad..4b6823f 100644
+--- i/tests/acceptance/m4/test_spinnet_compress.py
++++ w/tests/acceptance/m4/test_spinnet_compress.py
+@@ -183,7 +183,7 @@ def test_M4_S2_worker_registers_encoding_and_keeps_sandbox(tmp_path):
+     L = _loop()
+     spec = _spec()
+     E = api("su2plaq.compress.evaluate")
+-    assert callable(L.INSTALLED.get("build_in_subprocess")) and E._build_in_subprocess is not L.INSTALLED["build_in_subprocess"]
++    assert L.INSTALLED.get("encoding") is True and not getattr(E._build_in_subprocess, "_spinnet_shim", False)   # prompts/008: registry, stock worker
+     gp = L.general_program_path(spec, root=tmp_path)
+     specs = [spec] + [spec.with_angles(a, b) for a, b in spec.alt_angles]
+     circuits, disc = E._build_in_subprocess(gp.read_bytes(), specs, E.BUILD_TIMEOUT_S)
+@@ -218,7 +218,7 @@ def test_M4_S7_shim_leaves_twelve_untouched():
+     r = E.evaluate_program(str(BL.general_program_path(tw)), tw, mode="trial")
+     assert r.valid and r.reason == "ok", (r.reason, r.message)
+     assert time.time() - t0 <= 30
+-    assert set(L.INSTALLED) >= {"encoding", "build_in_subprocess", "certify"}
++    assert L.INSTALLED.get("encoding") is True                                                                  # prompts/008: nothing is replaced
+ 
+ 
+ # ---------------------------------------------------------------------------------------------------- 4.2 seeds
