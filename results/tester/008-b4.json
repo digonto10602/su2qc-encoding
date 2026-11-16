@@ -1,0 +1,980 @@
+{
+ "commit": "fc1cb05 (HEAD, STATUS-only commit that also carries the staged sitehook deletion) over 8e1dce6; B4 changes uncommitted",
+ "compared_tree": "git archive 8e1dce6 (HEAD at the start of the task)",
+ "machine": "omnicommander i7-12700KF, numpy 2.5.4, scipy 1.18.1, qiskit 2.5.2, OMP/OPENBLAS/MKL threads 1, taskset cores 6-19",
+ "seeds": "fixed seeds inside the project functions (trial_seed 0, 20261104); no stochastic test of mine",
+ "reeval_new": {
+  "root": "/home/digimonk/Projects/su2qc-encoding",
+  "code_hash": "b8f02c6df3fca67b865ae59941c0e0d04cd1d7bc949298013ae16827ad742d6d",
+  "fuzzy_ub": {
+   "id": "r12-F1-012",
+   "program": "compress/programs/fuzzy_ub/F1/012-diag-ccz-bell02-13-frame.py",
+   "archive_key": [
+    83,
+    638,
+    1517,
+    10
+   ],
+   "key": [
+    83,
+    638,
+    1517,
+    10
+   ],
+   "valid": true,
+   "skeleton_equal": true,
+   "op_norm_error": 5.688131998904023e-14,
+   "archive_op_norm_error": 5.688131998904023e-14,
+   "alt_op_norm_errors": [
+    3.859232735500093e-14,
+    6.531475616486118e-14
+   ],
+   "archive_alt": [
+    3.859232735500093e-14,
+    6.531475616486118e-14
+   ],
+   "gauss_residual": NaN,
+   "extra_gauss": "not_checked",
+   "span_leak": 0.0,
+   "archive_gauss": 0.0,
+   "archive_extra_gauss": null,
+   "seconds": 2.7140495777130127,
+   "metrics_raw": {
+    "cx": 83,
+    "t_fixed": 72,
+    "n_rot": 9,
+    "qubits": 10,
+    "depth": 116,
+    "depth_ct": 1517
+   },
+   "archive_evaluator_sha": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+   "entry_fields": [
+    "id",
+    "program_path",
+    "program_sha256",
+    "parent",
+    "family",
+    "round",
+    "valid",
+    "reason",
+    "key",
+    "cell",
+    "metrics_raw",
+    "metrics_polished",
+    "verdict_nominal",
+    "verdicts_alt",
+    "skeleton_equal",
+    "discoveries",
+    "summary",
+    "evaluator_sha256",
+    "spec_sha256",
+    "git_commit",
+    "versions",
+    "seeds",
+    "machine",
+    "wall_s",
+    "written_utc",
+    "git_dirty",
+    "synthesis",
+    "lean",
+    "mode",
+    "encoding_sha256"
+   ]
+  },
+  "fuzzy_link": {
+   "id": "r02-F2-001",
+   "program": "compress/programs/fuzzy_link/F2/001-plane_bfs_frame_fusion12.py",
+   "archive_key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "valid": true,
+   "skeleton_equal": true,
+   "op_norm_error": 5.5020494742180965e-15,
+   "archive_op_norm_error": 5.614918919956449e-15,
+   "alt_op_norm_errors": [
+    3.4388927549462143e-15,
+    5.913696799282053e-15
+   ],
+   "archive_alt": [
+    3.4388927549462143e-15,
+    5.913696799282053e-15
+   ],
+   "gauss_residual": NaN,
+   "extra_gauss": "not_checked",
+   "span_leak": 0.0,
+   "archive_gauss": 0.0,
+   "archive_extra_gauss": null,
+   "seconds": 0.8040478229522705,
+   "metrics_raw": {
+    "cx": 12,
+    "t_fixed": 0,
+    "n_rot": 10,
+    "qubits": 4,
+    "depth": 37,
+    "depth_ct": 1183
+   },
+   "archive_evaluator_sha": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+   "entry_fields": [
+    "id",
+    "program_path",
+    "program_sha256",
+    "parent",
+    "family",
+    "round",
+    "valid",
+    "reason",
+    "key",
+    "cell",
+    "metrics_raw",
+    "metrics_polished",
+    "verdict_nominal",
+    "verdicts_alt",
+    "skeleton_equal",
+    "discoveries",
+    "summary",
+    "evaluator_sha256",
+    "spec_sha256",
+    "git_commit",
+    "versions",
+    "seeds",
+    "machine",
+    "wall_s",
+    "written_utc",
+    "git_dirty",
+    "synthesis",
+    "lean",
+    "mode",
+    "encoding_sha256"
+   ]
+  }
+ },
+ "reeval_head": {
+  "root": "/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/57b28677-d814-4f58-bc95-52ae378eb01f/scratchpad/t4/headtree",
+  "code_hash": "4b6657169787aec981b96e18f65d174c9cff55370d4e6417bdd4437e9e9a1f08",
+  "fuzzy_ub": {
+   "id": "r12-F1-012",
+   "program": "compress/programs/fuzzy_ub/F1/012-diag-ccz-bell02-13-frame.py",
+   "archive_key": [
+    83,
+    638,
+    1517,
+    10
+   ],
+   "key": [
+    83,
+    638,
+    1517,
+    10
+   ],
+   "valid": true,
+   "skeleton_equal": true,
+   "op_norm_error": 5.688131998904023e-14,
+   "archive_op_norm_error": 5.688131998904023e-14,
+   "alt_op_norm_errors": [
+    3.859232735500093e-14,
+    6.531475616486118e-14
+   ],
+   "archive_alt": [
+    3.859232735500093e-14,
+    6.531475616486118e-14
+   ],
+   "gauss_residual": 0.0,
+   "extra_gauss": "not_checked",
+   "span_leak": 0.0,
+   "archive_gauss": 0.0,
+   "archive_extra_gauss": null,
+   "seconds": 3.342984437942505,
+   "metrics_raw": {
+    "cx": 83,
+    "t_fixed": 72,
+    "n_rot": 9,
+    "qubits": 10,
+    "depth": 116,
+    "depth_ct": 1517
+   },
+   "archive_evaluator_sha": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+   "entry_fields": [
+    "id",
+    "program_path",
+    "program_sha256",
+    "parent",
+    "family",
+    "round",
+    "valid",
+    "reason",
+    "key",
+    "cell",
+    "metrics_raw",
+    "metrics_polished",
+    "verdict_nominal",
+    "verdicts_alt",
+    "skeleton_equal",
+    "discoveries",
+    "summary",
+    "evaluator_sha256",
+    "spec_sha256",
+    "git_commit",
+    "versions",
+    "seeds",
+    "machine",
+    "wall_s",
+    "written_utc",
+    "git_dirty",
+    "synthesis",
+    "lean",
+    "mode",
+    "encoding_sha256"
+   ]
+  },
+  "fuzzy_link": {
+   "id": "r02-F2-001",
+   "program": "compress/programs/fuzzy_link/F2/001-plane_bfs_frame_fusion12.py",
+   "archive_key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "valid": true,
+   "skeleton_equal": true,
+   "op_norm_error": 5.5020494742180965e-15,
+   "archive_op_norm_error": 5.614918919956449e-15,
+   "alt_op_norm_errors": [
+    3.4388927549462143e-15,
+    5.913696799282053e-15
+   ],
+   "archive_alt": [
+    3.4388927549462143e-15,
+    5.913696799282053e-15
+   ],
+   "gauss_residual": 0.0,
+   "extra_gauss": "not_checked",
+   "span_leak": 0.0,
+   "archive_gauss": 0.0,
+   "archive_extra_gauss": null,
+   "seconds": 1.173215627670288,
+   "metrics_raw": {
+    "cx": 12,
+    "t_fixed": 0,
+    "n_rot": 10,
+    "qubits": 4,
+    "depth": 37,
+    "depth_ct": 1183
+   },
+   "archive_evaluator_sha": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+   "entry_fields": [
+    "id",
+    "program_path",
+    "program_sha256",
+    "parent",
+    "family",
+    "round",
+    "valid",
+    "reason",
+    "key",
+    "cell",
+    "metrics_raw",
+    "metrics_polished",
+    "verdict_nominal",
+    "verdicts_alt",
+    "skeleton_equal",
+    "discoveries",
+    "summary",
+    "evaluator_sha256",
+    "spec_sha256",
+    "git_commit",
+    "versions",
+    "seeds",
+    "machine",
+    "wall_s",
+    "written_utc",
+    "git_dirty",
+    "synthesis",
+    "lean",
+    "mode",
+    "encoding_sha256"
+   ]
+  }
+ },
+ "reeval_at_3f51ef0": {
+  "root": "/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/57b28677-d814-4f58-bc95-52ae378eb01f/scratchpad/t4/old_3f51ef0",
+  "code_hash": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+  "fuzzy_link": {
+   "id": "r02-F2-001",
+   "program": "compress/programs/fuzzy_link/F2/001-plane_bfs_frame_fusion12.py",
+   "archive_key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "valid": true,
+   "skeleton_equal": true,
+   "op_norm_error": 5.5020494742180965e-15,
+   "archive_op_norm_error": 5.614918919956449e-15,
+   "alt_op_norm_errors": [
+    3.4388927549462143e-15,
+    5.913696799282053e-15
+   ],
+   "archive_alt": [
+    3.4388927549462143e-15,
+    5.913696799282053e-15
+   ],
+   "gauss_residual": 0.0,
+   "extra_gauss": null,
+   "span_leak": null,
+   "archive_gauss": 0.0,
+   "archive_extra_gauss": null,
+   "seconds": 1.174128532409668,
+   "metrics_raw": {
+    "cx": 12,
+    "t_fixed": 0,
+    "n_rot": 10,
+    "qubits": 4,
+    "depth": 37,
+    "depth_ct": 1183
+   },
+   "archive_evaluator_sha": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+   "entry_fields": [
+    "id",
+    "program_path",
+    "program_sha256",
+    "parent",
+    "family",
+    "round",
+    "valid",
+    "reason",
+    "key",
+    "cell",
+    "metrics_raw",
+    "metrics_polished",
+    "verdict_nominal",
+    "verdicts_alt",
+    "skeleton_equal",
+    "discoveries",
+    "summary",
+    "evaluator_sha256",
+    "spec_sha256",
+    "git_commit",
+    "versions",
+    "seeds",
+    "machine",
+    "wall_s",
+    "written_utc",
+    "git_dirty",
+    "synthesis",
+    "lean",
+    "mode"
+   ]
+  }
+ },
+ "reeval_at_5fe990f": {
+  "root": "/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/57b28677-d814-4f58-bc95-52ae378eb01f/scratchpad/t4/old_5fe990f",
+  "code_hash": "1b38431d7995acef61c55d32e480545212f97a109a1d5e511777cbdd3805605c",
+  "fuzzy_ub": {
+   "id": "r12-F1-012",
+   "program": "compress/programs/fuzzy_ub/F1/012-diag-ccz-bell02-13-frame.py",
+   "archive_key": [
+    83,
+    638,
+    1517,
+    10
+   ],
+   "key": [
+    83,
+    638,
+    1517,
+    10
+   ],
+   "valid": true,
+   "skeleton_equal": true,
+   "op_norm_error": 5.688131998904023e-14,
+   "archive_op_norm_error": 5.688131998904023e-14,
+   "alt_op_norm_errors": [
+    3.859232735500093e-14,
+    6.531475616486118e-14
+   ],
+   "archive_alt": [
+    3.859232735500093e-14,
+    6.531475616486118e-14
+   ],
+   "gauss_residual": 0.0,
+   "extra_gauss": null,
+   "span_leak": null,
+   "archive_gauss": 0.0,
+   "archive_extra_gauss": null,
+   "seconds": 3.2059316635131836,
+   "metrics_raw": {
+    "cx": 83,
+    "t_fixed": 72,
+    "n_rot": 9,
+    "qubits": 10,
+    "depth": 116,
+    "depth_ct": 1517
+   },
+   "archive_evaluator_sha": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+   "entry_fields": [
+    "id",
+    "program_path",
+    "program_sha256",
+    "parent",
+    "family",
+    "round",
+    "valid",
+    "reason",
+    "key",
+    "cell",
+    "metrics_raw",
+    "metrics_polished",
+    "verdict_nominal",
+    "verdicts_alt",
+    "skeleton_equal",
+    "discoveries",
+    "summary",
+    "evaluator_sha256",
+    "spec_sha256",
+    "git_commit",
+    "versions",
+    "seeds",
+    "machine",
+    "wall_s",
+    "written_utc",
+    "git_dirty",
+    "synthesis",
+    "lean",
+    "mode",
+    "encoding_sha256"
+   ]
+  },
+  "fuzzy_link": {
+   "id": "r02-F2-001",
+   "program": "compress/programs/fuzzy_link/F2/001-plane_bfs_frame_fusion12.py",
+   "archive_key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "valid": true,
+   "skeleton_equal": true,
+   "op_norm_error": 5.5020494742180965e-15,
+   "archive_op_norm_error": 5.614918919956449e-15,
+   "alt_op_norm_errors": [
+    3.4388927549462143e-15,
+    5.913696799282053e-15
+   ],
+   "archive_alt": [
+    3.4388927549462143e-15,
+    5.913696799282053e-15
+   ],
+   "gauss_residual": 0.0,
+   "extra_gauss": null,
+   "span_leak": null,
+   "archive_gauss": 0.0,
+   "archive_extra_gauss": null,
+   "seconds": 1.1927201747894287,
+   "metrics_raw": {
+    "cx": 12,
+    "t_fixed": 0,
+    "n_rot": 10,
+    "qubits": 4,
+    "depth": 37,
+    "depth_ct": 1183
+   },
+   "archive_evaluator_sha": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+   "entry_fields": [
+    "id",
+    "program_path",
+    "program_sha256",
+    "parent",
+    "family",
+    "round",
+    "valid",
+    "reason",
+    "key",
+    "cell",
+    "metrics_raw",
+    "metrics_polished",
+    "verdict_nominal",
+    "verdicts_alt",
+    "skeleton_equal",
+    "discoveries",
+    "summary",
+    "evaluator_sha256",
+    "spec_sha256",
+    "git_commit",
+    "versions",
+    "seeds",
+    "machine",
+    "wall_s",
+    "written_utc",
+    "git_dirty",
+    "synthesis",
+    "lean",
+    "mode",
+    "encoding_sha256"
+   ]
+  }
+ },
+ "gauss_cmp_new": {
+  "spinnet": {
+   "spinnet15": "spinnet15 is this encoding's own 15-qubit file: it is the external row 'paulo15' of the spin-network loop",
+   "paulo34": "paulo34 is a 12-qubit electric-basis circuit (3 qubits per inner link): it does not act on the spin-network codes (16-qubit encoding)",
+   "lean22": "lean22 is a 12-qubit electric-basis circuit (3 qubits per inner link): it does not act on the spin-network codes (16-qubit encoding)",
+   "lean22_v2": "lean22_v2 is a 12-qubit electric-basis circuit (3 qubits per inner link): it does not act on the spin-network codes (16-qubit encoding)",
+   "verify_synthesised": {
+    "ok": true,
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 2.3811827672664635e-06,
+     "gauss_residual": 5.11581386475374e-07,
+     "leak_amplitude": 5.277434924466636e-07,
+     "certified": true,
+     "engine": "sparse",
+     "dropped_total": 2.1929409012046588e-12,
+     "block_error": 1.8534370818788986e-06,
+     "n_inputs": 433,
+     "extra_gauss": "checked",
+     "tolerances": {
+      "tol_err": 8.001e-06,
+      "tol_gauss": 8.001e-06
+     }
+    },
+    "eps": 1e-06,
+    "n_rot": 8,
+    "tolerances": {
+     "tol_err": 8.001e-06,
+     "tol_gauss": 8.001e-06
+    },
+    "t_total": 566,
+    "error_bound_sum": 8e-06,
+    "error_measured_sum": 2.9900549812735845e-06,
+    "s": 1.9732348918914795
+   }
+  },
+  "twelve": {
+   "spinnet15": "spinnet15 is Paulo's 15-qubit spin-network circuit: it acts on route-B labels (a different encoding), not on the 12-qubit electric-basis codes; it is handled by the spin-network encoding (M3)",
+   "paulo34": {
+    "fixed_angle": true,
+    "valid": true,
+    "reason": "ok",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 1.0755851502858386e-05,
+     "gauss_residual": 1.3379795484989847e-10,
+     "leak_amplitude": 7.851057135690922e-06,
+     "certified": true,
+     "engine": "aer_mps",
+     "dropped_total": 0.0,
+     "block_error": 2.9047943671674645e-06,
+     "n_inputs": 433,
+     "extra_gauss": "checked",
+     "tolerances": {
+      "tol_err": 1.6000999999999998e-05,
+      "tol_gauss": 1.6000999999999998e-05
+     }
+    },
+    "metrics": "{'cx': 294, 't_fixed': 1162, 'n_rot': 0, 't_eps': 1162.0, 't_estimate': {1e-06: 1162.0, 1e-10: 1162.0}, 't_measured': None, 'synth_error_bound': 0.0, 'depth': 2549, 'depth_ct': 2549, 'qubits': 50, 'ga",
+    "s": 70.43686413764954
+   },
+   "lean22": {
+    "fixed_angle": false,
+    "valid": true,
+    "reason": "ok",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 2.960078479349324e-13,
+     "gauss_residual": 1.1600307436734885e-15,
+     "leak_amplitude": 0.0,
+     "certified": true,
+     "engine": "sparse",
+     "dropped_total": 1.6668752417355595e-13,
+     "block_error": 1.2932032376137643e-13,
+     "n_inputs": 433,
+     "extra_gauss": "checked",
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     }
+    },
+    "metrics": "{'cx': 210, 't_fixed': 192, 'n_rot': 8, 't_eps': 704, 't_estimate': {1e-06: 670.3576456637802, 1e-10: 989.2627427729669}, 't_measured': {1e-06: 704, 1e-10: 1026}, 'synth_error_bound': 8e-06, 'depth': ",
+    "s": 4.045907258987427
+   },
+   "lean22_v2": {
+    "fixed_angle": false,
+    "valid": true,
+    "reason": "ok",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 2.1387676028228162e-13,
+     "gauss_residual": 8.633103705055785e-16,
+     "leak_amplitude": 0.0,
+     "certified": true,
+     "engine": "sparse",
+     "dropped_total": 9.176862599070215e-14,
+     "block_error": 1.2210813429157947e-13,
+     "n_inputs": 433,
+     "extra_gauss": "checked",
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     }
+    },
+    "metrics": "{'cx': 162, 't_fixed': 160, 'n_rot': 8, 't_eps': 660, 't_estimate': {1e-06: 638.3576456637802, 1e-10: 957.2627427729669}, 't_measured': {1e-06: 660, 1e-10: 986}, 'synth_error_bound': 8e-06, 'depth': 2",
+    "s": 3.6933364868164062
+   },
+   "verify_synthesised": {
+    "ok": true,
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 3.242877731447434e-06,
+     "gauss_residual": 1.1147210181306897e-07,
+     "leak_amplitude": 6.046146422065105e-07,
+     "certified": true,
+     "engine": "sparse",
+     "dropped_total": 9.159408558945755e-12,
+     "block_error": 2.6382539298323643e-06,
+     "n_inputs": 433,
+     "extra_gauss": "checked",
+     "tolerances": {
+      "tol_err": 1.0001e-05,
+      "tol_gauss": 1.0001e-05
+     }
+    },
+    "eps": 1e-06,
+    "n_rot": 10,
+    "tolerances": {
+     "tol_err": 1.0001e-05,
+     "tol_gauss": 1.0001e-05
+    },
+    "t_total": 952,
+    "error_bound_sum": 9.999999999999999e-06,
+    "error_measured_sum": 3.863432091488069e-06,
+    "s": 7.949471950531006
+   }
+  }
+ },
+ "gauss_cmp_head": {
+  "spinnet": {
+   "spinnet15": "spinnet15 is this encoding's own 15-qubit file: it is the external row 'paulo15' of the spin-network loop",
+   "paulo34": "paulo34 is a 12-qubit electric-basis circuit (3 qubits per inner link): it does not act on the spin-network codes (16-qubit encoding)",
+   "lean22": "lean22 is a 12-qubit electric-basis circuit (3 qubits per inner link): it does not act on the spin-network codes (16-qubit encoding)",
+   "lean22_v2": "lean22_v2 is a 12-qubit electric-basis circuit (3 qubits per inner link): it does not act on the spin-network codes (16-qubit encoding)",
+   "verify_synthesised": {
+    "ok": true,
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 2.3811827672664635e-06,
+     "gauss_residual": 5.11581386475374e-07,
+     "leak_amplitude": 5.277434924466636e-07,
+     "certified": true,
+     "engine": "sparse",
+     "dropped_total": 2.1929409012046588e-12,
+     "block_error": 1.8534370818788986e-06,
+     "n_inputs": 433,
+     "extra_gauss": "checked",
+     "tolerances": {
+      "tol_err": 8.001e-06,
+      "tol_gauss": 8.001e-06
+     }
+    },
+    "eps": 1e-06,
+    "n_rot": 8,
+    "tolerances": {
+     "tol_err": 8.001e-06,
+     "tol_gauss": 8.001e-06
+    },
+    "t_total": 566,
+    "error_bound_sum": 8e-06,
+    "error_measured_sum": 2.9900549812735845e-06,
+    "s": 2.3154373168945312
+   }
+  },
+  "twelve": {
+   "spinnet15": "spinnet15 is Paulo's 15-qubit spin-network circuit: it acts on route-B labels (a different encoding), not on the 12-qubit electric-basis codes; it is handled by the spin-network encoding (M3)",
+   "paulo34": {
+    "fixed_angle": true,
+    "valid": true,
+    "reason": "ok",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 1.0755851502858386e-05,
+     "gauss_residual": 1.3379795484989847e-10,
+     "leak_amplitude": 7.851057135690922e-06,
+     "certified": true,
+     "engine": "aer_mps",
+     "dropped_total": 0.0,
+     "block_error": 2.9047943671674645e-06,
+     "n_inputs": 433,
+     "extra_gauss": "checked",
+     "tolerances": {
+      "tol_err": 1.6000999999999998e-05,
+      "tol_gauss": 1.6000999999999998e-05
+     }
+    },
+    "metrics": "{'cx': 294, 't_fixed': 1162, 'n_rot': 0, 't_eps': 1162.0, 't_estimate': {1e-06: 1162.0, 1e-10: 1162.0}, 't_measured': None, 'synth_error_bound': 0.0, 'depth': 2549, 'depth_ct': 2549, 'qubits': 50, 'ga",
+    "s": 71.13858008384705
+   },
+   "lean22": {
+    "fixed_angle": false,
+    "valid": true,
+    "reason": "ok",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 2.960078479349324e-13,
+     "gauss_residual": 1.1600307436734885e-15,
+     "leak_amplitude": 0.0,
+     "certified": true,
+     "engine": "sparse",
+     "dropped_total": 1.6668752417355595e-13,
+     "block_error": 1.2932032376137643e-13,
+     "n_inputs": 433,
+     "extra_gauss": "checked",
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     }
+    },
+    "metrics": "{'cx': 210, 't_fixed': 192, 'n_rot': 8, 't_eps': 704, 't_estimate': {1e-06: 670.3576456637802, 1e-10: 989.2627427729669}, 't_measured': {1e-06: 704, 1e-10: 1026}, 'synth_error_bound': 8e-06, 'depth': ",
+    "s": 4.465243577957153
+   },
+   "lean22_v2": {
+    "fixed_angle": false,
+    "valid": true,
+    "reason": "ok",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 2.1387676028228162e-13,
+     "gauss_residual": 8.633103705055785e-16,
+     "leak_amplitude": 0.0,
+     "certified": true,
+     "engine": "sparse",
+     "dropped_total": 9.176862599070215e-14,
+     "block_error": 1.2210813429157947e-13,
+     "n_inputs": 433,
+     "extra_gauss": "checked",
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     }
+    },
+    "metrics": "{'cx': 162, 't_fixed': 160, 'n_rot': 8, 't_eps': 660, 't_estimate': {1e-06: 638.3576456637802, 1e-10: 957.2627427729669}, 't_measured': {1e-06: 660, 1e-10: 986}, 'synth_error_bound': 8e-06, 'depth': 2",
+    "s": 3.9959776401519775
+   },
+   "verify_synthesised": {
+    "ok": true,
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 3.242877731447434e-06,
+     "gauss_residual": 1.1147210181306897e-07,
+     "leak_amplitude": 6.046146422065105e-07,
+     "certified": true,
+     "engine": "sparse",
+     "dropped_total": 9.159408558945755e-12,
+     "block_error": 2.6382539298323643e-06,
+     "n_inputs": 433,
+     "extra_gauss": "checked",
+     "tolerances": {
+      "tol_err": 1.0001e-05,
+      "tol_gauss": 1.0001e-05
+     }
+    },
+    "eps": 1e-06,
+    "n_rot": 10,
+    "tolerances": {
+     "tol_err": 1.0001e-05,
+     "tol_gauss": 1.0001e-05
+    },
+    "t_total": 952,
+    "error_bound_sum": 9.999999999999999e-06,
+    "error_measured_sum": 3.863432091488069e-06,
+    "s": 7.967875003814697
+   }
+  }
+ },
+ "fuzzy_verify_synth_new": {
+  "fuzzy_link": {
+   "ok": true,
+   "n_rot": 10,
+   "t_total": 644,
+   "tolerances": {
+    "tol_err": 1.0001e-05,
+    "tol_gauss": 1.0001e-05
+   },
+   "op_norm_error": 3.393938563112204e-06,
+   "gauss_residual": NaN,
+   "leak": 0.0,
+   "certified": true,
+   "reason": "ok",
+   "extra_gauss": "not_checked",
+   "s": 0.209946870803833
+  },
+  "fuzzy_ub": {
+   "ok": true,
+   "n_rot": 16,
+   "t_total": 2822,
+   "tolerances": {
+    "tol_err": 1.6000999999999998e-05,
+    "tol_gauss": 1.6000999999999998e-05
+   },
+   "op_norm_error": 5.716546896722337e-06,
+   "gauss_residual": NaN,
+   "leak": 0.0,
+   "certified": true,
+   "reason": "ok",
+   "extra_gauss": "not_checked",
+   "s": 1.8951079845428467
+  }
+ },
+ "fuzzy_verify_synth_head": {
+  "fuzzy_link": {
+   "ok": true,
+   "n_rot": 10,
+   "t_total": 644,
+   "tolerances": {
+    "tol_err": 1.0001e-05,
+    "tol_gauss": 1.0001e-05
+   },
+   "op_norm_error": 3.393938563112204e-06,
+   "gauss_residual": 0.0,
+   "leak": 0.0,
+   "certified": true,
+   "reason": "ok",
+   "extra_gauss": "not_checked",
+   "s": 0.17458701133728027
+  },
+  "fuzzy_ub": {
+   "ok": true,
+   "n_rot": 16,
+   "t_total": 2822,
+   "tolerances": {
+    "tol_err": 1.6000999999999998e-05,
+    "tol_gauss": 1.6000999999999998e-05
+   },
+   "op_norm_error": 5.716546896722337e-06,
+   "gauss_residual": 0.0,
+   "leak": 0.0,
+   "certified": true,
+   "reason": "ok",
+   "extra_gauss": "not_checked",
+   "s": 2.1077394485473633
+  }
+ },
+ "hashes": {
+  "provenance": "b8f02c6df3fca67b865ae59941c0e0d04cd1d7bc949298013ae16827ad742d6d",
+  "lsh": "28385f2a491f448fbaa33e54413630c3587761922dd848ef52d34ce58a75fa45",
+  "spinnet_code_hash_for": "89fdd844f8100d26b2bfbffa639ac0a1fee6457a63583064b0eb91841b08d009",
+  "fuzzy_ub": "635c3945d97826ba6ff0cc5d0fc9a9cbd5619ff2b962c610a78909346da2cca5",
+  "fuzzy_link": "635c3945d97826ba6ff0cc5d0fc9a9cbd5619ff2b962c610a78909346da2cca5",
+  "spinnet_loop": "67bafc5137863cd521c1c8099e628939defbe94e20448b60fd4e47dea548f74f",
+  "rishon": "de902b6f60c79bfc61095c0b0c9c6ba88e364f1a7201429a3f5b38d555a62a51",
+  "fuzzy_files": [
+   "fuzzy/verify.py",
+   "fuzzy/targets.py",
+   "circuits/fuzzy.py",
+   "fuzzy/compress_hook.py"
+  ],
+  "n_shared": 21,
+  "project": {
+   "provenance": "b8f02c6df3fca67b865ae59941c0e0d04cd1d7bc949298013ae16827ad742d6d",
+   "lsh": "28385f2a491f448fbaa33e54413630c3587761922dd848ef52d34ce58a75fa45",
+   "spinnet_code_hash_for": "89fdd844f8100d26b2bfbffa639ac0a1fee6457a63583064b0eb91841b08d009",
+   "fuzzy_ub": "635c3945d97826ba6ff0cc5d0fc9a9cbd5619ff2b962c610a78909346da2cca5",
+   "fuzzy_link": "635c3945d97826ba6ff0cc5d0fc9a9cbd5619ff2b962c610a78909346da2cca5",
+   "spinnet_loop": "67bafc5137863cd521c1c8099e628939defbe94e20448b60fd4e47dea548f74f",
+   "rishon": "de902b6f60c79bfc61095c0b0c9c6ba88e364f1a7201429a3f5b38d555a62a51"
+  },
+  "commit": "8e1dce6",
+  "note": "uncommitted B4 tree on 8e1dce6"
+ },
+ "red_set_now": [
+  "m2c G1",
+  "m2c G1",
+  "m2c G1",
+  "m2c G1",
+  "m2c G1",
+  "m2c P1",
+  "m2c R1",
+  "m2c R2",
+  "m2c R3",
+  "m2c Y1",
+  "m6 G5",
+  "m6 G6",
+  "m6 L2",
+  "m6 L3",
+  "m6 L9",
+  "m8 E2",
+  "m8 H1",
+  "m8 L2",
+  "m8 S0",
+  "m8 S2",
+  "m8 S3",
+  "m8 S4",
+  "m8 S5"
+ ],
+ "counts": {
+  "not_slow_acceptance": {
+   "passed": 267,
+   "failed": 23,
+   "of_which_pending": 18
+  },
+  "unit": {
+   "passed": 1024,
+   "failed": 0
+  },
+  "slow_m10": {
+   "passed": 1,
+   "failed": 2
+  },
+  "slow_m9": {
+   "passed": 4,
+   "failed": 0
+  }
+ },
+ "blas_coretype_experiment_fuzzy_link_nominal_op_norm_error": {
+  "default": 5.5020494742180965e-15,
+  "Haswell": 5.5020494742180965e-15,
+  "Zen": 5.5020494742180965e-15,
+  "Sandybridge": 5.522183290123779e-15,
+  "Nehalem": 4.6062700519435985e-15,
+  "Prescott": 4.6079707764163355e-15,
+  "archive": 5.614918919956449e-15
+ }
+}

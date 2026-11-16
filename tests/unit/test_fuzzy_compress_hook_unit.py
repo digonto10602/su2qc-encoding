@@ -82,19 +82,85 @@ def test_structure_file_written():
     assert names["card_isolated_plaquette"]["value"] == 50 and names["card_far_end_weighted"]["value"] == 6767266914
 
 
-def test_sitehook_worker_builds_fuzzy_program(tmp_path):
-    """A fresh interpreter with only the exported environment (the sandboxed build worker) resolves fuzzy_ub / fuzzy_link;
-    without SU2PLAQ_FUZZY_HOOK the units are unknown."""
+def test_stock_worker_builds_fuzzy_programs_in_a_fresh_interpreter(tmp_path):
+    """A fresh interpreter with PYTHONPATH = src only (no hook module imported, no environment variable) resolves fuzzy_ub /
+    fuzzy_link through the registry, and the stock build worker builds the general programs of both units."""
     import os
 
     code = ("from su2plaq.compress.builder import Builder; from su2plaq.compress.spec import default_spec;"
+            "import sys; assert 'su2plaq.fuzzy.compress_hook' not in sys.modules;"
             "b = Builder(default_spec('fuzzy_ub', 'UB')); print(b.reg('d'), b.n_fixed);"
             "b = Builder(default_spec('fuzzy_link', 'UE')); print(b.reg('d'), b.n_fixed)")
-    assert os.environ["SU2PLAQ_FUZZY_HOOK"] == "1" and str(H.SITEHOOK_DIR) in os.environ["PYTHONPATH"].split(os.pathsep)
-    base = {**os.environ, "PYTHONPATH": os.pathsep.join([str(ROOT / "src"), os.environ["PYTHONPATH"]])}
-    off = {k: v for k, v in base.items() if k != "SU2PLAQ_FUZZY_HOOK"}
-    p = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, env=off, cwd=str(tmp_path))
-    assert p.returncode != 0 and "unknown" in p.stderr
-    p = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, env=base, cwd=str(tmp_path))
+    env = {k: v for k, v in os.environ.items() if not k.startswith("SU2PLAQ_")}
+    env["PYTHONPATH"] = str(ROOT / "src")
+    p = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, env=env, cwd=str(tmp_path))
     assert p.returncode == 0, p.stderr
     assert p.stdout.split("\n")[:2] == ["[0, 1, 2, 3, 4, 5, 6, 7] 8", "[0, 1, 2, 3] 4"]
+    sh = (ROOT / "src" / "su2plaq" / "fuzzy" / "sitehook")
+    assert not sh.exists()
+
+
+def test_install_replaces_nothing_and_sets_no_environment():
+    import os
+
+    from su2plaq.compress import baselines as BL, brief as BR, evaluate as E, round as RD, spec as S
+    from su2plaq.evaluate import evaluator as EV
+
+    ids = lambda: [id(x) for x in (E._build_in_subprocess, RD._certify, BL.general_circuit, BL.import_seed, S.TaskSpec.render,
+                                   S.TaskSpec.peak_qubit_cap, S.TaskSpec._structure_section, BR.make_brief, BR.make_ideation_brief,
+                                   EV.evaluate)]
+    before, env = ids(), dict(os.environ)
+    H.install()
+    H.install()
+    assert ids() == before and dict(os.environ) == env and not any(k.startswith("SU2PLAQ_") for k in os.environ)
+    assert not hasattr(H, "SITEHOOK_DIR") and not hasattr(H, "_swap_cmds")
+
+
+def test_registry_entries_and_hashes():
+    from su2plaq.compress import provenance as P
+    from su2plaq.encodings import registry
+
+    files = ["fuzzy/verify.py", "fuzzy/targets.py", "circuits/fuzzy.py", "fuzzy/compress_hook.py"]
+    for name, kind in H.UNITS.items():
+        info = registry.info(name)
+        assert list(info.evaluator_files) == files and info.kinds == (kind,) and info.loop_kind == kind
+        assert info.stamp == "shared" and info.gauss_in_loop is False and info.lean_certify is None
+        assert info.factory.startswith("su2plaq.fuzzy.compress_hook:") and registry.get(name).name == name
+        assert P.stamp_hash(name) == P.code_hash() and P.code_hash_for(name) != P.code_hash()
+        for field in ("general_circuit", "import_seed", "render_spec", "brief_note", "worker_warmup"):
+            assert callable(registry.resolve(getattr(info, field))), field
+    assert P.code_hash_for("fuzzy_ub") == P.code_hash_for("fuzzy_link")                    # one shared list (prompts/008 §4)
+
+
+def test_hooks_general_circuit_import_seed_note_and_warm_up():
+    from su2plaq.compress import baselines as BL, spec as S
+
+    ub, link = S.default_spec("fuzzy_ub", "UB"), S.default_spec("fuzzy_link", "UE")
+    assert BL.general_circuit(ub).num_qubits == 15 and BL.general_circuit(link).num_qubits == 4           # stock dispatch
+    for src in ("spinnet15", "paulo34", "lean22", "lean22_v2"):
+        assert BL.import_seed(link, src).endswith("not applicable to the fuzzy encoding")
+    with pytest.raises(ValueError):
+        BL.import_seed(link, "nope")
+    assert "kappa2" in H.brief_note("fuzzy_link", "UE") and "row qubits" in H.brief_note("fuzzy_ub", "UB")
+    H.warm_up()
+
+
+def test_stock_certify_is_n_a_and_verdict_has_no_gauss():
+    from qiskit import QuantumCircuit
+
+    from su2plaq.compress import evaluate as E, round as RD, spec as S, baselines as BL
+
+    d, _ = RD._certify(QuantumCircuit(4), S.default_spec("fuzzy_link", "UE"))
+    assert d == H.LEAN_NA
+    sp = S.default_spec("fuzzy_link", "UE")
+    r = E.evaluate_circuit(BL.general_circuit(sp), sp, "trial")
+    assert r.valid and np.isnan(r.verdict.gauss_residual) and r.verdict.extra["gauss"] == "not_checked" and r.verdict.span_leak == 0.0
+    v = BL.verify_synthesised(BL.general_circuit(sp), sp)           # the Clifford+T re-verification also skips the Gauss check
+    assert v["ok"] and np.isnan(v["verdict"].gauss_residual)
+
+
+def test_rendered_specs_are_the_committed_ones():
+    from su2plaq.compress import spec as S
+
+    for name, kind in H.UNITS.items():
+        assert S.default_spec(name, kind).render() == (ROOT / "compress" / "specs" / f"{name}-{kind}.md").read_text()

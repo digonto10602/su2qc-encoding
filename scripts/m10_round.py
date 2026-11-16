@@ -1,16 +1,20 @@
 #!/usr/bin/env python
-"""M10 driver: the laptop compression loop on the fuzzy units, through the hook (plan 302 §3; METHODS-fuzzy F9).
+"""M10 driver: aliases of the stock compression CLIs for the fuzzy units (plan 302 §3; METHODS-fuzzy F9; prompts/008 §3.3).
 
-  python scripts/m10_round.py seed       --encoding fuzzy_ub|fuzzy_link [round-options]
+The fuzzy units are entries of the shared encoding registry, so the stock modules serve them directly
+(`python -m su2plaq.compress.{run_candidate,oracle,round,brief,report} --encoding fuzzy_ub|fuzzy_link`); this script keeps its old
+command names as thin aliases of them (no hook is installed, nothing is patched):
+
+  python scripts/m10_round.py seed       --encoding fuzzy_ub|fuzzy_link [round-options]   # = compress.round --seed
   python scripts/m10_round.py round      --encoding E --round r --evaluate [--programs P ...] [--no-lean]
-  python scripts/m10_round.py candidate  <program.py> --encoding E [--kind K] --trial|--full [--json out]
-  python scripts/m10_round.py oracle     --encoding E [oracle options]
-  python scripts/m10_round.py brief      --encoding E --round r --family F
+  python scripts/m10_round.py candidate  <program.py> --encoding E [--kind K] --trial|--full [--json out]   # = compress.run_candidate
+  python scripts/m10_round.py oracle     --encoding E [oracle options]                    # = compress.oracle
+  python scripts/m10_round.py brief      --encoding E --round r --family F                # = compress.brief.make_brief
   python scripts/m10_round.py ideation   --encoding E
-  python scripts/m10_round.py report     --encoding E [--out path]
+  python scripts/m10_round.py report     --encoding E [--out path]                        # = compress.report
   python scripts/m10_round.py best-step  [--order 1|2] [--no-outer] [--root R] [--out path]   # results/fuzzy/compressed_step.json
 
-The hook (`su2plaq.fuzzy.compress_hook.install()`) is installed before anything else; `--kind` defaults to the unit's kind."""
+`--kind` defaults to the unit's kind."""
 from __future__ import annotations
 
 import argparse

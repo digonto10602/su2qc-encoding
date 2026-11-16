@@ -1,0 +1,42 @@
+{
+ "root": "/home/digimonk/Projects/su2qc-encoding",
+ "n_attrs_checked": 991,
+ "named_ids_changed": [],
+ "attr_changed": [],
+ "attr_added": [],
+ "attr_removed": [],
+ "registry_changed": [],
+ "registry_keys": [
+  "twelve",
+  "spinnet",
+  "fuzzy_ub",
+  "fuzzy_link",
+  "lsh"
+ ],
+ "env_added": [],
+ "env_removed": [],
+ "env_changed": [],
+ "path_changed": false,
+ "path_diff": [],
+ "SU2PLAQ_FUZZY_HOOK": null,
+ "PYTHONPATH": null,
+ "new_modules_after_import": [
+  "su2plaq.circuits.fuzzy",
+  "su2plaq.fuzzy",
+  "su2plaq.fuzzy.compress_hook",
+  "su2plaq.fuzzy.link",
+  "su2plaq.fuzzy.plaquette",
+  "su2plaq.fuzzy.targets",
+  "su2plaq.fuzzy.verify"
+ ],
+ "_INSTALLED": true,
+ "S_has__ENCODINGS": true,
+ "S__ENCODINGS_keys": [],
+ "base.NOMINAL_ANGLES_keys": [
+  "twelve",
+  "spinnet",
+  "fuzzy_ub",
+  "fuzzy_link",
+  "lsh"
+ ]
+}

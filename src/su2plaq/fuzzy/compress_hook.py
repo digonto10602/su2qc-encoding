@@ -1,21 +1,22 @@
-"""M10 hook: the Gu-et-al compression loop on the fuzzy one-Trotter-step units (prompts/302; METHODS-fuzzy F9).
+"""M10 compression units: the Gu-et-al loop on the fuzzy one-Trotter-step units (prompts/302; METHODS-fuzzy F9; facade since prompts/008 B4).
 
-Two compression units are registered in the laptop machinery (`su2plaq.compress.*`, never edited) by attribute patching:
+Two compression units are entries of the shared encoding registry (`su2plaq.encodings.registry`, `fuzzy_ub`, `fuzzy_link`); the
+stock machinery (`su2plaq.compress.*`, build worker included) serves them, and this module replaces nothing in it:
 
 * ``fuzzy_ub``  / kind ``UB``: exp(+2 i beta square) on the 8 row qubits (256 x 256); unit frame qubit i = circuit qubit ROW_QUBITS[i]
   (frame qubit 2l = q2^l, 2l+1 = q1^l); up to 32 ancillas.
 * ``fuzzy_link`` / kind ``UE``: the one-link block exp(-i(alpha/2 K1 + kappa2 K2)) (16 x 16) on frame qubits (q4, q3, q2, q1);
   ``spec.beta`` plays kappa2; no ancilla.
 
-`compose_step` builds the 48 (+ ancilla) qubit step from unit circuits with layer metadata, so that the composed circuit is scored
-(`logical_metrics`) and re-verified with `verify_step_samples` (M9).  `install()` is idempotent and exports the environment that
-makes the sandboxed build worker (a subprocess of `su2plaq.compress.evaluate`) install the hook as well (`sitehook/sitecustomize.py`).
+What lives here: the unit encodings (`FuzzyUBTask`, `FuzzyLinkTask`, the registry factories), the registry hooks (`general_circuit`,
+`import_seed`, `render_spec`, `brief_note`, `warm_up`), `compose_step` (the 48 (+ ancilla) qubit step from unit circuits with layer
+metadata, scored with `logical_metrics` and re-verified with `verify_step_samples`, M9), `best_step`, the structure facts.
+`install()` only sets a flag (kept for callers).
 """
 from __future__ import annotations
 
 import hashlib
 import json
-import os
 import pathlib
 
 import numpy as np
@@ -31,7 +32,6 @@ NOMINAL = (0.37, 0.61)
 SEED = 20261104
 ROOT = pathlib.Path(__file__).resolve().parents[3]
 STRUCTURE_FILE = ROOT / "compress" / "specs" / "fuzzy-structure.json"
-SITEHOOK_DIR = pathlib.Path(__file__).resolve().parent / "sitehook"
 LEAN_NA = {"status": "n_a", "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 §0.5)"}
 _UB_ANC = 7
 
@@ -122,6 +122,51 @@ class FuzzyLinkTask(FuzzyBlockEncoding):
             "h(q1) h(q2) both are diagonal sums of Z-strings (10 strings in total; see F9), so the block is one frame plus a phase "
             "polynomial; the baseline uses two CNOT ladders (36 CX). No ancilla.\n"
             + _PROPOSER_NOTE.format(enc="fuzzy_link", kind="UE"))
+
+
+# ------------------------------------------------------------------------------------------------------------ registry hooks
+def render_spec(spec) -> str:
+    """Registry hook `render_spec(spec)`: the shared default text with the task paragraph of the unit and without the per-unit Gauss
+    sentence (the stock commands of the Tools section come from the registry's `tools`, the facts file from `structure_json`)."""
+    text = spec._render_default()
+    enc = _unit(spec.encoding)
+    head, rest = text.split("## Task\n\n", 1)
+    _task, tail = rest.split("\n\n## Registers", 1)
+    text = head + "## Task\n\n" + enc.task_text(spec) + " Unphysical inputs do not exist: every code is physical.\n\n## Registers" + tail
+    return text.replace(f"and the Gauss residual of the outputs at most {spec.tol_gauss:g}; ",
+                        "(no per-unit Gauss check: every code is physical and the targets commute with the Gauss generators); ")
+
+
+def _unit(name: str):
+    from su2plaq.encodings import registry
+
+    return registry.get(name)
+
+
+def import_seed(spec, source):
+    """Registry hook `import_seed(spec, source)`: the external seeds do not apply to the fuzzy units (a reason string)."""
+    if source not in ("spinnet15", "paulo34", "lean22", "lean22_v2"):
+        raise ValueError(f"unknown seed source {source!r}")
+    return f"{source}: not applicable to the fuzzy encoding"
+
+
+def brief_note(encoding: str, kind: str) -> str:
+    """Registry hook `brief_note(encoding, kind)`: the paragraph appended to every brief."""
+    extra = ("`spec.beta` is kappa2; `alloc` is not allowed (more than 4 qubits is rejected)." if encoding == "fuzzy_link"
+             else "Frame qubits 0..7 are the row qubits (see the specification); ancillas via `Builder.alloc`.")
+    return ("## Fuzzy hook (M10)\n\n"
+            f"Use `python scripts/m10_round.py candidate <program> --encoding {encoding} --kind {kind} --trial|--full` instead of "
+            "`python -m su2plaq.compress.run_candidate`, and `python scripts/m10_round.py oracle ...` instead of the oracle module. "
+            f"Programs import only `su2plaq.compress.{{builder,oracle,spec}}`, numpy, qiskit. {extra}\n")
+
+
+def warm_up() -> None:
+    """Registry hook `worker_warmup`: imports and instantiates both units (and loads the target code) in the build worker BEFORE the
+    audit guard, so that `Builder(spec)` / `oracle.target` inside the sandbox find everything already imported."""
+    for name in ENCODINGS:
+        _unit(name)
+    tg.UB_row(0.1)
+    tg.UEK_link(0.1, 0.1)
 
 
 # ------------------------------------------------------------------------------------------------------------ circuits
@@ -360,150 +405,10 @@ def write_structure(path=None) -> pathlib.Path:
 
 # ------------------------------------------------------------------------------------------------------------ install
 _INSTALLED = False
-_CMD_SWAPS = (("python -m su2plaq.compress.run_candidate", "python scripts/m10_round.py candidate"),
-              ("python -m su2plaq.compress.oracle", "python scripts/m10_round.py oracle"))
-
-
-def _is_fuzzy(name: str) -> bool:
-    return name in ENCODINGS
-
-
-def _swap_cmds(text: str) -> str:
-    for a, b in _CMD_SWAPS:
-        text = text.replace(a, b)
-    return text
 
 
 def install() -> None:
-    """Register the two units in the laptop modules (idempotent; attribute patching only; see the module docstring)."""
+    """Idempotent; only sets a flag.  Nothing in a shared module is replaced, no environment variable is set, no directory is added to
+    PYTHONPATH (prompts/008 §3.3); the encodings are known through the registry."""
     global _INSTALLED
-    if _INSTALLED:
-        return
-    from su2plaq.compress import baselines as BL
-    from su2plaq.compress import brief as BR
-    from su2plaq.compress import round as RD
-    from su2plaq.compress import spec as S
-    from su2plaq.encodings import base
-    from su2plaq.evaluate import evaluator as EV
-
-    S._ENCODINGS["fuzzy_ub"] = FuzzyUBTask()
-    S._ENCODINGS["fuzzy_link"] = FuzzyLinkTask()
-    for enc in ENCODINGS:
-        base.NOMINAL_ANGLES[enc] = NOMINAL
-    write_structure()
-
-    # ---- spec: peak qubits, rendering, structure facts
-    orig_cap, orig_render, orig_struct = S.TaskSpec.peak_qubit_cap, S.TaskSpec.render, S.TaskSpec._structure_section
-
-    def peak_qubit_cap(self):
-        if _is_fuzzy(self.encoding) and self.max_qubits is None:
-            return S.get_encoding(self.encoding).peak_qubit_cap(self)
-        return orig_cap(self)
-
-    def structure_section(self):
-        if not _is_fuzzy(self.encoding):
-            return orig_struct(self)
-        old = S.STRUCTURE_JSON
-        S.STRUCTURE_JSON = STRUCTURE_FILE
-        try:
-            return orig_struct(self)
-        finally:
-            S.STRUCTURE_JSON = old
-
-    def render(self):
-        text = orig_render(self)
-        if not _is_fuzzy(self.encoding):
-            return text
-        enc = S.get_encoding(self.encoding)
-        head, rest = text.split("## Task\n\n", 1)
-        _task, tail = rest.split("\n\n## Registers", 1)
-        text = head + "## Task\n\n" + enc.task_text(self) + " Unphysical inputs do not exist: every code is physical.\n\n## Registers" + tail
-        text = text.replace(f"and the Gauss residual of the outputs at most {self.tol_gauss:g}; ",
-                            "(no per-unit Gauss check: every code is physical and the targets commute with the Gauss generators); ")
-        return _swap_cmds(text)
-
-    S.TaskSpec.peak_qubit_cap = peak_qubit_cap
-    S.TaskSpec._structure_section = structure_section
-    S.TaskSpec.render = render
-
-    # ---- evaluator: no KS Gauss branch for the fuzzy block encodings
-    orig_eval = EV.evaluate
-
-    def evaluate(qc, enc, target, **kw):
-        if isinstance(enc, FuzzyBlockEncoding):
-            kw["gauss"] = False
-            v = orig_eval(qc, enc, target, **kw)
-            v.gauss_residual = 0.0
-            return v
-        return orig_eval(qc, enc, target, **kw)
-
-    EV.evaluate = evaluate
-
-    # ---- baselines: general circuit, no external seeds
-    orig_general, orig_import = BL.general_circuit, BL.import_seed
-
-    def general_dispatch(spec):
-        return general_circuit(spec) if _is_fuzzy(spec.encoding) else orig_general(spec)
-
-    def import_seed(spec, source):
-        if _is_fuzzy(spec.encoding):
-            if source not in ("spinnet15", "paulo34", "lean22", "lean22_v2"):
-                raise ValueError(f"unknown seed source {source!r}")
-            return f"{source}: not applicable to the fuzzy encoding"
-        return orig_import(spec, source)
-
-    BL.general_circuit = general_dispatch
-    BL.import_seed = import_seed
-
-    # ---- round: no Lean certificate for the fuzzy units
-    orig_certify = RD._certify
-
-    def certify(circ, spec, program_file_sha256=None):
-        # `program_file_sha256` (laptop audit-004 N2) is passed by round.py; forward it for non-fuzzy encodings
-        if _is_fuzzy(spec.encoding):
-            return dict(LEAN_NA), 0.0
-        if program_file_sha256 is None:
-            return orig_certify(circ, spec)
-        return orig_certify(circ, spec, program_file_sha256=program_file_sha256)
-
-    RD._certify = certify
-
-    # ---- briefs: fuzzy structure pointer and the script commands
-    orig_make, orig_ideate, orig_pointer = BR.make_brief, BR.make_ideation_brief, BR._structure_pointer
-
-    def _fuzzy_pointer(root):
-        return (f"`{STRUCTURE_FILE.relative_to(ROOT)}` (machine-proved facts about the fuzzy units: counts, K1/K2 spectra; the same "
-                "facts are in the section 'Proved structure (Lean)' of the specification)")
-
-    def _wrap(fn):
-        def wrapped(encoding, kind, *a, **k):
-            if not _is_fuzzy(encoding):
-                return fn(encoding, kind, *a, **k)
-            BR._structure_pointer = _fuzzy_pointer
-            try:
-                path = fn(encoding, kind, *a, **k)
-            finally:
-                BR._structure_pointer = orig_pointer
-            path = pathlib.Path(path)
-            path.write_text(_swap_cmds(path.read_text()) + _brief_note(encoding, kind))
-            return path
-
-        return wrapped
-
-    BR.make_brief, BR.make_ideation_brief = _wrap(orig_make), _wrap(orig_ideate)
-
-    # ---- the build worker (subprocess) installs the hook through sitecustomize
-    os.environ["SU2PLAQ_FUZZY_HOOK"] = "1"
-    parts = [p for p in os.environ.get("PYTHONPATH", "").split(os.pathsep) if p]
-    if str(SITEHOOK_DIR) not in parts:
-        os.environ["PYTHONPATH"] = os.pathsep.join(parts + [str(SITEHOOK_DIR)])
     _INSTALLED = True
-
-
-def _brief_note(encoding: str, kind: str) -> str:
-    extra = ("`spec.beta` is kappa2; `alloc` is not allowed (more than 4 qubits is rejected)." if encoding == "fuzzy_link"
-             else "Frame qubits 0..7 are the row qubits (see the specification); ancillas via `Builder.alloc`.")
-    return ("\n## Fuzzy hook (M10)\n\n"
-            f"Use `python scripts/m10_round.py candidate <program> --encoding {encoding} --kind {kind} --trial|--full` instead of "
-            "`python -m su2plaq.compress.run_candidate`, and `python scripts/m10_round.py oracle ...` instead of the oracle module. "
-            f"Programs import only `su2plaq.compress.{{builder,oracle,spec}}`, numpy, qiskit. {extra}\n")

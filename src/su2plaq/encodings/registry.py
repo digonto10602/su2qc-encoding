@@ -39,8 +39,8 @@ class EncodingInfo:
 
 
 # The static table (registration order).  twelve: B1; spinnet: B3; lsh: step 8.R of prompts/401 (pure data, lazy strings;
-# su2plaq/lsh/loop.py and su2plaq/spinnet/loop.py decide no verdict and are in no hash list).  fuzzy_ub / fuzzy_link B4, rishon B5
-# are added by their steps.
+# su2plaq/lsh/loop.py and su2plaq/spinnet/loop.py decide no verdict and are in no hash list); fuzzy_ub / fuzzy_link: B4 (their hooks live in
+# fuzzy/compress_hook.py, which also hosts the unit encodings and is therefore hashed).  rishon B5 is added by its step.
 _TABLE: dict = {}
 
 
@@ -60,6 +60,21 @@ _add(EncodingInfo(
     import_seed="su2plaq.spinnet.loop:import_seed", lean_certify="su2plaq.spinnet.loop:lean_certify",
     render_spec="su2plaq.spinnet.loop:render_spec", structure_json="compress/specs/spinnet-structure.json",
     tools=("python -m su2plaq.spinnet.loop candidate", "python -m su2plaq.spinnet.loop oracle")))
+
+_FUZZY_FILES = ("fuzzy/verify.py", "fuzzy/targets.py", "circuits/fuzzy.py", "fuzzy/compress_hook.py")
+_FUZZY_HOOKS = dict(
+    stamp="shared", gauss_in_loop=False,         # METHODS-fuzzy F9: every code is physical, the targets commute with the Gauss generators
+    worker_warmup="su2plaq.fuzzy.compress_hook:warm_up", general_circuit="su2plaq.fuzzy.compress_hook:general_circuit",
+    import_seed="su2plaq.fuzzy.compress_hook:import_seed", lean_certify=None,
+    lean_na_reason="fuzzy: no exact exporter for the Lean certificate (plan 302 §0.5)",
+    render_spec="su2plaq.fuzzy.compress_hook:render_spec", structure_json="compress/specs/fuzzy-structure.json",
+    tools=("python scripts/m10_round.py candidate", "python scripts/m10_round.py oracle"),
+    brief_note="su2plaq.fuzzy.compress_hook:brief_note")
+
+_add(EncodingInfo(name="fuzzy_ub", factory="su2plaq.fuzzy.compress_hook:FuzzyUBTask", kinds=("UB",), loop_kind="UB",
+                  evaluator_files=_FUZZY_FILES, **_FUZZY_HOOKS))
+_add(EncodingInfo(name="fuzzy_link", factory="su2plaq.fuzzy.compress_hook:FuzzyLinkTask", kinds=("UE",), loop_kind="UE",
+                  evaluator_files=_FUZZY_FILES, **_FUZZY_HOOKS))
 
 _add(EncodingInfo(
     name="lsh", factory="su2plaq.encodings.lsh:LSH", kinds=("step", "UB", "UE"), loop_kind="step",

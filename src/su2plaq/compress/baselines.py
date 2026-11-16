@@ -27,6 +27,14 @@ SEED_FAMILY = "seed"
 
 
 # ---------------------------------------------------------------------------------------------- general circuit
+def _gauss_in_loop(spec: TaskSpec) -> bool:
+    """Whether the Gauss check belongs to this encoding's verdicts (registry `gauss_in_loop`; True when not registered)."""
+    from su2plaq.encodings import registry
+
+    info = registry.lookup(spec.encoding)
+    return True if info is None else info.gauss_in_loop
+
+
 def _hook(spec: TaskSpec, field: str):
     """The callable the registry names in `field` for the spec's encoding, or None (not registered / no such hook)."""
     from su2plaq.encodings import registry
@@ -276,7 +284,7 @@ def evaluate_seed(spec: TaskSpec, seed: SeedCircuit, mode: str = "full"):
     s2 = TaskSpec(**{**spec.to_dict(), "kind": seed.kind, "alpha": spec.alpha if seed.alpha is None else seed.alpha,
                      "beta": seed.beta, "alt_angles": (), "tol_err": tol["tol_err"], "tol_gauss": tol["tol_gauss"]})
     enc = get_encoding(spec.encoding)
-    v = evaluate(seed.qc, enc, oracle.target(s2), tol_err=s2.tol_err, tol_gauss=s2.tol_gauss, gauss=True, engine="auto",
+    v = evaluate(seed.qc, enc, oracle.target(s2), tol_err=s2.tol_err, tol_gauss=s2.tol_gauss, gauss=_gauss_in_loop(spec), engine="auto",
                  cap=spec.support_cap)
     violations = E._gate_violations(seed.qc)
     valid, reason = E._classify(v, violations)
@@ -303,7 +311,7 @@ def verify_synthesised(qc, spec: TaskSpec, eps: float | None = None) -> dict:
     eps = spec.eps if eps is None else eps
     synth, info = synthesize(qc, eps, word_fn=gridsynth_word)
     tol = synth_tolerances(info["n_rot"], eps)
-    v = evaluate(synth, get_encoding(spec.encoding), oracle.target(spec), **tol, gauss=True, engine="auto", cap=spec.support_cap)
+    v = evaluate(synth, get_encoding(spec.encoding), oracle.target(spec), **tol, gauss=_gauss_in_loop(spec), engine="auto", cap=spec.support_cap)
     t_total = sum(1 for i in synth.data if i.operation.name in ("t", "tdg"))
     return {"ok": bool(v.ok and v.certified), "verdict": v, "eps": eps, "n_rot": info["n_rot"], "tolerances": tol,
             "t_total": t_total, "error_bound_sum": info["error_bound_sum"], "error_measured_sum": info["error_measured_sum"]}
