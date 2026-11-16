@@ -19,10 +19,14 @@ def _spec(kind="step"):
     return S.rishon_spec(kind)
 
 
-def test_register_is_idempotent_and_runtime_only():
+def test_register_is_a_noop_and_the_encoding_is_a_registry_entry():
+    from su2plaq.encodings import registry
+
     v1 = lap_spec.get_encoding("rishon")
     S.register(); S.register()
-    assert lap_spec.get_encoding("rishon") is v1 is S._VIEW and NOMINAL_ANGLES["rishon"] == (0.37, 0.61) == S.RISHON_NOMINAL
+    assert lap_spec.get_encoding("rishon") is v1 is registry.get("rishon") is S._view() and isinstance(v1, S.RishonCompressView)
+    assert NOMINAL_ANGLES["rishon"] == (0.37, 0.61) == S.RISHON_NOMINAL
+    assert "rishon" not in lap_spec._ENCODINGS and not hasattr(S, "_VIEW")          # nothing is inserted into a shared dict
     assert lap_spec.get_encoding("twelve").name == "twelve"          # the laptop entry is untouched
     with pytest.raises(ValueError):
         lap_spec.get_encoding("nonexistent")

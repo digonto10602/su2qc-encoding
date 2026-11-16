@@ -12,7 +12,7 @@ import argparse
 
 import numpy as np
 
-import su2plaq.rishon.compress  # noqa: F401  (registers the encoding)
+import su2plaq.rishon.compress  # noqa: F401  (package init: the registry entry needs no registration)
 from su2plaq.compress import oracle as _lap
 from su2plaq.compress.spec import TaskSpec, get_encoding
 from su2plaq.rishon import operators as _ops

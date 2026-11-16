@@ -36,7 +36,6 @@ def main(argv=None) -> int:
         print(__doc__)
         return 2
     sub, rest = argv[0], argv[1:]
-    H.install()
     ap = argparse.ArgumentParser(prog=f"m10_round.py {sub}", add_help=False)
     ap.add_argument("--encoding", choices=H.ENCODINGS)
     ap.add_argument("--kind")

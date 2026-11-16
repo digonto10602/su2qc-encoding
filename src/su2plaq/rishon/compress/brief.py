@@ -14,7 +14,7 @@ import argparse
 import pathlib
 import sys
 
-import su2plaq.rishon.compress  # noqa: F401  (registers the encoding)
+import su2plaq.rishon.compress  # noqa: F401  (package init: the registry entry needs no registration)
 from su2plaq.compress import archive as A
 from su2plaq.compress import brief as LBR
 from su2plaq.compress.spec import ROOT, default_spec

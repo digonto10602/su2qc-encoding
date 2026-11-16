@@ -272,7 +272,7 @@ def main(argv=None) -> int:
     ap.add_argument("--root")
     ap.add_argument("--refresh", action="store_true")
     a = ap.parse_args(argv)
-    import su2plaq.rishon.compress  # noqa: F401  (registers the encoding)
+    import su2plaq.rishon.compress  # noqa: F401  (package init: the registry entry needs no registration)
 
     if a.cmd == "headline":
         print(json.dumps(headline(a.kind, a.root, refresh=a.refresh), indent=1, default=str))

@@ -114,18 +114,19 @@ def test_install_replaces_nothing_and_sets_no_environment():
     H.install()
     assert ids() == before and dict(os.environ) == env and not any(k.startswith("SU2PLAQ_") for k in os.environ)
     assert not hasattr(H, "SITEHOOK_DIR") and not hasattr(H, "_swap_cmds")
+    assert H.FuzzyUBTask.__module__ == H.FuzzyLinkTask.__module__ == "su2plaq.fuzzy.units"          # the factories live apart from the hook
 
 
 def test_registry_entries_and_hashes():
     from su2plaq.compress import provenance as P
     from su2plaq.encodings import registry
 
-    files = ["fuzzy/verify.py", "fuzzy/targets.py", "circuits/fuzzy.py", "fuzzy/compress_hook.py"]
+    files = ["fuzzy/verify.py", "fuzzy/targets.py", "circuits/fuzzy.py", "fuzzy/units.py", "fuzzy/compress_hook.py"]
     for name, kind in H.UNITS.items():
         info = registry.info(name)
         assert list(info.evaluator_files) == files and info.kinds == (kind,) and info.loop_kind == kind
         assert info.stamp == "shared" and info.gauss_in_loop is False and info.lean_certify is None
-        assert info.factory.startswith("su2plaq.fuzzy.compress_hook:") and registry.get(name).name == name
+        assert info.factory.startswith("su2plaq.fuzzy.units:") and registry.get(name).name == name
         assert P.stamp_hash(name) == P.code_hash() and P.code_hash_for(name) != P.code_hash()
         for field in ("general_circuit", "import_seed", "render_spec", "brief_note", "worker_warmup"):
             assert callable(registry.resolve(getattr(info, field))), field

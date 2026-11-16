@@ -145,10 +145,13 @@ reported as `n_a` with the reason.
   (Amy–Maslov–Mosca, arXiv:1303.2042) bounds the CNOT count by $2^4-2=14$ for all parities, against 36 CX for the two M9 ladders.
   $U_B$ levers: `rccx` compute/uncompute pairs (Maslov arXiv:1508.03273), one unary decode of the three parity bits into eight
   sector flags, Gray-ordered sectors, uncontrolled Clifford frames where the flag makes the control redundant.
-* **Hook.** `su2plaq.fuzzy.compress_hook.install()` registers the two units in the laptop `spec`/`evaluate`/`baselines`/`round`
-  modules by attribute patching (no laptop file edited; the clean diff is in prompts/302 §2 and `notes/merge-notes-fuzzy.md`),
-  forces `gauss=False` for fuzzy block encodings, replaces `build_UB`'s constant `p(-pi)` by `z` in the general seed (the laptop
-  program generator requires angle-linear gates), records Lean status `n_a` (no fuzzy exporter), and exports
-  `SU2PLAQ_FUZZY_HOOK=1` + `PYTHONPATH+=src/su2plaq/fuzzy/sitehook` so that the sandboxed build worker installs the hook too.
+* **Registry entries (prompts/008 B4; formerly the hook).** The two units are entries `fuzzy_ub` / `fuzzy_link` of the shared encoding
+  registry (`su2plaq.encodings.registry`; hooks in `su2plaq.fuzzy.compress_hook`), so the stock `su2plaq.compress.*` modules and the
+  stock build worker serve them directly and nothing is patched, exported or added to `PYTHONPATH` (the old attribute-patching hook,
+  its `SU2PLAQ_FUZZY_HOOK` variable and the `sitehook` directory are gone; their history is in prompts/302 §2 and
+  `notes/merge-notes-fuzzy.md`). The entries set `gauss_in_loop=False` (the Gauss residual of a fuzzy verdict is NaN, `extra["gauss"] =
+  "not_checked"`), replace `build_UB`'s constant `p(-pi)` by `z` in the general seed (the program generator requires angle-linear
+  gates), record Lean status `n_a` (no fuzzy exporter), and let the build worker warm up the units before its audit guard
+  (`worker_warmup`).
   Prototype (`scratch/planner/m10_hook_proto.py`): link full key (36, 644, 1515, 4), polish → 30 CX; $U_B$ (1718, 2822, 4924, 15),
   polish → 1596 CX; composed general step with outer links CX 2150, $N_{\rm rot}=136$.

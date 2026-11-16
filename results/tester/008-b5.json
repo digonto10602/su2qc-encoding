@@ -1,0 +1,4534 @@
+{
+ "commit": "6c3fa44",
+ "note": "uncommitted B5 tree on 73b4813; comparison tree = git archive 73b4813",
+ "machine": {
+  "host": "omnicommander",
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpus": 20
+ },
+ "parameters": {
+  "seed_program": "compress/programs/rishon/seed/000-general.py",
+  "best_program": "compress/programs/rishon/F1/004-pz-selector-walsh6.py (r04-F1-004)",
+  "spec": "default_spec('rishon','step') nominal (0.37,0.61), alt (0.91,0.23),(1.70,1.00)",
+  "eps_synth": 1e-06,
+  "trial_seed": "spec.trial_seed (default)",
+  "prune_circuit": "circuits.rishon.build_UB(0.61, ladder='rccx') kind UB",
+  "env": "OMP/OPENBLAS/MKL threads=1"
+ },
+ "nothing_replaced": {
+  "new": {
+   "root": "/home/digimonk/Projects/su2qc-encoding",
+   "n_attrs_checked": 991,
+   "stages": {
+    "rishon_import_register": {
+     "attr_changed": [],
+     "attr_added": [],
+     "attr_removed": [],
+     "named_ids_changed": [],
+     "registry_changed": [],
+     "registry_keys": [
+      "twelve",
+      "spinnet",
+      "fuzzy_ub",
+      "fuzzy_link",
+      "rishon",
+      "lsh"
+     ],
+     "env_changed": [],
+     "path_changed": false,
+     "meta_path_changed": false,
+     "path_hooks_changed": false
+    },
+    "+fuzzy_install": {
+     "attr_changed": [],
+     "attr_added": [],
+     "attr_removed": [],
+     "named_ids_changed": [],
+     "registry_changed": [],
+     "registry_keys": [
+      "twelve",
+      "spinnet",
+      "fuzzy_ub",
+      "fuzzy_link",
+      "rishon",
+      "lsh"
+     ],
+     "env_changed": [],
+     "path_changed": false,
+     "meta_path_changed": false,
+     "path_hooks_changed": false
+    },
+    "+spinnet_install": {
+     "attr_changed": [],
+     "attr_added": [],
+     "attr_removed": [],
+     "named_ids_changed": [],
+     "registry_changed": [],
+     "registry_keys": [
+      "twelve",
+      "spinnet",
+      "fuzzy_ub",
+      "fuzzy_link",
+      "rishon",
+      "lsh"
+     ],
+     "env_changed": [],
+     "path_changed": false,
+     "meta_path_changed": false,
+     "path_hooks_changed": false
+    }
+   },
+   "new_modules_after": [
+    "su2plaq.circuits.fuzzy",
+    "su2plaq.fuzzy",
+    "su2plaq.fuzzy.compress_hook",
+    "su2plaq.fuzzy.link",
+    "su2plaq.fuzzy.plaquette",
+    "su2plaq.fuzzy.targets",
+    "su2plaq.fuzzy.units",
+    "su2plaq.fuzzy.verify",
+    "su2plaq.rishon.compress",
+    "su2plaq.rishon.compress.baselines",
+    "su2plaq.rishon.compress.evaluate",
+    "su2plaq.rishon.compress.robust",
+    "su2plaq.rishon.compress.round",
+    "su2plaq.rishon.compress.spec",
+    "su2plaq.spinnet.loop"
+   ],
+   "S_has__ENCODINGS": true,
+   "S__ENCODINGS_keys": [],
+   "NOMINAL_ANGLES": {
+    "twelve": [
+     0.37,
+     0.61
+    ],
+    "spinnet": [
+     0.37,
+     0.61
+    ],
+    "fuzzy_ub": [
+     0.37,
+     0.61
+    ],
+    "fuzzy_link": [
+     0.37,
+     0.61
+    ],
+    "rishon": [
+     0.37,
+     0.61
+    ],
+    "lsh": [
+     0.37,
+     0.61
+    ]
+   },
+   "env_SU2": {}
+  },
+  "head_old_shims": {
+   "root": "/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/57b28677-d814-4f58-bc95-52ae378eb01f/scratchpad/t5/headtree",
+   "n_attrs_checked": 991,
+   "stages": {
+    "rishon_import_register": {
+     "attr_changed": [
+      "su2plaq.compress.spec.NOMINAL_ANGLES",
+      "su2plaq.compress.spec._ENCODINGS",
+      "su2plaq.encodings.base.NOMINAL_ANGLES",
+      "su2plaq.encodings.twelve.NOMINAL_ANGLES"
+     ],
+     "attr_added": [],
+     "attr_removed": [],
+     "named_ids_changed": [],
+     "registry_changed": [],
+     "registry_keys": [
+      "twelve",
+      "spinnet",
+      "fuzzy_ub",
+      "fuzzy_link",
+      "lsh"
+     ],
+     "env_changed": [],
+     "path_changed": false,
+     "meta_path_changed": false,
+     "path_hooks_changed": false
+    },
+    "+fuzzy_install": {
+     "attr_changed": [
+      "su2plaq.compress.spec.NOMINAL_ANGLES",
+      "su2plaq.compress.spec._ENCODINGS",
+      "su2plaq.encodings.base.NOMINAL_ANGLES",
+      "su2plaq.encodings.twelve.NOMINAL_ANGLES"
+     ],
+     "attr_added": [],
+     "attr_removed": [],
+     "named_ids_changed": [],
+     "registry_changed": [],
+     "registry_keys": [
+      "twelve",
+      "spinnet",
+      "fuzzy_ub",
+      "fuzzy_link",
+      "lsh"
+     ],
+     "env_changed": [],
+     "path_changed": false,
+     "meta_path_changed": false,
+     "path_hooks_changed": false
+    },
+    "+spinnet_install": {
+     "attr_changed": [
+      "su2plaq.compress.spec.NOMINAL_ANGLES",
+      "su2plaq.compress.spec._ENCODINGS",
+      "su2plaq.encodings.base.NOMINAL_ANGLES",
+      "su2plaq.encodings.twelve.NOMINAL_ANGLES"
+     ],
+     "attr_added": [],
+     "attr_removed": [],
+     "named_ids_changed": [],
+     "registry_changed": [],
+     "registry_keys": [
+      "twelve",
+      "spinnet",
+      "fuzzy_ub",
+      "fuzzy_link",
+      "lsh"
+     ],
+     "env_changed": [],
+     "path_changed": false,
+     "meta_path_changed": false,
+     "path_hooks_changed": false
+    }
+   },
+   "new_modules_after": [
+    "su2plaq.circuits.fuzzy",
+    "su2plaq.fuzzy",
+    "su2plaq.fuzzy.compress_hook",
+    "su2plaq.fuzzy.link",
+    "su2plaq.fuzzy.plaquette",
+    "su2plaq.fuzzy.targets",
+    "su2plaq.fuzzy.verify",
+    "su2plaq.rishon.compress",
+    "su2plaq.rishon.compress.baselines",
+    "su2plaq.rishon.compress.evaluate",
+    "su2plaq.rishon.compress.robust",
+    "su2plaq.rishon.compress.round",
+    "su2plaq.rishon.compress.spec",
+    "su2plaq.spinnet.loop"
+   ],
+   "S_has__ENCODINGS": true,
+   "S__ENCODINGS_keys": [
+    "rishon"
+   ],
+   "NOMINAL_ANGLES": {
+    "twelve": [
+     0.37,
+     0.61
+    ],
+    "spinnet": [
+     0.37,
+     0.61
+    ],
+    "fuzzy_ub": [
+     0.37,
+     0.61
+    ],
+    "fuzzy_link": [
+     0.37,
+     0.61
+    ],
+    "lsh": [
+     0.37,
+     0.61
+    ],
+    "rishon": [
+     0.37,
+     0.61
+    ]
+   },
+   "env_SU2": {}
+  }
+ },
+ "early_verdicts": {
+  "new": {
+   "bad_layout/full": {
+    "valid": false,
+    "reason": "bad_layout",
+    "message": "",
+    "seconds": 3.5221049785614014,
+    "verdict": {
+     "ok": false,
+     "reason": "bad_layout",
+     "op_norm_error": "inf",
+     "max_leak": "inf",
+     "dirty_ancilla": "inf",
+     "phase": "(1+0j)",
+     "outer_bits_read": 0,
+     "n_blocks": 0,
+     "gauss_residual": "nan",
+     "method": "rishon_inner_block",
+     "engine": "auto",
+     "failing_inputs": [
+      [
+       "message",
+       "circuit has 10 qubits, fewer than the 16 data qubits"
+      ]
+     ],
+     "n_inputs": 0,
+     "dropped_total": 0.0,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": "inf",
+     "leak_amplitude": "inf",
+     "extra": {
+      "gauss_states": 0,
+      "outer_bits_read": 0,
+      "inner_method": "auto",
+      "rishon": true
+     },
+     "span_leak": "nan",
+     "total_error": "inf"
+    }
+   },
+   "bad_layout/trial": {
+    "valid": false,
+    "reason": "bad_layout",
+    "message": "",
+    "seconds": 0.01785421371459961,
+    "verdict": {
+     "ok": false,
+     "reason": "bad_layout",
+     "op_norm_error": "inf",
+     "max_leak": "inf",
+     "dirty_ancilla": "inf",
+     "phase": "(1+0j)",
+     "outer_bits_read": 0,
+     "n_blocks": 0,
+     "gauss_residual": "nan",
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "message",
+       "circuit has 10 qubits, fewer than the 16 data qubits"
+      ]
+     ],
+     "n_inputs": 0,
+     "dropped_total": 0.0,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": "inf",
+     "leak_amplitude": "inf",
+     "extra": {
+      "gauss_states": 0,
+      "outer_bits_read": 0,
+      "inner_method": "auto",
+      "rishon": true
+     },
+     "span_leak": "nan",
+     "total_error": "inf"
+    }
+   },
+   "unsimulable/trial": {
+    "valid": false,
+    "reason": "unsimulable",
+    "message": "",
+    "seconds": 2.249523639678955,
+    "verdict": {
+     "ok": false,
+     "reason": "unsimulable",
+     "op_norm_error": "inf",
+     "max_leak": "inf",
+     "dirty_ancilla": "inf",
+     "phase": "(1+0j)",
+     "outer_bits_read": 0,
+     "n_blocks": 0,
+     "gauss_residual": "nan",
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "message",
+       "more than 5000000 stored amplitudes after gate #11 (unitary on (11,))"
+      ]
+     ],
+     "n_inputs": 0,
+     "dropped_total": 0.0,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": "inf",
+     "leak_amplitude": "inf",
+     "extra": {
+      "gauss_states": 0,
+      "outer_bits_read": 0,
+      "inner_method": "physical",
+      "rishon": true
+     },
+     "span_leak": "nan",
+     "total_error": "inf"
+    }
+   },
+   "disallowed/full": {
+    "valid": false,
+    "reason": "leak",
+    "message": "",
+    "seconds": 14.524493932723999,
+    "verdict": {
+     "ok": false,
+     "reason": "leak",
+     "op_norm_error": 2.1411724745876852,
+     "max_leak": 0.024773889918576215,
+     "dirty_ancilla": 0.0,
+     "phase": "(0.537737962580572+0.843112023161629j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 0.24443400852884037,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       1295,
+       0.15739723605761385
+      ],
+      [
+       1290,
+       0.15739723605761385
+      ],
+      [
+       1289,
+       0.15739723605761385
+      ],
+      [
+       1284,
+       0.15739723605761385
+      ],
+      [
+       1283,
+       0.15739723605761385
+      ],
+      [
+       12,
+       0.15739723605761385
+      ],
+      [
+       11,
+       0.15739723605761385
+      ],
+      [
+       6,
+       0.15739723605761385
+      ],
+      [
+       5,
+       0.15739723605761385
+      ],
+      [
+       0,
+       0.15739723605761385
+      ]
+     ],
+     "n_inputs": 1296,
+     "dropped_total": 0.0,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 1.9425031437926241,
+     "leak_amplitude": 0.19866933079506124,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.1411724745876852
+    }
+   },
+   "max_qubits/full": {
+    "valid": false,
+    "reason": "max_qubits",
+    "message": "100 qubits > cap 80",
+    "seconds": 9.226799011230469e-05,
+    "verdict": null
+   }
+  },
+  "head": {
+   "bad_layout/full": {
+    "valid": false,
+    "reason": "bad_layout",
+    "message": "",
+    "seconds": 3.521824598312378,
+    "verdict": {
+     "ok": false,
+     "reason": "bad_layout",
+     "op_norm_error": "inf",
+     "max_leak": "inf",
+     "dirty_ancilla": "inf",
+     "phase": "(1+0j)",
+     "outer_bits_read": 0,
+     "n_blocks": 0,
+     "gauss_residual": "nan",
+     "method": "rishon_inner_block",
+     "engine": "auto",
+     "failing_inputs": [
+      [
+       "message",
+       "circuit has 10 qubits, fewer than the 16 data qubits"
+      ]
+     ],
+     "n_inputs": 0,
+     "dropped_total": 0.0,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": "inf",
+     "leak_amplitude": "inf",
+     "extra": {
+      "gauss_states": 0,
+      "outer_bits_read": 0,
+      "inner_method": "auto",
+      "rishon": true
+     },
+     "span_leak": "nan",
+     "total_error": "nan"
+    }
+   },
+   "bad_layout/trial": {
+    "valid": false,
+    "reason": "bad_layout",
+    "message": "",
+    "seconds": 0.017850875854492188,
+    "verdict": {
+     "ok": false,
+     "reason": "bad_layout",
+     "op_norm_error": "inf",
+     "max_leak": "inf",
+     "dirty_ancilla": "inf",
+     "phase": "(1+0j)",
+     "outer_bits_read": 0,
+     "n_blocks": 0,
+     "gauss_residual": "nan",
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "message",
+       "circuit has 10 qubits, fewer than the 16 data qubits"
+      ]
+     ],
+     "n_inputs": 0,
+     "dropped_total": 0.0,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": "inf",
+     "leak_amplitude": "inf",
+     "extra": {
+      "gauss_states": 0,
+      "outer_bits_read": 0,
+      "inner_method": "auto",
+      "rishon": true
+     },
+     "span_leak": "nan",
+     "total_error": "nan"
+    }
+   },
+   "unsimulable/trial": {
+    "valid": false,
+    "reason": "unsimulable",
+    "message": "",
+    "seconds": 2.2303097248077393,
+    "verdict": {
+     "ok": false,
+     "reason": "unsimulable",
+     "op_norm_error": "inf",
+     "max_leak": "inf",
+     "dirty_ancilla": "inf",
+     "phase": "(1+0j)",
+     "outer_bits_read": 0,
+     "n_blocks": 0,
+     "gauss_residual": "nan",
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "message",
+       "more than 5000000 stored amplitudes after gate #11 (unitary on (11,))"
+      ]
+     ],
+     "n_inputs": 0,
+     "dropped_total": 0.0,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": "inf",
+     "leak_amplitude": "inf",
+     "extra": {
+      "gauss_states": 0,
+      "outer_bits_read": 0,
+      "inner_method": "physical",
+      "rishon": true
+     },
+     "span_leak": "nan",
+     "total_error": "nan"
+    }
+   },
+   "disallowed/full": {
+    "valid": false,
+    "reason": "leak",
+    "message": "",
+    "seconds": 14.454916954040527,
+    "verdict": {
+     "ok": false,
+     "reason": "leak",
+     "op_norm_error": 2.1411724745876852,
+     "max_leak": 0.024773889918576215,
+     "dirty_ancilla": 0.0,
+     "phase": "(0.537737962580572+0.843112023161629j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 0.24443400852884037,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       1295,
+       0.15739723605761385
+      ],
+      [
+       1290,
+       0.15739723605761385
+      ],
+      [
+       1289,
+       0.15739723605761385
+      ],
+      [
+       1284,
+       0.15739723605761385
+      ],
+      [
+       1283,
+       0.15739723605761385
+      ],
+      [
+       12,
+       0.15739723605761385
+      ],
+      [
+       11,
+       0.15739723605761385
+      ],
+      [
+       6,
+       0.15739723605761385
+      ],
+      [
+       5,
+       0.15739723605761385
+      ],
+      [
+       0,
+       0.15739723605761385
+      ]
+     ],
+     "n_inputs": 1296,
+     "dropped_total": 0.0,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 1.9425031437926241,
+     "leak_amplitude": 0.19866933079506124,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.1411724745876852
+    }
+   },
+   "max_qubits/full": {
+    "valid": false,
+    "reason": "max_qubits",
+    "message": "100 qubits > cap 80",
+    "seconds": 6.341934204101562e-05,
+    "verdict": null
+   }
+  }
+ },
+ "prune_cap": {
+  "new": {
+   "root": "/home/digimonk/Projects/su2qc-encoding",
+   "code_hash": "c4f9b2eded4a52174486c492672f19357511287c30c38a8a53168633377e78b0",
+   "prune_tol1e-10": {
+    "valid": true,
+    "reason": "ok",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "",
+    "spec_sha256": "db7ff1143d1ec1867776ae806dabb3e4fdd4ff4d907665fe832aefb0122cab55",
+    "mode": "full",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 2.6235479385349343e-12,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.395057131121375e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6852929236486432e-14,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 1296,
+     "dropped_total": 2.2810322726119188e-12,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 3.425156659230154e-13,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.6235479385349343e-12
+    },
+    "verdicts_alt": [],
+    "key": [
+     6866,
+     17438,
+     31785,
+     26
+    ],
+    "metrics": {
+     "cx": 6866,
+     "t_fixed": 7262,
+     "n_rot": 162,
+     "t_eps": 17438,
+     "t_estimate": {
+      "1e-06": 16948.74232469155,
+      "1e-10": 23406.57054115258
+     },
+     "t_measured": {
+      "1e-06": 17438,
+      "1e-10": 24110
+     },
+     "synth_error_bound": 0.00016199999999999998,
+     "depth": 9749,
+     "depth_ct": 31785,
+     "qubits": 26,
+     "gates": {
+      "cx": 6866,
+      "h": 4348,
+      "t": 3658,
+      "tdg": 3604,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 162,
+      "z": 16
+     },
+     "measured": true
+    },
+    "wall_s": 19.28055429458618,
+    "discoveries": [],
+    "summary": "",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    }
+   },
+   "prune_tol1e-10_verdictfn": {
+    "ok": true,
+    "reason": "ok",
+    "op_norm_error": 2.6235479385349343e-12,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": "(1+2.395057131121375e-15j)",
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 2.6852929236486432e-14,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "failing_inputs": [],
+    "n_inputs": 1296,
+    "dropped_total": 2.2810322726119188e-12,
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+     "tol_err": 1e-10,
+     "tol_gauss": 1e-10
+    },
+    "block_error": 3.425156659230154e-13,
+    "leak_amplitude": 0.0,
+    "extra": {
+     "gauss_states": 273,
+     "outer_bits_read": 0,
+     "inner_method": "inner_span",
+     "rishon": true
+    },
+    "span_leak": 0.0,
+    "total_error": 2.6235479385349343e-12
+   },
+   "prune_tol1e-11": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "",
+    "spec_sha256": "86db46f15e011647563c849134e9b27c5a5ea1aae7d56cd835ab0192a2419f18",
+    "mode": "full",
+    "verdict": {
+     "ok": false,
+     "reason": "pruning_bound",
+     "op_norm_error": 2.6235479385349343e-12,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.395057131121375e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6852929236486432e-14,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "dropped_total",
+       2.2810322726119188e-12
+      ],
+      [
+       "prune_cap",
+       1e-12
+      ]
+     ],
+     "n_inputs": 1296,
+     "dropped_total": 2.2810322726119188e-12,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-11,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 3.425156659230154e-13,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.6235479385349343e-12
+    },
+    "verdicts_alt": [],
+    "key": [
+     6866,
+     16948.74232469155,
+     9749,
+     26
+    ],
+    "metrics": {
+     "cx": 6866,
+     "t_fixed": 7262,
+     "n_rot": 162,
+     "t_eps": 16948.74232469155,
+     "t_estimate": {
+      "1e-06": 16948.74232469155,
+      "1e-10": 23406.57054115258
+     },
+     "t_measured": null,
+     "synth_error_bound": 0.00016199999999999998,
+     "depth": 9749,
+     "depth_ct": 9749,
+     "qubits": 26,
+     "gates": {
+      "cx": 6866,
+      "h": 4348,
+      "t": 3658,
+      "tdg": 3604,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 162,
+      "z": 16
+     },
+     "measured": false
+    },
+    "wall_s": 12.896201848983765,
+    "discoveries": [],
+    "summary": "",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    }
+   },
+   "prune_tol1e-11_verdictfn": {
+    "ok": false,
+    "reason": "pruning_bound",
+    "op_norm_error": 2.6235479385349343e-12,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": "(1+2.395057131121375e-15j)",
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 2.6852929236486432e-14,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "failing_inputs": [
+     [
+      "dropped_total",
+      2.2810322726119188e-12
+     ],
+     [
+      "prune_cap",
+      1e-12
+     ]
+    ],
+    "n_inputs": 1296,
+    "dropped_total": 2.2810322726119188e-12,
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+     "tol_err": 1e-11,
+     "tol_gauss": 1e-10
+    },
+    "block_error": 3.425156659230154e-13,
+    "leak_amplitude": 0.0,
+    "extra": {
+     "gauss_states": 273,
+     "outer_bits_read": 0,
+     "inner_method": "inner_span",
+     "rishon": true
+    },
+    "span_leak": 0.0,
+    "total_error": 2.6235479385349343e-12
+   },
+   "prune_tol2e-11": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "",
+    "spec_sha256": "d82da4eb0c9106359631efdff516ecf2013ef5a3f393203598dd9d15f9e71d61",
+    "mode": "full",
+    "verdict": {
+     "ok": false,
+     "reason": "pruning_bound",
+     "op_norm_error": 2.6235479385349343e-12,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.395057131121375e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6852929236486432e-14,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "dropped_total",
+       2.2810322726119188e-12
+      ],
+      [
+       "prune_cap",
+       2e-12
+      ]
+     ],
+     "n_inputs": 1296,
+     "dropped_total": 2.2810322726119188e-12,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 2e-11,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 3.425156659230154e-13,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.6235479385349343e-12
+    },
+    "verdicts_alt": [],
+    "key": [
+     6866,
+     16948.74232469155,
+     9749,
+     26
+    ],
+    "metrics": {
+     "cx": 6866,
+     "t_fixed": 7262,
+     "n_rot": 162,
+     "t_eps": 16948.74232469155,
+     "t_estimate": {
+      "1e-06": 16948.74232469155,
+      "1e-10": 23406.57054115258
+     },
+     "t_measured": null,
+     "synth_error_bound": 0.00016199999999999998,
+     "depth": 9749,
+     "depth_ct": 9749,
+     "qubits": 26,
+     "gates": {
+      "cx": 6866,
+      "h": 4348,
+      "t": 3658,
+      "tdg": 3604,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 162,
+      "z": 16
+     },
+     "measured": false
+    },
+    "wall_s": 12.605127096176147,
+    "discoveries": [],
+    "summary": "",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    }
+   },
+   "prune_tol2e-11_verdictfn": {
+    "ok": false,
+    "reason": "pruning_bound",
+    "op_norm_error": 2.6235479385349343e-12,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": "(1+2.395057131121375e-15j)",
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 2.6852929236486432e-14,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "failing_inputs": [
+     [
+      "dropped_total",
+      2.2810322726119188e-12
+     ],
+     [
+      "prune_cap",
+      2e-12
+     ]
+    ],
+    "n_inputs": 1296,
+    "dropped_total": 2.2810322726119188e-12,
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+     "tol_err": 2e-11,
+     "tol_gauss": 1e-10
+    },
+    "block_error": 3.425156659230154e-13,
+    "leak_amplitude": 0.0,
+    "extra": {
+     "gauss_states": 273,
+     "outer_bits_read": 0,
+     "inner_method": "inner_span",
+     "rishon": true
+    },
+    "span_leak": 0.0,
+    "total_error": 2.6235479385349343e-12
+   },
+   "prune_tol3e-12": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "",
+    "spec_sha256": "c7cdfea3cfbf1cc5636975560c671737b67ea72d774c1ed12578131e396acc26",
+    "mode": "full",
+    "verdict": {
+     "ok": false,
+     "reason": "pruning_bound",
+     "op_norm_error": 2.6235479385349343e-12,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.395057131121375e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6852929236486432e-14,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "dropped_total",
+       2.2810322726119188e-12
+      ],
+      [
+       "prune_cap",
+       3.0000000000000003e-13
+      ]
+     ],
+     "n_inputs": 1296,
+     "dropped_total": 2.2810322726119188e-12,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 3e-12,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 3.425156659230154e-13,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.6235479385349343e-12
+    },
+    "verdicts_alt": [],
+    "key": [
+     6866,
+     16948.74232469155,
+     9749,
+     26
+    ],
+    "metrics": {
+     "cx": 6866,
+     "t_fixed": 7262,
+     "n_rot": 162,
+     "t_eps": 16948.74232469155,
+     "t_estimate": {
+      "1e-06": 16948.74232469155,
+      "1e-10": 23406.57054115258
+     },
+     "t_measured": null,
+     "synth_error_bound": 0.00016199999999999998,
+     "depth": 9749,
+     "depth_ct": 9749,
+     "qubits": 26,
+     "gates": {
+      "cx": 6866,
+      "h": 4348,
+      "t": 3658,
+      "tdg": 3604,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 162,
+      "z": 16
+     },
+     "measured": false
+    },
+    "wall_s": 12.75245714187622,
+    "discoveries": [],
+    "summary": "",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    }
+   },
+   "prune_tol3e-12_verdictfn": {
+    "ok": false,
+    "reason": "pruning_bound",
+    "op_norm_error": 2.6235479385349343e-12,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": "(1+2.395057131121375e-15j)",
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 2.6852929236486432e-14,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "failing_inputs": [
+     [
+      "dropped_total",
+      2.2810322726119188e-12
+     ],
+     [
+      "prune_cap",
+      3.0000000000000003e-13
+     ]
+    ],
+    "n_inputs": 1296,
+    "dropped_total": 2.2810322726119188e-12,
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+     "tol_err": 3e-12,
+     "tol_gauss": 1e-10
+    },
+    "block_error": 3.425156659230154e-13,
+    "leak_amplitude": 0.0,
+    "extra": {
+     "gauss_states": 273,
+     "outer_bits_read": 0,
+     "inner_method": "inner_span",
+     "rishon": true
+    },
+    "span_leak": 0.0,
+    "total_error": 2.6235479385349343e-12
+   },
+   "prune_tol2e-12": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "",
+    "spec_sha256": "b02920cfb1392a4e102a068c8f10c0724a43e8879257ad5889d780c79c78392d",
+    "mode": "full",
+    "verdict": {
+     "ok": false,
+     "reason": "pruning_bound",
+     "op_norm_error": 2.6235479385349343e-12,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.395057131121375e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6852929236486432e-14,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "dropped_total",
+       2.2810322726119188e-12
+      ],
+      [
+       "prune_cap",
+       2e-13
+      ]
+     ],
+     "n_inputs": 1296,
+     "dropped_total": 2.2810322726119188e-12,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 2e-12,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 3.425156659230154e-13,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.6235479385349343e-12
+    },
+    "verdicts_alt": [],
+    "key": [
+     6866,
+     16948.74232469155,
+     9749,
+     26
+    ],
+    "metrics": {
+     "cx": 6866,
+     "t_fixed": 7262,
+     "n_rot": 162,
+     "t_eps": 16948.74232469155,
+     "t_estimate": {
+      "1e-06": 16948.74232469155,
+      "1e-10": 23406.57054115258
+     },
+     "t_measured": null,
+     "synth_error_bound": 0.00016199999999999998,
+     "depth": 9749,
+     "depth_ct": 9749,
+     "qubits": 26,
+     "gates": {
+      "cx": 6866,
+      "h": 4348,
+      "t": 3658,
+      "tdg": 3604,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 162,
+      "z": 16
+     },
+     "measured": false
+    },
+    "wall_s": 12.529279470443726,
+    "discoveries": [],
+    "summary": "",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    }
+   },
+   "prune_tol2e-12_verdictfn": {
+    "ok": false,
+    "reason": "pruning_bound",
+    "op_norm_error": 2.6235479385349343e-12,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": "(1+2.395057131121375e-15j)",
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 2.6852929236486432e-14,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "failing_inputs": [
+     [
+      "dropped_total",
+      2.2810322726119188e-12
+     ],
+     [
+      "prune_cap",
+      2e-13
+     ]
+    ],
+    "n_inputs": 1296,
+    "dropped_total": 2.2810322726119188e-12,
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+     "tol_err": 2e-12,
+     "tol_gauss": 1e-10
+    },
+    "block_error": 3.425156659230154e-13,
+    "leak_amplitude": 0.0,
+    "extra": {
+     "gauss_states": 273,
+     "outer_bits_read": 0,
+     "inner_method": "inner_span",
+     "rishon": true
+    },
+    "span_leak": 0.0,
+    "total_error": 2.6235479385349343e-12
+   }
+  },
+  "head": {
+   "root": "/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/57b28677-d814-4f58-bc95-52ae378eb01f/scratchpad/t5/headtree",
+   "code_hash": "de902b6f60c79bfc61095c0b0c9c6ba88e364f1a7201429a3f5b38d555a62a51",
+   "prune_tol1e-10": {
+    "valid": true,
+    "reason": "ok",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "",
+    "spec_sha256": "db7ff1143d1ec1867776ae806dabb3e4fdd4ff4d907665fe832aefb0122cab55",
+    "mode": "full",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 2.6235479385349343e-12,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.395057131121375e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6852929236486432e-14,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 1296,
+     "dropped_total": 2.2810322726119188e-12,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 3.425156659230154e-13,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.6235479385349343e-12
+    },
+    "verdicts_alt": [],
+    "key": [
+     6866,
+     17438,
+     31785,
+     26
+    ],
+    "metrics": {
+     "cx": 6866,
+     "t_fixed": 7262,
+     "n_rot": 162,
+     "t_eps": 17438,
+     "t_estimate": {
+      "1e-06": 16948.74232469155,
+      "1e-10": 23406.57054115258
+     },
+     "t_measured": {
+      "1e-06": 17438,
+      "1e-10": 24110
+     },
+     "synth_error_bound": 0.00016199999999999998,
+     "depth": 9749,
+     "depth_ct": 31785,
+     "qubits": 26,
+     "gates": {
+      "cx": 6866,
+      "h": 4348,
+      "t": 3658,
+      "tdg": 3604,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 162,
+      "z": 16
+     },
+     "measured": true
+    },
+    "wall_s": 19.2147536277771,
+    "discoveries": [],
+    "summary": "",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    }
+   },
+   "prune_tol1e-10_verdictfn": {
+    "ok": true,
+    "reason": "ok",
+    "op_norm_error": 2.6235479385349343e-12,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": "(1+2.395057131121375e-15j)",
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 2.6852929236486432e-14,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "failing_inputs": [],
+    "n_inputs": 1296,
+    "dropped_total": 2.2810322726119188e-12,
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+     "tol_err": 1e-10,
+     "tol_gauss": 1e-10
+    },
+    "block_error": 3.425156659230154e-13,
+    "leak_amplitude": 0.0,
+    "extra": {
+     "gauss_states": 273,
+     "outer_bits_read": 0,
+     "inner_method": "inner_span",
+     "rishon": true
+    },
+    "span_leak": 0.0,
+    "total_error": 2.6235479385349343e-12
+   },
+   "prune_tol1e-11": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "",
+    "spec_sha256": "86db46f15e011647563c849134e9b27c5a5ea1aae7d56cd835ab0192a2419f18",
+    "mode": "full",
+    "verdict": {
+     "ok": false,
+     "reason": "pruning_bound",
+     "op_norm_error": 2.6235479385349343e-12,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.395057131121375e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6852929236486432e-14,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "dropped_total",
+       2.2810322726119188e-12
+      ],
+      [
+       "prune_cap",
+       1e-12
+      ]
+     ],
+     "n_inputs": 1296,
+     "dropped_total": 2.2810322726119188e-12,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-11,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 3.425156659230154e-13,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.6235479385349343e-12
+    },
+    "verdicts_alt": [],
+    "key": [
+     6866,
+     16948.74232469155,
+     9749,
+     26
+    ],
+    "metrics": {
+     "cx": 6866,
+     "t_fixed": 7262,
+     "n_rot": 162,
+     "t_eps": 16948.74232469155,
+     "t_estimate": {
+      "1e-06": 16948.74232469155,
+      "1e-10": 23406.57054115258
+     },
+     "t_measured": null,
+     "synth_error_bound": 0.00016199999999999998,
+     "depth": 9749,
+     "depth_ct": 9749,
+     "qubits": 26,
+     "gates": {
+      "cx": 6866,
+      "h": 4348,
+      "t": 3658,
+      "tdg": 3604,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 162,
+      "z": 16
+     },
+     "measured": false
+    },
+    "wall_s": 12.810872793197632,
+    "discoveries": [],
+    "summary": "",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    }
+   },
+   "prune_tol1e-11_verdictfn": {
+    "ok": false,
+    "reason": "pruning_bound",
+    "op_norm_error": 2.6235479385349343e-12,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": "(1+2.395057131121375e-15j)",
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 2.6852929236486432e-14,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "failing_inputs": [
+     [
+      "dropped_total",
+      2.2810322726119188e-12
+     ],
+     [
+      "prune_cap",
+      1e-12
+     ]
+    ],
+    "n_inputs": 1296,
+    "dropped_total": 2.2810322726119188e-12,
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+     "tol_err": 1e-11,
+     "tol_gauss": 1e-10
+    },
+    "block_error": 3.425156659230154e-13,
+    "leak_amplitude": 0.0,
+    "extra": {
+     "gauss_states": 273,
+     "outer_bits_read": 0,
+     "inner_method": "inner_span",
+     "rishon": true
+    },
+    "span_leak": 0.0,
+    "total_error": 2.6235479385349343e-12
+   },
+   "prune_tol2e-11": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "",
+    "spec_sha256": "d82da4eb0c9106359631efdff516ecf2013ef5a3f393203598dd9d15f9e71d61",
+    "mode": "full",
+    "verdict": {
+     "ok": false,
+     "reason": "pruning_bound",
+     "op_norm_error": 2.6235479385349343e-12,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.395057131121375e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6852929236486432e-14,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "dropped_total",
+       2.2810322726119188e-12
+      ],
+      [
+       "prune_cap",
+       2e-12
+      ]
+     ],
+     "n_inputs": 1296,
+     "dropped_total": 2.2810322726119188e-12,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 2e-11,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 3.425156659230154e-13,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.6235479385349343e-12
+    },
+    "verdicts_alt": [],
+    "key": [
+     6866,
+     16948.74232469155,
+     9749,
+     26
+    ],
+    "metrics": {
+     "cx": 6866,
+     "t_fixed": 7262,
+     "n_rot": 162,
+     "t_eps": 16948.74232469155,
+     "t_estimate": {
+      "1e-06": 16948.74232469155,
+      "1e-10": 23406.57054115258
+     },
+     "t_measured": null,
+     "synth_error_bound": 0.00016199999999999998,
+     "depth": 9749,
+     "depth_ct": 9749,
+     "qubits": 26,
+     "gates": {
+      "cx": 6866,
+      "h": 4348,
+      "t": 3658,
+      "tdg": 3604,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 162,
+      "z": 16
+     },
+     "measured": false
+    },
+    "wall_s": 12.538505792617798,
+    "discoveries": [],
+    "summary": "",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    }
+   },
+   "prune_tol2e-11_verdictfn": {
+    "ok": false,
+    "reason": "pruning_bound",
+    "op_norm_error": 2.6235479385349343e-12,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": "(1+2.395057131121375e-15j)",
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 2.6852929236486432e-14,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "failing_inputs": [
+     [
+      "dropped_total",
+      2.2810322726119188e-12
+     ],
+     [
+      "prune_cap",
+      2e-12
+     ]
+    ],
+    "n_inputs": 1296,
+    "dropped_total": 2.2810322726119188e-12,
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+     "tol_err": 2e-11,
+     "tol_gauss": 1e-10
+    },
+    "block_error": 3.425156659230154e-13,
+    "leak_amplitude": 0.0,
+    "extra": {
+     "gauss_states": 273,
+     "outer_bits_read": 0,
+     "inner_method": "inner_span",
+     "rishon": true
+    },
+    "span_leak": 0.0,
+    "total_error": 2.6235479385349343e-12
+   },
+   "prune_tol3e-12": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "",
+    "spec_sha256": "c7cdfea3cfbf1cc5636975560c671737b67ea72d774c1ed12578131e396acc26",
+    "mode": "full",
+    "verdict": {
+     "ok": false,
+     "reason": "pruning_bound",
+     "op_norm_error": 2.6235479385349343e-12,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.395057131121375e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6852929236486432e-14,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "dropped_total",
+       2.2810322726119188e-12
+      ],
+      [
+       "prune_cap",
+       3.0000000000000003e-13
+      ]
+     ],
+     "n_inputs": 1296,
+     "dropped_total": 2.2810322726119188e-12,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 3e-12,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 3.425156659230154e-13,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.6235479385349343e-12
+    },
+    "verdicts_alt": [],
+    "key": [
+     6866,
+     16948.74232469155,
+     9749,
+     26
+    ],
+    "metrics": {
+     "cx": 6866,
+     "t_fixed": 7262,
+     "n_rot": 162,
+     "t_eps": 16948.74232469155,
+     "t_estimate": {
+      "1e-06": 16948.74232469155,
+      "1e-10": 23406.57054115258
+     },
+     "t_measured": null,
+     "synth_error_bound": 0.00016199999999999998,
+     "depth": 9749,
+     "depth_ct": 9749,
+     "qubits": 26,
+     "gates": {
+      "cx": 6866,
+      "h": 4348,
+      "t": 3658,
+      "tdg": 3604,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 162,
+      "z": 16
+     },
+     "measured": false
+    },
+    "wall_s": 12.758411407470703,
+    "discoveries": [],
+    "summary": "",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    }
+   },
+   "prune_tol3e-12_verdictfn": {
+    "ok": false,
+    "reason": "pruning_bound",
+    "op_norm_error": 2.6235479385349343e-12,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": "(1+2.395057131121375e-15j)",
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 2.6852929236486432e-14,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "failing_inputs": [
+     [
+      "dropped_total",
+      2.2810322726119188e-12
+     ],
+     [
+      "prune_cap",
+      3.0000000000000003e-13
+     ]
+    ],
+    "n_inputs": 1296,
+    "dropped_total": 2.2810322726119188e-12,
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+     "tol_err": 3e-12,
+     "tol_gauss": 1e-10
+    },
+    "block_error": 3.425156659230154e-13,
+    "leak_amplitude": 0.0,
+    "extra": {
+     "gauss_states": 273,
+     "outer_bits_read": 0,
+     "inner_method": "inner_span",
+     "rishon": true
+    },
+    "span_leak": 0.0,
+    "total_error": 2.6235479385349343e-12
+   },
+   "prune_tol2e-12": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "",
+    "spec_sha256": "b02920cfb1392a4e102a068c8f10c0724a43e8879257ad5889d780c79c78392d",
+    "mode": "full",
+    "verdict": {
+     "ok": false,
+     "reason": "pruning_bound",
+     "op_norm_error": 2.6235479385349343e-12,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.395057131121375e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6852929236486432e-14,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [
+      [
+       "dropped_total",
+       2.2810322726119188e-12
+      ],
+      [
+       "prune_cap",
+       2e-13
+      ]
+     ],
+     "n_inputs": 1296,
+     "dropped_total": 2.2810322726119188e-12,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 2e-12,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 3.425156659230154e-13,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 2.6235479385349343e-12
+    },
+    "verdicts_alt": [],
+    "key": [
+     6866,
+     16948.74232469155,
+     9749,
+     26
+    ],
+    "metrics": {
+     "cx": 6866,
+     "t_fixed": 7262,
+     "n_rot": 162,
+     "t_eps": 16948.74232469155,
+     "t_estimate": {
+      "1e-06": 16948.74232469155,
+      "1e-10": 23406.57054115258
+     },
+     "t_measured": null,
+     "synth_error_bound": 0.00016199999999999998,
+     "depth": 9749,
+     "depth_ct": 9749,
+     "qubits": 26,
+     "gates": {
+      "cx": 6866,
+      "h": 4348,
+      "t": 3658,
+      "tdg": 3604,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 162,
+      "z": 16
+     },
+     "measured": false
+    },
+    "wall_s": 12.483703136444092,
+    "discoveries": [],
+    "summary": "",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    }
+   },
+   "prune_tol2e-12_verdictfn": {
+    "ok": false,
+    "reason": "pruning_bound",
+    "op_norm_error": 2.6235479385349343e-12,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": "(1+2.395057131121375e-15j)",
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 2.6852929236486432e-14,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "failing_inputs": [
+     [
+      "dropped_total",
+      2.2810322726119188e-12
+     ],
+     [
+      "prune_cap",
+      2e-13
+     ]
+    ],
+    "n_inputs": 1296,
+    "dropped_total": 2.2810322726119188e-12,
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+     "tol_err": 2e-12,
+     "tol_gauss": 1e-10
+    },
+    "block_error": 3.425156659230154e-13,
+    "leak_amplitude": 0.0,
+    "extra": {
+     "gauss_states": 273,
+     "outer_bits_read": 0,
+     "inner_method": "inner_span",
+     "rishon": true
+    },
+    "span_leak": 0.0,
+    "total_error": 2.6235479385349343e-12
+   }
+  },
+  "bracket_new": {
+   "2.2e-11": [
+    false,
+    "pruning_bound",
+    2.2810322726119188e-12,
+    2.2000000000000003e-12
+   ],
+   "2.3e-11": [
+    true,
+    "ok",
+    2.2810322726119188e-12,
+    2.3000000000000003e-12
+   ],
+   "2.4e-11": [
+    true,
+    "ok",
+    2.2810322726119188e-12,
+    2.4000000000000003e-12
+   ],
+   "1e-10": [
+    true,
+    "ok",
+    2.2810322726119188e-12,
+    1.0000000000000001e-11
+   ]
+  },
+  "bracket_head": {
+   "2.2e-11": [
+    false,
+    "pruning_bound",
+    2.2810322726119188e-12,
+    2.2000000000000003e-12
+   ],
+   "2.3e-11": [
+    true,
+    "ok",
+    2.2810322726119188e-12,
+    2.3000000000000003e-12
+   ],
+   "2.4e-11": [
+    true,
+    "ok",
+    2.2810322726119188e-12,
+    2.4000000000000003e-12
+   ],
+   "1e-10": [
+    true,
+    "ok",
+    2.2810322726119188e-12,
+    1.0000000000000001e-11
+   ]
+  }
+ },
+ "rishon_reeval": {
+  "new": {
+   "root": "/home/digimonk/Projects/su2qc-encoding",
+   "code_hash": "c4f9b2eded4a52174486c492672f19357511287c30c38a8a53168633377e78b0",
+   "seed_full": {
+    "valid": true,
+    "reason": "ok",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "6757d91f5a90ad008f83f54549c526cb82bdb61f69dec61258a30c6d0d63e1f2",
+    "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+    "mode": "full",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 4.1251643306005405e-13,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.456197111269582e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6597966961250314e-15,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 1296,
+     "dropped_total": 3.675622702950601e-13,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 4.4954162764993984e-14,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 4.1251643306005405e-13
+    },
+    "verdicts_alt": [
+     {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 3.547999807069415e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1+2.2368937977633656e-15j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 2.043006455074486e-15,
+      "method": "rishon_inner_block",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 1296,
+      "dropped_total": 3.11024874087025e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 4.377510661991647e-14,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "gauss_states": 273,
+       "outer_bits_read": 0,
+       "inner_method": "inner_span",
+       "rishon": true
+      },
+      "span_leak": 0.0,
+      "total_error": 3.547999807069415e-13
+     },
+     {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 4.279207104553329e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1+9.21073916726092e-16j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 2.0145271352882748e-15,
+      "method": "rishon_inner_block",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 1296,
+      "dropped_total": 3.838890637458126e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 4.4031646709520276e-14,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "gauss_states": 273,
+       "outer_bits_read": 0,
+       "inner_method": "inner_span",
+       "rishon": true
+      },
+      "span_leak": 0.0,
+      "total_error": 4.279207104553329e-13
+     }
+    ],
+    "key": [
+     10102,
+     20650,
+     35639,
+     58
+    ],
+    "metrics": {
+     "cx": 10102,
+     "t_fixed": 10218,
+     "n_rot": 166,
+     "t_eps": 20650,
+     "t_estimate": {
+      "1e-06": 20143.92114752344,
+      "1e-10": 26761.201912539065
+     },
+     "t_measured": {
+      "1e-06": 20650,
+      "1e-10": 27482
+     },
+     "synth_error_bound": 0.000166,
+     "depth": 13685,
+     "depth_ct": 35639,
+     "qubits": 58,
+     "gates": {
+      "cx": 10102,
+      "t": 5810,
+      "tdg": 4408,
+      "h": 3804,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 166,
+      "z": 16
+     },
+     "measured": true
+    },
+    "wall_s": 89.5754930973053,
+    "discoveries": [],
+    "summary": "the reference circuit of the rishon encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    },
+    "elapsed": 89.57705116271973
+   },
+   "seed_trial": {
+    "valid": true,
+    "reason": "ok",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "6757d91f5a90ad008f83f54549c526cb82bdb61f69dec61258a30c6d0d63e1f2",
+    "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+    "mode": "trial",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 4.1193380960318373e-13,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.220446049250403e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": "nan",
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 64,
+     "dropped_total": 3.675622702950601e-13,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 4.437153930812364e-14,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 0,
+      "outer_bits_read": 0,
+      "inner_method": "physical",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 4.1193380960318373e-13
+    },
+    "verdicts_alt": [],
+    "key": [
+     10102,
+     20143.92114752344,
+     13685,
+     58
+    ],
+    "metrics": {
+     "cx": 10102,
+     "t_fixed": 10218,
+     "n_rot": 166,
+     "t_eps": 20143.92114752344,
+     "t_estimate": {
+      "1e-06": 20143.92114752344,
+      "1e-10": 26761.201912539065
+     },
+     "t_measured": null,
+     "synth_error_bound": 0.000166,
+     "depth": 13685,
+     "depth_ct": 13685,
+     "qubits": 58,
+     "gates": {
+      "cx": 10102,
+      "t": 5810,
+      "tdg": 4408,
+      "h": 3804,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 166,
+      "z": 16
+     },
+     "measured": false
+    },
+    "wall_s": 11.32161283493042,
+    "discoveries": [],
+    "summary": "the reference circuit of the rishon encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    },
+    "elapsed": 11.322198867797852
+   },
+   "best_full": {
+    "valid": true,
+    "reason": "ok",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "9d5ed8b4e6fd6e33df8a024d3d0855bcdff9b54e26b9f0b73755f8ec2cd496ef",
+    "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+    "mode": "full",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 1.4509475921592388e-13,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+4.386066270124133e-17j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 8.394054265693486e-16,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 1296,
+     "dropped_total": 1.3080605517978005e-13,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 1.4288704036143838e-14,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 1.4509475921592388e-13
+    },
+    "verdicts_alt": [
+     {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 1.4514304141940693e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1-8.772132540248258e-17j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 7.736788912175082e-16,
+      "method": "rishon_inner_block",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 1296,
+      "dropped_total": 1.3075941262514634e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 1.43836287942606e-14,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "gauss_states": 273,
+       "outer_bits_read": 0,
+       "inner_method": "inner_span",
+       "rishon": true
+      },
+      "span_leak": 0.0,
+      "total_error": 1.4514304141940693e-13
+     },
+     {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 1.4780823353545754e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1-1.8092523364262058e-16j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 8.610940881164415e-16,
+      "method": "rishon_inner_block",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 1296,
+      "dropped_total": 1.3315286907741472e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 1.4655364458042823e-14,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "gauss_states": 273,
+       "outer_bits_read": 0,
+       "inner_method": "inner_span",
+       "rishon": true
+      },
+      "span_leak": 0.0,
+      "total_error": 1.4780823353545754e-13
+     }
+    ],
+    "key": [
+     228,
+     846,
+     1417,
+     53
+    ],
+    "metrics": {
+     "cx": 228,
+     "t_fixed": 210,
+     "n_rot": 10,
+     "t_eps": 846,
+     "t_estimate": {
+      "1e-06": 807.9470570797253,
+      "1e-10": 1206.5784284662086
+     },
+     "t_measured": {
+      "1e-06": 846,
+      "1e-10": 1242
+     },
+     "synth_error_bound": 9.999999999999999e-06,
+     "depth": 291,
+     "depth_ct": 1417,
+     "qubits": 53,
+     "gates": {
+      "cx": 228,
+      "h": 148,
+      "t": 106,
+      "tdg": 104,
+      "x": 52,
+      "sdg": 26,
+      "s": 26,
+      "rz": 10,
+      "z": 2
+     },
+     "measured": true
+    },
+    "wall_s": 54.515857458114624,
+    "discoveries": [
+     "DISCOVERY: the angle of every bright pair depends only on (P, Z) with P = [r_t = 0 and r_r = r_l] = [r in {000, 101}] (r = 101 is the kappa = 1 class, r = 000 the closed pair, all other classes kappa = 2 with one common coupling sign); on the occurring patterns (Z = 1 implies P = 1) psi = (4 sqrt2 - 2)/2 - 1/2 X_P - (1 + 4 sqrt2)/2 X_Z, so the X-controlled rotation needs 6 Walsh terms, and P costs nothing extra because it replaces the intermediate !d1 & !d2 of the Z chain (Z = P & !r_l).",
+     "DISCOVERY: rccx-based Toffoli toggles rccx(N1, N2 -> F) in the Gray path (instead of computing XF) leave the phase (-1)^(N1 p), p the parity of the controls toggled between the two X toggles; in a 2-register (P, Z) cube the X block's endpoints always differ in both registers, so the fix needs 2 CZ and the trick nets 0 CX."
+    ],
+    "summary": "F1 round 4 on the F3 controlled-partner frame (parent r03-F3-002) with the class selector of the F1 line: frame, CH partner W Z_E W, single dark-label fold onto F, Margolus+CZ h_b Toffoli, 4 relative-phase C2H, closed gadget and the AND of 4 in-place corner tests as in the parent, but the closed-sector flag is built as Z = P & !r_l from the selector P = [r_t = 0 and r_r = r_l] = rccx(!r_t, !(r_r ^ r_l)) (same 6 CX as the delta chain it replaces), so the class-signed angle psi(P, Z) = -2, -1, 4 sqrt2 needs 3 Walsh terms instead of 5: the rotation on F is 6 Gray-cycle terms over (X, P, Z) instead of 10 (-4 CX, -4 rotations); all angles linear in alpha, beta, sqrt2 beta.",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    },
+    "elapsed": 54.5163996219635
+   },
+   "best_trial": {
+    "valid": true,
+    "reason": "ok",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "9d5ed8b4e6fd6e33df8a024d3d0855bcdff9b54e26b9f0b73755f8ec2cd496ef",
+    "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+    "mode": "trial",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 1.4479882981050228e-13,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+0j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": "nan",
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 64,
+     "dropped_total": 1.3080605517978005e-13,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 1.3992774630722241e-14,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 0,
+      "outer_bits_read": 0,
+      "inner_method": "physical",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 1.4479882981050228e-13
+    },
+    "verdicts_alt": [],
+    "key": [
+     228,
+     807.9470570797253,
+     291,
+     53
+    ],
+    "metrics": {
+     "cx": 228,
+     "t_fixed": 210,
+     "n_rot": 10,
+     "t_eps": 807.9470570797253,
+     "t_estimate": {
+      "1e-06": 807.9470570797253,
+      "1e-10": 1206.5784284662086
+     },
+     "t_measured": null,
+     "synth_error_bound": 9.999999999999999e-06,
+     "depth": 291,
+     "depth_ct": 291,
+     "qubits": 53,
+     "gates": {
+      "cx": 228,
+      "h": 148,
+      "t": 106,
+      "tdg": 104,
+      "x": 52,
+      "sdg": 26,
+      "s": 26,
+      "rz": 10,
+      "z": 2
+     },
+     "measured": false
+    },
+    "wall_s": 5.2819366455078125,
+    "discoveries": [
+     "DISCOVERY: the angle of every bright pair depends only on (P, Z) with P = [r_t = 0 and r_r = r_l] = [r in {000, 101}] (r = 101 is the kappa = 1 class, r = 000 the closed pair, all other classes kappa = 2 with one common coupling sign); on the occurring patterns (Z = 1 implies P = 1) psi = (4 sqrt2 - 2)/2 - 1/2 X_P - (1 + 4 sqrt2)/2 X_Z, so the X-controlled rotation needs 6 Walsh terms, and P costs nothing extra because it replaces the intermediate !d1 & !d2 of the Z chain (Z = P & !r_l).",
+     "DISCOVERY: rccx-based Toffoli toggles rccx(N1, N2 -> F) in the Gray path (instead of computing XF) leave the phase (-1)^(N1 p), p the parity of the controls toggled between the two X toggles; in a 2-register (P, Z) cube the X block's endpoints always differ in both registers, so the fix needs 2 CZ and the trick nets 0 CX."
+    ],
+    "summary": "F1 round 4 on the F3 controlled-partner frame (parent r03-F3-002) with the class selector of the F1 line: frame, CH partner W Z_E W, single dark-label fold onto F, Margolus+CZ h_b Toffoli, 4 relative-phase C2H, closed gadget and the AND of 4 in-place corner tests as in the parent, but the closed-sector flag is built as Z = P & !r_l from the selector P = [r_t = 0 and r_r = r_l] = rccx(!r_t, !(r_r ^ r_l)) (same 6 CX as the delta chain it replaces), so the class-signed angle psi(P, Z) = -2, -1, 4 sqrt2 needs 3 Walsh terms instead of 5: the rotation on F is 6 Gray-cycle terms over (X, P, Z) instead of 10 (-4 CX, -4 rotations); all angles linear in alpha, beta, sqrt2 beta.",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    },
+    "elapsed": 5.2821526527404785
+   },
+   "best_synth": {
+    "ok": true,
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 3.031515078495722e-06,
+     "max_leak": 2.1209547739762252e-13,
+     "dirty_ancilla": 0.0,
+     "phase": "(2.650784741340226e-07+0.9999999999999648j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 1.4462866040862916e-06,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 1296,
+     "dropped_total": 1.9618905944546343e-11,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1.0001e-05,
+      "tol_gauss": 1.0001e-05
+     },
+     "block_error": 2.544522758527004e-06,
+     "leak_amplitude": 4.869727010627732e-07,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 3.031515078495722e-06
+    },
+    "eps": 1e-06,
+    "n_rot": 10,
+    "tolerances": {
+     "tol_err": 1.0001e-05,
+     "tol_gauss": 1.0001e-05
+    },
+    "t_total": 846,
+    "error_bound_sum": 9.999999999999999e-06,
+    "error_measured_sum": 3.90082573292632e-06,
+    "elapsed": 68.0960762500763
+   },
+   "ub_ccx_synth": {
+    "ok": true,
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 1.8427296114134587e-05,
+     "max_leak": 3.917154644073764e-11,
+     "dirty_ancilla": 0.0,
+     "phase": "(-0.9999999999999915-1.3148411396088243e-07j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 5.589197687003087e-06,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 1296,
+     "dropped_total": 4.664168478272398e-10,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 0.00016200099999999997,
+      "tol_gauss": 0.00016200099999999997
+     },
+     "block_error": 6.125456208007285e-06,
+     "leak_amplitude": 1.2301373489279475e-05,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 1.8427296114134587e-05
+    },
+    "eps": 1e-06,
+    "n_rot": 162,
+    "tolerances": {
+     "tol_err": 0.00016200099999999997,
+     "tol_gauss": 0.00016200099999999997
+    },
+    "t_total": 20394,
+    "error_bound_sum": 0.00016199999999999998,
+    "error_measured_sum": 6.231959017484435e-05,
+    "elapsed": 1123.8588087558746
+   }
+  },
+  "head": {
+   "root": "/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/57b28677-d814-4f58-bc95-52ae378eb01f/scratchpad/t5/headtree",
+   "code_hash": "de902b6f60c79bfc61095c0b0c9c6ba88e364f1a7201429a3f5b38d555a62a51",
+   "seed_full": {
+    "valid": true,
+    "reason": "ok",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "6757d91f5a90ad008f83f54549c526cb82bdb61f69dec61258a30c6d0d63e1f2",
+    "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+    "mode": "full",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 4.1251643306005405e-13,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.456197111269582e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 2.6597966961250314e-15,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 1296,
+     "dropped_total": 3.675622702950601e-13,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 4.4954162764993984e-14,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 4.1251643306005405e-13
+    },
+    "verdicts_alt": [
+     {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 3.547999807069415e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1+2.2368937977633656e-15j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 2.043006455074486e-15,
+      "method": "rishon_inner_block",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 1296,
+      "dropped_total": 3.11024874087025e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 4.377510661991647e-14,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "gauss_states": 273,
+       "outer_bits_read": 0,
+       "inner_method": "inner_span",
+       "rishon": true
+      },
+      "span_leak": 0.0,
+      "total_error": 3.547999807069415e-13
+     },
+     {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 4.279207104553329e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1+9.21073916726092e-16j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 2.0145271352882748e-15,
+      "method": "rishon_inner_block",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 1296,
+      "dropped_total": 3.838890637458126e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 4.4031646709520276e-14,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "gauss_states": 273,
+       "outer_bits_read": 0,
+       "inner_method": "inner_span",
+       "rishon": true
+      },
+      "span_leak": 0.0,
+      "total_error": 4.279207104553329e-13
+     }
+    ],
+    "key": [
+     10102,
+     20650,
+     35639,
+     58
+    ],
+    "metrics": {
+     "cx": 10102,
+     "t_fixed": 10218,
+     "n_rot": 166,
+     "t_eps": 20650,
+     "t_estimate": {
+      "1e-06": 20143.92114752344,
+      "1e-10": 26761.201912539065
+     },
+     "t_measured": {
+      "1e-06": 20650,
+      "1e-10": 27482
+     },
+     "synth_error_bound": 0.000166,
+     "depth": 13685,
+     "depth_ct": 35639,
+     "qubits": 58,
+     "gates": {
+      "cx": 10102,
+      "t": 5810,
+      "tdg": 4408,
+      "h": 3804,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 166,
+      "z": 16
+     },
+     "measured": true
+    },
+    "wall_s": 88.24679803848267,
+    "discoveries": [],
+    "summary": "the reference circuit of the rishon encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    },
+    "elapsed": 88.24741435050964
+   },
+   "seed_trial": {
+    "valid": true,
+    "reason": "ok",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "6757d91f5a90ad008f83f54549c526cb82bdb61f69dec61258a30c6d0d63e1f2",
+    "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+    "mode": "trial",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 4.1193380960318373e-13,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+2.220446049250403e-15j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": "nan",
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 64,
+     "dropped_total": 3.675622702950601e-13,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 4.437153930812364e-14,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 0,
+      "outer_bits_read": 0,
+      "inner_method": "physical",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 4.1193380960318373e-13
+    },
+    "verdicts_alt": [],
+    "key": [
+     10102,
+     20143.92114752344,
+     13685,
+     58
+    ],
+    "metrics": {
+     "cx": 10102,
+     "t_fixed": 10218,
+     "n_rot": 166,
+     "t_eps": 20143.92114752344,
+     "t_estimate": {
+      "1e-06": 20143.92114752344,
+      "1e-10": 26761.201912539065
+     },
+     "t_measured": null,
+     "synth_error_bound": 0.000166,
+     "depth": 13685,
+     "depth_ct": 13685,
+     "qubits": 58,
+     "gates": {
+      "cx": 10102,
+      "t": 5810,
+      "tdg": 4408,
+      "h": 3804,
+      "x": 1224,
+      "s": 202,
+      "sdg": 202,
+      "rz": 166,
+      "z": 16
+     },
+     "measured": false
+    },
+    "wall_s": 8.08478307723999,
+    "discoveries": [],
+    "summary": "the reference circuit of the rishon encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    },
+    "elapsed": 8.085352420806885
+   },
+   "best_full": {
+    "valid": true,
+    "reason": "ok",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "9d5ed8b4e6fd6e33df8a024d3d0855bcdff9b54e26b9f0b73755f8ec2cd496ef",
+    "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+    "mode": "full",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 1.4509475921592388e-13,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+4.386066270124133e-17j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 8.394054265693486e-16,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 1296,
+     "dropped_total": 1.3080605517978005e-13,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 1.4288704036143838e-14,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 1.4509475921592388e-13
+    },
+    "verdicts_alt": [
+     {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 1.4514304141940693e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1-8.772132540248258e-17j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 7.736788912175082e-16,
+      "method": "rishon_inner_block",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 1296,
+      "dropped_total": 1.3075941262514634e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 1.43836287942606e-14,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "gauss_states": 273,
+       "outer_bits_read": 0,
+       "inner_method": "inner_span",
+       "rishon": true
+      },
+      "span_leak": 0.0,
+      "total_error": 1.4514304141940693e-13
+     },
+     {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 1.4780823353545754e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1-1.8092523364262058e-16j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 8.610940881164415e-16,
+      "method": "rishon_inner_block",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 1296,
+      "dropped_total": 1.3315286907741472e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 1.4655364458042823e-14,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "gauss_states": 273,
+       "outer_bits_read": 0,
+       "inner_method": "inner_span",
+       "rishon": true
+      },
+      "span_leak": 0.0,
+      "total_error": 1.4780823353545754e-13
+     }
+    ],
+    "key": [
+     228,
+     846,
+     1417,
+     53
+    ],
+    "metrics": {
+     "cx": 228,
+     "t_fixed": 210,
+     "n_rot": 10,
+     "t_eps": 846,
+     "t_estimate": {
+      "1e-06": 807.9470570797253,
+      "1e-10": 1206.5784284662086
+     },
+     "t_measured": {
+      "1e-06": 846,
+      "1e-10": 1242
+     },
+     "synth_error_bound": 9.999999999999999e-06,
+     "depth": 291,
+     "depth_ct": 1417,
+     "qubits": 53,
+     "gates": {
+      "cx": 228,
+      "h": 148,
+      "t": 106,
+      "tdg": 104,
+      "x": 52,
+      "sdg": 26,
+      "s": 26,
+      "rz": 10,
+      "z": 2
+     },
+     "measured": true
+    },
+    "wall_s": 58.411848068237305,
+    "discoveries": [
+     "DISCOVERY: the angle of every bright pair depends only on (P, Z) with P = [r_t = 0 and r_r = r_l] = [r in {000, 101}] (r = 101 is the kappa = 1 class, r = 000 the closed pair, all other classes kappa = 2 with one common coupling sign); on the occurring patterns (Z = 1 implies P = 1) psi = (4 sqrt2 - 2)/2 - 1/2 X_P - (1 + 4 sqrt2)/2 X_Z, so the X-controlled rotation needs 6 Walsh terms, and P costs nothing extra because it replaces the intermediate !d1 & !d2 of the Z chain (Z = P & !r_l).",
+     "DISCOVERY: rccx-based Toffoli toggles rccx(N1, N2 -> F) in the Gray path (instead of computing XF) leave the phase (-1)^(N1 p), p the parity of the controls toggled between the two X toggles; in a 2-register (P, Z) cube the X block's endpoints always differ in both registers, so the fix needs 2 CZ and the trick nets 0 CX."
+    ],
+    "summary": "F1 round 4 on the F3 controlled-partner frame (parent r03-F3-002) with the class selector of the F1 line: frame, CH partner W Z_E W, single dark-label fold onto F, Margolus+CZ h_b Toffoli, 4 relative-phase C2H, closed gadget and the AND of 4 in-place corner tests as in the parent, but the closed-sector flag is built as Z = P & !r_l from the selector P = [r_t = 0 and r_r = r_l] = rccx(!r_t, !(r_r ^ r_l)) (same 6 CX as the delta chain it replaces), so the class-signed angle psi(P, Z) = -2, -1, 4 sqrt2 needs 3 Walsh terms instead of 5: the rotation on F is 6 Gray-cycle terms over (X, P, Z) instead of 10 (-4 CX, -4 rotations); all angles linear in alpha, beta, sqrt2 beta.",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    },
+    "elapsed": 58.412254333496094
+   },
+   "best_trial": {
+    "valid": true,
+    "reason": "ok",
+    "message": "",
+    "skeleton_equal": true,
+    "program_sha256": "9d5ed8b4e6fd6e33df8a024d3d0855bcdff9b54e26b9f0b73755f8ec2cd496ef",
+    "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+    "mode": "trial",
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 1.4479882981050228e-13,
+     "max_leak": 0.0,
+     "dirty_ancilla": 0.0,
+     "phase": "(1+0j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": "nan",
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 64,
+     "dropped_total": 1.3080605517978005e-13,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+     },
+     "block_error": 1.3992774630722241e-14,
+     "leak_amplitude": 0.0,
+     "extra": {
+      "gauss_states": 0,
+      "outer_bits_read": 0,
+      "inner_method": "physical",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 1.4479882981050228e-13
+    },
+    "verdicts_alt": [],
+    "key": [
+     228,
+     807.9470570797253,
+     291,
+     53
+    ],
+    "metrics": {
+     "cx": 228,
+     "t_fixed": 210,
+     "n_rot": 10,
+     "t_eps": 807.9470570797253,
+     "t_estimate": {
+      "1e-06": 807.9470570797253,
+      "1e-10": 1206.5784284662086
+     },
+     "t_measured": null,
+     "synth_error_bound": 9.999999999999999e-06,
+     "depth": 291,
+     "depth_ct": 291,
+     "qubits": 53,
+     "gates": {
+      "cx": 228,
+      "h": 148,
+      "t": 106,
+      "tdg": 104,
+      "x": 52,
+      "sdg": 26,
+      "s": 26,
+      "rz": 10,
+      "z": 2
+     },
+     "measured": false
+    },
+    "wall_s": 5.087090253829956,
+    "discoveries": [
+     "DISCOVERY: the angle of every bright pair depends only on (P, Z) with P = [r_t = 0 and r_r = r_l] = [r in {000, 101}] (r = 101 is the kappa = 1 class, r = 000 the closed pair, all other classes kappa = 2 with one common coupling sign); on the occurring patterns (Z = 1 implies P = 1) psi = (4 sqrt2 - 2)/2 - 1/2 X_P - (1 + 4 sqrt2)/2 X_Z, so the X-controlled rotation needs 6 Walsh terms, and P costs nothing extra because it replaces the intermediate !d1 & !d2 of the Z chain (Z = P & !r_l).",
+     "DISCOVERY: rccx-based Toffoli toggles rccx(N1, N2 -> F) in the Gray path (instead of computing XF) leave the phase (-1)^(N1 p), p the parity of the controls toggled between the two X toggles; in a 2-register (P, Z) cube the X block's endpoints always differ in both registers, so the fix needs 2 CZ and the trick nets 0 CX."
+    ],
+    "summary": "F1 round 4 on the F3 controlled-partner frame (parent r03-F3-002) with the class selector of the F1 line: frame, CH partner W Z_E W, single dark-label fold onto F, Margolus+CZ h_b Toffoli, 4 relative-phase C2H, closed gadget and the AND of 4 in-place corner tests as in the parent, but the closed-sector flag is built as Z = P & !r_l from the selector P = [r_t = 0 and r_r = r_l] = rccx(!r_t, !(r_r ^ r_l)) (same 6 CX as the delta chain it replaces), so the class-signed angle psi(P, Z) = -2, -1, 4 sqrt2 needs 3 Walsh terms instead of 5: the rotation on F is 6 Gray-cycle terms over (X, P, Z) instead of 10 (-4 CX, -4 rotations); all angles linear in alpha, beta, sqrt2 beta.",
+    "seeds": {
+     "trial_seed": 0,
+     "transpiler_logical": 20261104,
+     "clifford_t_pass_manager": 12345,
+     "gridsynth": 0
+    },
+    "elapsed": 5.087270259857178
+   },
+   "best_synth": {
+    "ok": true,
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 3.031515078495722e-06,
+     "max_leak": 2.1209547739762252e-13,
+     "dirty_ancilla": 0.0,
+     "phase": "(2.650784741340226e-07+0.9999999999999648j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 1.4462866040862916e-06,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 1296,
+     "dropped_total": 1.9618905944546343e-11,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 1.0001e-05,
+      "tol_gauss": 1.0001e-05
+     },
+     "block_error": 2.544522758527004e-06,
+     "leak_amplitude": 4.869727010627732e-07,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 3.031515078495722e-06
+    },
+    "eps": 1e-06,
+    "n_rot": 10,
+    "tolerances": {
+     "tol_err": 1.0001e-05,
+     "tol_gauss": 1.0001e-05
+    },
+    "t_total": 846,
+    "error_bound_sum": 9.999999999999999e-06,
+    "error_measured_sum": 3.90082573292632e-06,
+    "elapsed": 67.48736810684204
+   },
+   "ub_ccx_synth": {
+    "ok": true,
+    "verdict": {
+     "ok": true,
+     "reason": "ok",
+     "op_norm_error": 1.8427296114134587e-05,
+     "max_leak": 3.917154644073764e-11,
+     "dirty_ancilla": 0.0,
+     "phase": "(-0.9999999999999915-1.3148411396088243e-07j)",
+     "outer_bits_read": 0,
+     "n_blocks": 1,
+     "gauss_residual": 5.589197687003087e-06,
+     "method": "rishon_inner_block",
+     "engine": "sparse",
+     "failing_inputs": [],
+     "n_inputs": 1296,
+     "dropped_total": 4.664168478272398e-10,
+     "engine_accuracy": 0.0,
+     "certified": true,
+     "tolerances": {
+      "tol_err": 0.00016200099999999997,
+      "tol_gauss": 0.00016200099999999997
+     },
+     "block_error": 6.125456208007285e-06,
+     "leak_amplitude": 1.2301373489279475e-05,
+     "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+     },
+     "span_leak": 0.0,
+     "total_error": 1.8427296114134587e-05
+    },
+    "eps": 1e-06,
+    "n_rot": 162,
+    "tolerances": {
+     "tol_err": 0.00016200099999999997,
+     "tol_gauss": 0.00016200099999999997
+    },
+    "t_total": 20394,
+    "error_bound_sum": 0.00016199999999999998,
+    "error_measured_sum": 6.231959017484435e-05,
+    "elapsed": 1113.1049280166626
+   }
+  }
+ },
+ "verify_synthesised_other_encodings": {
+  "new_fuzzy": {
+   "fuzzy_ub": {
+    "verify_synthesised": {
+     "ok": true,
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 5.716546896722337e-06,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(4.216774974736403e-14+1j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": "nan",
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 256,
+      "dropped_total": 3.899500425068022e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1.6000999999999998e-05,
+       "tol_gauss": 1.6000999999999998e-05
+      },
+      "block_error": 5.716546506772294e-06,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 5.71654650675902e-06,
+       "max_dropped_l2": 8.729034736972607e-14,
+       "max_span_leak": 2.220446049250313e-16,
+       "op_norm_error_inner_span": 5.716546506772294e-06,
+       "span_leak_max_state": 0.0,
+       "gauss": "not_checked"
+      },
+      "span_leak": 0.0,
+      "total_error": 5.716546896722337e-06
+     },
+     "eps": 1e-06,
+     "n_rot": 16,
+     "tolerances": {
+      "tol_err": 1.6000999999999998e-05,
+      "tol_gauss": 1.6000999999999998e-05
+     },
+     "t_total": 2822,
+     "error_bound_sum": 1.6e-05,
+     "error_measured_sum": 7.264847134920457e-06,
+     "s": 2.731086254119873
+    },
+    "best_verify_synthesised": {
+     "ok": true,
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 2.061964848728323e-06,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(0.7071067811865319-0.7071067811865631j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": "nan",
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 256,
+      "dropped_total": 2.117580616466485e-14,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 9.001e-06,
+       "tol_gauss": 9.001e-06
+      },
+      "block_error": 2.0619648275525165e-06,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 2.0619648275525165e-06,
+       "max_dropped_l2": 3.2165043534266446e-15,
+       "max_span_leak": 2.220446049250313e-16,
+       "op_norm_error_inner_span": 2.0619648275525165e-06,
+       "span_leak_max_state": 0.0,
+       "gauss": "not_checked"
+      },
+      "span_leak": 0.0,
+      "total_error": 2.061964848728323e-06
+     },
+     "eps": 1e-06,
+     "n_rot": 9,
+     "tolerances": {
+      "tol_err": 9.001e-06,
+      "tol_gauss": 9.001e-06
+     },
+     "t_total": 638,
+     "error_bound_sum": 9e-06,
+     "error_measured_sum": 3.463874698407855e-06,
+     "s": 0.2811717987060547
+    },
+    "best_full": {
+     "valid": true,
+     "reason": "ok",
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 5.688131998904023e-14,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(0.7071067811865476-0.7071067811865476j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": "nan",
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 256,
+      "dropped_total": 3.8347936882067347e-14,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 1.853338310697289e-14,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 1.853338310697289e-14,
+       "max_dropped_l2": 4.4237326751486704e-15,
+       "max_span_leak": 1.1102230246251565e-16,
+       "op_norm_error_inner_span": 1.8441914540985455e-14,
+       "span_leak_max_state": 0.0,
+       "gauss": "not_checked"
+      },
+      "span_leak": 0.0,
+      "total_error": 5.688131998904023e-14
+     },
+     "alts": [
+      {
+       "ok": true,
+       "reason": "ok",
+       "op_norm_error": 3.859232735500093e-14,
+       "max_leak": 0.0,
+       "dirty_ancilla": 0.0,
+       "phase": "(0.7071067811865476-0.7071067811865476j)",
+       "outer_bits_read": 0,
+       "n_blocks": 1,
+       "gauss_residual": "nan",
+       "method": "inner_span",
+       "engine": "sparse",
+       "failing_inputs": [],
+       "n_inputs": 256,
+       "dropped_total": 2.862636906380591e-14,
+       "engine_accuracy": 0.0,
+       "certified": true,
+       "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+       },
+       "block_error": 9.965958291195024e-15,
+       "leak_amplitude": 0.0,
+       "extra": {
+        "op_norm_error_physical": 9.965958291195024e-15,
+        "max_dropped_l2": 3.142664602466168e-15,
+        "max_span_leak": 2.220446049250313e-16,
+        "op_norm_error_inner_span": 9.91786074874459e-15,
+        "span_leak_max_state": 0.0,
+        "gauss": "not_checked"
+       },
+       "span_leak": 0.0,
+       "total_error": 3.859232735500093e-14
+      },
+      {
+       "ok": true,
+       "reason": "ok",
+       "op_norm_error": 6.531475616486118e-14,
+       "max_leak": 0.0,
+       "dirty_ancilla": 0.0,
+       "phase": "(0.7071067811865476-0.7071067811865475j)",
+       "outer_bits_read": 0,
+       "n_blocks": 1,
+       "gauss_residual": "nan",
+       "method": "inner_span",
+       "engine": "sparse",
+       "failing_inputs": [],
+       "n_inputs": 256,
+       "dropped_total": 4.769468220093202e-14,
+       "engine_accuracy": 0.0,
+       "certified": true,
+       "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+       },
+       "block_error": 1.762007396392915e-14,
+       "leak_amplitude": 0.0,
+       "extra": {
+        "op_norm_error_physical": 1.762007396392915e-14,
+        "max_dropped_l2": 6.754832979328361e-15,
+        "max_span_leak": 1.1102230246251565e-16,
+        "op_norm_error_inner_span": 1.762007396392915e-14,
+        "span_leak_max_state": 0.0,
+        "gauss": "not_checked"
+       },
+       "span_leak": 0.0,
+       "total_error": 6.531475616486118e-14
+      }
+     ],
+     "key": [
+      83,
+      638,
+      1517,
+      10
+     ],
+     "skeleton_equal": true,
+     "s": 2.242568254470825
+    }
+   },
+   "fuzzy_link": {
+    "verify_synthesised": {
+     "ok": true,
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 3.393938563112204e-06,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(-2.5143082060863447e-14-1j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": "nan",
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 16,
+      "dropped_total": 0.0,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1.0001e-05,
+       "tol_gauss": 1.0001e-05
+      },
+      "block_error": 3.393938563112204e-06,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 3.393938562993798e-06,
+       "max_dropped_l2": 0.0,
+       "max_span_leak": 2.220446049250313e-16,
+       "op_norm_error_inner_span": 3.393938563112204e-06,
+       "span_leak_max_state": 0.0,
+       "gauss": "not_checked"
+      },
+      "span_leak": 0.0,
+      "total_error": 3.393938563112204e-06
+     },
+     "eps": 1e-06,
+     "n_rot": 10,
+     "tolerances": {
+      "tol_err": 1.0001e-05,
+      "tol_gauss": 1.0001e-05
+     },
+     "t_total": 644,
+     "error_bound_sum": 9.999999999999999e-06,
+     "error_measured_sum": 4.668982095223841e-06,
+     "s": 0.150101900100708
+    }
+   }
+  },
+  "head_fuzzy": {
+   "fuzzy_ub": {
+    "verify_synthesised": {
+     "ok": true,
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 5.716546896722337e-06,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(4.216774974736403e-14+1j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": "nan",
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 256,
+      "dropped_total": 3.899500425068022e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1.6000999999999998e-05,
+       "tol_gauss": 1.6000999999999998e-05
+      },
+      "block_error": 5.716546506772294e-06,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 5.71654650675902e-06,
+       "max_dropped_l2": 8.729034736972607e-14,
+       "max_span_leak": 2.220446049250313e-16,
+       "op_norm_error_inner_span": 5.716546506772294e-06,
+       "span_leak_max_state": 0.0,
+       "gauss": "not_checked"
+      },
+      "span_leak": 0.0,
+      "total_error": 5.716546896722337e-06
+     },
+     "eps": 1e-06,
+     "n_rot": 16,
+     "tolerances": {
+      "tol_err": 1.6000999999999998e-05,
+      "tol_gauss": 1.6000999999999998e-05
+     },
+     "t_total": 2822,
+     "error_bound_sum": 1.6e-05,
+     "error_measured_sum": 7.264847134920457e-06,
+     "s": 2.892010450363159
+    },
+    "best_verify_synthesised": {
+     "ok": true,
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 2.061964848728323e-06,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(0.7071067811865319-0.7071067811865631j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": "nan",
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 256,
+      "dropped_total": 2.117580616466485e-14,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 9.001e-06,
+       "tol_gauss": 9.001e-06
+      },
+      "block_error": 2.0619648275525165e-06,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 2.0619648275525165e-06,
+       "max_dropped_l2": 3.2165043534266446e-15,
+       "max_span_leak": 2.220446049250313e-16,
+       "op_norm_error_inner_span": 2.0619648275525165e-06,
+       "span_leak_max_state": 0.0,
+       "gauss": "not_checked"
+      },
+      "span_leak": 0.0,
+      "total_error": 2.061964848728323e-06
+     },
+     "eps": 1e-06,
+     "n_rot": 9,
+     "tolerances": {
+      "tol_err": 9.001e-06,
+      "tol_gauss": 9.001e-06
+     },
+     "t_total": 638,
+     "error_bound_sum": 9e-06,
+     "error_measured_sum": 3.463874698407855e-06,
+     "s": 0.5416457653045654
+    },
+    "best_full": {
+     "valid": true,
+     "reason": "ok",
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 5.688131998904023e-14,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(0.7071067811865476-0.7071067811865476j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": "nan",
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 256,
+      "dropped_total": 3.8347936882067347e-14,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 1.853338310697289e-14,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 1.853338310697289e-14,
+       "max_dropped_l2": 4.4237326751486704e-15,
+       "max_span_leak": 1.1102230246251565e-16,
+       "op_norm_error_inner_span": 1.8441914540985455e-14,
+       "span_leak_max_state": 0.0,
+       "gauss": "not_checked"
+      },
+      "span_leak": 0.0,
+      "total_error": 5.688131998904023e-14
+     },
+     "alts": [
+      {
+       "ok": true,
+       "reason": "ok",
+       "op_norm_error": 3.859232735500093e-14,
+       "max_leak": 0.0,
+       "dirty_ancilla": 0.0,
+       "phase": "(0.7071067811865476-0.7071067811865476j)",
+       "outer_bits_read": 0,
+       "n_blocks": 1,
+       "gauss_residual": "nan",
+       "method": "inner_span",
+       "engine": "sparse",
+       "failing_inputs": [],
+       "n_inputs": 256,
+       "dropped_total": 2.862636906380591e-14,
+       "engine_accuracy": 0.0,
+       "certified": true,
+       "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+       },
+       "block_error": 9.965958291195024e-15,
+       "leak_amplitude": 0.0,
+       "extra": {
+        "op_norm_error_physical": 9.965958291195024e-15,
+        "max_dropped_l2": 3.142664602466168e-15,
+        "max_span_leak": 2.220446049250313e-16,
+        "op_norm_error_inner_span": 9.91786074874459e-15,
+        "span_leak_max_state": 0.0,
+        "gauss": "not_checked"
+       },
+       "span_leak": 0.0,
+       "total_error": 3.859232735500093e-14
+      },
+      {
+       "ok": true,
+       "reason": "ok",
+       "op_norm_error": 6.531475616486118e-14,
+       "max_leak": 0.0,
+       "dirty_ancilla": 0.0,
+       "phase": "(0.7071067811865476-0.7071067811865475j)",
+       "outer_bits_read": 0,
+       "n_blocks": 1,
+       "gauss_residual": "nan",
+       "method": "inner_span",
+       "engine": "sparse",
+       "failing_inputs": [],
+       "n_inputs": 256,
+       "dropped_total": 4.769468220093202e-14,
+       "engine_accuracy": 0.0,
+       "certified": true,
+       "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+       },
+       "block_error": 1.762007396392915e-14,
+       "leak_amplitude": 0.0,
+       "extra": {
+        "op_norm_error_physical": 1.762007396392915e-14,
+        "max_dropped_l2": 6.754832979328361e-15,
+        "max_span_leak": 1.1102230246251565e-16,
+        "op_norm_error_inner_span": 1.762007396392915e-14,
+        "span_leak_max_state": 0.0,
+        "gauss": "not_checked"
+       },
+       "span_leak": 0.0,
+       "total_error": 6.531475616486118e-14
+      }
+     ],
+     "key": [
+      83,
+      638,
+      1517,
+      10
+     ],
+     "skeleton_equal": true,
+     "s": 2.8345372676849365
+    }
+   },
+   "fuzzy_link": {
+    "verify_synthesised": {
+     "ok": true,
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 3.393938563112204e-06,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(-2.5143082060863447e-14-1j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": "nan",
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 16,
+      "dropped_total": 0.0,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1.0001e-05,
+       "tol_gauss": 1.0001e-05
+      },
+      "block_error": 3.393938563112204e-06,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 3.393938562993798e-06,
+       "max_dropped_l2": 0.0,
+       "max_span_leak": 2.220446049250313e-16,
+       "op_norm_error_inner_span": 3.393938563112204e-06,
+       "span_leak_max_state": 0.0,
+       "gauss": "not_checked"
+      },
+      "span_leak": 0.0,
+      "total_error": 3.393938563112204e-06
+     },
+     "eps": 1e-06,
+     "n_rot": 10,
+     "tolerances": {
+      "tol_err": 1.0001e-05,
+      "tol_gauss": 1.0001e-05
+     },
+     "t_total": 644,
+     "error_bound_sum": 9.999999999999999e-06,
+     "error_measured_sum": 4.668982095223841e-06,
+     "s": 0.12169504165649414
+    }
+   }
+  },
+  "new_sp_twelve": {
+   "spinnet": {
+    "verify_synthesised": {
+     "ok": true,
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 2.3811827672664635e-06,
+      "max_leak": 2.7851319381980156e-13,
+      "dirty_ancilla": 0.0,
+      "phase": "(0.7071064979514784-0.7071070644215034j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 5.11581386475374e-07,
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 2.1929409012046588e-12,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 8.001e-06,
+       "tol_gauss": 8.001e-06
+      },
+      "block_error": 1.8534370818788986e-06,
+      "leak_amplitude": 5.277434924466636e-07,
+      "extra": {
+       "op_norm_error_physical": 1.503831242552588e-06,
+       "max_dropped_l2": 3.2111294902743923e-13,
+       "max_span_leak": 9.947598300641403e-14,
+       "op_norm_error_inner_span": 1.8534370818788986e-06,
+       "span_leak_max_state": 3.152907163942396e-07,
+       "gauss": "checked"
+      },
+      "span_leak": 3.152907163942399e-07,
+      "total_error": 2.6964734836607035e-06
+     },
+     "eps": 1e-06,
+     "n_rot": 8,
+     "tolerances": {
+      "tol_err": 8.001e-06,
+      "tol_gauss": 8.001e-06
+     },
+     "t_total": 566,
+     "error_bound_sum": 8e-06,
+     "error_measured_sum": 2.9900549812735845e-06,
+     "s": 2.688840627670288
+    },
+    "seed_full": {
+     "valid": true,
+     "reason": "ok",
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 1.229760974694126e-14,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(0.9999999999999999+6.563905180231888e-17j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 5.300424800310707e-16,
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 8.107734967189246e-15,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 4.189874779752014e-15,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 3.7583399254768075e-15,
+       "max_dropped_l2": 2.1627850860448225e-15,
+       "max_span_leak": 0.0,
+       "op_norm_error_inner_span": 4.189874779752014e-15,
+       "span_leak_max_state": 0.0,
+       "gauss": "checked"
+      },
+      "span_leak": 0.0,
+      "total_error": 1.229760974694126e-14
+     },
+     "alts": [
+      {
+       "ok": true,
+       "reason": "ok",
+       "op_norm_error": 1.143136891868367e-14,
+       "max_leak": 0.0,
+       "dirty_ancilla": 0.0,
+       "phase": "(1-4.102440737644933e-17j)",
+       "outer_bits_read": 0,
+       "n_blocks": 1,
+       "gauss_residual": 5.405215745588179e-16,
+       "method": "inner_span",
+       "engine": "sparse",
+       "failing_inputs": [],
+       "n_inputs": 433,
+       "dropped_total": 8.128105578754451e-15,
+       "engine_accuracy": 0.0,
+       "certified": true,
+       "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+       },
+       "block_error": 3.303263339929219e-15,
+       "leak_amplitude": 0.0,
+       "extra": {
+        "op_norm_error_physical": 3.303263339929219e-15,
+        "max_dropped_l2": 2.392564403561889e-15,
+        "max_span_leak": 0.0,
+        "op_norm_error_inner_span": 3.3032633399292164e-15,
+        "span_leak_max_state": 0.0,
+        "gauss": "checked"
+       },
+       "span_leak": 0.0,
+       "total_error": 1.143136891868367e-14
+      },
+      {
+       "ok": true,
+       "reason": "ok",
+       "op_norm_error": 1.5769971861959752e-14,
+       "max_leak": 0.0,
+       "dirty_ancilla": 0.0,
+       "phase": "(1-4.922928885173916e-17j)",
+       "outer_bits_read": 0,
+       "n_blocks": 1,
+       "gauss_residual": 5.233232634728414e-16,
+       "method": "inner_span",
+       "engine": "sparse",
+       "failing_inputs": [],
+       "n_inputs": 433,
+       "dropped_total": 1.0633295593190855e-14,
+       "engine_accuracy": 0.0,
+       "certified": true,
+       "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+       },
+       "block_error": 5.136676268768898e-15,
+       "leak_amplitude": 0.0,
+       "extra": {
+        "op_norm_error_physical": 5.008745006115796e-15,
+        "max_dropped_l2": 2.1898644510090967e-15,
+        "max_span_leak": 0.0,
+        "op_norm_error_inner_span": 5.136676268768898e-15,
+        "span_leak_max_state": 0.0,
+        "gauss": "checked"
+       },
+       "span_leak": 0.0,
+       "total_error": 1.5769971861959752e-14
+      }
+     ],
+     "key": [
+      54,
+      566,
+      861,
+      23
+     ],
+     "s": 4.760059833526611
+    }
+   },
+   "twelve": {
+    "paulo34": {
+     "fixed_angle": true,
+     "valid": true,
+     "reason": "ok",
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 1.0755851502858386e-05,
+      "max_leak": 6.163909814788334e-11,
+      "dirty_ancilla": 4.701653123279478e-20,
+      "phase": "(0.9999999999999997+2.547539862263645e-08j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 1.3379795484989847e-10,
+      "method": "inner_span",
+      "engine": "aer_mps",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 0.0,
+      "engine_accuracy": 2e-10,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1.6000999999999998e-05,
+       "tol_gauss": 1.6000999999999998e-05
+      },
+      "block_error": 2.9047943671674645e-06,
+      "leak_amplitude": 7.851057135690922e-06,
+      "extra": {
+       "op_norm_error_physical": 2.904776636663274e-06,
+       "max_dropped_l2": 0.0,
+       "max_span_leak": 6.661338147750939e-15,
+       "op_norm_error_inner_span": 2.9047943671674645e-06,
+       "span_leak_max_state": 1.6946336185775569e-10,
+       "gauss": "checked"
+      },
+      "span_leak": 1.697211277444609e-10,
+      "total_error": 1.075602122398613e-05
+     },
+     "key": [
+      294,
+      1162.0,
+      2549,
+      50
+     ],
+     "s": 74.56862115859985
+    },
+    "lean22": {
+     "fixed_angle": false,
+     "valid": true,
+     "reason": "ok",
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 2.960078479349324e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1+0j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 1.1600307436734885e-15,
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 1.6668752417355595e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 1.2932032376137643e-13,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 3.69246831305656e-14,
+       "max_dropped_l2": 8.290261306020854e-15,
+       "max_span_leak": 5.662137425588298e-15,
+       "op_norm_error_inner_span": 1.2932032376137643e-13,
+       "span_leak_max_state": 3.758927700961154e-15,
+       "gauss": "checked"
+      },
+      "span_leak": 3.782489268728263e-15,
+      "total_error": 2.9979033720366065e-13
+     },
+     "key": [
+      210,
+      704,
+      1148,
+      38
+     ],
+     "s": 4.072386741638184
+    },
+    "lean22_v2": {
+     "fixed_angle": false,
+     "valid": true,
+     "reason": "ok",
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 2.1387676028228162e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1-6.563905180231963e-17j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 8.633103705055785e-16,
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 9.176862599070215e-14,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 1.2210813429157947e-13,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 1.6028897276398675e-14,
+       "max_dropped_l2": 5.224312203454446e-15,
+       "max_span_leak": 4.440892098500626e-15,
+       "op_norm_error_inner_span": 1.2210813429157947e-13,
+       "span_leak_max_state": 3.1018265326354557e-15,
+       "gauss": "checked"
+      },
+      "span_leak": 3.147936877535766e-15,
+      "total_error": 2.170246971598174e-13
+     },
+     "key": [
+      162,
+      660,
+      1029,
+      35
+     ],
+     "s": 1.7030014991760254
+    },
+    "verify_synthesised": {
+     "ok": true,
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 3.242877731447434e-06,
+      "max_leak": 3.655588655705069e-13,
+      "dirty_ancilla": 0.0,
+      "phase": "(0.7071066025181705-0.7071069598548796j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 1.1147210181306897e-07,
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 9.159408558945755e-12,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1.0001e-05,
+       "tol_gauss": 1.0001e-05
+      },
+      "block_error": 2.6382539298323643e-06,
+      "leak_amplitude": 6.046146422065105e-07,
+      "extra": {
+       "op_norm_error_physical": 2.5608847550902355e-06,
+       "max_dropped_l2": 4.719197033581374e-13,
+       "max_span_leak": 1.0136336214827679e-13,
+       "op_norm_error_inner_span": 2.6382539298323643e-06,
+       "span_leak_max_state": 3.1529071580772497e-07,
+       "gauss": "checked"
+      },
+      "span_leak": 3.152907158077252e-07,
+      "total_error": 3.558168447255159e-06
+     },
+     "eps": 1e-06,
+     "n_rot": 10,
+     "tolerances": {
+      "tol_err": 1.0001e-05,
+      "tol_gauss": 1.0001e-05
+     },
+     "t_total": 952,
+     "error_bound_sum": 9.999999999999999e-06,
+     "error_measured_sum": 3.863432091488069e-06,
+     "s": 5.801755905151367
+    }
+   }
+  },
+  "head_sp_twelve": {
+   "spinnet": {
+    "verify_synthesised": {
+     "ok": true,
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 2.3811827672664635e-06,
+      "max_leak": 2.7851319381980156e-13,
+      "dirty_ancilla": 0.0,
+      "phase": "(0.7071064979514784-0.7071070644215034j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 5.11581386475374e-07,
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 2.1929409012046588e-12,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 8.001e-06,
+       "tol_gauss": 8.001e-06
+      },
+      "block_error": 1.8534370818788986e-06,
+      "leak_amplitude": 5.277434924466636e-07,
+      "extra": {
+       "op_norm_error_physical": 1.503831242552588e-06,
+       "max_dropped_l2": 3.2111294902743923e-13,
+       "max_span_leak": 9.947598300641403e-14,
+       "op_norm_error_inner_span": 1.8534370818788986e-06,
+       "span_leak_max_state": 3.152907163942396e-07,
+       "gauss": "checked"
+      },
+      "span_leak": 3.152907163942399e-07,
+      "total_error": 2.6964734836607035e-06
+     },
+     "eps": 1e-06,
+     "n_rot": 8,
+     "tolerances": {
+      "tol_err": 8.001e-06,
+      "tol_gauss": 8.001e-06
+     },
+     "t_total": 566,
+     "error_bound_sum": 8e-06,
+     "error_measured_sum": 2.9900549812735845e-06,
+     "s": 2.889249324798584
+    },
+    "seed_full": {
+     "valid": true,
+     "reason": "ok",
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 1.229760974694126e-14,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(0.9999999999999999+6.563905180231888e-17j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 5.300424800310707e-16,
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 8.107734967189246e-15,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 4.189874779752014e-15,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 3.7583399254768075e-15,
+       "max_dropped_l2": 2.1627850860448225e-15,
+       "max_span_leak": 0.0,
+       "op_norm_error_inner_span": 4.189874779752014e-15,
+       "span_leak_max_state": 0.0,
+       "gauss": "checked"
+      },
+      "span_leak": 0.0,
+      "total_error": 1.229760974694126e-14
+     },
+     "alts": [
+      {
+       "ok": true,
+       "reason": "ok",
+       "op_norm_error": 1.143136891868367e-14,
+       "max_leak": 0.0,
+       "dirty_ancilla": 0.0,
+       "phase": "(1-4.102440737644933e-17j)",
+       "outer_bits_read": 0,
+       "n_blocks": 1,
+       "gauss_residual": 5.405215745588179e-16,
+       "method": "inner_span",
+       "engine": "sparse",
+       "failing_inputs": [],
+       "n_inputs": 433,
+       "dropped_total": 8.128105578754451e-15,
+       "engine_accuracy": 0.0,
+       "certified": true,
+       "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+       },
+       "block_error": 3.303263339929219e-15,
+       "leak_amplitude": 0.0,
+       "extra": {
+        "op_norm_error_physical": 3.303263339929219e-15,
+        "max_dropped_l2": 2.392564403561889e-15,
+        "max_span_leak": 0.0,
+        "op_norm_error_inner_span": 3.3032633399292164e-15,
+        "span_leak_max_state": 0.0,
+        "gauss": "checked"
+       },
+       "span_leak": 0.0,
+       "total_error": 1.143136891868367e-14
+      },
+      {
+       "ok": true,
+       "reason": "ok",
+       "op_norm_error": 1.5769971861959752e-14,
+       "max_leak": 0.0,
+       "dirty_ancilla": 0.0,
+       "phase": "(1-4.922928885173916e-17j)",
+       "outer_bits_read": 0,
+       "n_blocks": 1,
+       "gauss_residual": 5.233232634728414e-16,
+       "method": "inner_span",
+       "engine": "sparse",
+       "failing_inputs": [],
+       "n_inputs": 433,
+       "dropped_total": 1.0633295593190855e-14,
+       "engine_accuracy": 0.0,
+       "certified": true,
+       "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+       },
+       "block_error": 5.136676268768898e-15,
+       "leak_amplitude": 0.0,
+       "extra": {
+        "op_norm_error_physical": 5.008745006115796e-15,
+        "max_dropped_l2": 2.1898644510090967e-15,
+        "max_span_leak": 0.0,
+        "op_norm_error_inner_span": 5.136676268768898e-15,
+        "span_leak_max_state": 0.0,
+        "gauss": "checked"
+       },
+       "span_leak": 0.0,
+       "total_error": 1.5769971861959752e-14
+      }
+     ],
+     "key": [
+      54,
+      566,
+      861,
+      23
+     ],
+     "s": 4.746849536895752
+    }
+   },
+   "twelve": {
+    "paulo34": {
+     "fixed_angle": true,
+     "valid": true,
+     "reason": "ok",
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 1.0755851502858386e-05,
+      "max_leak": 6.163909814788334e-11,
+      "dirty_ancilla": 4.701653123279478e-20,
+      "phase": "(0.9999999999999997+2.547539862263645e-08j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 1.3379795484989847e-10,
+      "method": "inner_span",
+      "engine": "aer_mps",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 0.0,
+      "engine_accuracy": 2e-10,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1.6000999999999998e-05,
+       "tol_gauss": 1.6000999999999998e-05
+      },
+      "block_error": 2.9047943671674645e-06,
+      "leak_amplitude": 7.851057135690922e-06,
+      "extra": {
+       "op_norm_error_physical": 2.904776636663274e-06,
+       "max_dropped_l2": 0.0,
+       "max_span_leak": 6.661338147750939e-15,
+       "op_norm_error_inner_span": 2.9047943671674645e-06,
+       "span_leak_max_state": 1.6946336185775569e-10,
+       "gauss": "checked"
+      },
+      "span_leak": 1.697211277444609e-10,
+      "total_error": 1.075602122398613e-05
+     },
+     "key": [
+      294,
+      1162.0,
+      2549,
+      50
+     ],
+     "s": 50.180882692337036
+    },
+    "lean22": {
+     "fixed_angle": false,
+     "valid": true,
+     "reason": "ok",
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 2.960078479349324e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1+0j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 1.1600307436734885e-15,
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 1.6668752417355595e-13,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 1.2932032376137643e-13,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 3.69246831305656e-14,
+       "max_dropped_l2": 8.290261306020854e-15,
+       "max_span_leak": 5.662137425588298e-15,
+       "op_norm_error_inner_span": 1.2932032376137643e-13,
+       "span_leak_max_state": 3.758927700961154e-15,
+       "gauss": "checked"
+      },
+      "span_leak": 3.782489268728263e-15,
+      "total_error": 2.9979033720366065e-13
+     },
+     "key": [
+      210,
+      704,
+      1148,
+      38
+     ],
+     "s": 1.9183588027954102
+    },
+    "lean22_v2": {
+     "fixed_angle": false,
+     "valid": true,
+     "reason": "ok",
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 2.1387676028228162e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": "(1-6.563905180231963e-17j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 8.633103705055785e-16,
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 9.176862599070215e-14,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1e-10,
+       "tol_gauss": 1e-10
+      },
+      "block_error": 1.2210813429157947e-13,
+      "leak_amplitude": 0.0,
+      "extra": {
+       "op_norm_error_physical": 1.6028897276398675e-14,
+       "max_dropped_l2": 5.224312203454446e-15,
+       "max_span_leak": 4.440892098500626e-15,
+       "op_norm_error_inner_span": 1.2210813429157947e-13,
+       "span_leak_max_state": 3.1018265326354557e-15,
+       "gauss": "checked"
+      },
+      "span_leak": 3.147936877535766e-15,
+      "total_error": 2.170246971598174e-13
+     },
+     "key": [
+      162,
+      660,
+      1029,
+      35
+     ],
+     "s": 2.109140157699585
+    },
+    "verify_synthesised": {
+     "ok": true,
+     "verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 3.242877731447434e-06,
+      "max_leak": 3.655588655705069e-13,
+      "dirty_ancilla": 0.0,
+      "phase": "(0.7071066025181705-0.7071069598548796j)",
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": 1.1147210181306897e-07,
+      "method": "inner_span",
+      "engine": "sparse",
+      "failing_inputs": [],
+      "n_inputs": 433,
+      "dropped_total": 9.159408558945755e-12,
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+       "tol_err": 1.0001e-05,
+       "tol_gauss": 1.0001e-05
+      },
+      "block_error": 2.6382539298323643e-06,
+      "leak_amplitude": 6.046146422065105e-07,
+      "extra": {
+       "op_norm_error_physical": 2.5608847550902355e-06,
+       "max_dropped_l2": 4.719197033581374e-13,
+       "max_span_leak": 1.0136336214827679e-13,
+       "op_norm_error_inner_span": 2.6382539298323643e-06,
+       "span_leak_max_state": 3.1529071580772497e-07,
+       "gauss": "checked"
+      },
+      "span_leak": 3.152907158077252e-07,
+      "total_error": 3.558168447255159e-06
+     },
+     "eps": 1e-06,
+     "n_rot": 10,
+     "tolerances": {
+      "tol_err": 1.0001e-05,
+      "tol_gauss": 1.0001e-05
+     },
+     "t_total": 952,
+     "error_bound_sum": 9.999999999999999e-06,
+     "error_measured_sum": 3.863432091488069e-06,
+     "s": 8.842360734939575
+    }
+   }
+  }
+ },
+ "hashes": {
+  "provenance": "c7b4c0a022d7f8658a1e35627d7c8e66276ddac5e29f92f2a6ccf2fa526c8bbd",
+  "lsh": "966dc776b9639fdc95626193630761bc78a99815f8cc64419b2fff8ac13d1550",
+  "spinnet_code_hash_for": "52d4366bed486d963942c12fc163cdaf56463d04d3820d166366e5fc5fc058ef",
+  "fuzzy_ub": "f83a4eee3bc69804d881a718919f705a9502723d498c2bf614c69312a221642f",
+  "fuzzy_link": "f83a4eee3bc69804d881a718919f705a9502723d498c2bf614c69312a221642f",
+  "spinnet_loop": "e3e3ce7b35944fed18dee3bdc23deecd99599fbcdb0c1cf0b9d740765249c490",
+  "rishon": "c4f9b2eded4a52174486c492672f19357511287c30c38a8a53168633377e78b0",
+  "fuzzy_files": [
+   "fuzzy/verify.py",
+   "fuzzy/targets.py",
+   "circuits/fuzzy.py",
+   "fuzzy/units.py",
+   "fuzzy/compress_hook.py"
+  ],
+  "n_shared": 21,
+  "project": {
+   "provenance": "c7b4c0a022d7f8658a1e35627d7c8e66276ddac5e29f92f2a6ccf2fa526c8bbd",
+   "lsh": "966dc776b9639fdc95626193630761bc78a99815f8cc64419b2fff8ac13d1550",
+   "spinnet_code_hash_for": "52d4366bed486d963942c12fc163cdaf56463d04d3820d166366e5fc5fc058ef",
+   "fuzzy_ub": "f83a4eee3bc69804d881a718919f705a9502723d498c2bf614c69312a221642f",
+   "fuzzy_link": "f83a4eee3bc69804d881a718919f705a9502723d498c2bf614c69312a221642f",
+   "spinnet_loop": "e3e3ce7b35944fed18dee3bdc23deecd99599fbcdb0c1cf0b9d740765249c490",
+   "rishon": "c4f9b2eded4a52174486c492672f19357511287c30c38a8a53168633377e78b0"
+  },
+  "commit": "6c3fa44",
+  "note": "uncommitted B5 tree on 73b4813"
+ },
+ "timings_s": {
+  "M6_E4_new": 2384,
+  "M6_E4_head": 2393,
+  "slow_m5": 1052,
+  "slow_m4": 104,
+  "slow_m10": 44,
+  "slow_m6_rest": 80,
+  "notslow_all": 2240,
+  "unit": 460
+ },
+ "counts": {
+  "notslow_acceptance": {
+   "passed": 271,
+   "failed": 19
+  },
+  "unit": {
+   "passed": 1029,
+   "failed": 0
+  },
+  "slow_m5": {
+   "passed": 2,
+   "failed": 0
+  },
+  "slow_m4": {
+   "passed": 6,
+   "failed": 1
+  },
+  "slow_m10": {
+   "passed": 1,
+   "failed": 2
+  },
+  "slow_m6": {
+   "passed": 3,
+   "pending": 6,
+   "failed_other": 0
+  }
+ },
+ "red_not_slow": [
+  "FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[fuzzy_link-UE]",
+  "FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[fuzzy_ub-UB]",
+  "FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[rishon-step]",
+  "FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[spinnet-step]",
+  "FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[twelve-step]",
+  "FAILED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_Y1_replay_on_a_copy_of_the_link_archive",
+  "FAILED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L2_cert3_builds_and_semantics",
+  "FAILED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L3_cert3_accept_reject_na",
+  "FAILED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L9_det_layer_certificate",
+  "FAILED tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G5_replay_record",
+  "FAILED tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G6_three_layer_summary",
+  "FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E2_fresh_process_stock_worker_and_no_patching",
+  "FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H1_robust_metrics_and_hardenings",
+  "FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L2_structure_facts_match_lean_sources",
+  "FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S0_spec_oracle_builder_lsh",
+  "FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S2_general_program_worker_and_sandbox",
+  "FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S3_seed_round_dry_run",
+  "FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S4_round_one_dry_run_briefs_and_stop_state",
+  "FAILED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S5_evaluator_rejections_on_lsh",
+  ""
+ ]
+}

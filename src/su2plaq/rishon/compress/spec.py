@@ -1,8 +1,7 @@
-"""Rishon task spec, registered compress view, structure facts, spec text (prompts/203 section 3.1, 4; METHODS-rishon R10, R12).
+"""Rishon task spec, compress view, structure facts, spec text (prompts/203 section 3.1, 4; METHODS-rishon R10, R12).
 
-`register()` inserts the encoding into the laptop machinery at runtime (two dict inserts; no laptop file is edited):
-`NOMINAL_ANGLES["rishon"]` and `su2plaq.compress.spec._ENCODINGS["rishon"]`.  The registered object, `RishonCompressView`, is the
-encoding the laptop builder / oracle / evaluator see: the 1296 valid inner codes as single-code "states" (outer bits 0), the target
+The encoding is an entry of the shared registry (`su2plaq.encodings.registry`, prompts/008 step B5); `register()` is a no-op kept for
+callers.  The registry's factory, `RishonCompressView`, is the encoding the shared builder / oracle / evaluator see: the 1296 valid inner codes as single-code "states" (outer bits 0), the target
 is the inner operator V_in (R4).  The 38 432-state physical basis and the Gauss sample stay behind `view.encoding` and are used by
 `su2plaq.rishon.verify` only.
 """
@@ -21,7 +20,7 @@ from fractions import Fraction
 
 import numpy as np
 
-from su2plaq.encodings.base import NOMINAL_ANGLES, EncodedBasis
+from su2plaq.encodings.base import EncodedBasis
 from su2plaq.encodings.rishon import RISHON_NOMINAL as _ENC_NOMINAL
 from su2plaq.encodings.rishon import RishonEncoding, RishonInnerView
 from su2plaq.rishon import operators as _ops
@@ -114,39 +113,27 @@ class RishonCompressView:
         return _ops.dark_codes()
 
 
-_VIEW: RishonCompressView | None = None
+def _view() -> RishonCompressView:
+    """The registry's cached instance (one per process)."""
+    from su2plaq.encodings import registry
+
+    return registry.get("rishon")
 
 
-# Effective qubit limit of the exact sparse engine.  PROVENANCE: laptop-owned `su2plaq/evaluate/sparse_sim.py:298-299`
-# (`run_batch`: `if n > 62: raise ValueError("at most 62 qubits")`, int64 basis keys); the laptop module does not expose the number,
-# so it is repeated here (tests/unit/test_rishon_compress_spec_unit.py checks that the engine really rejects 63 and accepts 62).
-# The task spec's `peak_qubit_cap()` (80, locked by tests/acceptance/m6) is NOT lowered; circuits above this limit are recorded
-# invalid with the reason `engine_qubit_limit` instead of reaching the engine.
-ENGINE_QUBIT_LIMIT = 62
-REASON_ENGINE_QUBIT_LIMIT = "engine_qubit_limit"
-
-
-def engine_qubit_message(n_qubits: int) -> str:
-    return (f"{n_qubits} qubits > the exact simulation engine's limit of {ENGINE_QUBIT_LIMIT} qubits "
-            f"(the circuit cannot be evaluated; use at most {ENGINE_QUBIT_LIMIT} qubits in total)")
+# Effective qubit limit of the exact sparse engine: the shared evaluator (`su2plaq.compress.evaluate`, prompts/008 D15) checks it; the
+# task spec's `peak_qubit_cap()` (80, locked by tests/acceptance/m6) is NOT lowered; circuits above the limit are recorded invalid with
+# the reason `engine_qubit_limit` instead of reaching the engine.
+from su2plaq.compress.evaluate import ENGINE_QUBIT_LIMIT, REASON_ENGINE_QUBIT_LIMIT, engine_qubit_message  # noqa: E402,F401
 
 
 def register() -> None:
-    """NOMINAL_ANGLES["rishon"] = RISHON_NOMINAL; su2plaq.compress.spec._ENCODINGS["rishon"] = RishonCompressView() (idempotent)."""
-    global _VIEW
-    from su2plaq.compress import spec as laptop
-
-    NOMINAL_ANGLES["rishon"] = RISHON_NOMINAL
-    if _VIEW is None:
-        _VIEW = RishonCompressView()
-    laptop._ENCODINGS["rishon"] = _VIEW
+    """No-op since prompts/008 step B5 (the encoding is a registry entry; nothing is inserted into a shared module)."""
 
 
 def rishon_spec(kind: str = "step", order: int = 1):
-    """TaskSpec for the rishon encoding (same sha256 as the laptop default_spec("rishon", kind) after register())."""
+    """TaskSpec for the rishon encoding (same sha256 as the shared default_spec("rishon", kind))."""
     from su2plaq.compress.spec import TaskSpec
 
-    register()
     a, b = RISHON_NOMINAL
     return TaskSpec(encoding="rishon", kind=kind, alpha=a, beta=b, order=order)
 
@@ -429,8 +416,7 @@ def render_spec(spec) -> str:
     from su2plaq.evaluate.evaluator import synth_tolerances
     from su2plaq.rishon.verify import RISHON_PRUNE_FRACTION as PRUNE_FRACTION
 
-    register()
-    view = _VIEW
+    view = _view()
     facts = structure_facts()
     by = {f["name"]: f for f in facts["facts"]}
     n_inner = len(view.inner_codes())

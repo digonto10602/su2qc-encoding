@@ -158,9 +158,10 @@ class EvalTimeout(Exception):
 
 
 @contextlib.contextmanager
-def _time_limit(seconds: float):
-    """SIGALRM wall limit (main thread, POSIX); elsewhere no limit.  Numpy calls are interrupted when they return to Python."""
-    if not hasattr(signal, "setitimer") or threading.current_thread() is not threading.main_thread():
+def _time_limit(seconds: float | None):
+    """SIGALRM wall limit (main thread, POSIX); elsewhere no limit (`seconds=None`: no limit anywhere).  Numpy calls are interrupted
+    when they return to Python."""
+    if seconds is None or not hasattr(signal, "setitimer") or threading.current_thread() is not threading.main_thread():
         yield
         return
 

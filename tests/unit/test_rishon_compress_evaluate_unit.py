@@ -105,3 +105,59 @@ def test_verify_synthesised_on_ue():
     sv = EV.verify_synthesised(qc, sp, eps=1e-3)
     assert sv["ok"] and sv["n_rot"] == 4 and sv["tolerances"]["tol_err"] == pytest.approx(4e-3 + 1e-9)
     assert sv["verdict"].op_norm_error <= sv["tolerances"]["tol_err"] and sv["verdict"].method == "rishon_inner_block" and sv["t_total"] > 0
+
+
+# ------------------------------------------------------------------------------------------------ facade (prompts/008 step B5)
+def test_to_verdict_early_verdicts_have_infinite_total_error():
+    """An early verdict (bad layout, unsimulable, ...) judged nothing: `total_error` is inf (the evaluator's default), never NaN."""
+    import math
+    from types import SimpleNamespace
+
+    from su2plaq.evaluate import evaluator as EVAL
+
+    early = EVAL._early("unsimulable", 0.0, "inner_span", "sparse", msg="x")          # span_leak NaN, op_norm_error inf
+    rv = SimpleNamespace(ok=False, reason="unsimulable", op_norm_error=math.inf, max_leak=math.inf, dirty_ancilla=math.inf, phase=1 + 0j,
+                         outer_bits_read=0, gauss_residual=math.nan, engine="sparse", seconds=0.0, failing_inputs=[], dropped_total=0.0,
+                         certified=False, tolerances={}, block_error=math.inf, leak_amplitude=math.inf, gauss_states=[],
+                         extra={}, inner_verdict=early)
+    v = EV.to_verdict(rv)
+    assert v.total_error == math.inf and math.isnan(v.span_leak) and not v.ok
+    rv.inner_verdict = None                                                              # no inner verdict at all (bad layout)
+    assert EV.to_verdict(rv).total_error == math.inf
+    # a judged verdict: total = op_norm_error + span_leak
+    good = SimpleNamespace(**{**rv.__dict__, "ok": True, "reason": "ok", "op_norm_error": 1e-13, "certified": True,
+                              "inner_verdict": SimpleNamespace(span_leak=2e-15, n_blocks=1, n_inputs=1296, engine_accuracy=0.0)})
+    g = EV.to_verdict(good)
+    assert g.span_leak == 2e-15 and g.total_error == 1e-13 + 2e-15
+
+
+def test_facade_reexports_the_shared_functions_and_registers_the_verdict():
+    from su2plaq.compress import baselines as BL
+    from su2plaq.compress import evaluate as LE
+    from su2plaq.encodings import registry
+
+    assert EV.evaluate_circuit is LE.evaluate_circuit and EV.evaluate_program is LE.evaluate_program
+    assert EV._build_in_subprocess is LE._build_in_subprocess and EV.verify_synthesised is BL.verify_synthesised
+    info = registry.info("rishon")
+    assert registry.resolve(info.verdict) is EV.verdict is EV._one_verdict and registry.resolve(info.worker_warmup) is EV.warm_up
+    assert info.stamp == "encoding" and not hasattr(LE._build_in_subprocess, "_rishon_shim")
+
+
+def test_engine_qubit_limit_is_the_shared_check():
+    from qiskit import QuantumCircuit
+
+    from su2plaq.compress import evaluate as LE
+    from su2plaq.rishon.compress import spec as RS
+
+    assert RS.ENGINE_QUBIT_LIMIT == LE.ENGINE_QUBIT_LIMIT == 62 and RS.engine_qubit_message(63) == LE.engine_qubit_message(63)
+    sp = S.rishon_spec("step")
+    r = EV.evaluate_circuit(QuantumCircuit(63), sp, "trial")
+    assert not r.valid and r.reason == "engine_qubit_limit" and "63 qubits" in r.message
+
+
+def test_registry_hash_equals_package_hash_and_worker_alias():
+    import su2plaq.rishon.compress as RC
+    from su2plaq.compress import provenance as P
+
+    assert RC.code_hash() == P.code_hash_for("rishon") == P.stamp_hash("rishon") != P.code_hash()
+    assert RC.RISHON_EVALUATOR_FILES[:len(P.EVALUATOR_FILES)] == P.EVALUATOR_FILES and RC.RISHON_EVALUATOR_FILES[-1] == "rishon/compress/baselines.py"

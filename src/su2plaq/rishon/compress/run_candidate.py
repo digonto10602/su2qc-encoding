@@ -12,7 +12,7 @@ import json
 import pathlib
 import sys
 
-import su2plaq.rishon.compress  # noqa: F401  (registers the encoding)
+import su2plaq.rishon.compress  # noqa: F401  (package init: the registry entry needs no registration)
 from su2plaq.compress.spec import TaskSpec, default_spec
 from su2plaq.rishon.compress.evaluate import LE, evaluate_program
 

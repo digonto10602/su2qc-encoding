@@ -305,13 +305,22 @@ def verify_synthesised(qc, spec: TaskSpec, eps: float | None = None) -> dict:
     `synth_tolerances(n_rot, eps)` on both the error and the Gauss residual.  ok = verdict ok AND certified."""
     from su2plaq.compress import oracle
     from su2plaq.compress.synth import gridsynth_word
+    from su2plaq.encodings import registry
     from su2plaq.evaluate.evaluator import evaluate, synth_tolerances
     from su2plaq.metrics.cliffordt import synthesize
 
     eps = spec.eps if eps is None else eps
     synth, info = synthesize(qc, eps, word_fn=gridsynth_word)
     tol = synth_tolerances(info["n_rot"], eps)
-    v = evaluate(synth, get_encoding(spec.encoding), oracle.target(spec), **tol, gauss=_gauss_in_loop(spec), engine="auto", cap=spec.support_cap)
+    reg = registry.lookup(spec.encoding)
+    if reg is not None and reg.verdict:
+        # an encoding with its own verdict function (rishon): the same function in full mode, judged by the synthesised tolerances, no wall limit
+        import dataclasses
+
+        v = registry.resolve(reg.verdict)(synth, dataclasses.replace(spec, tol_err=tol["tol_err"], tol_gauss=tol["tol_gauss"]), "full", None)
+    else:
+        v = evaluate(synth, get_encoding(spec.encoding), oracle.target(spec), **tol, gauss=_gauss_in_loop(spec), engine="auto",
+                     cap=spec.support_cap)
     t_total = sum(1 for i in synth.data if i.operation.name in ("t", "tdg"))
     return {"ok": bool(v.ok and v.certified), "verdict": v, "eps": eps, "n_rot": info["n_rot"], "tolerances": tol,
             "t_total": t_total, "error_bound_sum": info["error_bound_sum"], "error_measured_sum": info["error_measured_sum"]}

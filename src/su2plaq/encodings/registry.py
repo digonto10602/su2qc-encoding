@@ -39,8 +39,8 @@ class EncodingInfo:
 
 
 # The static table (registration order).  twelve: B1; spinnet: B3; lsh: step 8.R of prompts/401 (pure data, lazy strings;
-# su2plaq/lsh/loop.py and su2plaq/spinnet/loop.py decide no verdict and are in no hash list); fuzzy_ub / fuzzy_link: B4 (their hooks live in
-# fuzzy/compress_hook.py, which also hosts the unit encodings and is therefore hashed).  rishon B5 is added by its step.
+# su2plaq/lsh/loop.py and su2plaq/spinnet/loop.py decide no verdict and are in no hash list); fuzzy_ub / fuzzy_link: B4 (the unit encodings live in
+# fuzzy/units.py, their hooks in fuzzy/compress_hook.py; both are hashed).  rishon: B5 (its verdict function, hooks and files live in su2plaq/rishon/; the ten listed files are hashed, D14).
 _TABLE: dict = {}
 
 
@@ -61,7 +61,7 @@ _add(EncodingInfo(
     render_spec="su2plaq.spinnet.loop:render_spec", structure_json="compress/specs/spinnet-structure.json",
     tools=("python -m su2plaq.spinnet.loop candidate", "python -m su2plaq.spinnet.loop oracle")))
 
-_FUZZY_FILES = ("fuzzy/verify.py", "fuzzy/targets.py", "circuits/fuzzy.py", "fuzzy/compress_hook.py")
+_FUZZY_FILES = ("fuzzy/verify.py", "fuzzy/targets.py", "circuits/fuzzy.py", "fuzzy/units.py", "fuzzy/compress_hook.py")
 _FUZZY_HOOKS = dict(
     stamp="shared", gauss_in_loop=False,         # METHODS-fuzzy F9: every code is physical, the targets commute with the Gauss generators
     worker_warmup="su2plaq.fuzzy.compress_hook:warm_up", general_circuit="su2plaq.fuzzy.compress_hook:general_circuit",
@@ -71,10 +71,21 @@ _FUZZY_HOOKS = dict(
     tools=("python scripts/m10_round.py candidate", "python scripts/m10_round.py oracle"),
     brief_note="su2plaq.fuzzy.compress_hook:brief_note")
 
-_add(EncodingInfo(name="fuzzy_ub", factory="su2plaq.fuzzy.compress_hook:FuzzyUBTask", kinds=("UB",), loop_kind="UB",
+_add(EncodingInfo(name="fuzzy_ub", factory="su2plaq.fuzzy.units:FuzzyUBTask", kinds=("UB",), loop_kind="UB",
                   evaluator_files=_FUZZY_FILES, **_FUZZY_HOOKS))
-_add(EncodingInfo(name="fuzzy_link", factory="su2plaq.fuzzy.compress_hook:FuzzyLinkTask", kinds=("UE",), loop_kind="UE",
+_add(EncodingInfo(name="fuzzy_link", factory="su2plaq.fuzzy.units:FuzzyLinkTask", kinds=("UE",), loop_kind="UE",
                   evaluator_files=_FUZZY_FILES, **_FUZZY_HOOKS))
+
+_add(EncodingInfo(
+    name="rishon", factory="su2plaq.rishon.compress.spec:RishonCompressView", kinds=("step", "UB", "UE"), loop_kind="step",
+    evaluator_files=("encodings/rishon.py", "circuits/rishon.py", "rishon/algebra.py", "rishon/physical.py", "rishon/operators.py",
+                     "rishon/frames.py", "rishon/verify.py", "rishon/compress/spec.py", "rishon/compress/evaluate.py",
+                     "rishon/compress/baselines.py"),
+    stamp="encoding", gauss_in_loop=True,
+    verdict="su2plaq.rishon.compress.evaluate:verdict", worker_warmup="su2plaq.rishon.compress.evaluate:warm_up",
+    general_circuit="su2plaq.rishon.compress.baselines:general_circuit", seed_candidates="su2plaq.rishon.compress.round:seed_candidates",
+    import_seed="su2plaq.rishon.compress.baselines:import_seed", lean_certify="su2plaq.rishon.compress.round:lean_certify",
+    render_spec="su2plaq.rishon.compress:render_spec", structure_json="compress/specs/rishon-structure.json"))
 
 _add(EncodingInfo(
     name="lsh", factory="su2plaq.encodings.lsh:LSH", kinds=("step", "UB", "UE"), loop_kind="step",

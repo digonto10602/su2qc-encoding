@@ -18,7 +18,7 @@ import sys
 
 import numpy as np
 
-import su2plaq.rishon.compress  # noqa: F401  (registers the encoding)
+import su2plaq.rishon.compress  # noqa: F401  (package init: the registry entry needs no registration)
 
 ENC = "rishon"
 DET_TRIPLES = ((0.37, 0.61, 0.29), (0.91, 0.23, 0.53), (1.70, 1.00, 1.07))      # (alpha, beta, eta): nominal and the two alternates

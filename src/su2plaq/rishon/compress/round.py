@@ -26,7 +26,7 @@ import subprocess
 import sys
 import time
 
-import su2plaq.rishon.compress  # noqa: F401  (registers the encoding)
+import su2plaq.rishon.compress  # noqa: F401  (package init: the registry entry needs no registration)
 from su2plaq.compress import archive as A
 from su2plaq.compress import baselines as LB
 from su2plaq.compress import round as LR
@@ -90,6 +90,9 @@ def _seed_candidates(spec, root: pathlib.Path):
     return out
 
 
+seed_candidates = _seed_candidates          # registry hook `seed_candidates(spec, root)`
+
+
 def _external_rows(spec) -> list:
     from su2plaq.compress.metrics import metrics
 
@@ -145,6 +148,14 @@ def _certify(circ, spec):
         return {"status": "failed", "reason": f"{type(exc).__name__}: {exc}"}, time.time() - t0
 
 
+def lean_certify(circ, spec, *, timeout: float = 1200.0, extra_provenance: dict | None = None):
+    """Registry hook `lean_certify(circ, spec, *, timeout, extra_provenance)`: the rishon three-angle checker (`rishon.lean_cert`);
+    returns a `LeanCert`.  `extra_provenance` is accepted for the hook interface and not used by this checker."""
+    from su2plaq.rishon import lean_cert
+
+    return lean_cert.certify_circuit(circ, spec, timeout=timeout)
+
+
 # ----------------------------------------------------------------------------------------------- the round
 def run_round(kind: str, round: int, evaluate: bool, dry_run: bool = False, root=None, proposals: list | None = None,
               lean: bool = True) -> dict:
@@ -184,8 +195,7 @@ def run_round(kind: str, round: int, evaluate: bool, dry_run: bool = False, root
     fdir.mkdir(parents=True, exist_ok=True)
     known_ids = {x.id for x in archive.entries()}
     for label, r, pp, fam, fn, par in results:
-        e = A.entry_from_result(r, program_path=pp, family=fam, round=round, parent=par)
-        e.evaluator_sha256 = code_hash()
+        e = A.entry_from_result(r, program_path=pp, family=fam, round=round, parent=par, encoding=ENC)   # stamp = code_hash_for("rishon")
         parent_known = par is None or par in known_ids
         if pp.endswith(".circuit"):          # a circuit-valued baseline without a program file is named after its label
             e.id = f"r{round:02d}-{fam}-{label.replace('+', '_')}"
@@ -236,7 +246,7 @@ def run_round(kind: str, round: int, evaluate: bool, dry_run: bool = False, root
         info["headline"] = h["id"]
         info["headline_robust_key"] = list(h["robust_key"]) if h["robust_key"] is not None else None
     out = {**info, "encoding": ENC, "kind": kind, "provenance": provenance({"trial_seed": spec.trial_seed}),
-           "evaluator_sha256": code_hash(), "spec_sha256": spec.sha256(), "invalid": invalid, "external": external,
+           "evaluator_sha256": code_hash(), "encoding_sha256": code_hash(), "spec_sha256": spec.sha256(), "invalid": invalid, "external": external,
            "n_pruning_bound": sum(1 for x in invalid if x["reason"] == "pruning_bound"),
            "candidates": [x[0] for x in records], "synthesis_verification": synth_check, "wall_s": time.time() - t0,
            "written_utc": LR._utc()}
