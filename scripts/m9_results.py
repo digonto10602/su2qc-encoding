@@ -27,6 +27,7 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
 import numpy as np  # noqa: E402
 
 from su2plaq.circuits import fuzzy as C  # noqa: E402
+from su2plaq.crosscheck.limits import isolated_plaquette_basis  # noqa: E402,F401  (moved there in prompts/009 step 11.5; API unchanged)
 from su2plaq.evaluate.evaluator import synth_tolerances  # noqa: E402
 from su2plaq.fuzzy import gauss as gz  # noqa: E402
 from su2plaq.fuzzy import link as lk  # noqa: E402
@@ -272,69 +273,6 @@ def outer_row_block(alpha=ALPHA, beta=BETA, kappa2=None) -> dict:
             "note": "each outer link carries one full-angle link_UE(alpha) and one link_UK(kappa2) block (Digonto's decision 7: a "
                     "separate row); the blocks commute with every Gauss generator and with the inner part, so they are verified per "
                     "link as complete 16x16 unitaries."}
-
-
-def isolated_plaquette_basis():
-    """Orthonormal basis (50, 65536) of the Gauss kernel of the four inner links alone (outer links removed: every corner is
-    2-valent), index sum_l nib_l 16^l.  Exact reduction: corners 0 and 2 involve the disjoint link pairs (0,3) and (1,2); their
-    pair kernels N_a, N_b (256 x d) span a space of dimension d_a d_b in which corners 1 and 3 are small matrices built from the
-    pair-level matrices N^dag T N (cross terms factorise, same-link terms use N^dag T T N)."""
-    def T_of(A, role):
-        return lk.calT_L(A) if role == "out" else lk.calT_R(A)
-
-    def inner_ends(c):
-        return [(l, r) for l, r in gz.CORNER_ENDS[c] if l < 4]
-
-    pairs = {}
-    for c in (0, 2):
-        (la, ra), (lb, rb) = inner_ends(c)
-        H = np.zeros((256, 256), dtype=np.complex128)
-        for A in range(3):
-            G = np.kron(T_of(A, ra), np.eye(16)) + np.kron(np.eye(16), T_of(A, rb))
-            H += G.conj().T @ G
-        w, V = np.linalg.eigh(H)
-        pairs[c] = ((la, lb), V[:, w < 1e-9])
-    (la, lb), Na = pairs[0]
-    (lc, ld), Nb = pairs[2]
-    da, db = Na.shape[1], Nb.shape[1]
-    where = {}                                              # link -> (pair index, position in pair)
-    for pi, (l1, l2) in enumerate(((la, lb), (lc, ld))):
-        where[l1], where[l2] = (pi, 0), (pi, 1)
-    Ns = (Na, Nb)
-
-    def one(l, X):
-        """N^dag (X on link l) N on the pair containing l (d x d)."""
-        pi, pos = where[l]
-        M = np.kron(X, np.eye(16)) if pos == 0 else np.kron(np.eye(16), X)
-        return pi, Ns[pi].conj().T @ M @ Ns[pi]
-
-    def embed(pi, M):
-        return np.kron(M, np.eye(db)) if pi == 0 else np.kron(np.eye(da), M)
-
-    Hred = np.zeros((da * db, da * db), dtype=np.complex128)
-    for c in (1, 3):
-        ends = inner_ends(c)
-        for A in range(3):
-            for i, (l1, r1) in enumerate(ends):
-                for j, (l2, r2) in enumerate(ends):
-                    T1, T2 = T_of(A, r1), T_of(A, r2)
-                    if l1 == l2:
-                        pi, M = one(l1, T1 @ T2)
-                        Hred += embed(pi, M)
-                    else:
-                        p1, M1 = one(l1, T1)
-                        p2, M2 = one(l2, T2)
-                        assert p1 != p2
-                        Hred += np.kron(M1, M2) if p1 == 0 else np.kron(M2, M1)
-    w, V = np.linalg.eigh(0.5 * (Hred + Hred.conj().T))
-    Z = V[:, w < 1e-9]
-    letters = {0: "p", 1: "q", 2: "r", 3: "s"}              # tensor axes (link3, link2, link1, link0) = (s, r, q, p)
-    # basis vector n = sum_{ab} Z[(a,b), n] N_a[(x,y), a] N_b[(z,w), b]
-    Zt = Z.T.reshape(-1, da, db)
-    Xa = Na.reshape(16, 16, da)
-    Xb = Nb.reshape(16, 16, db)
-    vecs = np.einsum(f"{letters[la]}{letters[lb]}a,{letters[lc]}{letters[ld]}b,nab->nsrqp", Xa, Xb, Zt).reshape(Z.shape[1], 65536)
-    return vecs, w
 
 
 def gauss_residual_dense(vecs: np.ndarray) -> float:
