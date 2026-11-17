@@ -10,6 +10,7 @@ of another encoding, moved by T_{s->d} = D_s D_d V_s D_d D_s.  This module decid
 from __future__ import annotations
 
 import importlib
+import pathlib
 
 import numpy as np
 
@@ -60,10 +61,11 @@ def transported_target(src, dst, kind, alpha, beta, order=1) -> np.ndarray:
     return s[:, None] * V * s[None, :]
 
 
-def step_circuit(encoding, which="general", alpha=0.37, beta=0.61, order=1):
+def step_circuit(encoding, which="general", alpha=0.37, beta=0.61, order=1, root=None):
     """-> (QuantumCircuit, info).  "general": `su2plaq.circuits.<encoding>.build_step(alpha, beta, order)`; "headline" (order 1 only):
     the program of `robust.headline(encoding, "step", compute=False)["id"]`, rebuilt by the stock worker at (alpha, beta).
-    FileNotFoundError if no headline is cached; nothing is written."""
+    FileNotFoundError if no headline is cached; nothing is written.  `root`: project root holding results/compress and compress/archive
+    (default: this checkout)."""
     _enc(encoding)
     if which == "general":
         mod = importlib.import_module(f"su2plaq.circuits.{encoding}")
@@ -77,21 +79,22 @@ def step_circuit(encoding, which="general", alpha=0.37, beta=0.61, order=1):
     from su2plaq.compress import robust as RB
     from su2plaq.compress.spec import ROOT, default_spec
 
-    h = RB.headline(encoding, "step", compute=False)
+    root = pathlib.Path(ROOT if root is None else root)
+    h = RB.headline(encoding, "step", root=root, compute=False)
     if h is None or h.get("id") is None:
         raise FileNotFoundError(f"no cached headline for {encoding} (results/compress/{encoding}/robust.json)")
     hid = h["id"]
     spec = default_spec(encoding, "step")
-    arch = A.Archive.load(encoding, n_alt=len(spec.alt_angles), strict=True)
+    arch = A.Archive.load(encoding, root=root, n_alt=len(spec.alt_angles), strict=True)
     entry = next(x for x in arch.entries() if x.id == hid)
-    circuits, _ = E._build_in_subprocess((ROOT / entry.program_path).read_bytes(), [spec.with_angles(alpha, beta)], E.BUILD_TIMEOUT_S)
+    circuits, _ = E._build_in_subprocess((root / entry.program_path).read_bytes(), [spec.with_angles(alpha, beta)], E.BUILD_TIMEOUT_S)
     return circuits[0], {"which": "headline", "entry": hid, "program_sha256": entry.program_sha256}
 
 
-def cross_verdict(circuit_encoding, target_encoding, which="general", alpha=0.37, beta=0.61, order=1):
+def cross_verdict(circuit_encoding, target_encoding, which="general", alpha=0.37, beta=0.61, order=1, root=None):
     """evaluator.evaluate(step_circuit(...)[0], get_encoding(circuit_encoding), transported_target(target_encoding, circuit_encoding,
     "step", alpha, beta, order))."""
     from su2plaq.evaluate.evaluator import evaluate
 
-    qc, _info = step_circuit(circuit_encoding, which, alpha, beta, order)
+    qc, _info = step_circuit(circuit_encoding, which, alpha, beta, order, root=root)
     return evaluate(qc, _enc(circuit_encoding), transported_target(target_encoding, circuit_encoding, "step", alpha, beta, order))

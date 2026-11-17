@@ -83,3 +83,49 @@ def test_flavour_block_dimensions_and_ks_block():
         Lm.fuzzy_flavour_block(1.0, (1, 1, 1))
     with pytest.raises(ValueError):
         Lm.fuzzy_flavour_block(1.0, (1, 1, 1, 2))
+
+
+# ----------------------------------------------------------------------------------------------- hardening (tester 422)
+def test_cached_helpers_are_read_only():
+    HE, HB, HD, lab, _drops = Lm._rishon_phys_ops()
+    for X in (HE, HB, HD):
+        for arr in (X.data, X.indices, X.indptr):
+            with pytest.raises(ValueError):
+                arr[0] = arr[0]
+    with pytest.raises(ValueError):
+        lab[0] = 1
+    for arr in Lm._flavour_blocks((1, 1, -1, -1)):
+        with pytest.raises(ValueError):
+            arr[0, 0] = 0.0
+    # the public functions still return fresh, writable arrays and do not change the cache
+    before = HB.data.copy()
+    ev = Lm.rishon_levels(0.5, 1.0, 0.0, k=3)
+    ev[0] = 99.0
+    H = Lm.fuzzy_flavour_block(1.0, (1, 1, -1, -1))
+    H[0, 0] = 99.0
+    assert np.array_equal(HB.data, before) and abs(Lm.fuzzy_flavour_block(1.0, (1, 1, -1, -1))[0, 0]) <= 1e-10
+
+
+def test_dropped_images_of_the_rishon_projection_are_counted():
+    d = Lm.rishon_dropped_images()
+    assert set(d) == {"HB", "HD"}
+    for k in ("HB", "HD"):
+        assert d[k]["images_outside_code"] == 0 and d[k]["outside_weight_max"] <= 1e-12
+        assert 0 <= d[k]["tiny_max"] <= 1e-12 and d[k]["tiny_entries"] > 0          # entries below 1e-12 are rounding (~5e-16)
+    assert d["HB"]["code_entries_below_1e-14"] == 0
+    d["HB"]["images_outside_code"] = 5                                              # a copy: the cache is untouched
+    assert Lm.rishon_dropped_images()["HB"]["images_outside_code"] == 0
+
+
+def test_outside_record_weight_detects_non_cancelling_images():
+    import scipy.sparse as sp
+
+    nu = 3
+    P = sp.csr_matrix(np.array([[1.0, 0.0], [0.0, 1.0], [1.0, 0.0]]))         # physical vector 0 = e0 + e2, vector 1 = e1
+    # an image outside the code reached from keys 0 and 2 with opposite amplitudes: cancels on physical vector 0
+    rec = Lm._outside_record([np.array([99, 99])], [np.array([0, 2])], [np.array([1.0, -1.0])], P, nu)
+    assert rec == {"images_outside_code": 2, "outside_weight_max": 0.0}
+    # same keys, same sign: weight 2 on physical vector 0
+    rec = Lm._outside_record([np.array([99, 99])], [np.array([0, 2])], [np.array([1.0, 1.0])], P, nu)
+    assert rec["images_outside_code"] == 2 and abs(rec["outside_weight_max"] - 2.0) <= 1e-12
+    assert Lm._outside_record([], [], [], P, nu) == {"images_outside_code": 0, "outside_weight_max": 0.0}

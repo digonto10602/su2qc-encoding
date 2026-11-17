@@ -1,0 +1,199 @@
+{
+ "report": "reports/tests/423-m11-steps-6-to-7.md",
+ "commit": "7d0a99c + uncommitted builder files (builder's files carry git_commit cdef450, git_dirty true)",
+ "machine": "omnicommander cores 0-8",
+ "acceptance_not_slow": {
+  "passed": 23,
+  "failed": "T2 (PENDING: rows not final)",
+  "R1": "PASS",
+  "T1": "PASS"
+ },
+ "unit": {
+  "passed": 50,
+  "files": [
+   "ks",
+   "embed",
+   "limits",
+   "report",
+   "m9_results_script"
+  ],
+  "without_results_crosscheck": true
+ },
+ "table1_recheck_general_cells": {
+  "twelve": {
+   "mine": {
+    "qubits": 34,
+    "cx": 294,
+    "n_rot": 10,
+    "t_fixed": 312,
+    "t_1e6": 952
+   },
+   "table": {
+    "qubits": 34,
+    "cx": 294,
+    "n_rot": 10,
+    "t_fixed": 312,
+    "t_1e6": 952
+   },
+   "source_expected": "results/twelve/step.json @ a9702e5",
+   "source_table": "results/twelve/step.json @ a9702e5"
+  },
+  "spinnet": {
+   "mine": {
+    "qubits": 15,
+    "cx": 54,
+    "n_rot": 8,
+    "t_fixed": 56,
+    "t_1e6": 566
+   },
+   "table": {
+    "qubits": 15,
+    "cx": 54,
+    "n_rot": 8,
+    "t_fixed": 56,
+    "t_1e6": 566
+   },
+   "source_expected": "results/spinnet/step.json @ d82a472",
+   "source_table": "results/spinnet/step.json @ d82a472"
+  },
+  "lsh": {
+   "mine": {
+    "qubits": 19,
+    "cx": 94,
+    "n_rot": 8,
+    "t_fixed": 88,
+    "t_1e6": 598
+   },
+   "table": {
+    "qubits": 19,
+    "cx": 94,
+    "n_rot": 8,
+    "t_fixed": 88,
+    "t_1e6": 598
+   },
+   "source_expected": "results/lsh/step.json @ 76fd221",
+   "source_table": "results/lsh/step.json @ 76fd221"
+  },
+  "rishon": {
+   "mine": {
+    "qubits": 26,
+    "cx": 10134,
+    "n_rot": 174,
+    "t_fixed": 10218,
+    "t_1e6": 21146
+   },
+   "table": {
+    "qubits": 26,
+    "cx": 10134,
+    "n_rot": 174,
+    "t_fixed": 10218,
+    "t_1e6": 21146
+   },
+   "source_expected": "results/rishon/step3.json @ 6fea036",
+   "source_table": "results/rishon/step3.json @ 6fea036"
+  },
+  "rishon_two_layer": {
+   "mine": {
+    "qubits": 26,
+    "cx": 10102,
+    "n_rot": 166,
+    "t_fixed": 10218,
+    "t_1e6": 20650
+   },
+   "table": {
+    "qubits": 26,
+    "cx": 10102,
+    "n_rot": 166,
+    "t_fixed": 10218,
+    "t_1e6": 20650
+   }
+  },
+  "fuzzy": {
+   "mine": {
+    "qubits": 23,
+    "cx": 1862,
+    "n_rot": 56,
+    "t_fixed": 1826,
+    "t_1e6": 5398
+   },
+   "table": {
+    "qubits": 23,
+    "cx": 1862,
+    "n_rot": 56,
+    "t_fixed": 1826,
+    "t_1e6": 5398
+   },
+   "source_expected": "results/fuzzy/step.json @ 8e71c38 (dirty)",
+   "source_table": "results/fuzzy/step.json @ 8e71c38 (dirty)"
+  }
+ },
+ "rerun_diff": {
+  "A2_vs_B2_differences": [
+   "provenance.command",
+   "provenance.timestamp_utc",
+   "ks.cross_verdicts[0..2].seconds"
+  ],
+  "gate_table_differences": [
+   "provenance.command",
+   "provenance.timestamp_utc"
+  ],
+  "tables_md_identical": true,
+  "tradeoff_pdf_identical": true,
+  "A2_vs_builder_extra": [
+   "provenance.git_commit"
+  ]
+ },
+ "pending_reasons_checked": {
+  "twelve": "results/compress/twelve/robust.json absent",
+  "spinnet": "robust.json evaluator_sha256 0bd7e7d9... != current stamp 99663fa6...",
+  "rishon": "robust.json evaluator_sha256 ddb440ad... != current 5f5decfa...; three-layer.json absent",
+  "lsh": "no archive dir compress/archive/lsh, no results/compress/lsh",
+  "fuzzy_ub/fuzzy_link": "no robust.json; compressed_step_headline.json absent"
+ },
+ "spectra_values": {
+  "max_pairwise_level_dev": {
+   "0.5": 2.7533531010703882e-14,
+   "1.0": 1.199040866595169e-14,
+   "2.0": 2.6645352591003757e-14
+  },
+  "transported_target_max": 3.0373479264368552e-15,
+  "cross_verdict_total_error": [
+   2.721351977491546e-13,
+   1.1049525251145847e-14,
+   1.6483590154922412e-14
+  ],
+  "mutant_block_error": [
+   2.0000000012264015e-06,
+   2.0000000018364537e-06,
+   2.0000000033521785e-06
+  ],
+  "leaks_sq": {
+   "rishon": [
+    0.4999999999999998,
+    14.999999999999973
+   ],
+   "fuzzy_one_gamma5": [
+    0.4999999999999999,
+    4.124999999999993
+   ],
+   "fuzzy_fplus_fminus": [
+    0.9999999999999996,
+    3.9999999999999973
+   ]
+  },
+  "dropped_images": {
+   "HB": {
+    "images_outside_code": 0,
+    "tiny_max": 4.718447854656914e-16
+   },
+   "HD": {
+    "images_outside_code": 0,
+    "tiny_max": 2.0816681711721685e-16
+   }
+  },
+  "block_sizes": [
+   305,
+   4352
+  ]
+ }
+}

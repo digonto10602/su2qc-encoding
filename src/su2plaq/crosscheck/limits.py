@@ -27,9 +27,10 @@ def rishon_closed_block(c_e, c_b, lam_d) -> np.ndarray:
 
 @functools.lru_cache(maxsize=1)
 def _rishon_phys_ops():
-    """(HE, HB, HD, labels): real sparse operators on the 38 432 physical states (H_D on all 12 links) and the labels of the
-    connected components of |H_B| + |H_D|.  Code-level operators are projected with P^dag T P as in rishon.physical.det_sector_structure;
-    a det term is the nibble flip A <-> B with amplitude 2; H_E = 3/4 x (number of quartet links)."""
+    """(HE, HB, HD, labels, drops): real sparse operators on the 38 432 physical states (H_D on all 12 links), the labels of the
+    connected components of |H_B| + |H_D|, and the dropped-image record (see `rishon_dropped_images`).  Code-level operators are
+    projected with P^dag T P as in rishon.physical.det_sector_structure; a det term is the nibble flip A <-> B with amplitude 2;
+    H_E = 3/4 x (number of quartet links).  Everything returned is read-only (the result is cached)."""
     import scipy.sparse as sp
     from scipy.sparse.csgraph import connected_components
 
@@ -50,12 +51,15 @@ def _rishon_phys_ops():
     outer = uk >> 16
     M = sp.csc_matrix(rops.h_magnetic_inner())
     rr, cc, vv = [], [], []
+    out_t, out_s, out_v = [], [], []                        # images whose target key is not a key of any physical state
+    n_small_code = 0
     for i in range(len(codes)):
         src = np.flatnonzero(ipos == i)
         if not len(src):
             continue
         for j, val in zip(M.indices[M.indptr[i]:M.indptr[i + 1]], M.data[M.indptr[i]:M.indptr[i + 1]]):
             if abs(val) < 1e-14:
+                n_small_code += 1
                 continue
             tgt = (outer[src] << 16) | codes[j]
             p = np.minimum(np.searchsorted(uk, tgt), nu - 1)
@@ -63,7 +67,13 @@ def _rishon_phys_ops():
             rr.append(p[ok])
             cc.append(src[ok])
             vv.append(np.full(int(ok.sum()), val))
+            out_t.append(tgt[~ok])
+            out_s.append(src[~ok])
+            out_v.append(np.full(int((~ok).sum()), val))
     TB = sp.csr_matrix((np.concatenate(vv), (np.concatenate(rr), np.concatenate(cc))), shape=(nu, nu))
+    drops = {"HB": _outside_record(out_t, out_s, out_v, P, nu), "HD": None}
+    drops["HB"]["code_entries_below_1e-14"] = int(n_small_code)
+    det_out = ([], [], [])
 
     def det_link(link):
         sh = 4 * link
@@ -72,23 +82,64 @@ def _rishon_phys_ops():
         tgt = uk[src] ^ (np.int64(15) << sh)
         p = np.minimum(np.searchsorted(uk, tgt), nu - 1)
         ok = uk[p] == tgt
+        det_out[0].append(tgt[~ok])
+        det_out[1].append(src[~ok])
+        det_out[2].append(np.full(int((~ok).sum()), 2.0))
         return sp.csr_matrix((np.full(int(ok.sum()), 2.0), (p[ok], src[ok])), shape=(nu, nu))
 
-    def phys(T):
+    def phys(T, name):
         Mp = (P.conj().T @ (T @ P)).tocsr()
         if abs(Mp.imag).max() > 1e-12:
             raise RuntimeError("physical operator is not real")
         Mp = Mp.real.tocsr()
-        Mp.data[np.abs(Mp.data) < 1e-12] = 0
+        tiny = np.abs(Mp.data) < 1e-12
+        if name in drops:
+            drops[name]["tiny_entries"] = int(tiny.sum())
+            drops[name]["tiny_max"] = float(np.abs(Mp.data[tiny]).max()) if tiny.any() else 0.0
+        Mp.data[tiny] = 0
         Mp.eliminate_zeros()
         return Mp
 
     nq = np.zeros(nu)
     for link in range(12):
         nq += np.isin((uk >> (4 * link)) & 15, np.array(CODES_Q))
-    HE, HB, HD = phys(sp.diags(0.75 * nq)), phys(TB), phys(sum(det_link(link) for link in range(12)))
+    HE = phys(sp.diags(0.75 * nq), "HE")
+    HB = phys(TB, "HB")
+    TD = sum(det_link(link) for link in range(12))
+    drops["HD"] = _outside_record(*det_out, P, nu)
+    HD = phys(TD, "HD")
     _, lab = connected_components((abs(HB) + abs(HD) > 1e-12).astype(np.int8), directed=False)
-    return HE, HB, HD, lab
+    for X in (HE, HB, HD):
+        for arr in (X.data, X.indices, X.indptr):
+            arr.setflags(write=False)
+    lab.setflags(write=False)
+    return HE, HB, HD, lab, drops
+
+
+def _outside_record(tgts, srcs, vals, P, nu) -> dict:
+    """Images (source key, target key, amplitude) that were dropped because the target key is not a key of any physical state:
+    their number and the largest norm, over the physical basis vectors, of the dropped part of T P e_j (0 up to rounding when the
+    operator maps the physical space into itself, i.e. when dropping is exact)."""
+    import scipy.sparse as sp
+
+    tgt = np.concatenate(tgts) if tgts else np.zeros(0, dtype=np.int64)
+    if not len(tgt):
+        return {"images_outside_code": 0, "outside_weight_max": 0.0}
+    src, val = np.concatenate(srcs), np.concatenate(vals)
+    uo, inv = np.unique(tgt, return_inverse=True)
+    X = sp.csr_matrix((val, (inv, src)), shape=(len(uo), nu))
+    XP = (X @ P).tocsc()
+    w = np.sqrt(np.asarray(abs(XP).power(2).sum(axis=0)).ravel())
+    return {"images_outside_code": int(len(tgt)), "outside_weight_max": float(w.max())}
+
+
+def rishon_dropped_images() -> dict:
+    """What the projection P^dag T P of `rishon_levels` throws away, so that the claim "levels of the physical-state operators" is
+    self-contained: {"HB": {...}, "HD": {...}} with "images_outside_code" (count of code-level images whose target key is not a key of
+    any physical state), "outside_weight_max" (largest 2-norm of the dropped part of T P e_j over the physical basis vectors j; it is
+    ~0 exactly when dropping them is exact), "tiny_entries" / "tiny_max" (entries of the projected matrix below 1e-12 set to zero,
+    their number and largest modulus); HB also "code_entries_below_1e-14" (code-level matrix elements skipped)."""
+    return {k: dict(v) for k, v in _rishon_phys_ops()[4].items()}
 
 
 def rishon_block_sizes() -> np.ndarray:
@@ -98,7 +149,7 @@ def rishon_block_sizes() -> np.ndarray:
 
 def rishon_levels(c_e, c_b, lam_d, k=None) -> np.ndarray:
     """Sorted levels of c_e H_E + c_b H_B + lam_d H_D (12 links) on the 38 432 physical states; the k lowest if k is given."""
-    HE, HB, HD, lab = _rishon_phys_ops()
+    HE, HB, HD, lab, _drops = _rishon_phys_ops()
     H = (c_e * HE + c_b * HB + lam_d * HD).tocsr()
     ev = []
     for c in range(int(lab.max()) + 1):
@@ -202,6 +253,13 @@ def _square(W, v):
     return t.transpose(0, 4, 1, 5, 2, 6, 3, 7).reshape(16, 16, 16, 16)
 
 
+def _frozen(*arrays):
+    """Read-only arrays: the cached helpers hand out their own arrays, a caller must not be able to corrupt the cache."""
+    for a in arrays:
+        a.setflags(write=False)
+    return arrays
+
+
 def _herm(A):
     return 0.5 * (A + A.conj().T)
 
@@ -219,7 +277,7 @@ def _fuzzy_isolated_blocks():
     def project(g):
         return _herm(np.array([B.conj().T @ g(B[:, j].reshape(16, 16, 16, 16)).reshape(-1) for j in range(B.shape[1])]).T)
 
-    return project(lambda v: _kin(K1, v)), project(lambda v: _kin(K2, v)), project(lambda v: _square(W, v))
+    return _frozen(project(lambda v: _kin(K1, v)), project(lambda v: _kin(K2, v)), project(lambda v: _square(W, v)))
 
 
 def fuzzy_isolated_levels(g2, a=1.0, b=1.0) -> np.ndarray:
@@ -256,7 +314,7 @@ def _flavour_blocks(signs):
     def project(g):
         return _herm(np.array([V.conj().T @ g(V[:, j].reshape(16, 16, 16, 16)).reshape(-1) for j in range(V.shape[1])]).T)
 
-    return project(gens[0]), project(gens[1])
+    return _frozen(project(gens[0]), project(gens[1]))
 
 
 def fuzzy_flavour_block(g2, signs) -> np.ndarray:
