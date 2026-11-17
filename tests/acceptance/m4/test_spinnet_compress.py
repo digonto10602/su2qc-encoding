@@ -183,7 +183,7 @@ def test_M4_S2_worker_registers_encoding_and_keeps_sandbox(tmp_path):
     L = _loop()
     spec = _spec()
     E = api("su2plaq.compress.evaluate")
-    assert callable(L.INSTALLED.get("build_in_subprocess")) and E._build_in_subprocess is not L.INSTALLED["build_in_subprocess"]
+    assert L.INSTALLED.get("encoding") is True and not getattr(E._build_in_subprocess, "_spinnet_shim", False)   # prompts/008: registry, stock worker
     gp = L.general_program_path(spec, root=tmp_path)
     specs = [spec] + [spec.with_angles(a, b) for a, b in spec.alt_angles]
     circuits, disc = E._build_in_subprocess(gp.read_bytes(), specs, E.BUILD_TIMEOUT_S)
@@ -218,7 +218,7 @@ def test_M4_S7_shim_leaves_twelve_untouched():
     r = E.evaluate_program(str(BL.general_program_path(tw)), tw, mode="trial")
     assert r.valid and r.reason == "ok", (r.reason, r.message)
     assert time.time() - t0 <= 30
-    assert set(L.INSTALLED) >= {"encoding", "build_in_subprocess", "certify"}
+    assert L.INSTALLED.get("encoding") is True                                                                  # prompts/008: nothing is replaced
 
 
 # ---------------------------------------------------------------------------------------------------- 4.2 seeds
