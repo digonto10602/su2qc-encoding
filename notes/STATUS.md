@@ -46,6 +46,7 @@ Latest acceptance tag: acceptance-v22 (m11, prompts/009+010; v21 = 008 E1); prev
 - 2026-11-04 (Digonto): compression proposer = Claude Code agents in-session; coordinator creates the `proposer` agent role and guard-hook entry in `~/.claude` itself (plan §3 step 2.0).
 - Plan §1/§8 defaults: Paulo Eq. 16 normalisation; nominal angles $(\alpha,\beta)=(0.37,0.61)$ + alternates; $\varepsilon=10^{-6}$ in the loop; cost order CNOT > T > depth > qubits; `pytest -n auto`; outer electric phases reported as a separate row.
 - T-count rule: $T_{\rm total}=T_{\rm fixed}+\sum_{\rm rot}T_r(\varepsilon)$, $T_r\approx3\log_2(1/\varepsilon)$ (Ross–Selinger), measured with pygridsynth; the "$+3\ln\varepsilon$" form was wrong (sign, base, multiplicity).
+- 2026-11-17 (Digonto): "i accept the planners defaults" -> prompts/009 §13 (12 items) and prompts/010 §8 (6 items) ACCEPTED. In Report 10 (H.4 f) and Report 11 these are stated as accepted by Digonto 2026-11-17, not as "default, not reviewed". Still open: may Report 11 state the four planner derivations as the project's own results?
 
 ## Known issues
 - Evaluation wall time: F1-style circuits that read all 8 outer m bits take ~240 s of the 300 s budget and time out under heavy machine load (reports/tests/039); re-evaluate heavy entries on a quiet machine for the gate refresh; project engine ~5× slower than tester's sparse sim on such circuits.
@@ -71,7 +72,7 @@ PAUSED 2026-11-17 01:45 (usage guard, five-hour limit 98 %, resets 02:20). RESTA
 1. Working tree holds UNTESTED B7-fix + H.1 (builder stopped mid-run, no report received): compress/{replay,report,robust}.py + tests/unit/test_{compress_replay,robust_hooks,robust}_unit.py. Backup notes/wip/008-b7fix-h1-untested.patch (git apply if lost). Scope: N1 (report CLI must not degrade tracked summary.json on stale cache), N2 (refused archive entry -> exit 1), prompts/010 H.1 (robust.angle_offsets; H1 test already green per testers 422/423). Next: fresh builder reviews the diff vs the brief, finishes it, reports root causes + hashes; then tester; then commit.
 2. Then 008 Phase C (C0 hash freeze, C1 replays on cores 0-8; refreshes headline caches -> M11 K4, H.2, H.3, T2 rows).
 3. M11 11.0-11.7 DONE (reports/tests/421-423). 11.8 = regenerate results/crosscheck on a clean commit after Phase C/H.2/H.3/LSH M8/Report 6.
-4. Waiting on Digonto: accept prompts/009 §13 + 010 §8 defaults?; may Report 11 state the four planner derivations as the project's own results?
+4. Waiting on Digonto (defaults ACCEPTED 2026-11-17): may Report 11 state the four planner derivations as the project's own results?
 
 ## Log
 - 2026-11-04: old work archived (commits 30acd44, 92a5b67, tag `archive-2x2-lattice`) and removed from the tree.
