@@ -1,3 +1,253 @@
+diff --git i/src/su2plaq/compress/replay.py w/src/su2plaq/compress/replay.py
+new file mode 100644
+index 0000000..5b9ae1c
+--- /dev/null
++++ w/src/su2plaq/compress/replay.py
+@@ -0,0 +1,244 @@
++"""Replay of the recorded rounds of any encoding's archive under the current code (prompts/008 section 7; prompts/204 section 6.2).
++
++Needed whenever a hashed file changes: the archive entries and round files carry the old `evaluator_sha256`, and the gate (M2C-G1)
++requires the current one.  The programs are NOT changed; every recorded round is re-run in order with its recorded program list
++(round 0: the encoding's seeds), a replay is not a new attempt (stop-rule counters, proposer sessions and MAX_ROUNDS bookkeeping
++are untouched).  Nothing is deleted: the old round files, feedback, robust cache and summary go to results/compress/<enc>/pre-<tag>/
++and the old archive to compress/archive/<enc>-pre-<tag>/; the attempts log and the discoveries file (appended to by the round
++function) are restored byte for byte; the `lean` record of an old entry is carried over to the new entry of the same program
++(same sha256) unless the new entry already has a certified one.
++
++  python -m su2plaq.compress.replay --encoding E --kind K --tag T [--root R] [--lean]
++
++Writes results/compress/<enc>/replay-<tag>.json (schema of prompts/204 section 6.2 step 6, plus `encoding_sha256` and
++`written_utc`).  Refuses (ValueError, nothing touched) if that file or a pre-<tag> folder exists, if round files are missing / not
++contiguous from 0, or belong to another encoding or kind.  Exit code 1 of the CLI when a key changed or a valid entry was lost.
++"""
++from __future__ import annotations
++
++import argparse
++import datetime
++import importlib
++import json
++import pathlib
++import shutil
++import sys
++import time
++
++
++def _read(p: pathlib.Path):
++    return p.read_bytes() if p.exists() else None
++
++
++def _restore(p: pathlib.Path, data) -> bool:
++    """Put `data` (bytes or None = file did not exist) back; True iff the file now equals the original."""
++    if data is None:
++        if p.exists():
++            p.unlink()
++        return True
++    p.parent.mkdir(parents=True, exist_ok=True)
++    p.write_bytes(data)
++    return p.read_bytes() == data
++
++
++def _key(c) -> list | None:
++    return [int(x) for x in c["key"]] if c.get("key") else None
++
++
++def _side(c) -> dict:
++    v = c.get("verdict") or {}
++    return {"valid": bool(c["valid"]), "reason": c["reason"], "key": _key(c), "dropped_total": v.get("dropped_total")}
++
++
++def _utc() -> str:
++    return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
++
++
++# the encoding's own round function when it has one: "module:attr" and whether it takes (encoding, kind) / (kind) / () first
++_OWN_ROUND = {"spinnet": ("su2plaq.spinnet.loop:run_round", ()), "rishon": ("su2plaq.rishon.compress.round:run_round", ("kind",))}
++
++
++def _round_fn(encoding: str, kind: str):
++    """-> callable(r, proposals, root, lean) running one round of `encoding` through its own round function, else the shared one."""
++    if encoding in _OWN_ROUND:
++        spec, lead = _OWN_ROUND[encoding]
++        mod, attr = spec.split(":")
++        fn = getattr(importlib.import_module(mod), attr)
++        pre = (kind,) if lead == ("kind",) else ()
++        return lambda r, proposals, root, lean: fn(*pre, r, evaluate=True, dry_run=False, root=root, proposals=proposals, lean=lean)
++    from su2plaq.compress.round import run_round
++
++    return lambda r, proposals, root, lean: run_round(encoding, kind, r, evaluate=True, dry_run=False, root=root, proposals=proposals, lean=lean)
++
++
++def replay(encoding: str, kind: str, root=None, tag: str = "008", lean: bool = False, extra: dict | None = None) -> dict:
++    """Re-run every recorded round of (`encoding`, `kind`) under the current code; -> the record written to
++    results/compress/<enc>/replay-<tag>.json.  `extra`: fields added to the record right after `kind` (the rishon wrapper adds
++    `prune_fraction`)."""
++    from su2plaq.compress import archive as A
++    from su2plaq.compress import provenance as P
++    from su2plaq.compress.spec import ROOT, default_spec
++    from su2plaq.metrics.provenance import provenance
++
++    root = pathlib.Path(root) if root is not None else ROOT
++    rdir = root / "results" / "compress" / encoding
++    adir = root / "compress" / "archive" / encoding
++    out_json, pre = rdir / f"replay-{tag}.json", rdir / f"pre-{tag}"
++    apre = root / "compress" / "archive" / f"{encoding}-pre-{tag}"
++    for p in (out_json, pre, apre):
++        if p.exists():
++            raise ValueError(f"{p} already exists: a replay with tag {tag!r} was done (or started); use a new tag after a new edit")
++    files = sorted(rdir.glob("round-*.json"))
++    if not files:
++        raise ValueError(f"no round files under {rdir}")
++    old_rounds = [json.loads(f.read_text()) for f in files]
++    nums = [int(f.stem.split("-")[1]) for f in files]
++    if nums != list(range(len(nums))):
++        raise ValueError(f"round files are not contiguous from 0: {nums}")
++    if any(r.get("kind") != kind or r.get("encoding", encoding) != encoding for r in old_rounds):
++        raise ValueError(f"round files do not all belong to ({encoding!r}, {kind!r})")
++    spec = default_spec(encoding, kind)
++    n_alt = len(spec.alt_angles)
++    old_best_e = A.Archive.load(encoding, root=root, n_alt=n_alt, strict=True).best()
++    best_old = {"id": old_best_e.id if old_best_e else None, "key": [int(x) for x in old_best_e.key] if old_best_e else None}
++    old_lean = {}                                  # entry id -> (program sha256, lean dict) of the old archive
++    for f in sorted((adir / "entries").glob("*.json")) if (adir / "entries").is_dir() else []:
++        d = json.loads(f.read_text())
++        if isinstance(d.get("lean"), dict) and d["lean"]:
++            old_lean[d["id"]] = (d.get("program_sha256"), d["lean"])
++    attempts_p = root / "compress" / "attempts" / f"{encoding}.jsonl"
++    disc_p = root / "compress" / "discoveries" / f"{encoding}.md"
++    attempts0, disc0 = _read(attempts_p), _read(disc_p)
++    old_hashes = list(dict.fromkeys(r["evaluator_sha256"] for r in old_rounds))
++    run = _round_fn(encoding, kind)
++
++    backup = []
++    pre.mkdir(parents=True)
++    for name in [f.name for f in files] + ["feedback", "robust.json", "summary.json"]:
++        src = rdir / name
++        if src.exists():
++            shutil.move(str(src), str(pre / name))
++            backup.append(str(pre.relative_to(root) / name))
++    if adir.exists():
++        shutil.move(str(adir), str(apre))
++        backup.append(str(apre.relative_to(root)))
++    t0 = time.time()
++    new_rounds = []
++    try:
++        for r, old in enumerate(old_rounds):
++            props = None if r == 0 else [str(root / c["program_path"]) for c in old["candidates"]]
++            run(r, props, root, lean)
++            new_rounds.append(json.loads((rdir / f"round-{r:03d}.json").read_text()))
++    finally:         # a replay is not an attempt: the append-only logs go back to their bytes even if a round failed
++        attempts_ok, disc_ok = _restore(attempts_p, attempts0), _restore(disc_p, disc0)
++
++    entries, newly, lost, id_map = [], [], [], {}
++    for r, (old, new) in enumerate(zip(old_rounds, new_rounds)):
++        nmap = {c["label"]: c for c in new["candidates"]}
++        if len(nmap) != len(new["candidates"]) or {c["label"] for c in old["candidates"]} != set(nmap):
++            raise RuntimeError(f"round {r}: the replayed candidates differ from the recorded ones")
++        for oc in old["candidates"]:
++            nc = nmap[oc["label"]]
++            o, n = _side(oc), _side(nc)
++            id_map[nc["id"]] = oc["id"]
++            if o["valid"] and not n["valid"]:
++                lost.append(nc["id"])
++            if n["valid"] and not o["valid"]:
++                newly.append(nc["id"])
++            entries.append({"id": nc["id"], "old_id": oc["id"], "round": r, "label": oc["label"], "program_path": oc["program_path"],
++                            "program_sha256": nc["program_sha256"], "old": o, "new": n,
++                            "key_equal": (o["key"] == n["key"]) if (o["valid"] and n["valid"]) else None})
++
++    # Lean records of unchanged programs go over to the new entries (a replay must not erase a certificate)
++    arch = A.Archive.load(encoding, root=root, n_alt=n_alt, strict=True)
++    carried = []
++    for e in arch.entries():
++        prev = old_lean.get(id_map.get(e.id))
++        if prev is None or prev[0] != e.program_sha256:
++            continue
++        if isinstance(e.lean, dict) and e.lean.get("status") == "certified":
++            continue
++        e.lean = prev[1]
++        carried.append(e.id)
++    if carried:
++        arch.save()
++        for r, new in enumerate(new_rounds):
++            changed = False
++            for c in new["candidates"]:
++                if c["id"] in carried:
++                    c["lean"] = next(x.lean for x in arch.entries() if x.id == c["id"])
++                    changed = True
++            if changed:
++                (rdir / f"round-{r:03d}.json").write_text(json.dumps(new, indent=1, default=str))
++    best_new_e = arch.best()
++    res = {"tag": tag, "encoding": encoding, "kind": kind, **(extra or {}), "rounds": list(range(len(new_rounds))),
++           "evaluator_sha256": P.stamp_hash(encoding), "encoding_sha256": P.code_hash_for(encoding), "evaluator_sha256_old": old_hashes,
++           "entries": entries, "newly_valid": newly, "lost": lost, "best_old": best_old,
++           "best_new": {"id": best_new_e.id if best_new_e else None, "key": [int(x) for x in best_new_e.key] if best_new_e else None},
++           "attempts_unchanged": bool(attempts_ok), "discoveries_unchanged": bool(disc_ok), "backup": backup, "lean": bool(lean),
++           "lean_carried": carried, "wall_s": time.time() - t0, "round_wall_s": [x["wall_s"] for x in new_rounds],
++           "provenance": provenance({"replay_tag": tag}), "written_utc": _utc()}
++    out_json.write_text(json.dumps(res, indent=1, default=str) + "\n")
++    return res
++
++
++def _stamp(f: pathlib.Path, d: dict) -> float:
++    """Sort key of a replay record: `written_utc` (epoch seconds), file modification time for a record without that field."""
++    w = d.get("written_utc")
++    if w:
++        try:
++            return datetime.datetime.strptime(w, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=datetime.timezone.utc).timestamp()
++        except ValueError:
++            pass
++    return f.stat().st_mtime
++
++
++def latest_record(encoding: str, root=None) -> dict | None:
++    """The `replay-*.json` of `encoding` with the latest `written_utc` (modification time for a record without that field), or None."""
++    from su2plaq.compress.spec import ROOT
++
++    root = pathlib.Path(root) if root is not None else ROOT
++    best = None
++    for f in sorted((root / "results" / "compress" / encoding).glob("replay-*.json")):
++        d = json.loads(f.read_text())
++        k = (_stamp(f, d), f.stat().st_mtime, f.name)
++        if best is None or k > best[0]:
++            best = (k, d)
++    return best[1] if best else None
++
++
++def problems(res: dict) -> dict:
++    """What prompts/204 section 12 says to stop on: entries valid before and after whose key changed (`key_equal` is False) and
++    entries that were valid and are not any more (`lost`).  -> {"key_changed": [ids], "lost": [ids]}."""
++    return {"key_changed": [e["id"] for e in res["entries"] if e["key_equal"] is False], "lost": list(res["lost"])}
++
++
++def report(res: dict, out=None, err=None) -> int:
++    """Print the one-line summary; 1 (and a message on `err`) when a key changed or a valid entry was lost, else 0."""
++    out, err = out or sys.stdout, err or sys.stderr
++    bad = problems(res)
++    print(json.dumps({"tag": res["tag"], "rounds": res["rounds"], "newly_valid": res["newly_valid"], "lost": res["lost"],
++                      "key_changed": bad["key_changed"], "best_old": res["best_old"], "best_new": res["best_new"],
++                      "wall_s": round(res["wall_s"])}), file=out)
++    if bad["key_changed"] or bad["lost"]:
++        print(f"REPLAY PROBLEM: key changed for {bad['key_changed']}; lost (valid before, invalid now): {bad['lost']}", file=err)
++        return 1
++    return 0
++
++
++def main(argv=None) -> int:
++    from su2plaq.encodings import registry
++
++    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
++    ap.add_argument("--encoding", required=True)
++    ap.add_argument("--kind", default=None, help="default: the registry's loop kind of the encoding")
++    ap.add_argument("--root", default=None)
++    ap.add_argument("--tag", default="008")
++    ap.add_argument("--lean", action="store_true", help="also Lean-certify each round's best (default: no; the old records are carried over)")
++    a = ap.parse_args(argv)
++    kind = a.kind or registry.info(a.encoding).loop_kind
++    return report(replay(a.encoding, kind, root=a.root, tag=a.tag, lean=a.lean))
++
++
++if __name__ == "__main__":
++    sys.exit(main())
 diff --git i/src/su2plaq/compress/robust.py w/src/su2plaq/compress/robust.py
 index f37e8ad..df9b96b 100644
 --- i/src/su2plaq/compress/robust.py
@@ -219,3 +469,240 @@ index a7b7347..fda620f 100644
  
  
  if __name__ == "__main__":
+diff --git i/tests/unit/test_compress_replay_unit.py w/tests/unit/test_compress_replay_unit.py
+new file mode 100644
+index 0000000..e51e79e
+--- /dev/null
++++ w/tests/unit/test_compress_replay_unit.py
+@@ -0,0 +1,117 @@
++"""Unit tests of su2plaq.compress.replay (prompts/008 step B7): dry replay of a kind-`UE` twelve seed round under a temporary root,
++record schema, backups, byte-for-byte restore of the attempts log, refusal of a reused tag, `latest_record`, the Lean carry-over,
++and the exit code of the CLI.  Everything happens under tmp_path (never the real results/ or compress/ trees)."""
++import hashlib
++import json
++
++import pytest
++
++from su2plaq.compress import archive as A
++from su2plaq.compress import provenance as P
++from su2plaq.compress import replay as RP
++from su2plaq.compress.round import run_round
++from su2plaq.compress.spec import default_spec
++
++ENC, KIND = "twelve", "UE"
++
++
++@pytest.fixture(scope="module")
++def replayed(tmp_path_factory):
++    root = tmp_path_factory.mktemp("replay_root_twelve")
++    run_round(ENC, KIND, 0, evaluate=True, root=root, lean=False)
++    rdir = root / "results" / "compress" / ENC
++    f = rdir / "round-000.json"
++    d = json.loads(f.read_text())
++    d["evaluator_sha256"] = "0" * 64                # stale hash on purpose: what a replay is for
++    f.write_text(json.dumps(d, indent=1))
++    # a Lean record on the best entry: must be carried over (the program is unchanged)
++    arch = A.Archive.load(ENC, root=root, n_alt=len(default_spec(ENC, KIND).alt_angles), strict=True)
++    best = arch.best()
++    best.lean = {"status": "certified", "marker": "carry-me"}
++    arch.save()
++    attempts = root / "compress" / "attempts" / f"{ENC}.jsonl"
++    disc = root / "compress" / "discoveries" / f"{ENC}.md"
++    before = {p.name: (hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None) for p in (attempts, disc)}
++    first = json.loads(f.read_text())
++    res = RP.replay(ENC, KIND, root=root, tag="t1")
++    return root, first, res, before, best.id
++
++
++def test_record_schema_backup_and_hashes(replayed):
++    root, first, res, _, _ = replayed
++    rdir = root / "results" / "compress" / ENC
++    assert res["tag"] == "t1" and res["encoding"] == ENC and res["kind"] == KIND and res["rounds"] == [0]
++    assert res["evaluator_sha256"] == P.stamp_hash(ENC) and res["encoding_sha256"] == P.code_hash_for(ENC)
++    assert res["evaluator_sha256_old"] == ["0" * 64] and "prune_fraction" not in res
++    assert res["lost"] == [] and len(res["entries"]) == len(first["candidates"]) >= 1
++    assert res["best_new"]["key"] == res["best_old"]["key"] and res["best_new"]["id"] == res["best_old"]["id"]
++    for e in res["entries"]:
++        assert e["old"]["valid"] == e["new"]["valid"] and e["old"]["reason"] == e["new"]["reason"]
++        if e["new"]["valid"]:
++            assert e["key_equal"] is True
++    assert json.loads((rdir / "replay-t1.json").read_text())["written_utc"] == res["written_utc"]
++    assert (rdir / "pre-t1" / "round-000.json").exists() and (root / "compress" / "archive" / f"{ENC}-pre-t1" / "index.json").exists()
++    assert json.loads((rdir / "round-000.json").read_text())["evaluator_sha256"] == P.stamp_hash(ENC)
++    assert res["attempts_unchanged"] is True and res["discoveries_unchanged"] is True and isinstance(res["provenance"]["git_commit"], str)
++    arch = A.Archive.load(ENC, root=root, n_alt=len(default_spec(ENC, KIND).alt_angles), strict=True)
++    assert arch.rejected == [] and all(x.evaluator_sha256 == P.stamp_hash(ENC) for x in arch.entries())
++
++
++def test_logs_restored_tag_refused_latest_record_and_lean_carried(replayed):
++    root, _, res, before, best_id = replayed
++    for name, path in ((f"{ENC}.jsonl", root / "compress" / "attempts" / f"{ENC}.jsonl"), (f"{ENC}.md", root / "compress" / "discoveries" / f"{ENC}.md")):
++        assert (hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else None) == before[name]
++    with pytest.raises(ValueError, match="already exists"):
++        RP.replay(ENC, KIND, root=root, tag="t1")
++    with pytest.raises(ValueError, match="belong to"):
++        RP.replay(ENC, "step", root=root, tag="t2")          # refused before anything is moved
++    assert not (root / "results" / "compress" / ENC / "pre-t2").exists()
++    assert RP.latest_record(ENC, root=root)["tag"] == "t1"
++    assert RP.latest_record("spinnet", root=root) is None
++    assert best_id in res["lean_carried"]
++    arch = A.Archive.load(ENC, root=root, n_alt=len(default_spec(ENC, KIND).alt_angles), strict=True)
++    assert next(x for x in arch.entries() if x.id == best_id).lean == {"status": "certified", "marker": "carry-me"}
++    rd = json.loads((root / "results" / "compress" / ENC / "round-000.json").read_text())
++    assert next(c for c in rd["candidates"] if c["id"] == best_id)["lean"]["marker"] == "carry-me"
++
++
++def test_refuses_empty_root(tmp_path):
++    with pytest.raises(ValueError, match="no round files"):
++        RP.replay(ENC, KIND, root=tmp_path)
++
++
++def test_latest_record_orders_by_written_utc_then_mtime(tmp_path):
++    d = tmp_path / "results" / "compress" / "x"
++    d.mkdir(parents=True)
++    (d / "replay-a.json").write_text(json.dumps({"tag": "a", "written_utc": "2026-11-16T10:00:00Z"}))
++    (d / "replay-b.json").write_text(json.dumps({"tag": "b", "written_utc": "2026-11-16T09:00:00Z"}))
++    assert RP.latest_record("x", root=tmp_path)["tag"] == "a"
++    (d / "replay-c.json").write_text(json.dumps({"tag": "c"}))            # no field: file modification time (now, later than a and b)
++    assert RP.latest_record("x", root=tmp_path)["tag"] == "c"
++
++
++def _fake(entries, lost):
++    return {"tag": "x", "rounds": [0], "newly_valid": [], "lost": lost, "entries": entries, "best_old": {"id": None, "key": None},
++            "best_new": {"id": None, "key": None}, "wall_s": 1.0}
++
++
++@pytest.mark.parametrize("key_equal, lost, code, text", [
++    ([True, None], [], 0, ""),
++    ([True, False], [], 1, "r00-b"),
++    ([True, True], ["r00-c"], 1, "r00-c"),
++])
++def test_cli_exit_code_covers_changed_keys_and_lost(monkeypatch, capsys, key_equal, lost, code, text):
++    entries = [{"id": f"r00-{c}", "key_equal": k} for c, k in zip("ab", key_equal)]
++    seen = {}
++    monkeypatch.setattr(RP, "replay", lambda enc, kind, **k: seen.update(enc=enc, kind=kind, **k) or _fake(entries, lost))
++    assert RP.main(["--encoding", "twelve", "--kind", "step", "--tag", "x"]) == code
++    cap = capsys.readouterr()
++    assert (text in cap.err) if code else cap.err == ""
++    assert seen["enc"] == "twelve" and seen["kind"] == "step" and seen["tag"] == "x" and seen["lean"] is False
++    assert RP.problems(_fake(entries, lost))["lost"] == lost
++
++
++def test_cli_default_kind_is_the_registry_loop_kind(monkeypatch):
++    seen = {}
++    monkeypatch.setattr(RP, "replay", lambda enc, kind, **k: seen.update(kind=kind) or _fake([], []))
++    assert RP.main(["--encoding", "fuzzy_link"]) == 0 and seen["kind"] == "UE"
+diff --git i/tests/unit/test_robust_hooks_unit.py w/tests/unit/test_robust_hooks_unit.py
+new file mode 100644
+index 0000000..6eaffc1
+--- /dev/null
++++ w/tests/unit/test_robust_hooks_unit.py
+@@ -0,0 +1,108 @@
++"""B6 finding F1 (reports/tests/419): `robust.headline(..., compute=False)` never computes and never writes, also for the encodings
++served by a `headline` hook (spinnet, rishon).  Works on temporary copies of the real archives (never the real results/ tree)."""
++import hashlib
++import json
++import pathlib
++import shutil
++
++import pytest
++
++from su2plaq.compress import report as RP
++from su2plaq.compress import robust as RB
++from su2plaq.compress.spec import ROOT
++from su2plaq.encodings import registry
++
++HOOKED = [("spinnet", "step"), ("rishon", "step")]
++
++
++def _copy(enc, tmp_path):
++    for rel in (f"compress/archive/{enc}", f"results/compress/{enc}", f"compress/programs/{enc}"):
++        shutil.copytree(ROOT / rel, tmp_path / rel)
++    for old in list((tmp_path / "results" / "compress" / enc).glob("pre-*")):
++        shutil.rmtree(old)
++    return tmp_path
++
++
++def _tree_digest(root, enc):
++    d = root / "results" / "compress" / enc
++    return {str(p.relative_to(root)): (hashlib.sha256(p.read_bytes()).hexdigest(), p.stat().st_mtime_ns) for p in sorted(d.rglob("*")) if p.is_file()}
++
++
++@pytest.fixture
++def no_build(monkeypatch):
++    """Any program rebuild (the expensive path) is an error; counts the calls of the track and shared `robust_metrics`."""
++    calls = []
++
++    def boom(*a, **k):
++        calls.append(a)
++        raise AssertionError("a program was rebuilt although compute=False")
++
++    from su2plaq.rishon.compress import robust as RR
++    from su2plaq.spinnet import loop as SL
++
++    for mod in (RB, RR, SL):
++        monkeypatch.setattr(mod, "robust_metrics", boom)
++    return calls
++
++
++@pytest.mark.parametrize("enc,kind", HOOKED)
++def test_compute_false_stale_cache_returns_none_without_build_or_write(enc, kind, tmp_path, no_build):
++    root = _copy(enc, tmp_path)
++    f = root / "results" / "compress" / enc / "robust.json"
++    cache = json.loads(f.read_text())
++    cache["evaluator_sha256"] = "0" * 64                      # stale: the hook would recompute every entry
++    f.write_text(json.dumps(cache, indent=1))
++    before = _tree_digest(root, enc)
++    assert RB.headline(enc, kind, root=root, compute=False) is None
++    assert RB.report_rows(enc, kind, root=root) == []
++    assert _tree_digest(root, enc) == before and no_build == []
++
++
++@pytest.mark.parametrize("enc,kind", HOOKED)
++def test_compute_false_missing_cache_and_refresh(enc, kind, tmp_path, no_build):
++    root = _copy(enc, tmp_path)
++    f = root / "results" / "compress" / enc / "robust.json"
++    assert RB.headline(enc, kind, root=root, compute=False, refresh=True) is None        # refresh would recompute
++    f.unlink()
++    assert RB.headline(enc, kind, root=root, compute=False) is None
++    assert not f.exists() and no_build == []
++
++
++@pytest.mark.parametrize("enc,kind", HOOKED)
++def test_compute_false_fresh_cache_equals_the_hook_and_writes_nothing(enc, kind, tmp_path, no_build):
++    from su2plaq.compress import provenance as P
++
++    root = _copy(enc, tmp_path)
++    f = root / "results" / "compress" / enc / "robust.json"
++    cache = json.loads(f.read_text())
++    cache["evaluator_sha256"] = P.stamp_hash(enc)             # make the copy's cache current: only its keys are changed
++    if enc == "spinnet":
++        from su2plaq.spinnet.loop import code_hash
++
++        cache["spinnet_code_sha256"] = code_hash()
++    f.write_text(json.dumps(cache, indent=1))
++    before = _tree_digest(root, enc)
++    h = RB.headline(enc, kind, root=root, compute=False)
++    assert h is not None and h["id"] is not None and _tree_digest(root, enc) == before
++    hook = registry.resolve(registry.info(enc).headline)(kind, root, False)     # the track's own function on the same cache (no rebuild needed)
++    assert (h["id"], tuple(h["robust_key"]), h["archive_best"]) == (hook["id"], tuple(hook["robust_key"]), hook["archive_best"])
++    assert [(r["id"], r["robust_key"]) for r in h["ranking"]] == [(r["id"], r["robust_key"]) for r in hook["ranking"] if r["robust_key"] is not None]
++    assert no_build == []
++    # the report table of the copy: prints the headline rows from the cache, does not touch robust.json
++    robust_bytes = f.read_bytes()
++    text = RP.report_table(enc, kind, root=root)
++    assert "HEADLINE (robust key): " + h["id"] in text and f.read_bytes() == robust_bytes and no_build == []
++
++
++def test_compute_true_still_delegates_to_the_hook(monkeypatch, tmp_path):
++    seen = []
++
++    def hook(kind, root, refresh):
++        seen.append((kind, refresh))
++        return {"id": None, "robust_key": None, "t_mean": None, "lean": None, "archive_best": None, "archive_best_robust_key": None,
++                "ranking": []}
++
++    monkeypatch.setattr(registry, "resolve", lambda s, _r=registry.resolve: hook if s == "x:hook" else _r(s))
++    monkeypatch.setitem(registry._TABLE, "spinnet", registry.info("spinnet").__class__(**{**registry.info("spinnet").__dict__, "headline": "x:hook"}))
++    h = RB.headline("spinnet", "step", root=tmp_path, refresh=True)
++    assert seen == [("step", True)] and h["unrankable"] == []
