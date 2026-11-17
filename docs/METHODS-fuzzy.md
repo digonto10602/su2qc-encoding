@@ -155,3 +155,7 @@ reported as `n_a` with the reason.
   (`worker_warmup`).
   Prototype (`scratch/planner/m10_hook_proto.py`): link full key (36, 644, 1515, 4), polish → 30 CX; $U_B$ (1718, 2822, 4924, 15),
   polish → 1596 CX; composed general step with outer links CX 2150, $N_{\rm rot}=136$.
+
+## F10. Relation to Kogut–Susskind (prompts/009, prompts/010; research 006, 007) — pointer
+
+`docs/METHODS.md` §13.2 (the KS $j\le\tfrac12$ link is a compression of the fuzzy link in three pairs of embeddings), §13.4 ((a) at $r=0$ the closed sector of the flavour patterns $(+,+,-,-)$ and $(-,-,+,+)$ is exactly the KS $2\times2$ block, which explains why the $r=0$ closed spectrum of F7 contains both KS levels; (b) isolated plaquette: twofold degenerate ground level for $\mathcal K_1$ alone, gap $\propto(g^2)^7$ with $\mathcal K_2$, as arXiv:2308.05253 Sec. IV B and Fig. 3; (c) no KS limit inside $a\mathcal K_1+b\mathcal K_2$). Headline of the compression units and the meaning of "angle-linear" for programs with constant angle terms: `docs/METHODS.md` §12.4, amendment of prompts/010 (fuzzy_ub headline `r10-F1-010`; composed headline step `results/fuzzy/compressed_step_headline.json`). Code: `su2plaq.crosscheck.{embed,limits}`, `su2plaq.fuzzy.headline_step`; locked tests `tests/acceptance/m11` E1, F1–F3, H1–H3.
