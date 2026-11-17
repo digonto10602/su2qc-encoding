@@ -6,5 +6,5 @@
 #   tools/run-capped lake build            PER_JOB_MEM=12G tools/run-capped python -m ...
 set -euo pipefail
 systemctl --user start su2qc.slice 2>/dev/null || true
-exec systemd-run --user --scope -q --slice=su2qc.slice -p MemoryMax="${PER_JOB_MEM:-22G}" -p MemorySwapMax=0 \
+exec systemd-run --user --scope -q --slice=su2qc.slice -p MemoryMax="${PER_JOB_MEM:-11G}" -p MemorySwapMax=0 \
   -p OOMPolicy=continue -- "$@"

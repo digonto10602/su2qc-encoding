@@ -15,4 +15,4 @@ set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"; cd "$HERE/.."
 export OMP_NUM_THREADS=${OMP_NUM_THREADS:-1} OPENBLAS_NUM_THREADS=${OPENBLAS_NUM_THREADS:-1} MKL_NUM_THREADS=${MKL_NUM_THREADS:-1}
 export PATH="$HOME/.elan/bin:$PATH"
-PER_JOB_MEM="${PYTEST_MEM_MAX:-22G}" exec "$HERE/run-capped" python -m pytest "$@"
+PER_JOB_MEM="${PYTEST_MEM_MAX:-11G}" exec "$HERE/run-capped" python -m pytest "$@"
