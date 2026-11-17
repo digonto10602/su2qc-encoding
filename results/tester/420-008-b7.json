@@ -1,0 +1,8 @@
+{"commit_at_end": "efadd54", "b7_source": "uncommitted (compress/replay.py new, rishon/compress/replay.py wrapper, compress/robust.py F1, 2 unit test files)",
+ "seed": "none (all replays deterministic; programs recorded)", "machine": "omnicommander, cores 0-8, slice 11G",
+ "unit": {"passed": 1066, "failed": 0, "wall_s": 377},
+ "acceptance_not_slow": {"m6_m8_isolated": {"failed": 13, "ids": "m6 G5 G6 L2 L3 L9; m8 S0 S2 S3 S4 S5 H1 L2 E2"}, "rest_incl_m11": {"passed": 265, "failed": 31, "of_which_m11_pending": 24, "G1": 5, "infra_rerun_green": ["m2 test_program_lemma_file_checked", "m9 M9_C1"]}, "Y1": "passed (3.9 s)"},
+ "spinnet_replay_t420": {"wall_s": 52, "entries": 23, "keys_equal": 23, "lost": 0, "lean_carried": 6, "files_byte_identical_in_pre": 65, "exit_code": 0, "tamper_round_file_exit": 1, "tamper_archive_entry_exit": 0},
+ "rishon_replay_t420": {"new_wall_s": 4710, "head_wall_s": 4771, "entries": 19, "common_fields_differ": 0, "only_new_fields": ["encoding_sha256","lean_carried","written_utc"], "newly_valid": ["r00-seed-001","r00-seed-002"], "lost": 0, "best": "r04-F1-004 (228, 846, 1417, 53)"},
+ "F1": {"spinnet": {"stale_compute_false": "None, 0.04 s, no file changed", "fresh_compute_false": "r02-F1-002 (31,21840,0,46024,17), 0.00 s, no file changed", "compute_true": "49.4 s"}, "rishon": {"stale": "None 0.04 s", "fresh": "r04-F1-004 (228,16876,0,28328,53) 0.01 s", "compute_true": "111 s"}},
+ "hashes_equal_419": true}

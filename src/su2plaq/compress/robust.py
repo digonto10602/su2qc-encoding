@@ -186,15 +186,28 @@ def _angle_set_record() -> dict:
             "pairs": [list(p) for p in ANGLE_SET], "sha256": angle_set_sha256()}
 
 
-def _load_cache(cache_file: pathlib.Path, encoding: str, refresh: bool) -> dict:
-    """The cached per-entry records, or {} when the file is missing, `refresh`, or keyed by another code / angle set."""
+# top-level cache keys that only a track's own headline function writes, and the function that gives the value they must equal
+_HOOK_CODE_KEYS = {"spinnet_code_sha256": "su2plaq.spinnet.loop:code_hash"}
+
+
+def _load_cache(cache_file: pathlib.Path, encoding: str, refresh: bool, hook: bool = False) -> dict:
+    """The cached per-entry records, or {} when the file is missing, `refresh`, or keyed by another code / angle set.  `hook`: the file
+    was written by the encoding's own `headline` hook (spinnet, rishon): its keys are `evaluator_sha256` (= `stamp_hash`), the angle
+    set and, for spinnet, `spinnet_code_sha256`; a top-level `*_code_sha256` key this function does not know counts as stale."""
     from su2plaq.compress import provenance as P
 
     if refresh or not cache_file.exists():
         return {}
     cache = json.loads(cache_file.read_text())
-    if (cache.get("evaluator_sha256") != P.stamp_hash(encoding) or cache.get("encoding_sha256") != P.code_hash_for(encoding)
-            or cache.get("angle_set", {}).get("sha256") != angle_set_sha256()):
+    if cache.get("evaluator_sha256") != P.stamp_hash(encoding) or cache.get("angle_set", {}).get("sha256") != angle_set_sha256():
+        return {}
+    if hook:
+        from su2plaq.encodings import registry
+
+        for k in (k for k in cache if k.endswith("_code_sha256")):
+            if k not in _HOOK_CODE_KEYS or registry.resolve(_HOOK_CODE_KEYS[k])() != cache[k]:
+                return {}
+    elif cache.get("encoding_sha256") != P.code_hash_for(encoding):
         return {}
     return cache.get("entries", {})
 
@@ -205,11 +218,13 @@ def headline(encoding, kind="step", root=None, refresh=False, compute=True) -> d
     "unrankable".  Per-entry `robust_metrics` are cached in <root>/results/compress/<encoding>/robust.json keyed by (id, program
     sha256, angle-set sha256) and the encoding's code hashes; a mismatch or `refresh` recomputes.  An encoding registered with a
     `headline` hook is served by it.  `summary.json` of the encoding (when it exists) gets "headline".
-    `compute=False`: only cached records are used; None if one is missing.
+    `compute=False`: only cached records are used and nothing is built or written (also for an encoding with a `headline` hook, whose
+    cache `robust.json` is then read here, in the shape of the generic rule); None if one is missing or stale.
     -> {"id", "robust_key", "t_mean", "lean", "archive_best", "archive_best_robust_key", "ranking": [{"id", "robust_key", "t_mean",
     "lean", "laptop_key", "family", "round", "cx", "qubits", "t_nominal", "depth_mean", "angle_linear"}...] sorted, "unrankable": [ids]}."""
     info = _info(encoding)
-    if info is not None and info.headline:
+    hook = info is not None and bool(info.headline)
+    if hook and compute:
         from su2plaq.encodings import registry
 
         h = registry.resolve(info.headline)(kind, root, refresh)
@@ -227,7 +242,7 @@ def headline(encoding, kind="step", root=None, refresh=False, compute=True) -> d
     valid = sorted((e for e in arch.entries() if e.valid), key=lambda e: e.id)
     best = arch.best()
     cache_file = root / "results" / "compress" / encoding / "robust.json"
-    cached = _load_cache(cache_file, encoding, refresh)
+    cached = _load_cache(cache_file, encoding, refresh, hook=hook)
     as_sha = angle_set_sha256()
     store = {"angle_set": _angle_set_record(), "evaluator_sha256": P.stamp_hash(encoding), "encoding_sha256": P.code_hash_for(encoding),
              "entries": {}}
