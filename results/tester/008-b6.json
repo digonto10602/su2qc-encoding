@@ -1,0 +1,170 @@
+{
+ "commit": "ae4c5cd (HEAD; B6 source uncommitted on top; src identical to 966e518)",
+ "mode": "step",
+ "date": "2026-11-16",
+ "angle_set_seed": 20261107,
+ "angle_set_sha256": "769caec1c2738356f2e5a4f51adc1d286ce3bb585c034c7a98950df701e3cbb2",
+ "old_tree": "git archive e464c19 -> scratch/t419/old",
+ "headlines_old_track": {
+  "spinnet": {
+   "id": "r02-F1-002",
+   "robust_key": [
+    31,
+    21840,
+    0,
+    46024,
+    17
+   ],
+   "t_mean": 1092.0,
+   "archive_best": "r04-F1-004"
+  },
+  "rishon": {
+   "id": "r04-F1-004",
+   "robust_key": [
+    228,
+    16876,
+    0,
+    28328,
+    53
+   ],
+   "t_mean": 843.8,
+   "archive_best": "r04-F1-004"
+  }
+ },
+ "headlines_new_generic": {
+  "spinnet": {
+   "id": "r02-F1-002",
+   "robust_key": [
+    31,
+    21840,
+    0,
+    46024,
+    17
+   ],
+   "t_mean": 1092.0,
+   "archive_best": "r04-F1-004",
+   "unrankable": [],
+   "n_ranked": 23,
+   "n_rho1": 7
+  },
+  "rishon": {
+   "id": "r04-F1-004",
+   "robust_key": [
+    228,
+    16876,
+    0,
+    28328,
+    53
+   ],
+   "t_mean": 843.8,
+   "archive_best": "r04-F1-004",
+   "unrankable": [],
+   "n_ranked": 16,
+   "n_rho1": 1
+  },
+  "twelve": {
+   "id": "r05-F2-005",
+   "robust_key": [
+    111,
+    18548,
+    0,
+    34384,
+    31
+   ],
+   "t_mean": 927.4,
+   "archive_best": "r05-F2-005",
+   "unrankable": [
+    "r00-seed-qiskit_l3"
+   ],
+   "n_ranked": 21,
+   "n_rho1": 0
+  },
+  "fuzzy_link": {
+   "id": "r02-F2-001",
+   "robust_key": [
+    12,
+    12576,
+    0,
+    23373,
+    4
+   ],
+   "t_mean": 628.8,
+   "archive_best": "r02-F2-001",
+   "unrankable": [],
+   "n_ranked": 4,
+   "n_rho1": 0
+  },
+  "fuzzy_ub": {
+   "id": "r10-F1-010",
+   "robust_key": [
+    83,
+    12688,
+    0,
+    30902,
+    10
+   ],
+   "t_mean": 634.4,
+   "archive_best": "r12-F1-012",
+   "unrankable": [],
+   "n_ranked": 41,
+   "n_rho1": 11
+  }
+ },
+ "fuzzy_ub_rho1_ids": [
+  "r09-F1-009",
+  "r09-F2-009",
+  "r10-F2-010",
+  "r11-F1-011",
+  "r11-F2-011",
+  "r12-F1-012",
+  "r12-F2-012",
+  "r12-F3-012",
+  "r13-F1-013",
+  "r13-F2-013",
+  "r13-F3-013"
+ ],
+ "hashes": {
+  "provenance": [
+   "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+   "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+  ],
+  "twelve": [
+   "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+   "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+   "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+  ],
+  "spinnet": [
+   "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
+   "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
+   "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+  ],
+  "rishon": [
+   "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+   "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+   "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23"
+  ],
+  "fuzzy_ub": [
+   "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
+   "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
+   "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+  ],
+  "fuzzy_link": [
+   "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
+   "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
+   "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+  ],
+  "lsh": [
+   "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+   "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+   "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca"
+  ],
+  "spinnet_loop": [
+   "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4"
+  ],
+  "rishon_code_hash": [
+   "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23"
+  ]
+ },
+ "unit": "1050 passed in 243.9 s",
+ "acceptance_not_slow": "299 passed, 19 failed in 1002.5 s (-n 6)"
+}

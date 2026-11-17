@@ -80,7 +80,11 @@ def _row_external(x) -> list:
             est.get("1e-10"), None, m.get("depth_ct"), verdict, "n_a", "-"]
 
 
-def report_table(encoding, kind, root=None) -> str:
+def report_table(encoding, kind, root=None, headline: bool = True) -> str:
+    """Markdown table of a loop (and `results/compress/<encoding>/summary.json`).  `headline=True` (prompts/008 §6): when the headline of
+    the archive is cached (`compress.robust.headline`, never computed here: it rebuilds every program at 20 angle pairs), a second
+    table lists the GLOBAL BEST row (archive key), the HEADLINE row (robust key) and the best entry of every family, and `summary.json`
+    gains "headline"."""
     root = pathlib.Path(root) if root is not None else ROOT
     rdir = root / "results" / "compress" / encoding
     rounds = [json.loads(f.read_text()) for f in sorted(rdir.glob("round-*.json"))]
@@ -128,12 +132,28 @@ def report_table(encoding, kind, root=None) -> str:
             f"{'ok' if s['ok'] else 'FAILED'} (eps {s['eps']:g}, {s['n_rot']} rotations, T {s['t_total']}, error {_f(s['op_norm_error'])} <= "
             f"{_f(s['tolerances']['tol_err'])})" if s.get("n_rot") is not None else f"not run ({s.get('error')})"))
     text = "\n".join(lines) + "\n"
+    h = None
+    if headline:
+        from su2plaq.compress import robust
+
+        h = robust.headline(encoding, kind, root=root, compute=False)
+        hrows = robust.report_rows(encoding, kind, root=root, h=h) if h is not None else []
+        if hrows:
+            hl = ["", "### Headline (angle-averaged T, prompts/008 §6)", "", "| " + " | ".join(robust.HEADLINE_HEADER) + " |",
+                  "|" + "|".join("---" for _ in robust.HEADLINE_HEADER) + "|"] + ["| " + " | ".join(str(c) for c in rw) + " |" for rw in hrows]
+            text += "\n".join(hl + ["", robust.headline_note(h)]) + "\n"
+        else:
+            h = None
     lineage = [{"id": r["id"], "parent": r.get("parent"), "family": r["family"], "round": r["round"], "cx": r["key"][0], "t_eps": r["key"][1], "parent_known": r.get("parent_known", True)}
                for r in valid]
     summary = {"encoding": encoding, "kind": kind, "n_rounds": len(rounds), "n_candidates": len(records), "n_valid": len(valid),
                "global_best": gbest["id"] if gbest else None, "global_best_key": gbest["key"] if gbest else None,
                "best_by_family": {k: v["id"] for k, v in best_by_family.items()}, "header": HEADER, "notes": notes, "rows": [[_f(c) for c in row] for row in rows],
                "lineage": lineage}
+    if h is not None:
+        from su2plaq.compress import robust
+
+        summary["headline"] = robust.summary_headline(h)
     rdir.mkdir(parents=True, exist_ok=True)
     (rdir / "summary.json").write_text(json.dumps(summary, indent=1))
     return text

@@ -30,19 +30,8 @@ INSTALLED: dict = {}                     # {} before install(); then {"encoding"
 _SRC = pathlib.Path(__file__).resolve().parents[1]            # src/su2plaq
 _LEAN_SPINNET = pathlib.Path("lean") / "Su2Plaq" / "SpinNet"
 
-# headline rule (prompts/104 §11 erratum E3): the angle set on which T and depth_CT are averaged
-ANGLE_SET_SEED, ANGLE_SET_N = 20261107, 20
-ANGLE_SET_RANGES = ((0.05, 2.0), (0.05, 1.2))
-
-
-def _make_angle_set() -> tuple[tuple[float, float], ...]:
-    rng = np.random.default_rng(ANGLE_SET_SEED)
-    a = rng.uniform(*ANGLE_SET_RANGES[0], ANGLE_SET_N)           # all alphas first ...
-    b = rng.uniform(*ANGLE_SET_RANGES[1], ANGLE_SET_N)           # ... then all betas
-    return tuple((float(x), float(y)) for x, y in zip(a, b))
-
-
-ANGLE_SET: tuple[tuple[float, float], ...] = _make_angle_set()
+# headline rule (prompts/104 §11 erratum E3): the angle set on which T and depth_CT are averaged; one definition for every encoding
+from su2plaq.compress.robust import ANGLE_SET, ANGLE_SET_N, ANGLE_SET_RANGES, ANGLE_SET_SEED  # noqa: E402,F401
 
 HEADLINE_RULE_SECTION = """## Headline rule (track S)
 
@@ -692,7 +681,9 @@ def make_brief(round: int, family: str, root=None) -> pathlib.Path:
 # ------------------------------------------------------------------------------------------ headline rule (E3)
 def angle_set_sha256() -> str:
     """sha256 of the repr of the locked angle pairs (identifies the set in every cache and report)."""
-    return hashlib.sha256(repr(ANGLE_SET).encode()).hexdigest()
+    from su2plaq.compress.robust import angle_set_sha256 as _sha
+
+    return _sha()
 
 
 def _program_file(program_path, root=None) -> pathlib.Path:
@@ -811,6 +802,13 @@ def headline(root=None, refresh: bool = False) -> dict:
             "archive_best_robust_key": best_row["robust_key"] if best_row else None, "ranking": rows, "unrankable": sorted(unrankable)}
 
 
+def headline_for(kind="step", root=None, refresh=False) -> dict:
+    """Registry hook `headline(kind, root, refresh)` (prompts/008 §6): `headline(root, refresh)` of the step archive."""
+    if kind != KIND:
+        raise ValueError(f"the spinnet loop has only the kind {KIND!r}, got {kind!r}")
+    return headline(root, refresh)
+
+
 _LEAN_WORDS = {"certified": "certified", "accepted": "certified", "failed": "failed", "rejected": "failed"}
 
 
@@ -830,7 +828,7 @@ def report_table(root=None) -> str:
 
     install()
     root = _root(root)
-    text = report.report_table(ENC, KIND, root=root)
+    text = report.report_table(ENC, KIND, root=root, headline=False)       # this module appends its own HEADLINE table
     h = headline(root)
     arch = A.Archive.load(ENC, root=root, n_alt=len(spec().alt_angles), strict=True)
     best = arch.best()

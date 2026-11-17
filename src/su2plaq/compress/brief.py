@@ -166,6 +166,9 @@ def make_brief(encoding, kind, round: int, family: str, root=None) -> pathlib.Pa
     lines += ["", "## Output", f"Write ONE program to `compress/programs/{encoding}/{family}/{n:03d}-<slug>.py` (docstring starting with "
               "`SUMMARY:`, at most 3 `DISCOVERY:` lines, `FAMILY`, `PARENT`, `def build(spec) -> Builder`); scratch files only under "
               "`scratch/proposer/`. The file is immutable once evaluated; a change needs a new number.", ""]
+    from su2plaq.compress.robust import HEADLINE_RULE_SECTION
+
+    lines += ["", HEADLINE_RULE_SECTION.rstrip("\n")]            # prompts/008 §6: the headline rule is in every round brief
     lines += _note(encoding, kind)
     out = root / "compress" / "briefs" / encoding / f"round-{round:03d}-{family}.md"
     out.parent.mkdir(parents=True, exist_ok=True)

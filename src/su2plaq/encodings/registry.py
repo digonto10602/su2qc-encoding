@@ -50,7 +50,8 @@ def _add(info: EncodingInfo) -> None:
 
 _add(EncodingInfo(
     name="twelve", factory="su2plaq.encodings.twelve:TwelveQubit",
-    lean_certify="su2plaq.lean.certify:certify_circuit"))     # the twelve-qubit exporter / checker (evaluator files: all in the shared list)
+    lean_certify="su2plaq.lean.certify:certify_circuit",
+    angle_linear="su2plaq.compress.robust:twelve_angle_linear"))        # rho of the headline rule: the twelve-qubit Lean exporter (§6)     # the twelve-qubit exporter / checker (evaluator files: all in the shared list)
 
 _add(EncodingInfo(
     name="spinnet", factory="su2plaq.encodings.spinnet:SpinNet", kinds=("step", "UB", "UE"), loop_kind="step",
@@ -59,6 +60,7 @@ _add(EncodingInfo(
     general_circuit="su2plaq.spinnet.loop:general_circuit", seed_candidates="su2plaq.spinnet.loop:seed_candidates",
     import_seed="su2plaq.spinnet.loop:import_seed", lean_certify="su2plaq.spinnet.loop:lean_certify",
     render_spec="su2plaq.spinnet.loop:render_spec", structure_json="compress/specs/spinnet-structure.json",
+    headline="su2plaq.spinnet.loop:headline_for",          # the track's own rho (spinnet Lean exporter) and cache (prompts/008 §6)
     tools=("python -m su2plaq.spinnet.loop candidate", "python -m su2plaq.spinnet.loop oracle")))
 
 _FUZZY_FILES = ("fuzzy/verify.py", "fuzzy/targets.py", "circuits/fuzzy.py", "fuzzy/units.py", "fuzzy/compress_hook.py")
@@ -85,7 +87,8 @@ _add(EncodingInfo(
     verdict="su2plaq.rishon.compress.evaluate:verdict", worker_warmup="su2plaq.rishon.compress.evaluate:warm_up",
     general_circuit="su2plaq.rishon.compress.baselines:general_circuit", seed_candidates="su2plaq.rishon.compress.round:seed_candidates",
     import_seed="su2plaq.rishon.compress.baselines:import_seed", lean_certify="su2plaq.rishon.compress.round:lean_certify",
-    render_spec="su2plaq.rishon.compress:render_spec", structure_json="compress/specs/rishon-structure.json"))
+    render_spec="su2plaq.rishon.compress:render_spec", structure_json="compress/specs/rishon-structure.json",
+    headline="su2plaq.rishon.compress.robust:headline"))    # the track's own rho (three-angle recogniser) and cache (prompts/008 §6)
 
 _add(EncodingInfo(
     name="lsh", factory="su2plaq.encodings.lsh:LSH", kinds=("step", "UB", "UE"), loop_kind="step",

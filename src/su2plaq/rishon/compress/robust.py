@@ -31,20 +31,11 @@ import sys
 import numpy as np
 
 ENC = "rishon"
-ANGLE_SET_SEED, ANGLE_SET_N = 20261107, 20
-ANGLE_SET_RANGES = ((0.05, 2.0), (0.05, 1.2))
+from su2plaq.compress.robust import ANGLE_SET, ANGLE_SET_N, ANGLE_SET_RANGES, ANGLE_SET_SEED  # noqa: E402,F401  (one definition for every encoding)
+
 LINEAR_TOL = 1e-9                          # the fitted angle expression must reproduce every rotation angle at every pair to this
 ROTATION_GATES = ("rz", "p", "crz", "crx", "cp")
 
-
-def _make_angle_set() -> tuple[tuple[float, float], ...]:
-    rng = np.random.default_rng(ANGLE_SET_SEED)
-    a = rng.uniform(*ANGLE_SET_RANGES[0], ANGLE_SET_N)           # all alphas first ...
-    b = rng.uniform(*ANGLE_SET_RANGES[1], ANGLE_SET_N)           # ... then all betas
-    return tuple((float(x), float(y)) for x, y in zip(a, b))
-
-
-ANGLE_SET: tuple[tuple[float, float], ...] = _make_angle_set()
 
 HEADLINE_SECTION_TITLE = "## Headline rule (track R)"
 HEADLINE_SECTION = HEADLINE_SECTION_TITLE + """
@@ -55,7 +46,9 @@ The archive key counts T at the nominal pair; the Report 6 headline and the Lean
 
 def angle_set_sha256() -> str:
     """sha256 of the repr of the locked angle pairs (identifies the set in every cache and report)."""
-    return hashlib.sha256(repr(ANGLE_SET).encode()).hexdigest()
+    from su2plaq.compress.robust import angle_set_sha256 as _sha
+
+    return _sha()
 
 
 def with_headline_section(render):
@@ -221,7 +214,7 @@ def report_table(kind="step", root=None) -> str:
     from su2plaq.compress.spec import default_spec
 
     root = _root(root)
-    text = report.report_table(ENC, kind, root=root)
+    text = report.report_table(ENC, kind, root=root, headline=False)       # this module appends its own HEADLINE table
     h = headline(kind, root)
     arch = A.Archive.load(ENC, root=root, n_alt=len(default_spec(ENC, kind).alt_angles), strict=True)
     best = arch.best()
