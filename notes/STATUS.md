@@ -67,9 +67,10 @@ Latest acceptance tag: acceptance-v22 (m11, prompts/009+010; v21 = 008 E1); prev
 - Paulo (Fig. 2) vs note §4.2 on whether the spin-network plaquette depends on the outer links: SETTLED by M0-X5 (reports/tests/006): in the (inner|outer) pairing H_B is block-diagonal in outer spins, 128 blocks all equal to one 47×47 K (2.7e-15), J conserved → Paulo right; in a mixed pairing amplitudes depend on outer spins → note §4.2 right there.
 
 ## Next action
-1. B7-fix (builder, resumed B7 builder): tester 420 notes N1 (report CLI with stale cache rewrites tracked results/compress/{spinnet,rishon}/summary.json: drops t_avg + headline block, Paulo row beta 1 -> 0.05) and N2 (tampered archive entry refused by loader but replay exits 0); then prompts/010 H.1 (robust.angle_offsets; same file owner). Hashes of 419 must stay unchanged.
-2. M11 builder (parallel, new files only): prompts/009 11.0 stubs (crosscheck package + fuzzy/headline_step.py; NOT robust.py) and 11.1-11.3. Then tester.
-3. After B7-fix tester PASS: 008 Phase C (C0 hash freeze, C1 replays on cores 0-8).
+PAUSED 2026-11-17 01:45 (usage guard, five-hour limit 98 %, resets 02:20). RESTART HERE:
+1. Working tree holds UNTESTED B7-fix + H.1 (builder stopped mid-run, no report received): compress/{replay,report,robust}.py + tests/unit/test_{compress_replay,robust_hooks,robust}_unit.py. Backup notes/wip/008-b7fix-h1-untested.patch (git apply if lost). Scope: N1 (report CLI must not degrade tracked summary.json on stale cache), N2 (refused archive entry -> exit 1), prompts/010 H.1 (robust.angle_offsets; H1 test already green per testers 422/423). Next: fresh builder reviews the diff vs the brief, finishes it, reports root causes + hashes; then tester; then commit.
+2. Then 008 Phase C (C0 hash freeze, C1 replays on cores 0-8; refreshes headline caches -> M11 K4, H.2, H.3, T2 rows).
+3. M11 11.0-11.7 DONE (reports/tests/421-423). 11.8 = regenerate results/crosscheck on a clean commit after Phase C/H.2/H.3/LSH M8/Report 6.
 4. Waiting on Digonto: accept prompts/009 §13 + 010 §8 defaults?; may Report 11 state the four planner derivations as the project's own results?
 
 ## Log
