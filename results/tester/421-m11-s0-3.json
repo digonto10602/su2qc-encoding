@@ -1,0 +1,429 @@
+{
+ "report": "reports/tests/421-m11-steps-0-to-3.md",
+ "commit": "a9009ac (HEAD; working tree has uncommitted M11 builder files)",
+ "machine": "omnicommander, cores 0-8",
+ "seed": "none (deterministic)",
+ "angles": [
+  [
+   0.37,
+   0.61
+  ],
+  [
+   0.91,
+   0.23
+  ],
+  [
+   1.7,
+   1.0
+  ]
+ ],
+ "hashes": {
+  "provenance": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+  "lsh": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+  "spinnet": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
+  "fuzzy_ub=fuzzy_link": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
+  "rishon": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+  "spinnet_loop": "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4",
+  "equal_to_report_420": true
+ },
+ "acceptance_m11_not_slow": {
+  "passed": 17,
+  "failed": 7,
+  "failed_all_PENDING": true
+ },
+ "unit_crosscheck": {
+  "passed": 19,
+  "failed": 0
+ },
+ "collect_acceptance": 407,
+ "peak_rss_MB": {
+  "independent_script": 777.7734375,
+  "pytest_serial_acceptance_plus_unit": 764.96
+ },
+ "independent": {
+  "gauge_signs_twelve_all_plus": true,
+  "gauge_signs_values_pm1": {
+   "twelve": true,
+   "spinnet": true,
+   "lsh": true
+  },
+  "gauge_minus_count": {
+   "twelve": 0,
+   "spinnet": 64,
+   "lsh": 64
+  },
+  "HB_signconj_dev": {
+   "spinnet": 2.6645352591003757e-15,
+   "lsh": 8.881784197001252e-16
+  },
+  "HB_hermitian": {
+   "twelve": 0.0,
+   "spinnet": 0.0,
+   "lsh": 0.0
+  },
+  "HB_multiplicities": {
+   "twelve": {
+    "-2": 16,
+    "-1": 96,
+    "-0.5": 16,
+    "0": 177,
+    "0.5": 16,
+    "1": 96,
+    "2": 16
+   },
+   "spinnet": {
+    "-2": 16,
+    "-1": 96,
+    "-0.5": 16,
+    "0": 177,
+    "0.5": 16,
+    "1": 96,
+    "2": 16
+   },
+   "lsh": {
+    "-2": 16,
+    "-1": 96,
+    "-0.5": 16,
+    "0": 177,
+    "0.5": 16,
+    "1": 96,
+    "2": 16
+   }
+  },
+  "HB_total_counted": {
+   "twelve": 433,
+   "spinnet": 433,
+   "lsh": 433
+  },
+  "max_spectrum_mismatch": {
+   "g2=0.5,outer=True": 2.7533531010703882e-14,
+   "g2=0.5,outer=False": 1.1102230246251565e-14,
+   "g2=1.0,outer=True": 1.199040866595169e-14,
+   "g2=1.0,outer=False": 5.218048215738236e-15,
+   "g2=2.0,outer=True": 2.6645352591003757e-14,
+   "g2=2.0,outer=False": 7.105427357601002e-15
+  },
+  "max_spectrum_mismatch_overall": 2.7533531010703882e-14,
+  "n_levels": 433,
+  "heA_dev_between_encodings": 0.0,
+  "heI_dev_between_encodings": 0.0,
+  "transported_target_2norm_err": {
+   "twelve->spinnet@0.37,0.61": 1.543936912944925e-15,
+   "twelve->lsh@0.37,0.61": 7.358061507430986e-16,
+   "spinnet->twelve@0.37,0.61": 1.543936912944924e-15,
+   "spinnet->lsh@0.37,0.61": 1.2074108482259552e-15,
+   "lsh->twelve@0.37,0.61": 7.358061507430992e-16,
+   "lsh->spinnet@0.37,0.61": 1.2074108482259552e-15,
+   "twelve->spinnet@0.91,0.23": 5.468635570312635e-16,
+   "twelve->lsh@0.91,0.23": 4.1937195428290857e-16,
+   "spinnet->twelve@0.91,0.23": 5.468635570312635e-16,
+   "spinnet->lsh@0.91,0.23": 3.3306690738754696e-16,
+   "lsh->twelve@0.91,0.23": 4.193719542829085e-16,
+   "lsh->spinnet@0.91,0.23": 3.3306690738754696e-16,
+   "twelve->spinnet@1.7,1.0": 3.037347926436853e-15,
+   "twelve->lsh@1.7,1.0": 1.3414578832936405e-15,
+   "spinnet->twelve@1.7,1.0": 3.0373479264368552e-15,
+   "spinnet->lsh@1.7,1.0": 1.7545632855096223e-15,
+   "lsh->twelve@1.7,1.0": 1.3414578832936395e-15,
+   "lsh->spinnet@1.7,1.0": 1.754563285509622e-15
+  },
+  "transported_target_max": 3.0373479264368552e-15,
+  "transported_target_order2_max": 1.5570728032569725e-15,
+  "cross_verdicts": [
+   {
+    "circuit": "twelve",
+    "target": "lsh",
+    "ok": true,
+    "reason": "ok",
+    "total_error": 2.721351977491546e-13,
+    "op_norm_error": 2.6881186964286454e-13,
+    "block_error": 1.2208224712575135e-13,
+    "max_leak": 0.0,
+    "gauss": 3.908513313125536e-15,
+    "certified": true,
+    "n_inputs": 433,
+    "outer_bits_read": 0,
+    "seconds": 5.671562910079956,
+    "mutant_beta_ok": false,
+    "mutant_beta_reason": "error",
+    "mutant_beta_block_error": 2.0000000012264015e-06,
+    "mutant_reversed_ok": false,
+    "mutant_reversed_reason": "error",
+    "mutant_reversed_total_error": 0.9897042280752476,
+    "mutant_swapped_layers_ok": false,
+    "mutant_swapped_layers_reason": "error",
+    "mutant_swapped_layers_block_error": 0.9897042280751253
+   },
+   {
+    "circuit": "spinnet",
+    "target": "twelve",
+    "ok": true,
+    "reason": "ok",
+    "total_error": 1.1049525251145847e-14,
+    "op_norm_error": 1.1049525251145847e-14,
+    "block_error": 3.735054123485262e-15,
+    "max_leak": 0.0,
+    "gauss": 5.53721994457912e-16,
+    "certified": true,
+    "n_inputs": 433,
+    "outer_bits_read": 0,
+    "seconds": 0.21559977531433105,
+    "mutant_beta_ok": false,
+    "mutant_beta_reason": "error",
+    "mutant_beta_block_error": 2.0000000018364537e-06,
+    "mutant_reversed_ok": false,
+    "mutant_reversed_reason": "error",
+    "mutant_reversed_total_error": 0.9897042280751364,
+    "mutant_swapped_layers_ok": false,
+    "mutant_swapped_layers_reason": "error",
+    "mutant_swapped_layers_block_error": 0.9897042280751296
+   },
+   {
+    "circuit": "lsh",
+    "target": "spinnet",
+    "ok": true,
+    "reason": "ok",
+    "total_error": 1.6483590154922412e-14,
+    "op_norm_error": 1.6483590154922412e-14,
+    "block_error": 5.577611155269413e-15,
+    "max_leak": 0.0,
+    "gauss": 5.44603719630737e-16,
+    "certified": true,
+    "n_inputs": 433,
+    "outer_bits_read": 0,
+    "seconds": 0.21389317512512207,
+    "mutant_beta_ok": false,
+    "mutant_beta_reason": "error",
+    "mutant_beta_block_error": 2.0000000033521785e-06,
+    "mutant_reversed_ok": false,
+    "mutant_reversed_reason": "error",
+    "mutant_reversed_total_error": 0.9897042280751396
+   }
+  ],
+  "cross_verdict_max_total_error": 2.721351977491546e-13,
+  "peak_rss_MB_indep_part1": 777.7734375,
+  "embedding_indep": {
+   "rishon_plus": {
+    "n_singlet_space": 4,
+    "n_intertwiners": 1,
+    "s_in_N": 0.0,
+    "fit_residual": 2.721816218700191e-14,
+    "isometry": 6.439293542825908e-15,
+    "V_vs_module_V": 1.8545965193067103e-14,
+    "P_vs_module_P": 1.8545965193067135e-14,
+    "U": 2.55351295663786e-15,
+    "L": 3.219646771412954e-15,
+    "R": 3.219646771412954e-15,
+    "HE": 4.884981308350689e-15,
+    "leak_U_sq": 0.5000000000000024,
+    "phase_module": [
+     1.0,
+     0.0
+    ]
+   },
+   "rishon_minus": {
+    "n_singlet_space": 4,
+    "n_intertwiners": 1,
+    "s_in_N": 0.0,
+    "fit_residual": 2.721816218700191e-14,
+    "isometry": 6.439293542825908e-15,
+    "V_vs_module_V": 1.8545965193067103e-14,
+    "P_vs_module_P": 1.8545965193067135e-14,
+    "U": 2.55351295663786e-15,
+    "L": 3.219646771412954e-15,
+    "R": 3.219646771412954e-15,
+    "HE": 4.884981308350689e-15,
+    "leak_U_sq": 0.5000000000000024,
+    "phase_module": [
+     0.0,
+     1.0
+    ]
+   },
+   "fuzzy_one": {
+    "n_singlet_space": 2,
+    "n_intertwiners": 2,
+    "s_in_N": 2.220446049250313e-16,
+    "fit_residual": 8.096407769233581e-16,
+    "isometry": 7.771561172376096e-16,
+    "V_vs_module_V": 5.551115123125783e-16,
+    "P_vs_module_P": 7.771561172376096e-16,
+    "U": 4.440892098500626e-16,
+    "L": 3.885780586188048e-16,
+    "R": 3.885780586188048e-16,
+    "HE": 6.661338147750939e-16,
+    "leak_U_sq": 0.5000000000000001,
+    "phase_module": [
+     1.0,
+     0.0
+    ]
+   },
+   "fuzzy_gamma5": {
+    "n_singlet_space": 2,
+    "n_intertwiners": 2,
+    "s_in_N": 2.220446049250313e-16,
+    "fit_residual": 7.446528641592215e-16,
+    "isometry": 7.771561172376096e-16,
+    "V_vs_module_V": 5.551115123125783e-16,
+    "P_vs_module_P": 7.771561172376096e-16,
+    "U": 4.440892098500626e-16,
+    "L": 3.885780586188048e-16,
+    "R": 3.885780586188048e-16,
+    "HE": 6.661338147750939e-16,
+    "leak_U_sq": 0.5000000000000003,
+    "phase_module": [
+     1.0,
+     0.0
+    ]
+   },
+   "fuzzy_fplus": {
+    "n_singlet_space": 2,
+    "n_intertwiners": 2,
+    "s_in_N": 1.5700924586837752e-16,
+    "fit_residual": 9.62873296725489e-16,
+    "isometry": 1.9984014443252818e-15,
+    "V_vs_module_V": 7.771561172376096e-16,
+    "P_vs_module_P": 1.5543122344752192e-15,
+    "U": 8.881784197001252e-16,
+    "L": 9.992007221626409e-16,
+    "R": 9.992007221626409e-16,
+    "HE": 1.5543122344752192e-15,
+    "leak_U_sq": 0.9999999999999991,
+    "phase_module": [
+     1.0,
+     0.0
+    ]
+   },
+   "fuzzy_fminus": {
+    "n_singlet_space": 2,
+    "n_intertwiners": 2,
+    "s_in_N": 1.5700924586837752e-16,
+    "fit_residual": 6.321176752984103e-16,
+    "isometry": 8.881784197001252e-16,
+    "V_vs_module_V": 2.220446049252829e-16,
+    "P_vs_module_P": 4.440892098500626e-16,
+    "U": 5.551115123125783e-16,
+    "L": 4.440892098500626e-16,
+    "R": 4.440892098500626e-16,
+    "HE": 6.661338147750939e-16,
+    "leak_U_sq": 1.0000000000000004,
+    "phase_module": [
+     1.0,
+     0.0
+    ]
+   }
+  },
+  "plaquette_indep": {
+   "rishon_plus": 4.718447854656915e-16,
+   "rishon_minus": 4.718447854656915e-16,
+   "fuzzy_one": 3.0531133177191805e-16,
+   "fuzzy_gamma5": 3.0531133177191805e-16,
+   "fuzzy_fplus": 4.718447854656915e-16,
+   "fuzzy_fminus": 4.718447854656915e-16
+  },
+  "module_link_compression": {
+   "rishon_plus": {
+    "phase": [
+     1.0,
+     0.0
+    ],
+    "isometry": 4.440892098500626e-16,
+    "U": 3.3306690738754696e-16,
+    "L": 2.220446049250313e-16,
+    "R": 2.220446049250313e-16,
+    "HE": 3.3306690738754696e-16,
+    "P_commutes_generators": 0.0,
+    "leak_U": 0.7071067811865474,
+    "plaquette": 4.718447854656915e-16,
+    "leak_plaquette": 3.8729833462074135,
+    "leak_U_sq": 0.4999999999999998,
+    "leak_plaquette_sq": 14.999999999999973
+   },
+   "rishon_minus": {
+    "phase": [
+     0.0,
+     1.0
+    ],
+    "isometry": 4.440892098500626e-16,
+    "U": 3.3306690738754696e-16,
+    "L": 2.220446049250313e-16,
+    "R": 2.220446049250313e-16,
+    "HE": 3.3306690738754696e-16,
+    "P_commutes_generators": 0.0,
+    "leak_U": 0.7071067811865474,
+    "plaquette": 4.718447854656915e-16,
+    "leak_plaquette": 3.8729833462074135,
+    "leak_U_sq": 0.4999999999999998,
+    "leak_plaquette_sq": 14.999999999999973
+   },
+   "fuzzy_one": {
+    "phase": [
+     1.0,
+     0.0
+    ],
+    "isometry": 2.220446049250313e-16,
+    "U": 2.220446049250313e-16,
+    "L": 1.1102230246251565e-16,
+    "R": 1.1102230246251565e-16,
+    "HE": 1.1102230246251565e-16,
+    "P_commutes_generators": 0.0,
+    "leak_U": 0.7071067811865475,
+    "plaquette": 3.0531133177191805e-16,
+    "leak_plaquette": 2.0310096011589884,
+    "leak_U_sq": 0.4999999999999999,
+    "leak_plaquette_sq": 4.124999999999993
+   },
+   "fuzzy_gamma5": {
+    "phase": [
+     1.0,
+     0.0
+    ],
+    "isometry": 2.220446049250313e-16,
+    "U": 2.220446049250313e-16,
+    "L": 1.1102230246251565e-16,
+    "R": 1.1102230246251565e-16,
+    "HE": 1.1102230246251565e-16,
+    "P_commutes_generators": 0.0,
+    "leak_U": 0.7071067811865475,
+    "plaquette": 3.0531133177191805e-16,
+    "leak_plaquette": 2.0310096011589884,
+    "leak_U_sq": 0.4999999999999999,
+    "leak_plaquette_sq": 4.124999999999993
+   },
+   "fuzzy_fplus": {
+    "phase": [
+     1.0,
+     0.0
+    ],
+    "isometry": 4.440892098500626e-16,
+    "U": 3.3306690738754696e-16,
+    "L": 2.220446049250313e-16,
+    "R": 2.220446049250313e-16,
+    "HE": 3.3306690738754696e-16,
+    "P_commutes_generators": 0.0,
+    "leak_U": 0.9999999999999998,
+    "plaquette": 4.718447854656915e-16,
+    "leak_plaquette": 1.9999999999999993,
+    "leak_U_sq": 0.9999999999999996,
+    "leak_plaquette_sq": 3.9999999999999973
+   },
+   "fuzzy_fminus": {
+    "phase": [
+     1.0,
+     0.0
+    ],
+    "isometry": 4.440892098500626e-16,
+    "U": 3.3306690738754696e-16,
+    "L": 2.220446049250313e-16,
+    "R": 2.220446049250313e-16,
+    "HE": 3.3306690738754696e-16,
+    "P_commutes_generators": 0.0,
+    "leak_U": 0.9999999999999998,
+    "plaquette": 4.718447854656915e-16,
+    "leak_plaquette": 1.9999999999999996,
+    "leak_U_sq": 0.9999999999999996,
+    "leak_plaquette_sq": 3.9999999999999982
+   }
+  },
+  "peak_rss_MB_indep_total": 777.7734375
+ }
+}
