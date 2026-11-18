@@ -34,8 +34,10 @@
   "dropped_total": 1.266583758745341e-13,
   "block_error": 1.3457884021996038e-14,
   "leak_amplitude": 0.0,
-  "seconds": 8.09371829032898,
+  "seconds": 4.754191875457764,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.4011625989653016e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.2304172331046341e-13,
    "block_error": 1.4325749365178202e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.122015953063965,
+   "seconds": 5.033916473388672,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.3736747267564162e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.2525736113385665e-13,
    "block_error": 1.3888885600717792e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.115586996078491,
+   "seconds": 4.753819465637207,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.3914624673457445e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -145,7 +151,7 @@
   "measured": true
  },
  "program_sha256": "2c58c7b56c048216da58f37b4f62bb2ecd26df763b322cd3d28bececcf3185fc",
- "wall_s": 24.69789981842041,
+ "wall_s": 16.528554677963257,
  "discoveries": [
   "DISCOVERY: after the g-controlled corner Toffolis the equal-corner partner mismatch tau_c equals the sector height h_X; XOR-ing h_X into e1 BEFORE the controlled H (a sign on the singlet, a flip on the 00 member) removes it with CX only, no Toffoli; h_b itself is a 3-way mux of the [N_c=3] bits of different corners selected by r.",
   "DISCOVERY: in this frame every bright label has e1=0000 and bright <=> e1=0000 and e2_c=1 at every equal corner (T+- have e2=0); 4 rccx folds (T+- at c0,c1,c2,c3 -> flip e1 of c0,c3,c0,c1) reduce the 80 non-closed pairs to a NOR of the 4 e1, but in r=000 all 256 (e1,e2) patterns are occupied, so the closed pair needs the full 8-bit check.",

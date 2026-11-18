@@ -14,28 +14,37 @@
   "r02-F3-001",
   "r02-F4-002"
  ],
- "lean_seconds": 0.0002276897430419922,
+ "lean_seconds": 0.0,
+ "headline": "r02-F3-001",
+ "headline_robust_key": [
+  252,
+  22536,
+  0,
+  41624,
+  54
+ ],
  "encoding": "rishon",
  "kind": "step",
  "provenance": {
-  "git_commit": "71ff4cb",
+  "git_commit": "f7bca4f",
   "git_dirty": true,
   "versions": {
    "python": "3.12.16",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
   "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-08T01:56:25Z"
+  "timestamp_utc": "2026-11-18T15:09:04Z"
  },
- "evaluator_sha256": "43ae85b452e0c2a5bf09d19fbb1d6d56cf6a81599eb5642d2ecb1364a50309f3",
+ "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+ "encoding_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
  "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
  "invalid": [],
  "external": [],
@@ -97,6 +106,8 @@
     "certified": true,
     "engine": "sparse",
     "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.3487947328392688e-13,
     "dropped_total": 1.2240591297910407e-13
    },
    "alt_ok": [
@@ -106,7 +117,7 @@
    "skeleton_equal": true,
    "parent": "r01-F1-001",
    "parent_known": true,
-   "git_commit": "71ff4cb",
+   "git_commit": "f7bca4f",
    "summary": "F1 link-flag GHZ frame (flip qubit F = g_b), parent r01-F1-001 with the closed-pair flag Y4 = z & [e2=1111] removed: frame (link prep, U_E on L2, corner CX+CCX, r in R2 slots, h_b mux with K1/z selectors, CX tau fix before relative-phase CCH, deltas, closed GHZ gadget) and the four rccx folds + NOR ladder X1 as in the parent; the uniformly controlled Rz on F now reads y = Y3 = [e2=1111] directly with 10 Gray-cycle Walsh terms over (x, k, z, y) instead of 8 terms + one rccx pair (-4 CX, one ancilla fewer); all angles linear in alpha, beta, sqrt2 beta.",
    "lean": null,
    "round": 2,
@@ -168,6 +179,8 @@
     "certified": true,
     "engine": "sparse",
     "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.4623496775039215e-13,
     "dropped_total": 1.3303093462490667e-13
    },
    "alt_ok": [
@@ -177,7 +190,7 @@
    "skeleton_equal": true,
    "parent": "r01-F1-001",
    "parent_known": true,
-   "git_commit": "71ff4cb",
+   "git_commit": "f7bca4f",
    "summary": "F2 round 2 on the F1 link-flag GHZ frame (flip qubit F = g_b; corner CX+CCX, 3-way rccx mux for the sector height h_b = direction XOR F, CX tau fix, relative-phase CCH, closed GHZ gadget, 4 rccx folds + NOR bright flag x) with the closed-pair flag cut to y = [e2 = 1111] (3 rccx, no z factor): a 10-term uniformly controlled Rz on F over (x, K1, z, y) walked in 10 CX replaces the 8-term cycle over (x, K1, z, z&y), saving one mirrored rccx (net -4 CX, 9 ancillas); all angles linear in alpha, beta, sqrt2 beta.",
    "lean": null,
    "round": 2,
@@ -239,6 +252,8 @@
     "certified": true,
     "engine": "sparse",
     "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.3708079265366763e-13,
     "dropped_total": 1.234376919878649e-13
    },
    "alt_ok": [
@@ -248,7 +263,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "71ff4cb",
+   "git_commit": "f7bca4f",
    "summary": "F3 controlled partner involution, no canonicaliser: light frame (L2 = Q flag, U_E as 4 phases on L2; R2 slots as h_b / r_t / r_l / r_r^r_l registers; h_b by two in-place rccx Fredkin halves + one Toffoli into the raw R2 of link b; one CX per corner; tau fix CX(h_X -> e1); 4 relative-phase C2H; e1 ^= g^delta^1 with one CX per corner; closed gadget H(q3), CCH(Z,F), rccx) makes the partner map the involution Pi = X_F Q, Q = prod_c X^(!e2_c) on e1_c, with every one of the 81 couplings +1 (closed -1); exp(i theta Pi) = cQ exp(i theta X_F) cQ (Hadamard-test identity with the flip qubit F as the test qubit), cQ = 4 S-conjugated rccx(F, !e2, e1); bright flag = AND of 4 in-place corner tests delta_c ^ (e2 & e1) plus two kappa=1 folds; 10-term Gray-path Walsh rotation on F over (X, Z, r_t, r_r^r_l); all angles linear in alpha, beta, sqrt2 beta.",
    "lean": {
     "status": "not_run",
@@ -314,6 +329,8 @@
     "certified": true,
     "engine": "sparse",
     "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 2.125054423539979e-13,
     "dropped_total": 1.9551165152792263e-13
    },
    "alt_ok": [
@@ -323,7 +340,7 @@
    "skeleton_equal": true,
    "parent": "r01-F4-001",
    "parent_known": true,
-   "git_commit": "71ff4cb",
+   "git_commit": "f7bca4f",
    "summary": "F4 flat direction-qubit dilation (parent r01-F4-001) with relative-phase Toffolis made exact by gauges: corner Dicke frame with a 4-CX relative-phase C2H and an rccx+CS species relabel, direction q = NAND of the a^b test at the two opposite corners c0, c2 (one ccx), q-controlled lowering s1 ^= q !t2 s2 as three rccx per corner plus an S(s1) frame gauge, exact all-source/not-dark test (8-literal rccx chain) and class-multiplexed Rx on q (kappa=2 angle sign flipped to absorb the C2H control phases); closed chain via q=|+> on the loop plus an A<->L toggle.",
    "lean": null,
    "round": 2,
@@ -344,6 +361,6 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 175.85743284225464,
- "written_utc": "2026-11-08T01:56:25Z"
+ "wall_s": 121.53844547271729,
+ "written_utc": "2026-11-18T15:09:04Z"
 }

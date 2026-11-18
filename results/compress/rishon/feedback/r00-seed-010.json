@@ -34,8 +34,10 @@
   "dropped_total": 3.675622702950601e-13,
   "block_error": 4.4954162764993984e-14,
   "leak_amplitude": 0.0,
-  "seconds": 6.103480577468872,
+  "seconds": 5.209888458251953,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 4.1251643306005405e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 3.11024874087025e-13,
    "block_error": 4.377510661991647e-14,
    "leak_amplitude": 0.0,
-   "seconds": 6.144790410995483,
+   "seconds": 5.228043079376221,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 3.547999807069415e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 3.838890637458126e-13,
    "block_error": 4.4031646709520276e-14,
    "leak_amplitude": 0.0,
-   "seconds": 6.457225561141968,
+   "seconds": 5.181827068328857,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 4.279207104553329e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -146,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "38d3d2e1780b1da62a6e04aa939d196c89e3c402316382a6458c4828afd3154f",
- "wall_s": 21.76823878288269,
+ "wall_s": 18.356592178344727,
  "discoveries": [],
  "summary": "the reference circuit after the deterministic polish passes."
 }

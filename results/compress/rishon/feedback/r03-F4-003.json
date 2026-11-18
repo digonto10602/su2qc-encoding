@@ -34,8 +34,10 @@
   "dropped_total": 1.7120953039474254e-13,
   "block_error": 1.6136471996107276e-14,
   "leak_amplitude": 0.0,
-  "seconds": 5.9517858028411865,
+  "seconds": 8.159170389175415,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.873460023908498e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.7191730380435211e-13,
    "block_error": 1.5421013797967802e-14,
    "leak_amplitude": 0.0,
-   "seconds": 6.068248748779297,
+   "seconds": 8.17076563835144,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.8733831760231992e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.7150584694276062e-13,
    "block_error": 1.6537868668362696e-14,
    "leak_amplitude": 0.0,
-   "seconds": 6.017446279525757,
+   "seconds": 8.359729766845703,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.8804371561112332e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -146,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "141887620a9f5ed4f60d9180edf61ac4af5935c42c007f51913a103dba9d4c46",
- "wall_s": 20.076469898223877,
+ "wall_s": 27.64511752128601,
  "discoveries": [
   "DISCOVERY: on valid codes the target-end single flag t1^t2 of corner c equals the source-end flag b_{c-1} = s1^s2 of the neighbouring corner (both are the Q flag of the shared link), so the corner frame needs 3 CX, the C2H and the lowering take b_{c-1} as a control, and corner c is even and source-single iff b_c b_{c-1} = 1; the lowering is then a ^= q b_c b_{c-1} (all four RC3X before the four CY, so every control still holds its frame value).",
   "DISCOVERY: a Maslov RC3X^dag (6 CX) replaces the 3-rccx ancilla lowering; its target-dependent relative phases are made uniform (every one of the six corner transitions e^{i pi/4} times the exact coupling, so all 81 pairs get -1) by S on a and one T on the neighbouring b_{c-1}; the same T gauge flips the sign of the A <-> L toggle (the frame gauge differs between the e1 and S codes at q=0), so both closed-chain angles change sign.",

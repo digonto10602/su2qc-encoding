@@ -34,8 +34,10 @@
   "dropped_total": 1.9551165152792263e-13,
   "block_error": 1.6993790826075274e-14,
   "leak_amplitude": 0.0,
-  "seconds": 7.939558029174805,
+  "seconds": 6.250775337219238,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 2.125054423539979e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.8893252696668388e-13,
    "block_error": 1.7192404834312234e-14,
    "leak_amplitude": 0.0,
-   "seconds": 6.706954479217529,
+   "seconds": 6.258461952209473,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 2.0612493180099612e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.962563508270819e-13,
    "block_error": 1.7991094746387602e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.464547157287598,
+   "seconds": 6.4599928855896,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 2.142474455734695e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -146,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "fb514cf4bd4c5b766d8ab0504448baadfbad855095388ec0a34705604879c0a5",
- "wall_s": 22.562780380249023,
+ "wall_s": 21.623186349868774,
  "discoveries": [
   "DISCOVERY: with the exact per-corner source test P = (a^b) and not dark-sector, a dark state can never pass in the J-frame (J maps target codes onto source codes bijectively, so it maps every non-target code onto a non-source code); hence f only has to be right on bright states, and NAND(P_c0, P_c2) suffices because S at both opposite corners forces the all-S loop.",
   "DISCOVERY: the relative-phase C2H (CCZ.CS^dag) in the corner frame leaves the phase (-i)^(b !d), i.e. +-i on the two triplet transitions e1->S, S->e3 and 1 on doublets; with Z on s1 (flips only on e1->S) every kappa=2 pair (two triplet corners, same or mixed type) gets the same -1 and the closed chain gets +1, so only the sign of the kappa=2 angle changes.",

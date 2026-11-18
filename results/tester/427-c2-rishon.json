@@ -1,0 +1,210 @@
+{
+ "report": "reports/tests/427-c2-rishon-replay.md",
+ "commit": "f69ec43",
+ "date": "2026-11-18",
+ "mode": "step",
+ "prompt": "prompts/008 C2 = prompts/204 C2 as amended by prompts/205 section 6",
+ "seed": "qiskit_l3 builder seed 12345; no other stochastic test",
+ "machine": "omnicommander; taskset -c 0-7 (tests -n 4), core 4 (L3 verification), core 8 (headline recompute); unrelated scratch proposer jobs on the machine, load average 3.0-4.3 during the L3 runs",
+ "check1": {
+  "fields_missing": [],
+  "prune_fraction": 0.1,
+  "rounds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "lost": [],
+  "newly_valid": [
+   "r00-seed-001",
+   "r00-seed-002"
+  ],
+  "key_equal": {
+   "True": 16,
+   "False": 0,
+   "None": 3
+  },
+  "best": {
+   "id": "r04-F1-004",
+   "key": [
+    228,
+    846,
+    1417,
+    53
+   ]
+  },
+  "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+  "archive_entries": "18 (16 HEAD + r00-seed-001 + r00-seed-002), 0 key/valid mismatches",
+  "pre204_files_compared": 43,
+  "pre204_not_identical": [],
+  "attempts_discoveries": "untouched",
+  "replay_wall_s": 2083.9,
+  "round_wall_s": [
+   1633.5,
+   110.9,
+   121.5,
+   126.1,
+   91.8
+  ]
+ },
+ "check2_l3": {
+  "round000_outcome": "eval_budget with recorded exact nominal verdict",
+  "nominal_verdict": {
+   "ok": true,
+   "op_norm_error": 4.1348e-12,
+   "dropped_total": 3.7884e-12,
+   "gauss": 1.4974e-14,
+   "certified": true
+  },
+  "alt_ok": [],
+  "skeleton_equal": true,
+  "tester_verification_no_time_limit": [
+   {
+    "pair": [
+     0.37,
+     0.61
+    ],
+    "build_s": 2.9593417644500732,
+    "wall_s": 140.82253313064575,
+    "cpu_s": 140.25059947900002,
+    "loadavg_before": [
+     3.5126953125,
+     4.0302734375,
+     3.6669921875
+    ],
+    "loadavg_after": [
+     4.3447265625,
+     4.052734375,
+     3.716796875
+    ],
+    "ok": true,
+    "reason": "ok",
+    "certified": true,
+    "op_norm_error": 4.134786199897362e-12,
+    "dropped_total": 3.788445874152248e-12,
+    "gauss_residual": 1.497385651525929e-14,
+    "engine": "sparse",
+    "skeleton_equal_nominal": true,
+    "cx": 9558,
+    "qubits": 58
+   },
+   {
+    "pair": [
+     0.91,
+     0.23
+    ],
+    "build_s": 0.4870312213897705,
+    "wall_s": 132.3918797969818,
+    "cpu_s": 131.970958659,
+    "loadavg_before": [
+     4.3447265625,
+     4.052734375,
+     3.716796875
+    ],
+    "loadavg_after": [
+     2.95703125,
+     3.650390625,
+     3.61376953125
+    ],
+    "ok": true,
+    "reason": "ok",
+    "certified": true,
+    "op_norm_error": 4.080462055288248e-12,
+    "dropped_total": 3.73578123898901e-12,
+    "gauss_residual": 1.0643125270228689e-14,
+    "engine": "sparse",
+    "skeleton_equal_nominal": true,
+    "cx": 9558,
+    "qubits": 58
+   },
+   {
+    "pair": [
+     1.7,
+     1.0
+    ],
+    "build_s": 0.4920635223388672,
+    "wall_s": 131.93592286109924,
+    "cpu_s": 131.48228542100003,
+    "loadavg_before": [
+     3.041015625,
+     3.65625,
+     3.6162109375
+    ],
+    "loadavg_after": [
+     3.0166015625,
+     3.36572265625,
+     3.50830078125
+    ],
+    "ok": true,
+    "reason": "ok",
+    "certified": true,
+    "op_norm_error": 4.178627141979305e-12,
+    "dropped_total": 3.838048674244713e-12,
+    "gauss_residual": 1.0699088138309887e-14,
+    "engine": "sparse",
+    "skeleton_equal_nominal": true,
+    "cx": 9558,
+    "qubits": 58
+   }
+  ],
+  "peak_rss_gb": 1.95336,
+  "research204_planner_wall_s": [
+   429.0,
+   249.4,
+   226.2
+  ],
+  "research204_builder_wall_s": [
+   151.8,
+   140.0,
+   134.7
+  ],
+  "preflight_wall_s": [
+   128.3,
+   124.8
+  ]
+ },
+ "check3": {
+  "headline": "r04-F1-004 robust key (228,16876,0,28328,53) t_mean 843.8",
+  "recomputed_on_scratch_copy_with_refresh": true,
+  "entries_identical_to_replay_cache": true,
+  "n_entries": 18,
+  "wall_s": 122
+ },
+ "check4": {
+  "13 passed (S3, G5, G1, G2, G3, G4, H1, H2, M2C_G1 x5), 101 s": true,
+  "durations_s": {
+   "H2": 87.9,
+   "G1": 32.8,
+   "H1": 12.5,
+   "G3": 0.28,
+   "S3": 0.12,
+   "G4": 0.03
+  }
+ },
+ "check5": {
+  "acc_m6_m8_not_slow": {
+   "passed": 34,
+   "failed": 12,
+   "wall_s": 101
+  },
+  "acc_other_not_slow": {
+   "passed": 295,
+   "failed": [
+    "M11_T2 PENDING"
+   ],
+   "wall_s": 1116
+  },
+  "unit": {
+   "passed": 1130,
+   "failed": 6,
+   "wall_s": 400
+  }
+ },
+ "check6": {
+  "hashes_equal_freeze": true,
+  "check_lock": "LOCK OK",
+  "acceptance_check": "PASS v22"
+ }
+}

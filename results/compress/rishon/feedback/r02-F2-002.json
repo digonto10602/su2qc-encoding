@@ -34,8 +34,10 @@
   "dropped_total": 1.3303093462490667e-13,
   "block_error": 1.3204033125485481e-14,
   "leak_amplitude": 0.0,
-  "seconds": 11.095775365829468,
+  "seconds": 4.850601434707642,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.4623496775039215e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.2431451551716378e-13,
    "block_error": 1.3505077062994761e-14,
    "leak_amplitude": 0.0,
-   "seconds": 10.997131109237671,
+   "seconds": 4.7973809242248535,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.3781959258015854e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.4002935292627692e-13,
    "block_error": 1.3368855554576671e-14,
    "leak_amplitude": 0.0,
-   "seconds": 10.52375078201294,
+   "seconds": 4.879712104797363,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.533982084808536e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -145,7 +151,7 @@
   "measured": true
  },
  "program_sha256": "6f2c3d678dc98461a17bbde33ca7e1d4ec133441ea958c1e23e50de19ae01195",
- "wall_s": 36.30403780937195,
+ "wall_s": 16.473088026046753,
  "discoveries": [
   "DISCOVERY: the closed-pair selector does not need the z factor: with y = [e2 = 1111] alone the angle table on (x, K1, z, y) has a 10-mask Walsh support (masks 0,x,k,xk,z,xz,y,xy,zy,xzy) and a 10-CX Gray walk, so dropping the mirrored rccx (y & z) saves 6 CX for 2 extra CX; minimal supports with y & z need 8 masks / 8 CX, with y split into two pair-ANDs >= 15 masks.",
   "DISCOVERY: the F1 sector height is h_b = f XOR F on every non-closed bright member (f = 1 on the upper member, v in range(W)), in all 7 classes; after Bell maps at c1, c3 the direction is f = NOT([g_b = e1_c1] AND [g_t = e1_c3]), but the tau fix must precede the Bell map, so this does not undercut the mux (post-H tau needs 3-literal controls).",

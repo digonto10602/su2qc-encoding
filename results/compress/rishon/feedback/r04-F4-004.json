@@ -34,8 +34,10 @@
   "dropped_total": 1.7555533267413836e-13,
   "block_error": 1.561214635959011e-14,
   "leak_amplitude": 0.0,
-  "seconds": 5.07168436050415,
+  "seconds": 5.288482666015625,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.9116747903372847e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.7765036802753315e-13,
    "block_error": 1.534720202403985e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.091181039810181,
+   "seconds": 5.216166019439697,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.92997570051573e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.7696893237600324e-13,
    "block_error": 1.675370319776951e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.0844292640686035,
+   "seconds": 5.119935035705566,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.9372263557377273e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -146,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "e373833b71443a5ec458585cf3ca02be43355b59e92f183236178e9f344d8ef0",
- "wall_s": 17.192112684249878,
+ "wall_s": 17.75408124923706,
  "discoveries": [
   "DISCOVERY: the F4 direction mechanism is dominated by the F3 invariant-label partner: the q-controlled lowering must skip the e1-state/S_up transition at even corners (a 3-control condition q & !(g_X g_Y) after the relabel, q & e2 & !(g_X g_Y) without it), so it costs >= 7 CX per corner and side against 1 (tau fix) + 2 (W, V) for F3; q needs the singlet already basis-ified (before the C2H the source flag (x1 | g_X)(!y1 | g_Y) is not affine on the bright corner states; after it, x1 ^ g_X !e2), so h_b = g_b ^ q cannot feed the pre-CCH tau fix, and a post-CCH tau fix flips the S label with d; estimated F4 floor >= 244 CX (> 232).",
   "DISCOVERY: the per-corner test predicate (a^b)(c | w) has weight 6 on the 16 reachable (a, b, c, bp) labels, so no single in-place rccx literal (weights 4, 8, 12) replaces the two literals; dropping notdark at c0, c2 or c1, c3 fails (op error 1.95), and the relabel CS cannot be removed: a Margolus relabel has no gauge with Z's plus <= 4 CZ, an rccx relabel none with S's plus <= 1 CZ (exhaustive GF(2) / Z4 solves over the 80 open couplings)."

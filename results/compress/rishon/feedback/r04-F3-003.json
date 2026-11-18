@@ -34,8 +34,10 @@
   "dropped_total": 1.3080605517978005e-13,
   "block_error": 1.4288704036143838e-14,
   "leak_amplitude": 0.0,
-  "seconds": 5.028878450393677,
+  "seconds": 5.053269386291504,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.4509475921592388e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.3075941262514634e-13,
    "block_error": 1.43836287942606e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.01123571395874,
+   "seconds": 5.130382776260376,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.4514304141940693e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.3315286907741472e-13,
    "block_error": 1.4655364458042823e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.010170936584473,
+   "seconds": 5.3688578605651855,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.4780823353545754e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -146,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "17d0d35d6aa1dd516150bffadf6fa9ad369441715a359b516c0c6b5ad363aeca",
- "wall_s": 17.011485815048218,
+ "wall_s": 17.492790937423706,
  "discoveries": [
   "DISCOVERY: the selector chain of the closed flag Z can produce the kappa class for free: U = rccx(!r_t, !r_r^r_l) is 1 exactly on the kappa=1 class r = 101 and on r = 000, Z = rccx(U, !r_l), and on the occurring (U, Z) patterns (Z implies U) the coupling-signed angle v = -2 (U=0), -1 (U=1, Z=0), +4 sqrt2 (Z=1) is a + b s_U + c s_Z with three Walsh terms, so theta = X v is a 6-term Gray cycle (6 CX) instead of 10.",
   "DISCOVERY: in this frame the 4 corner tests cannot drop the kappa=1 fold: an exhaustive search over single-rccx tests R ^ (l1 & l2) (R a qubit or 2-parity, l1, l2 literals, 138 tests true on all bright labels) finds no 3- or 4-test cover of the 702 dark labels, no linear (<= 3-parity) replacement of any test exists, and no order of the h_b mux (6 orders) makes the 16 kappa=1 dark labels fail without the fold.",

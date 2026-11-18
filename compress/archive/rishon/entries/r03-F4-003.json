@@ -72,8 +72,10 @@
   "dropped_total": 1.7120953039474254e-13,
   "block_error": 1.6136471996107276e-14,
   "leak_amplitude": 0.0,
-  "seconds": 5.9517858028411865,
+  "seconds": 8.159170389175415,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.873460023908498e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -107,8 +109,10 @@
    "dropped_total": 1.7191730380435211e-13,
    "block_error": 1.5421013797967802e-14,
    "leak_amplitude": 0.0,
-   "seconds": 6.068248748779297,
+   "seconds": 8.17076563835144,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.8733831760231992e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -141,8 +145,10 @@
    "dropped_total": 1.7150584694276062e-13,
    "block_error": 1.6537868668362696e-14,
    "leak_amplitude": 0.0,
-   "seconds": 6.017446279525757,
+   "seconds": 8.359729766845703,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.8804371561112332e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -159,13 +165,13 @@
   "DISCOVERY: the rccx direction NAND has input q = 0, so its relative phase is the data phase (-1)^P0 i^(P0 P2): Z(P0) removes the first factor and S(q) turns the second into a factor common to both members of every pair (and to both components of the loop's q = |+>), replacing the 6-CX ccx by 3 CX."
  ],
  "summary": "F4 flat direction-qubit dilation (parent r02-F4-002) with a cross-corner sector frame and ancilla-free lowering: per corner (a, b, c, w) = (s1, s1^s2, s1^t1, s2^t2) by 3 CX, the target-end Q flag read from the neighbouring corner's b (b_{c-1} = t1^t2 on valid codes) as the second control of the 4-CX relative-phase C2H, rccx+CS species relabel; class flags e = [g_b=g_t][g_r=g_l], k0 = e [g_t=g_l] from the four b's; direction q = NAND(a^b at c0, c2) by one rccx with Z/S gauges; q-controlled lowering a ^= q b_c b_{c-1} as one Maslov RC3X^dag (6 CX, no ancilla) with S(a), T(b_{c-1}) gauges, then b ^= q (CY); exact all-source/not-dark test (8-literal rccx chain, dark = (c, w) = 0) and class-multiplexed Rx on q; closed chain via q=|+> on the loop plus an A<->L toggle; all angles linear in alpha, beta, sqrt2 beta.",
- "evaluator_sha256": "43ae85b452e0c2a5bf09d19fbb1d6d56cf6a81599eb5642d2ecb1364a50309f3",
+ "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
  "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
- "git_commit": "f691e94",
+ "git_commit": "f7bca4f",
  "versions": {
   "python": "3.12.16",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +182,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "SupremeCommander x86_64 cpus=20",
- "wall_s": 20.076469898223877,
- "written_utc": "2026-11-08T03:42:25Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 27.64511752128601,
+ "written_utc": "2026-11-18T15:10:14Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.4e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23"
 }

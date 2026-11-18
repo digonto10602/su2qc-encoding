@@ -1,0 +1,188 @@
+{
+ "id": "r01-F5-001",
+ "program_path": "compress/programs/rishon/F5/001-class-batched-givens.py",
+ "program_sha256": "c64fedb561c112e8416e011b7a3be06e30c93be768d5a301ead314847c2fbd85",
+ "parent": null,
+ "family": "F5",
+ "round": 1,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  492,
+  1739,
+  3142,
+  51
+ ],
+ "cell": [
+  71,
+  86
+ ],
+ "metrics_raw": {
+  "cx": 492,
+  "t_fixed": 483,
+  "n_rot": 20,
+  "t_eps": 1739,
+  "t_estimate": {
+   "1e-06": 1678.8941141594505,
+   "1e-10": 2476.156856932417
+  },
+  "t_measured": {
+   "1e-06": 1739,
+   "1e-10": 2563
+  },
+  "synth_error_bound": 1.9999999999999998e-05,
+  "depth": 554,
+  "depth_ct": 3142,
+  "qubits": 51,
+  "gates": {
+   "cx": 492,
+   "h": 264,
+   "t": 254,
+   "tdg": 229,
+   "x": 24,
+   "rz": 20,
+   "sdg": 18,
+   "s": 18
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.7716378702841755e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -6.579099405186223e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 2.4774863738802118e-15,
+  "method": "rishon_inner_block",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.5787722973716423e-13,
+  "block_error": 1.9286557291253313e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 5.252280235290527,
+  "n_inputs": 1296,
+  "failing_inputs": [],
+  "extra": {
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "inner_method": "inner_span",
+   "rishon": true
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.6840877245517472e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    2.1930331350620708e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 1.2637171795484525e-15,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.5034076677404284e-13,
+   "block_error": 1.806800568113188e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 5.2473835945129395,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.7116677422512465e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    4.386066270124157e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 8.699945219046978e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.5173098624837074e-13,
+   "block_error": 1.9435787976753927e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 5.112591505050659,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: in the frame, within each kappa=2 class r the partner flip on the equal-corner e1 bits is tau_c = a_c xor e1_d (d a fixed different corner), so Toffolis CCX(e1_d, F -> e1_c) make every pair of the class differ only in F; the post-Toffoli bright set of each class is isolated from all 1296 valid images by a cube of 4-7 literals (single bits / 2-3 bit parities).",
+  "DISCOVERY: the frame coupling sign of a kappa=2 class is (-1)^{r_l} (r_l = g_b xor g_l); after CX(e1c0, F -> e1c1, e1c2, e1c3) the closed pair is u = (|a>+|b>)/sqrt2, v = -|c> with a, b, c (and one dark label d) differing only in (F, e1c0).",
+  "DISCOVERY: the closed pair needs no controlled H: the unconditional V = CX(F,q0) CH(F,q0) H(q0) maps u -> |00>, v -> -|10> and both dark states of the 4-label block to q0 = 1, so one crx controlled by (flag and not q0) on F does the 3x3 block."
+ ],
+ "summary": "frame D (link prep, corner CX/CCX/C2H, GHZ fold of the Q flags; U_E = 4 phases on the flags) sends 80 bright pairs to basis pairs; per r-class (7) merged Toffolis make partners differ only in F=q1, a 4-7 literal rccx AND (shared invariant prefixes) flags the class and one crx(-2 kappa s beta) rotates it; closed pair by an unconditional CX.CH.H basis change and one crx; then D^dagger.",
+ "evaluator_sha256": "d45ffb3116894a24f75864ed708c79b3ad174398e358af0ed5b8bc03845d2793",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "git_commit": "2a8d2b5",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 17.773158311843872,
+ "written_utc": "2026-11-07T02:00:33Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.9999999999999998e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

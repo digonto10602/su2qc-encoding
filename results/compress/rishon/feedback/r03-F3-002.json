@@ -34,8 +34,10 @@
   "dropped_total": 1.3305599997830734e-13,
   "block_error": 1.4407342859475635e-14,
   "leak_amplitude": 0.0,
-  "seconds": 5.328763961791992,
+  "seconds": 6.8056800365448,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.4746334283778298e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.300733422474613e-13,
    "block_error": 1.4578859976710516e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.341625690460205,
+   "seconds": 7.766165256500244,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.4465220222417182e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.3555650330876688e-13,
    "block_error": 1.5188638108944072e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.360845327377319,
+   "seconds": 7.726272821426392,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.5074514141771096e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -146,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "b244b6820874d79fced80a888366e5e5bd8ebd40aa82fb2b55bcfd7d479d02f2",
- "wall_s": 18.2584547996521,
+ "wall_s": 25.07618808746338,
  "discoveries": [
   "DISCOVERY: the controlled partner involution needs no F-controlled gate: Q = W Z_E W with W = prod_c CH(!e2_c -> e1_c) (H Z H = X at e2 = 0 corners, Z kept at e2 = 1), so exp(i theta X_F Q) = W H_F V [Walsh] V H_F W, V = prod_c CX(e1_c -> F): 2 CX per corner and side instead of 3 for the S-conjugated rccx(F, !e2, e1) (16 instead of 24 CX), and W commutes with the flag tests (they never read e1 at e2 = 0 corners).",
   "DISCOVERY: one fold onto the flip qubit replaces both kappa=1 folds, the T1 ancilla and its CX into the c1 test: F ^= e1c3 & !e2c3 (before the GD conversion; zero on every bright label) sends each of the 16 dark labels through the GD/delta conversions to a label that fails a corner test (flag exact on all reachable labels; an exhaustive search over the 420 two-literal folds into F finds only this one); as rccx(!e2c3, e1c3 -> F) plus Z(e1c3) its relative phases give all 80 open couplings the same sign, absorbed in the Walsh table.",

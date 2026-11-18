@@ -34,8 +34,10 @@
   "dropped_total": 1.7340984731938027e-13,
   "block_error": 1.4341674244546985e-14,
   "leak_amplitude": 0.0,
-  "seconds": 5.332385540008545,
+  "seconds": 7.551150321960449,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.8775152156392726e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.6938573306516405e-13,
    "block_error": 1.4075558751765292e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.3136608600616455,
+   "seconds": 6.344370603561401,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.8346129181692934e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.7711754234113764e-13,
    "block_error": 1.448064533676108e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.410312175750732,
+   "seconds": 7.3444061279296875,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.9159818767789874e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -146,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "3ef8c9394f9daf49c18d6782cf7db5739bab2fa0d131c3607412ef0d9bdd9b21",
- "wall_s": 18.041168451309204,
+ "wall_s": 23.878926992416382,
  "discoveries": [
   "DISCOVERY: W/kappa is a product of corner partial isometries (pseudo-spin raising J+/|J+|); with a direction qubit the dilated block is flat (all 81 pairs at singular value 1, the kappa=4sqrt2 pair too if q=|+> on the loop), so exp(i beta H_B) is exp(i theta_kappa X_q) in the J-frame gated by a corner-local test: no polynomial, no bright-pair labels.",
   "DISCOVERY: corner frame CX(s1,t1) CX(s2,t2) CX(t1,t2) CX(s1,s2), C2H(s2=1,t2=0 -> s1), CCX(t1,s2 -> s1): every raising source has s1 xor s2 = 1, every other state outside the dark sector (t1,t2)=(0,0) has 0; the lowering is s1 ^= q !t2 s2, s2 ^= q.",

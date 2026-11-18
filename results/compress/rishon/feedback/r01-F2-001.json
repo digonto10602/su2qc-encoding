@@ -34,8 +34,10 @@
   "dropped_total": 1.528586614032662e-13,
   "block_error": 1.4469801699022858e-14,
   "leak_amplitude": 0.0,
-  "seconds": 5.31610631942749,
+  "seconds": 4.958380699157715,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.6732846310228907e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.3594773704234814e-13,
    "block_error": 1.4261101572375285e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.316399097442627,
+   "seconds": 5.523108959197998,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.5020883861472343e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.3612237030760266e-13,
    "block_error": 1.4049028647121207e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.232329845428467,
+   "seconds": 6.245074272155762,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.5017139895472386e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -146,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "d56116b4b8c420bbf18884e211d94e253cf8c0da5bcc1b184e71bf528175c1b4",
- "wall_s": 17.91516137123108,
+ "wall_s": 18.726801872253418,
  "discoveries": [
   "DISCOVERY: after the g-controlled canonicaliser + Bell map at opposite corners c0,c2 the true direction (upper member) is f = [x0==g_b] AND [x10==g_t] on every non-closed bright member (one Toffoli), although f is not even quadratic in the raw code bits.",
   "DISCOVERY: in the lowered frame a kappa=2 label is bright iff both bits are 1 at its two equal corners and its Rx angle depends only on their geometry (adjacent +4 beta, opposite -4 beta); kappa=1 labels are bright iff x0 = x10 = NOT s_b (-2 beta), the closed pair gets -8 sqrt2 beta.",

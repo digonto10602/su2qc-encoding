@@ -13,28 +13,37 @@
   "r04-F3-003",
   "r04-F4-004"
  ],
- "lean_seconds": 0.00023889541625976562,
+ "lean_seconds": 0.0,
+ "headline": "r04-F1-004",
+ "headline_robust_key": [
+  228,
+  16876,
+  0,
+  28328,
+  53
+ ],
  "encoding": "rishon",
  "kind": "step",
  "provenance": {
-  "git_commit": "68b8b76",
+  "git_commit": "f7bca4f",
   "git_dirty": true,
   "versions": {
    "python": "3.12.16",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
   "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-08T18:57:27Z"
+  "timestamp_utc": "2026-11-18T15:12:42Z"
  },
- "evaluator_sha256": "43ae85b452e0c2a5bf09d19fbb1d6d56cf6a81599eb5642d2ecb1364a50309f3",
+ "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+ "encoding_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
  "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
  "invalid": [],
  "external": [],
@@ -97,6 +106,8 @@
     "certified": true,
     "engine": "sparse",
     "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.4509475921592388e-13,
     "dropped_total": 1.3080605517978005e-13
    },
    "alt_ok": [
@@ -106,7 +117,7 @@
    "skeleton_equal": true,
    "parent": "r03-F3-002",
    "parent_known": true,
-   "git_commit": "68b8b76",
+   "git_commit": "f7bca4f",
    "summary": "F1 round 4 on the F3 controlled-partner frame (parent r03-F3-002) with the class selector of the F1 line: frame, CH partner W Z_E W, single dark-label fold onto F, Margolus+CZ h_b Toffoli, 4 relative-phase C2H, closed gadget and the AND of 4 in-place corner tests as in the parent, but the closed-sector flag is built as Z = P & !r_l from the selector P = [r_t = 0 and r_r = r_l] = rccx(!r_t, !(r_r ^ r_l)) (same 6 CX as the delta chain it replaces), so the class-signed angle psi(P, Z) = -2, -1, 4 sqrt2 needs 3 Walsh terms instead of 5: the rotation on F is 6 Gray-cycle terms over (X, P, Z) instead of 10 (-4 CX, -4 rotations); all angles linear in alpha, beta, sqrt2 beta.",
    "lean": {
     "status": "not_run",
@@ -172,6 +183,8 @@
     "certified": true,
     "engine": "sparse",
     "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.4509475921592388e-13,
     "dropped_total": 1.3080605517978005e-13
    },
    "alt_ok": [
@@ -181,7 +194,7 @@
    "skeleton_equal": true,
    "parent": "r03-F3-002",
    "parent_known": true,
-   "git_commit": "68b8b76",
+   "git_commit": "f7bca4f",
    "summary": "F3 controlled partner involution in CH form with a kappa selector (parent r03-F3-002): frame as in the parent (L2 = Q flag, U_E as 4 phases on L2; h_b by two in-place rccx Fredkin halves + a Margolus Toffoli with a CZ(h_b, r.L1) gauge; one CX per corner; tau fix CX(h_X -> e1); 4 relative-phase C2H; one kappa=1 dark-label fold rccx(e1c3, !e2c3 -> F); e1 ^= g^delta^1; closed gadget H(q3), CCH(Z,F), rccx), but the intermediate of the closed selector is now U = [r_t = 0 = r_r^r_l] (kappa=1 class or closed) from rccx(!r_t, !r_rl) and Z = rccx(U, !r_l) = [r = 000] (same 6 CX as before); exp(i theta Pi) = W exp(i theta X_F Z_E) W, W = 4 CH(!e2 -> e1), Z_E folded into the Gray path by 4 CX(e1 -> F) at each end; bright flag X = AND of 4 in-place corner tests delta_c ^ (e2 & e1); the Walsh rotation on F needs only 6 Gray-cycle terms over (X, U, Z) instead of 10 over (X, Z, r_t, r_rl) (4 CX and 4 rotations fewer); all angles linear in alpha, beta, sqrt2 beta.",
    "lean": null,
    "round": 4,
@@ -244,6 +257,8 @@
     "certified": true,
     "engine": "sparse",
     "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.9116747903372847e-13,
     "dropped_total": 1.7555533267413836e-13
    },
    "alt_ok": [
@@ -253,7 +268,7 @@
    "skeleton_equal": true,
    "parent": "r03-F4-003",
    "parent_known": true,
-   "git_commit": "68b8b76",
+   "git_commit": "f7bca4f",
    "summary": "F4 flat direction-qubit dilation, parent r03-F4-003 unchanged except the bright test: the 8 literals (P_c = a^b, notdark_c = c or w per corner) are ANDed in a balanced rccx tree (4 + 2 + 1, same 7 rccx and 21 CX) instead of a linear chain, lowering the depth at equal CX and T; frame (3-CX cross-corner sector frame, 4-CX relative C2H, rccx+CS relabel), class flags e, k0, direction q = NAND(P_c0, P_c2), Maslov RC3X^dag lowering + CY, class-multiplexed Rx on q and the closed A<->L toggle as in the parent; all angles linear in alpha, beta, sqrt2 beta.",
    "lean": null,
    "round": 4,
@@ -274,6 +289,6 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 87.28181672096252,
- "written_utc": "2026-11-08T18:57:27Z"
+ "wall_s": 91.79333996772766,
+ "written_utc": "2026-11-18T15:12:42Z"
 }

@@ -34,8 +34,10 @@
   "dropped_total": 1.3080605517978005e-13,
   "block_error": 1.4288704036143838e-14,
   "leak_amplitude": 0.0,
-  "seconds": 7.882823705673218,
+  "seconds": 5.124619722366333,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.4509475921592388e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.3075941262514634e-13,
    "block_error": 1.43836287942606e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.036036491394043,
+   "seconds": 5.145118474960327,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.4514304141940693e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.3315286907741472e-13,
    "block_error": 1.4655364458042823e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.02600359916687,
+   "seconds": 5.0411927700042725,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.4780823353545754e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -146,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "9d5ed8b4e6fd6e33df8a024d3d0855bcdff9b54e26b9f0b73755f8ec2cd496ef",
- "wall_s": 24.111449241638184,
+ "wall_s": 17.28733253479004,
  "discoveries": [
   "DISCOVERY: the angle of every bright pair depends only on (P, Z) with P = [r_t = 0 and r_r = r_l] = [r in {000, 101}] (r = 101 is the kappa = 1 class, r = 000 the closed pair, all other classes kappa = 2 with one common coupling sign); on the occurring patterns (Z = 1 implies P = 1) psi = (4 sqrt2 - 2)/2 - 1/2 X_P - (1 + 4 sqrt2)/2 X_Z, so the X-controlled rotation needs 6 Walsh terms, and P costs nothing extra because it replaces the intermediate !d1 & !d2 of the Z chain (Z = P & !r_l).",
   "DISCOVERY: rccx-based Toffoli toggles rccx(N1, N2 -> F) in the Gray path (instead of computing XF) leave the phase (-1)^(N1 p), p the parity of the controls toggled between the two X toggles; in a 2-register (P, Z) cube the X block's endpoints always differ in both registers, so the fix needs 2 CZ and the trick nets 0 CX."

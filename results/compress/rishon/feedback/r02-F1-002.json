@@ -34,8 +34,10 @@
   "dropped_total": 1.2240591297910407e-13,
   "block_error": 1.24735603048228e-14,
   "leak_amplitude": 0.0,
-  "seconds": 16.59085750579834,
+  "seconds": 5.23318886756897,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.3487947328392688e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.21595913686663e-13,
    "block_error": 1.326389370557648e-14,
    "leak_amplitude": 0.0,
-   "seconds": 11.353199005126953,
+   "seconds": 5.055671453475952,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.348598073922395e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.2303238198167845e-13,
    "block_error": 1.3797620198526612e-14,
    "leak_amplitude": 0.0,
-   "seconds": 11.092423915863037,
+   "seconds": 4.8239970207214355,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.3683000218020506e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -145,7 +151,7 @@
   "measured": true
  },
  "program_sha256": "06aaa8ecc1d35a4e9f9fff7fce38e9ddc746f2b4491f31270e307c87d3f59200",
- "wall_s": 48.85267996788025,
+ "wall_s": 17.26659369468689,
  "discoveries": [
   "DISCOVERY: the closed-pair flag needs no AND with z: psi = 2 - k - 2z + 4 sqrt2 z y equals (1/2+sqrt2) + 1/2 X_k + (1-sqrt2) X_z - sqrt2 X_y + sqrt2 X_z X_y (X_v = (-1)^v) on all occurring patterns (k z = 0), so phi = x psi is 10 Walsh terms in one Gray cycle (10 CX); an exhaustive search over supports of up to 9 terms finds none, so 10 is the minimum for (x, k, z, y); L1-sparse fits replacing K1 by r bits (~28 CX), Y3 by (Y1, Y2) (~20 CX) or X1 by (T1, e1_c0) (~18 CX) cost more than the rccx pair they save.",
   "DISCOVERY: every qubit other than F must be flip-invariant on bright images while the rotation acts: dropping the R2_b zeroing (CX(R1->R2), CX(g_b->R2)) or the delta CX(g_b->g_r) (even with delta_c1 read from the r_r slot) leaves a copy of g_b in the register and breaks D^dagger (leak ~1), so the 8 R2 CX and 3 delta CX of the frame are the minimum."

@@ -1,0 +1,152 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 4.1251643306005405e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   2.456197111269582e-15
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 2.6597966961250314e-15,
+  "method": "rishon_inner_block",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.675622702950601e-13,
+  "block_error": 4.4954162764993984e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 6.103480577468872,
+  "n_inputs": 1296,
+  "failing_inputs": [],
+  "extra": {
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "inner_method": "inner_span",
+   "rishon": true
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.547999807069415e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    2.2368937977633656e-15
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 2.043006455074486e-15,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.11024874087025e-13,
+   "block_error": 4.377510661991647e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 6.144790410995483,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.279207104553329e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    9.21073916726092e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 2.0145271352882748e-15,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.838890637458126e-13,
+   "block_error": 4.4031646709520276e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 6.457225561141968,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 10102,
+  "t_fixed": 10218,
+  "n_rot": 166,
+  "t_eps": 20650,
+  "t_estimate": {
+   "1e-06": 20143.92114752344,
+   "1e-10": 26761.201912539065
+  },
+  "t_measured": {
+   "1e-06": 20650,
+   "1e-10": 27482
+  },
+  "synth_error_bound": 0.000166,
+  "depth": 13685,
+  "depth_ct": 35639,
+  "qubits": 58,
+  "gates": {
+   "cx": 10102,
+   "t": 5810,
+   "tdg": 4408,
+   "h": 3804,
+   "x": 1224,
+   "s": 202,
+   "sdg": 202,
+   "rz": 166,
+   "z": 16
+  },
+  "measured": true
+ },
+ "program_sha256": "38d3d2e1780b1da62a6e04aa939d196c89e3c402316382a6458c4828afd3154f",
+ "wall_s": 21.76823878288269,
+ "discoveries": [],
+ "summary": "the reference circuit after the deterministic polish passes."
+}

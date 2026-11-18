@@ -72,8 +72,10 @@
   "dropped_total": 1.7340984731938027e-13,
   "block_error": 1.4341674244546985e-14,
   "leak_amplitude": 0.0,
-  "seconds": 5.332385540008545,
+  "seconds": 7.551150321960449,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.8775152156392726e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -107,8 +109,10 @@
    "dropped_total": 1.6938573306516405e-13,
    "block_error": 1.4075558751765292e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.3136608600616455,
+   "seconds": 6.344370603561401,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.8346129181692934e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -141,8 +145,10 @@
    "dropped_total": 1.7711754234113764e-13,
    "block_error": 1.448064533676108e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.410312175750732,
+   "seconds": 7.3444061279296875,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.9159818767789874e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -159,13 +165,13 @@
   "DISCOVERY: the corner signs of W are (-1)^[N_c=1]; the free gauge Z(s1)Z(s2) plus CY (instead of CX) for the q-controlled s2 flip makes the sign of all 81 lowerings +1 (phases i, i, -i, -i for N=1, N=3, e3->S, S->e1)."
  ],
  "summary": "exact degree-1 spectral transform of a flat dilation of W = prod_c K_c (F4): corner-local Dicke frame (pseudo-spin chain e1 -> S -> e3 made classical, U_E as 4 free phases), direction qubit q = f(data), q-controlled corner-local lowering J so both members of every bright pair share the data register, then one class-multiplexed Rx on q gated by AND_c[corner is a raising source and not dark]; closed chain via q=|+> on the all-Q loop plus an A<->L toggle.",
- "evaluator_sha256": "d45ffb3116894a24f75864ed708c79b3ad174398e358af0ed5b8bc03845d2793",
+ "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
  "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
- "git_commit": "2a8d2b5",
+ "git_commit": "f7bca4f",
  "versions": {
   "python": "3.12.16",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +182,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "SupremeCommander x86_64 cpus=20",
- "wall_s": 18.041168451309204,
- "written_utc": "2026-11-07T02:00:33Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 23.878926992416382,
+ "written_utc": "2026-11-18T15:06:29Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.4e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23"
 }

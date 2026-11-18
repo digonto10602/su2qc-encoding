@@ -71,8 +71,10 @@
   "dropped_total": 1.2240591297910407e-13,
   "block_error": 1.24735603048228e-14,
   "leak_amplitude": 0.0,
-  "seconds": 16.59085750579834,
+  "seconds": 5.23318886756897,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.3487947328392688e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -106,8 +108,10 @@
    "dropped_total": 1.21595913686663e-13,
    "block_error": 1.326389370557648e-14,
    "leak_amplitude": 0.0,
-   "seconds": 11.353199005126953,
+   "seconds": 5.055671453475952,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.348598073922395e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -140,8 +144,10 @@
    "dropped_total": 1.2303238198167845e-13,
    "block_error": 1.3797620198526612e-14,
    "leak_amplitude": 0.0,
-   "seconds": 11.092423915863037,
+   "seconds": 4.8239970207214355,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.3683000218020506e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -157,13 +163,13 @@
   "DISCOVERY: every qubit other than F must be flip-invariant on bright images while the rotation acts: dropping the R2_b zeroing (CX(R1->R2), CX(g_b->R2)) or the delta CX(g_b->g_r) (even with delta_c1 read from the r_r slot) leaves a copy of g_b in the register and breaks D^dagger (leak ~1), so the 8 R2 CX and 3 delta CX of the frame are the minimum."
  ],
  "summary": "F1 link-flag GHZ frame (flip qubit F = g_b), parent r01-F1-001 with the closed-pair flag Y4 = z & [e2=1111] removed: frame (link prep, U_E on L2, corner CX+CCX, r in R2 slots, h_b mux with K1/z selectors, CX tau fix before relative-phase CCH, deltas, closed GHZ gadget) and the four rccx folds + NOR ladder X1 as in the parent; the uniformly controlled Rz on F now reads y = Y3 = [e2=1111] directly with 10 Gray-cycle Walsh terms over (x, k, z, y) instead of 8 terms + one rccx pair (-4 CX, one ancilla fewer); all angles linear in alpha, beta, sqrt2 beta.",
- "evaluator_sha256": "43ae85b452e0c2a5bf09d19fbb1d6d56cf6a81599eb5642d2ecb1364a50309f3",
+ "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
  "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
- "git_commit": "71ff4cb",
+ "git_commit": "f7bca4f",
  "versions": {
   "python": "3.12.16",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -174,14 +180,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "SupremeCommander x86_64 cpus=20",
- "wall_s": 48.85267996788025,
- "written_utc": "2026-11-08T01:55:53Z",
- "git_dirty": false,
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 17.26659369468689,
+ "written_utc": "2026-11-18T15:08:16Z",
+ "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.4e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23"
 }

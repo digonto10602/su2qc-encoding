@@ -1,0 +1,350 @@
+{
+ "round": 1,
+ "n_valid": 4,
+ "n_invalid": 0,
+ "best_key": [
+  256,
+  1020,
+  1714,
+  58
+ ],
+ "entries": [
+  "r01-F1-001",
+  "r01-F2-001",
+  "r01-F4-001",
+  "r01-F5-001"
+ ],
+ "lean_seconds": 0.00024056434631347656,
+ "encoding": "rishon",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "2a8d2b5",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-07T02:00:54Z"
+ },
+ "evaluator_sha256": "d45ffb3116894a24f75864ed708c79b3ad174398e358af0ed5b8bc03845d2793",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "invalid": [],
+ "external": [],
+ "n_pruning_bound": 0,
+ "candidates": [
+  {
+   "label": "001-ghz-frame-cx-tau",
+   "id": "r01-F1-001",
+   "family": "F1",
+   "program_sha256": "2c58c7b56c048216da58f37b4f62bb2ecd26df763b322cd3d28bececcf3185fc",
+   "program_path": "compress/programs/rishon/F1/001-ghz-frame-cx-tau.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    256,
+    1020,
+    1714,
+    58
+   ],
+   "cell": [
+    64,
+    79
+   ],
+   "metrics": {
+    "cx": 256,
+    "t_fixed": 258,
+    "n_rot": 12,
+    "t_eps": 1020,
+    "t_estimate": {
+     "1e-06": 975.5364684956703,
+     "1e-10": 1453.8941141594505
+    },
+    "t_measured": {
+     "1e-06": 1020,
+     "1e-10": 1496
+    },
+    "synth_error_bound": 1.2e-05,
+    "depth": 293,
+    "depth_ct": 1714,
+    "qubits": 58,
+    "gates": {
+     "cx": 256,
+     "h": 134,
+     "t": 130,
+     "tdg": 128,
+     "x": 74,
+     "sdg": 22,
+     "s": 22,
+     "rz": 12
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.4011625989653016e-13,
+    "block_error": 1.3457884021996038e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 1.076401158743041e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 1.266583758745341e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2a8d2b5",
+   "summary": "F1 link-flag GHZ frame (flip qubit F = g_b): link prep with g copies in R2, U_E as 4 phases on L2, per-corner CX+CCX (CZ.CX merged, CS^dag + rccx), r folded into the R2 slots, sector height h_b by a flip-invariant 3-way rccx mux whose selectors also give K1=[r=101] and z=[r=000], tau removed by plain CX(h_X->e1) before a relative-phase 2-control H, closed-pair GHZ gadget; bright flag = NOR of 4 rccx-folded e1 plus z & e2=1111 for the closed pair; one 8-term Gray-cycle uniformly controlled Rz on F (8 CX); all angles linear in alpha, beta, sqrt2 beta.",
+   "lean": {
+    "status": "not_run",
+    "reason": "Lean certification not available: PENDING: su2plaq.rishon.compress.lean_cert.certify_circuit is a stub (prompts/203 step 6.L3)"
+   },
+   "round": 1,
+   "mode": "full"
+  },
+  {
+   "label": "001-direction-qubit-walsh",
+   "id": "r01-F2-001",
+   "family": "F2",
+   "program_sha256": "d56116b4b8c420bbf18884e211d94e253cf8c0da5bcc1b184e71bf528175c1b4",
+   "program_path": "compress/programs/rishon/F2/001-direction-qubit-walsh.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    354,
+    1818,
+    3557,
+    62
+   ],
+   "cell": [
+    67,
+    86
+   ],
+   "metrics": {
+    "cx": 354,
+    "t_fixed": 336,
+    "n_rot": 23,
+    "t_eps": 1818,
+    "t_estimate": {
+     "1e-06": 1711.278231283368,
+     "1e-10": 2628.13038547228
+    },
+    "t_measured": {
+     "1e-06": 1818,
+     "1e-10": 2728
+    },
+    "synth_error_bound": 2.3e-05,
+    "depth": 319,
+    "depth_ct": 3557,
+    "qubits": 62,
+    "gates": {
+     "cx": 354,
+     "h": 194,
+     "t": 170,
+     "tdg": 154,
+     "x": 50,
+     "rz": 35,
+     "sdg": 19,
+     "s": 19,
+     "z": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.6732846310228907e-13,
+    "block_error": 1.4469801699022858e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 1.828829704940152e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 1.528586614032662e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2a8d2b5",
+   "summary": "F2 explicit direction qubit: link prep, g-controlled canonicaliser + Bell map at corners c0/c2, direction f = [x0=g_b][x10=g_t] in one Toffoli, f-controlled lowering at c1/c3, c0/c2 partner fix, then a 6-term Walsh multiplexer on f over four good-equal-corner bits plus kappa=1 and closed-pair gadgets; all angles are integer (closed: sqrt2) multiples of beta.",
+   "lean": null,
+   "round": 1,
+   "mode": "full"
+  },
+  {
+   "label": "001-flat-dilation",
+   "id": "r01-F4-001",
+   "family": "F4",
+   "program_sha256": "3ef8c9394f9daf49c18d6782cf7db5739bab2fa0d131c3607412ef0d9bdd9b21",
+   "program_path": "compress/programs/rishon/F4/001-flat-dilation.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    390,
+    1304,
+    1871,
+    62
+   ],
+   "cell": [
+    68,
+    82
+   ],
+   "metrics": {
+    "cx": 390,
+    "t_fixed": 400,
+    "n_rot": 14,
+    "t_eps": 1304,
+    "t_estimate": {
+     "1e-06": 1237.1258799116154,
+     "1e-10": 1795.2097998526922
+    },
+    "t_measured": {
+     "1e-06": 1304,
+     "1e-10": 1836
+    },
+    "synth_error_bound": 1.4e-05,
+    "depth": 474,
+    "depth_ct": 1871,
+    "qubits": 62,
+    "gates": {
+     "cx": 390,
+     "t": 214,
+     "h": 212,
+     "tdg": 186,
+     "x": 86,
+     "sdg": 28,
+     "s": 28,
+     "z": 16,
+     "rz": 14
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.8775152156392726e-13,
+    "block_error": 1.4341674244546985e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 3.156975588947356e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 1.7340984731938027e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2a8d2b5",
+   "summary": "exact degree-1 spectral transform of a flat dilation of W = prod_c K_c (F4): corner-local Dicke frame (pseudo-spin chain e1 -> S -> e3 made classical, U_E as 4 free phases), direction qubit q = f(data), q-controlled corner-local lowering J so both members of every bright pair share the data register, then one class-multiplexed Rx on q gated by AND_c[corner is a raising source and not dark]; closed chain via q=|+> on the all-Q loop plus an A<->L toggle.",
+   "lean": null,
+   "round": 1,
+   "mode": "full"
+  },
+  {
+   "label": "001-class-batched-givens",
+   "id": "r01-F5-001",
+   "family": "F5",
+   "program_sha256": "c64fedb561c112e8416e011b7a3be06e30c93be768d5a301ead314847c2fbd85",
+   "program_path": "compress/programs/rishon/F5/001-class-batched-givens.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    492,
+    1739,
+    3142,
+    51
+   ],
+   "cell": [
+    71,
+    86
+   ],
+   "metrics": {
+    "cx": 492,
+    "t_fixed": 483,
+    "n_rot": 20,
+    "t_eps": 1739,
+    "t_estimate": {
+     "1e-06": 1678.8941141594505,
+     "1e-10": 2476.156856932417
+    },
+    "t_measured": {
+     "1e-06": 1739,
+     "1e-10": 2563
+    },
+    "synth_error_bound": 1.9999999999999998e-05,
+    "depth": 554,
+    "depth_ct": 3142,
+    "qubits": 51,
+    "gates": {
+     "cx": 492,
+     "h": 264,
+     "t": 254,
+     "tdg": 229,
+     "x": 24,
+     "rz": 20,
+     "sdg": 18,
+     "s": 18
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.7716378702841755e-13,
+    "block_error": 1.9286557291253313e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 2.4774863738802118e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "dropped_total": 1.5787722973716423e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2a8d2b5",
+   "summary": "frame D (link prep, corner CX/CCX/C2H, GHZ fold of the Q flags; U_E = 4 phases on the flags) sends 80 bright pairs to basis pairs; per r-class (7) merged Toffolis make partners differ only in F=q1, a 4-7 literal rccx AND (shared invariant prefixes) flags the class and one crx(-2 kappa s beta) rotates it; closed pair by an unconditional CX.CH.H basis change and one crx; then D^dagger.",
+   "lean": null,
+   "round": 1,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r01-F1-001",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 12,
+  "t_total": 1020,
+  "tolerances": {
+   "tol_err": 1.2001e-05,
+   "tol_gauss": 1.2001e-05
+  },
+  "op_norm_error": 3.85345463512864e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 98.62365555763245,
+ "written_utc": "2026-11-07T02:00:54Z"
+}

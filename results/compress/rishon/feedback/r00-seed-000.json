@@ -34,8 +34,10 @@
   "dropped_total": 3.675622702950601e-13,
   "block_error": 4.4954162764993984e-14,
   "leak_amplitude": 0.0,
-  "seconds": 8.69715666770935,
+  "seconds": 7.788928031921387,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 4.1251643306005405e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 3.11024874087025e-13,
    "block_error": 4.377510661991647e-14,
    "leak_amplitude": 0.0,
-   "seconds": 6.075148582458496,
+   "seconds": 5.346317529678345,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 3.547999807069415e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 3.838890637458126e-13,
    "block_error": 4.4031646709520276e-14,
    "leak_amplitude": 0.0,
-   "seconds": 6.027863025665283,
+   "seconds": 5.383425951004028,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 4.279207104553329e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -146,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "6757d91f5a90ad008f83f54549c526cb82bdb61f69dec61258a30c6d0d63e1f2",
- "wall_s": 28.393489360809326,
+ "wall_s": 25.287020206451416,
  "discoveries": [],
  "summary": "the reference circuit of the rishon encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta."
 }

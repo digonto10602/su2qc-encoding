@@ -34,8 +34,10 @@
   "dropped_total": 1.1444601104640577e-13,
   "block_error": 1.2210939236537677e-14,
   "leak_amplitude": 0.0,
-  "seconds": 17.215509176254272,
+  "seconds": 4.766647815704346,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.2665695028294345e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.1260467617577322e-13,
    "block_error": 1.2470466394601602e-14,
    "leak_amplitude": 0.0,
-   "seconds": 9.056999444961548,
+   "seconds": 5.012945652008057,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.2507514257037482e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.141064621265468e-13,
    "block_error": 1.2814301690002898e-14,
    "leak_amplitude": 0.0,
-   "seconds": 5.11474347114563,
+   "seconds": 5.549770832061768,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.269207638165497e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -145,7 +151,7 @@
   "measured": true
  },
  "program_sha256": "95ec25703fc5f646d5ca57862b6e27cd54dedd97d2e31e71988da32687f981ee",
- "wall_s": 41.77627778053284,
+ "wall_s": 17.349564790725708,
  "discoveries": [
   "DISCOVERY: in the F1 GHZ frame the bright set is exactly {e1_c = 0 and (e2_c = 1 or delta_c = 1) at all four corners} on all 1296 images, closed pair included (dark passing: 0); the delta registers are 0 in the r = 000 sector, so a test rccx in place on delta_c gives a fresh AND of two e-bits there and four of them isolate the loop among the 256 all-Q images without the 8-bit e2 check.",
   "DISCOVERY: a single-rccx test per corner has an even truth table, so it cannot equal the weight-3 corner condition; the best quadratic tests (delta ^ e2 & !(e1 ^ delta), one CX prep each) leave 16 kappa=1 dark labels that all have e1_c2 = 1, and an exhaustive search (4 tests with z-constant targets, up to 5 CX preps incl. cross-corner sources, plus 0..1 literal, or single-CX kills) finds no cheaper combination; the special c2 corner (literal !e1 read before rccx(!e2, !delta -> e1), then !e1 again) is the cheapest kill.",

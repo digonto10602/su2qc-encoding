@@ -34,8 +34,10 @@
   "dropped_total": 1.234376919878649e-13,
   "block_error": 1.3643100665802709e-14,
   "leak_amplitude": 0.0,
-  "seconds": 10.869616746902466,
+  "seconds": 5.069138526916504,
   "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.3708079265366763e-13,
   "failing_inputs": [],
   "extra": {
    "gauss_states": 273,
@@ -69,8 +71,10 @@
    "dropped_total": 1.204620569678821e-13,
    "block_error": 1.3506902320073367e-14,
    "leak_amplitude": 0.0,
-   "seconds": 10.860711812973022,
+   "seconds": 5.585212230682373,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.3396895928795546e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -103,8 +107,10 @@
    "dropped_total": 1.259051795628475e-13,
    "block_error": 1.3707766874809416e-14,
    "leak_amplitude": 0.0,
-   "seconds": 11.00824236869812,
+   "seconds": 5.925447225570679,
    "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.396129464376569e-13,
    "failing_inputs": [],
    "extra": {
     "gauss_states": 273,
@@ -145,7 +151,7 @@
   "measured": true
  },
  "program_sha256": "20bc6163fb031b8c736fda9d4fa978ff5deb72271b201a38ef262a9c955bfdaa",
- "wall_s": 35.41829991340637,
+ "wall_s": 18.605021715164185,
  "discoveries": [
   "DISCOVERY: an rccx(F, m, e1) between S and S^dag acts on the F=1 branch as X^m Z^(1-m) on e1 (a real Hermitian involution), so cQ exp(i theta X_F) cQ = exp(i theta X_F Q) is an exact controlled-partner rotation at 12 CX per cQ whenever e1 = 0 at every e2 = 1 corner of a bright label; no canonical bits n_c = e1 ^ g e2 (the F1 canonicaliser) are ever formed.",
   "DISCOVERY: in this frame the bright set is exactly {delta_c ^ (e2_c & e1_c) = 1 at all four corners} (T+- at equal corners and wrong orientations are caught by the same mux test) except 16 kappa=1 dark labels, killed by the frame-A products e1c0&!e2c0 and e1c3&!g_t folded into the c1 test; the kappa class needs no selector bit: k(r) = [r=101] + [r=000] = (1 + s_t + s_rl + s_rlt)/4 is a 4-term Walsh sum over two parity qubits.",

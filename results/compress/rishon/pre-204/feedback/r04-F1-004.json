@@ -1,0 +1,155 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.4509475921592388e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   4.386066270124133e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 8.394054265693486e-16,
+  "method": "rishon_inner_block",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.3080605517978005e-13,
+  "block_error": 1.4288704036143838e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 7.882823705673218,
+  "n_inputs": 1296,
+  "failing_inputs": [],
+  "extra": {
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "inner_method": "inner_span",
+   "rishon": true
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.4514304141940693e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -8.772132540248258e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 7.736788912175082e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.3075941262514634e-13,
+   "block_error": 1.43836287942606e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 5.036036491394043,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.4780823353545754e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.8092523364262058e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 8.610940881164415e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.3315286907741472e-13,
+   "block_error": 1.4655364458042823e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 5.02600359916687,
+   "n_inputs": 1296,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 228,
+  "t_fixed": 210,
+  "n_rot": 10,
+  "t_eps": 846,
+  "t_estimate": {
+   "1e-06": 807.9470570797253,
+   "1e-10": 1206.5784284662086
+  },
+  "t_measured": {
+   "1e-06": 846,
+   "1e-10": 1242
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 291,
+  "depth_ct": 1417,
+  "qubits": 53,
+  "gates": {
+   "cx": 228,
+   "h": 148,
+   "t": 106,
+   "tdg": 104,
+   "x": 52,
+   "sdg": 26,
+   "s": 26,
+   "rz": 10,
+   "z": 2
+  },
+  "measured": true
+ },
+ "program_sha256": "9d5ed8b4e6fd6e33df8a024d3d0855bcdff9b54e26b9f0b73755f8ec2cd496ef",
+ "wall_s": 24.111449241638184,
+ "discoveries": [
+  "DISCOVERY: the angle of every bright pair depends only on (P, Z) with P = [r_t = 0 and r_r = r_l] = [r in {000, 101}] (r = 101 is the kappa = 1 class, r = 000 the closed pair, all other classes kappa = 2 with one common coupling sign); on the occurring patterns (Z = 1 implies P = 1) psi = (4 sqrt2 - 2)/2 - 1/2 X_P - (1 + 4 sqrt2)/2 X_Z, so the X-controlled rotation needs 6 Walsh terms, and P costs nothing extra because it replaces the intermediate !d1 & !d2 of the Z chain (Z = P & !r_l).",
+  "DISCOVERY: rccx-based Toffoli toggles rccx(N1, N2 -> F) in the Gray path (instead of computing XF) leave the phase (-1)^(N1 p), p the parity of the controls toggled between the two X toggles; in a 2-register (P, Z) cube the X block's endpoints always differ in both registers, so the fix needs 2 CZ and the trick nets 0 CX."
+ ],
+ "summary": "F1 round 4 on the F3 controlled-partner frame (parent r03-F3-002) with the class selector of the F1 line: frame, CH partner W Z_E W, single dark-label fold onto F, Margolus+CZ h_b Toffoli, 4 relative-phase C2H, closed gadget and the AND of 4 in-place corner tests as in the parent, but the closed-sector flag is built as Z = P & !r_l from the selector P = [r_t = 0 and r_r = r_l] = rccx(!r_t, !(r_r ^ r_l)) (same 6 CX as the delta chain it replaces), so the class-signed angle psi(P, Z) = -2, -1, 4 sqrt2 needs 3 Walsh terms instead of 5: the rotation on F is 6 Gray-cycle terms over (X, P, Z) instead of 10 (-4 CX, -4 rotations); all angles linear in alpha, beta, sqrt2 beta."
+}
