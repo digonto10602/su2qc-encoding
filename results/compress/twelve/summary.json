@@ -1,0 +1,463 @@
+{
+ "encoding": "twelve",
+ "kind": "step",
+ "n_rounds": 6,
+ "n_candidates": 22,
+ "n_valid": 22,
+ "global_best": "r05-F2-005",
+ "global_best_key": [
+  111,
+  912,
+  1663,
+  31
+ ],
+ "best_by_family": {
+  "seed": "r00-seed-001",
+  "F1": "r02-F1-002",
+  "F2": "r05-F2-005",
+  "F3": "r04-F3-004",
+  "F4": "r05-F4-005"
+ },
+ "header": [
+  "row",
+  "qubits",
+  "CX",
+  "T_fixed",
+  "N_rot",
+  "T(1e-6)",
+  "T_est(1e-6)",
+  "T(1e-10)",
+  "T (Paulo, Qiskit CT pass, U_B only, beta=1)",
+  "depth_CT",
+  "verdict",
+  "Lean",
+  "entry / commit"
+ ],
+ "notes": [
+  "Paulo row: the T count in column `T (Paulo, Qiskit CT pass, U_B only, beta=1)` (1162) is Qiskit's Clifford+T pass manager applied to his fixed-angle U_B alone at beta = 1; it is NOT a pygridsynth count, NOT the step operator (our rows include the 4 electric rotations, about 256 T at 1e-6) and NOT at beta = 0.61, so the T_fixed, T(1e-6), T_est and T(1e-10) cells are left blank. The like-for-like comparison is U_B at beta = 1 through the same Qiskit pass (eps 1e-6, seed 12345): ours 662 T vs Paulo 1162 T, CX 294 vs 294 (reports/audits/003, results/m1_audit_fixes_n3.json). His depth (2549) is also from that pass, not from pygridsynth words. The CX column is comparable (U_E costs 0 CX)."
+ ],
+ "rows": [
+  [
+   "general",
+   "50",
+   "294",
+   "312",
+   "10",
+   "952",
+   "909.947",
+   "1352",
+   "-",
+   "1421",
+   "valid (err 2.72136e-13, leak 0)",
+   "not_run",
+   "r00-seed-000 @ b8f2302"
+  ],
+  [
+   "general + polish",
+   "50",
+   "294",
+   "312",
+   "10",
+   "952",
+   "909.947",
+   "1352",
+   "-",
+   "1421",
+   "valid (err 2.72136e-13, leak 0)",
+   "not_run",
+   "r00-seed-010 @ b8f2302"
+  ],
+  [
+   "Qiskit L3 (windows of 32)",
+   "50",
+   "290",
+   "302",
+   "10",
+   "918",
+   "899.947",
+   "1310",
+   "-",
+   "1387",
+   "valid (err 3.64493e-13, leak 0)",
+   "not_run",
+   "r00-seed-qiskit_l3 @ b8f2302"
+  ],
+  [
+   "seed lean22_v2",
+   "35",
+   "162",
+   "160",
+   "8",
+   "660",
+   "638.358",
+   "986",
+   "-",
+   "1029",
+   "valid (err 2.17025e-13, leak 0)",
+   "not_run",
+   "r00-seed-001 @ b8f2302"
+  ],
+  [
+   "seed lean22",
+   "38",
+   "210",
+   "192",
+   "8",
+   "704",
+   "670.358",
+   "1026",
+   "-",
+   "1148",
+   "valid (err 2.9979e-13, leak 0)",
+   "not_run",
+   "r00-seed-002 @ b8f2302"
+  ],
+  [
+   "Qiskit L3 (whole circuit; counts only)",
+   "50",
+   "290",
+   "294",
+   "10",
+   "n/a (unverifiable)",
+   "891.947",
+   "n/a (unverifiable)",
+   "-",
+   "n/a (unverifiable)",
+   "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "n_a",
+   "-"
+  ],
+  [
+   "paulo34 (fixed angle; Clifford+T up to a global phase)",
+   "50",
+   "294",
+   "-",
+   "0",
+   "-",
+   "-",
+   "-",
+   "1162",
+   "2549",
+   "valid at its own angle (beta = 1, kind UB), err 1.07559e-05",
+   "n_a",
+   "-"
+  ],
+  [
+   "spinnet15 (not applicable)",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "spinnet15 is Paulo's 15-qubit spin-network circuit: it acts on route-B labels (a different encoding), not on the 12-qubit electric-basis codes; it is handled by the spin-network encoding (M3)",
+   "n_a",
+   "-"
+  ],
+  [
+   "best of family F1",
+   "35",
+   "124",
+   "104",
+   "16",
+   "1114",
+   "1060.72",
+   "1754",
+   "-",
+   "2195",
+   "valid (err 8.56515e-14, leak 0)",
+   "not_run",
+   "r02-F1-002 @ b8f2302"
+  ],
+  [
+   "best of family F2",
+   "31",
+   "111",
+   "104",
+   "13",
+   "912",
+   "881.331",
+   "1456",
+   "-",
+   "1663",
+   "valid (err 1.03681e-13, leak 0)",
+   "certified",
+   "r05-F2-005 @ b8f2302"
+  ],
+  [
+   "best of family F3",
+   "32",
+   "111",
+   "104",
+   "13",
+   "912",
+   "881.331",
+   "1456",
+   "-",
+   "1664",
+   "valid (err 8.79425e-14, leak 0)",
+   "not_run",
+   "r04-F3-004 @ b8f2302"
+  ],
+  [
+   "best of family F4",
+   "32",
+   "111",
+   "104",
+   "13",
+   "912",
+   "881.331",
+   "1456",
+   "-",
+   "1672",
+   "valid (err 2.13108e-13, leak 0)",
+   "not_run",
+   "r05-F4-005 @ b8f2302"
+  ],
+  [
+   "best of family seed",
+   "35",
+   "162",
+   "160",
+   "8",
+   "660",
+   "638.358",
+   "986",
+   "-",
+   "1029",
+   "valid (err 2.17025e-13, leak 0)",
+   "not_run",
+   "r00-seed-001 @ b8f2302"
+  ],
+  [
+   "GLOBAL BEST",
+   "31",
+   "111",
+   "104",
+   "13",
+   "912",
+   "881.331",
+   "1456",
+   "-",
+   "1663",
+   "valid (err 1.03681e-13, leak 0)",
+   "certified",
+   "r05-F2-005 @ b8f2302"
+  ]
+ ],
+ "lineage": [
+  {
+   "id": "r00-seed-000",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 294,
+   "t_eps": 952,
+   "parent_known": true
+  },
+  {
+   "id": "r00-seed-010",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 294,
+   "t_eps": 952,
+   "parent_known": true
+  },
+  {
+   "id": "r00-seed-qiskit_l3",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 290,
+   "t_eps": 918,
+   "parent_known": true
+  },
+  {
+   "id": "r00-seed-001",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 162,
+   "t_eps": 660,
+   "parent_known": true
+  },
+  {
+   "id": "r00-seed-002",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 210,
+   "t_eps": 704,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F1-001",
+   "parent": null,
+   "family": "F1",
+   "round": 1,
+   "cx": 146,
+   "t_eps": 754,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F2-001",
+   "parent": null,
+   "family": "F2",
+   "round": 1,
+   "cx": 126,
+   "t_eps": 738,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F3-001",
+   "parent": null,
+   "family": "F3",
+   "round": 1,
+   "cx": 132,
+   "t_eps": 1130,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F4-001",
+   "parent": null,
+   "family": "F4",
+   "round": 1,
+   "cx": 126,
+   "t_eps": 1254,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F1-002",
+   "parent": "r01-F2-001",
+   "family": "F1",
+   "round": 2,
+   "cx": 124,
+   "t_eps": 1114,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F2-002",
+   "parent": "r01-F2-001",
+   "family": "F2",
+   "round": 2,
+   "cx": 120,
+   "t_eps": 912,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F3-002",
+   "parent": "r01-F3-001",
+   "family": "F3",
+   "round": 2,
+   "cx": 124,
+   "t_eps": 1114,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F4-002",
+   "parent": "r01-F4-001",
+   "family": "F4",
+   "round": 2,
+   "cx": 121,
+   "t_eps": 738,
+   "parent_known": true
+  },
+  {
+   "id": "r03-F2-003",
+   "parent": "r02-F2-002",
+   "family": "F2",
+   "round": 3,
+   "cx": 119,
+   "t_eps": 912,
+   "parent_known": true
+  },
+  {
+   "id": "r03-F3-003",
+   "parent": "r02-F2-002",
+   "family": "F3",
+   "round": 3,
+   "cx": 112,
+   "t_eps": 912,
+   "parent_known": true
+  },
+  {
+   "id": "r03-F4-003",
+   "parent": "r02-F4-002",
+   "family": "F4",
+   "round": 3,
+   "cx": 119,
+   "t_eps": 912,
+   "parent_known": true
+  },
+  {
+   "id": "r04-F2-004",
+   "parent": "r03-F2-003",
+   "family": "F2",
+   "round": 4,
+   "cx": 111,
+   "t_eps": 912,
+   "parent_known": true
+  },
+  {
+   "id": "r04-F3-004",
+   "parent": "r03-F3-003",
+   "family": "F3",
+   "round": 4,
+   "cx": 111,
+   "t_eps": 912,
+   "parent_known": true
+  },
+  {
+   "id": "r04-F4-004",
+   "parent": "r03-F4-003",
+   "family": "F4",
+   "round": 4,
+   "cx": 111,
+   "t_eps": 912,
+   "parent_known": true
+  },
+  {
+   "id": "r05-F2-005",
+   "parent": "r04-F2-004",
+   "family": "F2",
+   "round": 5,
+   "cx": 111,
+   "t_eps": 912,
+   "parent_known": true
+  },
+  {
+   "id": "r05-F3-005",
+   "parent": "r04-F3-004",
+   "family": "F3",
+   "round": 5,
+   "cx": 112,
+   "t_eps": 1112,
+   "parent_known": true
+  },
+  {
+   "id": "r05-F4-005",
+   "parent": "r04-F4-004",
+   "family": "F4",
+   "round": 5,
+   "cx": 111,
+   "t_eps": 912,
+   "parent_known": true
+  }
+ ],
+ "headline": {
+  "id": "r05-F2-005",
+  "robust_key": [
+   111,
+   18548,
+   0,
+   34384,
+   31
+  ],
+  "t_mean": 927.4,
+  "angle_set_sha256": "769caec1c2738356f2e5a4f51adc1d286ce3bb585c034c7a98950df701e3cbb2"
+ }
+}

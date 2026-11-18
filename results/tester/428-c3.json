@@ -1,0 +1,287 @@
+{
+ "report": "reports/tests/428-c3-headline-lean.md",
+ "commit": "519aa01",
+ "date": "2026-11-18",
+ "mode": "step",
+ "prompt": "prompts/008 C3 + prompts/010 H.2",
+ "seed": "angle set seed 20261107 (locked); no other stochastic",
+ "machine": "omnicommander, taskset cores 0-8; machine load average 18-30 from other agents' jobs during most runs",
+ "check1_headlines_recomputed_on_scratch_copy": {
+  "twelve": {
+   "robust_top_keys": [
+    "angle_set",
+    "evaluator_sha256",
+    "encoding_sha256"
+   ],
+   "robust_entries_equal": true,
+   "n_entries": 21,
+   "entry_field_diffs": {},
+   "robust_other_equal": {
+    "angle_set": true,
+    "evaluator_sha256": true,
+    "encoding_sha256": true
+   },
+   "summary_headline_equal": true,
+   "summary_diff_keys": [],
+   "headline": {
+    "id": "r05-F2-005",
+    "robust_key": [
+     111,
+     18548,
+     0,
+     34384,
+     31
+    ],
+    "t_mean": 927.4
+   },
+   "headline_entry": {
+    "robust_key": [
+     111,
+     18548,
+     0,
+     34384,
+     31
+    ],
+    "t_mean": 927.4,
+    "angle_linear": true,
+    "offset_class": "linear",
+    "export_status": "ok"
+   }
+  },
+  "spinnet": {
+   "robust_top_keys": [
+    "angle_set",
+    "evaluator_sha256",
+    "spinnet_code_sha256"
+   ],
+   "robust_entries_equal": true,
+   "n_entries": 23,
+   "entry_field_diffs": {},
+   "robust_other_equal": {
+    "angle_set": true,
+    "evaluator_sha256": true,
+    "spinnet_code_sha256": true
+   },
+   "summary_headline_equal": true,
+   "summary_diff_keys": [],
+   "headline": {
+    "id": "r02-F1-002",
+    "robust_key": [
+     31,
+     21840,
+     0,
+     46024,
+     17
+    ],
+    "t_mean": 1092.0
+   },
+   "headline_entry": {
+    "robust_key": [
+     31,
+     21840,
+     0,
+     46024,
+     17
+    ],
+    "t_mean": 1092.0,
+    "angle_linear": true,
+    "offset_class": null,
+    "export_status": "ok"
+   }
+  },
+  "fuzzy_ub": {
+   "robust_top_keys": [
+    "angle_set",
+    "evaluator_sha256",
+    "encoding_sha256"
+   ],
+   "robust_entries_equal": true,
+   "n_entries": 41,
+   "entry_field_diffs": {},
+   "robust_other_equal": {
+    "angle_set": true,
+    "evaluator_sha256": true,
+    "encoding_sha256": true
+   },
+   "summary_headline_equal": true,
+   "summary_diff_keys": [],
+   "headline": {
+    "id": "r10-F1-010",
+    "robust_key": [
+     83,
+     12688,
+     0,
+     30902,
+     10
+    ],
+    "t_mean": 634.4
+   },
+   "headline_entry": {
+    "robust_key": [
+     83,
+     12688,
+     0,
+     30902,
+     10
+    ],
+    "t_mean": 634.4,
+    "angle_linear": true,
+    "offset_class": "linear",
+    "export_status": "ok"
+   },
+   "offset_class_counts": {
+    "linear": 30,
+    "clifford_offset": 11
+   },
+   "angle_linear_counts": {
+    "true": 30,
+    "false": 11
+   }
+  },
+  "fuzzy_link": {
+   "robust_top_keys": [
+    "angle_set",
+    "evaluator_sha256",
+    "encoding_sha256"
+   ],
+   "robust_entries_equal": true,
+   "n_entries": 4,
+   "entry_field_diffs": {},
+   "robust_other_equal": {
+    "angle_set": true,
+    "evaluator_sha256": true,
+    "encoding_sha256": true
+   },
+   "summary_headline_equal": true,
+   "summary_diff_keys": [],
+   "headline": {
+    "id": "r02-F2-001",
+    "robust_key": [
+     12,
+     12576,
+     0,
+     23373,
+     4
+    ],
+    "t_mean": 628.8
+   },
+   "headline_entry": {
+    "robust_key": [
+     12,
+     12576,
+     0,
+     23373,
+     4
+    ],
+    "t_mean": 628.8,
+    "angle_linear": true,
+    "offset_class": "linear",
+    "export_status": "ok"
+   },
+   "offset_class_counts": {
+    "linear": 4
+   }
+  },
+  "rishon": {
+   "robust_top_keys": [
+    "angle_set",
+    "evaluator_sha256"
+   ],
+   "robust_entries_equal": true,
+   "n_entries": 18,
+   "entry_field_diffs": {},
+   "robust_other_equal": {
+    "angle_set": true,
+    "evaluator_sha256": true
+   },
+   "summary_headline_equal": true,
+   "summary_diff_keys": [],
+   "headline": {
+    "id": "r04-F1-004",
+    "robust_key": [
+     228,
+     16876,
+     0,
+     28328,
+     53
+    ],
+    "t_mean": 843.8
+   },
+   "headline_entry": {
+    "robust_key": [
+     228,
+     16876,
+     0,
+     28328,
+     53
+    ],
+    "t_mean": 843.8,
+    "angle_linear": true,
+    "offset_class": null,
+    "export_status": null
+   }
+  }
+ },
+ "check1_tfirst": {
+  "headline": "r10-F1-010 (83,12688,0,30902,10) laptop (83,638,1546,10)",
+  "t_first": "r13-F3-013 (89,10400,1,25084,10) laptop (89,514,1242,10) mean T 520.0",
+  "runner_up": "r11-F2-011 (89,10400,1,25164,10) laptop (89,514,1246,10) mean T 520.0",
+  "rule": "crosscheck/report.py _pick: min over (robust_key[1], robust_key[0], robust_key[2:], laptop_key, id)",
+  "tie_broken_by": "4th component (depth sum 25084 < 25164)"
+ },
+ "check2_lean": {
+  "twelve_r05-F2-005": {
+   "status": "certified",
+   "reason": "",
+   "seconds": 612.2715158462524,
+   "checker_sha256": "befbd27e3ed4e8229f11320189441597e04c89c7bf7746cf93f1c55de261bfd5",
+   "axioms": [],
+   "cert_path": "compress/lean/certs/step-o1-ca5c0f1a907a.json",
+   "wall_s": 612.2715232372284
+  },
+  "spinnet_r02-F1-002": {
+   "status": "certified",
+   "reason": "",
+   "seconds": 0.8415067195892334,
+   "checker_sha256": "ec00aa45fafa507a075313dc4650c11bf6d122cd9233588125f61a092f853de5",
+   "wall_s": 0.8415114879608154
+  },
+  "spinnet_r04-F1-004": "n_a non_linear_angle:p:0.5078981633974483 (allowed prefix)"
+ },
+ "check3_results_files": {
+  "compressed_step": "same units r12-F1-012 + r02-F2-001, composed 227 CX depth 150; err 1.2922695884631726e-14 -> 1.2728230859980542e-14, gauss 5.862e-15 -> 5.860e-15; provenance 5bbaf0f git_dirty False",
+  "m4_compressed": "only seconds, commits, timestamps, report text changed; new fields span_leak, total_error, span_leak_max_state, gauss added x7; provenance 5bbaf0f git_dirty False"
+ },
+ "check4": {
+  "n2": "16 passed 41 s",
+  "n4": [
+   "16 passed 54 s",
+   "16 passed 32 s",
+   "16 passed 43 s"
+  ],
+  "race_reproduced_on_scratch_copy": true
+ },
+ "check5": {
+  "acc_m6_m8": {
+   "passed": 34,
+   "failed": 12,
+   "wall_s": 132
+  },
+  "acc_rest": {
+   "passed": 293,
+   "failed": 3,
+   "wall_s": 1003,
+   "note": "2 of the 3 = workers OOM-killed (m9 S1[0.0-1], m9 C1); rerun 5 passed in 534 s; third = M11_T2 PENDING"
+  },
+  "unit": {
+   "passed": 1136,
+   "failed": 0,
+   "wall_s": 646
+  }
+ },
+ "check6": {
+  "hashes": "all six equal the freeze",
+  "check_lock": "LOCK OK",
+  "acceptance_check": "PASS v22"
+ }
+}

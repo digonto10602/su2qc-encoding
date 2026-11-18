@@ -9,7 +9,7 @@
     "order": 1
   },
   "provenance": {
-    "git_commit": "7d06d8e",
+    "git_commit": "5bbaf0f",
     "git_dirty": false,
     "versions": {
       "python": "3.12.16",
@@ -27,13 +27,13 @@
       "trial_subset": 0,
       "angle_set": 20261107
     },
-    "timestamp_utc": "2026-11-12T13:40:46Z",
-    "provenance_captured_at": "2026-11-12T13:40:46Z",
+    "timestamp_utc": "2026-11-18T17:36:17Z",
+    "provenance_captured_at": "2026-11-18T17:36:17Z",
     "host": "omnicommander",
     "command": "python scripts/m4_results.py",
     "quick": false,
-    "wall_seconds": 6.072173118591309,
-    "peak_rss_mb": 300.83984375
+    "wall_seconds": 5.936426877975464,
+    "peak_rss_mb": 308.1796875
   },
   "verification": {
     "ok": true,
@@ -59,13 +59,17 @@
     "dropped_total": 3.2596231561562225e-15,
     "block_error": 1.8670686707337984e-15,
     "leak_amplitude": 0.0,
-    "seconds": 0.5697968006134033,
+    "seconds": 0.5757408142089844,
     "n_inputs": 433,
+    "span_leak": 0.0,
+    "total_error": 5.126691826890021e-15,
     "extra": {
       "op_norm_error_physical": 1.5453706261318547e-15,
       "max_dropped_l2": 9.473535760110797e-16,
       "max_span_leak": 0.0,
-      "op_norm_error_inner_span": 1.8670686707337984e-15
+      "op_norm_error_inner_span": 1.8670686707337984e-15,
+      "span_leak_max_state": 0.0,
+      "gauss": "checked"
     }
   },
   "metrics": {
@@ -127,13 +131,17 @@
             "dropped_total": 4.217654152210112e-13,
             "block_error": 0.0002112546940307766,
             "leak_amplitude": 0.00021015506677173767,
-            "seconds": 0.2854804992675781,
+            "seconds": 0.309812068939209,
             "n_inputs": 433,
+            "span_leak": 1.922081493901947e-05,
+            "total_error": 0.0004406305761632991,
             "extra": {
               "op_norm_error_physical": 0.00020256914458772067,
               "max_dropped_l2": 8.671368050119958e-14,
               "max_span_leak": 3.694398120757114e-10,
-              "op_norm_error_inner_span": 0.0002112546940307766
+              "op_norm_error_inner_span": 0.0002112546940307766,
+              "span_leak_max_state": 1.9220814937835637e-05,
+              "gauss": "checked"
             }
           }
         }
@@ -177,13 +185,17 @@
             "dropped_total": 2.158712784987411e-12,
             "block_error": 3.167191694857737e-06,
             "leak_amplitude": 1.722902552441339e-06,
-            "seconds": 0.29311561584472656,
+            "seconds": 0.3210604190826416,
             "n_inputs": 433,
+            "span_leak": 3.152907163942228e-07,
+            "total_error": 5.2053871224060835e-06,
             "extra": {
               "op_norm_error_physical": 2.885386031696785e-06,
               "max_dropped_l2": 3.1528843748148044e-13,
               "max_span_leak": 9.947598300641403e-14,
-              "op_norm_error_inner_span": 3.167191694857737e-06
+              "op_norm_error_inner_span": 3.167191694857737e-06,
+              "span_leak_max_state": 3.1529071639422254e-07,
+              "gauss": "checked"
             }
           }
         }
@@ -227,13 +239,17 @@
             "dropped_total": 3.2232678135736638e-15,
             "block_error": 2.5031944686343552e-08,
             "leak_amplitude": 2.882564327098633e-08,
-            "seconds": 0.32226991653442383,
+            "seconds": 0.3423502445220947,
             "n_inputs": 433,
+            "span_leak": 6.7015298023970785e-09,
+            "total_error": 6.055912098299478e-08,
             "extra": {
               "op_norm_error_physical": 2.4939677276982285e-08,
               "max_dropped_l2": 7.581333066586626e-16,
               "max_span_leak": 0.0,
-              "op_norm_error_inner_span": 2.5031944686343552e-08
+              "op_norm_error_inner_span": 2.5031944686343552e-08,
+              "span_leak_max_state": 6.7015298023970686e-09,
+              "gauss": "checked"
             }
           }
         }
@@ -277,13 +293,17 @@
             "dropped_total": 2.7419711795447737e-15,
             "block_error": 2.910649761900019e-10,
             "leak_amplitude": 4.2824032765862183e-10,
-            "seconds": 0.35419464111328125,
+            "seconds": 0.36966371536254883,
             "n_inputs": 433,
+            "span_leak": 5.3928871892524155e-11,
+            "total_error": 7.732369177123274e-10,
             "extra": {
               "op_norm_error_physical": 2.384937255643536e-10,
               "max_dropped_l2": 8.039713089761659e-16,
               "max_span_leak": 0.0,
-              "op_norm_error_inner_span": 2.910649761900019e-10
+              "op_norm_error_inner_span": 2.910649761900019e-10,
+              "span_leak_max_state": 5.3928871892524096e-11,
+              "gauss": "checked"
             }
           }
         }
@@ -323,7 +343,7 @@
       "family": "F1",
       "round": 2,
       "parent": "r01-F1-001",
-      "entry_commit": "6d7522d"
+      "entry_commit": "02c499d"
     },
     "archive_best": "r04-F1-004",
     "archive_best_key": [
@@ -1012,7 +1032,7 @@
         "entry": "r00-seed-000",
         "family": "seed",
         "round": 0,
-        "commit": "2fd5b3d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/seed/000-general.py",
         "qubits": 23,
         "cx": 54,
@@ -1038,7 +1058,7 @@
         "entry": "r00-seed-010",
         "family": "seed",
         "round": 0,
-        "commit": "2fd5b3d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/seed/010-general_polish.py",
         "qubits": 23,
         "cx": 54,
@@ -1064,7 +1084,7 @@
         "entry": "r00-seed-011",
         "family": "seed",
         "round": 0,
-        "commit": "2fd5b3d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/seed/011-qiskit_l3.py",
         "qubits": 23,
         "cx": 54,
@@ -1108,7 +1128,7 @@
         "entry": "r00-seed-001",
         "family": "seed",
         "round": 0,
-        "commit": "2fd5b3d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/seed/001-spinnet_v2_pairs9.py",
         "qubits": 19,
         "cx": 34,
@@ -1134,7 +1154,7 @@
         "entry": "r00-seed-002",
         "family": "seed",
         "round": 0,
-        "commit": "2fd5b3d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/seed/002-spinnet_v2_flags4.py",
         "qubits": 19,
         "cx": 44,
@@ -1160,7 +1180,7 @@
         "entry": "r00-seed-003",
         "family": "seed",
         "round": 0,
-        "commit": "2fd5b3d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/seed/003-spinnet_v2_flags5.py",
         "qubits": 19,
         "cx": 42,
@@ -1186,7 +1206,7 @@
         "entry": "r00-seed-004",
         "family": "seed",
         "round": 0,
-        "commit": "2fd5b3d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/seed/004-spinnet_v2_flags6.py",
         "qubits": 19,
         "cx": 36,
@@ -1239,7 +1259,7 @@
         "entry": "r02-F1-002",
         "family": "F1",
         "round": 2,
-        "commit": "6d7522d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/F1/002-dimer-linear-corner-walk.py",
         "qubits": 17,
         "cx": 31,
@@ -1265,7 +1285,7 @@
         "entry": "r05-F2-005",
         "family": "F2",
         "round": 5,
-        "commit": "9145258",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/F2/005-angle-linear-design-interpreter.py",
         "qubits": 17,
         "cx": 31,
@@ -1291,7 +1311,7 @@
         "entry": "r05-F3-005",
         "family": "F3",
         "round": 5,
-        "commit": "9145258",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/F3/005-angle-linear-walk.py",
         "qubits": 17,
         "cx": 32,
@@ -1317,7 +1337,7 @@
         "entry": "r02-F5-002",
         "family": "F5",
         "round": 2,
-        "commit": "6d7522d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/F5/002-bright_flag_6rot.py",
         "qubits": 17,
         "cx": 34,
@@ -1343,7 +1363,7 @@
         "entry": "r00-seed-001",
         "family": "seed",
         "round": 0,
-        "commit": "2fd5b3d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/seed/001-spinnet_v2_pairs9.py",
         "qubits": 19,
         "cx": 34,
@@ -1369,7 +1389,7 @@
         "entry": "r04-F1-004",
         "family": "F1",
         "round": 4,
-        "commit": "a0c90d7",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/F1/004-depth-forms.py",
         "qubits": 17,
         "cx": 31,
@@ -1396,7 +1416,7 @@
         "entry": "r02-F1-002",
         "family": "F1",
         "round": 2,
-        "commit": "6d7522d",
+        "commit": "02c499d",
         "program_path": "compress/programs/spinnet/F1/002-dimer-linear-corner-walk.py",
         "qubits": 17,
         "cx": 31,
@@ -1683,13 +1703,17 @@
         "dropped_total": 0.0,
         "block_error": 5.551115123125783e-16,
         "leak_amplitude": 0.0,
-        "seconds": 0.18143820762634277,
+        "seconds": 0.19493770599365234,
         "n_inputs": 433,
+        "span_leak": 0.0,
+        "total_error": 5.551115123125783e-16,
         "extra": {
           "op_norm_error_physical": 5.551115123125783e-16,
           "max_dropped_l2": 0.0,
           "max_span_leak": 0.0,
-          "op_norm_error_inner_span": null
+          "op_norm_error_inner_span": null,
+          "span_leak_max_state": 0.0,
+          "gauss": "checked"
         }
       },
       "metrics": {
@@ -1832,13 +1856,17 @@
         "dropped_total": 3.0637669773203746e-15,
         "block_error": 1.2658490090568397e-15,
         "leak_amplitude": 0.0,
-        "seconds": 0.17963337898254395,
+        "seconds": 0.1941370964050293,
         "n_inputs": 433,
+        "span_leak": 0.0,
+        "total_error": 4.329615986377214e-15,
         "extra": {
           "op_norm_error_physical": 1.2658490090568397e-15,
           "max_dropped_l2": 8.096581533311954e-16,
           "max_span_leak": 0.0,
-          "op_norm_error_inner_span": 1.2658490090568385e-15
+          "op_norm_error_inner_span": 1.2658490090568385e-15,
+          "span_leak_max_state": 0.0,
+          "gauss": "checked"
         }
       },
       "logical": {
@@ -1874,7 +1902,7 @@
       "cert_sha256": "1445a52aa0715cead457cdeb1afa07378ec23682553f535c1f9da19882d9a1e3",
       "theorem_file": "lean/certs/spinnet-best-step.lean",
       "theorem_name": "spinnet_best",
-      "elaboration_seconds": 0.8819332122802734,
+      "elaboration_seconds": 0.754011869430542,
       "elaboration_returncode": 0,
       "axioms": [
         "Classical.choice",
@@ -1883,7 +1911,7 @@
         "spinnet_best._native.native_decide.ax_1_1"
       ]
     },
-    "report_table_markdown": "### Compression result: `spinnet` / `step`\n\n| row | qubits | CX | T_fixed | N_rot | T(1e-6) | T_est(1e-6) | T(1e-10) | T (Paulo, Qiskit CT pass, U_B only, beta=1) | depth_CT | verdict | Lean | entry / commit |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| general | 23 | 54 | 56 | 8 | 566 | 534.358 | 884 | - | 861 | valid (err 1.22976e-14, leak 0) | certified | r00-seed-000 @ 2fd5b3d |\n| general + polish | 23 | 54 | 56 | 8 | 566 | 534.358 | 884 | - | 861 | valid (err 1.22976e-14, leak 0) | not_run | r00-seed-010 @ 2fd5b3d |\n| Qiskit L3 (windows of 32) | 23 | 54 | 56 | 8 | 566 | 534.358 | 884 | - | 861 | valid (err 1.67015e-14, leak 0) | not_run | r00-seed-011 @ 2fd5b3d |\n| seed spinnet_v2_pairs9 | 19 | 34 | 24 | 13 | 832 | 801.331 | 1376 | - | 1597 | valid (err 7.90095e-15, leak 0) | certified | r00-seed-001 @ 2fd5b3d |\n| seed spinnet_v2_flags4 | 19 | 44 | 48 | 8 | 554 | 526.358 | 880 | - | 869 | valid (err 9.27583e-15, leak 0) | not_run | r00-seed-002 @ 2fd5b3d |\n| seed spinnet_v2_flags5 | 19 | 42 | 40 | 9 | 606 | 578.152 | 976 | - | 1009 | valid (err 8.78582e-15, leak 0) | not_run | r00-seed-003 @ 2fd5b3d |\n| seed spinnet_v2_flags6 | 19 | 36 | 32 | 10 | 658 | 629.947 | 1074 | - | 1120 | valid (err 8.02362e-15, leak 0) | not_run | r00-seed-004 @ 2fd5b3d |\n| Qiskit L3 (whole circuit; counts only) | 23 | 54 | 56 | 8 | n/a (unverifiable) | 534.358 | n/a (unverifiable) | - | n/a (unverifiable) | unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine | n_a | - |\n| paulo15 (fixed angle; Clifford+T up to a global phase) | 23 | 68 | - | 4 | - | - | - | 316 | 726 | valid at its own angle (beta = 1, kind UB), err 9.61273e-15 | n_a | - |\n| best of family F1 | 17 | 31 | 24 | 17 | 1062 | 1040.51 | 1752 | - | 2173 | valid (err 7.34809e-15, leak 0) | n_a | r04-F1-004 @ a0c90d7 |\n| best of family F2 | 17 | 31 | 24 | 17 | 1062 | 1040.51 | 1752 | - | 2191 | valid (err 5.4092e-15, leak 0) | not_run | r03-F2-003 @ 49d8b6e |\n| best of family F3 | 17 | 32 | 29 | 13 | 811 | 806.331 | 1347 | - | 1536 | valid (err 5.94315e-15, leak 0) | not_run | r04-F3-004 @ a0c90d7 |\n| best of family F5 | 17 | 34 | 32 | 10 | 658 | 629.947 | 1074 | - | 1116 | valid (err 6.86491e-15, leak 0) | not_run | r02-F5-002 @ 6d7522d |\n| best of family seed | 19 | 34 | 24 | 13 | 832 | 801.331 | 1376 | - | 1597 | valid (err 7.90095e-15, leak 0) | certified | r00-seed-001 @ 2fd5b3d |\n| GLOBAL BEST | 17 | 31 | 24 | 17 | 1062 | 1040.51 | 1752 | - | 2173 | valid (err 7.34809e-15, leak 0) | n_a | r04-F1-004 @ a0c90d7 |\n\nEvery exact-angle circuit is the target up to ONE global phase; Clifford+T circuits (synthesised) are equal to their exact-angle design up to the synthesis error and one global phase. T(1e-6), T(1e-10): T_fixed + pygridsynth T of every rotation (measured); T_est: T_fixed + 3 N_rot log2(1/eps). Key = (CX, T(1e-6), depth_CT, qubits), lexicographic.\n\nPaulo row: the T count in column `T (Paulo, Qiskit CT pass, U_B only, beta=1)` (1162) is Qiskit's Clifford+T pass manager applied to his fixed-angle U_B alone at beta = 1; it is NOT a pygridsynth count, NOT the step operator (our rows include the 4 electric rotations, about 256 T at 1e-6) and NOT at beta = 0.61, so the T_fixed, T(1e-6), T_est and T(1e-10) cells are left blank. The like-for-like comparison is U_B at beta = 1 through the same Qiskit pass (eps 1e-6, seed 12345): ours 662 T vs Paulo 1162 T, CX 294 vs 294 (reports/audits/003, results/m1_audit_fixes_n3.json). His depth (2549) is also from that pass, not from pygridsynth words. The CX column is comparable (U_E costs 0 CX).\nRound 0: Clifford+T re-verification of `r00-seed-001`: ok (eps 1e-06, 13 rotations, T 832, error 5.0623e-06 <= 1.3001e-05)\nRound 1: Clifford+T re-verification of `r01-F1-001`: ok (eps 1e-06, 13 rotations, T 832, error 5.43217e-06 <= 1.3001e-05)\nRound 2: Clifford+T re-verification of `r02-F1-002`: ok (eps 1e-06, 17 rotations, T 1086, error 4.8901e-06 <= 1.7001e-05)\nRound 3: Clifford+T re-verification of `r03-F1-003`: ok (eps 1e-06, 17 rotations, T 1062, error 5.43649e-06 <= 1.7001e-05)\nRound 4: Clifford+T re-verification of `r04-F1-004`: ok (eps 1e-06, 17 rotations, T 1062, error 6.01226e-06 <= 1.7001e-05)\n\n### HEADLINE (angle-averaged T, prompts/104 \u00a711 E3)\n\n| entry | family | round | CX | T nominal | T_avg(1e-6) | depth_CT avg | qubits | angle-linear | Lean |\n|---|---|---|---|---|---|---|---|---|---|\n| GLOBAL BEST (laptop key): r04-F1-004 | F1 | 4 | 31 | 1062 | 1092.00 | 2293.8 | 17 | no | n_a |\n| HEADLINE (robust key): r02-F1-002 | F1 | 2 | 31 | 1086 | 1092.00 | 2301.2 | 17 | yes | certified |\n| best of family F1 (robust key): r02-F1-002 | F1 | 2 | 31 | 1086 | 1092.00 | 2301.2 | 17 | yes | certified |\n| best of family F2 (robust key): r05-F2-005 | F2 | 5 | 31 | 1086 | 1092.00 | 2305.2 | 17 | yes | not_run |\n| best of family F3 (robust key): r05-F3-005 | F3 | 5 | 32 | 832 | 847.40 | 1661.2 | 17 | yes | not_run |\n| best of family F5 (robust key): r02-F5-002 | F5 | 2 | 34 | 658 | 665.60 | 1169.0 | 17 | yes | not_run |\n| best of family seed (robust key): r00-seed-001 | seed | 0 | 34 | 832 | 847.40 | 1653.2 | 19 | yes | certified |\n\nGLOBAL BEST is the archive's laptop-key minimum (CX, T(1e-6) at the nominal pair, depth_CT, qubits); HEADLINE is the smallest robust key (CX, sum of T(1e-6) over the 20 fixed random angle pairs of seed 20261107, angle-linear first, sum of depth_CT, qubits). T_avg = sum T / 20; angle set sha256 769caec1c2738356.\n",
+    "report_table_markdown": "### Compression result: `spinnet` / `step`\n\n| row | qubits | CX | T_fixed | N_rot | T(1e-6) | T_est(1e-6) | T(1e-10) | T (Paulo, Qiskit CT pass, U_B only, beta=1) | depth_CT | verdict | Lean | entry / commit |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| general | 23 | 54 | 56 | 8 | 566 | 534.358 | 884 | - | 861 | valid (err 1.22976e-14, leak 0) | certified | r00-seed-000 @ 02c499d |\n| general + polish | 23 | 54 | 56 | 8 | 566 | 534.358 | 884 | - | 861 | valid (err 1.22976e-14, leak 0) | not_run | r00-seed-010 @ 02c499d |\n| Qiskit L3 (windows of 32) | 23 | 54 | 56 | 8 | 566 | 534.358 | 884 | - | 861 | valid (err 1.67015e-14, leak 0) | not_run | r00-seed-011 @ 02c499d |\n| seed spinnet_v2_pairs9 | 19 | 34 | 24 | 13 | 832 | 801.331 | 1376 | - | 1597 | valid (err 7.90095e-15, leak 0) | certified | r00-seed-001 @ 02c499d |\n| seed spinnet_v2_flags4 | 19 | 44 | 48 | 8 | 554 | 526.358 | 880 | - | 869 | valid (err 9.27583e-15, leak 0) | not_run | r00-seed-002 @ 02c499d |\n| seed spinnet_v2_flags5 | 19 | 42 | 40 | 9 | 606 | 578.152 | 976 | - | 1009 | valid (err 8.78582e-15, leak 0) | not_run | r00-seed-003 @ 02c499d |\n| seed spinnet_v2_flags6 | 19 | 36 | 32 | 10 | 658 | 629.947 | 1074 | - | 1120 | valid (err 8.02362e-15, leak 0) | not_run | r00-seed-004 @ 02c499d |\n| Qiskit L3 (whole circuit; counts only) | 23 | 54 | 56 | 8 | n/a (unverifiable) | 534.358 | n/a (unverifiable) | - | n/a (unverifiable) | unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine | n_a | - |\n| paulo15 (fixed angle; Clifford+T up to a global phase) | 23 | 68 | - | 4 | - | - | - | 316 | 726 | valid at its own angle (beta = 0.05, kind UB), err 9.61273e-15 | n_a | - |\n| best of family F1 | 17 | 31 | 24 | 17 | 1062 | 1040.51 | 1752 | - | 2173 | valid (err 7.34809e-15, leak 0) | n_a | r04-F1-004 @ 02c499d |\n| best of family F2 | 17 | 31 | 24 | 17 | 1062 | 1040.51 | 1752 | - | 2191 | valid (err 5.4092e-15, leak 0) | not_run | r03-F2-003 @ 02c499d |\n| best of family F3 | 17 | 32 | 29 | 13 | 811 | 806.331 | 1347 | - | 1536 | valid (err 5.94315e-15, leak 0) | not_run | r04-F3-004 @ 02c499d |\n| best of family F5 | 17 | 34 | 32 | 10 | 658 | 629.947 | 1074 | - | 1116 | valid (err 6.86491e-15, leak 0) | not_run | r02-F5-002 @ 02c499d |\n| best of family seed | 19 | 34 | 24 | 13 | 832 | 801.331 | 1376 | - | 1597 | valid (err 7.90095e-15, leak 0) | certified | r00-seed-001 @ 02c499d |\n| GLOBAL BEST | 17 | 31 | 24 | 17 | 1062 | 1040.51 | 1752 | - | 2173 | valid (err 7.34809e-15, leak 0) | n_a | r04-F1-004 @ 02c499d |\n\nEvery exact-angle circuit is the target up to ONE global phase; Clifford+T circuits (synthesised) are equal to their exact-angle design up to the synthesis error and one global phase. T(1e-6), T(1e-10): T_fixed + pygridsynth T of every rotation (measured); T_est: T_fixed + 3 N_rot log2(1/eps). Key = (CX, T(1e-6), depth_CT, qubits), lexicographic.\n\nPaulo row: the T count in column `T (Paulo, Qiskit CT pass, U_B only, beta=1)` (1162) is Qiskit's Clifford+T pass manager applied to his fixed-angle U_B alone at beta = 1; it is NOT a pygridsynth count, NOT the step operator (our rows include the 4 electric rotations, about 256 T at 1e-6) and NOT at beta = 0.61, so the T_fixed, T(1e-6), T_est and T(1e-10) cells are left blank. The like-for-like comparison is U_B at beta = 1 through the same Qiskit pass (eps 1e-6, seed 12345): ours 662 T vs Paulo 1162 T, CX 294 vs 294 (reports/audits/003, results/m1_audit_fixes_n3.json). His depth (2549) is also from that pass, not from pygridsynth words. The CX column is comparable (U_E costs 0 CX).\nRound 0: Clifford+T re-verification of `r00-seed-001`: ok (eps 1e-06, 13 rotations, T 832, error 5.0623e-06 <= 1.3001e-05)\nRound 1: Clifford+T re-verification of `r01-F1-001`: ok (eps 1e-06, 13 rotations, T 832, error 5.43217e-06 <= 1.3001e-05)\nRound 2: Clifford+T re-verification of `r02-F1-002`: ok (eps 1e-06, 17 rotations, T 1086, error 4.8901e-06 <= 1.7001e-05)\nRound 3: Clifford+T re-verification of `r03-F1-003`: ok (eps 1e-06, 17 rotations, T 1062, error 5.43649e-06 <= 1.7001e-05)\nRound 4: Clifford+T re-verification of `r04-F1-004`: ok (eps 1e-06, 17 rotations, T 1062, error 6.01226e-06 <= 1.7001e-05)\n\n### HEADLINE (angle-averaged T, prompts/104 \u00a711 E3)\n\n| entry | family | round | CX | T nominal | T_avg(1e-6) | depth_CT avg | qubits | angle-linear | Lean |\n|---|---|---|---|---|---|---|---|---|---|\n| GLOBAL BEST (laptop key): r04-F1-004 | F1 | 4 | 31 | 1062 | 1092.00 | 2293.8 | 17 | no | n_a |\n| HEADLINE (robust key): r02-F1-002 | F1 | 2 | 31 | 1086 | 1092.00 | 2301.2 | 17 | yes | certified |\n| best of family F1 (robust key): r02-F1-002 | F1 | 2 | 31 | 1086 | 1092.00 | 2301.2 | 17 | yes | certified |\n| best of family F2 (robust key): r05-F2-005 | F2 | 5 | 31 | 1086 | 1092.00 | 2305.2 | 17 | yes | not_run |\n| best of family F3 (robust key): r05-F3-005 | F3 | 5 | 32 | 832 | 847.40 | 1661.2 | 17 | yes | not_run |\n| best of family F5 (robust key): r02-F5-002 | F5 | 2 | 34 | 658 | 665.60 | 1169.0 | 17 | yes | not_run |\n| best of family seed (robust key): r00-seed-001 | seed | 0 | 34 | 832 | 847.40 | 1653.2 | 19 | yes | certified |\n\nGLOBAL BEST is the archive's laptop-key minimum (CX, T(1e-6) at the nominal pair, depth_CT, qubits); HEADLINE is the smallest robust key (CX, sum of T(1e-6) over the 20 fixed random angle pairs of seed 20261107, angle-linear first, sum of depth_CT, qubits). T_avg = sum T / 20; angle set sha256 769caec1c2738356.\n",
     "n_rounds": 6,
     "n_candidates": 23,
     "n_valid": 23

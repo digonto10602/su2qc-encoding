@@ -1,0 +1,20 @@
+{
+ "spinnet r02-F1-002": {
+  "status": "rejected",
+  "reason": "not a twelve-qubit circuit certificate with states (n_data 12, n_outer 16)",
+  "seconds": 0.0013315677642822266,
+  "checker_sha256": "",
+  "axioms": [],
+  "cert_path": "results/spinnet/certs/spinnet-step-o1-ec21654efa8e.json",
+  "wall_s": 0.0013384819030761719
+ },
+ "twelve r05-F2-005": {
+  "status": "certified",
+  "reason": "",
+  "seconds": 612.2715158462524,
+  "checker_sha256": "befbd27e3ed4e8229f11320189441597e04c89c7bf7746cf93f1c55de261bfd5",
+  "axioms": [],
+  "cert_path": "compress/lean/certs/step-o1-ca5c0f1a907a.json",
+  "wall_s": 612.2715232372284
+ }
+}

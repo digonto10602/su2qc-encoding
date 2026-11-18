@@ -1,0 +1,571 @@
+{
+ "encoding": "fuzzy_ub",
+ "kind": "UB",
+ "n_rounds": 14,
+ "n_candidates": 42,
+ "n_valid": 41,
+ "global_best": "r12-F1-012",
+ "global_best_key": [
+  83,
+  638,
+  1517,
+  10
+ ],
+ "best_by_family": {
+  "seed": "r00-seed-010",
+  "F1": "r12-F1-012",
+  "F2": "r13-F2-013",
+  "F3": "r12-F3-012"
+ },
+ "header": [
+  "row",
+  "qubits",
+  "CX",
+  "T_fixed",
+  "N_rot",
+  "T(1e-6)",
+  "T_est(1e-6)",
+  "T(1e-10)",
+  "T (Paulo, Qiskit CT pass, U_B only, beta=1)",
+  "depth_CT",
+  "verdict",
+  "Lean",
+  "entry / commit"
+ ],
+ "notes": [],
+ "rows": [
+  [
+   "general",
+   "15",
+   "1718",
+   "1826",
+   "16",
+   "2822",
+   "2782.72",
+   "3494",
+   "-",
+   "4916",
+   "valid (err 3.81199e-14, leak 0)",
+   "not_run",
+   "r00-seed-000 @ 220730e"
+  ],
+  [
+   "general + polish",
+   "15",
+   "1596",
+   "1686",
+   "16",
+   "2682",
+   "2642.72",
+   "3354",
+   "-",
+   "4912",
+   "valid (err 3.81199e-14, leak 0)",
+   "n_a",
+   "r00-seed-010 @ 220730e"
+  ],
+  [
+   "Qiskit L3 (windows of 32)",
+   "15",
+   "1629",
+   "1758",
+   "40",
+   "4149.79",
+   "4149.79",
+   "5744.31",
+   "-",
+   "2779",
+   "invalid: pruning_bound",
+   "not_run",
+   "r00-seed-qiskit_l3 @ 220730e"
+  ],
+  [
+   "Qiskit L3 (whole circuit; counts only)",
+   "15",
+   "1627",
+   "1742",
+   "40",
+   "n/a (unverifiable)",
+   "4133.79",
+   "n/a (unverifiable)",
+   "-",
+   "n/a (unverifiable)",
+   "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "n_a",
+   "-"
+  ],
+  [
+   "spinnet15 (not applicable)",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "-",
+   "spinnet15: not applicable to the fuzzy encoding",
+   "n_a",
+   "-"
+  ],
+  [
+   "best of family F1",
+   "10",
+   "83",
+   "72",
+   "9",
+   "638",
+   "610.152",
+   "1008",
+   "-",
+   "1517",
+   "valid (err 5.68813e-14, leak 0)",
+   "n_a",
+   "r12-F1-012 @ 220730e"
+  ],
+  [
+   "best of family F2",
+   "10",
+   "83",
+   "72",
+   "9",
+   "638",
+   "610.152",
+   "1008",
+   "-",
+   "1517",
+   "valid (err 5.70317e-14, leak 0)",
+   "not_run",
+   "r13-F2-013 @ 220730e"
+  ],
+  [
+   "best of family F3",
+   "10",
+   "83",
+   "72",
+   "9",
+   "638",
+   "610.152",
+   "1008",
+   "-",
+   "1521",
+   "valid (err 5.74747e-14, leak 0)",
+   "not_run",
+   "r12-F3-012 @ 220730e"
+  ],
+  [
+   "best of family seed",
+   "15",
+   "1596",
+   "1686",
+   "16",
+   "2682",
+   "2642.72",
+   "3354",
+   "-",
+   "4912",
+   "valid (err 3.81199e-14, leak 0)",
+   "n_a",
+   "r00-seed-010 @ 220730e"
+  ],
+  [
+   "GLOBAL BEST",
+   "10",
+   "83",
+   "72",
+   "9",
+   "638",
+   "610.152",
+   "1008",
+   "-",
+   "1517",
+   "valid (err 5.68813e-14, leak 0)",
+   "n_a",
+   "r12-F1-012 @ 220730e"
+  ]
+ ],
+ "lineage": [
+  {
+   "id": "r00-seed-000",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 1718,
+   "t_eps": 2822,
+   "parent_known": true
+  },
+  {
+   "id": "r00-seed-010",
+   "parent": null,
+   "family": "seed",
+   "round": 0,
+   "cx": 1596,
+   "t_eps": 2682,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F1-001",
+   "parent": null,
+   "family": "F1",
+   "round": 1,
+   "cx": 200,
+   "t_eps": 3804,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F2-001",
+   "parent": null,
+   "family": "F2",
+   "round": 1,
+   "cx": 268,
+   "t_eps": 1276,
+   "parent_known": true
+  },
+  {
+   "id": "r01-F3-001",
+   "parent": null,
+   "family": "F3",
+   "round": 1,
+   "cx": 390,
+   "t_eps": 1392,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F1-002",
+   "parent": "r01-F1-001",
+   "family": "F1",
+   "round": 2,
+   "cx": 172,
+   "t_eps": 2904,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F2-002",
+   "parent": "r01-F1-001",
+   "family": "F2",
+   "round": 2,
+   "cx": 172,
+   "t_eps": 2916,
+   "parent_known": true
+  },
+  {
+   "id": "r02-F3-002",
+   "parent": "r01-F3-001",
+   "family": "F3",
+   "round": 2,
+   "cx": 192,
+   "t_eps": 3820,
+   "parent_known": true
+  },
+  {
+   "id": "r03-F1-003",
+   "parent": "r02-F1-002",
+   "family": "F1",
+   "round": 3,
+   "cx": 164,
+   "t_eps": 2920,
+   "parent_known": true
+  },
+  {
+   "id": "r03-F2-003",
+   "parent": "r02-F2-002",
+   "family": "F2",
+   "round": 3,
+   "cx": 165,
+   "t_eps": 2914,
+   "parent_known": true
+  },
+  {
+   "id": "r03-F3-003",
+   "parent": "r02-F1-002",
+   "family": "F3",
+   "round": 3,
+   "cx": 151,
+   "t_eps": 1902,
+   "parent_known": true
+  },
+  {
+   "id": "r04-F1-004",
+   "parent": "r03-F3-003",
+   "family": "F1",
+   "round": 4,
+   "cx": 116,
+   "t_eps": 1774,
+   "parent_known": true
+  },
+  {
+   "id": "r04-F2-004",
+   "parent": "r03-F3-003",
+   "family": "F2",
+   "round": 4,
+   "cx": 129,
+   "t_eps": 1895,
+   "parent_known": true
+  },
+  {
+   "id": "r04-F3-004",
+   "parent": "r03-F3-003",
+   "family": "F3",
+   "round": 4,
+   "cx": 130,
+   "t_eps": 1881,
+   "parent_known": true
+  },
+  {
+   "id": "r05-F1-005",
+   "parent": "r04-F1-004",
+   "family": "F1",
+   "round": 5,
+   "cx": 98,
+   "t_eps": 790,
+   "parent_known": true
+  },
+  {
+   "id": "r05-F2-005",
+   "parent": "r04-F2-004",
+   "family": "F2",
+   "round": 5,
+   "cx": 113,
+   "t_eps": 1773,
+   "parent_known": true
+  },
+  {
+   "id": "r05-F3-005",
+   "parent": "r04-F3-004",
+   "family": "F3",
+   "round": 5,
+   "cx": 94,
+   "t_eps": 658,
+   "parent_known": true
+  },
+  {
+   "id": "r06-F1-006",
+   "parent": "r05-F1-005",
+   "family": "F1",
+   "round": 6,
+   "cx": 88,
+   "t_eps": 646,
+   "parent_known": true
+  },
+  {
+   "id": "r06-F2-006",
+   "parent": "r05-F2-005",
+   "family": "F2",
+   "round": 6,
+   "cx": 88,
+   "t_eps": 646,
+   "parent_known": true
+  },
+  {
+   "id": "r06-F3-006",
+   "parent": "r05-F3-005",
+   "family": "F3",
+   "round": 6,
+   "cx": 87,
+   "t_eps": 650,
+   "parent_known": true
+  },
+  {
+   "id": "r07-F1-007",
+   "parent": "r06-F1-006",
+   "family": "F1",
+   "round": 7,
+   "cx": 84,
+   "t_eps": 646,
+   "parent_known": true
+  },
+  {
+   "id": "r07-F2-007",
+   "parent": "r06-F2-006",
+   "family": "F2",
+   "round": 7,
+   "cx": 86,
+   "t_eps": 646,
+   "parent_known": true
+  },
+  {
+   "id": "r07-F3-007",
+   "parent": "r06-F3-006",
+   "family": "F3",
+   "round": 7,
+   "cx": 86,
+   "t_eps": 646,
+   "parent_known": true
+  },
+  {
+   "id": "r08-F1-008",
+   "parent": "r07-F1-007",
+   "family": "F1",
+   "round": 8,
+   "cx": 84,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r08-F2-008",
+   "parent": "r07-F1-007",
+   "family": "F2",
+   "round": 8,
+   "cx": 83,
+   "t_eps": 646,
+   "parent_known": true
+  },
+  {
+   "id": "r08-F3-008",
+   "parent": "r07-F1-007",
+   "family": "F3",
+   "round": 8,
+   "cx": 84,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r09-F1-009",
+   "parent": "r08-F1-008",
+   "family": "F1",
+   "round": 9,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r09-F2-009",
+   "parent": "r08-F2-008",
+   "family": "F2",
+   "round": 9,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r09-F3-009",
+   "parent": "r08-F2-008",
+   "family": "F3",
+   "round": 9,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r10-F1-010",
+   "parent": "r09-F1-009",
+   "family": "F1",
+   "round": 10,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r10-F2-010",
+   "parent": "r09-F2-009",
+   "family": "F2",
+   "round": 10,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r10-F3-010",
+   "parent": "r09-F3-009",
+   "family": "F3",
+   "round": 10,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r11-F1-011",
+   "parent": "r10-F2-010",
+   "family": "F1",
+   "round": 11,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r11-F2-011",
+   "parent": "r10-F2-010",
+   "family": "F2",
+   "round": 11,
+   "cx": 89,
+   "t_eps": 514,
+   "parent_known": true
+  },
+  {
+   "id": "r11-F3-011",
+   "parent": "r10-F3-010",
+   "family": "F3",
+   "round": 11,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r12-F1-012",
+   "parent": "r11-F1-011",
+   "family": "F1",
+   "round": 12,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r12-F2-012",
+   "parent": "r10-F2-010",
+   "family": "F2",
+   "round": 12,
+   "cx": 84,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r12-F3-012",
+   "parent": "r10-F3-010",
+   "family": "F3",
+   "round": 12,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r13-F1-013",
+   "parent": "r12-F1-012",
+   "family": "F1",
+   "round": 13,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r13-F2-013",
+   "parent": "r12-F1-012",
+   "family": "F2",
+   "round": 13,
+   "cx": 83,
+   "t_eps": 638,
+   "parent_known": true
+  },
+  {
+   "id": "r13-F3-013",
+   "parent": "r11-F2-011",
+   "family": "F3",
+   "round": 13,
+   "cx": 89,
+   "t_eps": 514,
+   "parent_known": true
+  }
+ ],
+ "headline": {
+  "id": "r10-F1-010",
+  "robust_key": [
+   83,
+   12688,
+   0,
+   30902,
+   10
+  ],
+  "t_mean": 634.4,
+  "angle_set_sha256": "769caec1c2738356f2e5a4f51adc1d286ce3bb585c034c7a98950df701e3cbb2"
+ }
+}
