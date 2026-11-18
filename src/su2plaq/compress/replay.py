@@ -12,7 +12,8 @@ function) are restored byte for byte; the `lean` record of an old entry is carri
 
 Writes results/compress/<enc>/replay-<tag>.json (schema of prompts/204 section 6.2 step 6, plus `encoding_sha256` and
 `written_utc`).  Refuses (ValueError, nothing touched) if that file or a pre-<tag> folder exists, if round files are missing / not
-contiguous from 0, or belong to another encoding or kind.  Exit code 1 of the CLI when a key changed, a valid entry was lost, or an entry of the old archive was refused by the loader
+contiguous from 0, belong to another encoding or kind, or list a candidate without a program_path or a program_path twice in one
+round.  RuntimeError after the rounds ran if a replayed round does not list the recorded (program_path, label) pairs in the recorded order.  Exit code 1 of the CLI when a key changed, a valid entry was lost, or an entry of the old archive was refused by the loader
 (or was produced by no recorded round); the entry is named on stderr.
 """
 from __future__ import annotations
@@ -49,6 +50,21 @@ def _key(c) -> list | None:
 def _side(c) -> dict:
     v = c.get("verdict") or {}
     return {"valid": bool(c["valid"]), "reason": c["reason"], "key": _key(c), "dropped_total": v.get("dropped_total")}
+
+
+def _candidate_mismatch(old: list, new: list) -> str:
+    """'' iff the replayed candidates of a round are the recorded ones: the same (program_path, label) pairs in the same order (the
+    replay feeds the recorded program paths in recorded order; round 0 re-runs the same seed list).  The program path identifies a
+    candidate; the label (the program's file stem) need not be unique in a round (twelve round 4, fuzzy_ub round 5: families F2/F4
+    and F1/F3 wrote files with the same stem), so a match by label alone is ambiguous.  Else a description of the first difference."""
+    po = [(c.get("program_path"), c.get("label")) for c in old]
+    pn = [(c.get("program_path"), c.get("label")) for c in new]
+    if po == pn:
+        return ""
+    if len(po) != len(pn):
+        return f"{len(po)} recorded vs {len(pn)} replayed; missing {sorted(set(po) - set(pn))}, extra {sorted(set(pn) - set(po))}"
+    i = next(k for k, (a, b) in enumerate(zip(po, pn)) if a != b)
+    return f"position {i}: recorded {po[i]}, replayed {pn[i]}"
 
 
 def _utc() -> str:
@@ -98,6 +114,10 @@ def replay(encoding: str, kind: str, root=None, tag: str = "008", lean: bool = F
         raise ValueError(f"round files are not contiguous from 0: {nums}")
     if any(r.get("kind") != kind or r.get("encoding", encoding) != encoding for r in old_rounds):
         raise ValueError(f"round files do not all belong to ({encoding!r}, {kind!r})")
+    for r, old in enumerate(old_rounds):       # the program path is a candidate's identity in a round (its label, the file stem, is not:
+        pps = [c.get("program_path") for c in old["candidates"]]          # two families may use the same stem, prompts/008 C1)
+        if None in pps or len(set(pps)) != len(pps):
+            raise ValueError(f"round {r}: recorded candidates without a program_path or with a repeated one: {pps}")
     spec = default_spec(encoding, kind)
     n_alt = len(spec.alt_angles)
     old_arch = A.Archive.load(encoding, root=root, n_alt=n_alt, strict=True)
@@ -141,11 +161,10 @@ def replay(encoding: str, kind: str, root=None, tag: str = "008", lean: bool = F
 
     entries, newly, lost, id_map = [], [], [], {}
     for r, (old, new) in enumerate(zip(old_rounds, new_rounds)):
-        nmap = {c["label"]: c for c in new["candidates"]}
-        if len(nmap) != len(new["candidates"]) or {c["label"] for c in old["candidates"]} != set(nmap):
-            raise RuntimeError(f"round {r}: the replayed candidates differ from the recorded ones")
-        for oc in old["candidates"]:
-            nc = nmap[oc["label"]]
+        diff = _candidate_mismatch(old["candidates"], new["candidates"])
+        if diff:
+            raise RuntimeError(f"round {r}: the replayed candidates differ from the recorded ones: {diff}")
+        for oc, nc in zip(old["candidates"], new["candidates"]):
             o, n = _side(oc), _side(nc)
             id_map[nc["id"]] = oc["id"]
             if o["valid"] and not n["valid"]:

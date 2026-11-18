@@ -1,0 +1,277 @@
+{
+ "report": "reports/tests/425-c1-replay-fix.md",
+ "commit": "c7edd38 + uncommitted replay.py patch and new unit file; copies from git archive HEAD",
+ "machine": "omnicommander, cores 1,2,4,5-8",
+ "cause": {
+  "duplicates_at_HEAD": {
+   "fuzzy_link": {
+    "rounds": 3,
+    "candidates": 5,
+    "repeated_labels": [],
+    "repeated_paths": [],
+    "repeated_ids": []
+   },
+   "fuzzy_ub": {
+    "rounds": 14,
+    "candidates": 42,
+    "repeated_labels": [
+     [
+      "round-005.json",
+      "005-two-swap-single-middle",
+      2
+     ]
+    ],
+    "repeated_paths": [],
+    "repeated_ids": []
+   },
+   "rishon": {
+    "rounds": 5,
+    "candidates": 19,
+    "repeated_labels": [],
+    "repeated_paths": [],
+    "repeated_ids": []
+   },
+   "spinnet": {
+    "rounds": 6,
+    "candidates": 23,
+    "repeated_labels": [],
+    "repeated_paths": [],
+    "repeated_ids": []
+   },
+   "twelve": {
+    "rounds": 6,
+    "candidates": 22,
+    "repeated_labels": [
+     [
+      "round-004.json",
+      "004-clean-frame-inwalk-pa",
+      2
+     ]
+    ],
+    "repeated_paths": [],
+    "repeated_ids": []
+   }
+  },
+  "failed_runs_vs_recorded": {
+   "twelve": {
+    "rounds_old": 6,
+    "rounds_new": 6,
+    "candidates_compared": 22,
+    "count_mismatch_rounds": 0,
+    "candidate_field_mismatches": 0,
+    "examples": []
+   },
+   "fuzzy_ub": {
+    "rounds_old": 14,
+    "rounds_new": 14,
+    "candidates_compared": 42,
+    "count_mismatch_rounds": 0,
+    "candidate_field_mismatches": 0,
+    "examples": []
+   }
+  }
+ },
+ "mutations_fuzzy_link_copy": {
+  "control": "rc 0",
+  "swap_round0_candidates": "rc 1 position 0",
+  "change_label": "rc 1 position 0 (round 1)",
+  "change_program_path": "rc 1 (label mismatch)",
+  "drop_candidate": "rc 1 (2 recorded vs 3 replayed)"
+ },
+ "mismatch_unit": {
+  "twelve-r4": {
+   "identity": true,
+   "swap_first_two_raises": true,
+   "old_rule_accepts_swap": true,
+   "label_change_raises": true,
+   "path_change_raises": true,
+   "drop_last_raises": true,
+   "extra_raises": true
+  },
+  "fuzzy_ub-r5": {
+   "identity": true,
+   "swap_first_two_raises": true,
+   "old_rule_accepts_swap": true,
+   "label_change_raises": true,
+   "path_change_raises": true,
+   "drop_last_raises": true,
+   "extra_raises": true
+  },
+  "twelve-r0": {
+   "identity": true,
+   "swap_first_two_raises": true,
+   "old_rule_accepts_swap": true,
+   "label_change_raises": true,
+   "path_change_raises": true,
+   "drop_last_raises": true,
+   "extra_raises": true
+  },
+  "fuzzy_ub-r13": {
+   "identity": true,
+   "swap_first_two_raises": true,
+   "old_rule_accepts_swap": true,
+   "label_change_raises": true,
+   "path_change_raises": true,
+   "drop_last_raises": true,
+   "extra_raises": true
+  }
+ },
+ "full_replays": {
+  "twelve": {
+   "rc": 0,
+   "wall_s": 425,
+   "core": 1,
+   "entries": 22,
+   "key_equal": 22,
+   "best": [
+    111,
+    912,
+    1663,
+    31
+   ],
+   "lost": [],
+   "refused": []
+  },
+  "fuzzy_ub": {
+   "rc": 0,
+   "wall_s": 53,
+   "core": 2,
+   "entries": 42,
+   "key_equal": 41,
+   "none": 1,
+   "none_entry": "r00-seed-qiskit_l3 (invalid before and after)",
+   "best": [
+    83,
+    638,
+    1517,
+    10
+   ],
+   "lost": [],
+   "refused": []
+  },
+  "identical_to_fixer_records": {
+   "twelve": "22/22",
+   "fuzzy_ub": "42/42"
+  },
+  "attempts_discoveries_byte_identical": true
+ },
+ "unit": {
+  "new_and_replay_files": "13 passed",
+  "full": {
+   "passed": 1132,
+   "failed": 4,
+   "failed_ids": "test_robust_hooks_unit spinnet-step x4 (real summary.json/robust.json moved to pre-008)",
+   "pass_in_HEAD_export": "12 passed"
+  }
+ },
+ "real_c1_outputs": {
+  "spinnet": {
+   "n_entries": 23,
+   "key_equal_True": 23,
+   "False": 0,
+   "None": 0,
+   "lost": [],
+   "newly_valid": [],
+   "refused": [],
+   "unreplayed": [],
+   "best_old": {
+    "id": "r04-F1-004",
+    "key": [
+     31,
+     1062,
+     2173,
+     17
+    ]
+   },
+   "best_new": {
+    "id": "r04-F1-004",
+    "key": [
+     31,
+     1062,
+     2173,
+     17
+    ]
+   },
+   "attempts_unchanged": true,
+   "discoveries_unchanged": true,
+   "rounds": 6,
+   "n_round_files_old_new": [
+    6,
+    6
+   ],
+   "patched_pair_check_on_real_replayed_rounds": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "evaluator_sha256": "99663fa6cd25",
+   "backup": [
+    "results/compress/spinnet/pre-008/round-000.json",
+    "results/compress/spinnet/pre-008/round-001.json",
+    "results/compress/spinnet/pre-008/round-002.json",
+    "results/compress/spinnet/pre-008/round-003.json",
+    "results/compress/spinnet/pre-008/round-004.json",
+    "results/compress/spinnet/pre-008/round-005.json",
+    "results/compress/spinnet/pre-008/feedback",
+    "results/compress/spinnet/pre-008/robust.json",
+    "results/compress/spinnet/pre-008/summary.json",
+    "compress/archive/spinnet-pre-008"
+   ],
+   "wall_s": 34.90719175338745
+  },
+  "fuzzy_link": {
+   "n_entries": 5,
+   "key_equal_True": 4,
+   "False": 0,
+   "None": 1,
+   "lost": [],
+   "newly_valid": [],
+   "refused": [],
+   "unreplayed": [],
+   "best_old": {
+    "id": "r02-F2-001",
+    "key": [
+     12,
+     644,
+     1183,
+     4
+    ]
+   },
+   "best_new": {
+    "id": "r02-F2-001",
+    "key": [
+     12,
+     644,
+     1183,
+     4
+    ]
+   },
+   "attempts_unchanged": true,
+   "discoveries_unchanged": true,
+   "rounds": 3,
+   "n_round_files_old_new": [
+    3,
+    3
+   ],
+   "patched_pair_check_on_real_replayed_rounds": [
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "evaluator_sha256": "99663fa6cd25",
+   "backup": [
+    "results/compress/fuzzy_link/pre-008/round-000.json",
+    "results/compress/fuzzy_link/pre-008/round-001.json",
+    "results/compress/fuzzy_link/pre-008/round-002.json",
+    "results/compress/fuzzy_link/pre-008/feedback",
+    "results/compress/fuzzy_link/pre-008/summary.json",
+    "compress/archive/fuzzy_link-pre-008"
+   ],
+   "wall_s": 3.4692294597625732
+  }
+ },
+ "hashes_equal_freeze": true
+}
