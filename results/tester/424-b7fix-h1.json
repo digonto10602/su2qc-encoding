@@ -1,0 +1,168 @@
+{
+ "report": "reports/tests/424-b7-fix-n1-n2-h1.md",
+ "commit": "9e31089 + uncommitted B7-fix/H.1 files",
+ "machine": "omnicommander cores 0-8",
+ "unit": {
+  "passed": 1133,
+  "failed": 0,
+  "wall_s": 729
+ },
+ "acceptance_not_slow": {
+  "m6_m8": {
+   "failed": 13,
+   "passed": 33
+  },
+  "rest_plus_m11": {
+   "passed": 290,
+   "failed": 6,
+   "red": [
+    "M2C_G1 x5 (PENDING C1/C2)",
+    "M11_T2 (PENDING rows not final)"
+   ],
+   "wall_s": 1298
+  }
+ },
+ "n1": {
+  "summary_sha_unchanged": [
+   "spinnet",
+   "rishon",
+   "twelve"
+  ],
+  "refresh_commands_ran_rc0": true,
+  "refresh_headlines": {
+   "spinnet": "r02-F1-002 (31,21840,0,46024,17) 1092.0",
+   "rishon": "r04-F1-004 (228,16876,0,28328,53) 843.8",
+   "twelve": "r05-F2-005 (111,18548,0,34384,31) 927.4"
+  },
+  "missing_summary_writes": true,
+  "headline_false_writes": true
+ },
+ "n2": {
+  "tamper_exit": 1,
+  "tamper_refused": "r02-F1-002.json",
+  "false_positives": {
+   "twelve": {
+    "entries": 22,
+    "recorded_ids": 22,
+    "refused": [],
+    "unreplayed": []
+   },
+   "spinnet": {
+    "entries": 23,
+    "recorded_ids": 23,
+    "refused": [],
+    "unreplayed": []
+   },
+   "fuzzy_ub": {
+    "entries": 41,
+    "recorded_ids": 42,
+    "refused": [],
+    "unreplayed": []
+   },
+   "fuzzy_link": {
+    "entries": 4,
+    "recorded_ids": 5,
+    "refused": [],
+    "unreplayed": []
+   },
+   "rishon": {
+    "entries": 16,
+    "recorded_ids": 19,
+    "refused": [],
+    "unreplayed": []
+   }
+  },
+  "full_replay_spinnet": {
+   "exit": 0,
+   "wall_s": 59,
+   "entries": 23,
+   "key_equal": 23,
+   "lost": [],
+   "best": "r04-F1-004 (31,1062,2173,17)"
+  }
+ },
+ "h1": {
+  "toys": {
+   "toys_identical": 10,
+   "n_toys": 10,
+   "classes": [
+    "clifford_offset",
+    "clifford_offset",
+    "non_clifford_offset",
+    "non_affine",
+    "linear",
+    "linear",
+    "clifford_offset",
+    "non_clifford_offset",
+    "non_affine",
+    "linear"
+   ],
+   "robust_in_evaluator_files": []
+  },
+  "h2": {
+   "fuzzy_ub": {
+    "n": 41,
+    "classes": {
+     "linear": 30,
+     "clifford_offset": 11
+    },
+    "class_vs_rho": {
+     "('linear', True)": 30,
+     "('clifford_offset', False)": 11
+    },
+    "headline": "r10-F1-010",
+    "robust_key": [
+     83,
+     12688,
+     0,
+     30902,
+     10
+    ],
+    "t_mean": 634.4,
+    "tfirst": [
+     "r13-F3-013",
+     [
+      89,
+      10400,
+      1,
+      25084,
+      10
+     ],
+     520.0
+    ],
+    "rho_iff_linear": true
+   },
+   "fuzzy_link": {
+    "n": 4,
+    "classes": {
+     "linear": 4
+    },
+    "class_vs_rho": {
+     "('linear', True)": 4
+    },
+    "headline": "r02-F2-001",
+    "robust_key": [
+     12,
+     12576,
+     0,
+     23373,
+     4
+    ],
+    "t_mean": 628.8,
+    "tfirst": [
+     "r02-F2-001",
+     [
+      12,
+      12576,
+      0,
+      23373,
+      4
+     ],
+     628.8
+    ],
+    "rho_iff_linear": true
+   }
+  }
+ },
+ "hashes_equal_420": true
+}

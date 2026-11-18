@@ -3,6 +3,7 @@ record schema, backups, byte-for-byte restore of the attempts log, refusal of a 
 and the exit code of the CLI.  Everything happens under tmp_path (never the real results/ or compress/ trees)."""
 import hashlib
 import json
+import shutil
 
 import pytest
 
@@ -16,14 +17,23 @@ ENC, KIND = "twelve", "UE"
 
 
 @pytest.fixture(scope="module")
-def replayed(tmp_path_factory):
-    root = tmp_path_factory.mktemp("replay_root_twelve")
+def seeded(tmp_path_factory):
+    """A twelve kind-UE round 0 under a temporary root, with a stale evaluator hash in its round file."""
+    root = tmp_path_factory.mktemp("replay_seed_twelve")
     run_round(ENC, KIND, 0, evaluate=True, root=root, lean=False)
-    rdir = root / "results" / "compress" / ENC
-    f = rdir / "round-000.json"
+    f = root / "results" / "compress" / ENC / "round-000.json"
     d = json.loads(f.read_text())
     d["evaluator_sha256"] = "0" * 64                # stale hash on purpose: what a replay is for
     f.write_text(json.dumps(d, indent=1))
+    return root
+
+
+@pytest.fixture(scope="module")
+def replayed(seeded, tmp_path_factory):
+    root = tmp_path_factory.mktemp("replay_root_twelve")
+    shutil.copytree(seeded / "results", root / "results")
+    shutil.copytree(seeded / "compress", root / "compress")
+    rdir = root / "results" / "compress" / ENC
     # a Lean record on the best entry: must be carried over (the program is unchanged)
     arch = A.Archive.load(ENC, root=root, n_alt=len(default_spec(ENC, KIND).alt_angles), strict=True)
     best = arch.best()
@@ -32,7 +42,7 @@ def replayed(tmp_path_factory):
     attempts = root / "compress" / "attempts" / f"{ENC}.jsonl"
     disc = root / "compress" / "discoveries" / f"{ENC}.md"
     before = {p.name: (hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None) for p in (attempts, disc)}
-    first = json.loads(f.read_text())
+    first = json.loads((rdir / "round-000.json").read_text())
     res = RP.replay(ENC, KIND, root=root, tag="t1")
     return root, first, res, before, best.id
 
@@ -115,3 +125,38 @@ def test_cli_default_kind_is_the_registry_loop_kind(monkeypatch):
     seen = {}
     monkeypatch.setattr(RP, "replay", lambda enc, kind, **k: seen.update(kind=kind) or _fake([], []))
     assert RP.main(["--encoding", "fuzzy_link"]) == 0 and seen["kind"] == "UE"
+
+
+# ---------------------------------------------------------------------------------------------- N2: refused old-archive entries
+def test_tampered_archive_entry_is_a_problem_named_in_the_record_and_the_cli_exits_1(seeded, tmp_path, capsys):
+    root = tmp_path
+    shutil.copytree(seeded / "results", root / "results")
+    shutil.copytree(seeded / "compress", root / "compress")
+    n_alt = len(default_spec(ENC, KIND).alt_angles)
+    victim = next(e for e in A.Archive.load(ENC, root=root, n_alt=n_alt, strict=True).entries())
+    f = root / "compress" / "archive" / ENC / "entries" / f"{victim.id}.json"
+    d = json.loads(f.read_text())
+    d["key"][1] += 7                                        # the loader refuses it: key does not match the metrics
+    f.write_text(json.dumps(d))
+    res = RP.replay(ENC, KIND, root=root, tag="t3")
+    assert [x["file"] for x in res["old_archive_refused"]] == [f.name] and "key" in res["old_archive_refused"][0]["reason"]
+    assert RP.problems(res)["refused"] == [f.name] and res["lost"] == []
+    assert RP.report(res) == 1
+    assert f.name in capsys.readouterr().err
+    # a clean record has no such problem
+    assert RP.problems({**res, "old_archive_refused": [], "old_archive_unreplayed": []})["refused"] == []
+
+
+def test_archived_entry_that_no_recorded_round_produced_is_a_problem(seeded, tmp_path):
+    root = tmp_path
+    shutil.copytree(seeded / "results", root / "results")
+    shutil.copytree(seeded / "compress", root / "compress")
+    n_alt = len(default_spec(ENC, KIND).alt_angles)
+    src = next(e for e in A.Archive.load(ENC, root=root, n_alt=n_alt, strict=True).entries())
+    edir = root / "compress" / "archive" / ENC / "entries"
+    d = json.loads((edir / f"{src.id}.json").read_text())
+    d["id"] = "r00-orphan-999"                              # loadable, but no round file lists it
+    (edir / "r00-orphan-999.json").write_text(json.dumps(d))
+    res = RP.replay(ENC, KIND, root=root, tag="t4")
+    assert res["old_archive_refused"] == [] and res["old_archive_unreplayed"] == ["r00-orphan-999"]
+    assert RP.problems(res)["refused"] == ["r00-orphan-999"] and RP.report(res) == 1

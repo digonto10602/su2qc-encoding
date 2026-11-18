@@ -12,7 +12,8 @@ function) are restored byte for byte; the `lean` record of an old entry is carri
 
 Writes results/compress/<enc>/replay-<tag>.json (schema of prompts/204 section 6.2 step 6, plus `encoding_sha256` and
 `written_utc`).  Refuses (ValueError, nothing touched) if that file or a pre-<tag> folder exists, if round files are missing / not
-contiguous from 0, or belong to another encoding or kind.  Exit code 1 of the CLI when a key changed or a valid entry was lost.
+contiguous from 0, or belong to another encoding or kind.  Exit code 1 of the CLI when a key changed, a valid entry was lost, or an entry of the old archive was refused by the loader
+(or was produced by no recorded round); the entry is named on stderr.
 """
 from __future__ import annotations
 
@@ -99,7 +100,13 @@ def replay(encoding: str, kind: str, root=None, tag: str = "008", lean: bool = F
         raise ValueError(f"round files do not all belong to ({encoding!r}, {kind!r})")
     spec = default_spec(encoding, kind)
     n_alt = len(spec.alt_angles)
-    old_best_e = A.Archive.load(encoding, root=root, n_alt=n_alt, strict=True).best()
+    old_arch = A.Archive.load(encoding, root=root, n_alt=n_alt, strict=True)
+    old_best_e = old_arch.best()
+    # an entry file the loader refuses (tampered key, failed re-validation, name != id) or an archived entry that no recorded round
+    # produced cannot be replayed: it is a problem of the old archive, not a silent omission (prompts/008 B7-fix N2)
+    recorded_ids = {c["id"] for r in old_rounds for c in r["candidates"]}
+    refused = [{"file": f, "reason": why} for f, why in old_arch.rejected]
+    unreplayed = sorted(e.id for e in old_arch.entries() if e.id not in recorded_ids)
     best_old = {"id": old_best_e.id if old_best_e else None, "key": [int(x) for x in old_best_e.key] if old_best_e else None}
     old_lean = {}                                  # entry id -> (program sha256, lean dict) of the old archive
     for f in sorted((adir / "entries").glob("*.json")) if (adir / "entries").is_dir() else []:
@@ -175,6 +182,7 @@ def replay(encoding: str, kind: str, root=None, tag: str = "008", lean: bool = F
            "evaluator_sha256": P.stamp_hash(encoding), "encoding_sha256": P.code_hash_for(encoding), "evaluator_sha256_old": old_hashes,
            "entries": entries, "newly_valid": newly, "lost": lost, "best_old": best_old,
            "best_new": {"id": best_new_e.id if best_new_e else None, "key": [int(x) for x in best_new_e.key] if best_new_e else None},
+           "old_archive_refused": refused, "old_archive_unreplayed": unreplayed,
            "attempts_unchanged": bool(attempts_ok), "discoveries_unchanged": bool(disc_ok), "backup": backup, "lean": bool(lean),
            "lean_carried": carried, "wall_s": time.time() - t0, "round_wall_s": [x["wall_s"] for x in new_rounds],
            "provenance": provenance({"replay_tag": tag}), "written_utc": _utc()}
@@ -209,8 +217,11 @@ def latest_record(encoding: str, root=None) -> dict | None:
 
 def problems(res: dict) -> dict:
     """What prompts/204 section 12 says to stop on: entries valid before and after whose key changed (`key_equal` is False) and
-    entries that were valid and are not any more (`lost`).  -> {"key_changed": [ids], "lost": [ids]}."""
-    return {"key_changed": [e["id"] for e in res["entries"] if e["key_equal"] is False], "lost": list(res["lost"])}
+    entries that were valid and are not any more (`lost`); also (B7-fix N2) the entry files of the OLD archive that the loader refused and
+    the old archived entries that no recorded round produced (`refused`: file names / ids; records without those fields count none).
+    -> {"key_changed": [ids], "lost": [ids], "refused": [names]}."""
+    return {"key_changed": [e["id"] for e in res["entries"] if e["key_equal"] is False], "lost": list(res["lost"]),
+            "refused": [x["file"] for x in res.get("old_archive_refused", [])] + list(res.get("old_archive_unreplayed", []))}
 
 
 def report(res: dict, out=None, err=None) -> int:
@@ -218,10 +229,11 @@ def report(res: dict, out=None, err=None) -> int:
     out, err = out or sys.stdout, err or sys.stderr
     bad = problems(res)
     print(json.dumps({"tag": res["tag"], "rounds": res["rounds"], "newly_valid": res["newly_valid"], "lost": res["lost"],
-                      "key_changed": bad["key_changed"], "best_old": res["best_old"], "best_new": res["best_new"],
+                      "key_changed": bad["key_changed"], "refused": bad["refused"], "best_old": res["best_old"], "best_new": res["best_new"],
                       "wall_s": round(res["wall_s"])}), file=out)
-    if bad["key_changed"] or bad["lost"]:
-        print(f"REPLAY PROBLEM: key changed for {bad['key_changed']}; lost (valid before, invalid now): {bad['lost']}", file=err)
+    if bad["key_changed"] or bad["lost"] or bad["refused"]:
+        print(f"REPLAY PROBLEM: key changed for {bad['key_changed']}; lost (valid before, invalid now): {bad['lost']}; "
+              f"old archive entries refused by the loader or never produced by a recorded round: {bad['refused']}", file=err)
         return 1
     return 0
 

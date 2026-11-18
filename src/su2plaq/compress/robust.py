@@ -14,7 +14,8 @@ nominal pair has no robust key (it is listed under `unrankable`).  Validity is t
 Registry dispatch: `headline` delegates to the encoding's registered `headline(kind, root, refresh)` hook (spinnet: `loop.headline_for`,
 rishon: `rishon.compress.robust.headline`; the tracks keep their own definitions of rho and caches); `robust_metrics` takes rho from
 the registered `angle_linear` hook (twelve: the Lean exporter, `twelve_angle_linear`) or the generic fit (fuzzy_ub, fuzzy_link, lsh
-has its own hook).  Nothing in §6 prescribes another rho for the fuzzy units, so they use the generic fit.
+has its own hook).  The fuzzy units use the generic fit; the constant terms it rejects are classified, for information only, by
+`angle_offsets` (prompts/010 §3: a multiple of pi/2 on rz / p is a Clifford factor, costs no T and is not rewarded).
 
 This module is NOT in a hash list: it decides no verdict and no archive metric (a robust key is a report quantity).  It imports only
 numpy / hashlib at top level (the brief and the report import it); everything else is imported inside the functions.
@@ -31,6 +32,11 @@ ANGLE_SET_SEED, ANGLE_SET_N = 20261107, 20
 ANGLE_SET_RANGES = ((0.05, 2.0), (0.05, 1.2))
 GENERALITY_SEED = 20261110                # prompts/008 M2C-G4: further pairs, same ranges
 LINEAR_TOL = 1e-9                         # a fitted angle expression must reproduce every rotation angle at every pair to this
+OFFSET_TOL = 1e-9                         # prompts/010 §3: tolerance of the offset classification (the locked linearity value)
+# smallest angle u for which a constant term k u on that gate is a Clifford factor (R_z(theta + k pi/2) = R_z(theta) S^k, cp(pi) = CZ,
+# crz(pi) = S^dagger_control CZ); gates not listed have none, so a constant term on them is not Clifford
+CLIFFORD_OFFSET_UNIT = {"rz": np.pi / 2, "p": np.pi / 2, "rx": np.pi / 2, "ry": np.pi / 2,
+                        "crz": np.pi, "crx": np.pi, "cry": np.pi, "cp": np.pi}
 
 
 def _make_angle_set() -> tuple[tuple[float, float], ...]:
@@ -125,6 +131,43 @@ def generic_angle_linear(circuits, pairs) -> tuple:
     return True, "ok"
 
 
+def angle_offsets(circuits, pairs) -> dict:
+    """Classify the constant terms of the rotation angles of one program (prompts/010 §3; information only, no key uses it).
+    `circuits` / `pairs` as in `generic_angle_linear` (equal skeletons, the 20 pairs of the set first, the nominal pair last).  Per gate
+    parameter p, least squares on the first 20 pairs of theta_p ~ c_a alpha + c_b beta (linear) and ~ c_a alpha + c_b beta + c_0 (affine);
+    r_lin, r_aff = the largest absolute residuals over all pairs and parameters; tau = OFFSET_TOL.
+    "linear": r_lin <= tau (exactly the rho = 0 test); "non_affine": both residuals > tau; otherwise (affine) "clifford_offset" if every
+    constant with |c_0| > tau is a multiple (within tau) of CLIFFORD_OFFSET_UNIT of its gate, else "non_clifford_offset".
+    -> {"class", "affine_residual" (r_aff), "offsets" [c_0 per gate parameter, rad], "offset_units" [round(c_0 / (pi/2)) if c_0 is a
+    multiple of pi/2 within tau, else None, per parameter], "gates" [gate name per parameter]}.  A circuit without parameters is "linear"."""
+    thetas = np.array([rotation_angles(c) for c in circuits], dtype=float)         # (pairs, n_params)
+    gates = [i.operation.name for i in circuits[0].data if i.operation.name != "barrier" for _ in i.operation.params] if len(circuits) else []
+    if thetas.size == 0:
+        return {"class": "linear", "affine_residual": 0.0, "offsets": [], "offset_units": [], "gates": []}
+    A = np.array(pairs, dtype=float)
+    n = len(ANGLE_SET)
+    lin = np.linalg.lstsq(A[:n], thetas[:n], rcond=None)[0]
+    r_lin = float(np.abs(A @ lin - thetas).max())
+    Aff = np.hstack([A, np.ones((len(A), 1))])
+    aff = np.linalg.lstsq(Aff[:n], thetas[:n], rcond=None)[0]                      # (3, n_params)
+    r_aff = float(np.abs(Aff @ aff - thetas).max())
+    c0 = aff[2]
+    q = np.pi / 2
+    units = [int(np.round(c / q)) if abs(c - q * np.round(c / q)) <= OFFSET_TOL else None for c in c0]
+
+    def is_clifford(c, gate):
+        u = CLIFFORD_OFFSET_UNIT.get(gate)
+        return u is not None and abs(c - u * np.round(c / u)) <= OFFSET_TOL
+
+    if r_lin <= OFFSET_TOL:
+        cls = "linear"
+    elif r_aff > OFFSET_TOL:
+        cls = "non_affine"
+    else:
+        cls = "clifford_offset" if all(abs(c) <= OFFSET_TOL or is_clifford(c, g) for c, g in zip(c0, gates)) else "non_clifford_offset"
+    return {"class": cls, "affine_residual": r_aff, "offsets": [float(c) for c in c0], "offset_units": units, "gates": gates}
+
+
 # ------------------------------------------------------------------------------------------------ rho hooks
 def twelve_angle_linear(circuit, spec) -> tuple:
     """Registry hook `angle_linear(circuit, spec)` of the twelve-qubit encoding (prompts/008 §6): rho = 0 unless the twelve-qubit Lean
@@ -148,7 +191,8 @@ def robust_metrics(encoding, kind, program_path, root=None) -> dict:
     the nominal pair and the 20 pairs of `ANGLE_SET` in one call; `compress.metrics.metrics(measured=True)` gives T(1e-6) and depth_CT
     at every pair of the set.
     -> {"program_sha256", "angle_set_sha256", "skeleton_equal", "t_eps": [20 int], "depth_ct": [20 int], "t_sum", "depth_sum",
-    "t_mean", "cx", "qubits", "angle_linear", "export_status", "robust_key": (cx, t_sum, 0|1, depth_sum, qubits) | None}.
+    "t_mean", "cx", "qubits", "angle_linear", "export_status", "offset_class", "offset_units" (None when the skeleton changes),
+    "robust_key": (cx, t_sum, 0|1, depth_sum, qubits) | None}.
     `robust_key` is None when the gate skeleton differs between any two of the 21 circuits (the nominal pair included: a program that
     differs only at the nominal pair has no robust key).  `export_status` is the reason text of the rho test ("ok" when linear)."""
     from su2plaq.compress import evaluate as E
@@ -176,6 +220,11 @@ def robust_metrics(encoding, kind, program_path, root=None) -> dict:
     out = {"program_sha256": hashlib.sha256(src).hexdigest(), "angle_set_sha256": angle_set_sha256(), "skeleton_equal": skeleton_equal,
            "t_eps": t_eps, "depth_ct": depth_ct, "t_sum": sum(t_eps), "depth_sum": sum(depth_ct), "t_mean": sum(t_eps) / len(t_eps),
            "cx": int(ms[0]["cx"]), "qubits": int(ms[0]["qubits"]), "angle_linear": bool(linear), "export_status": str(why)}
+    if skeleton_equal:      # prompts/010 §4.1: informative, for every encoding; rho and the key above are not affected
+        off = angle_offsets([*circuits, nominal], [*ANGLE_SET, (spec.alpha, spec.beta)])
+        out["offset_class"], out["offset_units"] = off["class"], off["offset_units"]
+    else:
+        out["offset_class"], out["offset_units"] = None, None
     out["robust_key"] = ((out["cx"], out["t_sum"], 0 if linear else 1, out["depth_sum"], out["qubits"]) if skeleton_equal else None)
     return out
 
@@ -229,6 +278,8 @@ def headline(encoding, kind="step", root=None, refresh=False, compute=True) -> d
 
         h = registry.resolve(info.headline)(kind, root, refresh)
         h.setdefault("unrankable", sorted(r["id"] for r in h.get("ranking", []) if r["robust_key"] is None))
+        for r in h.get("ranking", []):          # the track's own cache has no offset classes (prompts/010 §4.1)
+            r.setdefault("offset_class", None)
         if compute and h.get("robust_key") is not None:
             _write_summary_headline(encoding, _root(root), h)
         return h
@@ -252,7 +303,8 @@ def headline(encoding, kind="step", root=None, refresh=False, compute=True) -> d
             unrankable.append(e.id)
             continue
         rec = cached.get(e.id)
-        if rec is None or rec.get("program_sha256") != e.program_sha256 or rec.get("angle_set_sha256") != as_sha:
+        if (rec is None or rec.get("program_sha256") != e.program_sha256 or rec.get("angle_set_sha256") != as_sha
+                or (not hook and "offset_class" not in rec)):          # prompts/010 §4.1: a record without the class counts as missing
             if not compute:
                 return None
             rec = robust_metrics(encoding, kind, _program_file(e.program_path, root), root=root)
@@ -272,7 +324,7 @@ def headline(encoding, kind="step", root=None, refresh=False, compute=True) -> d
         rows.append({"id": e.id, "robust_key": tuple(rec["robust_key"]), "t_mean": rec["t_mean"], "lean": _lean_status(e),
                      "laptop_key": tuple(int(x) for x in e.key), "family": e.family, "round": e.round, "cx": rec["cx"],
                      "qubits": rec["qubits"], "t_nominal": int(e.key[1]), "depth_mean": rec["depth_sum"] / len(rec["depth_ct"]),
-                     "angle_linear": rec["angle_linear"]})
+                     "angle_linear": rec["angle_linear"], "offset_class": rec.get("offset_class")})
     rows.sort(key=lambda r: (r["robust_key"], r["laptop_key"], r["id"]))
     top = rows[0] if rows else None
     best_row = next((r for r in rows if best is not None and r["id"] == best.id), None)
@@ -322,8 +374,9 @@ def report_rows(encoding, kind, root=None, h=None) -> list:
         if r is None:
             e = entries[i]
             return [f"{label}{i}", e.family, e.round, int(e.key[0]), int(e.key[1]), "-", "-", int(e.key[3]), "-", _lean_word(_lean_status(e))]
+        lin = "yes" if r["angle_linear"] else ("no (Clifford offsets)" if r.get("offset_class") == "clifford_offset" else "no")
         return [f"{label}{i}", r["family"], r["round"], r["cx"], r["t_nominal"], f"{r['t_mean']:.2f}", f"{r['depth_mean']:.1f}", r["qubits"],
-                "yes" if r["angle_linear"] else "no", _lean_word(r["lean"])]
+                lin, _lean_word(r["lean"])]
 
     rows = []
     if best is not None:
@@ -342,6 +395,37 @@ def headline_note(h: dict) -> str:
     text = ("GLOBAL BEST is the archive's minimum (CX, T(1e-6) at the nominal pair, depth_CT, qubits); HEADLINE is the smallest robust key "
             f"(CX, sum of T(1e-6) over the {ANGLE_SET_N} fixed random angle pairs of seed {ANGLE_SET_SEED}, angle-linear first, sum of "
             f"depth_CT, qubits). T_avg = sum T / {ANGLE_SET_N}; angle set sha256 {angle_set_sha256()[:16]}.")
+    if any(r.get("offset_class") == "clifford_offset" for r in h["ranking"]):
+        text += (" Entries marked 'no (Clifford offsets)' differ from an angle-linear program only by R_z(theta + k pi/2) = R_z(theta) S^k; "
+                 "this costs no T gate and is not rewarded.")
     if h["unrankable"]:
         text += " No robust key (no program file, or the skeleton changes inside the angle set): " + ", ".join(h["unrankable"]) + "."
     return text
+
+
+def main(argv=None) -> int:
+    """`python -m su2plaq.compress.robust --encoding E [--kind K] [--refresh] [--root R]`: compute (or reuse) the headline of an archive,
+    write its cache and the `headline` block of its summary.json, print id, robust key and T mean.  This is the refresh command named
+    by the NOTE of `compress.report`."""
+    import argparse
+    import sys
+
+    ap = argparse.ArgumentParser(prog="python -m su2plaq.compress.robust")
+    ap.add_argument("--encoding", required=True)
+    ap.add_argument("--kind", default=None, help="default: the registry's loop kind")
+    ap.add_argument("--root")
+    ap.add_argument("--refresh", action="store_true", help="recompute every entry (default: reuse a cache that is still valid)")
+    a = ap.parse_args(argv)
+    from su2plaq.encodings import registry
+
+    kind = a.kind or registry.info(a.encoding).loop_kind
+    h = headline(a.encoding, kind, root=a.root, refresh=a.refresh)
+    print(json.dumps({"encoding": a.encoding, "kind": kind, "id": h["id"], "robust_key": h["robust_key"], "t_mean": h["t_mean"],
+                      "archive_best": h["archive_best"], "unrankable": h["unrankable"]}))
+    return 0 if h["id"] is not None else 1
+
+
+if __name__ == "__main__":
+    import sys
+
+    sys.exit(main())

@@ -177,7 +177,7 @@ def test_registered_angle_linear_hook_decides_rho(monkeypatch):
 
 
 # ---------------------------------------------------------------------------------------------------- ranking on a toy archive
-def _fake_archive(monkeypatch, tmp_path, specs, enc="toyenc"):
+def _fake_archive(monkeypatch, tmp_path, specs, enc="toyenc", offset_class="non_clifford_offset"):
     """specs: (id, archive key, robust key | None, lean status | None, has program).  robust_metrics is stubbed."""
     entries, table = [], {}
     for i, (eid, key, rkey, lean, has_prog) in enumerate(specs):
@@ -191,7 +191,8 @@ def _fake_archive(monkeypatch, tmp_path, specs, enc="toyenc"):
         table[f.name] = {"program_sha256": sha, "angle_set_sha256": RB.angle_set_sha256(), "skeleton_equal": rkey is not None,
                          "t_eps": [rkey[1] // 20] * 20 if rkey else [0] * 20, "depth_ct": [rkey[3] // 20] * 20 if rkey else [0] * 20,
                          "t_sum": rkey[1] if rkey else 0, "depth_sum": rkey[3] if rkey else 0, "t_mean": rkey[1] / 20 if rkey else 0.0,
-                         "cx": key[0], "qubits": key[3], "angle_linear": bool(rkey) and rkey[2] == 0, "export_status": "ok", "robust_key": rkey}
+                         "cx": key[0], "qubits": key[3], "angle_linear": bool(rkey) and rkey[2] == 0, "export_status": "ok", "robust_key": rkey,
+                         "offset_class": None if rkey is None else ("linear" if rkey[2] == 0 else offset_class), "offset_units": None}
     best = min(entries, key=lambda e: (tuple(e.key), e.id))
     monkeypatch.setattr(A.Archive, "load", classmethod(lambda cls, *a, **k: SimpleNamespace(entries=lambda: list(entries), best=lambda: best)))
     calls = []
@@ -369,3 +370,124 @@ def test_headline_delegates_to_the_track_hooks_and_completes_the_result(tmp_path
     assert RB.headline("spinnet", "step", root=tmp_path)["id"] == "s1"
     with pytest.raises(ValueError):
         L.headline_for("UB")
+
+
+# ---------------------------------------------------------------------------------------------------- offset classes (prompts/010 §3, §4.1)
+PI = float(np.pi)
+
+
+def _family(fill):
+    pairs = [*RB.ANGLE_SET, (0.37, 0.61)]
+    circuits = []
+    for a, b in pairs:
+        qc = QuantumCircuit(2)
+        fill(qc, a, b)
+        circuits.append(qc)
+    return circuits, pairs
+
+
+def _clifford(qc, a, b):
+    qc.rz(a - PI, 0); qc.cx(0, 1); qc.rz(b - 3 * PI / 2, 1); qc.p(a + PI / 2, 0); qc.s(1); qc.crz(2 * b + PI, 0, 1)
+
+
+OFFSET_CASES = {
+    "linear": (lambda qc, a, b: (qc.rz(a, 0), qc.cx(0, 1), qc.rz(-b / 2, 1), qc.p(3 * a - b, 0), qc.crz(2 * b, 0, 1)), True, "linear"),
+    "clifford": (_clifford, False, "clifford_offset"),
+    "hidden_t": (lambda qc, a, b: (qc.rz(a, 0), qc.cx(0, 1), qc.rz(b + PI / 4, 1)), False, "non_clifford_offset"),
+    "crz_half": (lambda qc, a, b: (qc.rz(a, 0), qc.crz(b + PI / 2, 0, 1)), False, "non_clifford_offset"),
+    "crz_pi": (lambda qc, a, b: (qc.rz(a, 0), qc.crz(b + PI, 0, 1)), False, "clifford_offset"),
+    "cp_pi": (lambda qc, a, b: (qc.rz(a, 0), qc.cp(b - PI, 0, 1)), False, "clifford_offset"),
+    "rx_half": (lambda qc, a, b: (qc.rx(a + PI / 2, 0), qc.ry(b - PI, 1)), False, "clifford_offset"),
+    "u_gate_offset": (lambda qc, a, b: (qc.u(a, b, 0.0, 0), qc.u(a, b, PI / 2, 1)), False, "non_clifford_offset"),     # no unit for `u`
+    "constant": (lambda qc, a, b: (qc.rz(a, 0), qc.rz(PI / 2, 1), qc.cx(0, 1), qc.rz(b, 1)), False, "clifford_offset"),
+    "product": (lambda qc, a, b: (qc.rz(a * b, 0), qc.cx(0, 1), qc.rz(b, 1)), False, "non_affine"),
+    "tiny": (lambda qc, a, b: (qc.rz(a + 1e-10, 0), qc.cx(0, 1), qc.rz(b, 1)), True, "linear"),
+    "just_above_tol": (lambda qc, a, b: (qc.rz(a + 5e-9, 0), qc.cx(0, 1), qc.rz(b, 1)), False, "non_clifford_offset"),
+}
+
+
+@pytest.mark.parametrize("name", sorted(OFFSET_CASES))
+def test_angle_offsets_classes_and_generic_rho_are_consistent(name):
+    fill, is_linear, cls = OFFSET_CASES[name]
+    circuits, pairs = _family(fill)
+    ok, why = RB.generic_angle_linear(circuits, pairs)                  # unchanged by H.1
+    assert ok is is_linear and ((why == "ok") if is_linear else why.startswith("non_linear_angle"))
+    info = RB.angle_offsets(circuits, pairs)
+    assert info["class"] == cls
+    assert (info["class"] == "linear") == ok                            # class "linear" is exactly rho = 0
+    n = len(RB.rotation_angles(circuits[0]))
+    assert len(info["offsets"]) == len(info["offset_units"]) == len(info["gates"]) == n
+    if cls != "non_affine":
+        assert info["affine_residual"] <= 1e-9
+
+
+def test_angle_offsets_values_units_and_gate_names():
+    circuits, pairs = _family(_clifford)
+    info = RB.angle_offsets(circuits, pairs)
+    assert info["offset_units"] == [-2, -3, 1, 2] and info["gates"] == ["rz", "rz", "p", "crz"]
+    assert np.abs(np.array(info["offsets"]) - np.array([-PI, -1.5 * PI, 0.5 * PI, PI])).max() <= 1e-9
+    circuits, pairs = _family(OFFSET_CASES["hidden_t"][0])
+    info = RB.angle_offsets(circuits, pairs)
+    assert info["offset_units"] == [0, None] and abs(info["offsets"][1] - PI / 4) <= 1e-9
+    circuits, pairs = _family(OFFSET_CASES["linear"][0])
+    assert RB.angle_offsets(circuits, pairs)["offset_units"] == [0, 0, 0, 0]
+    assert RB.angle_offsets([QuantumCircuit(1) for _ in range(21)], pairs) == {
+        "class": "linear", "affine_residual": 0.0, "offsets": [], "offset_units": [], "gates": []}
+    assert RB.OFFSET_TOL == RB.LINEAR_TOL == 1e-9 and RB.CLIFFORD_OFFSET_UNIT["crz"] == PI and RB.CLIFFORD_OFFSET_UNIT["rz"] == PI / 2
+
+
+def test_generic_angle_linear_unchanged_on_the_toys_of_report_419():
+    for fill, expect in ((lambda qc, a, b: qc.rz(a + PI / 2, 0), False), (lambda qc, a, b: qc.rz(a - PI, 0), False),
+                         (lambda qc, a, b: qc.rz(a + PI / 4, 0), False), (lambda qc, a, b: qc.rz(a * b, 0), False),
+                         (lambda qc, a, b: qc.rz(a + 1e-10, 0), True), (lambda qc, a, b: qc.rz(2 * a - b / 3, 0), True)):
+        circuits, pairs = _family(fill)
+        assert RB.generic_angle_linear(circuits, pairs)[0] is expect
+
+
+def test_robust_metrics_carries_the_offset_class_of_the_link_general_program():
+    rm = RB.robust_metrics(ENC, KIND, LINK_PROGRAM)
+    assert rm["offset_class"] == "linear" and rm["angle_linear"] is True and isinstance(rm["offset_units"], list)
+    assert all(u == 0 for u in rm["offset_units"]) and rm["robust_key"][2] == 0
+
+
+def test_report_cell_marks_clifford_offsets_and_the_note_explains_it(tmp_path, monkeypatch):
+    _fake_archive(monkeypatch, tmp_path, [("r03-F1-003", (31, 1062, 2189, 17), (31, 21840, 1, 46141, 17), "n_a", True),
+                                          ("r02-F1-002", (31, 1086, 2258, 17), (31, 21840, 0, 46024, 17), "certified", True)],
+                  offset_class="clifford_offset")
+    h = RB.headline("toyenc", "step", root=tmp_path)
+    assert {r["id"]: r["offset_class"] for r in h["ranking"]} == {"r02-F1-002": "linear", "r03-F1-003": "clifford_offset"}
+    rows = RB.report_rows("toyenc", "step", root=tmp_path, h=h)
+    assert rows[0][8] == "no (Clifford offsets)" and rows[1][8] == "yes"
+    assert "Entries marked 'no (Clifford offsets)'" in RB.headline_note(h) and "not rewarded" in RB.headline_note(h)
+    h["ranking"][0]["offset_class"] = "non_clifford_offset"
+    h["ranking"][1]["offset_class"] = "non_clifford_offset"
+    assert "Clifford offsets" not in RB.headline_note(h)
+    assert RB.report_rows("toyenc", "step", root=tmp_path, h=h)[0][8] == "no"
+
+
+def test_cached_record_without_the_class_is_recomputed_or_missing(tmp_path, monkeypatch):
+    calls = _fake_archive(monkeypatch, tmp_path, [("r01-F1-001", (32, 832, 1583, 18), (32, 16948, 0, 33256, 18), None, True)])
+    RB.headline("toyenc", "step", root=tmp_path)
+    assert len(calls) == 1 and RB.headline("toyenc", "step", root=tmp_path, compute=False)["ranking"][0]["offset_class"] == "linear"
+    f = tmp_path / "results" / "compress" / "toyenc" / "robust.json"
+    d = json.loads(f.read_text())
+    for rec in d["entries"].values():
+        del rec["offset_class"]
+    f.write_text(json.dumps(d))
+    assert RB.headline("toyenc", "step", root=tmp_path, compute=False) is None          # not computed, not written
+    assert "offset_class" not in next(iter(json.loads(f.read_text())["entries"].values()))
+    h = RB.headline("toyenc", "step", root=tmp_path)                                    # recomputed
+    assert len(calls) == 2 and h["ranking"][0]["offset_class"] == "linear"
+    assert "offset_class" in next(iter(json.loads(f.read_text())["entries"].values()))
+
+
+def test_no_encoding_lists_the_robust_module_among_its_evaluator_files():
+    import subprocess
+    import sys
+
+    code = (f"import sys; sys.path.insert(0, {str(ROOT / 'src')!r})\n"
+            "from su2plaq.compress import provenance as P; from su2plaq.encodings import registry as R\n"
+            "bad=[(e, f) for e in R.names() for f in P.evaluator_files(e) if str(f).endswith('compress/robust.py')]\n"
+            "assert not bad, bad; print('ok', len(R.names()))")
+    r = subprocess.run([sys.executable, "-I", "-c", code], capture_output=True, text=True)
+    assert r.returncode == 0 and r.stdout.startswith("ok"), r.stderr

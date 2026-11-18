@@ -80,11 +80,26 @@ def _row_external(x) -> list:
             est.get("1e-10"), None, m.get("depth_ct"), verdict, "n_a", "-"]
 
 
+# the commands that rewrite the headline block of the summary of an encoding served by a `headline` hook (its own report)
+_TRACK_REPORT = {"spinnet": "python -m su2plaq.spinnet.loop report", "rishon": "python -m su2plaq.rishon.compress.robust report --kind {kind}"}
+
+
+def refresh_command(encoding, kind, root=None) -> str:
+    """The exact command that recomputes the headline cache (and the summary headline) of `encoding`, for the NOTE of `report_table`."""
+    cmd = _TRACK_REPORT.get(encoding, f"python -m su2plaq.compress.robust --encoding {encoding} --kind {kind}").format(kind=kind)
+    if root is not None and pathlib.Path(root).resolve() != ROOT.resolve():
+        cmd += f" --root {root}"
+    return cmd
+
+
 def report_table(encoding, kind, root=None, headline: bool = True) -> str:
     """Markdown table of a loop (and `results/compress/<encoding>/summary.json`).  `headline=True` (prompts/008 §6): when the headline of
     the archive is cached (`compress.robust.headline`, never computed here: it rebuilds every program at 20 angle pairs), a second
     table lists the GLOBAL BEST row (archive key), the HEADLINE row (robust key) and the best entry of every family, and `summary.json`
-    gains "headline"."""
+    gains "headline".  An existing `summary.json` is never degraded (prompts/008 B7-fix N1): it is left unchanged, with a NOTE at the end
+    of the table that names the refresh command, when (a) the encoding is served by a `headline` hook (spinnet, rishon: their own report
+    writes `headline`, `t_avg` and the lineage `t_avg`, which this generic table cannot reproduce) or (b) it carries a `headline` block
+    that the stale / missing cache cannot recompute here.  `headline=False` (the track reports call it so) always writes."""
     root = pathlib.Path(root) if root is not None else ROOT
     rdir = root / "results" / "compress" / encoding
     rounds = [json.loads(f.read_text()) for f in sorted(rdir.glob("round-*.json"))]
@@ -132,9 +147,10 @@ def report_table(encoding, kind, root=None, headline: bool = True) -> str:
             f"{'ok' if s['ok'] else 'FAILED'} (eps {s['eps']:g}, {s['n_rot']} rotations, T {s['t_total']}, error {_f(s['op_norm_error'])} <= "
             f"{_f(s['tolerances']['tol_err'])})" if s.get("n_rot") is not None else f"not run ({s.get('error')})"))
     text = "\n".join(lines) + "\n"
-    h = None
+    h, keep_summary, note = None, False, None
     if headline:
         from su2plaq.compress import robust
+        from su2plaq.encodings import registry
 
         h = robust.headline(encoding, kind, root=root, compute=False)
         hrows = robust.report_rows(encoding, kind, root=root, h=h) if h is not None else []
@@ -144,6 +160,22 @@ def report_table(encoding, kind, root=None, headline: bool = True) -> str:
             text += "\n".join(hl + ["", robust.headline_note(h)]) + "\n"
         else:
             h = None
+        info = registry.lookup(encoding)
+        hooked = info is not None and bool(info.headline)
+        sf = rdir / "summary.json"
+        old_headline = sf.exists() and "headline" in json.loads(sf.read_text())
+        cmd = refresh_command(encoding, kind, root)
+        if sf.exists() and h is None and (hooked or old_headline):
+            keep_summary = True
+            note = (f"NOTE: the headline cache of `{encoding}` is stale or missing (a hashed file or the angle set changed since it was "
+                    f"written), so there is no HEADLINE table here, and `{sf.relative_to(root)}` was left unchanged (it carries the "
+                    f"headline block). Refresh it with: `{cmd}`")
+        elif sf.exists() and hooked:
+            keep_summary = True
+            note = (f"NOTE: `{sf.relative_to(root)}` of `{encoding}` (headline, t_avg) is written by the track report, not by this "
+                    f"generic table, and was left unchanged. Rewrite it with: `{cmd}`")
+        if note:
+            text += "\n" + note + "\n"
     lineage = [{"id": r["id"], "parent": r.get("parent"), "family": r["family"], "round": r["round"], "cx": r["key"][0], "t_eps": r["key"][1], "parent_known": r.get("parent_known", True)}
                for r in valid]
     summary = {"encoding": encoding, "kind": kind, "n_rounds": len(rounds), "n_candidates": len(records), "n_valid": len(valid),
@@ -154,8 +186,9 @@ def report_table(encoding, kind, root=None, headline: bool = True) -> str:
         from su2plaq.compress import robust
 
         summary["headline"] = robust.summary_headline(h)
-    rdir.mkdir(parents=True, exist_ok=True)
-    (rdir / "summary.json").write_text(json.dumps(summary, indent=1))
+    if not keep_summary:
+        rdir.mkdir(parents=True, exist_ok=True)
+        (rdir / "summary.json").write_text(json.dumps(summary, indent=1))
     return text
 
 
