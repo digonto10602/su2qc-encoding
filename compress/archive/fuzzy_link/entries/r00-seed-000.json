@@ -54,7 +54,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -66,30 +66,34 @@
   "dropped_total": 2.759033966273796e-16,
   "block_error": 3.1406723384861315e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.0036056041717529297,
+  "seconds": 0.007474660873413086,
   "n_inputs": 16,
+  "span_leak": 0.0,
+  "total_error": 3.416575735113511e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 3.1406723384861315e-15,
    "max_dropped_l2": 1.3702469800807257e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 3.1406723384861315e-15
+   "op_norm_error_inner_span": 3.1406723384861315e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 2.3020721613363426e-15,
+   "op_norm_error": 2.357586870001513e-15,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
-    0.7759983079148827,
-    0.6307349888132411
+    0.7759983079148826,
+    0.6307349888132409
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -99,16 +103,20 @@
     "tol_gauss": 1e-10
    },
    "dropped_total": 4.713834935506479e-16,
-   "block_error": 1.8306886677856947e-15,
+   "block_error": 1.886203376450865e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.002904176712036133,
+   "seconds": 0.0015485286712646484,
    "n_inputs": 16,
+   "span_leak": 0.0,
+   "total_error": 2.357586870001513e-15,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.8306886677856947e-15,
+    "op_norm_error_physical": 1.886203376450865e-15,
     "max_dropped_l2": 1.8127524132186752e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.826487379762764e-15
+    "op_norm_error_inner_span": 1.886203376450865e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -123,7 +131,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -135,25 +143,29 @@
    "dropped_total": 2.5438405243138006e-16,
    "block_error": 4.2053516129953065e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.0027899742126464844,
+   "seconds": 0.0014102458953857422,
    "n_inputs": 16,
+   "span_leak": 0.0,
+   "total_error": 4.459735665426686e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 4.2053516129953065e-15,
     "max_dropped_l2": 1.1102230246251565e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 3.986426748706005e-15
+    "op_norm_error_inner_span": 3.986426748706005e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
  "skeleton_equal": true,
  "discoveries": [],
  "summary": "the reference circuit of the fuzzy_link encoding (UE) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "fc43837d40f618f4f5b76afb67a12831100928d86da03a1c5d8e22029cee97d9",
- "git_commit": "4f7126f",
+ "git_commit": "02c499d",
  "versions": {
-  "python": "3.12.14",
+  "python": "3.12.16",
   "numpy": "2.5.4",
   "scipy": "1.18.1",
   "qiskit": "2.5.2",
@@ -166,14 +178,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "prudence x86_64 cpus=48",
- "wall_s": 0.5347380638122559,
- "written_utc": "2026-11-06T19:49:49Z",
- "git_dirty": false,
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.3631157875061035,
+ "written_utc": "2026-11-18T02:20:44Z",
+ "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 9.999999999999999e-06
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

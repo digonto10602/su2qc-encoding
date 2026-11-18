@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 3.846996580252433e-14,
   "block_error": 1.8561777610890812e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.04250955581665039,
+  "seconds": 0.04171276092529297,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.703174341341515e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.8561777610890812e-14,
    "max_dropped_l2": 4.586682359669583e-15,
    "max_span_leak": 2.220446049250313e-16,
-   "op_norm_error_inner_span": 1.850658535809063e-14
+   "op_norm_error_inner_span": 1.850658535809063e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.7947031009208463e-14,
    "block_error": 9.996166212117665e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.0416562557220459,
+   "seconds": 0.04113149642944336,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.794319722132613e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 9.970788991675573e-15,
     "max_dropped_l2": 2.9534412822202663e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 9.996166212117665e-15
+    "op_norm_error_inner_span": 9.996166212117665e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 4.767442396588552e-14,
    "block_error": 1.7679044127370364e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04166102409362793,
+   "seconds": 0.04148054122924805,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.535346809325588e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7679044127370364e-14,
     "max_dropped_l2": 7.071519757436679e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.7679044127370364e-14
+    "op_norm_error_inner_span": 1.7679044127370364e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "8e4db9ef27121d18d63fc1e5d5cf75fc3eb012b0bd59bec5d8f01d4fd3f27e8c",
- "wall_s": 1.5587928295135498,
+ "wall_s": 1.54591703414917,
  "discoveries": [
   "DISCOVERY: negative (exhaustive Pauli tracking): after the F1-012 CCZ blocks the singlet stabilizers are X1X0, X3X2Z1Z0 (pair 01) and Z3Z2X1X0, X3X2 (pair 23), no pair is wire-local; over all recouplings of <= 3 generalised CX (control basis -> Z, target basis -> X, 108 per step), also split into one block before the w23 toggle and one before the window, and also from the unfused CCZ frame, with toggles that are rccx words on parity controls (cost 2|twice-used| + |once-used|), the minimum of 2k + 2(c01 + c23) is 20 CX (k = 2 with 4 + 4, k = 3 with 3 + 4, F1-012 k = 4 with 3 + 3), so the q2 frame plus singlet toggles is 44 CX in every Bell(02)(13) variant, the same as the Fredkin + (01)(23) decoder leg.",
   "DISCOVERY: negative: for each parity sector the permutation pairs (s0, s1) in S4 x S4 with s1 D_p s0^-1 in span{1, S01, S23, S01 S23} number 32 (p3 64, p6 96) and also give indicator normal forms (2 w23, 2 w01, k0 != 0) and lambda6 in {1, W, V, WV}; their relative elements s1 s0^-1 (4 to 20 per sector) and s0^-1 s1 (4 to 10) have empty intersection over the 8 sectors, so no leg made of an f-independent sector permutation Q(p) plus one fixed f-controlled permutation (control f alone, no f-dependent line) exists.",

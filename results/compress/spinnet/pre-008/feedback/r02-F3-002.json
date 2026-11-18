@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.844424752258506e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.9383431081391315e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.4672143489065705e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.5261194232826552e-15,
+  "block_error": 2.3183053289758503e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.1586306095123291,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.0745327911400855e-15,
+   "max_dropped_l2": 7.418421309959735e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.3183053289758503e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.586441250472804e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -1.558927480305072e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.846815929450271e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.888126590371701e-15,
+   "block_error": 1.698314660101103e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1594994068145752,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.5895974606912454e-15,
+    "max_dropped_l2": 8.608815155003019e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.698314660101103e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.3414488861201035e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -6.974149253996375e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.830322762800934e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.655360895562063e-15,
+   "block_error": 2.686087990558041e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1585383415222168,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.615221025017593e-15,
+    "max_dropped_l2": 7.489751442713124e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.686087990558041e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 32,
+  "t_fixed": 24,
+  "n_rot": 13,
+  "t_eps": 832,
+  "t_estimate": {
+   "1e-06": 801.3311742036428,
+   "1e-10": 1319.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 832,
+   "1e-10": 1376
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 57,
+  "depth_ct": 1553,
+  "qubits": 18,
+  "gates": {
+   "cx": 32,
+   "x": 30,
+   "h": 16,
+   "rz": 13,
+   "t": 12,
+   "tdg": 12,
+   "sdg": 2,
+   "z": 2,
+   "s": 1
+  },
+  "measured": true
+ },
+ "program_sha256": "032030b06b77cc317b6adcec322dd518510321c015debbd3ae0b87b684c29057",
+ "wall_s": 1.3626470565795898,
+ "discoveries": [
+  "DISCOVERY: with A=[u=v=0] the only consistent 2-AND companions are the three corner NOR pairings, and every minimal 9-term polynomial is the (A,N1,N2) cube minus one vertex A.X plus {X.e', X.e'.A} (e' in e+span(u,v)) with X.e'.A a dead end: no 8-toggle walk (33 CX all-ancilla, 32 with one direct AND + 1 CZ); a term-set-free DFS (f in span of the visited parities) finds no 31-CX walk with one direct AND (any pairing or flag), N1+N2 direct (all pairings) or A+N1 direct (pairing 01|23).",
+  "DISCOVERY: the leftover sign (-1)^(ck_bar*dS) of a direct rccx pair with first control ck_bar is free exactly when dS is constant on c_k=1 states (corner rule): dS in {0, e^v} for c0, {0, e} for c1, {0, e^u} for c2, {0, e^u^v} for c3 (plus affine terms); no minimal walk reaches it, hence the CZ.",
+  "DISCOVERY: gridsynth word length (not T) depends on the sign and pi/2 shift of the angle (beta=0.61: +beta/4 140 gates, -beta/4 167; -beta/2 166, +beta/2 171); pivot sign flips done by x on a toggle's control wire (off the critical path) and p(lam+-pi/2) with the s/sdg absorbed by the ladder cut depth_CT 1585 -> 1553 at equal CX and T."
+ ],
+ "summary": "F3 searched walk with one direct AND: clean flags A=[u=v=0], N2=NOR(c2,c3); N1=NOR(c0,c1) toggled straight onto the pivot by two rccx (CZ(c0,N2) cancels their leftover sign); 9-term pivot walk from the free preload e to 0 with 7 cheap toggles; pivot sign flips carried by negated toggle controls and p(lam+-pi/2) electric angles pick the shorter Clifford+T words; 32 CX, 9+4 rotations k*beta/4, 3*alpha/4 (+-pi/2)."
+}

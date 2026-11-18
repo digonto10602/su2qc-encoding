@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 2.5760686426804324e-14,
   "block_error": 1.791951239136746e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.04178023338317871,
+  "seconds": 0.041474342346191406,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 4.368019881817178e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.791951239136746e-14,
    "max_dropped_l2": 2.591551136551945e-15,
    "max_span_leak": 2.220446049250313e-16,
-   "op_norm_error_inner_span": 1.786475401829891e-14
+   "op_norm_error_inner_span": 1.786475401829891e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.138099766176557e-14,
    "block_error": 1.038199102685303e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.042424678802490234,
+   "seconds": 0.0410006046295166,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.17629886886186e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.038199102685303e-14,
     "max_dropped_l2": 2.821663842844803e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.0316757600916195e-14
+    "op_norm_error_inner_span": 1.0316757600916195e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 2.498254014733753e-14,
    "block_error": 1.7451559593459505e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04147911071777344,
+   "seconds": 0.04304242134094238,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.243409974079704e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7451559593459505e-14,
     "max_dropped_l2": 2.738392213554967e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.7451559593459505e-14
+    "op_norm_error_inner_span": 1.7451559593459505e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "bcf9e869a1de112ce8629620511e30d625f36f9248f0a1e1c4c3cca1e8f90cff",
- "wall_s": 0.8508927822113037,
+ "wall_s": 0.8360567092895508,
  "discoveries": [
   "DISCOVERY: the F1-012 CCZ frame and the F2-011 h-line chain compose unchanged (valid at all three angle pairs on the first try, 1246 -> 1242 depth_CT); a CX-neutral T gain at 83 CX is blocked because every route to h needs 2 extra AND toggles: c1 ^ h = s_r&~g ^ p_r&p_l is not x&(y^z) for wire literals (no 4-CX shared-control fusion), h ^ g has 3 true points over (p_r, p_t, p_l) so L: g -> h is not an XOR of two literal ANDs, and with a = h^w23 fused outside the window one inner toggle reaches h or V terms but not both.",
   "DISCOVERY: [p=3] = p_r & (g ^ ~p_l) exactly, so h onto a fresh line is a 4-CX pair of rccx sharing the twice-used control p_r (AND(p_r, L) ^ AND(p_r, ~p_l)), 8 CX round trip; on the 83-CX datapath (a: c1 -> 0 -> w23 kept) a fresh h line gives 7 rotations at >= 91 CX (worse than 89), and k0 over (r, l, v) with y = g^~p_l on a wire still has 4 Walsh terms (the 32-function coset bound holds).",

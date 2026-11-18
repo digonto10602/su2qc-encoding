@@ -1,0 +1,188 @@
+{
+ "id": "r02-F5-002",
+ "program_path": "compress/programs/spinnet/F5/002-bright_flag_6rot.py",
+ "program_sha256": "734a62fe58f316d6deb59561fb90cedcb04e5854f260f4d78e680eb688428f81",
+ "parent": "r01-F5-001",
+ "family": "F5",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  34,
+  658,
+  1116,
+  17
+ ],
+ "cell": [
+  41,
+  74
+ ],
+ "metrics_raw": {
+  "cx": 34,
+  "t_fixed": 32,
+  "n_rot": 10,
+  "t_eps": 658,
+  "t_estimate": {
+   "1e-06": 629.9470570797253,
+   "1e-10": 1028.5784284662086
+  },
+  "t_measured": {
+   "1e-06": 658,
+   "1e-10": 1074
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 65,
+  "depth_ct": 1116,
+  "qubits": 17,
+  "gates": {
+   "cx": 34,
+   "h": 20,
+   "x": 16,
+   "t": 16,
+   "tdg": 16,
+   "rz": 10,
+   "s": 2,
+   "sdg": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 6.8649088573414125e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   0.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.488309788105658e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.5239020850952625e-15,
+  "block_error": 2.34100677224615e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.1599876880645752,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.058653292202384e-15,
+   "max_dropped_l2": 1.0390147726052974e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.34100677224615e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.806742803064443e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -9.025369622818838e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.342948306008566e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.6510796174490454e-15,
+   "block_error": 2.1556631856153973e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.15915250778198242,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.06513420117219e-15,
+    "max_dropped_l2": 1.0937440806848513e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.1556631856153973e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.662688924466276e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -5.333172958938406e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.770557056164968e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.636476798147345e-15,
+   "block_error": 3.026212126318931e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.15945792198181152,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.8142117187270835e-15,
+    "max_dropped_l2": 1.0707426723118875e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.026212126318931e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: with the bright flag B available as a toggle, U_B needs only 6 terms {1, A, B, AB, e, Ae} (minimal over gens A,B,e,u,v); the best walk is [e] A e B A B = 9 pivot CX + 1 CZ (the B pair encloses one A toggle, sign (-1)^(x*A)), and an exhaustive search (all 6-7 term supports, shifts by span(X,Y), CX among pivot/flag/e, free ends in span(e,v)) finds nothing below 10, so 6 ladder + 18 flag + 10 = 34 CX is this family's floor.",
+  "DISCOVERY: toggling both A and B by direct rccx pairs (31 CX) forces interleaved pairs whose leftover sign l1*X*(Y^l2) is 3-body on the valid codes; no choice of literals, corner pairing, first controls or walk (<= 3 extra cheap toggles) makes it fixable with <= 2 CZ, nor do control-order swaps of in-place uncomputes (they only give (l1^l2)*t0).",
+  "DISCOVERY: in-place flags are exact: (c1 ^ NOR(c0,c2)) & NOR(c1,c3) = NOR4 because Y=1 forces c1=0, and F = c0 ^ A may replace A since F*e = 0 on every dark code (c0=1 => b=l=1 => e=0); two in-place rccx among the corner qubits can never give NOR4 as an AND of two literals (exhaustive), so one ancilla remains."
+ ],
+ "summary": "T-lean step with 10 rotations at 34 CX: U_E = 4 link phases; U_B = 6-term pivot polynomial f = 1/8 + 3/8 Z_F + 1/4 Z_B - 3/4 Z_F Z_B - 3/8 Z_e + 3/8 Z_F Z_e in the dimer frame, B = bright = (c1^X)&Y toggled by a direct rccx pair (X = NOR(c0,c2) XORed into c1, Y = NOR(c1,c3) in one ancilla), F = c0^A (A = [u=v=0] XORed into c0); walk [e] F e B F B (fused start) + one CZ for the rccx-pair sign; 17 qubits, angles k*beta/4 and -3*alpha/4.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "6d7522d",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 0.9761037826538086,
+ "written_utc": "2026-11-08T01:02:38Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9.999999999999999e-06
+ },
+ "lean": null,
+ "mode": "full"
+}

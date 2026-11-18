@@ -16,24 +16,25 @@
  "encoding": "fuzzy_link",
  "kind": "UE",
  "provenance": {
-  "git_commit": "4f7126f",
-  "git_dirty": false,
+  "git_commit": "02c499d",
+  "git_dirty": true,
   "versions": {
-   "python": "3.12.14",
+   "python": "3.12.16",
    "numpy": "2.5.4",
    "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
-  "cpu_count": 48,
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-06T19:49:49Z"
+  "timestamp_utc": "2026-11-18T02:20:44Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
  "spec_sha256": "fc43837d40f618f4f5b76afb67a12831100928d86da03a1c5d8e22029cee97d9",
  "invalid": [
   {
@@ -124,10 +125,12 @@
     "op_norm_error": 3.416575735113511e-15,
     "block_error": 3.1406723384861315e-15,
     "leak_amplitude": 0.0,
-    "gauss_residual": 0.0,
+    "gauss_residual": NaN,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 3.416575735113511e-15
    },
    "alt_ok": [
     true,
@@ -136,7 +139,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "4f7126f",
+   "git_commit": "02c499d",
    "summary": "the reference circuit of the fuzzy_link encoding (UE) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
    "lean": null,
    "round": 0,
@@ -186,13 +189,15 @@
    },
    "verdict": {
     "ok": true,
-    "op_norm_error": 3.245505411835618e-15,
-    "block_error": 2.836640251699893e-15,
+    "op_norm_error": 3.1464372816633704e-15,
+    "block_error": 2.7375721215276454e-15,
     "leak_amplitude": 0.0,
-    "gauss_residual": 0.0,
+    "gauss_residual": NaN,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 3.1464372816633704e-15
    },
    "alt_ok": [
     true,
@@ -201,7 +206,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "4f7126f",
+   "git_commit": "02c499d",
    "summary": "the reference circuit after the deterministic polish passes.",
    "lean": {
     "status": "n_a",
@@ -244,19 +249,21 @@
    },
    "verdict": {
     "ok": true,
-    "op_norm_error": 8.810102368182257e-15,
-    "block_error": 4.363468620410379e-15,
+    "op_norm_error": 7.754068665616055e-15,
+    "block_error": 4.207991948301565e-15,
     "leak_amplitude": 0.0,
-    "gauss_residual": 0.0,
+    "gauss_residual": NaN,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 7.754068665616055e-15
    },
    "alt_ok": [],
    "skeleton_equal": false,
    "parent": null,
    "parent_known": true,
-   "git_commit": "4f7126f",
+   "git_commit": "02c499d",
    "summary": "",
    "lean": null,
    "round": 0,
@@ -277,6 +284,6 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 2.5238492488861084,
- "written_utc": "2026-11-06T19:49:49Z"
+ "wall_s": 1.8464405536651611,
+ "written_utc": "2026-11-18T02:20:44Z"
 }

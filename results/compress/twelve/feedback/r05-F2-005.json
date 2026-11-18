@@ -34,14 +34,18 @@
   "dropped_total": 8.683544550622045e-14,
   "block_error": 1.3608476427073498e-14,
   "leak_amplitude": 0.0,
-  "seconds": 12.019080400466919,
+  "seconds": 3.8408596515655518,
   "n_inputs": 433,
+  "span_leak": 3.236987642579507e-15,
+  "total_error": 1.0368090957587346e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.3608476427073498e-14,
    "max_dropped_l2": 4.676385917458759e-15,
    "max_span_leak": 4.884981308350689e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.185843834246084e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 8.101891725651538e-14,
    "block_error": 1.464135856101719e-14,
    "leak_amplitude": 0.0,
-   "seconds": 10.496095418930054,
+   "seconds": 3.8416059017181396,
    "n_inputs": 433,
+   "span_leak": 3.988553654350859e-15,
+   "total_error": 9.964882947188344e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.464135856101719e-14,
     "max_dropped_l2": 4.57428560831347e-15,
     "max_span_leak": 6.5503158452884236e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.926856384237053e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 9.455100214447618e-14,
    "block_error": 1.588173846810786e-14,
    "leak_amplitude": 0.0,
-   "seconds": 10.511995792388916,
+   "seconds": 3.843452215194702,
    "n_inputs": 433,
+   "span_leak": 5.097539231595502e-15,
+   "total_error": 1.1553027984417954e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.588173846810786e-14,
     "max_dropped_l2": 5.262835930684218e-15,
     "max_span_leak": 6.106226635438361e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.079304316080652e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "4f7fcb1eab11fc709a1e44eb0fdafe9a5f7cd9d48365aea6642cd280170cef92",
- "wall_s": 36.1900532245636,
+ "wall_s": 11.955548524856567,
  "discoveries": [
   "DISCOVERY: Per-corner gadget search on the exact corner states (writable a, b, t; controls j_A, j_B, outer m and j bits; free U3 layers; flag on a, b or t; partner phases referenced to the parent frame): the parent 5-CX frame followed by any 2 two-qubit gates gives no valid corner (1656 skeletons, residual floor 0.20), and at a NOT corner no one-gate substitution of the 8-gate frame+flag removes the relabel CX (555 skeletons, floor 0.46); outer reads do not shorten the corner below 8 CX in these neighbourhoods.",
   "DISCOVERY: The walk's type bit can be read from the outer register: t2 = q_j(o4) ^ q_j(o5) on every physical state, so each of the two t toggles becomes two CX from the outer bits (+2 CX) while the cx(t2 -> f2) copy (2 CX) and its ancilla vanish (corner 2 flags in place on q8): equal CX/T, one qubit fewer.",

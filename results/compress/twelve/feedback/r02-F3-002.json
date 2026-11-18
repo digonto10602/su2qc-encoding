@@ -34,14 +34,18 @@
   "dropped_total": 6.607641598150542e-14,
   "block_error": 1.5545170220605415e-14,
   "leak_amplitude": 0.0,
-  "seconds": 1.7902259826660156,
+  "seconds": 0.809826135635376,
   "n_inputs": 433,
+  "span_leak": 3.1936550790282125e-15,
+  "total_error": 8.481524128113905e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.5545170220605415e-14,
    "max_dropped_l2": 4.144468998971039e-15,
    "max_span_leak": 3.774758283725532e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.126770095429311e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 6.570491300375346e-14,
    "block_error": 1.7008056327565644e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.7800471782684326,
+   "seconds": 0.8065328598022461,
    "n_inputs": 433,
+   "span_leak": 4.062010345659819e-15,
+   "total_error": 8.677497967697892e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7008056327565644e-14,
     "max_dropped_l2": 4.212306028922067e-15,
     "max_span_leak": 5.773159728050814e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 4.030931650013395e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 7.054047908478141e-14,
    "block_error": 1.8186932063155724e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8105380535125732,
+   "seconds": 0.8079848289489746,
    "n_inputs": 433,
+   "span_leak": 5.0462684586839885e-15,
+   "total_error": 9.377367960662111e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8186932063155724e-14,
     "max_dropped_l2": 4.388753265964333e-15,
     "max_span_leak": 6.994405055138486e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.030682321950885e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "86ff9c4bfa871a1968478b5b509dfb82c25769b1b6e63bc0b46377544f37e3b2",
- "wall_s": 6.671290159225464,
+ "wall_s": 3.024089813232422,
  "discoveries": [
   "DISCOVERY: g*kappa(t) (kappa = 2, -1, 1/2 for n1 = 0, 2, 4; kappa*g = -g + 3[n1=0 and bright] + 1.5[n1=4]) has an 11-term Walsh support over (g, t1, t2, t3) via the free point (g=0, n1=4); in the basis (t1, t2, t2^t3) it is Gray-walked with 12 CX (plain basis: 16-CX walk, and an exhaustive parity-network search finds no 12-CX network), so the type dependence costs 12+2 CX instead of z (10) + (g, z, t) mux (6).",
   "DISCOVERY: Trading AND depth, t copies and multiplexer terms is CX-neutral: (g; t) 18+6+14, (b0b1b2, b3; t) 12+6+20, (b0b1, b2b3; t) 12+6+20, (b0b1b2, x3; t) 12+4+22, raw (x0..x3; t) 0+0+~38 (24 terms) all total 38 CX; t provisioning (fold + copies + outer t0) is >= 9 CX per side for every 12-walk basis (exhaustive over <= 5 fold CX).",

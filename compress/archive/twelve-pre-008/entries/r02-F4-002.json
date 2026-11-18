@@ -1,0 +1,189 @@
+{
+ "id": "r02-F4-002",
+ "program_path": "compress/programs/twelve/F4/002-inwalk-and-plumbing.py",
+ "program_sha256": "e284fe9346d501883f822aa3b1691dcf749952d6a111db768de31192efbc2228",
+ "parent": "r01-F4-001",
+ "family": "F4",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  121,
+  738,
+  1269,
+  33
+ ],
+ "cell": [
+  55,
+  76
+ ],
+ "metrics_raw": {
+  "cx": 121,
+  "t_fixed": 112,
+  "n_rot": 10,
+  "t_eps": 738,
+  "t_estimate": {
+   "1e-06": 709.9470570797253,
+   "1e-10": 1108.5784284662086
+  },
+  "t_measured": {
+   "1e-06": 738,
+   "1e-10": 1154
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 165,
+  "depth_ct": 1269,
+  "qubits": 33,
+  "gates": {
+   "h": 148,
+   "cx": 121,
+   "t": 56,
+   "tdg": 56,
+   "s": 44,
+   "sdg": 44,
+   "x": 40,
+   "rz": 10,
+   "z": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.8730204983168542e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   0.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 8.702711937265766e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.519078026450921e-14,
+  "block_error": 1.221112695671762e-13,
+  "leak_amplitude": 0.0,
+  "seconds": 6.437443971633911,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.6424535841784784e-14,
+   "max_dropped_l2": 3.812441396517985e-15,
+   "max_span_leak": 3.9968028886505635e-15,
+   "op_norm_error_inner_span": 1.221112695671762e-13
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.8854234450695469e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.148683406540595e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 9.277608645896793e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.633780668126896e-14,
+   "block_error": 1.2220453782568572e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.2212419509887695,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7251644227055947e-14,
+    "max_dropped_l2": 4.572570927548955e-15,
+    "max_span_leak": 5.440092820663267e-15,
+    "op_norm_error_inner_span": 1.2220453782568572e-13
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.8846021448880544e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -4.9229288851739754e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 7.340811933563948e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.617129210870333e-14,
+   "block_error": 1.2228892238010212e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.217397928237915,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8730812866730288e-14,
+    "max_dropped_l2": 4.213630593049406e-15,
+    "max_span_leak": 6.772360450213455e-15,
+    "op_norm_error_inner_span": 1.2228892238010212e-13
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: The top AND of the bright tree needs no register: toggling F with rccx(pa,pb,F) inside the Walsh walk leaves only the Margolus phase Z_F^pa, which anticommutes with the single CX(z,F) toggle inside the g-interval and leaves (-1)^(pa*z), cancelled by one CZ(pa,z): 2 rccx + 1 CX instead of compute/uncompute rccx + 2 CX (saves 1 CX).",
+  "DISCOVERY: Type plumbing as a shortest path over register linear forms (Dijkstra) gives 8 CX instead of 10: q11^=q8 (t3) | corner3 | q5^=q8 (t2), q11^=q5 (u) | corner2 | q8^=q2 (v), z=AND(~u,~v) | q8^=q5 (t1), q11^=q8 (t0) | corners 0,1 write their bright flags in place into t0, t1; t2 stays as the walk type bit, no outer reads.",
+  "DISCOVERY: Corner 2 may use jA = j_t (the other leg's link) in C_jA(X_a) without changing the leg roles: the frame stays exact (H_B = kappa g X_F on all 433 states) and the n2 sign is still (-1)^t0, so one X on leg a of corner 0 gives kappa = 2 (n1=0), -1 (n1=2), 1/2 (n1=4)."
+ ],
+ "summary": "F2 pair frame (2-CX leg frame + type gates + one rccx bright flag per corner) with an 8-CX type plumbing (no outer reads, corners 0/1 flag in place into their type registers) and the top AND g=pa&pb toggled into F by an in-walk rccx (no g register; residual (-1)^(pa z) fixed by one CZ); 6-Rz (g,z,t) multiplexer + 4 electric phases.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "afa1865",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 12.11038064956665,
+ "written_utc": "2026-11-06T14:12:34Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9.999999999999999e-06
+ },
+ "lean": null,
+ "mode": "full"
+}

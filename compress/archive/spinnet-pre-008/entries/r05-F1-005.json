@@ -1,0 +1,188 @@
+{
+ "id": "r05-F1-005",
+ "program_path": "compress/programs/spinnet/F1/005-nor3-direct-pair.py",
+ "program_sha256": "c84e7634ded502b1d33c045227b5425cf4adc845824944606982569fbdb048fe",
+ "parent": "r04-F1-004",
+ "family": "F1",
+ "round": 5,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  32,
+  834,
+  1565,
+  18
+ ],
+ "cell": [
+  40,
+  77
+ ],
+ "metrics_raw": {
+  "cx": 32,
+  "t_fixed": 24,
+  "n_rot": 13,
+  "t_eps": 834,
+  "t_estimate": {
+   "1e-06": 801.3311742036428,
+   "1e-10": 1319.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 834,
+   "1e-10": 1376
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 49,
+  "depth_ct": 1565,
+  "qubits": 18,
+  "gates": {
+   "cx": 32,
+   "x": 22,
+   "h": 16,
+   "rz": 13,
+   "t": 12,
+   "tdg": 12,
+   "sdg": 2,
+   "s": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.606482394400899e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -1.312781036046377e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.488309788105658e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.451762165598766e-15,
+  "block_error": 2.1547202288021332e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.7348306179046631,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.942097114741684e-15,
+   "max_dropped_l2": 1.0623048348855275e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.1547202288021332e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.035775401831711e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -2.4614644425869553e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.803836207831226e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.25289241754079e-15,
+   "block_error": 1.782882984290922e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2542116641998291,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7777269989116176e-15,
+    "max_dropped_l2": 8.240916930022345e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.782882984290922e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.815012810890532e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -6.15366110646739e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.217799073972096e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.2122038878233814e-15,
+   "block_error": 2.6028089230671507e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2636756896972656,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.4658139631774925e-15,
+    "max_dropped_l2": 7.821983421919843e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.6028089230671507e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: qiskit rccx(a,b,t) is CCX times the phase i^(2ab + 4a*t_in) (units of pi/4), so a direct pair on the pivot leaves (-1)^(a*dS); emitting one gate of a pair as its T<->Tdg conjugate adds (-1)^(ab) (a free CZ between the two controls) and an X-conjugated target adds (-1)^a; in the F5-type double-direct design (A and NOR4 both direct, 31 CX) the A pair must enclose an e toggle, its sign abar*e is quadratic on the 8 bright configs, and no Z8 phase on single non-pivot wires (T/S/Z at any time) fixes it, so it needs a CZ (32 CX).",
+  "DISCOVERY: scratch searches (complete for (i),(ii); partial for (iii)) find no 31-CX design with fewer than 13 walk rotations: (i) the 8 minimal 12-term supports over (e, c0^A, a1, c1, c3) have no CX parity network of <= 13 CX even when any of 9 wires may carry the pivot variable; (ii) the 118 three-AND atom sets Z (A plus any 2-rccx program values, f a function of Z, e, v) have no walk of <= 8 toggles; (iii) of 4546 designs A + one AND (ancilla or in place) + one direct AND (incl. chained NOR3 and up to two raw-corner atoms), the first ~800 (all shared-literal ones) have cost-13 walks only with a leftover sign that is not GF(2)-linear.",
+  "DISCOVERY: NOR3(c1,c2,c3) as a direct AND of [c3=0] and the ancilla N12 plus the raw corner c0 gives 9-term walks of cost 13 (7 linear toggles + 2 rccx), the same count as the A+a1+a2 design of r01-F1-001, but every such walk encloses dS in {c0, A, c0^e, A^e}, all quadratic against the first control, so 32 CX is the floor of this design."
+ ],
+ "summary": "three-AND F1 variant with a chained direct flag: dimer frame (pivot b), clean ancillas N12=[c1=c2=0] and A=[u=v=0], and D=[c3=0]&N12 (NOR3 of c1,c2,c3) toggled straight onto the pivot by an rccx pair; the raw corner c0 completes the bright projector, so the walk A D A c0 A D e A c0 (start p, end p^e fused into the inverse ladder) carries a 9-term polynomial (angles k*beta/8) and one CZ(c3bar, c0) removes the pair's leftover sign (-1)^(c3bar*c0); 32 CX, 9+4 rotations, 18 qubits (no robust gain: CX 32 > 31).",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "9145258",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 2.2093985080718994,
+ "written_utc": "2026-11-10T21:12:38Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.3e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

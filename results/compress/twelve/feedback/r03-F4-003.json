@@ -34,14 +34,18 @@
   "dropped_total": 6.086356688350396e-14,
   "block_error": 1.2206237767702926e-13,
   "leak_amplitude": 0.0,
-  "seconds": 6.637475967407227,
+  "seconds": 1.0760033130645752,
   "n_inputs": 433,
+  "span_leak": 3.1215791612989075e-15,
+  "total_error": 1.8604752372183214e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.5849616913435815e-14,
    "max_dropped_l2": 3.7687857043216635e-15,
    "max_span_leak": 3.9968028886505635e-15,
-   "op_norm_error_inner_span": 1.2206237767702926e-13
+   "op_norm_error_inner_span": 1.2206237767702926e-13,
+   "span_leak_max_state": 3.0529727432461803e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 6.349355393007947e-14,
    "block_error": 1.2219986202920233e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.4411585330963135,
+   "seconds": 1.072310447692871,
    "n_inputs": 433,
+   "span_leak": 4.084631942021219e-15,
+   "total_error": 1.89778047901303e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.708888550024308e-14,
     "max_dropped_l2": 3.97857364563815e-15,
     "max_span_leak": 5.551115123125783e-15,
-    "op_norm_error_inner_span": 1.2219986202920233e-13
+    "op_norm_error_inner_span": 1.2219986202920233e-13,
+    "span_leak_max_state": 4.057645374614137e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 6.275460075403575e-14,
    "block_error": 1.2226460009534413e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.2545816898345947,
+   "seconds": 1.075364112854004,
    "n_inputs": 433,
+   "span_leak": 4.909415754126776e-15,
+   "total_error": 1.8992861660350666e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.849484784568476e-14,
     "max_dropped_l2": 3.838220781711613e-15,
     "max_span_leak": 6.8833827526759706e-15,
-    "op_norm_error_inner_span": 1.2226460009534413e-13
+    "op_norm_error_inner_span": 1.2226460009534413e-13,
+    "span_leak_max_state": 4.892696743263624e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "b4f9ffacd87ec69a8cfea0ccab4260d364148c67b5c09524c178c36bbc009de2",
- "wall_s": 12.635464429855347,
+ "wall_s": 3.6195201873779297,
  "discoveries": [
   "DISCOVERY: One pair AND of the bright tree can live inside the 9-term (pa, pb, z, t) Walsh walk: toggling F twice with rccx(b0, b1, F) leaves Z_F^b1 phases that only straddle the toggles between them, i.e. (-1)^(b1 * net) with net = pb on the best walk, fixed by one CZ; this drops the pa register (6 CX) for +4 walk CX +1 CZ. Exhaustive over all 9- and 11-term supports and Gray cycles with pa (or pb) toggled twice: linear toggles + fixes >= 9 (walk 15 CX); fix-free walks (net = t, using b_c t_c = t_c so the residual is a plain Z) need 10 linear toggles.",
   "DISCOVERY: Both pair ANDs in-walk cannot be made residual-free: a nested pa/pb interval structure would need every pb-carrying Walsh term to share one pa value, which contradicts kappa (kappa(pa=1, pb=1) - kappa(pa=1, pb=0) = k(z,t) != 0 while the pa=0 difference is 0), so interleaving leaves a cubic phase b_a b2 b3 + b_c b0 b1.",

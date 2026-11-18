@@ -59,7 +59,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -71,14 +71,18 @@
   "dropped_total": 4.262664551243596e-14,
   "block_error": 1.909512351860434e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.046285152435302734,
+  "seconds": 0.04502987861633301,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 6.17217690310403e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.909512351860434e-14,
    "max_dropped_l2": 4.648502910181099e-15,
    "max_span_leak": 3.3306690738754696e-16,
-   "op_norm_error_inner_span": 1.909512351860434e-14
+   "op_norm_error_inner_span": 1.909512351860434e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -94,7 +98,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -106,14 +110,18 @@
    "dropped_total": 2.9231321708439036e-14,
    "block_error": 1.1241809445242103e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04429340362548828,
+   "seconds": 0.04444074630737305,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.047313115368114e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.1241809445242103e-14,
     "max_dropped_l2": 2.71063213332109e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.1241809445242103e-14
+    "op_norm_error_inner_span": 1.1241809445242103e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -128,7 +136,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -140,14 +148,18 @@
    "dropped_total": 5.065018928194167e-14,
    "block_error": 1.8305670267461983e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04484701156616211,
+   "seconds": 0.04385209083557129,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.895585954940365e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8305670267461983e-14,
     "max_dropped_l2": 6.979212695929456e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.8305670267461983e-14
+    "op_norm_error_inner_span": 1.8305670267461983e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -158,9 +170,9 @@
   "DISCOVERY: negated rccx controls are free: X on the twice-used control flips the signs of the two middle T phases, X on the once-used control flips two adjacent phases and leaves one Z on the target before the first or after the last H, which vanishes on a fresh/cleared line or cancels against the mirrored leg (L conversion); a Z right after a fresh rccx is all four phases flipped (so Z(a) of the CZ(g,f) free end costs nothing, it commutes through the SEG_B parity window), and rccx on a fresh or cleared target is symmetric in its controls."
  ],
  "summary": "r08-F2-008 datapath (parity frame, L: 0 -> ~p_t&~s_r -> g, a = f&~g, two-swap frame, 9-term R_x walk on f with free ends {p_r, p_t, p_l, g}) with the F1-008 Pauli-scheduled q2 skeleton (7-T Fredkins) and the w23 ancilla removed: inside the H(f) window the w01 AND is toggled onto the p_r wire itself (rccx; p_r holds p_r^w01 between the two toggles, a palindromic phase-permutation of a control wire, so the rccx phases cancel) and w23 onto the a line right after c1 is cleared (fused with the c1 uncompute), and a Dijkstra over (visited terms, f content, toggle phase) gives the same 9-CX walk; negated rccx controls cost no X gates (T signs flipped), the CZ(g,f) free end is folded into the fresh a-compute, and f is the twice-used control of that compute, so depth_CT 1585 -> 1550; 83 CX, T_eps 638, 10 qubits.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "24d6c44",
+ "git_commit": "220730e",
  "versions": {
   "python": "3.12.16",
   "numpy": "2.5.4",
@@ -176,13 +188,14 @@
   "gridsynth": 0
  },
  "machine": "omnicommander x86_64 cpus=20",
- "wall_s": 0.4781341552734375,
- "written_utc": "2026-11-13T23:32:48Z",
+ "wall_s": 0.47275829315185547,
+ "written_utc": "2026-11-18T03:02:51Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 9e-06
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

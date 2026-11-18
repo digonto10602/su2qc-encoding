@@ -60,7 +60,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -72,14 +72,18 @@
   "dropped_total": 3.888005249463372e-14,
   "block_error": 1.859461995309952e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.03760528564453125,
+  "seconds": 0.03686118125915527,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.747467244773324e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.859461995309952e-14,
    "max_dropped_l2": 4.274599498549082e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.8561555352051207e-14
+   "op_norm_error_inner_span": 1.8561555352051207e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -95,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -107,14 +111,18 @@
    "dropped_total": 2.872765337811096e-14,
    "block_error": 9.738855722943018e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.03663492202758789,
+   "seconds": 0.03666114807128906,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.846650910105398e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 9.738855722943018e-15,
     "max_dropped_l2": 2.9771822258781982e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 9.702785790943816e-15
+    "op_norm_error_inner_span": 9.702785790943816e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -129,7 +137,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -141,14 +149,18 @@
    "dropped_total": 4.712814466463113e-14,
    "block_error": 1.7575665178368592e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.0355837345123291,
+   "seconds": 0.03637957572937012,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.470380984299972e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7575665178368592e-14,
     "max_dropped_l2": 6.73175109539329e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.748728394856464e-14
+    "op_norm_error_inner_span": 1.748728394856464e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -159,9 +171,9 @@
   "DISCOVERY: negative: the leg chain is tight at 42 layers per side for this datapath (L rccx 9 + (1 3) window 7 + L conversion 9 + a-compute after L 5 + (0 2) window 7 + uncompute until f is read 5): any phase-polynomial realisation of the a uncompute (alone or fused with the w23 toggle) needs the two f-free parities of the coset y + span{f, g} before its single f toggle, so f is read at the 2nd CX at the earliest (H, T, CX, T, CX); with free walk start and end every 9-CX walk has exactly one 2-step on f."
  ],
  "summary": "r09-F2-009 leg unchanged (parity frame, L: 0 -> ~p_t&~s_r [(1 3) short-window 7-T Fredkin] -> g = ~p_t&(p_r^p_l), a: f&~g [(0 2) Fredkin], X-free negated rccx, Bell decoders (0,1),(2,3)) with the r09-F3-009 ten-qubit middle: the w23 line is dropped, w23 is toggled onto a fused with the c1 uncompute (a: c1 -> 0 -> w23, Tdg H H T = I) and w01 = q2^0&q2^1 is toggled onto the p_r wire inside the H(f) window (self-inverse rccx word around p_r-diagonal walk segments, phases cancel), 9-term R_x support (rt, tv, rtl, tlv, rtlW, rtvW, tlV, rtlV, rtlWV) walked in 9 CX from the free start {t, l, g} to the free end {r, t}; the parent's rz(theta - k pi/2) S^k shift is kept per coefficient class theta/beta (same 4 x beta, 4 x 2 beta, 1 x 4 beta multiset, no new angle tuning), and the pending Z(f) of the k = 2 shifts is absorbed into the next odd-k phase gate (Z S^3 = S) instead of a closing Z(f) on the critical path; 83 CX, T_eps 638, depth_CT 1522 -> 1521, qubits 11 -> 10.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "8fae207",
+ "git_commit": "220730e",
  "versions": {
   "python": "3.12.16",
   "numpy": "2.5.4",
@@ -177,8 +189,8 @@
   "gridsynth": 0
  },
  "machine": "omnicommander x86_64 cpus=20",
- "wall_s": 0.4542856216430664,
- "written_utc": "2026-11-14T00:30:09Z",
+ "wall_s": 0.454517126083374,
+ "written_utc": "2026-11-18T03:02:52Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
@@ -188,5 +200,6 @@
   "status": "n_a",
   "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
  },
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

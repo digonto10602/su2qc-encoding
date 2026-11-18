@@ -1,0 +1,644 @@
+{
+ "round": 0,
+ "n_valid": 7,
+ "n_invalid": 0,
+ "best_key": [
+  34,
+  832,
+  1597,
+  19
+ ],
+ "entries": [
+  "r00-seed-000",
+  "r00-seed-001",
+  "r00-seed-002",
+  "r00-seed-003",
+  "r00-seed-004",
+  "r00-seed-010",
+  "r00-seed-011"
+ ],
+ "lean_seconds": 1.6257929801940918,
+ "encoding": "spinnet",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "2fd5b3d",
+  "git_dirty": false,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T21:47:19Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "invalid": [],
+ "external": [
+  {
+   "source": "qiskit_l3_whole",
+   "valid": false,
+   "reason": "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "metrics": {
+    "cx": 54,
+    "t_fixed": 56,
+    "n_rot": 8,
+    "t_eps": 534.3576456637802,
+    "t_estimate": {
+     "1e-06": 534.3576456637802,
+     "1e-10": 853.2627427729669
+    },
+    "t_measured": null,
+    "synth_error_bound": 8e-06,
+    "depth": 67,
+    "depth_ct": 67,
+    "qubits": 23,
+    "gates": {
+     "cx": 54,
+     "h": 30,
+     "t": 28,
+     "tdg": 28,
+     "x": 16,
+     "rz": 8
+    },
+    "measured": false
+   }
+  },
+  {
+   "source": "paulo15",
+   "fixed_angle": true,
+   "kind": "UB",
+   "beta": 0.05,
+   "valid": true,
+   "reason": "ok",
+   "metrics": {
+    "cx": 68,
+    "t_fixed": 64,
+    "n_rot": 4,
+    "t_eps": 316,
+    "t_estimate": {
+     "1e-06": 303.1788228318901,
+     "1e-10": 462.63137138648347
+    },
+    "t_measured": {
+     "1e-06": 316,
+     "1e-10": 478
+    },
+    "synth_error_bound": 4e-06,
+    "depth": 90,
+    "depth_ct": 726,
+    "qubits": 23,
+    "gates": {
+     "cx": 68,
+     "h": 34,
+     "t": 32,
+     "tdg": 32,
+     "x": 12,
+     "rz": 4
+    },
+    "measured": true
+   },
+   "op_norm_error": 9.61272771348275e-15,
+   "leak_amplitude": 0.0,
+   "gauss_residual": 5.410557748946589e-16,
+   "certified": true,
+   "message": "fixed angle beta=0.05, kind UB; exact-angle tolerances 1e-10; target regauged with the sign gauge D (n_minus 8 inner codes with -1: [8, 9, 10, 11, 12, 13, 14, 15])",
+   "gauge_minus_codes": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "n_minus": 8
+  }
+ ],
+ "candidates": [
+  {
+   "label": "general",
+   "id": "r00-seed-000",
+   "family": "seed",
+   "program_sha256": "b608b9b20a3b3ccd8faac116c1a5ff7ea4405e40649516be04c80800acfd6132",
+   "program_path": "compress/programs/spinnet/seed/000-general.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    54,
+    566,
+    861,
+    23
+   ],
+   "cell": [
+    46,
+    73
+   ],
+   "metrics": {
+    "cx": 54,
+    "t_fixed": 56,
+    "n_rot": 8,
+    "t_eps": 566,
+    "t_estimate": {
+     "1e-06": 534.3576456637802,
+     "1e-10": 853.2627427729669
+    },
+    "t_measured": {
+     "1e-06": 566,
+     "1e-10": 884
+    },
+    "synth_error_bound": 8e-06,
+    "depth": 67,
+    "depth_ct": 861,
+    "qubits": 23,
+    "gates": {
+     "cx": 54,
+     "h": 30,
+     "t": 28,
+     "tdg": 28,
+     "x": 16,
+     "rz": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.229760974694126e-14,
+    "block_error": 4.189874779752014e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.300424800310707e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2fd5b3d",
+   "summary": "the reference circuit of the spinnet encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": {
+    "status": "certified",
+    "reason": "",
+    "cert_path": "/home/digonto/Projects/su2qc-spinnet/results/spinnet/certs/spinnet-step-o1-b0a415d9322f.json",
+    "seconds": 0.3231344223022461,
+    "checker_sha256": "ec00aa45fafa507a075313dc4650c11bf6d122cd9233588125f61a092f853de5",
+    "theorem_path": null,
+    "axioms": []
+   },
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "spinnet_v2_pairs9",
+   "id": "r00-seed-001",
+   "family": "seed",
+   "program_sha256": "f3f8b93482ca5c6f249a9be90542d36ee8983d89e2c980d29fb0b0b4b2a846b4",
+   "program_path": "compress/programs/spinnet/seed/001-spinnet_v2_pairs9.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    34,
+    832,
+    1597,
+    19
+   ],
+   "cell": [
+    41,
+    77
+   ],
+   "metrics": {
+    "cx": 34,
+    "t_fixed": 24,
+    "n_rot": 13,
+    "t_eps": 832,
+    "t_estimate": {
+     "1e-06": 801.3311742036428,
+     "1e-10": 1319.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 832,
+     "1e-10": 1376
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 39,
+    "depth_ct": 1597,
+    "qubits": 19,
+    "gates": {
+     "cx": 34,
+     "h": 14,
+     "rz": 13,
+     "x": 12,
+     "t": 12,
+     "tdg": 12
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 7.900949426652282e-15,
+    "block_error": 2.610327345595589e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.431873226430496e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2fd5b3d",
+   "summary": "the vendored su2qc-trotter spinnet_v2 pairs9 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": {
+    "status": "certified",
+    "reason": "",
+    "cert_path": "/home/digonto/Projects/su2qc-spinnet/results/spinnet/certs/spinnet-step-o1-066f66922ff8.json",
+    "seconds": 1.299670696258545,
+    "checker_sha256": "ec00aa45fafa507a075313dc4650c11bf6d122cd9233588125f61a092f853de5",
+    "theorem_path": null,
+    "axioms": []
+   },
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "spinnet_v2_flags4",
+   "id": "r00-seed-002",
+   "family": "seed",
+   "program_sha256": "225720f9615bf5034b47b43531b906f23ab3bff63ac7c3b596f397cf74173c1f",
+   "program_path": "compress/programs/spinnet/seed/002-spinnet_v2_flags4.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    44,
+    554,
+    869,
+    19
+   ],
+   "cell": [
+    43,
+    72
+   ],
+   "metrics": {
+    "cx": 44,
+    "t_fixed": 48,
+    "n_rot": 8,
+    "t_eps": 554,
+    "t_estimate": {
+     "1e-06": 526.3576456637802,
+     "1e-10": 845.2627427729669
+    },
+    "t_measured": {
+     "1e-06": 554,
+     "1e-10": 880
+    },
+    "synth_error_bound": 8e-06,
+    "depth": 60,
+    "depth_ct": 869,
+    "qubits": 19,
+    "gates": {
+     "cx": 44,
+     "h": 26,
+     "t": 24,
+     "tdg": 24,
+     "x": 12,
+     "rz": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 9.275834635928058e-15,
+    "block_error": 4.405362329673376e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 6.049187461416408e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2fd5b3d",
+   "summary": "the vendored su2qc-trotter spinnet_v2 flags4 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "spinnet_v2_flags5",
+   "id": "r00-seed-003",
+   "family": "seed",
+   "program_sha256": "b7e46f8434b6b976bd9d1e2b173d1e309e818d6b8f5f653adf09405ef879803c",
+   "program_path": "compress/programs/spinnet/seed/003-spinnet_v2_flags5.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    42,
+    606,
+    1009,
+    19
+   ],
+   "cell": [
+    43,
+    73
+   ],
+   "metrics": {
+    "cx": 42,
+    "t_fixed": 40,
+    "n_rot": 9,
+    "t_eps": 606,
+    "t_estimate": {
+     "1e-06": 578.1523513717527,
+     "1e-10": 936.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 606,
+     "1e-10": 976
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 67,
+    "depth_ct": 1009,
+    "qubits": 19,
+    "gates": {
+     "cx": 42,
+     "h": 22,
+     "t": 20,
+     "tdg": 20,
+     "x": 12,
+     "rz": 9
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 8.785820495268871e-15,
+    "block_error": 3.3786450684056564e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.571892919244074e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2fd5b3d",
+   "summary": "the vendored su2qc-trotter spinnet_v2 flags5 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "spinnet_v2_flags6",
+   "id": "r00-seed-004",
+   "family": "seed",
+   "program_sha256": "ac24220750f7e273f6009c5107c63a5d5e76a7d213253066209adc3f9d951746",
+   "program_path": "compress/programs/spinnet/seed/004-spinnet_v2_flags6.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    36,
+    658,
+    1120,
+    19
+   ],
+   "cell": [
+    41,
+    74
+   ],
+   "metrics": {
+    "cx": 36,
+    "t_fixed": 32,
+    "n_rot": 10,
+    "t_eps": 658,
+    "t_estimate": {
+     "1e-06": 629.9470570797253,
+     "1e-10": 1028.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 658,
+     "1e-10": 1074
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 51,
+    "depth_ct": 1120,
+    "qubits": 19,
+    "gates": {
+     "cx": 36,
+     "h": 18,
+     "t": 16,
+     "tdg": 16,
+     "x": 12,
+     "rz": 10
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 8.02362343522022e-15,
+    "block_error": 2.8894784864687896e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.33167196845001e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2fd5b3d",
+   "summary": "the vendored su2qc-trotter spinnet_v2 flags6 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "general+polish",
+   "id": "r00-seed-010",
+   "family": "seed",
+   "program_sha256": "373ee92523e941d7ec981073da1a0a44b7d7c13a91749688e981772205a1a55f",
+   "program_path": "compress/programs/spinnet/seed/010-general_polish.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    54,
+    566,
+    861,
+    23
+   ],
+   "cell": [
+    46,
+    73
+   ],
+   "metrics": {
+    "cx": 54,
+    "t_fixed": 56,
+    "n_rot": 8,
+    "t_eps": 566,
+    "t_estimate": {
+     "1e-06": 534.3576456637802,
+     "1e-10": 853.2627427729669
+    },
+    "t_measured": {
+     "1e-06": 566,
+     "1e-10": 884
+    },
+    "synth_error_bound": 8e-06,
+    "depth": 67,
+    "depth_ct": 861,
+    "qubits": 23,
+    "gates": {
+     "cx": 54,
+     "h": 30,
+     "t": 28,
+     "tdg": 28,
+     "x": 16,
+     "rz": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.229760974694126e-14,
+    "block_error": 4.189874779752014e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.300424800310707e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2fd5b3d",
+   "summary": "the reference circuit after the deterministic polish passes.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "qiskit_l3",
+   "id": "r00-seed-011",
+   "family": "seed",
+   "program_sha256": "dcf0b5a58c3ba07eda89e0db44b1ea2606197fb9e88c0176d4a1d3f3e9c30d66",
+   "program_path": "compress/programs/spinnet/seed/011-qiskit_l3.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    54,
+    566,
+    861,
+    23
+   ],
+   "cell": [
+    46,
+    73
+   ],
+   "metrics": {
+    "cx": 54,
+    "t_fixed": 56,
+    "n_rot": 8,
+    "t_eps": 566,
+    "t_estimate": {
+     "1e-06": 534.3576456637802,
+     "1e-10": 853.2627427729669
+    },
+    "t_measured": {
+     "1e-06": 566,
+     "1e-10": 884
+    },
+    "synth_error_bound": 8e-06,
+    "depth": 67,
+    "depth_ct": 861,
+    "qubits": 23,
+    "gates": {
+     "cx": 54,
+     "h": 30,
+     "t": 28,
+     "tdg": 28,
+     "x": 16,
+     "rz": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.6701549771183643e-14,
+    "block_error": 4.533952210552293e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.410557748946589e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2fd5b3d",
+   "summary": "Qiskit level-3 transpile (windows of 32) of the reference circuit.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r00-seed-001",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 13,
+  "t_total": 832,
+  "tolerances": {
+   "tol_err": 1.3001e-05,
+   "tol_gauss": 1.3001e-05
+  },
+  "op_norm_error": 5.062300439437067e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 13.110408544540405,
+ "written_utc": "2026-11-06T21:47:19Z",
+ "spinnet": {
+  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "shim": [
+   "build_in_subprocess",
+   "certify",
+   "encoding"
+  ]
+ }
+}

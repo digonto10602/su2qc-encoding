@@ -1,0 +1,149 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 9.275834635928058e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -6.56390518023189e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 6.049187461416408e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.870472306254682e-15,
+  "block_error": 4.405362329673376e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.23096513748168945,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 4.173669343990895e-15,
+   "max_dropped_l2": 1.175023489586562e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 4.405362329673376e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.332588827620326e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -9.02536962281885e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.380216265554773e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.179683877077779e-15,
+   "block_error": 3.1529049505425457e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.23054218292236328,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.142146920006564e-15,
+    "max_dropped_l2": 1.2499095765415523e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.1529049505425457e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.1864688928161264e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    2.0512203688224645e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.270591241535943e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.128936434131972e-15,
+   "block_error": 6.735752494029292e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2426443099975586,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 6.735752494029292e-15,
+    "max_dropped_l2": 1.270384585951526e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 6.693366838179843e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 44,
+  "t_fixed": 48,
+  "n_rot": 8,
+  "t_eps": 554,
+  "t_estimate": {
+   "1e-06": 526.3576456637802,
+   "1e-10": 845.2627427729669
+  },
+  "t_measured": {
+   "1e-06": 554,
+   "1e-10": 880
+  },
+  "synth_error_bound": 8e-06,
+  "depth": 60,
+  "depth_ct": 869,
+  "qubits": 19,
+  "gates": {
+   "cx": 44,
+   "h": 26,
+   "t": 24,
+   "tdg": 24,
+   "x": 12,
+   "rz": 8
+  },
+  "measured": true
+ },
+ "program_sha256": "225720f9615bf5034b47b43531b906f23ab3bff63ac7c3b596f397cf74173c1f",
+ "wall_s": 1.5089433193206787,
+ "discoveries": [],
+ "summary": "the vendored su2qc-trotter spinnet_v2 flags4 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta."
+}

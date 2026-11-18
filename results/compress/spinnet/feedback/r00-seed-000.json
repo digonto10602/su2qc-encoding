@@ -34,14 +34,18 @@
   "dropped_total": 8.107734967189246e-15,
   "block_error": 4.189874779752014e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.21007370948791504,
+  "seconds": 0.5672330856323242,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.229760974694126e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 3.7583399254768075e-15,
    "max_dropped_l2": 2.1627850860448225e-15,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 4.189874779752014e-15
+   "op_norm_error_inner_span": 4.189874779752014e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 8.128105578754451e-15,
    "block_error": 3.303263339929219e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.1984114646911621,
+   "seconds": 0.23752260208129883,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.143136891868367e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 3.303263339929219e-15,
     "max_dropped_l2": 2.392564403561889e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 3.3032633399292164e-15
+    "op_norm_error_inner_span": 3.3032633399292164e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 1.0633295593190855e-14,
    "block_error": 5.136676268768898e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.20100045204162598,
+   "seconds": 0.21024489402770996,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.5769971861959752e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 5.008745006115796e-15,
     "max_dropped_l2": 2.1898644510090967e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 5.136676268768898e-15
+    "op_norm_error_inner_span": 5.136676268768898e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -143,7 +155,7 @@
   "measured": true
  },
  "program_sha256": "b608b9b20a3b3ccd8faac116c1a5ff7ea4405e40649516be04c80800acfd6132",
- "wall_s": 1.3416996002197266,
+ "wall_s": 1.958315372467041,
  "discoveries": [],
  "summary": "the reference circuit of the spinnet encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta."
 }

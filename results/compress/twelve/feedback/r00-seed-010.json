@@ -34,14 +34,18 @@
   "dropped_total": 1.4672962251711322e-13,
   "block_error": 1.220835210546178e-13,
   "leak_amplitude": 0.0,
-  "seconds": 2.6772842407226562,
+  "seconds": 1.1482517719268799,
   "n_inputs": 433,
+  "span_leak": 3.323328106290063e-15,
+  "total_error": 2.721364716780211e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.604674843032669e-14,
    "max_dropped_l2": 7.9137572320129e-15,
    "max_span_leak": 4.440892098500626e-15,
-   "op_norm_error_inner_span": 1.220835210546178e-13
+   "op_norm_error_inner_span": 1.220835210546178e-13,
+   "span_leak_max_state": 3.27525879279149e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 1.4740499617474063e-13,
    "block_error": 1.2206063556905786e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.9195902347564697,
+   "seconds": 1.137946605682373,
    "n_inputs": 433,
+   "span_leak": 3.821202443684289e-15,
+   "total_error": 2.732868341874828e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.643397371898485e-14,
     "max_dropped_l2": 8.040087435806515e-15,
     "max_span_leak": 5.218048215738236e-15,
-    "op_norm_error_inner_span": 1.2206063556905786e-13
+    "op_norm_error_inner_span": 1.2206063556905786e-13,
+    "span_leak_max_state": 3.7866087012428e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 1.4481267374071162e-13,
    "block_error": 1.2214732751510832e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.787402629852295,
+   "seconds": 1.159771203994751,
    "n_inputs": 433,
+   "span_leak": 5.3693272840687e-15,
+   "total_error": 2.723293285398886e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8365160964400214e-14,
     "max_dropped_l2": 8.211722188123053e-15,
     "max_span_leak": 7.66053886991358e-15,
-    "op_norm_error_inner_span": 1.2214732751510832e-13
+    "op_norm_error_inner_span": 1.2214732751510832e-13,
+    "span_leak_max_state": 5.35664687706843e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "e2037b877d3f0072188c96b3592f4ad5f413ba378d66ab19198e6cb832bf3b8e",
- "wall_s": 9.810966968536377,
+ "wall_s": 3.8620095252990723,
  "discoveries": [],
  "summary": "the reference circuit after the deterministic polish passes."
 }

@@ -72,14 +72,18 @@
   "dropped_total": 7.044063824137897e-14,
   "block_error": 1.4412836492549233e-14,
   "leak_amplitude": 0.0,
-  "seconds": 1.823352575302124,
+  "seconds": 0.7903504371643066,
   "n_inputs": 433,
+  "span_leak": 3.088990031096958e-15,
+  "total_error": 8.794246476502515e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.4412836492549233e-14,
    "max_dropped_l2": 4.113646368820543e-15,
    "max_span_leak": 4.884981308350689e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.0295194748877385e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 7.032182932482783e-14,
    "block_error": 1.505673730964281e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8391830921173096,
+   "seconds": 0.788602352142334,
    "n_inputs": 433,
+   "span_leak": 3.857489395723452e-15,
+   "total_error": 8.92360560301941e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.505673730964281e-14,
     "max_dropped_l2": 4.159848627506143e-15,
     "max_span_leak": 6.5503158452884236e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.752781804237082e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 6.930475805031215e-14,
    "block_error": 1.7851488975771236e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.829766035079956,
+   "seconds": 0.7882976531982422,
    "n_inputs": 433,
+   "span_leak": 5.657919921553223e-15,
+   "total_error": 9.281416694763662e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7851488975771236e-14,
     "max_dropped_l2": 3.895912820422542e-15,
     "max_span_leak": 7.66053886991358e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.645700674911245e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: Both pair ANDs in-walk (cycle 0, t, pa t, pa z t, pa pb z t, pa pb t, pb t, pb z t, z with pa and pb toggled twice each) costs 6 linear + 4 rccx = 18 CX but leaves the cubic residual (-1)^(b0 b2 (b1 ^ b3)) (8-CX fix rccx(b0, b2) + 2 CZ + rccx), 26 CX against 15 + 6 for one stored pair AND."
  ],
  "summary": "r03-F3-003 (5-CX clean corner frame, in-place bright flags, 9-term Walsh rotation of F=j_r over (pa, pb, z, t2)) with the pair AND pa = b0 & b1 never stored: in the 10-toggle Gray cycle pa toggles exactly twice, both toggles are rccx(b0, b1, F) and the straddled Margolus residual (-1)^(b0 pb) is cancelled by one CZ (walk 15 CX, storage -6): CX 111.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "3f90240",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +188,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 6.760688781738281,
- "written_utc": "2026-11-06T15:36:10Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 2.766268730163574,
+ "written_utc": "2026-11-18T03:03:38Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.3e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

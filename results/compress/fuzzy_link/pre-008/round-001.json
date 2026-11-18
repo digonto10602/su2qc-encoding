@@ -1,0 +1,125 @@
+{
+ "round": 1,
+ "n_valid": 1,
+ "n_invalid": 0,
+ "best_key": [
+  13,
+  644,
+  1161,
+  4
+ ],
+ "entries": [
+  "r01-F1-001"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "fuzzy_link",
+ "kind": "UE",
+ "provenance": {
+  "git_commit": "2e7b07d",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "cpu_count": 48,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T19:59:43Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "fc43837d40f618f4f5b76afb67a12831100928d86da03a1c5d8e22029cee97d9",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "001-bell_parity_net13",
+   "id": "r01-F1-001",
+   "family": "F1",
+   "program_sha256": "f66fd973fddb2cd10bb7dbc1d51e649c21f612fb63543cdc83f4481a4ebe3a5d",
+   "program_path": "compress/programs/fuzzy_link/F1/001-bell_parity_net13.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    13,
+    644,
+    1161,
+    4
+   ],
+   "cell": [
+    30,
+    74
+   ],
+   "metrics": {
+    "cx": 13,
+    "t_fixed": 0,
+    "n_rot": 10,
+    "t_eps": 644,
+    "t_estimate": {
+     "1e-06": 597.9470570797253,
+     "1e-10": 996.5784284662087
+    },
+    "t_measured": {
+     "1e-06": 644,
+     "1e-10": 1028
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 17,
+    "depth_ct": 1161,
+    "qubits": 4,
+    "gates": {
+     "cx": 13,
+     "rz": 10,
+     "h": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 3.426528209993377e-15,
+    "block_error": 2.942692799591076e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "2e7b07d",
+   "summary": "pair-Bell frame cx(q1,q3) cx(q2,q4) h(q1) h(q2) (2 CX each side) around a BFS-optimal 9-CX I->I parity network carrying the 10 Z-string phases as rz(-alpha/4) (6 K1 strings) and rz(-2 kappa2) (4 K2 strings); 13 CX, 10 rotations.",
+   "lean": {
+    "status": "n_a",
+    "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+   },
+   "round": 1,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r01-F1-001",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 10,
+  "t_total": 644,
+  "tolerances": {
+   "tol_err": 1.0001e-05,
+   "tol_gauss": 1.0001e-05
+  },
+  "op_norm_error": 3.1645148146582286e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 1.1728312969207764,
+ "written_utc": "2026-11-06T19:59:43Z"
+}

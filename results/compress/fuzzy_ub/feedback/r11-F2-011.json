@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 2.640616687683982e-14,
   "block_error": 1.7821677466737596e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.03892159461975098,
+  "seconds": 0.03747200965881348,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 4.422784434357741e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.7821677466737596e-14,
    "max_dropped_l2": 2.575412268235174e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.7751747943140096e-14
+   "op_norm_error_inner_span": 1.7751747943140096e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.1449420312915855e-14,
    "block_error": 9.849780443331721e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.037839651107788086,
+   "seconds": 0.03726983070373535,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.1299200756247573e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 9.849780443331721e-15,
     "max_dropped_l2": 2.4658678482956632e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 9.799743479429184e-15
+    "op_norm_error_inner_span": 9.799743479429184e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 2.5095126000383903e-14,
    "block_error": 1.7345373356546398e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.03855586051940918,
+   "seconds": 0.03842735290527344,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.24404993569303e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7345373356546398e-14,
     "max_dropped_l2": 2.6147894434681127e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.7304692937045158e-14
+    "op_norm_error_inner_span": 1.7304692937045158e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "59d126950e3a3336e840897e5d9a189662253c7959a4f1ec4d0c2a0a50810940",
- "wall_s": 0.4692721366882324,
+ "wall_s": 0.4447300434112549,
  "discoveries": [
   "DISCOVERY: one rccx that reads a raw q1 wire converts an f-dependent Fredkin control c = f&~g into the invariant l&~g (l = p_k, the f parts cancel) at the same 3 CX as its uncompute and without reading f; for this datapath the reachable invariants are p_r~g = r(t|l), p_l~g, their negations, p_t and ~p_t~g, none of which shortens k0 = [p=3] below 4 Walsh terms, but p_r~g ^ p_r p_l = [p=3] exactly, so one extra AND pair (6 CX, 8 T) buys 2 rotations (9 -> 7, about -126 T) and 7 is the floor of the W/V-Walsh form (k0, k1, k2 vanish on some sectors so each needs >= 2 terms, k3 = chi_rtl needs 1).",
   "DISCOVERY: negative: in the 7-term datapath the w23 toggles cannot be fused outside the window (with one inner toggle the f content can hold h without V or V without h but not both), the open-walk Dijkstra over all 64 seven-term supports and every W/V target wire (p_r, p_t, p_l, g, a, fresh line) gives 9 CX at best (only W on p_r with V on a or on a fresh line), and moving the first w01 toggle outside the window before cx(f -> p_r) (free end p_r^w01) does not shorten the 9-term parent walk below 9 either; a Feynman path-sum phase-folding pass (Z_8 kernel of the phase map on all 131 parities present in the parent) finds no T merge in the parent's 72 fixed T.",

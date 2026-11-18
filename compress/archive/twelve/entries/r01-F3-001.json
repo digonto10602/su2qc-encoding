@@ -72,14 +72,18 @@
   "dropped_total": 6.5540181522531e-14,
   "block_error": 1.2117774951184225e-13,
   "leak_amplitude": 0.0,
-  "seconds": 6.355713129043579,
+  "seconds": 1.077617883682251,
   "n_inputs": 433,
+  "span_leak": 3.1489619036643325e-15,
+  "total_error": 1.8986689293803756e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.0307912451902738e-14,
    "max_dropped_l2": 3.807355778183506e-15,
    "max_span_leak": 2.6645352591003757e-15,
-   "op_norm_error_inner_span": 1.2117774951184225e-13
+   "op_norm_error_inner_span": 1.2117774951184225e-13,
+   "span_leak_max_state": 3.0873209038118063e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 6.699217918373962e-14,
    "block_error": 1.2122344344875003e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.1353495121002197,
+   "seconds": 1.072385311126709,
    "n_inputs": 433,
+   "span_leak": 3.108447465801673e-15,
+   "total_error": 1.9132407009829134e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.071295050818762e-14,
     "max_dropped_l2": 3.986809094366668e-15,
     "max_span_leak": 2.4424906541753444e-15,
-    "op_norm_error_inner_span": 1.2122344344875003e-13
+    "op_norm_error_inner_span": 1.2122344344875003e-13,
+    "span_leak_max_state": 3.0349259531973705e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 6.921379858572667e-14,
    "block_error": 1.2113339387482607e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.140639305114746,
+   "seconds": 1.0745446681976318,
    "n_inputs": 433,
+   "span_leak": 4.553775621640598e-15,
+   "total_error": 1.9490096808219333e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.1639421096233195e-14,
     "max_dropped_l2": 4.3757632572676305e-15,
     "max_span_leak": 5.995204332975845e-15,
-    "op_norm_error_inner_span": 1.2113339387482607e-13
+    "op_norm_error_inner_span": 1.2113339387482607e-13,
+    "span_leak_max_state": 4.530475303700553e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: Outer reads do not pay here: t_c from the j-fold is cheaper than eA^eB, and every dark flag needs inner Bell structure plus j (E-par dark legs equal the vacuum legs), so no flag can be precomputed once; in the 3-CX partner frames (cx, ch, ch(t)) no single-AND dark flag exists (exhaustive check)."
  ],
  "summary": "per-corner 10-CX gadget (two Margolus + CX + 2 CH, partner map X on one leg, dark flag left in a corner ancilla), 5-CX fold that exposes the corner types t_c as qubits, 4-input AND of the bright flags, 12-term Walsh multiplexed Rx on j_b (CX 132).",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "84a20af",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +188,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 11.897056341171265,
- "written_utc": "2026-11-06T10:40:41Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 3.725764036178589,
+ "written_utc": "2026-11-18T03:03:19Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.6e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

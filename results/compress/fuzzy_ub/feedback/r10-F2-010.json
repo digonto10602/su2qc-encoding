@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 3.888005249463372e-14,
   "block_error": 1.859461995309952e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.03760528564453125,
+  "seconds": 0.03686118125915527,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.747467244773324e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.859461995309952e-14,
    "max_dropped_l2": 4.274599498549082e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.8561555352051207e-14
+   "op_norm_error_inner_span": 1.8561555352051207e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.872765337811096e-14,
    "block_error": 9.738855722943018e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.03663492202758789,
+   "seconds": 0.03666114807128906,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.846650910105398e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 9.738855722943018e-15,
     "max_dropped_l2": 2.9771822258781982e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 9.702785790943816e-15
+    "op_norm_error_inner_span": 9.702785790943816e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 4.712814466463113e-14,
    "block_error": 1.7575665178368592e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.0355837345123291,
+   "seconds": 0.03637957572937012,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.470380984299972e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7575665178368592e-14,
     "max_dropped_l2": 6.73175109539329e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.748728394856464e-14
+    "op_norm_error_inner_span": 1.748728394856464e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "e20609d0f3b93212a4b1d9c0e449663de05fd605dbcdb94742acb98f17e5d95a",
- "wall_s": 0.4542856216430664,
+ "wall_s": 0.454517126083374,
  "discoveries": [
   "DISCOVERY: the F3-009 middle (w01 on the p_r wire, w23 fused onto a) and the F2-009 leg (short-window Fredkins, plain Bell decoders, un-negated w ANDs) compose without any change of either: both Walsh supports have the identical (sign, magnitude) multiset of the 9 rotation angles (+-beta, +-2 beta, -4 beta in the same counts), so the gridsynth word lengths are equal and the parent's depth carries over while the third ancilla disappears (83, 638, 1521, 10).",
   "DISCOVERY: a pending Z(f) left by the even (k = 2) angle shifts need not close the walk: Z S^k = S^(k+2) on f, so any later odd-k term absorbs it into its own phase gate at no cost (Z's pushed through the walk CX's still land on idle control wires), which removes the closing Z(f) from the critical path (-1 depth_CT) whenever an odd-k term follows the last even one.",

@@ -71,14 +71,18 @@
   "dropped_total": 3.451762165598766e-15,
   "block_error": 2.1547202288021332e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.7348306179046631,
+  "seconds": 0.2002255916595459,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 5.606482394400899e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.942097114741684e-15,
    "max_dropped_l2": 1.0623048348855275e-15,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.1547202288021332e-15
+   "op_norm_error_inner_span": 2.1547202288021332e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -106,14 +110,18 @@
    "dropped_total": 3.25289241754079e-15,
    "block_error": 1.782882984290922e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.2542116641998291,
+   "seconds": 0.20464372634887695,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.035775401831711e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7777269989116176e-15,
     "max_dropped_l2": 8.240916930022345e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.782882984290922e-15
+    "op_norm_error_inner_span": 1.782882984290922e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -140,14 +148,18 @@
    "dropped_total": 3.2122038878233814e-15,
    "block_error": 2.6028089230671507e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.2636756896972656,
+   "seconds": 0.19880390167236328,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.815012810890532e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.4658139631774925e-15,
     "max_dropped_l2": 7.821983421919843e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.6028089230671507e-15
+    "op_norm_error_inner_span": 2.6028089230671507e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -158,9 +170,9 @@
   "DISCOVERY: NOR3(c1,c2,c3) as a direct AND of [c3=0] and the ancilla N12 plus the raw corner c0 gives 9-term walks of cost 13 (7 linear toggles + 2 rccx), the same count as the A+a1+a2 design of r01-F1-001, but every such walk encloses dS in {c0, A, c0^e, A^e}, all quadratic against the first control, so 32 CX is the floor of this design."
  ],
  "summary": "three-AND F1 variant with a chained direct flag: dimer frame (pivot b), clean ancillas N12=[c1=c2=0] and A=[u=v=0], and D=[c3=0]&N12 (NOR3 of c1,c2,c3) toggled straight onto the pivot by an rccx pair; the raw corner c0 completes the bright projector, so the walk A D A c0 A D e A c0 (start p, end p^e fused into the inverse ladder) carries a 9-term polynomial (angles k*beta/8) and one CZ(c3bar, c0) removes the pair's leftover sign (-1)^(c3bar*c0); 32 CX, 9+4 rotations, 18 qubits (no robust gain: CX 32 > 31).",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
- "git_commit": "9145258",
+ "git_commit": "02c499d",
  "versions": {
   "python": "3.12.16",
   "numpy": "2.5.4",
@@ -176,13 +188,14 @@
   "gridsynth": 0
  },
  "machine": "omnicommander x86_64 cpus=20",
- "wall_s": 2.2093985080718994,
- "written_utc": "2026-11-10T21:12:38Z",
+ "wall_s": 1.1118202209472656,
+ "written_utc": "2026-11-18T02:21:17Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.3e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c"
 }

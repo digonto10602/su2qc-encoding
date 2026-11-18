@@ -1,0 +1,259 @@
+{
+ "round": 13,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  83,
+  638,
+  1517,
+  10
+ ],
+ "entries": [
+  "r13-F1-013",
+  "r13-F2-013",
+  "r13-F3-013"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "fuzzy_ub",
+ "kind": "UB",
+ "provenance": {
+  "git_commit": "d4b38bf",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-14T04:28:37Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "013-reflection-uniqueness-tie",
+   "id": "r13-F1-013",
+   "family": "F1",
+   "program_sha256": "533150b7a770a170ace95a6e3d589e81de53920be5e2073d817d18c81d7f1c6a",
+   "program_path": "compress/programs/fuzzy_ub/F1/013-reflection-uniqueness-tie.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    83,
+    638,
+    1517,
+    10
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 83,
+    "t_fixed": 72,
+    "n_rot": 9,
+    "t_eps": 638,
+    "t_estimate": {
+     "1e-06": 610.1523513717527,
+     "1e-10": 968.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 638,
+     "1e-10": 1008
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 116,
+    "depth_ct": 1517,
+    "qubits": 10,
+    "gates": {
+     "cx": 83,
+     "h": 50,
+     "tdg": 36,
+     "t": 36,
+     "sdg": 13,
+     "s": 12,
+     "rz": 9,
+     "x": 8,
+     "z": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.688131998904023e-14,
+    "block_error": 1.853338310697289e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r12-F1-012",
+   "parent_known": true,
+   "git_commit": "d4b38bf",
+   "summary": "tie resubmission of the r12-F1-012 circuit (83, 638, 1517, 10; parity frame, L: 0 -> ~p_t&~s_r -> g, a = f&~g, Bell(02)(13) decoder, CCZ(L, P13) and CCZ(a, P02) phase blocks, 4-CX recoupling, w23 fused onto a, w01 on the p_r wire, 9-term 9-CX R_x walk), recorded after a round-13 search of a genuinely wider leg family found no strict gain: every leg made of two controlled reflections 1 - 2Q about arbitrary rank-4 stabilizer projectors Q (= a CCZ in any 4-qubit Clifford frame, any Clifford before / between / after, any per-branch control none / f=0 / f=1 / both in each parity sector, so the don't-care freedom on the zero-coupling (kernel) states of every sector is included) was tested exhaustively, and the only pair that makes all eight sector maps Hermitian and mutually commuting is the singlet pair {P13, P02} of the parent, i.e. the Fredkins F13, F02; the CX / T / depth floors of this unique routing were rechecked and no gate, angle or shift choice of the parent is changed.",
+   "lean": null,
+   "round": 13,
+   "mode": "full"
+  },
+  {
+   "label": "013-partial-recoupling-parity-and",
+   "id": "r13-F2-013",
+   "family": "F2",
+   "program_sha256": "8e4db9ef27121d18d63fc1e5d5cf75fc3eb012b0bd59bec5d8f01d4fd3f27e8c",
+   "program_path": "compress/programs/fuzzy_ub/F2/013-partial-recoupling-parity-and.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    83,
+    638,
+    1517,
+    10
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 83,
+    "t_fixed": 72,
+    "n_rot": 9,
+    "t_eps": 638,
+    "t_estimate": {
+     "1e-06": 610.1523513717527,
+     "1e-10": 968.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 638,
+     "1e-10": 1008
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 126,
+    "depth_ct": 1517,
+    "qubits": 10,
+    "gates": {
+     "cx": 83,
+     "h": 54,
+     "tdg": 36,
+     "t": 36,
+     "sdg": 19,
+     "s": 18,
+     "rz": 9,
+     "x": 8,
+     "z": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.703174341341515e-14,
+    "block_error": 1.8561777610890812e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r12-F1-012",
+   "parent_known": true,
+   "git_commit": "d4b38bf",
+   "summary": "r12-F1-012 datapath unchanged except the recoupling after the two CCZ blocks (parity frame; L: 0 -> ~p_t&~s_r -> g; a = f&~g; Bell(02)(13) decoder E1, CCZ(L, P13), CCZ(a, P02) with fused in-pair CX; w23 fused onto a, w01 toggled onto the p_r wire; 9-term 9-CX R_x walk, same per-class k pi/2 shifts, no new angle tuning): the 4-CX recoupling E2 is replaced by a 2-CX partial recoupling E2' (two generalised CX on the disjoint wire pairs (0,1), (2,3), control basis X, target basis Y, found by Pauli tracking of the four singlet stabilizers), after which each singlet projector is an AND of one wire bit and a two-wire parity; both singlet toggles become 4-CX rccx words whose once-used control is that parity (one CX per wire, negations as T <-> Tdg swaps), chosen and checked at emission time against the Fredkin frame; E2' saves 2 x 2 CX, the four parity toggles cost 4 x 1 CX more: (83, 638, 1517, 10), a tie with r12-F1-012 (does not beat it).",
+   "lean": null,
+   "round": 13,
+   "mode": "full"
+  },
+  {
+   "label": "013-ccz-frame-h-line-seven-rot",
+   "id": "r13-F3-013",
+   "family": "F3",
+   "program_sha256": "bcf9e869a1de112ce8629620511e30d625f36f9248f0a1e1c4c3cca1e8f90cff",
+   "program_path": "compress/programs/fuzzy_ub/F3/013-ccz-frame-h-line-seven-rot.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    89,
+    514,
+    1242,
+    10
+   ],
+   "cell": [
+    51,
+    72
+   ],
+   "metrics": {
+    "cx": 89,
+    "t_fixed": 80,
+    "n_rot": 7,
+    "t_eps": 514,
+    "t_estimate": {
+     "1e-06": 498.5629399558077,
+     "1e-10": 777.6048999263461
+    },
+    "t_measured": {
+     "1e-06": 514,
+     "1e-10": 808
+    },
+    "synth_error_bound": 7e-06,
+    "depth": 146,
+    "depth_ct": 1242,
+    "qubits": 10,
+    "gates": {
+     "cx": 89,
+     "h": 54,
+     "tdg": 40,
+     "t": 40,
+     "sdg": 13,
+     "s": 10,
+     "x": 8,
+     "rz": 7,
+     "z": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 4.368019881817178e-14,
+    "block_error": 1.791951239136746e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r11-F2-011",
+   "parent_known": true,
+   "git_commit": "d4b38bf",
+   "summary": "no construction beats (83, 638, 1517, 10) (CX and T floors of the two-line family re-derived below), so this is a T-lean Pareto point: the r11-F2-011 seven-rotation datapath (parity frame; L: 0 -> ~p_t&~s_r -> g; a: 0 -> c1 = f&~g -> p_r&~g (rccx with the raw s_r wire) -> h = [p=3]; w01 toggled onto p_r and w23 onto a inside the H(f) window; 7-term 9-CX R_x walk, archived per-class k pi/2 shifts, no new angle choices) on the r12-F1-012 diagonal q2 frame (Bell(02)(13) decoder E1, the two Fredkins as CCZ(L, P13), CCZ(a, P02) fused with one in-pair CX, 4-CX recoupling E2 to AND-decoded (01)/(23) pairs, Z fixes as phase flips on fresh rccx targets); cx(f -> p_r) moves after the a conversion; (89, 514, 1246 -> 1242, 10).",
+   "lean": null,
+   "round": 13,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": null,
+ "wall_s": 3.3698222637176514,
+ "written_utc": "2026-11-14T04:28:37Z"
+}

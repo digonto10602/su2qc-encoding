@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,30 +34,34 @@
   "dropped_total": 4.83835410402301e-16,
   "block_error": 2.942692799591076e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.004002809524536133,
+  "seconds": 0.0013403892517089844,
   "n_inputs": 16,
+  "span_leak": 0.0,
+  "total_error": 3.426528209993377e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.942692799591076e-15,
    "max_dropped_l2": 1.8482738512810336e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.942692799591076e-15
+   "op_norm_error_inner_span": 2.942692799591076e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 2.2282940079345036e-15,
+   "op_norm_error": 2.312291881172497e-15,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
-    0.7759983079148827,
-    0.630734988813241
+    0.7759983079148824,
+    0.6307349888132409
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -67,16 +71,20 @@
     "tol_gauss": 1e-10
    },
    "dropped_total": 6.798699777552591e-17,
-   "block_error": 2.160307010158978e-15,
+   "block_error": 2.2443048833969712e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.0016112327575683594,
+   "seconds": 0.0010557174682617188,
    "n_inputs": 16,
+   "span_leak": 0.0,
+   "total_error": 2.312291881172497e-15,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 2.0713208380380096e-15,
+    "op_norm_error_physical": 2.2443048833969712e-15,
     "max_dropped_l2": 2.7755575615628914e-17,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.160307010158978e-15
+    "op_norm_error_inner_span": 2.0735926563500543e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 2.451306065445149e-16,
    "block_error": 4.246278601838092e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.0015838146209716797,
+   "seconds": 0.0010123252868652344,
    "n_inputs": 16,
+   "span_leak": 0.0,
+   "total_error": 4.491409208382607e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 4.246278601838092e-15,
     "max_dropped_l2": 8.777083671441753e-17,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 4.031478201218916e-15
+    "op_norm_error_inner_span": 4.031478201218916e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -140,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "f66fd973fddb2cd10bb7dbc1d51e649c21f612fb63543cdc83f4481a4ebe3a5d",
- "wall_s": 0.5303432941436768,
+ "wall_s": 0.361447811126709,
  "discoveries": [
   "DISCOVERY: in the frame (qubit bits b0..b3 after cx(3,1) cx(2,0) h(3) h(2)) H = const - alpha/8 * sum Z_s over s in {0001,0011,0100,0101,0110,0111} - kappa2 * sum Z_s over s in {1000,1011,1110,1111}; signs are constant, so every angle is -alpha/4 or -2 kappa2.",
   "DISCOVERY: the 9-CX network cx(0,1) cx(0,2) cx(3,1) cx(2,1) cx(0,1) cx(0,2) cx(3,1) cx(0,1) cx(2,1) returns to identity and visits all 7 weight>1 parities (BFS over GL(4,2) x coverage, minimum)."

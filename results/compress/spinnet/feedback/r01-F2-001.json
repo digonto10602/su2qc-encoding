@@ -13,16 +13,16 @@
  "verdict": {
   "ok": true,
   "reason": "ok",
-  "op_norm_error": 5.241471394173516e-15,
+  "op_norm_error": 6.050380517457076e-15,
   "max_leak": 0.0,
   "dirty_ancilla": 0.0,
   "phase": [
-   0.9999999999999999,
-   9.845857770347823e-17
+   1.0,
+   1.312781036046377e-16
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 5.374844106186573e-16,
+  "gauss_residual": 5.907440274120147e-16,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -31,29 +31,33 @@
    "tol_err": 1e-10,
    "tol_gauss": 1e-10
   },
-  "dropped_total": 3.4221819078834396e-15,
-  "block_error": 1.819289486290076e-15,
+  "dropped_total": 3.4333782144225823e-15,
+  "block_error": 2.617002303034494e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.1920621395111084,
+  "seconds": 0.21599388122558594,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 6.050380517457076e-15,
   "failing_inputs": [],
   "extra": {
-   "op_norm_error_physical": 1.59577122823846e-15,
-   "max_dropped_l2": 1.5242126695146808e-15,
+   "op_norm_error_physical": 2.248895068947039e-15,
+   "max_dropped_l2": 1.228258229939738e-15,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 1.819289486290076e-15
+   "op_norm_error_inner_span": 2.617002303034494e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 4.689378856634272e-15,
+   "op_norm_error": 4.410934556896065e-15,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
     1.0,
-    4.9229288851739076e-17
+    1.64097629505797e-17
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
@@ -66,28 +70,32 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 3.126170644834409e-15,
-   "block_error": 1.5632082117998628e-15,
+   "dropped_total": 2.9297122938153558e-15,
+   "block_error": 1.4812222630807097e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.19518756866455078,
+   "seconds": 0.22066020965576172,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 4.410934556896065e-15,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.5632082117998628e-15,
-    "max_dropped_l2": 1.0153526484752712e-15,
+    "op_norm_error_physical": 1.4812222630807097e-15,
+    "max_dropped_l2": 8.629684624880418e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.5632082117998628e-15
+    "op_norm_error_inner_span": 1.4812222630807097e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 6.819052510073948e-15,
+   "op_norm_error": 6.896987225045784e-15,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
     1.0,
-    -2.4614644425869535e-17
+    -7.384393327760863e-17
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
@@ -100,17 +108,21 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 5.021418637649015e-15,
-   "block_error": 1.797633872424932e-15,
+   "dropped_total": 3.823837740916352e-15,
+   "block_error": 3.0731494841294324e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.18648481369018555,
+   "seconds": 0.22174429893493652,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 6.896987225045784e-15,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.4685865963399703e-15,
-    "max_dropped_l2": 2.1496713729204623e-15,
+    "op_norm_error_physical": 3.0731494841294324e-15,
+    "max_dropped_l2": 1.3433242853438719e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.797633872424932e-15
+    "op_norm_error_inner_span": 2.9121545856351436e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "abd364243c897b28c2ff4f4d07494bccdc7243f3b4dace235f8a2b824c9d6959",
- "wall_s": 1.2612981796264648,
+ "wall_s": 1.2659218311309814,
  "discoveries": [
   "DISCOVERY: CX(b->r); H(b); CX(r->b) is a 1-CX Clifford, so a pivot walk that starts or ends with the e-step saves 1 CX per fused end; with the A flag alone, exhaustive IDA* over the 624 minimal 16-term corner sets (<= 5 relabel CX among c0..c3,A,e) shows the walk costs >= 21 CX after fusion, i.e. >= 33 CX in total; annealing over non-minimal term sets also stops at 21 (18-19 terms).",
   "DISCOVERY: Every minimal 16-term solution over (c,A,e) has rotation +-beta/4 per corner subset T and decoration g_A = NOT 1_H(T), g_e = 1_H xor 1_K, where H, K are 4-sets of corner subsets balanced on the dark zero sets {c0,c1,c2,c3,c0c1,c1c2} resp. {c0,c2,c3,c2c3,c0c3} with |H & K| = 1; H can never be a face of the corner 4-cube, so every Gray walk pays about 6 decoration toggles.",

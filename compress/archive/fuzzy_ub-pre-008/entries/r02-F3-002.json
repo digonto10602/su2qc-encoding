@@ -1,0 +1,188 @@
+{
+ "id": "r02-F3-002",
+ "program_path": "compress/programs/fuzzy_ub/F3/002-fredkin7-dp-onehot-phasepoly.py",
+ "program_sha256": "411f909ae8fa96b34983ecb46b7bd130849339c2bf797baf975d34e456b045e5",
+ "parent": "r01-F3-001",
+ "family": "F3",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  192,
+  3820,
+  9543,
+  16
+ ],
+ "cell": [
+  60,
+  95
+ ],
+ "metrics_raw": {
+  "cx": 192,
+  "t_fixed": 128,
+  "n_rot": 58,
+  "t_eps": 3820,
+  "t_estimate": {
+   "1e-06": 3596.0929310624065,
+   "1e-10": 5908.154885104011
+  },
+  "t_measured": {
+   "1e-06": 3820,
+   "1e-10": 6160
+  },
+  "synth_error_bound": 5.8e-05,
+  "depth": 272,
+  "depth_ct": 9543,
+  "qubits": 16,
+  "gates": {
+   "cx": 192,
+   "h": 128,
+   "t": 76,
+   "rz": 58,
+   "tdg": 52,
+   "s": 32,
+   "z": 16,
+   "sdg": 8,
+   "x": 2
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.8151084246004e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -8.584133235863727e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.859591689093262e-14,
+  "block_error": 1.955516735507139e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.08457422256469727,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.955516735507139e-14,
+   "max_dropped_l2": 3.5502221762444028e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.955516735507139e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.4219115335787224e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -8.722384507613463e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.756452593965508e-14,
+   "block_error": 1.6654589396132146e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.08071637153625488,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.6654589396132146e-14,
+    "max_dropped_l2": 3.4921029035760725e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.6654589396132146e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.911543482790092e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -8.533999751457217e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.966237372772037e-14,
+   "block_error": 1.9453061100180557e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.08104133605957031,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.9453061100180557e-14,
+    "max_dropped_l2": 3.703091075999669e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.9453061100180557e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: no global routing exists for fuzzy_ub with <=4 controlled q2 swaps even when controls may be any GF(2)-linear function of (f, p_r, p_t, p_l) and uncontrolled relabels are free (exhaustive BFS over 12.7M distinct routings); the condition per sector is only on the relative element g0^-1 g1, whose allowed set R_p has 2 elements (8 for p3, 1 for p6).",
+  "DISCOVERY: a Fredkin costs 7 CX (Clifford+T, 9 T) rather than the 8 of cx+ccx+cx; it applies to every f-controlled q2 swap of the routing families."
+ ],
+ "summary": "F1 layout (parity frame, 8 f-controlled Fredkins DP-ordered over sectors, Bell decode, persistent sector one-hot, Gray-code C^3-R_x middles) with each Fredkin emitted as a 7-CX Clifford+T circuit instead of cx+ccx+cx (8 CX); 192 CX.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "f5df3ea",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "prudence x86_64 cpus=48",
+ "wall_s": 0.9236776828765869,
+ "written_utc": "2026-11-06T20:29:21Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 5.8e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

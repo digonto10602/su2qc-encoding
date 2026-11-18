@@ -34,14 +34,18 @@
   "dropped_total": 6.723229022608866e-14,
   "block_error": 1.432068726020829e-14,
   "leak_amplitude": 0.0,
-  "seconds": 1.8122303485870361,
+  "seconds": 0.7941756248474121,
   "n_inputs": 433,
+  "span_leak": 3.2220952855641236e-15,
+  "total_error": 8.477507277186106e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.432068726020829e-14,
    "max_dropped_l2": 4.070535600332602e-15,
    "max_span_leak": 4.9960036108132044e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.17299884014881e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 6.6451306302505e-14,
    "block_error": 1.4748679797211605e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8009006977081299,
+   "seconds": 0.7917249202728271,
    "n_inputs": 433,
+   "span_leak": 3.969558051370478e-15,
+   "total_error": 8.516954415108708e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.4748679797211605e-14,
     "max_dropped_l2": 4.029875929091219e-15,
     "max_span_leak": 6.5503158452884236e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.882804372346422e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 6.655995119963762e-14,
    "block_error": 1.795469286521445e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8008646965026855,
+   "seconds": 0.7927689552307129,
    "n_inputs": 433,
+   "span_leak": 5.753805630294589e-15,
+   "total_error": 9.026844969514666e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.795469286521445e-14,
     "max_dropped_l2": 4.1255695350257064e-15,
     "max_span_leak": 7.882583474838611e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.742174908713461e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "785913dba07d46b217f49906c748026b592867cb0a9c9812ab6e240b25d6daae",
- "wall_s": 6.7033045291900635,
+ "wall_s": 2.7823545932769775,
  "discoveries": [
   "DISCOVERY: Fused corner gadget search (frame + in-place flag as one circuit on the legs and the type register, raw j_A/j_B as controls, free U3 layers, local states from the r04 reference): none of the 21870 seven-CX skeletons with one j-controlled CX reaches zero residual (floor 0.028), and none of 17280 eight-CX NOT-corner skeletons with one j_A and one j_B CX does (floor 0.008); a NOT corner cannot use a single j-controlled gate at all because its diff partner relation |01> -> -|00>, |00> -> |10> is not an involution, so 8 CX (normal) and 9 CX (NOT) per corner stay.",
   "DISCOVERY: Dropping the stored pair AND pb: over the 30 choices of (in-walk pair, type bit, per-corner sign convention) that determine kappa (163 of 192 checked), kappa*g has minimum Walsh support 12 (the free points come from b_c >= t_c and the opposite-diff Gauss rule) and the cheapest closed walk is 20 CX after one register CX pair (22) or 24 without, against 15 + 6 with a stored pb; a Margolus residual (-1)^(b2 X) costs nothing when X = t2 because diff corners are always bright.",

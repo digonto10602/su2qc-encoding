@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 3.0742555991994385e-14,
   "block_error": 1.9366567630431417e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.04485487937927246,
+  "seconds": 0.047338247299194336,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.01091236224258e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.9366567630431417e-14,
    "max_dropped_l2": 2.8065844921960234e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.9366567630431417e-14
+   "op_norm_error_inner_span": 1.9366567630431417e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 3.126607129343625e-14,
    "block_error": 1.3909436452867659e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.045223236083984375,
+   "seconds": 0.04665994644165039,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.517550774630391e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.3909436452867659e-14,
     "max_dropped_l2": 2.8894222360962555e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.3850947912647323e-14
+    "op_norm_error_inner_span": 1.3850947912647323e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 3.092599396816402e-14,
    "block_error": 1.895470506692044e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04417252540588379,
+   "seconds": 0.04666876792907715,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.988069903508446e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.895470506692044e-14,
     "max_dropped_l2": 3.176303382049364e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.8875664471296228e-14
+    "op_norm_error_inner_span": 1.8875664471296228e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "667447670fb12600ee75f2ed4c99ba2c5cd687c218212a10232a1f008d9db41f",
- "wall_s": 0.7928738594055176,
+ "wall_s": 0.8137321472167969,
  "discoveries": [
   "DISCOVERY: every parity sector also accepts 2 \"relaxed\" frames where P(rho) D_p = c Pi_S(pair) (1 - 2 Pi_S(other pair)); with them the t=1 sectors 2,3,6,7 share the single-swap frame rho = (0 2) with pairing (01)(23) (11-term merged polynomial, 14-CX walk instead of 16), and an exhaustive Dijkstra over (f,u)-controlled swap walks (both sector tracks, any control function) gives 61 Fredkin-equivalent CX as the routing optimum.",
   "DISCOVERY: the fold V0 = SWAP(q2^0,q2^2) on the (u & ~f) branch commutes with every f-controlled frame and with the t=1 rotations, so it merges with any f-controlled (0 2) swap into one Fredkin controlled by v = f OR u (one rccx); its sign c=-1 is fixed for free by Z(v) Z(f) = (-1)^(u ~f) instead of CZ(v,q2^0) CZ(v,q2^1).",

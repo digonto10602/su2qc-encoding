@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 3.5948945166958525e-14,
   "block_error": 1.819639577694596e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.036660194396972656,
+  "seconds": 0.036741018295288086,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.414534094390448e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.819639577694596e-14,
    "max_dropped_l2": 4.046476861277988e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.819639577694596e-14
+   "op_norm_error_inner_span": 1.819639577694596e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.2490145530161525e-14,
    "block_error": 9.557573558060204e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.037283897399902344,
+   "seconds": 0.03721976280212402,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.204771908822173e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 9.557573558060204e-15,
     "max_dropped_l2": 2.5055547778563125e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 9.557573558060204e-15
+    "op_norm_error_inner_span": 9.557573558060204e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 4.444381451387456e-14,
    "block_error": 1.740819451170983e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.03647971153259277,
+   "seconds": 0.03633451461791992,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.185200902558438e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.740819451170983e-14,
     "max_dropped_l2": 6.418030884260139e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.740819451170983e-14
+    "op_norm_error_inner_span": 1.740819451170983e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "f1b1721f1bb8851112b4691b59928da2ce70bf3df5c820558a01ab9d5d77b37e",
- "wall_s": 0.4688839912414551,
+ "wall_s": 0.4465513229370117,
  "discoveries": [
   "DISCOVERY: negative: k0 = [p=3] costs 2 Walsh terms iff some walk line holds u in [p=3] + span{1, r, t, l, g} (32 functions, all of degree 3 in (r, t, l)) and 4 otherwise (never 3); no AND of two literals of {r, t, l, g} and no f-free a-line conversion (c1 -> c1 ^ AND(s_k, ~g) = p_k&~g, c1 -> ~g) lies in that coset, so the 2 saved rotations (about 126 T) would need a 3-AND line (+12 CX).",
   "DISCOVERY: negative: converting a instead of clearing it (a: c1 -> ~g by rccx(~f, ~g), same 3 CX, fused with the w23 toggle) gives the walk wires {g, ~g^w23} or {g^w23, ~g} instead of {g, w23}: Dijkstra over the 16 minimal supports and every w01 toggle wire needs 10 CX (9 only for {g, w23}); moving the w01 toggle outside the H(f) window (walk start/end through p_r^w01 by the merged parity CX) also stays at 9.",

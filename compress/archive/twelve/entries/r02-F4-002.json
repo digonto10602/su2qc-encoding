@@ -72,14 +72,18 @@
   "dropped_total": 6.519078026450921e-14,
   "block_error": 1.221112695671762e-13,
   "leak_amplitude": 0.0,
-  "seconds": 6.437443971633911,
+  "seconds": 1.0950117111206055,
   "n_inputs": 433,
+  "span_leak": 3.2873394648655856e-15,
+  "total_error": 1.9058938929655102e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.6424535841784784e-14,
    "max_dropped_l2": 3.812441396517985e-15,
    "max_span_leak": 3.9968028886505635e-15,
-   "op_norm_error_inner_span": 1.221112695671762e-13
+   "op_norm_error_inner_span": 1.221112695671762e-13,
+   "span_leak_max_state": 3.2287645901086123e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 6.633780668126896e-14,
    "block_error": 1.2220453782568572e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.2212419509887695,
+   "seconds": 1.0937366485595703,
    "n_inputs": 433,
+   "span_leak": 3.934274993717502e-15,
+   "total_error": 1.9247661950067218e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7251644227055947e-14,
     "max_dropped_l2": 4.572570927548955e-15,
     "max_span_leak": 5.440092820663267e-15,
-    "op_norm_error_inner_span": 1.2220453782568572e-13
+    "op_norm_error_inner_span": 1.2220453782568572e-13,
+    "span_leak_max_state": 3.896663874787108e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 6.617129210870333e-14,
    "block_error": 1.2228892238010212e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.217397928237915,
+   "seconds": 1.0943903923034668,
    "n_inputs": 433,
+   "span_leak": 4.852576198248907e-15,
+   "total_error": 1.9331279068705436e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8730812866730288e-14,
     "max_dropped_l2": 4.213630593049406e-15,
     "max_span_leak": 6.772360450213455e-15,
-    "op_norm_error_inner_span": 1.2228892238010212e-13
+    "op_norm_error_inner_span": 1.2228892238010212e-13,
+    "span_leak_max_state": 4.826054025427744e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: Corner 2 may use jA = j_t (the other leg's link) in C_jA(X_a) without changing the leg roles: the frame stays exact (H_B = kappa g X_F on all 433 states) and the n2 sign is still (-1)^t0, so one X on leg a of corner 0 gives kappa = 2 (n1=0), -1 (n1=2), 1/2 (n1=4)."
  ],
  "summary": "F2 pair frame (2-CX leg frame + type gates + one rccx bright flag per corner) with an 8-CX type plumbing (no outer reads, corners 0/1 flag in place into their type registers) and the top AND g=pa&pb toggled into F by an in-walk rccx (no g register; residual (-1)^(pa z) fixed by one CZ); 6-Rz (g,z,t) multiplexer + 4 electric phases.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "afa1865",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +188,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 12.11038064956665,
- "written_utc": "2026-11-06T14:12:34Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 3.679517984390259,
+ "written_utc": "2026-11-18T03:03:24Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 9.999999999999999e-06
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

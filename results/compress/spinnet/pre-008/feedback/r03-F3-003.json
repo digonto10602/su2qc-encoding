@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.858976315733614e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.9383431081391315e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.913957033160809e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.540726885143696e-15,
+  "block_error": 2.3182494305899175e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.18630552291870117,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.074532791140085e-15,
+   "max_dropped_l2": 8.98242526497221e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.3182494305899175e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.629434401292625e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -2.1332691835753612e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.369466571967547e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.690513244709953e-15,
+   "block_error": 1.938921156582672e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.18633651733398438,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.938921156582672e-15,
+    "max_dropped_l2": 8.683438214525674e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.9389211565826713e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.326144442387163e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -6.15366110646739e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.324668646386421e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.637516617363471e-15,
+   "block_error": 2.688627825023692e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.18003010749816895,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.6162531757094527e-15,
+    "max_dropped_l2": 7.489751442713124e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.688627825023692e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 32,
+  "t_fixed": 24,
+  "n_rot": 13,
+  "t_eps": 832,
+  "t_estimate": {
+   "1e-06": 801.3311742036428,
+   "1e-10": 1319.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 832,
+   "1e-10": 1376
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 64,
+  "depth_ct": 1553,
+  "qubits": 17,
+  "gates": {
+   "cx": 32,
+   "x": 30,
+   "h": 16,
+   "rz": 13,
+   "t": 12,
+   "tdg": 12,
+   "sdg": 2,
+   "z": 2,
+   "s": 1
+  },
+  "measured": true
+ },
+ "program_sha256": "1ca2fd55a85a204aca8de1480a024176fc143b61185b1949582df20a55adb7df",
+ "wall_s": 1.5338339805603027,
+ "discoveries": [
+  "DISCOVERY: no circuit below 32 CX (nor 31 CX with < 13 walk rotations) in: 3-AND walks with one direct AND plus raw corners c0..c3 as toggles; flags XORed in place into e/u/v or into the other flag's ancilla (breaks the bipartite parity of the 9-term walk, still no 8-toggle walk); A in a direct AND's control wire (rccx fusion); A direct + both NORs hosted; A + one opposite-corner NOR direct + linear corners (5794 walks of cost 19, none with a free sign); two-flag all-linear walks with 12 toggles.",
+  "DISCOVERY: gridsynth T of rz(k beta/8) at beta=0.61 depends only on |k| (k=2: 62, 4: 66, 6: 60, 8: 64; signs and pi/2 shifts change only the word length), and every 31-CX two-flag walk has weights {1/2, 4x1/4, 3x1/8, 5x3/8} (T_walk 814), every 32-CX three-flag walk {1/4, 5x3/8, 3x1/8} (T_walk 552): T at fixed CX is set by the term structure, not the walk.",
+  "DISCOVERY: a pivot X-frame flip across a direct rccx costs x(0) before it and z on its first control after it (x(t) rccx(~a,~b,t) z(a) = rccx(~a,~b,t) x(t) up to phase), so every rotation sign is free; the shortest words (1/8: 141 gates for +, 1/4: 170 for -, 3/8: 153) are all met by the walk A e Nd A Na A Nd A Na with flips on the two Na toggles."
+ ],
+ "summary": "F3 one-direct-AND walk on 17 qubits: Na=NOR(c0,c1) in the only ancilla, A=[u=v=0] XORed in place into c1 (idle between the Na compute and uncompute), Nd=NOR(c2,c3) toggled straight onto the pivot by two rccx (CZ(Na,c2) Z(Na) cancels their sign); 9-term walk e -> 0 with 7 cheap toggles, the one walk whose rotations all reach the shortest Clifford+T word (pivot X-frame flips by negated toggle controls only: sum of words 1358 = floor over all 32-CX walks); 32 CX, 9+4 rotations k*beta/8, 3*alpha/4 (+-pi/2)."
+}

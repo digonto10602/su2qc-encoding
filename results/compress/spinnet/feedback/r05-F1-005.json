@@ -34,14 +34,18 @@
   "dropped_total": 3.451762165598766e-15,
   "block_error": 2.1547202288021332e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.7348306179046631,
+  "seconds": 0.2002255916595459,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 5.606482394400899e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.942097114741684e-15,
    "max_dropped_l2": 1.0623048348855275e-15,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.1547202288021332e-15
+   "op_norm_error_inner_span": 2.1547202288021332e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 3.25289241754079e-15,
    "block_error": 1.782882984290922e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.2542116641998291,
+   "seconds": 0.20464372634887695,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.035775401831711e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7777269989116176e-15,
     "max_dropped_l2": 8.240916930022345e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.782882984290922e-15
+    "op_norm_error_inner_span": 1.782882984290922e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 3.2122038878233814e-15,
    "block_error": 2.6028089230671507e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.2636756896972656,
+   "seconds": 0.19880390167236328,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.815012810890532e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.4658139631774925e-15,
     "max_dropped_l2": 7.821983421919843e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.6028089230671507e-15
+    "op_norm_error_inner_span": 2.6028089230671507e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -145,7 +157,7 @@
   "measured": true
  },
  "program_sha256": "c84e7634ded502b1d33c045227b5425cf4adc845824944606982569fbdb048fe",
- "wall_s": 2.2093985080718994,
+ "wall_s": 1.1118202209472656,
  "discoveries": [
   "DISCOVERY: qiskit rccx(a,b,t) is CCX times the phase i^(2ab + 4a*t_in) (units of pi/4), so a direct pair on the pivot leaves (-1)^(a*dS); emitting one gate of a pair as its T<->Tdg conjugate adds (-1)^(ab) (a free CZ between the two controls) and an X-conjugated target adds (-1)^a; in the F5-type double-direct design (A and NOR4 both direct, 31 CX) the A pair must enclose an e toggle, its sign abar*e is quadratic on the 8 bright configs, and no Z8 phase on single non-pivot wires (T/S/Z at any time) fixes it, so it needs a CZ (32 CX).",
   "DISCOVERY: scratch searches (complete for (i),(ii); partial for (iii)) find no 31-CX design with fewer than 13 walk rotations: (i) the 8 minimal 12-term supports over (e, c0^A, a1, c1, c3) have no CX parity network of <= 13 CX even when any of 9 wires may carry the pivot variable; (ii) the 118 three-AND atom sets Z (A plus any 2-rccx program values, f a function of Z, e, v) have no walk of <= 8 toggles; (iii) of 4546 designs A + one AND (ancilla or in place) + one direct AND (incl. chained NOR3 and up to two raw-corner atoms), the first ~800 (all shared-literal ones) have cost-13 walks only with a leftover sign that is not GF(2)-linear.",

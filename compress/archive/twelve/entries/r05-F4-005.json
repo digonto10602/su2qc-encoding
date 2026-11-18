@@ -72,14 +72,18 @@
   "dropped_total": 8.810333678287913e-14,
   "block_error": 1.2178989947332722e-13,
   "leak_amplitude": 0.0,
-  "seconds": 7.121293306350708,
+  "seconds": 1.3168165683746338,
   "n_inputs": 433,
+  "span_leak": 3.214550290061563e-15,
+  "total_error": 2.1310778654626792e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.4469916004927212e-14,
    "max_dropped_l2": 4.7932185813760666e-15,
    "max_span_leak": 5.329070518200751e-15,
-   "op_norm_error_inner_span": 1.2178989947332722e-13
+   "op_norm_error_inner_span": 1.2178989947332722e-13,
+   "span_leak_max_state": 3.1590885082618883e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 8.719668736107655e-14,
    "block_error": 1.2190185514678007e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.8873212337493896,
+   "seconds": 1.3197546005249023,
    "n_inputs": 433,
+   "span_leak": 3.739400681419058e-15,
+   "total_error": 2.1283794318927568e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.5444413661840768e-14,
     "max_dropped_l2": 4.586538810655959e-15,
     "max_span_leak": 5.773159728050814e-15,
-    "op_norm_error_inner_span": 1.2190185514678007e-13
+    "op_norm_error_inner_span": 1.2190185514678007e-13,
+    "span_leak_max_state": 3.649173169315942e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 8.855230164047806e-14,
    "block_error": 1.2193693745074848e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.8885858058929443,
+   "seconds": 1.3233766555786133,
    "n_inputs": 433,
+   "span_leak": 5.489735146881462e-15,
+   "total_error": 2.15978974238108e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.768560721397573e-14,
     "max_dropped_l2": 4.559717068307529e-15,
     "max_span_leak": 7.993605777301127e-15,
-    "op_norm_error_inner_span": 1.2193693745074848e-13
+    "op_norm_error_inner_span": 1.2193693745074848e-13,
+    "span_leak_max_state": 5.4765743263145994e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -158,13 +170,13 @@
   "DISCOVERY: All 10 parity networks of cost 15 on (F, pb, z, t2) with two in-walk rccx on any register and the residual CZ fix counted are single-target into F (exhaustive DFS), so the 9 walk rotations stay serial on one qubit (about 1430 of the depth); path-sum phase folding of the 111-CX circuit finds no T or rotation merges (T_fixed 104 is fold-optimal) and pygridsynth T counts are invariant under pi/2 angle shifts, so T_eps 912 is the floor of this skeleton."
  ],
  "summary": "Same gates as r04-F4-004 (5-CX clean corner frames, 8-CX no-outer-read plumbing, pb stored, 9-term Walsh walk of F = j_b over (pa, pb, z, t2) with pa toggled in-walk, 4 electric phases; CX 111, 13 rotations) rescheduled for depth: the leg-only heads of all four corner frames run under the 167-layer electric rotations, t3 and t2 are formed together before the corner-3/2 frame tails, so depth_CT drops from 1694 to 1672 at equal CX and T.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "d05f973",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -175,14 +187,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 14.162851333618164,
- "written_utc": "2026-11-06T17:53:36Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 4.345198392868042,
+ "written_utc": "2026-11-18T03:03:44Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.3e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

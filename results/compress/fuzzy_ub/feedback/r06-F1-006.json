@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 3.5454388730997095e-14,
   "block_error": 1.8192600002818078e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.4018819332122803,
+  "seconds": 0.04024481773376465,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.364698873381517e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.8192600002818078e-14,
    "max_dropped_l2": 3.989645867922451e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.8151687788577757e-14
+   "op_norm_error_inner_span": 1.8151687788577757e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.420917988462098e-14,
    "block_error": 1.0781358784606158e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04241514205932617,
+   "seconds": 0.03979802131652832,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.499053866922714e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.0781358784606158e-14,
     "max_dropped_l2": 2.851535043874459e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.0750996799310615e-14
+    "op_norm_error_inner_span": 1.0750996799310615e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 4.6468661664423226e-14,
    "block_error": 1.7519875558614376e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.039287567138671875,
+   "seconds": 0.04025912284851074,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.39885372230376e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7519875558614376e-14,
     "max_dropped_l2": 4.942777989554443e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.7495871042169156e-14
+    "op_norm_error_inner_span": 1.7495871042169156e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "312004b05ae7c3f812800fe0541795fe0c7fc07c6514a644f9973711b554a88e",
- "wall_s": 0.8824639320373535,
+ "wall_s": 0.48404860496520996,
  "discoveries": [
   "DISCOVERY: (~p_t&~s_r) xor (~p_t&~s_l) = ~p_t&(p_r^p_l) = g, so one rccx turns the (1 3)-swap control into the persistent g line (L: 0 -> c2 -> g per leg, 4 rccx per leg instead of 5): 94 -> 88 CX, one ancilla fewer; with first control ~s_l on that rccx the left-leg relative phase is i^g (f-independent, it commutes with the R_x middle and cancels against the mirrored leg), so plain 3-CX rccx suffice.",
   "DISCOVERY: exhaustive checks for the (0 2)(1 3) word: no other pair of transpositions or Bell pairing works and no single f-controlled swap gives Hermitian commuting sector maps; over all 1024 sector-option choices the only f-independent lines one rccx away from a control are g and t&~(p_r^p_l) (up to negation), and the latter needs a 14-term / 20-CX walk, so 4 rccx + 2 Fredkins per leg (29 CX with the 3 parity CX) is the floor of this family.",

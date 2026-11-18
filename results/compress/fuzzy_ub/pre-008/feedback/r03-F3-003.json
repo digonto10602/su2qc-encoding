@@ -1,0 +1,155 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 6.431898734793575e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -0.7071067811865481,
+   -0.707106781186547
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.4948383719568885e-14,
+  "block_error": 1.9370603628366857e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.07991814613342285,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9370603628366857e-14,
+   "max_dropped_l2": 5.6513339611007145e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.932867882136037e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.737402181658405e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.707106781186548,
+    -0.707106781186547
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.350217008245871e-14,
+   "block_error": 1.3871851734125338e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.07337784767150879,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.3871851734125338e-14,
+    "max_dropped_l2": 3.644137788537538e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.3843639930064793e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.72929612108038e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.7071067811865481,
+    -0.7071067811865471
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.8531960917754766e-14,
+   "block_error": 1.8761000293049044e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.07376718521118164,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8736521099976794e-14,
+    "max_dropped_l2": 5.949734004752893e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.8761000293049044e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 151,
+  "t_fixed": 118,
+  "n_rot": 28,
+  "t_eps": 1902,
+  "t_estimate": {
+   "1e-06": 1792.2517598232307,
+   "1e-10": 2908.4195997053844
+  },
+  "t_measured": {
+   "1e-06": 1902,
+   "1e-10": 3030
+  },
+  "synth_error_bound": 2.8e-05,
+  "depth": 223,
+  "depth_ct": 4682,
+  "qubits": 13,
+  "gates": {
+   "cx": 151,
+   "h": 111,
+   "t": 70,
+   "tdg": 48,
+   "s": 28,
+   "rz": 28,
+   "x": 14,
+   "z": 14,
+   "sdg": 7
+  },
+  "measured": true
+ },
+ "program_sha256": "5ff89dd88c95dbcbb08f9c120ca360165bc972fd5b235a474edd79444bd4d8a5",
+ "wall_s": 1.0688629150390625,
+ "discoveries": [
+  "DISCOVERY: sectors 1 and 5 are exactly equivalent to 0 and 4 (c=+1) under V=(V0,V1) on q2 with V1=I and V0=SWAP(0,2) Z0 Z1 (Z first) (or V0 = a 3-cycle on wires 0,1,2, no Paulis); no f-uniform signed permutation does it (64 joint solutions, all f-dependent); sectors 3/2 and 7/6 differ in rank (1 vs 4, 4 vs 16) so no r-merge exists there.",
+  "DISCOVERY: with 1,5 folded the frame sequence (2 3)(0 1) | (0 2)(1 3)(0 2)=(1 3) | back needs 6 Fredkins instead of 8."
+ ],
+ "summary": "r02-F1-002 layout, but a (p_r & ~p_t & ~f)-controlled [Z q2^0 Z q2^1, then Fredkin(q2^0,q2^2)] at start/end maps sectors 1,5 exactly onto 0,4, so r drops out of the t=0 sectors: 6 frame Fredkins (7-CX), no r-split one-hot, 4 middles instead of 6; 151 CX."
+}

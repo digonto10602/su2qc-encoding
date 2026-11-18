@@ -72,14 +72,18 @@
   "dropped_total": 6.607641598150542e-14,
   "block_error": 1.5545170220605415e-14,
   "leak_amplitude": 0.0,
-  "seconds": 1.7902259826660156,
+  "seconds": 0.809826135635376,
   "n_inputs": 433,
+  "span_leak": 3.1936550790282125e-15,
+  "total_error": 8.481524128113905e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.5545170220605415e-14,
    "max_dropped_l2": 4.144468998971039e-15,
    "max_span_leak": 3.774758283725532e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.126770095429311e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 6.570491300375346e-14,
    "block_error": 1.7008056327565644e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.7800471782684326,
+   "seconds": 0.8065328598022461,
    "n_inputs": 433,
+   "span_leak": 4.062010345659819e-15,
+   "total_error": 8.677497967697892e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7008056327565644e-14,
     "max_dropped_l2": 4.212306028922067e-15,
     "max_span_leak": 5.773159728050814e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 4.030931650013395e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 7.054047908478141e-14,
    "block_error": 1.8186932063155724e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8105380535125732,
+   "seconds": 0.8079848289489746,
    "n_inputs": 433,
+   "span_leak": 5.0462684586839885e-15,
+   "total_error": 9.377367960662111e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8186932063155724e-14,
     "max_dropped_l2": 4.388753265964333e-15,
     "max_span_leak": 6.994405055138486e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.030682321950885e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: No frame W (2 CX) followed by sector-controlled local corrections maps all diff legs into a product subspace u(x)C^2 (W|00>, W|01>, W|10> would share a 2-dim space): no leg proxy for t_c and no leg-only NOR dark flag; with W first, no 5-gate (2 CX + 3 controlled involutions on jA/jB/t) clean frame was found (numerical search over all 192 templates), so F2's 6-gate clean corner is kept."
  ],
  "summary": "F2 pair frame (2-CX leg frame W, C_t(H), C_jA(X), C_t(YH), cx(t,b), one rccx bright flag per corner, AND tree g) without the z flag: one 11-term Walsh-multiplexed X rotation of F over (g, t1, t2, t2^t3), 12-CX Gray walk after one extra fold CX (CX 124).",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "afa1865",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +188,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 6.671290159225464,
- "written_utc": "2026-11-06T14:12:34Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 3.024089813232422,
+ "written_utc": "2026-11-18T03:03:24Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.6e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

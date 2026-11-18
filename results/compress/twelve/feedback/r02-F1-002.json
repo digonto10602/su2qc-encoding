@@ -34,14 +34,18 @@
   "dropped_total": 6.731972510679534e-14,
   "block_error": 1.535610599264494e-14,
   "leak_amplitude": 0.0,
-  "seconds": 3.3145511150360107,
+  "seconds": 0.8074853420257568,
   "n_inputs": 433,
+  "span_leak": 2.975621493697702e-15,
+  "total_error": 8.565145259313799e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.535610599264494e-14,
    "max_dropped_l2": 4.177448895073178e-15,
    "max_span_leak": 3.552713678800501e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 2.8447680212833594e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 6.538698522106464e-14,
    "block_error": 1.7027694070839687e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.7943415641784668,
+   "seconds": 0.802593469619751,
    "n_inputs": 433,
+   "span_leak": 3.9852501079978385e-15,
+   "total_error": 8.639992939990217e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7027694070839687e-14,
     "max_dropped_l2": 4.278809551155217e-15,
     "max_span_leak": 5.551115123125783e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.9508255801495116e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 7.136959041007402e-14,
    "block_error": 1.836931843257298e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.7829606533050537,
+   "seconds": 0.8024251461029053,
    "n_inputs": 433,
+   "span_leak": 4.984401226983679e-15,
+   "total_error": 9.472331006963069e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.836931843257298e-14,
     "max_dropped_l2": 4.17136354213207e-15,
     "max_span_leak": 6.772360450213455e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 4.968947296012186e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "5c1e97cf15c110cc84108df32b6ac968592030aeb53e07750fc820faa00b9fbb",
- "wall_s": 9.91240668296814,
+ "wall_s": 3.0891306400299072,
  "discoveries": [
   "DISCOVERY: g*kappa(t) (kappa = 2, -1, 1/2 for n1 = 0, 2, 4; free at g=0, n1=4) has minimum Walsh support 11 in every basis of the three type bits, but its cheapest closed Gray walk is 16 CX when the controls are three pure corner types and 12 CX once one control is a pair sum (t1^t3); a CX before/after the multiplexer makes the z-free rotation 14 CX vs 16 for the z flag (5+5) plus 6-CX mux; an exhaustive fold search shows a fold leaving a non-pure basis costs 1 CX more (9 vs 8), and two pair sums plus a type (for z) cost 10.",
   "DISCOVERY: NOT corners need two j-controlled operations (the relabel is not removable in the W + controlled-slot family): there the diff partners map |00> -> |10> and |01> -> |00> with one common phase, so Omega_11^-1 Omega_10 squares to a non-identity on |01> and cannot be one W-conjugated reflection; on the copy corners a single jA fix plus two t-controlled 1q gates also fails in every order (fix first forces the same-type and diff partner maps to coincide; otherwise the flag code cannot be avoided).",

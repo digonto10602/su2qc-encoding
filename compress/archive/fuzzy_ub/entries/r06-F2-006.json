@@ -60,7 +60,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -72,14 +72,18 @@
   "dropped_total": 4.439872208401988e-14,
   "block_error": 1.824508569506115e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.06399798393249512,
+  "seconds": 0.040023088455200195,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 6.264380777908103e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.8123808141890034e-14,
    "max_dropped_l2": 5.1419353802135235e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.824508569506115e-14
+   "op_norm_error_inner_span": 1.824508569506115e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -95,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -107,14 +111,18 @@
    "dropped_total": 2.7145233296372486e-14,
    "block_error": 1.069071151282004e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04049396514892578,
+   "seconds": 0.03950381278991699,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.7835944809192524e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.069071151282004e-14,
     "max_dropped_l2": 3.316866455881899e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.065187846624803e-14
+    "op_norm_error_inner_span": 1.065187846624803e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -129,7 +137,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -141,14 +149,18 @@
    "dropped_total": 5.3416829120241553e-14,
    "block_error": 1.7753591940512476e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.03847002983093262,
+   "seconds": 0.03962874412536621,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 7.117042106075404e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7622214616387866e-14,
     "max_dropped_l2": 5.800510835401681e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.7753591940512476e-14
+    "op_norm_error_inner_span": 1.7753591940512476e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -159,9 +171,9 @@
   "DISCOVERY: consecutive rccx on one target fuse (head of the first + tail of the second: Tdg H H T = I, -2 T each); if they also share the twice-used second control y, the two middle CX(y->t) cancel too (4 CX for two toggles); an extra persistent line h = ~g & p_r obtained for free from the c1 chain does not shorten the middle walk (best 16 CX vs 14)."
  ],
  "summary": "r05-F3-005 two-swap single-middle datapath with a shared-factor toggle chain on one line G: G = c2 = ~p_t & ~z_r (rccx) controls swap(q2^1,q2^3), then ONE rccx with the raw ~z_l wire turns it into the persistent g = ~p_t & (z_r^z_l) (c2 ^ ~p_t&~z_l = g) used by the c1 = f&~g swap(q2^0,q2^2) and the 9-term middle polynomial; mirrored on the way back; the separate g line and its 2 rccx disappear (-6 CX), and the c1-uncompute/w01-compute rccx pairs on one target are fused (Tdg H H T = I, -4 T); 88 CX, 11 qubits.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "49e247e",
+ "git_commit": "220730e",
  "versions": {
   "python": "3.12.16",
   "numpy": "2.5.4",
@@ -177,13 +189,14 @@
   "gridsynth": 0
  },
  "machine": "omnicommander x86_64 cpus=20",
- "wall_s": 0.49627017974853516,
- "written_utc": "2026-11-13T12:20:08Z",
+ "wall_s": 0.46966075897216797,
+ "written_utc": "2026-11-18T03:02:49Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 9e-06
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

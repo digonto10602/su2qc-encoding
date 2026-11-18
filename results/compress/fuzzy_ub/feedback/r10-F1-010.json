@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 3.619301997060665e-14,
   "block_error": 1.8181424967953028e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.052147865295410156,
+  "seconds": 0.036210060119628906,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.4374444938559676e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.8181424967953028e-14,
    "max_dropped_l2": 4.24222848157364e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.8181424967953028e-14
+   "op_norm_error_inner_span": 1.8181424967953028e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.2554361847361302e-14,
    "block_error": 9.577634125901729e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.03575301170349121,
+   "seconds": 0.036353349685668945,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.2131995973263035e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 9.577634125901729e-15,
     "max_dropped_l2": 2.6863719128039074e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 9.577634125901729e-15
+    "op_norm_error_inner_span": 9.577634125901729e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 4.508774818060351e-14,
    "block_error": 1.7444280478557358e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.03694343566894531,
+   "seconds": 0.03594183921813965,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.253202865916086e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7444280478557358e-14,
     "max_dropped_l2": 6.4461989110555416e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.7444280478557358e-14
+    "op_norm_error_inner_span": 1.7444280478557358e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "9fa4444b76651f3bf3221c46621b30d66155034278f904a063431bf731555318",
- "wall_s": 0.5142614841461182,
+ "wall_s": 0.4453854560852051,
  "discoveries": [
   "DISCOVERY: the 7-CX short-window Fredkins of r09-F2-009 and the in-window w01 -> p_r toggle of r09-F3-009 compose unchanged: the window toggle is a palindromic rccx pair on a wire that is only a CX control in between (its relative phase cancels exactly), and the F2 decoded frame defines w01 = AND(q2^b, q2^r), w23 = AND(q2^t, q2^l) without negations, so the F3 walk path fits the F2 legs directly (valid at all three angle pairs on the first try).",
   "DISCOVERY: depth floor of this datapath without angle tuning: the f-critical leg chain is rccx 9 + window 7 + rccx 9 + a-compute 5 + window 7 + a-uncompute 5 = 42 layers per side (L-critical rccx read once in the middle, f read once in the middle of the uncompute; all 256 Fredkin diag-slot choices tried, the current one is best), the walk is 9 serial CX on f plus the exact-angle words (1467 layers); a rotation subset that vanishes on g = 0 sectors would let the a-uncompute slide into the walk, but no subset of the minimal 9-term supports does (the g = 0 restriction only has the dependencies {0, t, rl, trl} and {r, rt, l, rtl}, times w parts)."

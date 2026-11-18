@@ -48,16 +48,16 @@
  "verdict_nominal": {
   "ok": true,
   "reason": "ok",
-  "op_norm_error": 5.303427793416913e-14,
+  "op_norm_error": 1.0155644672017068e-13,
   "max_leak": 0.0,
   "dirty_ancilla": 0.0,
   "phase": [
    1.0,
-   3.1758717310112164e-17
+   3.736285831655202e-17
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -66,33 +66,37 @@
    "tol_err": 1e-10,
    "tol_gauss": 1e-10
   },
-  "dropped_total": 3.540640930409815e-14,
-  "block_error": 1.7627868630070982e-14,
+  "dropped_total": 8.40621185637888e-14,
+  "block_error": 1.749432815638188e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.5482378005981445,
+  "seconds": 0.03681635856628418,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 1.0155644672017068e-13,
   "failing_inputs": [],
   "extra": {
-   "op_norm_error_physical": 1.7627868630070982e-14,
-   "max_dropped_l2": 4.646856902711238e-15,
-   "max_span_leak": 3.3306690738754696e-16,
-   "op_norm_error_inner_span": 1.7627868630070982e-14
+   "op_norm_error_physical": 1.749432815638188e-14,
+   "max_dropped_l2": 1.0386949996882458e-14,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.749432815638188e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 2.98105880692365e-14,
+   "op_norm_error": 4.5215817019678556e-14,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
     1.0,
-    1.0446352066021506e-17
+    1.6474453246818297e-17
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -101,32 +105,36 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 1.917717670466098e-14,
-   "block_error": 1.0633411364575519e-14,
+   "dropped_total": 3.4719344585633367e-14,
+   "block_error": 1.0496472434045189e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.05952000617980957,
+   "seconds": 0.037596702575683594,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.5215817019678556e-14,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.0633411364575519e-14,
-    "max_dropped_l2": 2.2480231124346693e-15,
+    "op_norm_error_physical": 1.0496472434045189e-14,
+    "max_dropped_l2": 4.256807534767353e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.0633411364575519e-14
+    "op_norm_error_inner_span": 1.0496472434045189e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 5.755938108736944e-14,
+   "op_norm_error": 1.5179285859682692e-13,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
     1.0,
-    4.765454745673924e-17
+    5.082902908391758e-17
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -135,17 +143,21 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 4.059523918226345e-14,
-   "block_error": 1.6964141905105987e-14,
+   "dropped_total": 1.3464224349277127e-13,
+   "block_error": 1.7150615104055658e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.05909085273742676,
+   "seconds": 0.03806877136230469,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 1.5179285859682692e-13,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.6964141905105987e-14,
-    "max_dropped_l2": 5.094527766765057e-15,
-    "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.6964141905105987e-14
+    "op_norm_error_physical": 1.7150615104055658e-14,
+    "max_dropped_l2": 1.7903816354872466e-14,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.7150615104055658e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -156,11 +168,11 @@
   "DISCOVERY: the last frame (0 3)(1 3)(2 3) equals (1 2)(0 3)(1 3) (time order); starting it with cswap(2,1) cancels the final Bell-decoder CX(q2^r->q2^t) against the Fredkin's first CX (-2 CX)."
  ],
  "summary": "parent r01-F1-001 frames, but the t=1 sectors 2,3,6,7 (one shared layout) get pair-AND ancillas w01,w23 and ONE merged phase polynomial on f over x=t~l, y=tl, r, w01, w23 (one-hot NOT split by r for t=1: 4 ancillas, 32 CX one-hot round trip); final frame re-factored to start with (1 2) so its CX cancels the last Bell-decoder CX; 172 CX.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "f5df3ea",
+ "git_commit": "220730e",
  "versions": {
-  "python": "3.12.14",
+  "python": "3.12.16",
   "numpy": "2.5.4",
   "scipy": "1.18.1",
   "qiskit": "2.5.2",
@@ -173,10 +185,10 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "prudence x86_64 cpus=48",
- "wall_s": 1.5918471813201904,
- "written_utc": "2026-11-06T20:29:21Z",
- "git_dirty": false,
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 1.2616708278656006,
+ "written_utc": "2026-11-18T03:02:44Z",
+ "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 4.4e-05
@@ -185,5 +197,6 @@
   "status": "n_a",
   "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
  },
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

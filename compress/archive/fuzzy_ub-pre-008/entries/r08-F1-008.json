@@ -1,0 +1,189 @@
+{
+ "id": "r08-F1-008",
+ "program_path": "compress/programs/fuzzy_ub/F1/008-pauli-scheduled-fredkins.py",
+ "program_sha256": "3ac5cc98cfbe4f6f2e3fdd186559cab214c514673fda25d10ec0f4248fe46bbf",
+ "parent": "r07-F1-007",
+ "family": "F1",
+ "round": 8,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  84,
+  638,
+  1559,
+  11
+ ],
+ "cell": [
+  51,
+  74
+ ],
+ "metrics_raw": {
+  "cx": 84,
+  "t_fixed": 72,
+  "n_rot": 9,
+  "t_eps": 638,
+  "t_estimate": {
+   "1e-06": 610.1523513717527,
+   "1e-10": 968.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 638,
+   "1e-10": 1008
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 138,
+  "depth_ct": 1559,
+  "qubits": 11,
+  "gates": {
+   "cx": 84,
+   "h": 74,
+   "t": 36,
+   "tdg": 36,
+   "x": 32,
+   "s": 15,
+   "sdg": 13,
+   "rz": 9,
+   "z": 2
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.95453104236255e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   4.7497953753690963e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.038600636282207e-14,
+  "block_error": 1.9159304060803423e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.39225268363952637,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9159304060803423e-14,
+   "max_dropped_l2": 4.179483376160637e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.9159304060803423e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.104645895923028e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    1.0961385350891095e-18
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.98220978136032e-14,
+   "block_error": 1.1224361145627081e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04502749443054199,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.1224361145627081e-14,
+    "max_dropped_l2": 3.20051693504082e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.1224361145627081e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.174410322020767e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    5.590214604252052e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.305055200160329e-14,
+   "block_error": 1.8693551218604384e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04428529739379883,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8693551218604384e-14,
+    "max_dropped_l2": 5.187197465070289e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.8693551218604384e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: a Fredkin SWAP_ij^c is the product of 7 commuting pi/8 Pauli rotations (Z_c, Q, Z_c Q for Q in XX, YY, ZZ on (i,j)); inside a leg each Q rotation can sit at ANY point of a q2 Clifford skeleton where Q is weight-1 (one T, no CX) and the three Z_c Q rotations need only the line pattern CX(Qa->c) CX(Qb->c) CX(Qa->c) CX(Qb->c) (4 CX, line content c+Qa, c+Qc, c+Qb), so the Fredkin's own frame CX can be shared with the leg's path to the middle Bell frame; exact signs from Clifford tracking (qiskit Pauli.evolve), leg verified as K_B * SWAP02^a * SWAP13^L to 4e-16.",
+  "DISCOVERY: exhaustive BFS over 4-wire q2 Clifford skeletons (local Cliffords free, 54 CX cosets, exact frame-B distance table over 79800 B-states as A* bound): with line-target c-parts no skeleton <= 7 CX gives all 6 visibilities + both c-part patterns (13 before 02) + the middle frame (min 8, i.e. 16 per leg = tie with 2 FRED7 + 2 decoders); the CCZ-in-Bell-frame variant (dec, CCZ with its within-pair CX absorbed, recouple) needs >= 6 skeleton CX + 10; one FRED7 at a Fredkin-able point + one scheduled pair also gives 16.",
+  "DISCOVERY: negative: no q2 transposition product and not sqrt(SWAP13) sqrt(SWAP02) commutes with the plaquette (op-norm commutator 1 to 2), and no pair Pauli of (1,3) or (0,2) is diagonal in the middle frame (its diagonal group is G01 x G23), so the c-free sqrt(SWAP) half of the Fredkins can be neither dropped nor pushed through the middle."
+ ],
+ "summary": "r07-F1-007 (same control chain, middle and 10-CX open walk) with both Fredkins and both Bell decoders of each leg replaced by one Pauli-scheduled q2 block: SWAP^c = 7 commuting pi/8 Pauli rotations {Z_c, XX, YY, ZZ, Z_c XX, Z_c YY, Z_c ZZ}; an 8-CX q2 Clifford skeleton (2 CX per Fredkin pair, 4 CX into the middle frame) makes each pair Pauli weight-1 somewhere, so the 6 c-free rotations are single T gates on a q2 wire and the 3 c-terms per Fredkin are a 4-CX pattern CX(Qa->line) CX(Qb->line) CX(Qa->line) CX(Qb->line) on the control line (L = c2, a = c1); 16 CX per leg as before but 7 T per Fredkin instead of 9: 84 CX, T_fixed 72 (was 80), T_eps 638, 11 qubits.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "6d3b841",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.8735852241516113,
+ "written_utc": "2026-11-13T15:39:49Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9e-06
+ },
+ "lean": null,
+ "mode": "full"
+}

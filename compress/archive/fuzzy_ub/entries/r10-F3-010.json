@@ -60,7 +60,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -72,14 +72,18 @@
   "dropped_total": 3.5948945166958525e-14,
   "block_error": 1.819639577694596e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.03704237937927246,
+  "seconds": 0.03648996353149414,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.414534094390448e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.819639577694596e-14,
    "max_dropped_l2": 4.046476861277988e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.819639577694596e-14
+   "op_norm_error_inner_span": 1.819639577694596e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -95,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -107,14 +111,18 @@
    "dropped_total": 2.2490145530161525e-14,
    "block_error": 9.557573558060204e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.037856340408325195,
+   "seconds": 0.036153316497802734,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.204771908822173e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 9.557573558060204e-15,
     "max_dropped_l2": 2.5055547778563125e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 9.557573558060204e-15
+    "op_norm_error_inner_span": 9.557573558060204e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -129,7 +137,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -141,14 +149,18 @@
    "dropped_total": 4.444381451387456e-14,
    "block_error": 1.740819451170983e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.03719353675842285,
+   "seconds": 0.03629446029663086,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.185200902558438e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.740819451170983e-14,
     "max_dropped_l2": 6.418030884260139e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.740819451170983e-14
+    "op_norm_error_inner_span": 1.740819451170983e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -158,9 +170,9 @@
   "DISCOVERY: negative: the leg's line chain is forced serial for decoder (01)(23): among the 1024 valid two-swap control pairs none has both controls single ANDs of wire literals (f, s_k or p_k, negations) and none has the second control equal to an AND of a wire literal and a literal of the first line's pre-conversion value, so the a compute cannot overlap the first Fredkin; with every block at its minimum (fresh rccx 9 levels: |+> prep, phase, 3 CX; once-used control in the middle CX: 5-level tail and head; data-bound 7-layer Fredkin window) the path to the first rotation is 9+7+9+5+7+5+1 = 43 levels (and 43 after the last one)."
  ],
  "summary": "r09-F3-009 10-qubit datapath (parity frame, L: 0 -> ~p_t&~s_r [(1 3) Fredkin] -> g, a: 0 -> f&~g [(0 2) Fredkin] -> 0 -> w23 fused, w01 toggled onto the p_r wire inside the H(f) window, the same 9-term 9-CX open R_x walk with free ends {p_r, p_t, p_l, g}) with the r09-F2-009 leg: 7-CX 7-T Fredkins with the data-bound 7-layer control window, the parity CX(f -> p_r) right after the L compute, X-free negated rccx controls, and every negated-control Z fix folded into the fresh compute / final uncompute as four inverted T phases (no Z parked in a Fredkin window); angle-agnostic rotation words (no nominal-angle shifts); 83 CX, T_eps 638, depth_CT 1546, 10 qubits.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "8fae207",
+ "git_commit": "220730e",
  "versions": {
   "python": "3.12.16",
   "numpy": "2.5.4",
@@ -176,13 +188,14 @@
   "gridsynth": 0
  },
  "machine": "omnicommander x86_64 cpus=20",
- "wall_s": 0.46488332748413086,
- "written_utc": "2026-11-14T00:30:09Z",
+ "wall_s": 0.4466722011566162,
+ "written_utc": "2026-11-18T03:02:52Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 9e-06
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

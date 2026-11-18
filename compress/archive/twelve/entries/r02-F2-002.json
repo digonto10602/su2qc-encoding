@@ -72,14 +72,18 @@
   "dropped_total": 8.396836696572238e-14,
   "block_error": 1.5821416978115957e-14,
   "leak_amplitude": 0.0,
-  "seconds": 1.8716795444488525,
+  "seconds": 0.8299062252044678,
   "n_inputs": 433,
+  "span_leak": 3.1388956370287544e-15,
+  "total_error": 1.0292867958086709e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.5821416978115957e-14,
    "max_dropped_l2": 5.883263152648373e-15,
    "max_span_leak": 4.218847493575595e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.0835352393613505e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 7.190572418907188e-14,
    "block_error": 1.674724346641371e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8682324886322021,
+   "seconds": 0.8320653438568115,
    "n_inputs": 433,
+   "span_leak": 3.8923791763202255e-15,
+   "total_error": 9.254534683180581e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.674724346641371e-14,
     "max_dropped_l2": 4.635113222851267e-15,
     "max_span_leak": 5.551115123125783e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.855129101707043e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 9.656638820128486e-14,
    "block_error": 1.832491702628079e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8670170307159424,
+   "seconds": 0.8390491008758545,
    "n_inputs": 433,
+   "span_leak": 5.120055027412753e-15,
+   "total_error": 1.2001136025497842e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.832491702628079e-14,
     "max_dropped_l2": 7.90338022274949e-15,
     "max_span_leak": 7.438494264988549e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.106030796739108e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: negative results: after the 2-CX frame W no t-controlled sequence of <=3 CX (1q involutions, C_t(XX), rccx(t,.)) puts all diff legs on an affine line, so an outer AND dark bit cannot replace the flag rccx; at the NOT corners no frame L2 W L1 (local Cliffords) with a single j-controlled X exists, the relabel CX is needed."
  ],
  "summary": "F2 pair frame with in-place flags: a fold schedule (cx 5>11, 8>2 give z's inputs, tau0>2, tau0>11, 5>8 give t3, t1, t2 just in time) writes three corner bright flags onto the type qubits themselves (F = j_r), and the AND gg is dropped: U_B is one 9-term Walsh rotation of F over (pa, pb, z, t2) on a 10-CX Gray cycle.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "afa1865",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,9 +188,9 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 8.08846402168274,
- "written_utc": "2026-11-06T14:12:34Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 3.443162202835083,
+ "written_utc": "2026-11-18T03:03:24Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
@@ -193,5 +205,6 @@
   "theorem_path": null,
   "axioms": []
  },
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

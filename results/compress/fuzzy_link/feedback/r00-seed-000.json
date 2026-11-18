@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,30 +34,34 @@
   "dropped_total": 2.759033966273796e-16,
   "block_error": 3.1406723384861315e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.0036056041717529297,
+  "seconds": 0.007474660873413086,
   "n_inputs": 16,
+  "span_leak": 0.0,
+  "total_error": 3.416575735113511e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 3.1406723384861315e-15,
    "max_dropped_l2": 1.3702469800807257e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 3.1406723384861315e-15
+   "op_norm_error_inner_span": 3.1406723384861315e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 2.3020721613363426e-15,
+   "op_norm_error": 2.357586870001513e-15,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
-    0.7759983079148827,
-    0.6307349888132411
+    0.7759983079148826,
+    0.6307349888132409
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -67,16 +71,20 @@
     "tol_gauss": 1e-10
    },
    "dropped_total": 4.713834935506479e-16,
-   "block_error": 1.8306886677856947e-15,
+   "block_error": 1.886203376450865e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.002904176712036133,
+   "seconds": 0.0015485286712646484,
    "n_inputs": 16,
+   "span_leak": 0.0,
+   "total_error": 2.357586870001513e-15,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.8306886677856947e-15,
+    "op_norm_error_physical": 1.886203376450865e-15,
     "max_dropped_l2": 1.8127524132186752e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.826487379762764e-15
+    "op_norm_error_inner_span": 1.886203376450865e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 2.5438405243138006e-16,
    "block_error": 4.2053516129953065e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.0027899742126464844,
+   "seconds": 0.0014102458953857422,
    "n_inputs": 16,
+   "span_leak": 0.0,
+   "total_error": 4.459735665426686e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 4.2053516129953065e-15,
     "max_dropped_l2": 1.1102230246251565e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 3.986426748706005e-15
+    "op_norm_error_inner_span": 3.986426748706005e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -140,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "ef20c27efdad20b80e979e9e2eec16417311d7cbc0438727f945ecb71b785623",
- "wall_s": 0.5347380638122559,
+ "wall_s": 0.3631157875061035,
  "discoveries": [],
  "summary": "the reference circuit of the fuzzy_link encoding (UE) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta."
 }

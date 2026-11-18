@@ -54,7 +54,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -66,30 +66,34 @@
   "dropped_total": 4.83835410402301e-16,
   "block_error": 2.942692799591076e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.004002809524536133,
+  "seconds": 0.0013403892517089844,
   "n_inputs": 16,
+  "span_leak": 0.0,
+  "total_error": 3.426528209993377e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.942692799591076e-15,
    "max_dropped_l2": 1.8482738512810336e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.942692799591076e-15
+   "op_norm_error_inner_span": 2.942692799591076e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 2.2282940079345036e-15,
+   "op_norm_error": 2.312291881172497e-15,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
-    0.7759983079148827,
-    0.630734988813241
+    0.7759983079148824,
+    0.6307349888132409
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -99,16 +103,20 @@
     "tol_gauss": 1e-10
    },
    "dropped_total": 6.798699777552591e-17,
-   "block_error": 2.160307010158978e-15,
+   "block_error": 2.2443048833969712e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.0016112327575683594,
+   "seconds": 0.0010557174682617188,
    "n_inputs": 16,
+   "span_leak": 0.0,
+   "total_error": 2.312291881172497e-15,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 2.0713208380380096e-15,
+    "op_norm_error_physical": 2.2443048833969712e-15,
     "max_dropped_l2": 2.7755575615628914e-17,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.160307010158978e-15
+    "op_norm_error_inner_span": 2.0735926563500543e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -123,7 +131,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -135,14 +143,18 @@
    "dropped_total": 2.451306065445149e-16,
    "block_error": 4.246278601838092e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.0015838146209716797,
+   "seconds": 0.0010123252868652344,
    "n_inputs": 16,
+   "span_leak": 0.0,
+   "total_error": 4.491409208382607e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 4.246278601838092e-15,
     "max_dropped_l2": 8.777083671441753e-17,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 4.031478201218916e-15
+    "op_norm_error_inner_span": 4.031478201218916e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -152,11 +164,11 @@
   "DISCOVERY: the 9-CX network cx(0,1) cx(0,2) cx(3,1) cx(2,1) cx(0,1) cx(0,2) cx(3,1) cx(0,1) cx(2,1) returns to identity and visits all 7 weight>1 parities (BFS over GL(4,2) x coverage, minimum)."
  ],
  "summary": "pair-Bell frame cx(q1,q3) cx(q2,q4) h(q1) h(q2) (2 CX each side) around a BFS-optimal 9-CX I->I parity network carrying the 10 Z-string phases as rz(-alpha/4) (6 K1 strings) and rz(-2 kappa2) (4 K2 strings); 13 CX, 10 rotations.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "fc43837d40f618f4f5b76afb67a12831100928d86da03a1c5d8e22029cee97d9",
- "git_commit": "2e7b07d",
+ "git_commit": "02c499d",
  "versions": {
-  "python": "3.12.14",
+  "python": "3.12.16",
   "numpy": "2.5.4",
   "scipy": "1.18.1",
   "qiskit": "2.5.2",
@@ -169,9 +181,9 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "prudence x86_64 cpus=48",
- "wall_s": 0.5303432941436768,
- "written_utc": "2026-11-06T19:59:42Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.361447811126709,
+ "written_utc": "2026-11-18T02:20:44Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
@@ -181,5 +193,6 @@
   "status": "n_a",
   "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
  },
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

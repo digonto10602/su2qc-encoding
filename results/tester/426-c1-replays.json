@@ -1,0 +1,440 @@
+{
+ "report": "reports/tests/426-c1-replays-four-archives.md",
+ "commit": "919f879",
+ "date": "2026-11-18",
+ "mode": "step",
+ "prompt": "prompts/008 Phase C step C1",
+ "seed": "none (no stochastic test; replays are deterministic)",
+ "machine": "omnicommander, taskset -c 0-8, -n 4, tools/pytest-safe (11G cap)",
+ "check1_replay_records_and_archives": {
+  "twelve": {
+   "fields_missing": [],
+   "entry_fields_missing": [],
+   "old_new_fields_missing": [],
+   "lost": [],
+   "newly_valid": [],
+   "key_changed": [],
+   "refused": [],
+   "unreplayed": [],
+   "key_equal_counts": {
+    "True": 22,
+    "False": 0,
+    "None": 0
+   },
+   "key_equal_none": [],
+   "best_old": {
+    "id": "r05-F2-005",
+    "key": [
+     111,
+     912,
+     1663,
+     31
+    ]
+   },
+   "best_new": {
+    "id": "r05-F2-005",
+    "key": [
+     111,
+     912,
+     1663,
+     31
+    ]
+   },
+   "best_ok": true,
+   "ev_hash_ok": true,
+   "attempts_unchanged": true,
+   "discoveries_unchanged": true,
+   "n_entries": 22,
+   "rounds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "tag": "008",
+   "wall_s": 109.48293161392212,
+   "newly_valid_or_lost_nonempty": false,
+   "arch_files_new": 22,
+   "arch_files_head": 22,
+   "arch_same_filenames": true,
+   "arch_key_mismatch": [],
+   "arch_new_entry_evaluator_hashes": [
+    "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+   ],
+   "arch_fields_differing(count of entries)": {
+    "versions": 22,
+    "git_commit": 22,
+    "verdict_nominal": 22,
+    "evaluator_sha256": 22,
+    "wall_s": 22,
+    "written_utc": 22,
+    "verdicts_alt": 22,
+    "encoding_sha256": 22,
+    "machine": 22,
+    "git_dirty": 3
+   },
+   "index_keys_equal": false,
+   "index_differs_in": [
+    "written_utc"
+   ],
+   "archive_head_files": 23,
+   "pre_checked": 52,
+   "pre_not_identical": [],
+   "pre_extra_files_not_in_head": [],
+   "new_round_file_hashes": [
+    "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+   ]
+  },
+  "spinnet": {
+   "fields_missing": [],
+   "entry_fields_missing": [],
+   "old_new_fields_missing": [],
+   "lost": [],
+   "newly_valid": [],
+   "key_changed": [],
+   "refused": [],
+   "unreplayed": [],
+   "key_equal_counts": {
+    "True": 23,
+    "False": 0,
+    "None": 0
+   },
+   "key_equal_none": [],
+   "best_old": {
+    "id": "r04-F1-004",
+    "key": [
+     31,
+     1062,
+     2173,
+     17
+    ]
+   },
+   "best_new": {
+    "id": "r04-F1-004",
+    "key": [
+     31,
+     1062,
+     2173,
+     17
+    ]
+   },
+   "best_ok": true,
+   "ev_hash_ok": true,
+   "attempts_unchanged": true,
+   "discoveries_unchanged": true,
+   "n_entries": 23,
+   "rounds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "tag": "008",
+   "wall_s": 34.90719175338745,
+   "newly_valid_or_lost_nonempty": false,
+   "arch_files_new": 23,
+   "arch_files_head": 23,
+   "arch_same_filenames": true,
+   "arch_key_mismatch": [],
+   "arch_new_entry_evaluator_hashes": [
+    "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+   ],
+   "arch_fields_differing(count of entries)": {
+    "versions": 18,
+    "git_commit": 23,
+    "verdict_nominal": 23,
+    "evaluator_sha256": 23,
+    "wall_s": 23,
+    "written_utc": 23,
+    "verdicts_alt": 23,
+    "encoding_sha256": 23,
+    "git_dirty": 10,
+    "machine": 18
+   },
+   "index_keys_equal": false,
+   "index_differs_in": [
+    "written_utc"
+   ],
+   "archive_head_files": 24,
+   "pre_checked": 55,
+   "pre_not_identical": [],
+   "pre_extra_files_not_in_head": [],
+   "new_round_file_hashes": [
+    "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+   ]
+  },
+  "fuzzy_ub": {
+   "fields_missing": [],
+   "entry_fields_missing": [],
+   "old_new_fields_missing": [],
+   "lost": [],
+   "newly_valid": [],
+   "key_changed": [],
+   "refused": [],
+   "unreplayed": [],
+   "key_equal_counts": {
+    "True": 41,
+    "False": 0,
+    "None": 1
+   },
+   "key_equal_none": [
+    [
+     "r00-seed-qiskit_l3",
+     {
+      "valid": false,
+      "reason": "pruning_bound",
+      "key": null,
+      "dropped_total": null
+     },
+     {
+      "valid": false,
+      "reason": "pruning_bound",
+      "key": null,
+      "dropped_total": null
+     }
+    ]
+   ],
+   "best_old": {
+    "id": "r12-F1-012",
+    "key": [
+     83,
+     638,
+     1517,
+     10
+    ]
+   },
+   "best_new": {
+    "id": "r12-F1-012",
+    "key": [
+     83,
+     638,
+     1517,
+     10
+    ]
+   },
+   "best_ok": true,
+   "ev_hash_ok": true,
+   "attempts_unchanged": true,
+   "discoveries_unchanged": true,
+   "n_entries": 42,
+   "rounds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "tag": "008",
+   "wall_s": 13.786003112792969,
+   "newly_valid_or_lost_nonempty": false,
+   "arch_files_new": 41,
+   "arch_files_head": 41,
+   "arch_same_filenames": true,
+   "arch_key_mismatch": [],
+   "arch_new_entry_evaluator_hashes": [
+    "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+   ],
+   "arch_fields_differing(count of entries)": {
+    "versions": 11,
+    "git_commit": 41,
+    "verdict_nominal": 41,
+    "evaluator_sha256": 41,
+    "wall_s": 41,
+    "written_utc": 41,
+    "verdicts_alt": 41,
+    "encoding_sha256": 41,
+    "git_dirty": 7,
+    "machine": 11
+   },
+   "index_keys_equal": false,
+   "index_differs_in": [
+    "written_utc"
+   ],
+   "archive_head_files": 42,
+   "pre_checked": 99,
+   "pre_not_identical": [],
+   "pre_extra_files_not_in_head": [],
+   "new_round_file_hashes": [
+    "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+   ]
+  },
+  "fuzzy_link": {
+   "fields_missing": [],
+   "entry_fields_missing": [],
+   "old_new_fields_missing": [],
+   "lost": [],
+   "newly_valid": [],
+   "key_changed": [],
+   "refused": [],
+   "unreplayed": [],
+   "key_equal_counts": {
+    "True": 4,
+    "False": 0,
+    "None": 1
+   },
+   "key_equal_none": [
+    [
+     "r00-seed-qiskit_l3",
+     {
+      "valid": false,
+      "reason": "skeleton",
+      "key": null,
+      "dropped_total": null
+     },
+     {
+      "valid": false,
+      "reason": "skeleton",
+      "key": null,
+      "dropped_total": null
+     }
+    ]
+   ],
+   "best_old": {
+    "id": "r02-F2-001",
+    "key": [
+     12,
+     644,
+     1183,
+     4
+    ]
+   },
+   "best_new": {
+    "id": "r02-F2-001",
+    "key": [
+     12,
+     644,
+     1183,
+     4
+    ]
+   },
+   "best_ok": true,
+   "ev_hash_ok": true,
+   "attempts_unchanged": true,
+   "discoveries_unchanged": true,
+   "n_entries": 5,
+   "rounds": [
+    0,
+    1,
+    2
+   ],
+   "tag": "008",
+   "wall_s": 3.4692294597625732,
+   "newly_valid_or_lost_nonempty": false,
+   "arch_files_new": 4,
+   "arch_files_head": 4,
+   "arch_same_filenames": true,
+   "arch_key_mismatch": [],
+   "arch_new_entry_evaluator_hashes": [
+    "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+   ],
+   "arch_fields_differing(count of entries)": {
+    "versions": 4,
+    "git_commit": 4,
+    "verdict_nominal": 4,
+    "evaluator_sha256": 4,
+    "wall_s": 4,
+    "written_utc": 4,
+    "verdicts_alt": 4,
+    "encoding_sha256": 4,
+    "git_dirty": 2,
+    "machine": 4
+   },
+   "index_keys_equal": false,
+   "index_differs_in": [
+    "written_utc"
+   ],
+   "archive_head_files": 5,
+   "pre_checked": 14,
+   "pre_not_identical": [],
+   "pre_extra_files_not_in_head": [],
+   "new_round_file_hashes": [
+    "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
+   ]
+  }
+ },
+ "check2_attempts_discoveries": {
+  "git_diff_stat_compress_attempts_discoveries": "empty",
+  "git_status_clean": true
+ },
+ "check3_locked_tests": {
+  "M2C_G1 x4 (twelve-step, spinnet-step, fuzzy_ub-UB, fuzzy_link-UE)": {
+   "result": "4 passed",
+   "wall_s_pytest": 0.4
+  },
+  "m2 test_archive_best_valid_and_not_worse_than_seed": {
+   "result": "1 passed",
+   "wall_s_pytest": 13.79
+  },
+  "m4 M4_G1_archive_best_reverified_from_source": {
+   "result": "1 passed",
+   "wall_s_pytest": 2.42
+  },
+  "m10 M10_G1 (fuzzy_link-UE, fuzzy_ub-UB)": {
+   "result": "2 passed",
+   "wall_s_pytest": 1.55
+  }
+ },
+ "check4_regression": {
+  "acceptance_m6_m8_not_slow": {
+   "passed": 33,
+   "failed": 13,
+   "wall_s": 170,
+   "failed_ids": "m6 G5 G6 L2 L3 L9; m8 S0 S2 S3 S4 S5 H1 L2 E2 (same 13 as report 424; 12 PENDING + M8_E2 subprocess NotImplementedError step 8.R)"
+  },
+  "acceptance_other_not_slow": {
+   "passed": 294,
+   "failed": 2,
+   "wall_s": 1071,
+   "failed_ids": [
+    "M2C_G1[rishon-step] PENDING (C2)",
+    "M11_T2 PENDING rows not final"
+   ],
+   "vs_424": "424 had 290 passed 6 failed (M2C_G1 x5, M11_T2); now M2C_G1 x4 green"
+  },
+  "unit": {
+   "passed": 1131,
+   "failed": 5,
+   "wall_s": 387,
+   "failed_ids": [
+    "test_generic_report_leaves_a_track_summary_unchanged_and_names_the_refresh_command[spinnet-step]",
+    "test_generic_report_keeps_an_existing_headline_block_and_writes_otherwise",
+    "test_compute_false_stale_cache_returns_none_without_build_or_write[spinnet-step]",
+    "test_compute_false_missing_cache_and_refresh[spinnet-step]",
+    "test_compute_false_fresh_cache_equals_the_hook_and_writes_nothing[spinnet-step]"
+   ],
+   "cause": "FileNotFoundError: results/compress/{spinnet/summary.json, spinnet/robust.json, twelve/summary.json} moved to pre-008 by the replay"
+  }
+ },
+ "check5": {
+  "hashes_equal_freeze": true,
+  "check_lock": "LOCK OK",
+  "acceptance_check": "PASS acceptance-v22"
+ },
+ "cleanup": {
+  "restored_by_git_checkout": [
+   "results/compress/rishon/robust.json",
+   "results/spinnet/certs/spinnet-step-o1-b0a415d9322f.json",
+   "results/spinnet/certs/spinnet-UB-o1-33d95284ebb7.json",
+   "results/spinnet/certs/spinnet-UB-o1-458a39365261.json",
+   "results/spinnet/certs/spinnet-UE-o1-df0c79b22d3f.json"
+  ],
+  "removed_test_created": [
+   "results/compress/fuzzy_link/summary.json",
+   "results/compress/fuzzy_ub/summary.json"
+  ],
+  "sha256_list_after_equals_before": true
+ }
+}

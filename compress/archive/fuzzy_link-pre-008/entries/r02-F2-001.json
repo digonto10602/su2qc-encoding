@@ -1,0 +1,188 @@
+{
+ "id": "r02-F2-001",
+ "program_path": "compress/programs/fuzzy_link/F2/001-plane_bfs_frame_fusion12.py",
+ "program_sha256": "f39cd2dced08584ba26abf20b829232483880e3e59b299857adf090ff68c6dc1",
+ "parent": "r01-F1-001",
+ "family": "F2",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  12,
+  644,
+  1183,
+  4
+ ],
+ "cell": [
+  29,
+  74
+ ],
+ "metrics_raw": {
+  "cx": 12,
+  "t_fixed": 0,
+  "n_rot": 10,
+  "t_eps": 644,
+  "t_estimate": {
+   "1e-06": 597.9470570797253,
+   "1e-10": 996.5784284662087
+  },
+  "t_measured": {
+   "1e-06": 644,
+   "1e-10": 1028
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 37,
+  "depth_ct": 1183,
+  "qubits": 4,
+  "gates": {
+   "h": 22,
+   "cx": 12,
+   "rz": 10,
+   "s": 9,
+   "x": 1,
+   "z": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.614918919956449e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.9617433234158249,
+   0.27395214886013264
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.2579803116788703e-15,
+  "block_error": 4.356938608277579e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.00780487060546875,
+  "n_inputs": 16,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 4.356938608277579e-15,
+   "max_dropped_l2": 4.686305209425121e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 4.244069162539226e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.4388927549462143e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7759983079148827,
+    0.630734988813241
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.88986167939322e-16,
+   "block_error": 2.6499065870068924e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.0039441585540771484,
+   "n_inputs": 16,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.6499065870068924e-15,
+    "max_dropped_l2": 3.5467260085828474e-16,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.5349175740132756e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.913696799282053e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.291501685042109,
+    0.956570315040986
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.783589749938177e-16,
+   "block_error": 5.135337824288236e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.003920793533325195,
+   "n_inputs": 16,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 5.135337824288236e-15,
+    "max_dropped_l2": 2.632514832259972e-16,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 4.964415728818031e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: with single-qubit Cliffords free, a 4-qubit Clifford coset is a tuple of 4 mutually orthogonal hyperbolic planes in F2^8 and each CX (with locals) has exactly 9 outcomes per qubit pair; an rz is available exactly on the nonzero elements of a plane, so the UE target needs only a path of planes I->I whose planes jointly contain the 10 Z-strings of V=<X1X3,Z1Z3,X2X4,Z2Z4>.",
+  "DISCOVERY: in that model (all intermediate cosets either diagonalise V on every qubit or are within 3 CX of identity) the minimum is 12 CX (no 10- or 11-CX path; search scratch/proposer/fl_gen.py), one below the Bell-frame + I->I network 2+9+2=13."
+ ],
+ "summary": "frame and parity network fused into one 12-CX Clifford path found by meet-in-the-middle BFS over 4-qubit Clifford cosets modulo single-qubit Cliffords (each qubit = one hyperbolic plane of Paulis); the 10 commuting Pauli rotations (6 at +-alpha/4, 4 at +-2 kappa2) are applied whenever a plane contains a target Pauli; 12 CX, 10 rotations.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "fc43837d40f618f4f5b76afb67a12831100928d86da03a1c5d8e22029cee97d9",
+ "git_commit": "6d221d5",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "prudence x86_64 cpus=48",
+ "wall_s": 0.49261045455932617,
+ "written_utc": "2026-11-06T20:06:55Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9.999999999999999e-06
+ },
+ "lean": {
+  "status": "n_a",
+  "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+ },
+ "mode": "full"
+}

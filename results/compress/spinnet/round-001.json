@@ -14,28 +14,29 @@
   "r01-F3-001",
   "r01-F5-001"
  ],
- "lean_seconds": 0.9270563125610352,
+ "lean_seconds": 0.0,
  "encoding": "spinnet",
  "kind": "step",
  "provenance": {
-  "git_commit": "22d6061",
+  "git_commit": "02c499d",
   "git_dirty": true,
   "versions": {
    "python": "3.12.16",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
   "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-07T00:31:54Z"
+  "timestamp_utc": "2026-11-18T02:20:58Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
  "invalid": [],
  "external": [],
@@ -95,7 +96,9 @@
     "gauss_residual": 6.049187461416408e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 5.652764313490737e-15
    },
    "alt_ok": [
     true,
@@ -104,7 +107,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "22d6061",
+   "git_commit": "02c499d",
    "summary": "dimer frame (pivot = link b) with two clean flags a1=[c0=c2=0], A=[u=v=0] and the third AND a2=[c1=c3=0] toggled straight onto the pivot by two rccx inside the H-frame phase walk (one CZ cancels their leftover sign), plus a 1-CX merge of the last ladder CX with the first walk toggle; 32 CX, 9+4 rotations, all angles k*beta/4 or 3*alpha/4.",
    "lean": {
     "status": "certified",
@@ -168,13 +171,15 @@
    },
    "verdict": {
     "ok": true,
-    "op_norm_error": 5.241471394173516e-15,
-    "block_error": 1.819289486290076e-15,
+    "op_norm_error": 6.050380517457076e-15,
+    "block_error": 2.617002303034494e-15,
     "leak_amplitude": 0.0,
-    "gauss_residual": 5.374844106186573e-16,
+    "gauss_residual": 5.907440274120147e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 6.050380517457076e-15
    },
    "alt_ok": [
     true,
@@ -183,7 +188,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "22d6061",
+   "git_commit": "02c499d",
    "summary": "F2 single-flag corner polynomial: dimer ladder (pivot = link b), one rccx flag A=[u=v=0], and a 22-step closed pivot walk over the raw corner parities (c0..c3, A, e) carrying 18 rz(+-beta/4) terms; the first walk step is fused with the last ladder CX into a 1-CX Clifford; 33 CX, 17 qubits, all angles +-beta/4 or -3*alpha/4.",
    "lean": null,
    "round": 1,
@@ -244,7 +249,9 @@
     "gauss_residual": 5.881301029635769e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 6.772541276978527e-15
    },
    "alt_ok": [
     true,
@@ -253,7 +260,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "22d6061",
+   "git_commit": "02c499d",
    "summary": "searched U_B (scratch/proposer/f3): flags A=[u=v=0], NOR(c0,c1), NOR(c2,c3) (3 rccx pairs), a 9-term pivot phase polynomial (MILP enumeration + exact free-endpoint TSP: 9 pivot CX), and the final CX(e,p) unload fused with the ladder tail into one 2-CX Clifford; 33 CX, 13 rotations, angles k*beta/4 and -3*alpha/4 solved from the oracle and snapped to k/64.",
    "lean": null,
    "round": 1,
@@ -312,7 +319,9 @@
     "gauss_residual": 5.477332718458151e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 7.65183804955388e-15
    },
    "alt_ok": [
     true,
@@ -321,7 +330,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "22d6061",
+   "git_commit": "02c499d",
    "summary": "T-lean step with 7 rotations (3 for U_E, 4 for U_B, the minimum for +-1 phase decompositions): U_E = phases on y_b, on the pivot r^t^l and on maj(r,t,l) (one rccx pair onto the pivot); U_B = 4-term pivot walk over B, F, F&~e with B and F&~e toggled onto the pivot by nested rccx pairs and the A flag XORed into corner qubit c3; 17 qubits, angles k*alpha/4 and k*beta/2 (one shifted by -pi/4).",
    "lean": null,
    "round": 1,
@@ -342,13 +351,11 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 7.631769180297852,
- "written_utc": "2026-11-07T00:31:54Z",
+ "wall_s": 6.07135272026062,
+ "written_utc": "2026-11-18T02:20:58Z",
  "spinnet": {
-  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "code_sha256": "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4",
   "shim": [
-   "build_in_subprocess",
-   "certify",
    "encoding"
   ]
  }

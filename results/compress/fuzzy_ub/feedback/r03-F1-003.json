@@ -13,16 +13,16 @@
  "verdict": {
   "ok": true,
   "reason": "ok",
-  "op_norm_error": 6.913069635670847e-14,
+  "op_norm_error": 1.1627943284124572e-13,
   "max_leak": 0.0,
   "dirty_ancilla": 0.0,
   "phase": [
-   5.662586502082477e-16,
+   5.854464908372247e-16,
    1.0
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -31,33 +31,37 @@
    "tol_err": 1e-10,
    "tol_gauss": 1e-10
   },
-  "dropped_total": 4.9606754156553486e-14,
-  "block_error": 1.9523942200154978e-14,
+  "dropped_total": 9.662786346832139e-14,
+  "block_error": 1.965156937292433e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.5989899635314941,
+  "seconds": 0.047628164291381836,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 1.1627943284124572e-13,
   "failing_inputs": [],
   "extra": {
-   "op_norm_error_physical": 1.9523942200154978e-14,
-   "max_dropped_l2": 6.2543603023841815e-15,
+   "op_norm_error_physical": 1.96330499101084e-14,
+   "max_dropped_l2": 1.1943278927540591e-14,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.9499114402712562e-14
+   "op_norm_error_inner_span": 1.965156937292433e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 5.3191701269636534e-14,
+   "op_norm_error": 6.748388371534034e-14,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
-    6.433531594506218e-16,
+    6.104962980519009e-16,
     1.0
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -66,32 +70,36 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 3.7619680256222845e-14,
-   "block_error": 1.5572021013413692e-14,
+   "dropped_total": 5.193137689209282e-14,
+   "block_error": 1.555250682324752e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.08040571212768555,
+   "seconds": 0.04757857322692871,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.748388371534034e-14,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.5572021013413692e-14,
-    "max_dropped_l2": 3.860560733110879e-15,
+    "op_norm_error_physical": 1.552698413745656e-14,
+    "max_dropped_l2": 5.460514200180345e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.5571549901409744e-14
+    "op_norm_error_inner_span": 1.555250682324752e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 7.196004554061963e-14,
+   "op_norm_error": 1.653605671109557e-13,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
-    6.002561642575946e-16,
+    5.833469650012394e-16,
     1.0
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -100,17 +108,21 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 5.2804685335735164e-14,
-   "block_error": 1.9155360204884472e-14,
+   "dropped_total": 1.4584334453154676e-13,
+   "block_error": 1.9517222579408922e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.07863354682922363,
+   "seconds": 0.047922372817993164,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 1.653605671109557e-13,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.9155360204884472e-14,
-    "max_dropped_l2": 6.427159436951e-15,
-    "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.9115805348077348e-14
+    "op_norm_error_physical": 1.9517222579408922e-14,
+    "max_dropped_l2": 1.917232266324885e-14,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.949675693736944e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "1787bb90402ec88ac79ee609b3f942e49e7c44d1857f97c1167a04f4ae430b6e",
- "wall_s": 1.7447781562805176,
+ "wall_s": 0.7135498523712158,
  "discoveries": [
   "DISCOVERY: the 7-CX Clifford+T Fredkin combines with the decoder cancellation of r02-F1-002: Fredkin is self-inverse, so its dagger form starts with cx(q2^j -> q2^i) and the -1 CX cancellation still applies (6 CX for that swap), 62 -> 54 CX on the frames.",
   "DISCOVERY: replacing the Toffoli of a Fredkin by rccx (5-CX relative-phase Fredkin) leaves a diagonal residue with >= 3 two/three-body parities (f^a, a^b, f^a^b) whose correction costs >= 3 CX even after cancelling against the Fredkin tail, so it never beats 7 CX; qiskit level-3 resynthesis of the beta-free runs between rz finds nothing further."

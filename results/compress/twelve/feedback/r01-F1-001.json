@@ -34,14 +34,18 @@
   "dropped_total": 9.385249808647043e-14,
   "block_error": 1.1430256925157293e-14,
   "leak_amplitude": 0.0,
-  "seconds": 80.83851933479309,
+  "seconds": 27.358527421951294,
   "n_inputs": 433,
+  "span_leak": 3.139953598036382e-15,
+  "total_error": 1.0842270860966409e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.1430256925157293e-14,
    "max_dropped_l2": 5.469344307451826e-15,
    "max_span_leak": 3.1086244689504383e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 2.9856396009894247e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 9.399319421894479e-14,
    "block_error": 1.1556514445266312e-14,
    "leak_amplitude": 0.0,
-   "seconds": 78.49178051948547,
+   "seconds": 27.168667316436768,
    "n_inputs": 433,
+   "span_leak": 2.9546978838365213e-15,
+   "total_error": 1.0850440654804763e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.1556514445266312e-14,
     "max_dropped_l2": 4.828447668672234e-15,
     "max_span_leak": 3.219646771412954e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 2.8649945635909477e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 9.74936660879703e-14,
    "block_error": 1.2501065511154081e-14,
    "leak_amplitude": 0.0,
-   "seconds": 79.23285174369812,
+   "seconds": 27.032100915908813,
    "n_inputs": 433,
+   "span_leak": 3.669998535292726e-15,
+   "total_error": 1.1366473013441711e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.2501065511154081e-14,
     "max_dropped_l2": 5.451605587996366e-15,
     "max_span_leak": 4.884981308350689e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.615798073868109e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "5c992a210da8741297edd446981a7a69103ba9657a8848cf8a59d607fa7dd7cd",
- "wall_s": 241.5307581424713,
+ "wall_s": 81.9495005607605,
  "discoveries": [
   "DISCOVERY: After the per-link relabel (legs ^= j on corners 0,2 legs; q0 ^= j_b, q9 ^= j_l for corners 1,3) the corner frame C0 = H_A CX_AB CH_BA CX_AB maps (vac, bond) to Z_A-partners with B=0, and CH(t->A) C0 does the same for the diff pair: the same-vs-diff frames differ by one t-controlled Hadamard (anticommuting partner involutions), so the frame costs 4 CX per corner.",
   "DISCOVERY: The pair-relation sign of the frame differs from the true coupling sign only on the n1=2 patterns t=(001),(110) (u=t0^t1=0, v=t1^t2=1); folding that sign into the angle gives a 6-term Walsh multiplexer on (g, z, t1, u) with no constant term (8 CX).",

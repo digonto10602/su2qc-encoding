@@ -60,7 +60,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -72,14 +72,18 @@
   "dropped_total": 3.991482812214944e-14,
   "block_error": 1.86427670410236e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.04520297050476074,
+  "seconds": 0.04671645164489746,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.855759516317304e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.86427670410236e-14,
    "max_dropped_l2": 4.143379688536693e-15,
    "max_span_leak": 2.220446049250313e-16,
-   "op_norm_error_inner_span": 1.8548385933003183e-14
+   "op_norm_error_inner_span": 1.8548385933003183e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -95,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -107,14 +111,18 @@
    "dropped_total": 3.0077065263445654e-14,
    "block_error": 1.2173907796554652e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.046659231185913086,
+   "seconds": 0.047055721282958984,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.2250973060000304e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.2108435036115115e-14,
     "max_dropped_l2": 2.888649083782029e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.2173907796554652e-14
+    "op_norm_error_inner_span": 1.2173907796554652e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -129,7 +137,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -141,14 +149,18 @@
    "dropped_total": 6.642280024557978e-14,
    "block_error": 1.786450292714964e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04559469223022461,
+   "seconds": 0.04732227325439453,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 8.428730317272943e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.786450292714964e-14,
     "max_dropped_l2": 7.309070302447683e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.780074117632211e-14
+    "op_norm_error_inner_span": 1.780074117632211e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -159,9 +171,9 @@
   "DISCOVERY: With a single AND ancilla a=t&l the one-hot sector lines are affine in (t,l,a); a DP over CX among PT,PL,a gives all line changes in 5 CX; fitting the group with only one singlet AND instead of two needs 23-27 terms (worse)."
  ],
  "summary": "r-fold of sectors 1,5 onto 0,4 with OR-merged first Fredkin, CZ(F,PR)/CZ(F,PL) sign knobs absorbed into the parity CX, t=1 group at the (0 2) frame fitted constant-free (11 terms, walk 14), one-AND selector lines (5 CX).",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "5d5d502",
+ "git_commit": "220730e",
  "versions": {
   "python": "3.12.16",
   "numpy": "2.5.4",
@@ -177,13 +189,14 @@
   "gridsynth": 0
  },
  "machine": "omnicommander x86_64 cpus=20",
- "wall_s": 2.21465802192688,
- "written_utc": "2026-11-11T05:23:20Z",
+ "wall_s": 2.273306369781494,
+ "written_utc": "2026-11-18T03:02:46Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 2.8e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

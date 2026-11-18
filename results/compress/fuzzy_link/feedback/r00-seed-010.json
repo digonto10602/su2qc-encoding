@@ -13,16 +13,16 @@
  "verdict": {
   "ok": true,
   "reason": "ok",
-  "op_norm_error": 3.245505411835618e-15,
+  "op_norm_error": 3.1464372816633704e-15,
   "max_leak": 0.0,
   "dirty_ancilla": 0.0,
   "phase": [
-   0.9617433234158249,
-   0.27395214886013264
+   0.9617433234158247,
+   0.2739521488601326
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -32,32 +32,36 @@
    "tol_gauss": 1e-10
   },
   "dropped_total": 4.08865160135725e-16,
-  "block_error": 2.836640251699893e-15,
+  "block_error": 2.7375721215276454e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.002261638641357422,
+  "seconds": 0.0015327930450439453,
   "n_inputs": 16,
+  "span_leak": 0.0,
+  "total_error": 3.1464372816633704e-15,
   "failing_inputs": [],
   "extra": {
-   "op_norm_error_physical": 2.836640251699893e-15,
+   "op_norm_error_physical": 2.640439088638008e-15,
    "max_dropped_l2": 1.415262216750919e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.7375721215276454e-15
+   "op_norm_error_inner_span": 2.7375721215276454e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 2.2934247834057153e-15,
+   "op_norm_error": 2.3998452983033564e-15,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
-    0.7759983079148827,
-    0.6307349888132411
+    0.7759983079148824,
+    0.630734988813241
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -67,16 +71,20 @@
     "tol_gauss": 1e-10
    },
    "dropped_total": 3.1399181201691467e-16,
-   "block_error": 1.979432971388801e-15,
+   "block_error": 2.0858534862864416e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.001901865005493164,
+   "seconds": 0.0012271404266357422,
    "n_inputs": 16,
+   "span_leak": 0.0,
+   "total_error": 2.3998452983033564e-15,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.9047620302229966e-15,
+    "op_norm_error_physical": 2.0858534862864416e-15,
     "max_dropped_l2": 1.0747739707298072e-16,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.979432971388801e-15
+    "op_norm_error_inner_span": 1.979432971388801e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 4.1158314722942875e-16,
    "block_error": 4.360999203494396e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.0019083023071289062,
+   "seconds": 0.001306295394897461,
    "n_inputs": 16,
+   "span_leak": 0.0,
+   "total_error": 4.772582350723824e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 4.360999203494396e-15,
     "max_dropped_l2": 1.7103756356130428e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 4.141771940516724e-15
+    "op_norm_error_inner_span": 4.141771940516724e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -140,7 +152,7 @@
   "measured": true
  },
  "program_sha256": "cc676861dbf6326454404adf9e28a9c103da97f128500317c564f946f7fb4653",
- "wall_s": 0.5219910144805908,
+ "wall_s": 0.35620832443237305,
  "discoveries": [],
  "summary": "the reference circuit after the deterministic polish passes."
 }

@@ -34,14 +34,18 @@
   "dropped_total": 1.0006102888014328e-13,
   "block_error": 1.3508583056265959e-14,
   "leak_amplitude": 0.0,
-  "seconds": 55.906859397888184,
+  "seconds": 18.12046527862549,
   "n_inputs": 433,
+  "span_leak": 3.3709338827399425e-15,
+  "total_error": 1.1694054581914918e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.3508583056265959e-14,
    "max_dropped_l2": 5.652425658247883e-15,
    "max_span_leak": 4.9960036108132044e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.3203584573623143e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 9.12141786356761e-14,
    "block_error": 1.4409065389416875e-14,
    "leak_amplitude": 0.0,
-   "seconds": 55.77643418312073,
+   "seconds": 18.186192274093628,
    "n_inputs": 433,
+   "span_leak": 3.836407249762553e-15,
+   "total_error": 1.0945965127485552e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.4409065389416875e-14,
     "max_dropped_l2": 4.7302598282469536e-15,
     "max_span_leak": 6.106226635438361e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.7664093124559375e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 1.095335537437013e-13,
    "block_error": 1.6451928242305195e-14,
    "leak_amplitude": 0.0,
-   "seconds": 55.92043972015381,
+   "seconds": 18.186298847198486,
    "n_inputs": 433,
+   "span_leak": 5.630416283267701e-15,
+   "total_error": 1.3161589826927422e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.6451928242305195e-14,
     "max_dropped_l2": 6.2659230580118355e-15,
     "max_span_leak": 7.105427357601002e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.6148119532226055e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "15d0709c4cc2282824fb8abccd429c34a6c965a699b930e3c6b64d0d3d9eacb3",
- "wall_s": 168.91889309883118,
+ "wall_s": 55.384705781936646,
  "discoveries": [
   "DISCOVERY: A 2-CX corner frame U=[HSH_A,HS_B; CX(B>A); THS_A,HTH_B; CX(B>A); S,H_B] maps the same-type partner map to X_A and the diff-type one to Z_A; with CH(t->A) and padding CX(j_B->A) interleaved with the chain fold, H_B = kappa(t)*g*X_F exactly on all 433 states, kappa=-2 (n1=0), (-1)^t0 (n1=2), +1/2 (n1=4).",
   "DISCOVERY: In that padded frame a same-type corner's dark (inner J=1) codes are 10/11/01 vs bright 00; one AND of the two outer q_m bits (the parallel branch) makes dark a single leg bit A, so dark_c = (not t_c) and A_c (4 corners -> 2 pairwise NORs a,b).",

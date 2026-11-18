@@ -17,7 +17,7 @@
  "encoding": "spinnet",
  "kind": "step",
  "provenance": {
-  "git_commit": "9145258",
+  "git_commit": "02c499d",
   "git_dirty": true,
   "versions": {
    "python": "3.12.16",
@@ -32,9 +32,10 @@
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-10T21:12:38Z"
+  "timestamp_utc": "2026-11-18T02:21:17Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
  "invalid": [],
  "external": [],
@@ -94,7 +95,9 @@
     "gauss_residual": 5.488309788105658e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 5.606482394400899e-15
    },
    "alt_ok": [
     true,
@@ -103,7 +106,7 @@
    "skeleton_equal": true,
    "parent": "r04-F1-004",
    "parent_known": true,
-   "git_commit": "9145258",
+   "git_commit": "02c499d",
    "summary": "three-AND F1 variant with a chained direct flag: dimer frame (pivot b), clean ancillas N12=[c1=c2=0] and A=[u=v=0], and D=[c3=0]&N12 (NOR3 of c1,c2,c3) toggled straight onto the pivot by an rccx pair; the raw corner c0 completes the bright projector, so the walk A D A c0 A D e A c0 (start p, end p^e fused into the inverse ladder) carries a 9-term polynomial (angles k*beta/8) and one CZ(c3bar, c0) removes the pair's leftover sign (-1)^(c3bar*c0); 32 CX, 9+4 rotations, 18 qubits (no robust gain: CX 32 > 31).",
    "lean": null,
    "round": 5,
@@ -164,7 +167,9 @@
     "gauss_residual": 5.907440274120147e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 4.989682288025805e-15
    },
    "alt_ok": [
     true,
@@ -173,7 +178,7 @@
    "skeleton_equal": true,
    "parent": "r03-F2-003",
    "parent_known": true,
-   "git_commit": "9145258",
+   "git_commit": "02c499d",
    "summary": "angle-linear rebuild of the F2 31-CX design (dimer frame, pivot b, fused 2-CX start/end blocks, N=[c1=c3=0] in one ancilla, A=[U=V=0] XORed into c1, all-linear 13-toggle walk E -> 0 over (E, N, c1^A, c0, c2)) with every rotation a plain rational multiple of alpha or beta: U_E = 4 x p(-3alpha/4), walk rz(k beta/4), no pi/4-shift t/tdg (which cost +1 T at every angle), generic design interpreter (flags, direct rccx pairs with exact leftover-phase Z fix, fused START/END = inverse pairs); 31 CX, 17 rotations, 17 qubits",
    "lean": null,
    "round": 5,
@@ -235,7 +240,9 @@
     "gauss_residual": 5.933464366067994e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 5.594163421680758e-15
    },
    "alt_ok": [
     true,
@@ -244,7 +251,7 @@
    "skeleton_equal": true,
    "parent": "r04-F3-004",
    "parent_known": true,
-   "git_commit": "9145258",
+   "git_commit": "02c499d",
    "summary": "angle-linear form of the F3 parent (Na=NOR(c0,c1) ancilla, A=[u=v=0] in place in c1, Nd=NOR(c2,c3) direct rccx pair + CZ(Na,c2); 9-term walk e -> 0, 32 CX, 17 qubits, 9+4 rotations): every rotation angle is exactly k*beta/4 or -3*alpha/4 (no pi/4 offsets and no fused pi/2 offsets; s/sdg are separate gates), so the circuit is angle-linear (Lean exporter ok) at an unchanged skeleton; robust key (32, 16948, 0, 33225, 17) vs parent (32, 16954, 1).",
    "lean": null,
    "round": 5,
@@ -252,13 +259,11 @@
   }
  ],
  "synthesis_verification": null,
- "wall_s": 7.0534508228302,
- "written_utc": "2026-11-10T21:12:38Z",
+ "wall_s": 4.679048299789429,
+ "written_utc": "2026-11-18T02:21:17Z",
  "spinnet": {
-  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "code_sha256": "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4",
   "shim": [
-   "build_in_subprocess",
-   "certify",
    "encoding"
   ]
  }

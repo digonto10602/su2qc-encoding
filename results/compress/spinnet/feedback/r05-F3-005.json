@@ -34,14 +34,18 @@
   "dropped_total": 3.3336784681939215e-15,
   "block_error": 2.2604849534868365e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.2723236083984375,
+  "seconds": 0.19885826110839844,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 5.594163421680758e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.782019951394485e-15,
    "max_dropped_l2": 8.468470856445827e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.2604849534868365e-15
+   "op_norm_error_inner_span": 2.2604849534868365e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 3.827920598106599e-15,
    "block_error": 1.8149684782055937e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.2731766700744629,
+   "seconds": 0.20402264595031738,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.642889076312193e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.6910413304902314e-15,
     "max_dropped_l2": 8.385165697974018e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.8149684782055937e-15
+    "op_norm_error_inner_span": 1.8149684782055937e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 3.9611840295833066e-15,
    "block_error": 2.6234663156838673e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.27846646308898926,
+   "seconds": 0.2029097080230713,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 6.584650345267174e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.536665005570981e-15,
     "max_dropped_l2": 1.1053722798734825e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.6234663156838673e-15
+    "op_norm_error_inner_span": 2.6234663156838673e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "43605421051ce5e26b85b1b5241eb02638fc5f8ad7c6297a67e7dd0e96fd22e4",
- "wall_s": 2.1538822650909424,
+ "wall_s": 1.519751787185669,
  "discoveries": [
   "DISCOVERY: free sign tools for direct rccx pairs: two Z on the pivot at steps i<j give (-1)^(g_i^g_j) (incl. direct flags), a CZ fused into a toggle (sdg(0) cx(x,0) s(0) s(x), 1 CX) twice on one atom gives (-1)^(x(g_i^g_j)), rccx literal pairs (ab, abar bbar)/(abar b, a bbar) leave only S phases, and the AND toggle ch(a,P) cz(b,P) ch(a,P) (3 CX, 4 T) leaves (-1)^(abar b dS) instead of (-1)^(a dS); none fixes the leftover (-1)^(c2bar Na) of the 6 nine-toggle walks of the parent design (exhaustive over 7 linear toggles, free ends span(e,u), all four second-toggle variants), so 32 CX stays.",
   "DISCOVERY: with A in an ancilla and BOTH corner NORs toggled by crossing direct rccx pairs, 9-rotation walks need only 5 linear toggles (8 walks per pairing, 29 CX before the sign fix; 88 walks with 6), but the leftover is ~[corner x only] ^ [corner y only] (x, y one corner of each pair) and is not in the span of the free tools plus any two CZ products of wire values (corners x links included), so the design costs >= 32 CX.",

@@ -34,14 +34,18 @@
   "dropped_total": 3.632179788704574e-15,
   "block_error": 3.1804039727481045e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.5218262672424316,
+  "seconds": 0.1978743076324463,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 6.812583761452679e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.994737223810257e-15,
    "max_dropped_l2": 1.8832709986375987e-15,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 3.1804039727481045e-15
+   "op_norm_error_inner_span": 3.1804039727481045e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 3.036727395153572e-15,
    "block_error": 1.565960082768159e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.18387627601623535,
+   "seconds": 0.20086455345153809,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 4.602687477921731e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.2658490090568415e-15,
     "max_dropped_l2": 8.638833066955088e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.565960082768159e-15
+    "op_norm_error_inner_span": 1.565960082768159e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 3.5157991374744766e-15,
    "block_error": 3.1610034081186043e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.1867988109588623,
+   "seconds": 0.20441865921020508,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 6.676802545593081e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.7277833526183947e-15,
     "max_dropped_l2": 1.5955768806469943e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 3.1610034081186043e-15
+    "op_norm_error_inner_span": 3.1610034081186043e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "4d848ccd7307c5b187812a3c93f8580c49462103332cd1d6f898487adbd89d18",
- "wall_s": 1.5436036586761475,
+ "wall_s": 1.1274473667144775,
  "discoveries": [
   "DISCOVERY: pygridsynth T (eps=1e-6) of rz(th) is unchanged by th -> -th and th -> th + pi/2 but not by th -> th + pi/4, and rz(th) = rz(th + pi/4) tdg exactly, so each rotation costs min(T(th), T(th + pi/4) + 1): -3alpha/4 drops 64 -> 59 and beta/2 66 -> 65 (24 T at zero CX); sign flips (X on the pivot commutes with every toggle CX(g -> pivot)) and pi/2 shifts keep T and only shorten words (depth_CT -69).",
   "DISCOVERY: no 30-CX walk in the two-AND F1 space: exact walk DFS (free ends span(e, v) via the 2-CX merged block CX(0,2)CX(0,3)H(0)CX(2,0)CX(3,0), after which q2 = v, q3 = e stay readable) over 150 designs (corner NOR N_ij and A, each in an ancilla or XORed into a corner, e or the other flag, both orders, all qubits toggles; MILP >= 12 terms each) finds no 12-toggle walk, nor do the 10 diagonal-NOR direct-rccx-pair designs at 12 linear toggles; 13-toggle walks exist only for the parent register set (also with u, v or c2 added) and all keep 13 rotations."

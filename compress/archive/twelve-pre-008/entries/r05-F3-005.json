@@ -1,0 +1,189 @@
+{
+ "id": "r05-F3-005",
+ "program_path": "compress/programs/twelve/F3/005-nopb-inwalk-b2b3-walk.py",
+ "program_sha256": "785913dba07d46b217f49906c748026b592867cb0a9c9812ab6e240b25d6daae",
+ "parent": "r04-F3-004",
+ "family": "F3",
+ "round": 5,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  112,
+  1112,
+  2177,
+  31
+ ],
+ "cell": [
+  54,
+  80
+ ],
+ "metrics_raw": {
+  "cx": 112,
+  "t_fixed": 96,
+  "n_rot": 16,
+  "t_eps": 1112,
+  "t_estimate": {
+   "1e-06": 1052.7152913275604,
+   "1e-10": 1690.5254855459339
+  },
+  "t_measured": {
+   "1e-06": 1112,
+   "1e-10": 1760
+  },
+  "synth_error_bound": 1.6e-05,
+  "depth": 135,
+  "depth_ct": 2177,
+  "qubits": 31,
+  "gates": {
+   "h": 122,
+   "cx": 112,
+   "t": 48,
+   "tdg": 48,
+   "s": 32,
+   "sdg": 32,
+   "x": 24,
+   "rz": 16,
+   "z": 13
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 8.155297748629694e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.9999999999999999,
+   1.3127810360463907e-16
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 8.783664017490233e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.723229022608866e-14,
+  "block_error": 1.432068726020829e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 1.8122303485870361,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.432068726020829e-14,
+   "max_dropped_l2": 4.070535600332602e-15,
+   "max_span_leak": 4.9960036108132044e-15,
+   "op_norm_error_inner_span": null
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.11999860997166e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -5.743417032702957e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 7.378919090236566e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.6451306302505e-14,
+   "block_error": 1.4748679797211605e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.8009006977081299,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.4748679797211605e-14,
+    "max_dropped_l2": 4.029875929091219e-15,
+    "max_span_leak": 6.5503158452884236e-15,
+    "op_norm_error_inner_span": null
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.451464406485207e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -8.615125549054443e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 8.506302840284283e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.655995119963762e-14,
+   "block_error": 1.795469286521445e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.8008646965026855,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.795469286521445e-14,
+    "max_dropped_l2": 4.1255695350257064e-15,
+    "max_span_leak": 7.882583474838611e-15,
+    "op_norm_error_inner_span": null
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: Fused corner gadget search (frame + in-place flag as one circuit on the legs and the type register, raw j_A/j_B as controls, free U3 layers, local states from the r04 reference): none of the 21870 seven-CX skeletons with one j-controlled CX reaches zero residual (floor 0.028), and none of 17280 eight-CX NOT-corner skeletons with one j_A and one j_B CX does (floor 0.008); a NOT corner cannot use a single j-controlled gate at all because its diff partner relation |01> -> -|00>, |00> -> |10> is not an involution, so 8 CX (normal) and 9 CX (NOT) per corner stay.",
+  "DISCOVERY: Dropping the stored pair AND pb: over the 30 choices of (in-walk pair, type bit, per-corner sign convention) that determine kappa (163 of 192 checked), kappa*g has minimum Walsh support 12 (the free points come from b_c >= t_c and the opposite-diff Gauss rule) and the cheapest closed walk is 20 CX after one register CX pair (22) or 24 without, against 15 + 6 with a stored pb; a Margolus residual (-1)^(b2 X) costs nothing when X = t2 because diff corners are always bright.",
+  "DISCOVERY: No 2-CX partial Toffoli exists even with don't-cares: |a b t> -> phase |a b, t ^ ab> on the 7 inputs other than |111> (best residual 0.90) or a clean-target AND |a b 0> -> |a b ab> (0.59), so each flag, z and pair AND keeps its 3-CX rccx."
+ ],
+ "summary": "Different datapath, no pb register: r04-F3-004's corner pipeline (5-CX clean frames, in-place flags, z, t2 copy) but the pair AND p = b2 & b3 is toggled inside the walk by rccx(b2, b3, F) while b0, b1 stay separate walk registers (b1 ^= b0 before the walk); kappa*g has a 12-term Walsh support over (p, b0, b0^b1, z, t2) once the don't-cares b_c >= t_c and the Gauss rule 'opposite diff corners leave at most one dark corner' are used; the 12-node cycle costs 14 CX + 2 rccx and its straddled Margolus residual is (-1)^(b2 t2) = Z(t2) (no fix CX): CX 112 (one above r04-F3-004's 111), 31 qubits.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "d05f973",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 6.7033045291900635,
+ "written_utc": "2026-11-06T17:53:36Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.6e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

@@ -13,28 +13,29 @@
   "r05-F3-005",
   "r05-F4-005"
  ],
- "lean_seconds": 352.125146150589,
+ "lean_seconds": 0.0,
  "encoding": "twelve",
  "kind": "step",
  "provenance": {
-  "git_commit": "d05f973",
+  "git_commit": "b8f2302",
   "git_dirty": true,
   "versions": {
-   "python": "3.12.14",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
-  "cpu_count": 12,
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-06T18:01:26Z"
+  "timestamp_utc": "2026-11-18T03:04:29Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
  "invalid": [],
  "external": [],
@@ -95,7 +96,9 @@
     "gauss_residual": 7.148071168125942e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "physical"
+    "method": "physical",
+    "span_leak": 3.236987642579507e-15,
+    "total_error": 1.0368090957587346e-13
    },
    "alt_ok": [
     true,
@@ -104,16 +107,18 @@
    "skeleton_equal": true,
    "parent": "r04-F2-004",
    "parent_known": true,
-   "git_commit": "d05f973",
+   "git_commit": "b8f2302",
    "summary": "Parent datapath (5-CX clean corner frame, in-place flags, in-walk pa, 9-term Walsh walk, CX 111) with t2 read from the corner-2 outer j bits inside the walk (Gauss law t2 = q21 ^ q23), so corner 2's flag sits in place on q8 and the t2 copy ancilla disappears (31 qubits), plus a 1q peephole and corner-2-before-corner-1 scheduling (depth_CT 1663); no CX gain: a numerical corner-gadget search with outer m/j reads found no 7-CX corner.",
    "lean": {
     "status": "certified",
     "reason": "",
-    "cert_path": "/home/digimonk/Projects/su2qc-encoding/compress/lean/certs/step-o1-ca5c0f1a907a.json",
-    "seconds": 352.1219890117645,
+    "cert_path": "compress/lean/certs/step-o1-ca5c0f1a907a.json",
+    "seconds": 351.06041502952576,
     "checker_sha256": "befbd27e3ed4e8229f11320189441597e04c89c7bf7746cf93f1c55de261bfd5",
     "theorem_path": null,
-    "axioms": []
+    "axioms": [],
+    "program_file_sha256": "4f7fcb1eab11fc709a1e44eb0fdafe9a5f7cd9d48365aea6642cd280170cef92",
+    "gates_sha256": "ca5c0f1a907a36618492da21e8d029a117622c5726acc1d65f1eb90adf7e55d1"
    },
    "round": 5,
    "mode": "full"
@@ -174,7 +179,9 @@
     "gauss_residual": 8.783664017490233e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "physical"
+    "method": "physical",
+    "span_leak": 3.2220952855641236e-15,
+    "total_error": 8.477507277186106e-14
    },
    "alt_ok": [
     true,
@@ -183,7 +190,7 @@
    "skeleton_equal": true,
    "parent": "r04-F3-004",
    "parent_known": true,
-   "git_commit": "d05f973",
+   "git_commit": "b8f2302",
    "summary": "Different datapath, no pb register: r04-F3-004's corner pipeline (5-CX clean frames, in-place flags, z, t2 copy) but the pair AND p = b2 & b3 is toggled inside the walk by rccx(b2, b3, F) while b0, b1 stay separate walk registers (b1 ^= b0 before the walk); kappa*g has a 12-term Walsh support over (p, b0, b0^b1, z, t2) once the don't-cares b_c >= t_c and the Gauss rule 'opposite diff corners leave at most one dark corner' are used; the 12-node cycle costs 14 CX + 2 rccx and its straddled Margolus residual is (-1)^(b2 t2) = Z(t2) (no fix CX): CX 112 (one above r04-F3-004's 111), 31 qubits.",
    "lean": null,
    "round": 5,
@@ -245,7 +252,9 @@
     "gauss_residual": 7.172279192459191e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 3.214550290061563e-15,
+    "total_error": 2.1310778654626792e-13
    },
    "alt_ok": [
     true,
@@ -254,7 +263,7 @@
    "skeleton_equal": true,
    "parent": "r04-F4-004",
    "parent_known": true,
-   "git_commit": "d05f973",
+   "git_commit": "b8f2302",
    "summary": "Same gates as r04-F4-004 (5-CX clean corner frames, 8-CX no-outer-read plumbing, pb stored, 9-term Walsh walk of F = j_b over (pa, pb, z, t2) with pa toggled in-walk, 4 electric phases; CX 111, 13 rotations) rescheduled for depth: the leg-only heads of all four corner frames run under the 167-layer electric rotations, t3 and t2 are formed together before the corner-3/2 frame tails, so depth_CT drops from 1694 to 1672 at equal CX and T.",
    "lean": null,
    "round": 5,
@@ -275,6 +284,6 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 526.6802730560303,
- "written_utc": "2026-11-06T18:01:26Z"
+ "wall_s": 44.46361970901489,
+ "written_utc": "2026-11-18T03:04:29Z"
 }

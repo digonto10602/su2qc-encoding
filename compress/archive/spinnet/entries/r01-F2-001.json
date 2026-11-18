@@ -51,16 +51,16 @@
  "verdict_nominal": {
   "ok": true,
   "reason": "ok",
-  "op_norm_error": 5.241471394173516e-15,
+  "op_norm_error": 6.050380517457076e-15,
   "max_leak": 0.0,
   "dirty_ancilla": 0.0,
   "phase": [
-   0.9999999999999999,
-   9.845857770347823e-17
+   1.0,
+   1.312781036046377e-16
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 5.374844106186573e-16,
+  "gauss_residual": 5.907440274120147e-16,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -69,29 +69,33 @@
    "tol_err": 1e-10,
    "tol_gauss": 1e-10
   },
-  "dropped_total": 3.4221819078834396e-15,
-  "block_error": 1.819289486290076e-15,
+  "dropped_total": 3.4333782144225823e-15,
+  "block_error": 2.617002303034494e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.1920621395111084,
+  "seconds": 0.21599388122558594,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 6.050380517457076e-15,
   "failing_inputs": [],
   "extra": {
-   "op_norm_error_physical": 1.59577122823846e-15,
-   "max_dropped_l2": 1.5242126695146808e-15,
+   "op_norm_error_physical": 2.248895068947039e-15,
+   "max_dropped_l2": 1.228258229939738e-15,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 1.819289486290076e-15
+   "op_norm_error_inner_span": 2.617002303034494e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 4.689378856634272e-15,
+   "op_norm_error": 4.410934556896065e-15,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
     1.0,
-    4.9229288851739076e-17
+    1.64097629505797e-17
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
@@ -104,28 +108,32 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 3.126170644834409e-15,
-   "block_error": 1.5632082117998628e-15,
+   "dropped_total": 2.9297122938153558e-15,
+   "block_error": 1.4812222630807097e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.19518756866455078,
+   "seconds": 0.22066020965576172,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 4.410934556896065e-15,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.5632082117998628e-15,
-    "max_dropped_l2": 1.0153526484752712e-15,
+    "op_norm_error_physical": 1.4812222630807097e-15,
+    "max_dropped_l2": 8.629684624880418e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.5632082117998628e-15
+    "op_norm_error_inner_span": 1.4812222630807097e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 6.819052510073948e-15,
+   "op_norm_error": 6.896987225045784e-15,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
     1.0,
-    -2.4614644425869535e-17
+    -7.384393327760863e-17
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
@@ -138,17 +146,21 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 5.021418637649015e-15,
-   "block_error": 1.797633872424932e-15,
+   "dropped_total": 3.823837740916352e-15,
+   "block_error": 3.0731494841294324e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.18648481369018555,
+   "seconds": 0.22174429893493652,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 6.896987225045784e-15,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.4685865963399703e-15,
-    "max_dropped_l2": 2.1496713729204623e-15,
+    "op_norm_error_physical": 3.0731494841294324e-15,
+    "max_dropped_l2": 1.3433242853438719e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.797633872424932e-15
+    "op_norm_error_inner_span": 2.9121545856351436e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: Dropping the A flag (terms over c0..c3,e,u,v) does not pay: 16 terms are infeasible (MILP), the best support found has 22 terms and annealed pivot walks need >= 30 CX (36 total)."
  ],
  "summary": "F2 single-flag corner polynomial: dimer ladder (pivot = link b), one rccx flag A=[u=v=0], and a 22-step closed pivot walk over the raw corner parities (c0..c3, A, e) carrying 18 rz(+-beta/4) terms; the first walk step is fused with the last ladder CX into a 1-CX Clifford; 33 CX, 17 qubits, all angles +-beta/4 or -3*alpha/4.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
- "git_commit": "22d6061",
+ "git_commit": "02c499d",
  "versions": {
   "python": "3.12.16",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +188,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "SupremeCommander x86_64 cpus=20",
- "wall_s": 1.2612981796264648,
- "written_utc": "2026-11-07T00:31:52Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 1.2659218311309814,
+ "written_utc": "2026-11-18T02:20:57Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 2.2e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c"
 }

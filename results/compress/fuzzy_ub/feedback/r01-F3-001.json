@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 4.850978339489822e-14,
   "block_error": 2.1216768337038302e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.09612345695495605,
+  "seconds": 0.056147098541259766,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 6.972655173193652e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.1216768337038302e-14,
    "max_dropped_l2": 4.226525836315671e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 2.1216768337038302e-14
+   "op_norm_error_inner_span": 2.1216768337038302e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 4.77192600830772e-14,
    "block_error": 1.6557888390795965e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.08871626853942871,
+   "seconds": 0.0570068359375,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.427714847387316e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.6557888390795965e-14,
     "max_dropped_l2": 4.617503646167601e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.6557888390795965e-14
+    "op_norm_error_inner_span": 1.6557888390795965e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 5.058188375187033e-14,
    "block_error": 2.1173953055679486e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.08851838111877441,
+   "seconds": 0.055975914001464844,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 7.175583680754982e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.1173953055679486e-14,
     "max_dropped_l2": 4.9798164104733966e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 2.1173953055679486e-14
+    "op_norm_error_inner_span": 2.1173953055679486e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -143,7 +155,7 @@
   "measured": true
  },
  "program_sha256": "babd37752a9b747c9c3fdfe84e8e828e1e0598081bdad8407f9f53bd34d8d72f",
- "wall_s": 0.8033809661865234,
+ "wall_s": 0.5400264263153076,
  "discoveries": [
   "DISCOVERY: with f-controlled swaps of q2 (control q1^b) every parity sector becomes exactly sigma X_f (x) |S><S|_pairs (x) I: p0 (b r)(t l)->rt, p1 (r t)(r l)->br, p2 (b r)(r t)->tl, p3 (b t)->br&tl sigma 4, p4 (b r)(r l)->rt, p5 (b l)(r t)->br, p6 (b r)(r t)(t l)->identity sigma 1, p7 (b t)(t l)->br.",
   "DISCOVERY: no product of <=3 raw-q1-controlled q2 swaps brings all 8 sectors into that normal form simultaneously."

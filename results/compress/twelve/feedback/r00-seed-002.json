@@ -34,14 +34,18 @@
   "dropped_total": 1.6668752417355595e-13,
   "block_error": 1.2932032376137643e-13,
   "leak_amplitude": 0.0,
-  "seconds": 3.3172056674957275,
+  "seconds": 1.240502119064331,
   "n_inputs": 433,
+  "span_leak": 3.782489268728263e-15,
+  "total_error": 2.9979033720366065e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 3.69246831305656e-14,
    "max_dropped_l2": 8.290261306020854e-15,
    "max_span_leak": 5.662137425588298e-15,
-   "op_norm_error_inner_span": 1.2932032376137643e-13
+   "op_norm_error_inner_span": 1.2932032376137643e-13,
+   "span_leak_max_state": 3.758927700961154e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 1.7723575467719155e-13,
    "block_error": 1.2984518607542274e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.8591670989990234,
+   "seconds": 1.2240381240844727,
    "n_inputs": 433,
+   "span_leak": 3.4537517182971623e-15,
+   "total_error": 3.1053469247091147e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 3.7535599772215455e-14,
     "max_dropped_l2": 8.98468759573549e-15,
     "max_span_leak": 5.995204332975845e-15,
-    "op_norm_error_inner_span": 1.2984518607542274e-13
+    "op_norm_error_inner_span": 1.2984518607542274e-13,
+    "span_leak_max_state": 3.4208463484880008e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 1.6455430912008032e-13,
    "block_error": 1.2976948485044598e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.7568769454956055,
+   "seconds": 1.2356452941894531,
    "n_inputs": 433,
+   "span_leak": 3.1073133996534268e-15,
+   "total_error": 2.974311073701797e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 3.7029074244098275e-14,
     "max_dropped_l2": 8.79993291053741e-15,
     "max_span_leak": 4.551914400963142e-15,
-    "op_norm_error_inner_span": 1.2976948485044598e-13
+    "op_norm_error_inner_span": 1.2976948485044598e-13,
+    "span_leak_max_state": 3.0191799752649006e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "d01e7d2ac747513988269e91f2e501b7423832976930513c334f95eb77bf6fdc",
- "wall_s": 10.972271203994751,
+ "wall_s": 4.143503904342651,
  "discoveries": [],
  "summary": "su2qc-trotter lean22 plaquette (vendored, plaquette only) behind our electric layer."
 }

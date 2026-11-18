@@ -34,14 +34,18 @@
   "dropped_total": 4.5239020850952625e-15,
   "block_error": 2.34100677224615e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.1599876880645752,
+  "seconds": 0.19789958000183105,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 6.8649088573414125e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.058653292202384e-15,
    "max_dropped_l2": 1.0390147726052974e-15,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.34100677224615e-15
+   "op_norm_error_inner_span": 2.34100677224615e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 4.6510796174490454e-15,
    "block_error": 2.1556631856153973e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.15915250778198242,
+   "seconds": 0.19664549827575684,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 6.806742803064443e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.06513420117219e-15,
     "max_dropped_l2": 1.0937440806848513e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.1556631856153973e-15
+    "op_norm_error_inner_span": 2.1556631856153973e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 4.636476798147345e-15,
    "block_error": 3.026212126318931e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.15945792198181152,
+   "seconds": 0.19944310188293457,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 7.662688924466276e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.8142117187270835e-15,
     "max_dropped_l2": 1.0707426723118875e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 3.026212126318931e-15
+    "op_norm_error_inner_span": 3.026212126318931e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -145,7 +157,7 @@
   "measured": true
  },
  "program_sha256": "734a62fe58f316d6deb59561fb90cedcb04e5854f260f4d78e680eb688428f81",
- "wall_s": 0.9761037826538086,
+ "wall_s": 1.0912315845489502,
  "discoveries": [
   "DISCOVERY: with the bright flag B available as a toggle, U_B needs only 6 terms {1, A, B, AB, e, Ae} (minimal over gens A,B,e,u,v); the best walk is [e] A e B A B = 9 pivot CX + 1 CZ (the B pair encloses one A toggle, sign (-1)^(x*A)), and an exhaustive search (all 6-7 term supports, shifts by span(X,Y), CX among pivot/flag/e, free ends in span(e,v)) finds nothing below 10, so 6 ladder + 18 flag + 10 = 34 CX is this family's floor.",
   "DISCOVERY: toggling both A and B by direct rccx pairs (31 CX) forces interleaved pairs whose leftover sign l1*X*(Y^l2) is 3-body on the valid codes; no choice of literals, corner pairing, first controls or walk (<= 3 extra cheap toggles) makes it fixable with <= 2 CZ, nor do control-order swaps of in-place uncomputes (they only give (l1^l2)*t0).",

@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 8.162158620211084e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -9.845857770347947e-17
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 9.404953350274778e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.607641598150542e-14,
+  "block_error": 1.5545170220605415e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 1.7902259826660156,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.5545170220605415e-14,
+   "max_dropped_l2": 4.144468998971039e-15,
+   "max_span_leak": 3.774758283725532e-15,
+   "op_norm_error_inner_span": null
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.27129693313191e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -2.4614644425869883e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 8.111831110324006e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.570491300375346e-14,
+   "block_error": 1.7008056327565644e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.7800471782684326,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7008056327565644e-14,
+    "max_dropped_l2": 4.212306028922067e-15,
+    "max_span_leak": 5.773159728050814e-15,
+    "op_norm_error_inner_span": null
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.872741114793713e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -1.230732221293493e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 7.435956475353897e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.054047908478141e-14,
+   "block_error": 1.8186932063155724e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.8105380535125732,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8186932063155724e-14,
+    "max_dropped_l2": 4.388753265964333e-15,
+    "max_span_leak": 6.994405055138486e-15,
+    "op_norm_error_inner_span": null
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 124,
+  "t_fixed": 104,
+  "n_rot": 16,
+  "t_eps": 1114,
+  "t_estimate": {
+   "1e-06": 1060.7152913275604,
+   "1e-10": 1698.5254855459339
+  },
+  "t_measured": {
+   "1e-06": 1114,
+   "1e-10": 1754
+  },
+  "synth_error_bound": 1.6e-05,
+  "depth": 142,
+  "depth_ct": 2196,
+  "qubits": 35,
+  "gates": {
+   "h": 142,
+   "cx": 124,
+   "t": 52,
+   "tdg": 52,
+   "s": 44,
+   "sdg": 44,
+   "x": 32,
+   "rz": 16,
+   "z": 4
+  },
+  "measured": true
+ },
+ "program_sha256": "86ff9c4bfa871a1968478b5b509dfb82c25769b1b6e63bc0b46377544f37e3b2",
+ "wall_s": 6.671290159225464,
+ "discoveries": [
+  "DISCOVERY: g*kappa(t) (kappa = 2, -1, 1/2 for n1 = 0, 2, 4; kappa*g = -g + 3[n1=0 and bright] + 1.5[n1=4]) has an 11-term Walsh support over (g, t1, t2, t3) via the free point (g=0, n1=4); in the basis (t1, t2, t2^t3) it is Gray-walked with 12 CX (plain basis: 16-CX walk, and an exhaustive parity-network search finds no 12-CX network), so the type dependence costs 12+2 CX instead of z (10) + (g, z, t) mux (6).",
+  "DISCOVERY: Trading AND depth, t copies and multiplexer terms is CX-neutral: (g; t) 18+6+14, (b0b1b2, b3; t) 12+6+20, (b0b1, b2b3; t) 12+6+20, (b0b1b2, x3; t) 12+4+22, raw (x0..x3; t) 0+0+~38 (24 terms) all total 38 CX; t provisioning (fold + copies + outer t0) is >= 9 CX per side for every 12-walk basis (exhaustive over <= 5 fold CX).",
+  "DISCOVERY: No frame W (2 CX) followed by sector-controlled local corrections maps all diff legs into a product subspace u(x)C^2 (W|00>, W|01>, W|10> would share a 2-dim space): no leg proxy for t_c and no leg-only NOR dark flag; with W first, no 5-gate (2 CX + 3 controlled involutions on jA/jB/t) clean frame was found (numerical search over all 192 templates), so F2's 6-gate clean corner is kept."
+ ],
+ "summary": "F2 pair frame (2-CX leg frame W, C_t(H), C_jA(X), C_t(YH), cx(t,b), one rccx bright flag per corner, AND tree g) without the z flag: one 11-term Walsh-multiplexed X rotation of F over (g, t1, t2, t2^t3), 12-CX Gray walk after one extra fold CX (CX 124)."
+}

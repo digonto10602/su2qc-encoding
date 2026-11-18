@@ -17,28 +17,29 @@
   "r00-seed-010",
   "r00-seed-011"
  ],
- "lean_seconds": 1.6257929801940918,
+ "lean_seconds": 0.0,
  "encoding": "spinnet",
  "kind": "step",
  "provenance": {
-  "git_commit": "2fd5b3d",
-  "git_dirty": false,
+  "git_commit": "02c499d",
+  "git_dirty": true,
   "versions": {
    "python": "3.12.16",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
   "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-06T21:47:19Z"
+  "timestamp_utc": "2026-11-18T02:20:52Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
  "invalid": [],
  "external": [
@@ -177,7 +178,9 @@
     "gauss_residual": 5.300424800310707e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.229760974694126e-14
    },
    "alt_ok": [
     true,
@@ -186,7 +189,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "2fd5b3d",
+   "git_commit": "02c499d",
    "summary": "the reference circuit of the spinnet encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
    "lean": {
     "status": "certified",
@@ -253,7 +256,9 @@
     "gauss_residual": 5.431873226430496e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 7.900949426652282e-15
    },
    "alt_ok": [
     true,
@@ -262,7 +267,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "2fd5b3d",
+   "git_commit": "02c499d",
    "summary": "the vendored su2qc-trotter spinnet_v2 pairs9 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta.",
    "lean": {
     "status": "certified",
@@ -329,7 +334,9 @@
     "gauss_residual": 6.049187461416408e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 9.275834635928058e-15
    },
    "alt_ok": [
     true,
@@ -338,7 +345,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "2fd5b3d",
+   "git_commit": "02c499d",
    "summary": "the vendored su2qc-trotter spinnet_v2 flags4 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta.",
    "lean": null,
    "round": 0,
@@ -397,7 +404,9 @@
     "gauss_residual": 5.571892919244074e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 8.785820495268871e-15
    },
    "alt_ok": [
     true,
@@ -406,7 +415,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "2fd5b3d",
+   "git_commit": "02c499d",
    "summary": "the vendored su2qc-trotter spinnet_v2 flags5 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta.",
    "lean": null,
    "round": 0,
@@ -465,7 +474,9 @@
     "gauss_residual": 5.33167196845001e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 8.02362343522022e-15
    },
    "alt_ok": [
     true,
@@ -474,7 +485,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "2fd5b3d",
+   "git_commit": "02c499d",
    "summary": "the vendored su2qc-trotter spinnet_v2 flags6 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta.",
    "lean": null,
    "round": 0,
@@ -533,7 +544,9 @@
     "gauss_residual": 5.300424800310707e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.229760974694126e-14
    },
    "alt_ok": [
     true,
@@ -542,7 +555,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "2fd5b3d",
+   "git_commit": "02c499d",
    "summary": "the reference circuit after the deterministic polish passes.",
    "lean": null,
    "round": 0,
@@ -601,7 +614,9 @@
     "gauss_residual": 5.410557748946589e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.6701549771183643e-14
    },
    "alt_ok": [
     true,
@@ -610,7 +625,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "2fd5b3d",
+   "git_commit": "02c499d",
    "summary": "Qiskit level-3 transpile (windows of 32) of the reference circuit.",
    "lean": null,
    "round": 0,
@@ -631,13 +646,11 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 13.110408544540405,
- "written_utc": "2026-11-06T21:47:19Z",
+ "wall_s": 9.60847806930542,
+ "written_utc": "2026-11-18T02:20:52Z",
  "spinnet": {
-  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "code_sha256": "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4",
   "shim": [
-   "build_in_subprocess",
-   "certify",
    "encoding"
   ]
  }

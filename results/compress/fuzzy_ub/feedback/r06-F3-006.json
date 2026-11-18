@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 2.724444350886095e-14,
   "block_error": 1.839336439118392e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.04104471206665039,
+  "seconds": 0.03992271423339844,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 4.563780790004487e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.8336107846638606e-14,
    "max_dropped_l2": 2.9973074015538188e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.839336439118392e-14
+   "op_norm_error_inner_span": 1.839336439118392e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.509639913706379e-14,
    "block_error": 1.105344322239554e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.040415287017822266,
+   "seconds": 0.03939533233642578,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.614984235945933e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.105344322239554e-14,
     "max_dropped_l2": 2.590156443736816e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.1007844233268518e-14
+    "op_norm_error_inner_span": 1.1007844233268518e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 3.326827020235141e-14,
    "block_error": 1.7931082904408243e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04074406623840332,
+   "seconds": 0.03947114944458008,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 5.1199353106759647e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.782237427017048e-14,
     "max_dropped_l2": 3.747891800751705e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.7931082904408243e-14
+    "op_norm_error_inner_span": 1.7931082904408243e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "69d2f3afdd068b89164699c33c687e40b35da03559151bf531e786f07f21745e",
- "wall_s": 0.46555066108703613,
+ "wall_s": 0.4554564952850342,
  "discoveries": [
   "DISCOVERY: a Fredkin control line c = u(p) xor f*b(p) need not be uncomputed before the middle: one rccx(f, b) converts it to the invariant u(p), and with c0 = f the rccx relative phases of the chain 0 -> c -> u multiply to i^(p_t & ~lp), a function of the parity sector only, so they cancel between the mirrored legs; for 32 of the 128 cheap two-swap branch patterns u is in the g class t(r+l)+affine, and for 4 of them (2 per decoder; here decoder (0,1),(2,3) with c02 = ~lp & s_t, c13 = ~(s_r & ~u)) both controls are single literal ANDs.",
   "DISCOVERY: the parity CX(f -> p_k) next to the walk's H(f) absorbs one walk toggle of p_k at each end (h cx(k->f) = cz(k,f) h, and cx(f->k) cz = sdg(k) cx s(k) s(f)), so the phase polynomial is an open walk from/to subsets of {p_r, p_t}; with the constant term (sector-3 indicator) it costs 13 CX (IDA* over general CX networks with open ends: 13 optimal for this support), 12 without the constant.",

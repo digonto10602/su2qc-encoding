@@ -34,14 +34,18 @@
   "dropped_total": 8.810333678287913e-14,
   "block_error": 1.2178989947332722e-13,
   "leak_amplitude": 0.0,
-  "seconds": 7.121293306350708,
+  "seconds": 1.3168165683746338,
   "n_inputs": 433,
+  "span_leak": 3.214550290061563e-15,
+  "total_error": 2.1310778654626792e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.4469916004927212e-14,
    "max_dropped_l2": 4.7932185813760666e-15,
    "max_span_leak": 5.329070518200751e-15,
-   "op_norm_error_inner_span": 1.2178989947332722e-13
+   "op_norm_error_inner_span": 1.2178989947332722e-13,
+   "span_leak_max_state": 3.1590885082618883e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 8.719668736107655e-14,
    "block_error": 1.2190185514678007e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.8873212337493896,
+   "seconds": 1.3197546005249023,
    "n_inputs": 433,
+   "span_leak": 3.739400681419058e-15,
+   "total_error": 2.1283794318927568e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.5444413661840768e-14,
     "max_dropped_l2": 4.586538810655959e-15,
     "max_span_leak": 5.773159728050814e-15,
-    "op_norm_error_inner_span": 1.2190185514678007e-13
+    "op_norm_error_inner_span": 1.2190185514678007e-13,
+    "span_leak_max_state": 3.649173169315942e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 8.855230164047806e-14,
    "block_error": 1.2193693745074848e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.8885858058929443,
+   "seconds": 1.3233766555786133,
    "n_inputs": 433,
+   "span_leak": 5.489735146881462e-15,
+   "total_error": 2.15978974238108e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.768560721397573e-14,
     "max_dropped_l2": 4.559717068307529e-15,
     "max_span_leak": 7.993605777301127e-15,
-    "op_norm_error_inner_span": 1.2193693745074848e-13
+    "op_norm_error_inner_span": 1.2193693745074848e-13,
+    "span_leak_max_state": 5.4765743263145994e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "43d02e768894d11d1b74dd6d8df07bfc578e0232d54c338e59c0b80b2d7a80d5",
- "wall_s": 14.162851333618164,
+ "wall_s": 4.345198392868042,
  "discoveries": [
   "DISCOVERY: Rotation floor at CX 111 (MILP over the 30 walk-time points, 26 dark flag patterns + 4 bright classes): over (pa, pb, z, t2) plus any extra linear form (type form or single flag) or with z replaced by any AND of two type forms, the minimum Walsh support stays 9; 8 terms need y = z&t2 or pb&z (>= 2 more in-walk rccx), 6 need g = pa&pb, and 4 need {g, z, t2, y} (f = (1/2) g (-1)^t2 - (3/2)(g & ~y)(-1)^(z+t2)), each >= 4 CX more; the electric layer stays 4 rotations even with z or a pair-AND feature, and no electric term merges with the walk since Z_{j_b} anticommutes with X_F.",
   "DISCOVERY: All 10 parity networks of cost 15 on (F, pb, z, t2) with two in-walk rccx on any register and the residual CZ fix counted are single-target into F (exhaustive DFS), so the 9 walk rotations stay serial on one qubit (about 1430 of the depth); path-sum phase folding of the 111-CX circuit finds no T or rotation merges (T_fixed 104 is fold-optimal) and pygridsynth T counts are invariant under pi/2 angle shifts, so T_eps 912 is the floor of this skeleton."

@@ -57,7 +57,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -69,14 +69,18 @@
   "dropped_total": 3.434373630484366e-14,
   "block_error": 2.047640279781214e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.09380078315734863,
+  "seconds": 0.05537223815917969,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.48201391026558e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.047640279781214e-14,
    "max_dropped_l2": 2.8762242349141728e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 2.047640279781214e-14
+   "op_norm_error_inner_span": 2.047640279781214e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -92,7 +96,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -104,14 +108,18 @@
    "dropped_total": 3.8020221443523314e-14,
    "block_error": 1.5435143889979244e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.1373136043548584,
+   "seconds": 0.05356621742248535,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 5.345536533350256e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.5435143889979244e-14,
     "max_dropped_l2": 3.1372446413469268e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.5435143889979244e-14
+    "op_norm_error_inner_span": 1.5435143889979244e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -126,7 +134,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -138,14 +146,18 @@
    "dropped_total": 3.77019781870729e-14,
    "block_error": 2.0081922329985277e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.08634233474731445,
+   "seconds": 0.05362677574157715,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 5.778390051705817e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.0081922329985277e-14,
     "max_dropped_l2": 3.632366171731123e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 2.0081922329985277e-14
+    "op_norm_error_inner_span": 2.0081922329985277e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -155,11 +167,11 @@
   "DISCOVERY: sector frames need no parity control (the middle rotation is identity off-sector), so consecutive frames merge to f-controlled transposition chains; ordered 0,1,2,3,4,6,7,5 only 8 Fredkins (64 CX) are needed in total."
  ],
  "summary": "parity frame, then 8 per-sector sandwiches F_p^dag C^{p,S}R_x(-4 beta sigma_p) F_p with uncontrolled frames (f-controlled q2 permutation + Bell decoders), merged permutations between sectors and Gray-shared rccx ladders.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "3f51ef0",
+ "git_commit": "220730e",
  "versions": {
-  "python": "3.12.14",
+  "python": "3.12.16",
   "numpy": "2.5.4",
   "scipy": "1.18.1",
   "qiskit": "2.5.2",
@@ -172,14 +184,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "prudence x86_64 cpus=48",
- "wall_s": 0.8370809555053711,
- "written_utc": "2026-11-06T20:13:56Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.5379142761230469,
+ "written_utc": "2026-11-18T03:02:42Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.6e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

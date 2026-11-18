@@ -60,7 +60,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -72,14 +72,18 @@
   "dropped_total": 4.611451513017757e-14,
   "block_error": 1.8676057329127924e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.39729833602905273,
+  "seconds": 0.04101705551147461,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 6.47905724593055e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.8676057329127924e-14,
    "max_dropped_l2": 5.6731663667684665e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.8557192004352584e-14
+   "op_norm_error_inner_span": 1.8557192004352584e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -95,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -107,14 +111,18 @@
    "dropped_total": 2.670393660201706e-14,
    "block_error": 1.1075430859192655e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04081439971923828,
+   "seconds": 0.04124951362609863,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.7779367461209716e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.1075430859192655e-14,
     "max_dropped_l2": 3.71071626883264e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.100815563491081e-14
+    "op_norm_error_inner_span": 1.100815563491081e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -129,7 +137,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -141,14 +149,18 @@
    "dropped_total": 5.665377379811937e-14,
    "block_error": 1.8232986969018403e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04125404357910156,
+   "seconds": 0.041913747787475586,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 7.488676076713777e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8232986969018403e-14,
     "max_dropped_l2": 8.187200337866204e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.821272870681441e-14
+    "op_norm_error_inner_span": 1.821272870681441e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -159,9 +171,9 @@
   "DISCOVERY: using the persistent u = ~t&~r line as an extra phase-polynomial variable, the merged angle function has an exact 11-term Walsh fit (MILP over supports on (t, r, p_l', w01, w23, u)) with a 14-CX closed walk, versus 17 terms / 18 CX without u and 26 rotations in the parent."
  ],
  "summary": "two commuting branch-controlled swaps per leg, (1 3) on c2 = f&~t and (0 2) on c1 = (~t&~r) xor f xor c2&p_l', put all 8 parity sectors into ONE Bell-diagonal frame (pairs (0,1),(2,3)); a single middle (w01, w23 ANDs, 11-term phase polynomial on (t, r, p_l', w01, w23, u=~t&~r), 14-CX walk) serves t=0 and t=1; 4 Fredkins instead of 6, 98 CX, 11 rotations, 12 qubits.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "f8cc138",
+ "git_commit": "220730e",
  "versions": {
   "python": "3.12.16",
   "numpy": "2.5.4",
@@ -177,13 +189,14 @@
   "gridsynth": 0
  },
  "machine": "omnicommander x86_64 cpus=20",
- "wall_s": 0.9876177310943604,
- "written_utc": "2026-11-12T04:58:35Z",
- "git_dirty": false,
+ "wall_s": 0.5894565582275391,
+ "written_utc": "2026-11-18T03:02:49Z",
+ "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.1e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

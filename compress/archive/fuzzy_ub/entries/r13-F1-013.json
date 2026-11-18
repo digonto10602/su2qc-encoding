@@ -60,7 +60,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -72,14 +72,18 @@
   "dropped_total": 3.8347936882067347e-14,
   "block_error": 1.853338310697289e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.055663108825683594,
+  "seconds": 0.04027366638183594,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.688131998904023e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.853338310697289e-14,
    "max_dropped_l2": 4.4237326751486704e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.8441914540985455e-14
+   "op_norm_error_inner_span": 1.8441914540985455e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -95,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -107,14 +111,18 @@
    "dropped_total": 2.862636906380591e-14,
    "block_error": 9.965958291195024e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.04066276550292969,
+   "seconds": 0.039473772048950195,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.859232735500093e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 9.965958291195024e-15,
     "max_dropped_l2": 3.142664602466168e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 9.91786074874459e-15
+    "op_norm_error_inner_span": 9.91786074874459e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -129,7 +137,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -141,14 +149,18 @@
    "dropped_total": 4.769468220093202e-14,
    "block_error": 1.762007396392915e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04058527946472168,
+   "seconds": 0.039484262466430664,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.531475616486118e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.762007396392915e-14,
     "max_dropped_l2": 6.754832979328361e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.762007396392915e-14
+    "op_norm_error_inner_span": 1.762007396392915e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -159,9 +171,9 @@
   "DISCOVERY: depth: head 41 / tail 42 levels around the nine serial words; the extra tail level is the S-type gate of the last rotation; with the inherited per-class shift map the window has three odd-k terms at three distinct f contents (k = 2,2,0,0,3,2,0,3,3), so three S-type levels on f are unavoidable without new shifts (merging two across a walk CX(c -> f) leaves an in-window CZ(c, f), i.e. one extra leg CX), and reversing the walk only moves the level to the head."
  ],
  "summary": "tie resubmission of the r12-F1-012 circuit (83, 638, 1517, 10; parity frame, L: 0 -> ~p_t&~s_r -> g, a = f&~g, Bell(02)(13) decoder, CCZ(L, P13) and CCZ(a, P02) phase blocks, 4-CX recoupling, w23 fused onto a, w01 on the p_r wire, 9-term 9-CX R_x walk), recorded after a round-13 search of a genuinely wider leg family found no strict gain: every leg made of two controlled reflections 1 - 2Q about arbitrary rank-4 stabilizer projectors Q (= a CCZ in any 4-qubit Clifford frame, any Clifford before / between / after, any per-branch control none / f=0 / f=1 / both in each parity sector, so the don't-care freedom on the zero-coupling (kernel) states of every sector is included) was tested exhaustively, and the only pair that makes all eight sector maps Hermitian and mutually commuting is the singlet pair {P13, P02} of the parent, i.e. the Fredkins F13, F02; the CX / T / depth floors of this unique routing were rechecked and no gate, angle or shift choice of the parent is changed.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "d4b38bf",
+ "git_commit": "220730e",
  "versions": {
   "python": "3.12.16",
   "numpy": "2.5.4",
@@ -177,13 +189,14 @@
   "gridsynth": 0
  },
  "machine": "omnicommander x86_64 cpus=20",
- "wall_s": 0.9019994735717773,
- "written_utc": "2026-11-14T04:28:37Z",
- "git_dirty": false,
+ "wall_s": 0.8631942272186279,
+ "written_utc": "2026-11-18T03:02:53Z",
+ "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 9e-06
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

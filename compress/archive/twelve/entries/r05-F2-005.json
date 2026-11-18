@@ -72,14 +72,18 @@
   "dropped_total": 8.683544550622045e-14,
   "block_error": 1.3608476427073498e-14,
   "leak_amplitude": 0.0,
-  "seconds": 12.019080400466919,
+  "seconds": 3.8408596515655518,
   "n_inputs": 433,
+  "span_leak": 3.236987642579507e-15,
+  "total_error": 1.0368090957587346e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.3608476427073498e-14,
    "max_dropped_l2": 4.676385917458759e-15,
    "max_span_leak": 4.884981308350689e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.185843834246084e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 8.101891725651538e-14,
    "block_error": 1.464135856101719e-14,
    "leak_amplitude": 0.0,
-   "seconds": 10.496095418930054,
+   "seconds": 3.8416059017181396,
    "n_inputs": 433,
+   "span_leak": 3.988553654350859e-15,
+   "total_error": 9.964882947188344e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.464135856101719e-14,
     "max_dropped_l2": 4.57428560831347e-15,
     "max_span_leak": 6.5503158452884236e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.926856384237053e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 9.455100214447618e-14,
    "block_error": 1.588173846810786e-14,
    "leak_amplitude": 0.0,
-   "seconds": 10.511995792388916,
+   "seconds": 3.843452215194702,
    "n_inputs": 433,
+   "span_leak": 5.097539231595502e-15,
+   "total_error": 1.1553027984417954e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.588173846810786e-14,
     "max_dropped_l2": 5.262835930684218e-15,
     "max_span_leak": 6.106226635438361e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.079304316080652e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: depth_CT is fixed by one synthesised electric phase word (~167 levels) + ~20 forward levels + the 9-rotation walk on F (~1410 levels) + ~30 backward levels; merging fixed 1q runs (diagonal merge, BFS-shortest Clifford words) and making corner 1's merge the last F-controlled forward gate gain only 3 levels, and moving any electric phase later on its wire makes the depth worse (1833-2010)."
  ],
  "summary": "Parent datapath (5-CX clean corner frame, in-place flags, in-walk pa, 9-term Walsh walk, CX 111) with t2 read from the corner-2 outer j bits inside the walk (Gauss law t2 = q21 ^ q23), so corner 2's flag sits in place on q8 and the t2 copy ancilla disappears (31 qubits), plus a 1q peephole and corner-2-before-corner-1 scheduling (depth_CT 1663); no CX gain: a numerical corner-gadget search with outer m/j reads found no 7-CX corner.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "d05f973",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,10 +188,10 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 36.1900532245636,
- "written_utc": "2026-11-06T17:53:36Z",
- "git_dirty": false,
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 11.955548524856567,
+ "written_utc": "2026-11-18T03:03:44Z",
+ "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.3e-05
@@ -195,5 +207,6 @@
   "program_file_sha256": "4f7fcb1eab11fc709a1e44eb0fdafe9a5f7cd9d48365aea6642cd280170cef92",
   "gates_sha256": "ca5c0f1a907a36618492da21e8d029a117622c5726acc1d65f1eb90adf7e55d1"
  },
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

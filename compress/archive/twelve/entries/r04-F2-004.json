@@ -72,14 +72,18 @@
   "dropped_total": 7.701492269756896e-14,
   "block_error": 1.4504507610240428e-14,
   "leak_amplitude": 0.0,
-  "seconds": 3.4173402786254883,
+  "seconds": 0.791635274887085,
   "n_inputs": 433,
+  "span_leak": 3.1359790882673908e-15,
+  "total_error": 9.465540939607678e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.4504507610240428e-14,
    "max_dropped_l2": 4.414682235735066e-15,
    "max_span_leak": 4.6629367034256575e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.060453857124975e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 7.319306269183281e-14,
    "block_error": 1.496992535368179e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8398337364196777,
+   "seconds": 0.787125825881958,
    "n_inputs": 433,
+   "span_leak": 3.872229237618002e-15,
+   "total_error": 9.20352172831326e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.496992535368179e-14,
     "max_dropped_l2": 4.4315813163784176e-15,
     "max_span_leak": 6.217248937900877e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.7775746806952905e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 8.244314216951985e-14,
    "block_error": 1.762472883708983e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8332958221435547,
+   "seconds": 0.7871794700622559,
    "n_inputs": 433,
+   "span_leak": 5.65180988238409e-15,
+   "total_error": 1.0571968088899377e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.762472883708983e-14,
     "max_dropped_l2": 4.4517127926249956e-15,
     "max_span_leak": 8.43769498715119e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.638907193228691e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: Per-corner sign flips multiply kappa by a character (-1)^(e.t) of the types (the F3 coupling is the F2 coupling times (-1)^t2), which only relabels Walsh terms, so no frame sign choice lowers the 9-term multiplexer."
  ],
  "summary": "F3 5-CX clean corner frame (r03-F3-003) + F2 in-walk pair AND: pa = b0 & b1 is never stored, its two toggles in the 10-CX Gray cycle of the 9-term Walsh rotation over (pa, pb, z, t2) are rccx(b0, b1, F) and the residual (-1)^(b0 z) is one CZ (CX 111).",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "3f90240",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,10 +188,10 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 10.161855697631836,
- "written_utc": "2026-11-06T15:36:10Z",
- "git_dirty": false,
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 2.75685453414917,
+ "written_utc": "2026-11-18T03:03:38Z",
+ "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.3e-05
@@ -193,5 +205,6 @@
   "theorem_path": null,
   "axioms": []
  },
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

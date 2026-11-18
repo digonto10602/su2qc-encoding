@@ -34,14 +34,18 @@
   "dropped_total": 3.5261194232826552e-15,
   "block_error": 2.3183053289758503e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.1586306095123291,
+  "seconds": 0.19887185096740723,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 5.844424752258506e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.0745327911400855e-15,
    "max_dropped_l2": 7.418421309959735e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.3183053289758503e-15
+   "op_norm_error_inner_span": 2.3183053289758503e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 3.888126590371701e-15,
    "block_error": 1.698314660101103e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.1594994068145752,
+   "seconds": 0.19819140434265137,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.586441250472804e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.5895974606912454e-15,
     "max_dropped_l2": 8.608815155003019e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.698314660101103e-15
+    "op_norm_error_inner_span": 1.698314660101103e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 3.655360895562063e-15,
    "block_error": 2.686087990558041e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.1585383415222168,
+   "seconds": 0.19933342933654785,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 6.3414488861201035e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.615221025017593e-15,
     "max_dropped_l2": 7.489751442713124e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.686087990558041e-15
+    "op_norm_error_inner_span": 2.686087990558041e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "032030b06b77cc317b6adcec322dd518510321c015debbd3ae0b87b684c29057",
- "wall_s": 1.3626470565795898,
+ "wall_s": 1.5109055042266846,
  "discoveries": [
   "DISCOVERY: with A=[u=v=0] the only consistent 2-AND companions are the three corner NOR pairings, and every minimal 9-term polynomial is the (A,N1,N2) cube minus one vertex A.X plus {X.e', X.e'.A} (e' in e+span(u,v)) with X.e'.A a dead end: no 8-toggle walk (33 CX all-ancilla, 32 with one direct AND + 1 CZ); a term-set-free DFS (f in span of the visited parities) finds no 31-CX walk with one direct AND (any pairing or flag), N1+N2 direct (all pairings) or A+N1 direct (pairing 01|23).",
   "DISCOVERY: the leftover sign (-1)^(ck_bar*dS) of a direct rccx pair with first control ck_bar is free exactly when dS is constant on c_k=1 states (corner rule): dS in {0, e^v} for c0, {0, e} for c1, {0, e^u} for c2, {0, e^u^v} for c3 (plus affine terms); no minimal walk reaches it, hence the CZ.",

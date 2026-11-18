@@ -72,14 +72,18 @@
   "dropped_total": 3.540726885143696e-15,
   "block_error": 2.3182494305899175e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.18630552291870117,
+  "seconds": 0.19567441940307617,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 5.858976315733614e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.074532791140085e-15,
    "max_dropped_l2": 8.98242526497221e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.3182494305899175e-15
+   "op_norm_error_inner_span": 2.3182494305899175e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 3.690513244709953e-15,
    "block_error": 1.938921156582672e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.18633651733398438,
+   "seconds": 0.20044636726379395,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.629434401292625e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.938921156582672e-15,
     "max_dropped_l2": 8.683438214525674e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.9389211565826713e-15
+    "op_norm_error_inner_span": 1.9389211565826713e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 3.637516617363471e-15,
    "block_error": 2.688627825023692e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.18003010749816895,
+   "seconds": 0.19869446754455566,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 6.326144442387163e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.6162531757094527e-15,
     "max_dropped_l2": 7.489751442713124e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.688627825023692e-15
+    "op_norm_error_inner_span": 2.688627825023692e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: a pivot X-frame flip across a direct rccx costs x(0) before it and z on its first control after it (x(t) rccx(~a,~b,t) z(a) = rccx(~a,~b,t) x(t) up to phase), so every rotation sign is free; the shortest words (1/8: 141 gates for +, 1/4: 170 for -, 3/8: 153) are all met by the walk A e Nd A Na A Nd A Na with flips on the two Na toggles."
  ],
  "summary": "F3 one-direct-AND walk on 17 qubits: Na=NOR(c0,c1) in the only ancilla, A=[u=v=0] XORed in place into c1 (idle between the Na compute and uncompute), Nd=NOR(c2,c3) toggled straight onto the pivot by two rccx (CZ(Na,c2) Z(Na) cancels their sign); 9-term walk e -> 0 with 7 cheap toggles, the one walk whose rotations all reach the shortest Clifford+T word (pivot X-frame flips by negated toggle controls only: sum of words 1358 = floor over all 32-CX walks); 32 CX, 9+4 rotations k*beta/8, 3*alpha/4 (+-pi/2).",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
- "git_commit": "49d8b6e",
+ "git_commit": "02c499d",
  "versions": {
   "python": "3.12.16",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +188,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "SupremeCommander x86_64 cpus=20",
- "wall_s": 1.5338339805603027,
- "written_utc": "2026-11-08T03:20:19Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 1.5013809204101562,
+ "written_utc": "2026-11-18T02:21:08Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.3e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c"
 }

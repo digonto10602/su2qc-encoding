@@ -17,24 +17,25 @@
  "encoding": "fuzzy_ub",
  "kind": "UB",
  "provenance": {
-  "git_commit": "ebd52e9",
+  "git_commit": "220730e",
   "git_dirty": true,
   "versions": {
-   "python": "3.12.14",
+   "python": "3.12.16",
    "numpy": "2.5.4",
    "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
-  "cpu_count": 48,
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-06T20:37:30Z"
+  "timestamp_utc": "2026-11-18T03:02:46Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
  "invalid": [],
  "external": [],
@@ -89,13 +90,15 @@
    },
    "verdict": {
     "ok": true,
-    "op_norm_error": 6.913069635670847e-14,
-    "block_error": 1.9523942200154978e-14,
+    "op_norm_error": 1.1627943284124572e-13,
+    "block_error": 1.965156937292433e-14,
     "leak_amplitude": 0.0,
-    "gauss_residual": 0.0,
+    "gauss_residual": NaN,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.1627943284124572e-13
    },
    "alt_ok": [
     true,
@@ -104,7 +107,7 @@
    "skeleton_equal": true,
    "parent": "r02-F1-002",
    "parent_known": true,
-   "git_commit": "ebd52e9",
+   "git_commit": "220730e",
    "summary": "parent r02-F1-002 (frames, merged t=1 group phase polynomial, Bell-decoder/Fredkin CX cancellation) with every one of the 8 f-controlled q2 swaps emitted as the 7-CX Clifford+T Fredkin of r02-F3-002 (its dagger form where the first CX is cancelled against the last Bell-decoder CX); 164 CX.",
    "lean": null,
    "round": 3,
@@ -160,13 +163,15 @@
    },
    "verdict": {
     "ok": true,
-    "op_norm_error": 7.172909387772056e-14,
-    "block_error": 1.926445872016243e-14,
+    "op_norm_error": 1.235367703666335e-13,
+    "block_error": 1.9305277847578893e-14,
     "leak_amplitude": 0.0,
-    "gauss_residual": 0.0,
+    "gauss_residual": NaN,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.235367703666335e-13
    },
    "alt_ok": [
     true,
@@ -175,7 +180,7 @@
    "skeleton_equal": true,
    "parent": "r02-F2-002",
    "parent_known": true,
-   "git_commit": "ebd52e9",
+   "git_commit": "220730e",
    "summary": "F1 elite datapath (parity frame, 8 Fredkin frames, final frame refactored to start with (1 2), merged 12-term phase polynomial for t=1 sectors 2,3,6,7 over x=t~l,y=tl,r,w01,w23, r-split one-hot only for t=0) recorded and re-emitted with level-3 resynthesis of every beta-free segment between rotations (7-CX Fredkins, decoder/one-hot CX cancellations); 6 ancillas, 165 CX.",
    "lean": null,
    "round": 3,
@@ -231,13 +236,15 @@
    },
    "verdict": {
     "ok": true,
-    "op_norm_error": 6.431898734793575e-14,
-    "block_error": 1.9370603628366857e-14,
+    "op_norm_error": 1.1193939828220745e-13,
+    "block_error": 1.9570195587239697e-14,
     "leak_amplitude": 0.0,
-    "gauss_residual": 0.0,
+    "gauss_residual": NaN,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.1193939828220745e-13
    },
    "alt_ok": [
     true,
@@ -246,7 +253,7 @@
    "skeleton_equal": true,
    "parent": "r02-F1-002",
    "parent_known": true,
-   "git_commit": "ebd52e9",
+   "git_commit": "220730e",
    "summary": "r02-F1-002 layout, but a (p_r & ~p_t & ~f)-controlled [Z q2^0 Z q2^1, then Fredkin(q2^0,q2^2)] at start/end maps sectors 1,5 exactly onto 0,4, so r drops out of the t=0 sectors: 6 frame Fredkins (7-CX), no r-split one-hot, 4 middles instead of 6; 151 CX.",
    "lean": {
     "status": "n_a",
@@ -270,6 +277,6 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 9.309111595153809,
- "written_utc": "2026-11-06T20:37:30Z"
+ "wall_s": 1.0501418113708496,
+ "written_utc": "2026-11-18T03:02:46Z"
 }

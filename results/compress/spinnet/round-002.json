@@ -14,28 +14,29 @@
   "r02-F3-002",
   "r02-F5-002"
  ],
- "lean_seconds": 0.9365448951721191,
+ "lean_seconds": 0.0,
  "encoding": "spinnet",
  "kind": "step",
  "provenance": {
-  "git_commit": "6d7522d",
+  "git_commit": "02c499d",
   "git_dirty": true,
   "versions": {
    "python": "3.12.16",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
   "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-08T01:02:40Z"
+  "timestamp_utc": "2026-11-18T02:21:04Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
  "invalid": [],
  "external": [],
@@ -95,7 +96,9 @@
     "gauss_residual": 5.344750312233835e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 5.126691826890021e-15
    },
    "alt_ok": [
     true,
@@ -104,16 +107,17 @@
    "skeleton_equal": true,
    "parent": "r01-F1-001",
    "parent_known": true,
-   "git_commit": "6d7522d",
+   "git_commit": "02c499d",
    "summary": "dimer frame (pivot = link b) with one clean flag a1=[c0=c2=0] and A=[u=v=0] XORed in place into corner qubit c0; corners c1, c3 and c0^A enter the H-frame pivot walk as plain CX toggles, so the walk is all-linear (13 CX, no rccx on the pivot, no sign fix) and ends on the e-step merged into the inverse ladder; 31 CX, 13+4 rotations, 17 qubits, all angles k*beta/4 or 3*alpha/4.",
    "lean": {
     "status": "certified",
     "reason": "",
-    "cert_path": "/home/digonto/Projects/su2qc-spinnet/results/spinnet/certs/spinnet-step-o1-ec21654efa8e.json",
-    "seconds": 0.9345688819885254,
+    "cert_path": "results/spinnet/certs/spinnet-step-o1-ec21654efa8e.json",
+    "seconds": 2.193349838256836,
     "checker_sha256": "ec00aa45fafa507a075313dc4650c11bf6d122cd9233588125f61a092f853de5",
     "theorem_path": null,
-    "axioms": []
+    "axioms": [],
+    "program_file_sha256": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650"
    },
    "round": 2,
    "mode": "full"
@@ -174,7 +178,9 @@
     "gauss_residual": 5.474255194514172e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 5.4890228374495934e-15
    },
    "alt_ok": [
     true,
@@ -183,7 +189,7 @@
    "skeleton_equal": true,
    "parent": "r01-F2-001",
    "parent_known": true,
-   "git_commit": "6d7522d",
+   "git_commit": "02c499d",
    "summary": "F2 with one ancilla: dimer ladder (pivot = link b), flag a01=[c0=c1=0] on the only ancilla, A=[u=v=0] XORed in place into the idle corner qubit c1 (X = c1^A), the 3-AND D=a01&~c3 toggled straight onto the pivot by an rccx pair, and a 10-state pivot walk over (e, X, D, c2) with 9 rotations (first step fused with the ladder, one CZ for the pair's leftover sign); rotation signs set by free pivot X-flips to shorten the Clifford+T words; 32 CX, 13 rotations, 17 qubits, angles k*beta/4 and -3*alpha/4.",
    "lean": null,
    "round": 2,
@@ -245,7 +251,9 @@
     "gauss_residual": 5.4672143489065705e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 5.844424752258506e-15
    },
    "alt_ok": [
     true,
@@ -254,7 +262,7 @@
    "skeleton_equal": true,
    "parent": "r01-F3-001",
    "parent_known": true,
-   "git_commit": "6d7522d",
+   "git_commit": "02c499d",
    "summary": "F3 searched walk with one direct AND: clean flags A=[u=v=0], N2=NOR(c2,c3); N1=NOR(c0,c1) toggled straight onto the pivot by two rccx (CZ(c0,N2) cancels their leftover sign); 9-term pivot walk from the free preload e to 0 with 7 cheap toggles; pivot sign flips carried by negated toggle controls and p(lam+-pi/2) electric angles pick the shorter Clifford+T words; 32 CX, 9+4 rotations k*beta/4, 3*alpha/4 (+-pi/2).",
    "lean": null,
    "round": 2,
@@ -315,7 +323,9 @@
     "gauss_residual": 5.488309788105658e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 6.8649088573414125e-15
    },
    "alt_ok": [
     true,
@@ -324,7 +334,7 @@
    "skeleton_equal": true,
    "parent": "r01-F5-001",
    "parent_known": true,
-   "git_commit": "6d7522d",
+   "git_commit": "02c499d",
    "summary": "T-lean step with 10 rotations at 34 CX: U_E = 4 link phases; U_B = 6-term pivot polynomial f = 1/8 + 3/8 Z_F + 1/4 Z_B - 3/4 Z_F Z_B - 3/8 Z_e + 3/8 Z_F Z_e in the dimer frame, B = bright = (c1^X)&Y toggled by a direct rccx pair (X = NOR(c0,c2) XORed into c1, Y = NOR(c1,c3) in one ancilla), F = c0^A (A = [u=v=0] XORed into c0); walk [e] F e B F B (fused start) + one CZ for the rccx-pair sign; 17 qubits, angles k*beta/4 and -3*alpha/4.",
    "lean": null,
    "round": 2,
@@ -345,13 +355,11 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 6.554415702819824,
- "written_utc": "2026-11-08T01:02:40Z",
+ "wall_s": 5.873632907867432,
+ "written_utc": "2026-11-18T02:21:04Z",
  "spinnet": {
-  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "code_sha256": "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4",
   "shim": [
-   "build_in_subprocess",
-   "certify",
    "encoding"
   ]
  }

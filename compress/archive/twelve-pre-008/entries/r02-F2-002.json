@@ -1,0 +1,197 @@
+{
+ "id": "r02-F2-002",
+ "program_path": "compress/programs/twelve/F2/002-inplace-flags.py",
+ "program_sha256": "9e5d9c55ef7e60189bf896a2d4039c92946eb5d1794f38a3d3e07fe4b67cc26f",
+ "parent": "r01-F2-001",
+ "family": "F2",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  120,
+  912,
+  1671,
+  33
+ ],
+ "cell": [
+  55,
+  78
+ ],
+ "metrics_raw": {
+  "cx": 120,
+  "t_fixed": 104,
+  "n_rot": 13,
+  "t_eps": 912,
+  "t_estimate": {
+   "1e-06": 881.3311742036428,
+   "1e-10": 1399.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 912,
+   "1e-10": 1456
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 142,
+  "depth_ct": 1671,
+  "qubits": 33,
+  "gates": {
+   "h": 142,
+   "cx": 120,
+   "t": 52,
+   "tdg": 52,
+   "s": 44,
+   "sdg": 44,
+   "x": 40,
+   "rz": 13,
+   "z": 4
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 9.978978394383834e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -3.281952590115983e-17
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 9.015156124378885e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 8.396836696572238e-14,
+  "block_error": 1.5821416978115957e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 1.8716795444488525,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.5821416978115957e-14,
+   "max_dropped_l2": 5.883263152648373e-15,
+   "max_span_leak": 4.218847493575595e-15,
+   "op_norm_error_inner_span": null
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.865296765548559e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.558927480305092e-16
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 7.69048132647165e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.190572418907188e-14,
+   "block_error": 1.674724346641371e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.8682324886322021,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.674724346641371e-14,
+    "max_dropped_l2": 4.635113222851267e-15,
+    "max_span_leak": 5.551115123125783e-15,
+    "op_norm_error_inner_span": null
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.1489130522756566e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.4768786655521914e-16
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 9.220638665243017e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 9.656638820128486e-14,
+   "block_error": 1.832491702628079e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.8670170307159424,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.832491702628079e-14,
+    "max_dropped_l2": 7.90338022274949e-15,
+    "max_span_leak": 7.438494264988549e-15,
+    "op_norm_error_inner_span": null
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: fold schedule search (Dijkstra over CX folds, corner steps t->j->t, in-place or copied flags, z from two pair differences): 6 CX per side for fold + z inputs + flag targets is optimal with t0 from the outer bits (parent 8); corner 1 may take cx(j_B, a) instead of cx(j_A, a) since the diff legs then differ only by a Z_a phase; with no outer reads no schedule of total cost <= 7 was found (search limited to folds whose qubits hold raw j, corner types or pair differences).",
+  "DISCOVERY: without gg the rotation angle kappa(pa&pb, z, t) has minimum Walsh support 9 over (pa, pb, z, t) using the 3 free points (pa&pb=0, z=t=1); every 9-term support needs a 10-CX Gray cycle (parity imbalance), so dropping the top AND saves 2 CX for 3 extra rotations; dropping pb as well needs 20 terms.",
+  "DISCOVERY: negative results: after the 2-CX frame W no t-controlled sequence of <=3 CX (1q involutions, C_t(XX), rccx(t,.)) puts all diff legs on an affine line, so an outer AND dark bit cannot replace the flag rccx; at the NOT corners no frame L2 W L1 (local Cliffords) with a single j-controlled X exists, the relabel CX is needed."
+ ],
+ "summary": "F2 pair frame with in-place flags: a fold schedule (cx 5>11, 8>2 give z's inputs, tau0>2, tau0>11, 5>8 give t3, t1, t2 just in time) writes three corner bright flags onto the type qubits themselves (F = j_r), and the AND gg is dropped: U_B is one 9-term Walsh rotation of F over (pa, pb, z, t2) on a 10-CX Gray cycle.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "git_commit": "afa1865",
+ "versions": {
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "pichkaCommander x86_64 cpus=12",
+ "wall_s": 8.08846402168274,
+ "written_utc": "2026-11-06T14:12:34Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.3e-05
+ },
+ "lean": {
+  "status": "certified",
+  "reason": "",
+  "cert_path": "/home/digimonk/Projects/su2qc-encoding/compress/lean/certs/step-o1-c67fe2731d0e.json",
+  "seconds": 78.82172799110413,
+  "checker_sha256": "befbd27e3ed4e8229f11320189441597e04c89c7bf7746cf93f1c55de261bfd5",
+  "theorem_path": null,
+  "axioms": []
+ },
+ "mode": "full"
+}

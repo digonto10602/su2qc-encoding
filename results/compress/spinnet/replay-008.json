@@ -1,0 +1,806 @@
+{
+ "tag": "008",
+ "encoding": "spinnet",
+ "kind": "step",
+ "rounds": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
+ "evaluator_sha256_old": [
+  "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582"
+ ],
+ "entries": [
+  {
+   "id": "r00-seed-000",
+   "old_id": "r00-seed-000",
+   "round": 0,
+   "label": "general",
+   "program_path": "compress/programs/spinnet/seed/000-general.py",
+   "program_sha256": "b608b9b20a3b3ccd8faac116c1a5ff7ea4405e40649516be04c80800acfd6132",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     54,
+     566,
+     861,
+     23
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     54,
+     566,
+     861,
+     23
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-001",
+   "old_id": "r00-seed-001",
+   "round": 0,
+   "label": "spinnet_v2_pairs9",
+   "program_path": "compress/programs/spinnet/seed/001-spinnet_v2_pairs9.py",
+   "program_sha256": "f3f8b93482ca5c6f249a9be90542d36ee8983d89e2c980d29fb0b0b4b2a846b4",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     34,
+     832,
+     1597,
+     19
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     34,
+     832,
+     1597,
+     19
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-002",
+   "old_id": "r00-seed-002",
+   "round": 0,
+   "label": "spinnet_v2_flags4",
+   "program_path": "compress/programs/spinnet/seed/002-spinnet_v2_flags4.py",
+   "program_sha256": "225720f9615bf5034b47b43531b906f23ab3bff63ac7c3b596f397cf74173c1f",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     44,
+     554,
+     869,
+     19
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     44,
+     554,
+     869,
+     19
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-003",
+   "old_id": "r00-seed-003",
+   "round": 0,
+   "label": "spinnet_v2_flags5",
+   "program_path": "compress/programs/spinnet/seed/003-spinnet_v2_flags5.py",
+   "program_sha256": "b7e46f8434b6b976bd9d1e2b173d1e309e818d6b8f5f653adf09405ef879803c",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     42,
+     606,
+     1009,
+     19
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     42,
+     606,
+     1009,
+     19
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-004",
+   "old_id": "r00-seed-004",
+   "round": 0,
+   "label": "spinnet_v2_flags6",
+   "program_path": "compress/programs/spinnet/seed/004-spinnet_v2_flags6.py",
+   "program_sha256": "ac24220750f7e273f6009c5107c63a5d5e76a7d213253066209adc3f9d951746",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     36,
+     658,
+     1120,
+     19
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     36,
+     658,
+     1120,
+     19
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-010",
+   "old_id": "r00-seed-010",
+   "round": 0,
+   "label": "general+polish",
+   "program_path": "compress/programs/spinnet/seed/010-general_polish.py",
+   "program_sha256": "373ee92523e941d7ec981073da1a0a44b7d7c13a91749688e981772205a1a55f",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     54,
+     566,
+     861,
+     23
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     54,
+     566,
+     861,
+     23
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-011",
+   "old_id": "r00-seed-011",
+   "round": 0,
+   "label": "qiskit_l3",
+   "program_path": "compress/programs/spinnet/seed/011-qiskit_l3.py",
+   "program_sha256": "dcf0b5a58c3ba07eda89e0db44b1ea2606197fb9e88c0176d4a1d3f3e9c30d66",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     54,
+     566,
+     861,
+     23
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     54,
+     566,
+     861,
+     23
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F1-001",
+   "old_id": "r01-F1-001",
+   "round": 1,
+   "label": "001-dimer-direct-rccx-pivot",
+   "program_path": "compress/programs/spinnet/F1/001-dimer-direct-rccx-pivot.py",
+   "program_sha256": "c42a1340229c137195bbc8207dd4e658b9e258c5ac9a505af861ac953b8ab49a",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     832,
+     1583,
+     18
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     832,
+     1583,
+     18
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F2-001",
+   "old_id": "r01-F2-001",
+   "round": 1,
+   "label": "001-aflag_corner_walk",
+   "program_path": "compress/programs/spinnet/F2/001-aflag_corner_walk.py",
+   "program_sha256": "abd364243c897b28c2ff4f4d07494bccdc7243f3b4dace235f8a2b824c9d6959",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     33,
+     1380,
+     2852,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     33,
+     1380,
+     2852,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F3-001",
+   "old_id": "r01-F3-001",
+   "round": 1,
+   "label": "001-searched-flags-fused-boundary",
+   "program_path": "compress/programs/spinnet/F3/001-searched-flags-fused-boundary.py",
+   "program_sha256": "71527cc4c05239ea6a66fc29488fb1d28ea5e8145f8d4dd79d42f42742d22151",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     33,
+     832,
+     1570,
+     19
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     33,
+     832,
+     1570,
+     19
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F5-001",
+   "old_id": "r01-F5-001",
+   "round": 1,
+   "label": "001-tlean_7rot",
+   "program_path": "compress/programs/spinnet/F5/001-tlean_7rot.py",
+   "program_sha256": "d1ea45cc83ce9ef1a954f839b259eb38790cb2e60ac28aadb3781bf03d0d1dad",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     46,
+     491,
+     914,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     46,
+     491,
+     914,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F1-002",
+   "old_id": "r02-F1-002",
+   "round": 2,
+   "label": "002-dimer-linear-corner-walk",
+   "program_path": "compress/programs/spinnet/F1/002-dimer-linear-corner-walk.py",
+   "program_sha256": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     31,
+     1086,
+     2258,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     31,
+     1086,
+     2258,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F2-002",
+   "old_id": "r02-F2-002",
+   "round": 2,
+   "label": "002-inplaceA_nor01_direct3and",
+   "program_path": "compress/programs/spinnet/F2/002-inplaceA_nor01_direct3and.py",
+   "program_sha256": "2eeefb79056914f6b2f15e639a641ff811da8e276d1d860ee758c403d7c6cb7e",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     832,
+     1554,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     832,
+     1554,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F3-002",
+   "old_id": "r02-F3-002",
+   "round": 2,
+   "label": "002-direct-and-flipped-walk",
+   "program_path": "compress/programs/spinnet/F3/002-direct-and-flipped-walk.py",
+   "program_sha256": "032030b06b77cc317b6adcec322dd518510321c015debbd3ae0b87b684c29057",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     832,
+     1553,
+     18
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     832,
+     1553,
+     18
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F5-002",
+   "old_id": "r02-F5-002",
+   "round": 2,
+   "label": "002-bright_flag_6rot",
+   "program_path": "compress/programs/spinnet/F5/002-bright_flag_6rot.py",
+   "program_sha256": "734a62fe58f316d6deb59561fb90cedcb04e5854f260f4d78e680eb688428f81",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     34,
+     658,
+     1116,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     34,
+     658,
+     1116,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r03-F1-003",
+   "old_id": "r03-F1-003",
+   "round": 3,
+   "label": "003-cheap-angle-forms",
+   "program_path": "compress/programs/spinnet/F1/003-cheap-angle-forms.py",
+   "program_sha256": "4d848ccd7307c5b187812a3c93f8580c49462103332cd1d6f898487adbd89d18",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     31,
+     1062,
+     2189,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     31,
+     1062,
+     2189,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r03-F2-003",
+   "old_id": "r03-F2-003",
+   "round": 3,
+   "label": "003-eframe_linear_walk_pi4_shift",
+   "program_path": "compress/programs/spinnet/F2/003-eframe_linear_walk_pi4_shift.py",
+   "program_sha256": "af0e76dedfdb38d0ae567e40bb4a517ca2a747135f06e03b6d19a5bb7a44464d",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     31,
+     1062,
+     2191,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     31,
+     1062,
+     2191,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r03-F3-003",
+   "old_id": "r03-F3-003",
+   "round": 3,
+   "label": "003-inplace-a-shortest-word-walk",
+   "program_path": "compress/programs/spinnet/F3/003-inplace-a-shortest-word-walk.py",
+   "program_sha256": "1ca2fd55a85a204aca8de1480a024176fc143b61185b1949582df20a55adb7df",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     832,
+     1553,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     832,
+     1553,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r04-F1-004",
+   "old_id": "r04-F1-004",
+   "round": 4,
+   "label": "004-depth-forms",
+   "program_path": "compress/programs/spinnet/F1/004-depth-forms.py",
+   "program_sha256": "cc53f03142012fdc76047319adc70ed0b3a0da27eec98bbc1fab015215800741",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     31,
+     1062,
+     2173,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     31,
+     1062,
+     2173,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r04-F3-004",
+   "old_id": "r04-F3-004",
+   "round": 4,
+   "label": "004-pi4-shifted-rotations",
+   "program_path": "compress/programs/spinnet/F3/004-pi4-shifted-rotations.py",
+   "program_sha256": "0bab039b12c723846fcda0b9b8b837e5fd4788491c784f7f3b3ee2a1bcff6aef",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     811,
+     1536,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     811,
+     1536,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r05-F1-005",
+   "old_id": "r05-F1-005",
+   "round": 5,
+   "label": "005-nor3-direct-pair",
+   "program_path": "compress/programs/spinnet/F1/005-nor3-direct-pair.py",
+   "program_sha256": "c84e7634ded502b1d33c045227b5425cf4adc845824944606982569fbdb048fe",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     834,
+     1565,
+     18
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     834,
+     1565,
+     18
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r05-F2-005",
+   "old_id": "r05-F2-005",
+   "round": 5,
+   "label": "005-angle-linear-design-interpreter",
+   "program_path": "compress/programs/spinnet/F2/005-angle-linear-design-interpreter.py",
+   "program_sha256": "a446b43382ce42e588388893d19498f214234364b3a5d6af146ddf52af04d5e8",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     31,
+     1086,
+     2262,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     31,
+     1086,
+     2262,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r05-F3-005",
+   "old_id": "r05-F3-005",
+   "round": 5,
+   "label": "005-angle-linear-walk",
+   "program_path": "compress/programs/spinnet/F3/005-angle-linear-walk.py",
+   "program_sha256": "43605421051ce5e26b85b1b5241eb02638fc5f8ad7c6297a67e7dd0e96fd22e4",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     832,
+     1552,
+     17
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     32,
+     832,
+     1552,
+     17
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  }
+ ],
+ "newly_valid": [],
+ "lost": [],
+ "best_old": {
+  "id": "r04-F1-004",
+  "key": [
+   31,
+   1062,
+   2173,
+   17
+  ]
+ },
+ "best_new": {
+  "id": "r04-F1-004",
+  "key": [
+   31,
+   1062,
+   2173,
+   17
+  ]
+ },
+ "old_archive_refused": [],
+ "old_archive_unreplayed": [],
+ "attempts_unchanged": true,
+ "discoveries_unchanged": true,
+ "backup": [
+  "results/compress/spinnet/pre-008/round-000.json",
+  "results/compress/spinnet/pre-008/round-001.json",
+  "results/compress/spinnet/pre-008/round-002.json",
+  "results/compress/spinnet/pre-008/round-003.json",
+  "results/compress/spinnet/pre-008/round-004.json",
+  "results/compress/spinnet/pre-008/round-005.json",
+  "results/compress/spinnet/pre-008/feedback",
+  "results/compress/spinnet/pre-008/robust.json",
+  "results/compress/spinnet/pre-008/summary.json",
+  "compress/archive/spinnet-pre-008"
+ ],
+ "lean": false,
+ "lean_carried": [
+  "r00-seed-000",
+  "r00-seed-001",
+  "r01-F1-001",
+  "r02-F1-002",
+  "r03-F1-003",
+  "r04-F1-004"
+ ],
+ "wall_s": 34.90719175338745,
+ "round_wall_s": [
+  9.60847806930542,
+  6.07135272026062,
+  5.873632907867432,
+  4.707267761230469,
+  3.6232409477233887,
+  4.679048299789429
+ ],
+ "provenance": {
+  "git_commit": "02c499d",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "replay_tag": "008"
+  },
+  "timestamp_utc": "2026-11-18T02:21:17Z"
+ },
+ "written_utc": "2026-11-18T02:21:17Z"
+}

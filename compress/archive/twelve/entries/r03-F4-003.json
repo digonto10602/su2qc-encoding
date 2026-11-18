@@ -72,14 +72,18 @@
   "dropped_total": 6.086356688350396e-14,
   "block_error": 1.2206237767702926e-13,
   "leak_amplitude": 0.0,
-  "seconds": 6.637475967407227,
+  "seconds": 1.0760033130645752,
   "n_inputs": 433,
+  "span_leak": 3.1215791612989075e-15,
+  "total_error": 1.8604752372183214e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.5849616913435815e-14,
    "max_dropped_l2": 3.7687857043216635e-15,
    "max_span_leak": 3.9968028886505635e-15,
-   "op_norm_error_inner_span": 1.2206237767702926e-13
+   "op_norm_error_inner_span": 1.2206237767702926e-13,
+   "span_leak_max_state": 3.0529727432461803e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 6.349355393007947e-14,
    "block_error": 1.2219986202920233e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.4411585330963135,
+   "seconds": 1.072310447692871,
    "n_inputs": 433,
+   "span_leak": 4.084631942021219e-15,
+   "total_error": 1.89778047901303e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.708888550024308e-14,
     "max_dropped_l2": 3.97857364563815e-15,
     "max_span_leak": 5.551115123125783e-15,
-    "op_norm_error_inner_span": 1.2219986202920233e-13
+    "op_norm_error_inner_span": 1.2219986202920233e-13,
+    "span_leak_max_state": 4.057645374614137e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 6.275460075403575e-14,
    "block_error": 1.2226460009534413e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.2545816898345947,
+   "seconds": 1.075364112854004,
    "n_inputs": 433,
+   "span_leak": 4.909415754126776e-15,
+   "total_error": 1.8992861660350666e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.849484784568476e-14,
     "max_dropped_l2": 3.838220781711613e-15,
     "max_span_leak": 6.8833827526759706e-15,
-    "op_norm_error_inner_span": 1.2226460009534413e-13
+    "op_norm_error_inner_span": 1.2226460009534413e-13,
+    "span_leak_max_state": 4.892696743263624e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: The walk type bit may be any register equal to the common corner type when z = 1 (kappa is t-independent at z = 0), but at walk time no leg bit is a type proxy (same-type bright legs are (1,1), diff and dark legs both span {00, 01, 10}), so 4 flags + 1 type need 2 ancilla loads besides the 6 distinct fold forms (t0..t3, u, v): 8 plumbing CX per side stays the floor in this frame."
  ],
  "summary": "F4-002 frame and 8-CX plumbing (no outer reads; flags b0, b1 in place on q11, q8, flags b2, b3 in ancillas) with only pb = b2&b3 stored; U_B is F2's 9-term Walsh rotation of F = j_b over (pa, pb, z, t2) on a closed Gray walk in which pa = b0&b1 is toggled by two in-walk rccx (no pa register) and the straddled Margolus phase (-1)^(b1 pb) is cancelled by one CZ: CX 119.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "418de65",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +188,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 12.635464429855347,
- "written_utc": "2026-11-06T15:21:03Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 3.6195201873779297,
+ "written_utc": "2026-11-18T03:03:31Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.3e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

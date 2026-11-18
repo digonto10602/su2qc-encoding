@@ -1,0 +1,272 @@
+{
+ "round": 2,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  172,
+  2904,
+  7206,
+  14
+ ],
+ "entries": [
+  "r02-F1-002",
+  "r02-F2-002",
+  "r02-F3-002"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "fuzzy_ub",
+ "kind": "UB",
+ "provenance": {
+  "git_commit": "f5df3ea",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "cpu_count": 48,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T20:29:22Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "002-merged-group-phasepoly",
+   "id": "r02-F1-002",
+   "family": "F1",
+   "program_sha256": "166e6a0f53b39b1d9c44fecf1168520330aff8befc62e41d027a3fd637a54f56",
+   "program_path": "compress/programs/fuzzy_ub/F1/002-merged-group-phasepoly.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    172,
+    2904,
+    7206,
+    14
+   ],
+   "cell": [
+    59,
+    92
+   ],
+   "metrics": {
+    "cx": 172,
+    "t_fixed": 96,
+    "n_rot": 44,
+    "t_eps": 2904,
+    "t_estimate": {
+     "1e-06": 2726.967051150791,
+     "1e-10": 4480.945085251318
+    },
+    "t_measured": {
+     "1e-06": 2904,
+     "1e-10": 4672
+    },
+    "synth_error_bound": 4.4e-05,
+    "depth": 196,
+    "depth_ct": 7206,
+    "qubits": 14,
+    "gates": {
+     "cx": 172,
+     "h": 58,
+     "t": 52,
+     "tdg": 44,
+     "rz": 44,
+     "x": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.303427793416913e-14,
+    "block_error": 1.7627868630070982e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F1-001",
+   "parent_known": true,
+   "git_commit": "f5df3ea",
+   "summary": "parent r01-F1-001 frames, but the t=1 sectors 2,3,6,7 (one shared layout) get pair-AND ancillas w01,w23 and ONE merged phase polynomial on f over x=t~l, y=tl, r, w01, w23 (one-hot NOT split by r for t=1: 4 ancillas, 32 CX one-hot round trip); final frame re-factored to start with (1 2) so its CX cancels the last Bell-decoder CX; 172 CX.",
+   "lean": {
+    "status": "n_a",
+    "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+   },
+   "round": 2,
+   "mode": "full"
+  },
+  {
+   "label": "002-partial-onehot-pair-walsh",
+   "id": "r02-F2-002",
+   "family": "F2",
+   "program_sha256": "bc7911b97529c6c0291d13b84ccf7bd4033aed637e756cb8aed17c3e05a269c6",
+   "program_path": "compress/programs/fuzzy_ub/F2/002-partial-onehot-pair-walsh.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    172,
+    2916,
+    7263,
+    15
+   ],
+   "cell": [
+    59,
+    92
+   ],
+   "metrics": {
+    "cx": 172,
+    "t_fixed": 116,
+    "n_rot": 44,
+    "t_eps": 2916,
+    "t_estimate": {
+     "1e-06": 2746.967051150791,
+     "1e-10": 4500.945085251318
+    },
+    "t_measured": {
+     "1e-06": 2916,
+     "1e-10": 4692
+    },
+    "synth_error_bound": 4.4e-05,
+    "depth": 251,
+    "depth_ct": 7263,
+    "qubits": 15,
+    "gates": {
+     "cx": 172,
+     "h": 116,
+     "t": 68,
+     "tdg": 48,
+     "rz": 44,
+     "s": 34,
+     "z": 16,
+     "sdg": 8,
+     "x": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.786493728531765e-14,
+    "block_error": 1.9632539002267642e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F1-001",
+   "parent_known": true,
+   "git_commit": "f5df3ea",
+   "summary": "F1 datapath (parity frame, 8 Fredkin q2-permutation frames, Bell decode) with a partial sector one-hot: (t,l) lines of the same-frame sector pairs {2,3},{6,7} are not split by p_r; each pair is one Walsh-Gray R_x over (line&w23 or line, p_r, w01) with shared Bell-pair ANDs; beta-free segments re-synthesised (7-CX Fredkins).",
+   "lean": null,
+   "round": 2,
+   "mode": "full"
+  },
+  {
+   "label": "002-fredkin7-dp-onehot-phasepoly",
+   "id": "r02-F3-002",
+   "family": "F3",
+   "program_sha256": "411f909ae8fa96b34983ecb46b7bd130849339c2bf797baf975d34e456b045e5",
+   "program_path": "compress/programs/fuzzy_ub/F3/002-fredkin7-dp-onehot-phasepoly.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    192,
+    3820,
+    9543,
+    16
+   ],
+   "cell": [
+    60,
+    95
+   ],
+   "metrics": {
+    "cx": 192,
+    "t_fixed": 128,
+    "n_rot": 58,
+    "t_eps": 3820,
+    "t_estimate": {
+     "1e-06": 3596.0929310624065,
+     "1e-10": 5908.154885104011
+    },
+    "t_measured": {
+     "1e-06": 3820,
+     "1e-10": 6160
+    },
+    "synth_error_bound": 5.8e-05,
+    "depth": 272,
+    "depth_ct": 9543,
+    "qubits": 16,
+    "gates": {
+     "cx": 192,
+     "h": 128,
+     "t": 76,
+     "rz": 58,
+     "tdg": 52,
+     "s": 32,
+     "z": 16,
+     "sdg": 8,
+     "x": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.8151084246004e-14,
+    "block_error": 1.955516735507139e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F3-001",
+   "parent_known": true,
+   "git_commit": "f5df3ea",
+   "summary": "F1 layout (parity frame, 8 f-controlled Fredkins DP-ordered over sectors, Bell decode, persistent sector one-hot, Gray-code C^3-R_x middles) with each Fredkin emitted as a 7-CX Clifford+T circuit instead of cx+ccx+cx (8 CX); 192 CX.",
+   "lean": null,
+   "round": 2,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r02-F1-002",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 44,
+  "t_total": 2904,
+  "tolerances": {
+   "tol_err": 4.4001e-05,
+   "tol_gauss": 4.4001e-05
+  },
+  "op_norm_error": 3.6435236479801317e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 7.613497734069824,
+ "written_utc": "2026-11-06T20:29:22Z"
+}

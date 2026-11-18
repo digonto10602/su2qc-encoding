@@ -1,0 +1,358 @@
+{
+ "round": 2,
+ "n_valid": 4,
+ "n_invalid": 0,
+ "best_key": [
+  31,
+  1086,
+  2258,
+  17
+ ],
+ "entries": [
+  "r02-F1-002",
+  "r02-F2-002",
+  "r02-F3-002",
+  "r02-F5-002"
+ ],
+ "lean_seconds": 0.9365448951721191,
+ "encoding": "spinnet",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "6d7522d",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-08T01:02:40Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "002-dimer-linear-corner-walk",
+   "id": "r02-F1-002",
+   "family": "F1",
+   "program_sha256": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650",
+   "program_path": "compress/programs/spinnet/F1/002-dimer-linear-corner-walk.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    31,
+    1086,
+    2258,
+    17
+   ],
+   "cell": [
+    40,
+    80
+   ],
+   "metrics": {
+    "cx": 31,
+    "t_fixed": 16,
+    "n_rot": 17,
+    "t_eps": 1086,
+    "t_estimate": {
+     "1e-06": 1032.5099970355327,
+     "1e-10": 1710.1833283925548
+    },
+    "t_measured": {
+     "1e-06": 1086,
+     "1e-10": 1784
+    },
+    "synth_error_bound": 1.7e-05,
+    "depth": 48,
+    "depth_ct": 2258,
+    "qubits": 17,
+    "gates": {
+     "cx": 31,
+     "rz": 17,
+     "x": 10,
+     "h": 10,
+     "t": 8,
+     "tdg": 8,
+     "sdg": 2,
+     "s": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.126691826890021e-15,
+    "block_error": 1.8670686707337984e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.344750312233835e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F1-001",
+   "parent_known": true,
+   "git_commit": "6d7522d",
+   "summary": "dimer frame (pivot = link b) with one clean flag a1=[c0=c2=0] and A=[u=v=0] XORed in place into corner qubit c0; corners c1, c3 and c0^A enter the H-frame pivot walk as plain CX toggles, so the walk is all-linear (13 CX, no rccx on the pivot, no sign fix) and ends on the e-step merged into the inverse ladder; 31 CX, 13+4 rotations, 17 qubits, all angles k*beta/4 or 3*alpha/4.",
+   "lean": {
+    "status": "certified",
+    "reason": "",
+    "cert_path": "/home/digonto/Projects/su2qc-spinnet/results/spinnet/certs/spinnet-step-o1-ec21654efa8e.json",
+    "seconds": 0.9345688819885254,
+    "checker_sha256": "ec00aa45fafa507a075313dc4650c11bf6d122cd9233588125f61a092f853de5",
+    "theorem_path": null,
+    "axioms": []
+   },
+   "round": 2,
+   "mode": "full"
+  },
+  {
+   "label": "002-inplaceA_nor01_direct3and",
+   "id": "r02-F2-002",
+   "family": "F2",
+   "program_sha256": "2eeefb79056914f6b2f15e639a641ff811da8e276d1d860ee758c403d7c6cb7e",
+   "program_path": "compress/programs/spinnet/F2/002-inplaceA_nor01_direct3and.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    32,
+    832,
+    1554,
+    17
+   ],
+   "cell": [
+    40,
+    77
+   ],
+   "metrics": {
+    "cx": 32,
+    "t_fixed": 24,
+    "n_rot": 13,
+    "t_eps": 832,
+    "t_estimate": {
+     "1e-06": 801.3311742036428,
+     "1e-10": 1319.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 832,
+     "1e-10": 1376
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 57,
+    "depth_ct": 1554,
+    "qubits": 17,
+    "gates": {
+     "cx": 32,
+     "h": 16,
+     "x": 14,
+     "rz": 13,
+     "t": 12,
+     "tdg": 12,
+     "z": 3,
+     "s": 2,
+     "sdg": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.4890228374495934e-15,
+    "block_error": 2.2973534127788157e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.474255194514172e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F2-001",
+   "parent_known": true,
+   "git_commit": "6d7522d",
+   "summary": "F2 with one ancilla: dimer ladder (pivot = link b), flag a01=[c0=c1=0] on the only ancilla, A=[u=v=0] XORed in place into the idle corner qubit c1 (X = c1^A), the 3-AND D=a01&~c3 toggled straight onto the pivot by an rccx pair, and a 10-state pivot walk over (e, X, D, c2) with 9 rotations (first step fused with the ladder, one CZ for the pair's leftover sign); rotation signs set by free pivot X-flips to shorten the Clifford+T words; 32 CX, 13 rotations, 17 qubits, angles k*beta/4 and -3*alpha/4.",
+   "lean": null,
+   "round": 2,
+   "mode": "full"
+  },
+  {
+   "label": "002-direct-and-flipped-walk",
+   "id": "r02-F3-002",
+   "family": "F3",
+   "program_sha256": "032030b06b77cc317b6adcec322dd518510321c015debbd3ae0b87b684c29057",
+   "program_path": "compress/programs/spinnet/F3/002-direct-and-flipped-walk.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    32,
+    832,
+    1553,
+    18
+   ],
+   "cell": [
+    40,
+    77
+   ],
+   "metrics": {
+    "cx": 32,
+    "t_fixed": 24,
+    "n_rot": 13,
+    "t_eps": 832,
+    "t_estimate": {
+     "1e-06": 801.3311742036428,
+     "1e-10": 1319.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 832,
+     "1e-10": 1376
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 57,
+    "depth_ct": 1553,
+    "qubits": 18,
+    "gates": {
+     "cx": 32,
+     "x": 30,
+     "h": 16,
+     "rz": 13,
+     "t": 12,
+     "tdg": 12,
+     "sdg": 2,
+     "z": 2,
+     "s": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.844424752258506e-15,
+    "block_error": 2.3183053289758503e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.4672143489065705e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F3-001",
+   "parent_known": true,
+   "git_commit": "6d7522d",
+   "summary": "F3 searched walk with one direct AND: clean flags A=[u=v=0], N2=NOR(c2,c3); N1=NOR(c0,c1) toggled straight onto the pivot by two rccx (CZ(c0,N2) cancels their leftover sign); 9-term pivot walk from the free preload e to 0 with 7 cheap toggles; pivot sign flips carried by negated toggle controls and p(lam+-pi/2) electric angles pick the shorter Clifford+T words; 32 CX, 9+4 rotations k*beta/4, 3*alpha/4 (+-pi/2).",
+   "lean": null,
+   "round": 2,
+   "mode": "full"
+  },
+  {
+   "label": "002-bright_flag_6rot",
+   "id": "r02-F5-002",
+   "family": "F5",
+   "program_sha256": "734a62fe58f316d6deb59561fb90cedcb04e5854f260f4d78e680eb688428f81",
+   "program_path": "compress/programs/spinnet/F5/002-bright_flag_6rot.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    34,
+    658,
+    1116,
+    17
+   ],
+   "cell": [
+    41,
+    74
+   ],
+   "metrics": {
+    "cx": 34,
+    "t_fixed": 32,
+    "n_rot": 10,
+    "t_eps": 658,
+    "t_estimate": {
+     "1e-06": 629.9470570797253,
+     "1e-10": 1028.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 658,
+     "1e-10": 1074
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 65,
+    "depth_ct": 1116,
+    "qubits": 17,
+    "gates": {
+     "cx": 34,
+     "h": 20,
+     "x": 16,
+     "t": 16,
+     "tdg": 16,
+     "rz": 10,
+     "s": 2,
+     "sdg": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 6.8649088573414125e-15,
+    "block_error": 2.34100677224615e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.488309788105658e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F5-001",
+   "parent_known": true,
+   "git_commit": "6d7522d",
+   "summary": "T-lean step with 10 rotations at 34 CX: U_E = 4 link phases; U_B = 6-term pivot polynomial f = 1/8 + 3/8 Z_F + 1/4 Z_B - 3/4 Z_F Z_B - 3/8 Z_e + 3/8 Z_F Z_e in the dimer frame, B = bright = (c1^X)&Y toggled by a direct rccx pair (X = NOR(c0,c2) XORed into c1, Y = NOR(c1,c3) in one ancilla), F = c0^A (A = [u=v=0] XORed into c0); walk [e] F e B F B (fused start) + one CZ for the rccx-pair sign; 17 qubits, angles k*beta/4 and -3*alpha/4.",
+   "lean": null,
+   "round": 2,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r02-F1-002",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 17,
+  "t_total": 1086,
+  "tolerances": {
+   "tol_err": 1.7001e-05,
+   "tol_gauss": 1.7001e-05
+  },
+  "op_norm_error": 4.890096406011861e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 6.554415702819824,
+ "written_utc": "2026-11-08T01:02:40Z",
+ "spinnet": {
+  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "shim": [
+   "build_in_subprocess",
+   "certify",
+   "encoding"
+  ]
+ }
+}

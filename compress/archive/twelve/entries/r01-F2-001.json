@@ -72,14 +72,18 @@
   "dropped_total": 6.824974121340838e-14,
   "block_error": 1.604510562801321e-14,
   "leak_amplitude": 0.0,
-  "seconds": 1.780318260192871,
+  "seconds": 0.811638355255127,
   "n_inputs": 433,
+  "span_leak": 3.0856878867541484e-15,
+  "total_error": 8.738053472817575e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.604510562801321e-14,
    "max_dropped_l2": 4.2591530522098274e-15,
    "max_span_leak": 3.9968028886505635e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.024108686352387e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 7.02925363823396e-14,
    "block_error": 1.723492468609207e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.7816479206085205,
+   "seconds": 0.8380951881408691,
    "n_inputs": 433,
+   "span_leak": 3.878680707201684e-15,
+   "total_error": 9.140614177563335e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.723492468609207e-14,
     "max_dropped_l2": 4.4408940313142016e-15,
     "max_span_leak": 5.440092820663267e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.827078557322912e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 7.114327071152525e-14,
    "block_error": 1.8527081519080494e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.7834160327911377,
+   "seconds": 0.8076560497283936,
    "n_inputs": 433,
+   "span_leak": 4.6822024726519805e-15,
+   "total_error": 9.435255470325772e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8527081519080494e-14,
     "max_dropped_l2": 4.7701349358008066e-15,
     "max_span_leak": 6.772360450213455e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 4.651573045760407e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: an X on leg a of corner 0 between the frame and the type gates flips only the diff partner sign there, so kappa = -1 for every n1=2 pair (2 for n1=0, 1/2 for n1=4, 0 dark) and the Walsh mux over (g, z=[all types equal], t) needs 6 CX; a chain fold q11=t3, q8=t2, q5=t1 gives three corner types without outer reads."
  ],
  "summary": "F2 pair frame: per corner a 2-CX leg frame + type-selected C_{jA}(X) makes both partners of every bright pair equal except the flip bit F=j_b; one rccx per corner leaves the bright flag; U_B = one (g, z, t)-multiplexed X rotation of F (6 Rz), U_E = 4 phases.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "84a20af",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,9 +188,9 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 6.5810816287994385,
- "written_utc": "2026-11-06T10:40:40Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 2.849905014038086,
+ "written_utc": "2026-11-18T03:03:19Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
@@ -193,5 +205,6 @@
   "theorem_path": null,
   "axioms": []
  },
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

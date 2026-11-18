@@ -51,16 +51,16 @@
  "verdict_nominal": {
   "ok": true,
   "reason": "ok",
-  "op_norm_error": 7.172909387772056e-14,
+  "op_norm_error": 1.235367703666335e-13,
   "max_leak": 0.0,
   "dirty_ancilla": 0.0,
   "phase": [
    -0.707106781186548,
-   -0.707106781186547
+   -0.7071067811865472
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -69,24 +69,28 @@
    "tol_err": 1e-10,
    "tol_gauss": 1e-10
   },
-  "dropped_total": 5.246463515755814e-14,
-  "block_error": 1.926445872016243e-14,
+  "dropped_total": 1.0423149251905461e-13,
+  "block_error": 1.9305277847578893e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.14847230911254883,
+  "seconds": 0.049703359603881836,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 1.235367703666335e-13,
   "failing_inputs": [],
   "extra": {
-   "op_norm_error_physical": 1.9186117207208497e-14,
-   "max_dropped_l2": 5.326411690503502e-15,
-   "max_span_leak": 2.220446049250313e-16,
-   "op_norm_error_inner_span": 1.926445872016243e-14
+   "op_norm_error_physical": 1.9305277847578893e-14,
+   "max_dropped_l2": 1.1701512399987783e-14,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.926381830233936e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 5.572439193001699e-14,
+   "op_norm_error": 7.070070635101506e-14,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
@@ -95,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -104,32 +108,36 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 4.075216692046707e-14,
-   "block_error": 1.497222500954992e-14,
+   "dropped_total": 5.5839732363220474e-14,
+   "block_error": 1.4860973987794587e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.08008456230163574,
+   "seconds": 0.05247044563293457,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 7.070070635101506e-14,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.497222500954992e-14,
-    "max_dropped_l2": 3.697043692118248e-15,
+    "op_norm_error_physical": 1.4860973987794587e-14,
+    "max_dropped_l2": 5.9151197348260804e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.4825005068265484e-14
+    "op_norm_error_inner_span": 1.472337785083784e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 7.55341213985898e-14,
+   "op_norm_error": 1.6979530213841898e-13,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
     -0.707106781186548,
-    -0.7071067811865471
+    -0.7071067811865469
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -138,17 +146,21 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 5.673790218667561e-14,
-   "block_error": 1.8796219211914196e-14,
+   "dropped_total": 1.503520733156301e-13,
+   "block_error": 1.9443228822788882e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.0790872573852539,
+   "seconds": 0.051854610443115234,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 1.6979530213841898e-13,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.8667540838160476e-14,
-    "max_dropped_l2": 6.106117080446442e-15,
+    "op_norm_error_physical": 1.9351330098649396e-14,
+    "max_dropped_l2": 1.907567900225428e-14,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.8796219211914196e-14
+    "op_norm_error_inner_span": 1.9443228822788882e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -158,11 +170,11 @@
   "DISCOVERY: exhaustive frame search (24 f-controlled q2 permutations x all Bell-decoder pair sets, any diagonal R_x angle function) finds no common frame for t=0 sector pairs {0,4},{1,5},{0,1},{4,5}; {0,5} share perm (2,3,0,1) and {1,4} share (0,3,2,1) only with incompatible decoder pairs, so sectors 0,1,4,5 cannot be merged like 2,3,6,7."
  ],
  "summary": "F1 elite datapath (parity frame, 8 Fredkin frames, final frame refactored to start with (1 2), merged 12-term phase polynomial for t=1 sectors 2,3,6,7 over x=t~l,y=tl,r,w01,w23, r-split one-hot only for t=0) recorded and re-emitted with level-3 resynthesis of every beta-free segment between rotations (7-CX Fredkins, decoder/one-hot CX cancellations); 6 ancillas, 165 CX.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "ebd52e9",
+ "git_commit": "220730e",
  "versions": {
-  "python": "3.12.14",
+  "python": "3.12.16",
   "numpy": "2.5.4",
   "scipy": "1.18.1",
   "qiskit": "2.5.2",
@@ -175,14 +187,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "prudence x86_64 cpus=48",
- "wall_s": 5.155036211013794,
- "written_utc": "2026-11-06T20:37:29Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 2.614577293395996,
+ "written_utc": "2026-11-18T03:02:45Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 4.4e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

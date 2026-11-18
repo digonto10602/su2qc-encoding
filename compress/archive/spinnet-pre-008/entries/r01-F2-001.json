@@ -1,0 +1,189 @@
+{
+ "id": "r01-F2-001",
+ "program_path": "compress/programs/spinnet/F2/001-aflag_corner_walk.py",
+ "program_sha256": "abd364243c897b28c2ff4f4d07494bccdc7243f3b4dace235f8a2b824c9d6959",
+ "parent": null,
+ "family": "F2",
+ "round": 1,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  33,
+  1380,
+  2852,
+  17
+ ],
+ "cell": [
+  40,
+  83
+ ],
+ "metrics_raw": {
+  "cx": 33,
+  "t_fixed": 8,
+  "n_rot": 22,
+  "t_eps": 1380,
+  "t_estimate": {
+   "1e-06": 1323.4835255753956,
+   "1e-10": 2200.472542625659
+  },
+  "t_measured": {
+   "1e-06": 1380,
+   "1e-10": 2296
+  },
+  "synth_error_bound": 2.2e-05,
+  "depth": 54,
+  "depth_ct": 2852,
+  "qubits": 17,
+  "gates": {
+   "cx": 33,
+   "rz": 22,
+   "h": 8,
+   "x": 4,
+   "t": 4,
+   "tdg": 4,
+   "sdg": 2,
+   "z": 1,
+   "s": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.241471394173516e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.9999999999999999,
+   9.845857770347823e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.374844106186573e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.4221819078834396e-15,
+  "block_error": 1.819289486290076e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.1920621395111084,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.59577122823846e-15,
+   "max_dropped_l2": 1.5242126695146808e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 1.819289486290076e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.689378856634272e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    4.9229288851739076e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.830322762800934e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.126170644834409e-15,
+   "block_error": 1.5632082117998628e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.19518756866455078,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.5632082117998628e-15,
+    "max_dropped_l2": 1.0153526484752712e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.5632082117998628e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.819052510073948e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -2.4614644425869535e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.324668646386421e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.021418637649015e-15,
+   "block_error": 1.797633872424932e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.18648481369018555,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.4685865963399703e-15,
+    "max_dropped_l2": 2.1496713729204623e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 1.797633872424932e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: CX(b->r); H(b); CX(r->b) is a 1-CX Clifford, so a pivot walk that starts or ends with the e-step saves 1 CX per fused end; with the A flag alone, exhaustive IDA* over the 624 minimal 16-term corner sets (<= 5 relabel CX among c0..c3,A,e) shows the walk costs >= 21 CX after fusion, i.e. >= 33 CX in total; annealing over non-minimal term sets also stops at 21 (18-19 terms).",
+  "DISCOVERY: Every minimal 16-term solution over (c,A,e) has rotation +-beta/4 per corner subset T and decoration g_A = NOT 1_H(T), g_e = 1_H xor 1_K, where H, K are 4-sets of corner subsets balanced on the dark zero sets {c0,c1,c2,c3,c0c1,c1c2} resp. {c0,c2,c3,c2c3,c0c3} with |H & K| = 1; H can never be a face of the corner 4-cube, so every Gray walk pays about 6 decoration toggles.",
+  "DISCOVERY: Dropping the A flag (terms over c0..c3,e,u,v) does not pay: 16 terms are infeasible (MILP), the best support found has 22 terms and annealed pivot walks need >= 30 CX (36 total)."
+ ],
+ "summary": "F2 single-flag corner polynomial: dimer ladder (pivot = link b), one rccx flag A=[u=v=0], and a 22-step closed pivot walk over the raw corner parities (c0..c3, A, e) carrying 18 rz(+-beta/4) terms; the first walk step is fused with the last ladder CX into a 1-CX Clifford; 33 CX, 17 qubits, all angles +-beta/4 or -3*alpha/4.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "22d6061",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 1.2612981796264648,
+ "written_utc": "2026-11-07T00:31:52Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 2.2e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

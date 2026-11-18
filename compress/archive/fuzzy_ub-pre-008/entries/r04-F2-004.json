@@ -1,0 +1,189 @@
+{
+ "id": "r04-F2-004",
+ "program_path": "compress/programs/fuzzy_ub/F2/004-fold-merged-relaxed-frames.py",
+ "program_sha256": "667447670fb12600ee75f2ed4c99ba2c5cd687c218212a10232a1f008d9db41f",
+ "parent": "r03-F3-003",
+ "family": "F2",
+ "round": 4,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  129,
+  1895,
+  4674,
+  12
+ ],
+ "cell": [
+  56,
+  87
+ ],
+ "metrics_raw": {
+  "cx": 129,
+  "t_fixed": 111,
+  "n_rot": 28,
+  "t_eps": 1895,
+  "t_estimate": {
+   "1e-06": 1785.2517598232307,
+   "1e-10": 2901.4195997053844
+  },
+  "t_measured": {
+   "1e-06": 1895,
+   "1e-10": 3023
+  },
+  "synth_error_bound": 2.8e-05,
+  "depth": 214,
+  "depth_ct": 4674,
+  "qubits": 12,
+  "gates": {
+   "cx": 129,
+   "h": 101,
+   "t": 60,
+   "tdg": 51,
+   "rz": 28,
+   "s": 22,
+   "x": 20,
+   "z": 17,
+   "sdg": 13
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.01091236224258e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.7071067811865478,
+   0.7071067811865472
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.0742555991994385e-14,
+  "block_error": 1.9366567630431417e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.04485487937927246,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9366567630431417e-14,
+   "max_dropped_l2": 2.8065844921960234e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.9366567630431417e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.517550774630391e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865478,
+    0.7071067811865474
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.126607129343625e-14,
+   "block_error": 1.3909436452867659e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.045223236083984375,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.3909436452867659e-14,
+    "max_dropped_l2": 2.8894222360962555e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.3850947912647323e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.988069903508446e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7071067811865479,
+    0.7071067811865474
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.092599396816402e-14,
+   "block_error": 1.895470506692044e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04417252540588379,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.895470506692044e-14,
+    "max_dropped_l2": 3.176303382049364e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.8875664471296228e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: every parity sector also accepts 2 \"relaxed\" frames where P(rho) D_p = c Pi_S(pair) (1 - 2 Pi_S(other pair)); with them the t=1 sectors 2,3,6,7 share the single-swap frame rho = (0 2) with pairing (01)(23) (11-term merged polynomial, 14-CX walk instead of 16), and an exhaustive Dijkstra over (f,u)-controlled swap walks (both sector tracks, any control function) gives 61 Fredkin-equivalent CX as the routing optimum.",
+  "DISCOVERY: the fold V0 = SWAP(q2^0,q2^2) on the (u & ~f) branch commutes with every f-controlled frame and with the t=1 rotations, so it merges with any f-controlled (0 2) swap into one Fredkin controlled by v = f OR u (one rccx); its sign c=-1 is fixed for free by Z(v) Z(f) = (-1)^(u ~f) instead of CZ(v,q2^0) CZ(v,q2^1).",
+  "DISCOVERY: with y = t&l the four (t,l) lines are linear: ~t~l = 1+t+l+y, ~t l = l+y, t~l = t+y, so the one-hot costs 6 + 4 CX instead of 16, and the group polynomial can use the raw t wire (x = t + y) at the same walk length."
+ ],
+ "summary": "r03-F3-003 r-fold kept, but the t=1 group sits in the 1-swap frame (0 2) using relaxed (spectator-swap) sector forms, the frame walk becomes (0 2) | G | (0 1)(2 3) | S4 | (1 3) | S0 | (0 1)(2 3), the forward fold swap is merged into the first frame swap as one (f OR u)-controlled Fredkin, the fold Paulis become free Z gates, and the one-hot needs only one AND (y = t l): 7 Fredkins in total (6 routing, one of them (f|u)-controlled, + 1 inverse-fold), 12 qubits, 129 CX.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "5d5d502",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.7928738594055176,
+ "written_utc": "2026-11-11T05:23:20Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 2.8e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

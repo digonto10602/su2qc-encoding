@@ -14,28 +14,29 @@
   "r02-F3-002",
   "r02-F4-002"
  ],
- "lean_seconds": 78.82465744018555,
+ "lean_seconds": 0.0,
  "encoding": "twelve",
  "kind": "step",
  "provenance": {
-  "git_commit": "afa1865",
+  "git_commit": "b8f2302",
   "git_dirty": true,
   "versions": {
-   "python": "3.12.14",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
-  "cpu_count": 12,
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-06T14:14:13Z"
+  "timestamp_utc": "2026-11-18T03:03:31Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
  "invalid": [],
  "external": [],
@@ -96,7 +97,9 @@
     "gauss_residual": 1.0668366030924275e-15,
     "certified": true,
     "engine": "sparse",
-    "method": "physical"
+    "method": "physical",
+    "span_leak": 2.975621493697702e-15,
+    "total_error": 8.565145259313799e-14
    },
    "alt_ok": [
     true,
@@ -105,7 +108,7 @@
    "skeleton_equal": true,
    "parent": "r01-F2-001",
    "parent_known": true,
-   "git_commit": "afa1865",
+   "git_commit": "b8f2302",
    "summary": "F2 pair frame (2-CX leg frame, C_t(H) C_jA(X) C_t(YH) per corner, t-preloaded rccx bright flags, 3-rccx AND) without the z flag: U_B is one 11-term Walsh multiplexed X rotation of F over (g, t1, t2, t1^t3), Gray-walked with 12 CX plus one CX(t1->t3) before and after (CX 124, reads 2 outer bits).",
    "lean": null,
    "round": 2,
@@ -167,7 +170,9 @@
     "gauss_residual": 9.015156124378885e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "physical"
+    "method": "physical",
+    "span_leak": 3.1388956370287544e-15,
+    "total_error": 1.0292867958086709e-13
    },
    "alt_ok": [
     true,
@@ -176,7 +181,7 @@
    "skeleton_equal": true,
    "parent": "r01-F2-001",
    "parent_known": true,
-   "git_commit": "afa1865",
+   "git_commit": "b8f2302",
    "summary": "F2 pair frame with in-place flags: a fold schedule (cx 5>11, 8>2 give z's inputs, tau0>2, tau0>11, 5>8 give t3, t1, t2 just in time) writes three corner bright flags onto the type qubits themselves (F = j_r), and the AND gg is dropped: U_B is one 9-term Walsh rotation of F over (pa, pb, z, t2) on a 10-CX Gray cycle.",
    "lean": {
     "status": "certified",
@@ -246,7 +251,9 @@
     "gauss_residual": 9.404953350274778e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "physical"
+    "method": "physical",
+    "span_leak": 3.1936550790282125e-15,
+    "total_error": 8.481524128113905e-14
    },
    "alt_ok": [
     true,
@@ -255,7 +262,7 @@
    "skeleton_equal": true,
    "parent": "r01-F3-001",
    "parent_known": true,
-   "git_commit": "afa1865",
+   "git_commit": "b8f2302",
    "summary": "F2 pair frame (2-CX leg frame W, C_t(H), C_jA(X), C_t(YH), cx(t,b), one rccx bright flag per corner, AND tree g) without the z flag: one 11-term Walsh-multiplexed X rotation of F over (g, t1, t2, t2^t3), 12-CX Gray walk after one extra fold CX (CX 124).",
    "lean": null,
    "round": 2,
@@ -317,7 +324,9 @@
     "gauss_residual": 8.702711937265766e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 3.2873394648655856e-15,
+    "total_error": 1.9058938929655102e-13
    },
    "alt_ok": [
     true,
@@ -326,7 +335,7 @@
    "skeleton_equal": true,
    "parent": "r01-F4-001",
    "parent_known": true,
-   "git_commit": "afa1865",
+   "git_commit": "b8f2302",
    "summary": "F2 pair frame (2-CX leg frame + type gates + one rccx bright flag per corner) with an 8-CX type plumbing (no outer reads, corners 0/1 flag in place into their type registers) and the top AND g=pa&pb toggled into F by an in-walk rccx (no g register; residual (-1)^(pa z) fixed by one CZ); 6-Rz (g,z,t) multiplexer + 4 electric phases.",
    "lean": null,
    "round": 2,
@@ -347,6 +356,6 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 135.1837763786316,
- "written_utc": "2026-11-06T14:14:13Z"
+ "wall_s": 6.74877142906189,
+ "written_utc": "2026-11-18T03:03:31Z"
 }

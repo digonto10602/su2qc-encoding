@@ -13,28 +13,29 @@
   "r03-F2-003",
   "r03-F3-003"
  ],
- "lean_seconds": 0.0022385120391845703,
+ "lean_seconds": 0.0,
  "encoding": "spinnet",
  "kind": "step",
  "provenance": {
-  "git_commit": "49d8b6e",
+  "git_commit": "02c499d",
   "git_dirty": true,
   "versions": {
    "python": "3.12.16",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
   "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-08T03:20:20Z"
+  "timestamp_utc": "2026-11-18T02:21:09Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
  "invalid": [],
  "external": [],
@@ -95,7 +96,9 @@
     "gauss_residual": 5.410557748946589e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 6.812583761452679e-15
    },
    "alt_ok": [
     true,
@@ -104,7 +107,7 @@
    "skeleton_equal": true,
    "parent": "r02-F1-002",
    "parent_known": true,
-   "git_commit": "49d8b6e",
+   "git_commit": "02c499d",
    "summary": "parent circuit unchanged in gates that cost CX (dimer frame, pivot b; flag a1=[c0=c2=0], A=[u=v=0] XORed into c0; 13-toggle all-linear H-frame walk over c1, c3, c0^A, a1, e; 31 CX, 17 qubits), but every rotation is emitted in its cheapest exact Clifford+T-equivalent form sg*|th| + m*pi/4 followed by p(-m*pi/4): the 4 electric p(-3alpha/4) and the 4 rz(+-beta/2) take a pi/4 shift (pygridsynth T 64 -> 58+1, 66 -> 64+1), signs ride on X frame flips (pivot or link qubit) and pi/2 shifts on S/Z fixes, picked for the shortest word; T 1086 -> 1062, depth_CT 2258 -> 2189.",
    "lean": {
     "status": "n_a",
@@ -174,7 +177,9 @@
     "gauss_residual": 5.271733026008412e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 5.409197143817258e-15
    },
    "alt_ok": [
     true,
@@ -183,7 +188,7 @@
    "skeleton_equal": true,
    "parent": "r02-F2-002",
    "parent_known": true,
-   "git_commit": "49d8b6e",
+   "git_commit": "02c499d",
    "summary": "dimer frame (pivot b; q1 = E = b^r and q2 = U = b^t both fused into 2-CX Bravyi-Maslov end blocks, flags computed after the frame H) with one clean flag N=[c1=c3=0] and A=[U=V=0] XORed in place into corner c1; all-linear 13-toggle walk E -> 0 over (E, N, c1^A, c0, c2) (the mirror of the F1 walk) with the minimum-T coefficient choice; every rotation picks its X-flip sign and a pi/4 shift rz(th) = rz(th +- pi/4) tdg/t when the shifted Clifford+T word is cheaper, and U_E is p(-3alpha/4 + pi/4) tdg (58 + 1 T instead of 64); 31 CX, 13 + 4 rotations, 17 qubits",
    "lean": null,
    "round": 3,
@@ -245,7 +250,9 @@
     "gauss_residual": 5.913957033160809e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 5.858976315733614e-15
    },
    "alt_ok": [
     true,
@@ -254,7 +261,7 @@
    "skeleton_equal": true,
    "parent": "r02-F3-002",
    "parent_known": true,
-   "git_commit": "49d8b6e",
+   "git_commit": "02c499d",
    "summary": "F3 one-direct-AND walk on 17 qubits: Na=NOR(c0,c1) in the only ancilla, A=[u=v=0] XORed in place into c1 (idle between the Na compute and uncompute), Nd=NOR(c2,c3) toggled straight onto the pivot by two rccx (CZ(Na,c2) Z(Na) cancels their sign); 9-term walk e -> 0 with 7 cheap toggles, the one walk whose rotations all reach the shortest Clifford+T word (pivot X-frame flips by negated toggle controls only: sum of words 1358 = floor over all 32-CX walks); 32 CX, 9+4 rotations k*beta/8, 3*alpha/4 (+-pi/2).",
    "lean": null,
    "round": 3,
@@ -275,13 +282,11 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 5.099971294403076,
- "written_utc": "2026-11-08T03:20:20Z",
+ "wall_s": 4.707267761230469,
+ "written_utc": "2026-11-18T02:21:09Z",
  "spinnet": {
-  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "code_sha256": "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4",
   "shim": [
-   "build_in_subprocess",
-   "certify",
    "encoding"
   ]
  }

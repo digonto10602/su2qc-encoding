@@ -13,7 +13,7 @@
  "verdict": {
   "ok": true,
   "reason": "ok",
-  "op_norm_error": 6.431898734793575e-14,
+  "op_norm_error": 1.1193939828220745e-13,
   "max_leak": 0.0,
   "dirty_ancilla": 0.0,
   "phase": [
@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -31,33 +31,37 @@
    "tol_err": 1e-10,
    "tol_gauss": 1e-10
   },
-  "dropped_total": 4.4948383719568885e-14,
-  "block_error": 1.9370603628366857e-14,
+  "dropped_total": 9.236920269496776e-14,
+  "block_error": 1.9570195587239697e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.07991814613342285,
+  "seconds": 0.048662424087524414,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 1.1193939828220745e-13,
   "failing_inputs": [],
   "extra": {
-   "op_norm_error_physical": 1.9370603628366857e-14,
-   "max_dropped_l2": 5.6513339611007145e-15,
+   "op_norm_error_physical": 1.9570195587239697e-14,
+   "max_dropped_l2": 1.12885540866045e-14,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.932867882136037e-14
+   "op_norm_error_inner_span": 1.9466056432822866e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 4.737402181658405e-14,
+   "op_norm_error": 6.159653332149131e-14,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
     -0.707106781186548,
-    -0.707106781186547
+    -0.7071067811865471
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -66,32 +70,36 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 3.350217008245871e-14,
-   "block_error": 1.3871851734125338e-14,
+   "dropped_total": 4.7601785357717145e-14,
+   "block_error": 1.3994747963774172e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.07337784767150879,
+   "seconds": 0.04801011085510254,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.159653332149131e-14,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.3871851734125338e-14,
-    "max_dropped_l2": 3.644137788537538e-15,
-    "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.3843639930064793e-14
+    "op_norm_error_physical": 1.3994747963774172e-14,
+    "max_dropped_l2": 5.3536928174309395e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.3847470437285864e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
    "ok": true,
    "reason": "ok",
-   "op_norm_error": 6.72929612108038e-14,
+   "op_norm_error": 1.6092067472413604e-13,
    "max_leak": 0.0,
    "dirty_ancilla": 0.0,
    "phase": [
     -0.7071067811865481,
-    -0.7071067811865471
+    -0.707106781186547
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -100,17 +108,21 @@
     "tol_err": 1e-10,
     "tol_gauss": 1e-10
    },
-   "dropped_total": 4.8531960917754766e-14,
-   "block_error": 1.8761000293049044e-14,
+   "dropped_total": 1.4146215108437233e-13,
+   "block_error": 1.945852363976371e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.07376718521118164,
+   "seconds": 0.05045366287231445,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 1.6092067472413604e-13,
    "failing_inputs": [],
    "extra": {
-    "op_norm_error_physical": 1.8736521099976794e-14,
-    "max_dropped_l2": 5.949734004752893e-15,
+    "op_norm_error_physical": 1.945852363976371e-14,
+    "max_dropped_l2": 1.8482121515335437e-14,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.8761000293049044e-14
+    "op_norm_error_inner_span": 1.9398850318406933e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "5ff89dd88c95dbcbb08f9c120ca360165bc972fd5b235a474edd79444bd4d8a5",
- "wall_s": 1.0688629150390625,
+ "wall_s": 0.7484898567199707,
  "discoveries": [
   "DISCOVERY: sectors 1 and 5 are exactly equivalent to 0 and 4 (c=+1) under V=(V0,V1) on q2 with V1=I and V0=SWAP(0,2) Z0 Z1 (Z first) (or V0 = a 3-cycle on wires 0,1,2, no Paulis); no f-uniform signed permutation does it (64 joint solutions, all f-dependent); sectors 3/2 and 7/6 differ in rank (1 vs 4, 4 vs 16) so no r-merge exists there.",
   "DISCOVERY: with 1,5 folded the frame sequence (2 3)(0 1) | (0 2)(1 3)(0 2)=(1 3) | back needs 6 Fredkins instead of 8."

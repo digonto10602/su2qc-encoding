@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 9.15194303078094e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.281952590115978e-17
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 7.2070192794184e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 7.701492269756896e-14,
+  "block_error": 1.4504507610240428e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 3.4173402786254883,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.4504507610240428e-14,
+   "max_dropped_l2": 4.414682235735066e-15,
+   "max_span_leak": 4.6629367034256575e-15,
+   "op_norm_error_inner_span": null
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.81629880455146e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -5.743417032702965e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 7.438707865931809e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.319306269183281e-14,
+   "block_error": 1.496992535368179e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.8398337364196777,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.496992535368179e-14,
+    "max_dropped_l2": 4.4315813163784176e-15,
+    "max_span_leak": 6.217248937900877e-15,
+    "op_norm_error_inner_span": null
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.0006787100660968e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -7.38439332776095e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 7.994497182718274e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 8.244314216951985e-14,
+   "block_error": 1.762472883708983e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 1.8332958221435547,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.762472883708983e-14,
+    "max_dropped_l2": 4.4517127926249956e-15,
+    "max_span_leak": 8.43769498715119e-15,
+    "op_norm_error_inner_span": null
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 111,
+  "t_fixed": 104,
+  "n_rot": 13,
+  "t_eps": 912,
+  "t_estimate": {
+   "1e-06": 881.3311742036428,
+   "1e-10": 1399.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 912,
+   "1e-10": 1456
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 149,
+  "depth_ct": 1664,
+  "qubits": 32,
+  "gates": {
+   "h": 128,
+   "cx": 111,
+   "t": 52,
+   "tdg": 52,
+   "s": 32,
+   "sdg": 32,
+   "x": 24,
+   "rz": 13,
+   "z": 12
+  },
+  "measured": true
+ },
+ "program_sha256": "dda2196e14d5c711a4f644ceb73f7b3a0c5328f3572f3a773929392abc3cecb8",
+ "wall_s": 10.161855697631836,
+ "discoveries": [
+  "DISCOVERY: For the F3-frame coupling (kappa = 2, -(-1)^t2, -1/2) the only minimal Walsh supports over (pa, pb, z, t2) have 9 terms (next size 11); with one pair AND in-walk the cheapest cycle is 8 linear toggles + 2 rccx + 1 CZ (15 CX, residual L = {z} or {pb}); a fix-free cycle (pb in-walk with c0 = b2 and L = {t2}, residual (-1)^(b2 t2) = Z(t2) because diff corners are always bright) needs >= 10 linear toggles (>= 16 CX), exhaustive over all 9-term supports and cycles.",
+  "DISCOVERY: The three free points (pa & pb = 0, z = t2 = 1) are essential: removing any one of them raises the minimal support from 9 to 12 terms (16 with none), in both the F2 and F3 sign conventions, so no leg-bit proxy for t2 (which is exact only on g = 1) can replace the cx(t2 -> f2) copy.",
+  "DISCOVERY: Per-corner sign flips multiply kappa by a character (-1)^(e.t) of the types (the F3 coupling is the F2 coupling times (-1)^t2), which only relabels Walsh terms, so no frame sign choice lowers the 9-term multiplexer."
+ ],
+ "summary": "F3 5-CX clean corner frame (r03-F3-003) + F2 in-walk pair AND: pa = b0 & b1 is never stored, its two toggles in the 10-CX Gray cycle of the 9-term Walsh rotation over (pa, pb, z, t2) are rccx(b0, b1, F) and the residual (-1)^(b0 z) is one CZ (CX 111)."
+}

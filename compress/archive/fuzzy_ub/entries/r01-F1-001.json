@@ -57,7 +57,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -69,14 +69,18 @@
   "dropped_total": 2.2261705883464172e-14,
   "block_error": 1.7588034788337147e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.5667002201080322,
+  "seconds": 0.040952444076538086,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 3.9849740671801316e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.7588034788337147e-14,
    "max_dropped_l2": 2.2195355579453007e-15,
    "max_span_leak": 3.3306690738754696e-16,
-   "op_norm_error_inner_span": 1.7588034788337147e-14
+   "op_norm_error_inner_span": 1.7588034788337147e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -92,7 +96,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -104,14 +108,18 @@
    "dropped_total": 1.5714255008569192e-14,
    "block_error": 1.1747352445125591e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.06484150886535645,
+   "seconds": 0.0401310920715332,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 2.746160745369478e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.1747352445125591e-14,
     "max_dropped_l2": 1.6430484380822997e-15,
     "max_span_leak": 3.3306690738754696e-16,
-    "op_norm_error_inner_span": 1.1747352445125591e-14
+    "op_norm_error_inner_span": 1.1747352445125591e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -126,7 +134,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -138,14 +146,18 @@
    "dropped_total": 1.9270096879211367e-14,
    "block_error": 1.7237229118255543e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.06540989875793457,
+   "seconds": 0.03973650932312012,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.650732599746691e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7237229118255543e-14,
     "max_dropped_l2": 2.0236380873379004e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.7237229118255543e-14
+    "op_norm_error_inner_span": 1.7237229118255543e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -155,11 +167,11 @@
   "DISCOVERY: keep a 6-ancilla one-hot of the parity p alive for the whole circuit (partly in place on the p_t/p_l wires, 24 CX each way); each rank-4 sector then is a 3-control R_x = 8-CX Gray-code phase polynomial with angles +-beta (Lean-friendly)."
  ],
  "summary": "parity frame + f-controlled qubit-permutation frames (8 Fredkins total, DP-optimal over sector order) + Bell decode + per-sector Gray-code C^3-R_x phase polynomials on a persistent sector one-hot; 200 CX.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "3f51ef0",
+ "git_commit": "220730e",
  "versions": {
-  "python": "3.12.14",
+  "python": "3.12.16",
   "numpy": "2.5.4",
   "scipy": "1.18.1",
   "qiskit": "2.5.2",
@@ -172,10 +184,10 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "prudence x86_64 cpus=48",
- "wall_s": 1.448521375656128,
- "written_utc": "2026-11-06T20:13:56Z",
- "git_dirty": false,
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.5807359218597412,
+ "written_utc": "2026-11-18T03:02:42Z",
+ "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 5.8e-05
@@ -184,5 +196,6 @@
   "status": "n_a",
   "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
  },
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

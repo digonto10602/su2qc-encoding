@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.8547191457245868e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   9.84585777034794e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 1.2452028296786458e-15,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.367010004495443e-14,
+  "block_error": 1.2180181452750423e-13,
+  "leak_amplitude": 0.0,
+  "seconds": 6.668421506881714,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.449950726102053e-14,
+   "max_dropped_l2": 3.8010358645795575e-15,
+   "max_span_leak": 4.9960036108132044e-15,
+   "op_norm_error_inner_span": 1.2180181452750423e-13
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.8509832157430438e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -7.384393327760953e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 8.27179156553989e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.326816060610226e-14,
+   "block_error": 1.2183016096820213e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.286487340927124,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.5404685826761287e-14,
+    "max_dropped_l2": 3.949083141979109e-15,
+    "max_span_leak": 6.217248937900877e-15,
+    "op_norm_error_inner_span": 1.2183016096820213e-13
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.8603470717295848e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.230732221293492e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 8.340250282000294e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.413932158233082e-14,
+   "block_error": 1.2189538559062766e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.2961061000823975,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.760428539993761e-14,
+    "max_dropped_l2": 4.26933961246091e-15,
+    "max_span_leak": 7.438494264988549e-15,
+    "op_norm_error_inner_span": 1.2189538559062766e-13
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 111,
+  "t_fixed": 104,
+  "n_rot": 13,
+  "t_eps": 912,
+  "t_estimate": {
+   "1e-06": 881.3311742036428,
+   "1e-10": 1399.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 912,
+   "1e-10": 1456
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 153,
+  "depth_ct": 1694,
+  "qubits": 32,
+  "gates": {
+   "h": 128,
+   "cx": 111,
+   "t": 52,
+   "tdg": 52,
+   "s": 32,
+   "sdg": 32,
+   "x": 24,
+   "rz": 13,
+   "z": 12
+  },
+  "measured": true
+ },
+ "program_sha256": "a55cbcf351585c2a96d2b954b741461eaf7bb699a9c85d5afc165966b59a1723",
+ "wall_s": 12.580875635147095,
+ "discoveries": [
+  "DISCOVERY: The 5-CX clean frame needs no outer read: run in F4's plumbing order (corner 3 with j = j_t raw, corner 2 with j = j_t raw, z, then corners 0 and 1 with j = j_b raw, flags of 0/1 in place) it keeps H_B = kappa X_{j_b} exact on all 433 states with kappa = 2 (n1=0), -(-1)^{t2} (n1=2), -1/2 (n1=4), so 8 plumbing CX replace F3's 6 + 2 outer reads at equal cost.",
+  "DISCOVERY: For the F3 sign kappa the support {0, t, z, pb t, pb z t, pa t, pa z t, pa pb t, pa pb z t} has an in-walk pa cycle 0 -t- [pa] -z-pb-z- [pa] -z- (pb,t) -z- 0 with 8 linear toggles and net = pb inside the pa block, so pa costs 2 rccx + 1 CZ (walk 15 CX) instead of a stored pa (6) + 10-CX cycle: 48 forward CX per side, total 111.",
+  "DISCOVERY: In the clean frame diff-type bright corners leave each leg bit at probability 1/4 and dark corners at 1/3 (only same-type bright legs are a basis state), so no leg bit is a type proxy and t2 must stay on q5; by count a (g, z, t) mux with stored pa, pb and in-walk g is 2 x 51 + 11 = 113 CX in this frame (and needs 7 terms for the (-1)^t2 sign; single Pauli insertions on corners 0/1 did not make the n1=2 sign constant), 2 CX more than the 9-rotation in-walk-pa walk."
+ ],
+ "summary": "F3's 5-CX clean corner frame (one rccx bright flag per corner) on F4's 8-CX no-outer-read plumbing (flags b0, b1 in place on q11, q8; b2, b3 in ancillas; t2 kept on q5) with only pb = b2&b3 stored; U_B is the 9-term Walsh rotation of F = j_b over (pa, pb, z, t2) for the F3 sign kappa = 2, -(-1)^t2, -1/2 on a closed walk in which pa = b0&b1 is toggled by two in-walk rccx and the straddled phase (-1)^(b1 pb) is cancelled by one CZ: CX 111."
+}

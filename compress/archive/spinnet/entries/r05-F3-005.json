@@ -72,14 +72,18 @@
   "dropped_total": 3.3336784681939215e-15,
   "block_error": 2.2604849534868365e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.2723236083984375,
+  "seconds": 0.19885826110839844,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 5.594163421680758e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.782019951394485e-15,
    "max_dropped_l2": 8.468470856445827e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.2604849534868365e-15
+   "op_norm_error_inner_span": 2.2604849534868365e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 3.827920598106599e-15,
    "block_error": 1.8149684782055937e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.2731766700744629,
+   "seconds": 0.20402264595031738,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.642889076312193e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.6910413304902314e-15,
     "max_dropped_l2": 8.385165697974018e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.8149684782055937e-15
+    "op_norm_error_inner_span": 1.8149684782055937e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 3.9611840295833066e-15,
    "block_error": 2.6234663156838673e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.27846646308898926,
+   "seconds": 0.2029097080230713,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 6.584650345267174e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.536665005570981e-15,
     "max_dropped_l2": 1.1053722798734825e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.6234663156838673e-15
+    "op_norm_error_inner_span": 2.6234663156838673e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,9 +171,9 @@
   "DISCOVERY: the robust T sum is set by the rotation count (about 63 T per rotation at random angles): removing the pi/4 offsets of r04-F3-004 changes the 20-pair sum only 16954 -> 16948 but makes the circuit angle-linear (Lean exporter ok); only a 31-CX circuit with <= 12 walk rotations can beat the 31-CX, 17-rotation headline."
  ],
  "summary": "angle-linear form of the F3 parent (Na=NOR(c0,c1) ancilla, A=[u=v=0] in place in c1, Nd=NOR(c2,c3) direct rccx pair + CZ(Na,c2); 9-term walk e -> 0, 32 CX, 17 qubits, 9+4 rotations): every rotation angle is exactly k*beta/4 or -3*alpha/4 (no pi/4 offsets and no fused pi/2 offsets; s/sdg are separate gates), so the circuit is angle-linear (Lean exporter ok) at an unchanged skeleton; robust key (32, 16948, 0, 33225, 17) vs parent (32, 16954, 1).",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
- "git_commit": "9145258",
+ "git_commit": "02c499d",
  "versions": {
   "python": "3.12.16",
   "numpy": "2.5.4",
@@ -177,13 +189,14 @@
   "gridsynth": 0
  },
  "machine": "omnicommander x86_64 cpus=20",
- "wall_s": 2.1538822650909424,
- "written_utc": "2026-11-10T21:12:38Z",
+ "wall_s": 1.519751787185669,
+ "written_utc": "2026-11-18T02:21:17Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.3e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c"
 }

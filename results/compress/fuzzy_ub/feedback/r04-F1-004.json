@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 3.12333770307347e-14,
   "block_error": 1.849660828460273e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.4030337333679199,
+  "seconds": 0.040366172790527344,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 4.972998531533743e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.8349648709740793e-14,
    "max_dropped_l2": 3.3261880328941083e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.849660828460273e-14
+   "op_norm_error_inner_span": 1.849660828460273e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.8112162479620755e-14,
    "block_error": 1.1255390057028103e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.040103912353515625,
+   "seconds": 0.041338205337524414,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.936755253664886e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.1238022994717859e-14,
     "max_dropped_l2": 2.906320110276258e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.1255390057028103e-14
+    "op_norm_error_inner_span": 1.1255390057028103e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 3.3826570851741114e-14,
    "block_error": 1.8028243129557505e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.03952431678771973,
+   "seconds": 0.04101276397705078,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 5.185481398129862e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7847901793917447e-14,
     "max_dropped_l2": 3.478194542736913e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.8028243129557505e-14
+    "op_norm_error_inner_span": 1.8028243129557505e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "2525cb01ee66f390047de7f93a8489f782423e01678a512323586314f1686861",
- "wall_s": 5.691896915435791,
+ "wall_s": 5.42429780960083,
  "discoveries": [
   "DISCOVERY: per-sector branch control of a frame swap (none / f=0 / f=1 / both) acts as a fold: with leg (0 2),(0 1),(2 3) the states (sector 0 none, 1 f=0 only, 4 f=1 only, 5 both) at the (0 2) swap put sectors 0,1,4,5 into the sector-4 normal form at G (decoder (1,2), value 2 with sign (-1)^(p_r^p_l)); no separate fold Fredkin, no sector-0 frame, one t=0 middle.",
   "DISCOVERY: that control is one rccx toggle on a persistent u=p_r&~p_t line using e=~p_t&~(p_r^p_l); a Z on the line while it holds c multiplies the t=0 couplings by (-1)^(p_r^p_l) (t=1 by -1), making the four t=0 sectors identical.",

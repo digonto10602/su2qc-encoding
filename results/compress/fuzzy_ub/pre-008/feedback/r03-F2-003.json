@@ -1,0 +1,155 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 7.172909387772056e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -0.707106781186548,
+   -0.707106781186547
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 5.246463515755814e-14,
+  "block_error": 1.926445872016243e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.14847230911254883,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9186117207208497e-14,
+   "max_dropped_l2": 5.326411690503502e-15,
+   "max_span_leak": 2.220446049250313e-16,
+   "op_norm_error_inner_span": 1.926445872016243e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.572439193001699e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.7071067811865481,
+    -0.7071067811865471
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.075216692046707e-14,
+   "block_error": 1.497222500954992e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.08008456230163574,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.497222500954992e-14,
+    "max_dropped_l2": 3.697043692118248e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.4825005068265484e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.55341213985898e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.707106781186548,
+    -0.7071067811865471
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.673790218667561e-14,
+   "block_error": 1.8796219211914196e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.0790872573852539,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8667540838160476e-14,
+    "max_dropped_l2": 6.106117080446442e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.8796219211914196e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 165,
+  "t_fixed": 106,
+  "n_rot": 44,
+  "t_eps": 2914,
+  "t_estimate": {
+   "1e-06": 2736.967051150791,
+   "1e-10": 4490.945085251318
+  },
+  "t_measured": {
+   "1e-06": 2914,
+   "1e-10": 4682
+  },
+  "synth_error_bound": 4.4e-05,
+  "depth": 230,
+  "depth_ct": 7221,
+  "qubits": 14,
+  "gates": {
+   "cx": 165,
+   "h": 103,
+   "t": 62,
+   "tdg": 44,
+   "rz": 44,
+   "s": 30,
+   "z": 14,
+   "sdg": 7,
+   "x": 2
+  },
+  "measured": true
+ },
+ "program_sha256": "c6fb176abe10ecd57c3092e7f53bc68ef0534143f8a72b0bddee6169c2273d87",
+ "wall_s": 5.155036211013794,
+ "discoveries": [
+  "DISCOVERY: the F1 merged-group polynomial (-6 CX vs pair Walsh R_x with u-AND) and the F2 segment resynthesis compose: 172 -> 165 CX, 14 qubits; the final-frame (1 2) refactor survives resynthesis.",
+  "DISCOVERY: exhaustive frame search (24 f-controlled q2 permutations x all Bell-decoder pair sets, any diagonal R_x angle function) finds no common frame for t=0 sector pairs {0,4},{1,5},{0,1},{4,5}; {0,5} share perm (2,3,0,1) and {1,4} share (0,3,2,1) only with incompatible decoder pairs, so sectors 0,1,4,5 cannot be merged like 2,3,6,7."
+ ],
+ "summary": "F1 elite datapath (parity frame, 8 Fredkin frames, final frame refactored to start with (1 2), merged 12-term phase polynomial for t=1 sectors 2,3,6,7 over x=t~l,y=tl,r,w01,w23, r-split one-hot only for t=0) recorded and re-emitted with level-3 resynthesis of every beta-free segment between rotations (7-CX Fredkins, decoder/one-hot CX cancellations); 6 ancillas, 165 CX."
+}

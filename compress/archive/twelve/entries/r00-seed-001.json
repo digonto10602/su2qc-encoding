@@ -72,14 +72,18 @@
   "dropped_total": 9.176862599070215e-14,
   "block_error": 1.2210813429157947e-13,
   "leak_amplitude": 0.0,
-  "seconds": 2.8024535179138184,
+  "seconds": 1.120140790939331,
   "n_inputs": 433,
+  "span_leak": 3.147936877535766e-15,
+  "total_error": 2.170246971598174e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.6028897276398675e-14,
    "max_dropped_l2": 5.224312203454446e-15,
    "max_span_leak": 4.440892098500626e-15,
-   "op_norm_error_inner_span": 1.2210813429157947e-13
+   "op_norm_error_inner_span": 1.2210813429157947e-13,
+   "span_leak_max_state": 3.1018265326354557e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 9.688843565905061e-14,
    "block_error": 1.2209923854228172e-13,
    "leak_amplitude": 0.0,
-   "seconds": 3.8868517875671387,
+   "seconds": 1.1187617778778076,
    "n_inputs": 433,
+   "span_leak": 4.039346705177482e-15,
+   "total_error": 2.2302702090650982e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.6991644458328766e-14,
     "max_dropped_l2": 5.464518093993699e-15,
     "max_span_leak": 5.773159728050814e-15,
-    "op_norm_error_inner_span": 1.2209923854228172e-13
+    "op_norm_error_inner_span": 1.2209923854228172e-13,
+    "span_leak_max_state": 4.0049449305876326e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,27 +149,31 @@
    "dropped_total": 9.720452017356694e-14,
    "block_error": 1.2205818971109864e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.7929892539978027,
+   "seconds": 1.1331522464752197,
    "n_inputs": 433,
+   "span_leak": 5.460479542989705e-15,
+   "total_error": 2.2472318942765528e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.803826471395997e-14,
     "max_dropped_l2": 5.6350705924949045e-15,
     "max_span_leak": 7.549516567451064e-15,
-    "op_norm_error_inner_span": 1.2205818971109864e-13
+    "op_norm_error_inner_span": 1.2205818971109864e-13,
+    "span_leak_max_state": 5.448642049411123e-15,
+    "gauss": "checked"
    }
   }
  ],
  "skeleton_equal": true,
  "discoveries": [],
  "summary": "su2qc-trotter lean22_v2 plaquette (vendored, plaquette only) behind our electric layer.",
- "evaluator_sha256": "810e86f2640d4f76b5434e511ff41ccd7c54cce284ad217a11971c8b2d2e26d7",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "a4c28a6",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -172,14 +184,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 10.944555759429932,
- "written_utc": "2026-11-06T06:11:19Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 3.7800066471099854,
+ "written_utc": "2026-11-18T03:03:16Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 8e-06
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

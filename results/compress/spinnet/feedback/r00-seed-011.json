@@ -34,14 +34,18 @@
   "dropped_total": 1.216759756063135e-14,
   "block_error": 4.533952210552293e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.2515223026275635,
+  "seconds": 0.20159506797790527,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.6701549771183643e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 4.016401646999145e-15,
    "max_dropped_l2": 2.3521824803561157e-15,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 4.533952210552293e-15
+   "op_norm_error_inner_span": 4.533952210552293e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 9.854669006303962e-15,
    "block_error": 3.62512199504783e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.2392885684967041,
+   "seconds": 0.202284574508667,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.3479791001351792e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.9598559555321907e-15,
     "max_dropped_l2": 2.2342745844295576e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 3.62512199504783e-15
+    "op_norm_error_inner_span": 3.62512199504783e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 1.2705054145353028e-14,
    "block_error": 5.306823637801089e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.23393654823303223,
+   "seconds": 0.20216012001037598,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.8011877783154115e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 5.1441415521229956e-15,
     "max_dropped_l2": 2.5231386181770604e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 5.306823637801089e-15
+    "op_norm_error_inner_span": 5.306823637801089e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -143,7 +155,7 @@
   "measured": true
  },
  "program_sha256": "dcf0b5a58c3ba07eda89e0db44b1ea2606197fb9e88c0176d4a1d3f3e9c30d66",
- "wall_s": 1.601283311843872,
+ "wall_s": 1.1059095859527588,
  "discoveries": [],
  "summary": "Qiskit level-3 transpile (windows of 32) of the reference circuit."
 }

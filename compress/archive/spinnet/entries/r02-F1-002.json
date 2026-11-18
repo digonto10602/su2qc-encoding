@@ -71,14 +71,18 @@
   "dropped_total": 3.2596231561562225e-15,
   "block_error": 1.8670686707337984e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.48424530029296875,
+  "seconds": 0.2246875762939453,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 5.126691826890021e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.5453706261318547e-15,
    "max_dropped_l2": 9.473535760110797e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 1.8670686707337984e-15
+   "op_norm_error_inner_span": 1.8670686707337984e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -106,14 +110,18 @@
    "dropped_total": 3.6016259032501086e-15,
    "block_error": 1.546361736124893e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.15765094757080078,
+   "seconds": 0.22930288314819336,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.147987639375001e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.546361736124893e-15,
     "max_dropped_l2": 1.1604675463879514e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.3753831470420886e-15
+    "op_norm_error_inner_span": 1.3753831470420886e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -140,14 +148,18 @@
    "dropped_total": 3.0024288501207722e-15,
    "block_error": 2.2452403803649386e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.1585249900817871,
+   "seconds": 0.20578670501708984,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.247669230485711e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.1645886782157388e-15,
     "max_dropped_l2": 7.568619961411094e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.2452403803649386e-15
+    "op_norm_error_inner_span": 2.2452403803649386e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -157,13 +169,13 @@
   "DISCOVERY: A can live in corner qubit c0 (c0 ^= A by an rccx on the non-clean target, its phase cancels with the mirrored uncompute) because c0 is read only by the a1 flag, which is computed before and uncomputed after; the walk over (e, c0^A, a1, c1, c3) still has 12-term supports and 13-toggle walks (with c2^A it needs more), so one ancilla is saved at equal CX."
  ],
  "summary": "dimer frame (pivot = link b) with one clean flag a1=[c0=c2=0] and A=[u=v=0] XORed in place into corner qubit c0; corners c1, c3 and c0^A enter the H-frame pivot walk as plain CX toggles, so the walk is all-linear (13 CX, no rccx on the pivot, no sign fix) and ends on the e-step merged into the inverse ladder; 31 CX, 13+4 rotations, 17 qubits, all angles k*beta/4 or 3*alpha/4.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
- "git_commit": "6d7522d",
+ "git_commit": "02c499d",
  "versions": {
   "python": "3.12.16",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -174,10 +186,10 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "SupremeCommander x86_64 cpus=20",
- "wall_s": 1.3680155277252197,
- "written_utc": "2026-11-08T01:02:38Z",
- "git_dirty": false,
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 1.266024112701416,
+ "written_utc": "2026-11-18T02:21:03Z",
+ "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.7e-05
@@ -192,5 +204,6 @@
   "axioms": [],
   "program_file_sha256": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650"
  },
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c"
 }

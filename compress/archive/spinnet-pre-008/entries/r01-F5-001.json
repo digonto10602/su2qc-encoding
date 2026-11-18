@@ -1,0 +1,186 @@
+{
+ "id": "r01-F5-001",
+ "program_path": "compress/programs/spinnet/F5/001-tlean_7rot.py",
+ "program_sha256": "d1ea45cc83ce9ef1a954f839b259eb38790cb2e60ac28aadb3781bf03d0d1dad",
+ "parent": null,
+ "family": "F5",
+ "round": 1,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  46,
+  491,
+  914,
+  17
+ ],
+ "cell": [
+  44,
+  71
+ ],
+ "metrics_raw": {
+  "cx": 46,
+  "t_fixed": 45,
+  "n_rot": 7,
+  "t_eps": 491,
+  "t_estimate": {
+   "1e-06": 463.5629399558077,
+   "1e-10": 742.6048999263461
+  },
+  "t_measured": {
+   "1e-06": 491,
+   "1e-10": 777
+  },
+  "synth_error_bound": 7e-06,
+  "depth": 83,
+  "depth_ct": 914,
+  "qubits": 17,
+  "gates": {
+   "cx": 46,
+   "t": 23,
+   "tdg": 22,
+   "h": 20,
+   "x": 16,
+   "rz": 7
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 7.65183804955388e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.5835531506540416,
+   0.8120749475028407
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.477332718458151e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.20268601219272e-15,
+  "block_error": 3.4491520373611606e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.19041895866394043,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.9128637105414385e-15,
+   "max_dropped_l2": 1.157241475747012e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 3.4491520373611606e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.338254412347523e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.1858164861835979,
+    0.9825844663245907
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.460164424183067e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.589381008006698e-15,
+   "block_error": 2.7488734043408253e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.19875454902648926,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.281643412587309e-15,
+    "max_dropped_l2": 1.062867480835316e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.7488734043408253e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.78643834845888e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.9802857912379281,
+    0.1975848362021474
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.431873226430496e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.309538920603132e-15,
+   "block_error": 3.4768994278557473e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.19115519523620605,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.091054148119089e-15,
+    "max_dropped_l2": 1.3436226023698039e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.4768994278557473e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: U_E needs only 3 rotations: w(y) = y_b + (y_r^y_t^y_l) + 2 maj(y_r,y_t,y_l), and maj = P ^ OR(t^l, r^l) is one rccx onto the pivot P = r^t^l of the frame (b^r^t^l, t^l, P, r^l); U_B's pivot angle needs 4 rotations: f = -1/4 + 3/4 Z_A + 1/4 Z_B - 3/4 Z_B Z_(A&~e) (B=1 bright; no 3-term +-1 decomposition of {0,1,-2,-1/2} exists, exhaustive search).",
+  "DISCOVERY: On dark codes the A flag F only has to satisfy F=1 => t=l (then f=0), so A can be XORed into corner qubit c3 (c3=1 forces t=l=1/2): no A ancilla, 17 qubits.",
+  "DISCOVERY: rccx pairs on a non-clean target cancel their relative phase whenever the enclosed walk is closed on that target; cx(a,P)*rccx(a,e,P) fuses to rccx(a,~e,P), and back-to-back rccx on the pivot share their h/t edges (T_fixed 48 -> 45)."
+ ],
+ "summary": "T-lean step with 7 rotations (3 for U_E, 4 for U_B, the minimum for +-1 phase decompositions): U_E = phases on y_b, on the pivot r^t^l and on maj(r,t,l) (one rccx pair onto the pivot); U_B = 4-term pivot walk over B, F, F&~e with B and F&~e toggled onto the pivot by nested rccx pairs and the A flag XORed into corner qubit c3; 17 qubits, angles k*alpha/4 and k*beta/2 (one shifted by -pi/4).",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "git_commit": "22d6061",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "SupremeCommander x86_64 cpus=20",
+ "wall_s": 1.1733710765838623,
+ "written_utc": "2026-11-07T00:31:52Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 7e-06
+ },
+ "lean": null,
+ "mode": "full"
+}

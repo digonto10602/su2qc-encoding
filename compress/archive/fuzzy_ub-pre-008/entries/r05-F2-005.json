@@ -1,0 +1,189 @@
+{
+ "id": "r05-F2-005",
+ "program_path": "compress/programs/fuzzy_ub/F2/005-affine-control-nine-fredkin-tour.py",
+ "program_sha256": "724828a696c365f13aeead092b65d79f8f3ae87305e2bda7ab4d917fa107f271",
+ "parent": "r04-F2-004",
+ "family": "F2",
+ "round": 5,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  113,
+  1773,
+  4401,
+  10
+ ],
+ "cell": [
+  54,
+  86
+ ],
+ "metrics_raw": {
+  "cx": 113,
+  "t_fixed": 97,
+  "n_rot": 26,
+  "t_eps": 1773,
+  "t_estimate": {
+   "1e-06": 1651.6623484072857,
+   "1e-10": 2688.103914012143
+  },
+  "t_measured": {
+   "1e-06": 1773,
+   "1e-10": 2801
+  },
+  "synth_error_bound": 2.6e-05,
+  "depth": 229,
+  "depth_ct": 4401,
+  "qubits": 10,
+  "gates": {
+   "cx": 113,
+   "h": 99,
+   "t": 62,
+   "s": 36,
+   "tdg": 35,
+   "rz": 26,
+   "z": 18,
+   "sdg": 9,
+   "x": 2
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 4.298535929469758e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -0.7071067811865468,
+   0.7071067811865481
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 2.3504698357121987e-14,
+  "block_error": 1.948066093757559e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.08426618576049805,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.9418547103046304e-14,
+   "max_dropped_l2": 2.5519261618772045e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.948066093757559e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.69672559926129e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.7071067811865469,
+    0.7071067811865482
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.3198526073072525e-14,
+   "block_error": 1.3768729919540371e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04684305191040039,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.3768729919540371e-14,
+    "max_dropped_l2": 2.4565677885297944e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.3688716082702396e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.345205169440594e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -0.7071067811865469,
+    0.7071067811865482
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.4412106197139385e-14,
+   "block_error": 1.903994549726656e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.045935869216918945,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.9018450638312452e-14,
+    "max_dropped_l2": 2.33458153992959e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.903994549726656e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: affine-controlled q2 swaps fold the four t=0 sectors onto one normal form (singlet on pair (1,2), value -2, same sign) in 4 swaps, e.g. (0 2)[f^p_l],(0 3)[f],(0 2)[p_r^p_l],(0 1)[f]; exhaustive search: no fold with <=3 affine swaps, no closed 8-swap affine tour that also visits a t=1 group frame, but 9-swap tours exist (24576 control/constant variants, middles at positions 4 and 8).",
+  "DISCOVERY: an exact shortest-path DP over the GL(4,2) contents of the four q1 wires (each Fredkin needs one wire = its control, each middle needs f on exactly one wire and p_t alone on another) gives 6 parity CX for that tour, so the routing costs 9 x 7 + 6 = 69 CX instead of 6 Fredkins + 24 CX of u/e lines and toggles; the t=1 group frame reached there has a 17-term Walsh support with a Hamiltonian Gray cycle (walk 18 CX, vs 20 at G=(3,0,1,2)).",
+  "DISCOVERY: negative results at this tour: the t=0 middle cannot drop its ~p_t control (its singlet rotation transported to the group frame is not diagonal in pairs (0,1),(2,3)); no palindromic 10-swap affine tour puts the t=0 fold and a t=1 group frame at the same point (so no merged middle); one AND ancilla instead of two needs 23 terms (no gain)."
+ ],
+ "summary": "line-free routing: nine Fredkins whose controls are single q1 wires holding affine functions of (f, p_r, p_t, p_l) (6 parity CX in total, no u/e lines, no rccx toggles), tour (0 2)[f^p_l] (0 3)[f] (0 2)[p_r^p_l] (0 1)[f] | t=0 middle (decoder (1,2), 3-control R_x on ~p_t) | (0 1)[f] (0 2)[p_r^p_l] (0 3)[f] (0 2)[p_l] | t=1 group (pairs (0,1),(2,3), 17-term polynomial on (p_r^p_l, p_t, p_l, w01, w23), Gray walk 18) | (0 2)[f]; 113 CX, 10 qubits.",
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "git_commit": "f8cc138",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 0.5656137466430664,
+ "written_utc": "2026-11-12T04:58:35Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 2.6e-05
+ },
+ "lean": null,
+ "mode": "full"
+}

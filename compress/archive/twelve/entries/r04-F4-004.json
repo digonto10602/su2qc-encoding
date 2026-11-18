@@ -72,14 +72,18 @@
   "dropped_total": 6.367010004495443e-14,
   "block_error": 1.2180181452750423e-13,
   "leak_amplitude": 0.0,
-  "seconds": 6.668421506881714,
+  "seconds": 1.0743324756622314,
   "n_inputs": 433,
+  "span_leak": 3.2064446016414007e-15,
+  "total_error": 1.8867835917410007e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.449950726102053e-14,
    "max_dropped_l2": 3.8010358645795575e-15,
    "max_span_leak": 4.9960036108132044e-15,
-   "op_norm_error_inner_span": 1.2180181452750423e-13
+   "op_norm_error_inner_span": 1.2180181452750423e-13,
+   "span_leak_max_state": 3.1535190818946417e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 6.326816060610226e-14,
    "block_error": 1.2183016096820213e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.286487340927124,
+   "seconds": 1.0709879398345947,
    "n_inputs": 433,
+   "span_leak": 3.923495295985512e-15,
+   "total_error": 1.890218168702899e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.5404685826761287e-14,
     "max_dropped_l2": 3.949083141979109e-15,
     "max_span_leak": 6.217248937900877e-15,
-    "op_norm_error_inner_span": 1.2183016096820213e-13
+    "op_norm_error_inner_span": 1.2183016096820213e-13,
+    "span_leak_max_state": 3.8900486535912976e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 6.413932158233082e-14,
    "block_error": 1.2189538559062766e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.2961061000823975,
+   "seconds": 1.0727591514587402,
    "n_inputs": 433,
+   "span_leak": 5.464284741277323e-15,
+   "total_error": 1.914989919142358e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.760428539993761e-14,
     "max_dropped_l2": 4.26933961246091e-15,
     "max_span_leak": 7.438494264988549e-15,
-    "op_norm_error_inner_span": 1.2189538559062766e-13
+    "op_norm_error_inner_span": 1.2189538559062766e-13,
+    "span_leak_max_state": 5.451281556632859e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: In the clean frame diff-type bright corners leave each leg bit at probability 1/4 and dark corners at 1/3 (only same-type bright legs are a basis state), so no leg bit is a type proxy and t2 must stay on q5; by count a (g, z, t) mux with stored pa, pb and in-walk g is 2 x 51 + 11 = 113 CX in this frame (and needs 7 terms for the (-1)^t2 sign; single Pauli insertions on corners 0/1 did not make the n1=2 sign constant), 2 CX more than the 9-rotation in-walk-pa walk."
  ],
  "summary": "F3's 5-CX clean corner frame (one rccx bright flag per corner) on F4's 8-CX no-outer-read plumbing (flags b0, b1 in place on q11, q8; b2, b3 in ancillas; t2 kept on q5) with only pb = b2&b3 stored; U_B is the 9-term Walsh rotation of F = j_b over (pa, pb, z, t2) for the F3 sign kappa = 2, -(-1)^t2, -1/2 on a closed walk in which pa = b0&b1 is toggled by two in-walk rccx and the straddled phase (-1)^(b1 pb) is cancelled by one CZ: CX 111.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "3f90240",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +188,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 12.580875635147095,
- "written_utc": "2026-11-06T15:36:10Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 3.6176671981811523,
+ "written_utc": "2026-11-18T03:03:38Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.3e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

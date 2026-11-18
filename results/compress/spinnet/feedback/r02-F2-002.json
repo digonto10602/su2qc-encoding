@@ -34,14 +34,18 @@
   "dropped_total": 3.1916694246707777e-15,
   "block_error": 2.2973534127788157e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.16416025161743164,
+  "seconds": 0.20121240615844727,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 5.4890228374495934e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.106768173690512e-15,
    "max_dropped_l2": 9.000809021792508e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.2973534127788157e-15
+   "op_norm_error_inner_span": 2.2973534127788157e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 3.299536500254039e-15,
    "block_error": 1.814968478205595e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.15870904922485352,
+   "seconds": 0.1987905502319336,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.1145049784596336e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.814968478205595e-15,
     "max_dropped_l2": 8.204131457067994e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.6983430161103698e-15
+    "op_norm_error_inner_span": 1.6983430161103698e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 3.0907311189093566e-15,
    "block_error": 2.5401059314394587e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.15883612632751465,
+   "seconds": 0.19965338706970215,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 5.630837050348815e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.306668086556208e-15,
     "max_dropped_l2": 9.98018815624395e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.5401059314394587e-15
+    "op_norm_error_inner_span": 2.5401059314394587e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "2eeefb79056914f6b2f15e639a641ff811da8e276d1d860ee758c403d7c6cb7e",
- "wall_s": 1.0053668022155762,
+ "wall_s": 1.1192634105682373,
  "discoveries": [
   "DISCOVERY: a flag used only as an rccx control frees its own input qubits between compute and uncompute: with a01=[c0=c1=0] feeding the pivot rccx D=a01&~c3, c1 is idle during the walk and can carry A in place (X=c1^A); the walk over (e, X, D, c2) still needs only 9 terms, so the F1 cost (32 CX, T 832) is reached with 17 qubits instead of 18.",
   "DISCOVERY: the pivot X-frame parity is free to choose per rotation (X on the pivot commutes with every CX toggle, costs a Z on the first control of an rccx it straddles, and at the walk ends turns into a Z on b next to the frame H); flipping rz(-beta/4) to rz(+beta/4) shortens its pygridsynth word from 167 to 140 gates, depth_CT 1583 -> 1554 at equal T.",

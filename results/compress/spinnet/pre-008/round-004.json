@@ -1,0 +1,217 @@
+{
+ "round": 4,
+ "n_valid": 2,
+ "n_invalid": 0,
+ "best_key": [
+  31,
+  1062,
+  2173,
+  17
+ ],
+ "entries": [
+  "r04-F1-004",
+  "r04-F3-004"
+ ],
+ "lean_seconds": 0.002217531204223633,
+ "encoding": "spinnet",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "a0c90d7",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-10T18:32:51Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "004-depth-forms",
+   "id": "r04-F1-004",
+   "family": "F1",
+   "program_sha256": "cc53f03142012fdc76047319adc70ed0b3a0da27eec98bbc1fab015215800741",
+   "program_path": "compress/programs/spinnet/F1/004-depth-forms.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    31,
+    1062,
+    2173,
+    17
+   ],
+   "cell": [
+    40,
+    80
+   ],
+   "metrics": {
+    "cx": 31,
+    "t_fixed": 24,
+    "n_rot": 17,
+    "t_eps": 1062,
+    "t_estimate": {
+     "1e-06": 1040.5099970355327,
+     "1e-10": 1718.1833283925548
+    },
+    "t_measured": {
+     "1e-06": 1062,
+     "1e-10": 1752
+    },
+    "synth_error_bound": 1.7e-05,
+    "depth": 57,
+    "depth_ct": 2173,
+    "qubits": 17,
+    "gates": {
+     "cx": 31,
+     "rz": 17,
+     "x": 14,
+     "tdg": 12,
+     "t": 12,
+     "h": 10,
+     "s": 3,
+     "z": 2,
+     "sdg": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 7.34808696138718e-15,
+    "block_error": 2.278831475226542e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.881301029635769e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r03-F1-003",
+   "parent_known": true,
+   "git_commit": "a0c90d7",
+   "summary": "parent circuit unchanged in every gate that costs CX or T (dimer frame, pivot b; flag a1=[c0=c2=0], A=[u=v=0] XORed into c0; 13-toggle all-linear H-frame walk over c1, c3, c0^A, a1, e; 31 CX, 17 qubits, T 1062), with the pivot critical path shortened: each exact phase fix p(-m*pi/4) is one gate (tdg/sdg instead of z s t / z s), the electric phase of b drops its X-frame sandwich (sg=+1 form, 154-gate word plus one tdg), and the per-rotation (sign, pi/4-shift) forms plus pivot X flips are chosen by a DP over the walk for minimal word+fix+flip length at minimal T (walk chain 2010 -> 2004 gates).",
+   "lean": {
+    "status": "n_a",
+    "reason": "non_linear_angle:p:0.5078981633974483",
+    "cert_path": null,
+    "seconds": 0.00032901763916015625,
+    "checker_sha256": "",
+    "theorem_path": null,
+    "axioms": [],
+    "program_file_sha256": "cc53f03142012fdc76047319adc70ed0b3a0da27eec98bbc1fab015215800741"
+   },
+   "round": 4,
+   "mode": "full"
+  },
+  {
+   "label": "004-pi4-shifted-rotations",
+   "id": "r04-F3-004",
+   "family": "F3",
+   "program_sha256": "0bab039b12c723846fcda0b9b8b837e5fd4788491c784f7f3b3ee2a1bcff6aef",
+   "program_path": "compress/programs/spinnet/F3/004-pi4-shifted-rotations.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    32,
+    811,
+    1536,
+    17
+   ],
+   "cell": [
+    40,
+    77
+   ],
+   "metrics": {
+    "cx": 32,
+    "t_fixed": 29,
+    "n_rot": 13,
+    "t_eps": 811,
+    "t_estimate": {
+     "1e-06": 806.3311742036428,
+     "1e-10": 1324.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 811,
+     "1e-10": 1347
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 64,
+    "depth_ct": 1536,
+    "qubits": 17,
+    "gates": {
+     "cx": 32,
+     "x": 30,
+     "tdg": 17,
+     "h": 16,
+     "rz": 13,
+     "t": 12,
+     "sdg": 2,
+     "z": 2,
+     "s": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.9431522064411265e-15,
+    "block_error": 2.385201397822692e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.424666426981638e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r03-F3-003",
+   "parent_known": true,
+   "git_commit": "a0c90d7",
+   "summary": "F3 parent circuit (Na=NOR(c0,c1) ancilla, A=[u=v=0] in place in c1, Nd=NOR(c2,c3) direct rccx pair + CZ(Na,c2); 9-term walk e -> 0, 32 CX, 17 qubits) with every rotation that has a cheaper pi/4-shifted Clifford+T form emitted as p/rz(theta + pi/4) . tdg: the 4 electric p(-3alpha/4 +- pi/2) go 64 -> 58+1 T and the rz(+-beta/2) walk term 66 -> 64+1 (fixed decision, same skeleton at all angles); T 832 -> 811, angles k*beta/8, 3*alpha/4 (+ multiples of pi/4).",
+   "lean": null,
+   "round": 4,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r04-F1-004",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 17,
+  "t_total": 1062,
+  "tolerances": {
+   "tol_err": 1.7001e-05,
+   "tol_gauss": 1.7001e-05
+  },
+  "op_norm_error": 6.0122638422264305e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 3.8237147331237793,
+ "written_utc": "2026-11-10T18:32:51Z",
+ "spinnet": {
+  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "shim": [
+   "build_in_subprocess",
+   "certify",
+   "encoding"
+  ]
+ }
+}

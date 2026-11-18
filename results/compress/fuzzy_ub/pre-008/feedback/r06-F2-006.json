@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 6.264380777908103e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -1.0,
+   3.73652082126306e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.439872208401988e-14,
+  "block_error": 1.824508569506115e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.06399798393249512,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.8123808141890034e-14,
+   "max_dropped_l2": 5.1419353802135235e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.824508569506115e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.7835944809192524e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    3.860299668596305e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.7145233296372486e-14,
+   "block_error": 1.069071151282004e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04049396514892578,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.069071151282004e-14,
+    "max_dropped_l2": 3.316866455881899e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.065187846624803e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.117042106075404e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    3.541090026429846e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.3416829120241553e-14,
+   "block_error": 1.7753591940512476e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.03847002983093262,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7622214616387866e-14,
+    "max_dropped_l2": 5.800510835401681e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.7753591940512476e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 88,
+  "t_fixed": 80,
+  "n_rot": 9,
+  "t_eps": 646,
+  "t_estimate": {
+   "1e-06": 618.1523513717527,
+   "1e-10": 976.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 646,
+   "1e-10": 1016
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 130,
+  "depth_ct": 1567,
+  "qubits": 11,
+  "gates": {
+   "cx": 88,
+   "h": 62,
+   "t": 46,
+   "tdg": 34,
+   "x": 24,
+   "s": 16,
+   "rz": 9,
+   "z": 8,
+   "sdg": 4
+  },
+  "measured": true
+ },
+ "program_sha256": "4971c0ef585b4bea55e7be1e8975dad9915da63d1aed4771d50aaa90293e5d5d",
+ "wall_s": 0.49627017974853516,
+ "discoveries": [
+  "DISCOVERY: two AND toggles of one line with a shared factor A, rccx(A,C) then rccx(B^C, A) with the B^C control first, leave the line at A&B with only the invariant phase i^(A&B) (the (1,0,1) sign of rccx never fires because the line is 1 only when A=1); the mirrored leg gives (-i)^(A&B), so the pair is exact; with A=~p_t, C=~z_r, B=z_r^z_l the per-leg c2 control becomes the persistent g line for 3 CX instead of 3+6 (94 -> 88 CX).",
+  "DISCOVERY: exhaustive search over swap words reaching the common (01)(23) frame with controls b*f ^ k(p) (k any invariant function, i.e. any persistent lines): none with <=3 swaps when every f-coefficient b is constant, none with 3 swaps when only one b(p) is free; for the 2-swap word none of the 1024 valid control pairs has c1, c2 and c1^c2 all of the form AND+affine (also with g as a variable), so 4 rccx per leg is minimal for single-AND toggles.",
+  "DISCOVERY: consecutive rccx on one target fuse (head of the first + tail of the second: Tdg H H T = I, -2 T each); if they also share the twice-used second control y, the two middle CX(y->t) cancel too (4 CX for two toggles); an extra persistent line h = ~g & p_r obtained for free from the c1 chain does not shorten the middle walk (best 16 CX vs 14)."
+ ],
+ "summary": "r05-F3-005 two-swap single-middle datapath with a shared-factor toggle chain on one line G: G = c2 = ~p_t & ~z_r (rccx) controls swap(q2^1,q2^3), then ONE rccx with the raw ~z_l wire turns it into the persistent g = ~p_t & (z_r^z_l) (c2 ^ ~p_t&~z_l = g) used by the c1 = f&~g swap(q2^0,q2^2) and the 9-term middle polynomial; mirrored on the way back; the separate g line and its 2 rccx disappear (-6 CX), and the c1-uncompute/w01-compute rccx pairs on one target are fused (Tdg H H T = I, -4 T); 88 CX, 11 qubits."
+}

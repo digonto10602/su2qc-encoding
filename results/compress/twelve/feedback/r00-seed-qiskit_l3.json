@@ -34,14 +34,18 @@
   "dropped_total": 2.3846998644881256e-13,
   "block_error": 1.2265990077073727e-13,
   "leak_amplitude": 0.0,
-  "seconds": 5.836989164352417,
+  "seconds": 4.969428539276123,
   "n_inputs": 433,
+  "span_leak": 3.3630534929497606e-15,
+  "total_error": 3.644929407124996e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.8142564092645628e-14,
    "max_dropped_l2": 1.1417261454755674e-14,
    "max_span_leak": 3.774758283725532e-15,
-   "op_norm_error_inner_span": 1.2265990077073727e-13
+   "op_norm_error_inner_span": 1.2265990077073727e-13,
+   "span_leak_max_state": 3.272023541828684e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 2.363666519736879e-13,
    "block_error": 1.2258458801626275e-13,
    "leak_amplitude": 0.0,
-   "seconds": 5.94473934173584,
+   "seconds": 2.608794689178467,
    "n_inputs": 433,
+   "span_leak": 3.5511503774370316e-15,
+   "total_error": 3.625023903673877e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8136804935301794e-14,
     "max_dropped_l2": 1.1650865518190153e-14,
     "max_span_leak": 4.440892098500626e-15,
-    "op_norm_error_inner_span": 1.2258458801626275e-13
+    "op_norm_error_inner_span": 1.2258458801626275e-13,
+    "span_leak_max_state": 3.5190602092726178e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 2.397569751040512e-13,
    "block_error": 1.2256199979052714e-13,
    "leak_amplitude": 0.0,
-   "seconds": 5.954768180847168,
+   "seconds": 2.466769218444824,
    "n_inputs": 433,
+   "span_leak": 3.0806908908683428e-15,
+   "total_error": 3.653996657854467e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8168811650138197e-14,
     "max_dropped_l2": 1.1603051335394671e-14,
     "max_span_leak": 3.219646771412954e-15,
-    "op_norm_error_inner_span": 1.2256199979052714e-13
+    "op_norm_error_inner_span": 1.2256199979052714e-13,
+    "span_leak_max_state": 2.8472538735049137e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "",
- "wall_s": 17.99530005455017,
+ "wall_s": 10.500181913375854,
  "discoveries": [],
  "summary": ""
 }

@@ -1,0 +1,155 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 4.438955608346954e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -1.0,
+   3.744049002597737e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 2.6059421717476685e-14,
+  "block_error": 1.8330134365992857e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.049457550048828125,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.817607324035547e-14,
+   "max_dropped_l2": 2.917177952305452e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.8330134365992857e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.360792538368073e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    3.830076218802005e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.3025437621626415e-14,
+   "block_error": 1.0582487762054315e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.049704551696777344,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.0582487762054315e-14,
+    "max_dropped_l2": 2.7174867843162967e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.0563547242056838e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.70960764119486e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    3.562145764635696e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.937103952825257e-14,
+   "block_error": 1.772503688369603e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.048842668533325195,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.7566921674889567e-14,
+    "max_dropped_l2": 4.509332982635909e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.772503688369603e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 86,
+  "t_fixed": 80,
+  "n_rot": 9,
+  "t_eps": 646,
+  "t_estimate": {
+   "1e-06": 618.1523513717527,
+   "1e-10": 976.9205856195879
+  },
+  "t_measured": {
+   "1e-06": 646,
+   "1e-10": 1016
+  },
+  "synth_error_bound": 9e-06,
+  "depth": 129,
+  "depth_ct": 1568,
+  "qubits": 11,
+  "gates": {
+   "cx": 86,
+   "h": 62,
+   "t": 46,
+   "tdg": 34,
+   "x": 24,
+   "s": 18,
+   "rz": 9,
+   "sdg": 8,
+   "z": 8
+  },
+  "measured": true
+ },
+ "program_sha256": "45eef72a63966c0f244d337dfe1be49a66383d621b2f30b33039553fa3da5818",
+ "wall_s": 0.7828733921051025,
+ "discoveries": [
+  "DISCOVERY: exhaustive leg scenarios (all 36 three-CX parity schedules with each of q1^r, q1^t, q1^l targeted once, x placements of the rccx events, x the 1024 valid two-swap control pairs, both role assignments of the converted line U and the compute/uncompute line A) give 64 realisable (angle function, q1 basis, invariant u, absorbable ends) tuples; with U on the (0 2) swap u is always t & ~lp and the best open walk found is 13 CX (r06-F3-006, 87), with U on the (1 3) swap u = g and in basis (p_r, p_t, p_l) with ends {r, l} it is 12 CX (this program, 86).",
+  "DISCOVERY: relative-phase Fredkins do not fit the two-swap frame: with leg 2 the mirror of leg 1 the leg's relative phase, as a function of the input code, must be constant on each of the 41 non-trivial connected components of the target's sparsity graph (16 pairs, 24 quads, 1 octet; 120 codes are fixed points), and a Smith-form solve over Z_8 shows that 5-CX (Margolus core) and 6-CX (CS-residual core) Fredkins, and 8-CX RC3X doubly-controlled swaps replacing a control line, admit no correction by free single-wire phase gates at any monomial boundary or by same-time CZ gates."
+ ],
+ "summary": "g chain + open walk at both parity CX: U: 0 -> ~s_r & ~p_t (controls swap(q2^1,q2^3)) -> g = ~p_t & (p_r ^ p_l) (rccx with ~s_l first), A = f & ~g (controls swap(q2^0,q2^2)), q1 basis (p_r, p_t, p_l) made by cx(f, p_t) before the lines and cx(f, p_r), cx(f, p_l) at the leg end, so the 9-rotation R_x polynomial on (r, t, l, g, w01, w23) runs as an open walk from the constant to {r, l} whose two closing toggles merge into the mirrored parity CX (12 CX instead of 13); the A toggle next to each Bell decode is fused with the w01 AND on A (tdg h . h t = I, -2 T each); 86 CX, T_fixed 80, 11 qubits."
+}

@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 3.3864765075300927e-14,
   "block_error": 1.8280837429993895e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.036879777908325195,
+  "seconds": 0.036077260971069336,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.2145602505294825e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.8280837429993895e-14,
    "max_dropped_l2": 4.031507802666978e-15,
    "max_span_leak": 2.220446049250313e-16,
-   "op_norm_error_inner_span": 1.818949234657302e-14
+   "op_norm_error_inner_span": 1.818949234657302e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.430247865406998e-14,
    "block_error": 9.585069625234464e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.03649282455444336,
+   "seconds": 0.036536455154418945,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.3887548279304446e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 9.585069625234464e-15,
     "max_dropped_l2": 2.509701189345432e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 9.56297740219664e-15
+    "op_norm_error_inner_span": 9.56297740219664e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 4.2990262404959024e-14,
    "block_error": 1.77334939262577e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.03713035583496094,
+   "seconds": 0.036131858825683594,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.072375633121672e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.77334939262577e-14,
     "max_dropped_l2": 3.990579775106516e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.7638846123365628e-14
+    "op_norm_error_inner_span": 1.7638846123365628e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "f6d92912b4f150c0b90c65877c1f6941eba23e38c653aada527d312e266d50b0",
- "wall_s": 0.462141752243042,
+ "wall_s": 0.45641064643859863,
  "discoveries": [
   "DISCOVERY: a class-level BFS for the Fredkin (3-qubit Clifford frames modulo left local Cliffords: 6720 classes x 128 masks of the 7 commuting pi/8 rotations <Z_c, Z_aZ_d, X_aX_d>) confirms 7 CX minimal and gives 221184 class paths over 8704 CX orders; with the best rotation placement the control line of the order (1,2)(0,2)(2,1)(0,1)(1,2)(0,2)(1,2) needs only 7 layers (3 control CX + its T, all other gates on the data pair before/after), against 13 for the r08-F3-008 word; in the L -> a leg chain this is the main depth lever (-21 depth_CT) since CX and T are unchanged.",
   "DISCOVERY: rccx with negated controls needs no X gates: negating c1 (used twice) swaps T and Tdg on the parities t+c1 and t+c0+c1, negating c0 swaps them on t+c0 and t+c0+c1 and adds one Z on the target after the final H (a diagonal phase that can be parked in any idle slot of the control line, or cancelled against the CZ(g, f) Z(a)); on a clean target rccx(c0, c1) and rccx(c1, c0) agree on every reachable state, so the a-line compute may read L in its middle CX while the uncompute reads f there.",

@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 4.038600636282207e-14,
   "block_error": 1.9159304060803423e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.39225268363952637,
+  "seconds": 0.04618430137634277,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.95453104236255e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.9159304060803423e-14,
    "max_dropped_l2": 4.179483376160637e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.9159304060803423e-14
+   "op_norm_error_inner_span": 1.9159304060803423e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.98220978136032e-14,
    "block_error": 1.1224361145627081e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04502749443054199,
+   "seconds": 0.04554486274719238,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.104645895923028e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.1224361145627081e-14,
     "max_dropped_l2": 3.20051693504082e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.1224361145627081e-14
+    "op_norm_error_inner_span": 1.1224361145627081e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 5.305055200160329e-14,
    "block_error": 1.8693551218604384e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04428529739379883,
+   "seconds": 0.04668378829956055,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 7.174410322020767e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8693551218604384e-14,
     "max_dropped_l2": 5.187197465070289e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.8693551218604384e-14
+    "op_norm_error_inner_span": 1.8693551218604384e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "3ac5cc98cfbe4f6f2e3fdd186559cab214c514673fda25d10ec0f4248fe46bbf",
- "wall_s": 0.8735852241516113,
+ "wall_s": 0.4928011894226074,
  "discoveries": [
   "DISCOVERY: a Fredkin SWAP_ij^c is the product of 7 commuting pi/8 Pauli rotations (Z_c, Q, Z_c Q for Q in XX, YY, ZZ on (i,j)); inside a leg each Q rotation can sit at ANY point of a q2 Clifford skeleton where Q is weight-1 (one T, no CX) and the three Z_c Q rotations need only the line pattern CX(Qa->c) CX(Qb->c) CX(Qa->c) CX(Qb->c) (4 CX, line content c+Qa, c+Qc, c+Qb), so the Fredkin's own frame CX can be shared with the leg's path to the middle Bell frame; exact signs from Clifford tracking (qiskit Pauli.evolve), leg verified as K_B * SWAP02^a * SWAP13^L to 4e-16.",
   "DISCOVERY: exhaustive BFS over 4-wire q2 Clifford skeletons (local Cliffords free, 54 CX cosets, exact frame-B distance table over 79800 B-states as A* bound): with line-target c-parts no skeleton <= 7 CX gives all 6 visibilities + both c-part patterns (13 before 02) + the middle frame (min 8, i.e. 16 per leg = tie with 2 FRED7 + 2 decoders); the CCZ-in-Bell-frame variant (dec, CCZ with its within-pair CX absorbed, recouple) needs >= 6 skeleton CX + 10; one FRED7 at a Fredkin-able point + one scheduled pair also gives 16.",

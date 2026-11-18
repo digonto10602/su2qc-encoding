@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 4.262664551243596e-14,
   "block_error": 1.909512351860434e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.046285152435302734,
+  "seconds": 0.04502987861633301,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 6.17217690310403e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.909512351860434e-14,
    "max_dropped_l2": 4.648502910181099e-15,
    "max_span_leak": 3.3306690738754696e-16,
-   "op_norm_error_inner_span": 1.909512351860434e-14
+   "op_norm_error_inner_span": 1.909512351860434e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.9231321708439036e-14,
    "block_error": 1.1241809445242103e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04429340362548828,
+   "seconds": 0.04444074630737305,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.047313115368114e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.1241809445242103e-14,
     "max_dropped_l2": 2.71063213332109e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.1241809445242103e-14
+    "op_norm_error_inner_span": 1.1241809445242103e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 5.065018928194167e-14,
    "block_error": 1.8305670267461983e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04484701156616211,
+   "seconds": 0.04385209083557129,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.895585954940365e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8305670267461983e-14,
     "max_dropped_l2": 6.979212695929456e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.8305670267461983e-14
+    "op_norm_error_inner_span": 1.8305670267461983e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -145,7 +157,7 @@
   "measured": true
  },
  "program_sha256": "15b0c151bcf71b259811458c42b718f07c73473e31a6e79418e561f76be103a7",
- "wall_s": 0.4781341552734375,
+ "wall_s": 0.47275829315185547,
  "discoveries": [
   "DISCOVERY: AND toggles of the middle may target any walk control wire inside the H(f) window (w01 onto p_r, w23 onto the cleared a line) at the same 3 CX as a dedicated line; Dijkstra over (visited terms, f content, toggle phase) for the 16 minimal k0 supports, every pair of target lines in {a, new line, p_r, p_t, p_l, g} and every toggle order finds 9 CX as the minimum (8 nowhere), 9 CX with 10 qubits only for w01 on p_r and w23 on a (2 supports); one line carrying both ANDs is infeasible with 4 toggles (the W, V and WV terms need w-parts w01, w23 and w01^w23, and inside the w01^w23 phase of a single line the f content can only flip by w01^w23).",
   "DISCOVERY: general CX networks inside the window (targets f, p_r, p_t, p_l, g or a; a rotation on any wire holding f~ + term) with the same toggles: a DFS with the one-new-term-per-CX bound finds no 9-CX network that splits the 9 rotations onto two wires for any minimal k0 support, so depth_CT stays bound by the 9 serial gridsynth words (1451 of the 1550 levels).",

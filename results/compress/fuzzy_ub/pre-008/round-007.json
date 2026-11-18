@@ -1,0 +1,275 @@
+{
+ "round": 7,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  84,
+  646,
+  1562,
+  11
+ ],
+ "entries": [
+  "r07-F1-007",
+  "r07-F2-007",
+  "r07-F3-007"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "fuzzy_ub",
+ "kind": "UB",
+ "provenance": {
+  "git_commit": "e873737",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-13T13:57:39Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "007-pl-wire-free-walk-ends",
+   "id": "r07-F1-007",
+   "family": "F1",
+   "program_sha256": "1e5e383372a9f75dade313ea723d8625e3d213ca08c636492b828cda1bc6a055",
+   "program_path": "compress/programs/fuzzy_ub/F1/007-pl-wire-free-walk-ends.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    84,
+    646,
+    1562,
+    11
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 84,
+    "t_fixed": 80,
+    "n_rot": 9,
+    "t_eps": 646,
+    "t_estimate": {
+     "1e-06": 618.1523513717527,
+     "1e-10": 976.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 646,
+     "1e-10": 1016
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 133,
+    "depth_ct": 1562,
+    "qubits": 11,
+    "gates": {
+     "cx": 84,
+     "h": 62,
+     "t": 46,
+     "tdg": 34,
+     "x": 24,
+     "s": 23,
+     "sdg": 9,
+     "rz": 9,
+     "z": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 5.472593358339045e-14,
+    "block_error": 1.881077311286886e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r06-F1-006",
+   "parent_known": true,
+   "git_commit": "e873737",
+   "summary": "r06-F1-006 control chain (L: 0 -> ~p_t&~s_r [(1 3) Fredkin] -> g = ~p_t&(p_r^p_l), a: f&~g [(0 2) Fredkin], a: c1 -> 0 -> w01 fused, w23 AND, 2 Fredkins + 4 rccx per leg) with cx(s_r, q1^l) replaced by cx(f, q1^l) so the middle sees p_l (not p_r^p_l) and all three leg parity CX(f -> q1^{r,t,l}) can carry walk-end toggles as free CZ(k, f) (a CZ(k, f) commutes with every leg gate that uses q1^k and f only as controls); the R_x phase polynomial on f (9 terms, no constant, over p_r, p_t, p_l, g, w01, w23) is an open walk with free ends in {p_r, p_t, p_l}: 10 CX instead of 14; 84 CX, 11 qubits.",
+   "lean": {
+    "status": "n_a",
+    "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+   },
+   "round": 7,
+   "mode": "full"
+  },
+  {
+   "label": "007-lbasis-open-walk",
+   "id": "r07-F2-007",
+   "family": "F2",
+   "program_sha256": "4226b9e2088c1f19af289ec162487d72921efff38b3c0f4f8a0d57662aacc951",
+   "program_path": "compress/programs/fuzzy_ub/F2/007-lbasis-open-walk.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    86,
+    646,
+    1568,
+    11
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 86,
+    "t_fixed": 80,
+    "n_rot": 9,
+    "t_eps": 646,
+    "t_estimate": {
+     "1e-06": 618.1523513717527,
+     "1e-10": 976.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 646,
+     "1e-10": 1016
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 129,
+    "depth_ct": 1568,
+    "qubits": 11,
+    "gates": {
+     "cx": 86,
+     "h": 62,
+     "t": 46,
+     "tdg": 34,
+     "x": 24,
+     "s": 18,
+     "rz": 9,
+     "sdg": 8,
+     "z": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 4.441389764049984e-14,
+    "block_error": 1.8333424855691035e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r06-F2-006",
+   "parent_known": true,
+   "git_commit": "e873737",
+   "summary": "r06-F2-006 shared-factor g chain (G = c2 = ~p_t & ~z_r controls swap(q2^1,q2^3), one rccx with ~z_l turns it into the persistent g = ~p_t & (p_r^p_l); c1 = f & ~g controls swap(q2^0,q2^2); c1-uncompute fused with the w01 AND) with the lp wire dropped: all three parity CX come from f (basis r, t, l), so p_r and p_l both sit next to the walk and the 9-term R_x polynomial on (r, t, l, g, w01, w23) runs as an open walk from the constant term to {r, l} whose two closing toggles merge into the leg-2 parity CX (12 CX instead of 14 + no cx(PR,PL) per leg); 86 CX, 11 qubits.",
+   "lean": null,
+   "round": 7,
+   "mode": "full"
+  },
+  {
+   "label": "007-g-chain-open-walk-rl",
+   "id": "r07-F3-007",
+   "family": "F3",
+   "program_sha256": "45eef72a63966c0f244d337dfe1be49a66383d621b2f30b33039553fa3da5818",
+   "program_path": "compress/programs/fuzzy_ub/F3/007-g-chain-open-walk-rl.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    86,
+    646,
+    1568,
+    11
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 86,
+    "t_fixed": 80,
+    "n_rot": 9,
+    "t_eps": 646,
+    "t_estimate": {
+     "1e-06": 618.1523513717527,
+     "1e-10": 976.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 646,
+     "1e-10": 1016
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 129,
+    "depth_ct": 1568,
+    "qubits": 11,
+    "gates": {
+     "cx": 86,
+     "h": 62,
+     "t": 46,
+     "tdg": 34,
+     "x": 24,
+     "s": 18,
+     "rz": 9,
+     "sdg": 8,
+     "z": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 4.438955608346954e-14,
+    "block_error": 1.8330134365992857e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r06-F3-006",
+   "parent_known": true,
+   "git_commit": "e873737",
+   "summary": "g chain + open walk at both parity CX: U: 0 -> ~s_r & ~p_t (controls swap(q2^1,q2^3)) -> g = ~p_t & (p_r ^ p_l) (rccx with ~s_l first), A = f & ~g (controls swap(q2^0,q2^2)), q1 basis (p_r, p_t, p_l) made by cx(f, p_t) before the lines and cx(f, p_r), cx(f, p_l) at the leg end, so the 9-rotation R_x polynomial on (r, t, l, g, w01, w23) runs as an open walk from the constant to {r, l} whose two closing toggles merge into the mirrored parity CX (12 CX instead of 13); the A toggle next to each Bell decode is fused with the w01 AND on A (tdg h . h t = I, -2 T each); 86 CX, T_fixed 80, 11 qubits.",
+   "lean": null,
+   "round": 7,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r07-F1-007",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 9,
+  "t_total": 646,
+  "tolerances": {
+   "tol_err": 9.001e-06,
+   "tol_gauss": 9.001e-06
+  },
+  "op_norm_error": 2.151270737491056e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 3.6367907524108887,
+ "written_utc": "2026-11-13T13:57:39Z"
+}

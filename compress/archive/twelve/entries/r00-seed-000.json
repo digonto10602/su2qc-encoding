@@ -72,14 +72,18 @@
   "dropped_total": 1.4672962251711322e-13,
   "block_error": 1.220835210546178e-13,
   "leak_amplitude": 0.0,
-  "seconds": 9.523832082748413,
+  "seconds": 3.25091552734375,
   "n_inputs": 433,
+  "span_leak": 3.323328106290063e-15,
+  "total_error": 2.721364716780211e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.604674843032669e-14,
    "max_dropped_l2": 7.9137572320129e-15,
    "max_span_leak": 4.440892098500626e-15,
-   "op_norm_error_inner_span": 1.220835210546178e-13
+   "op_norm_error_inner_span": 1.220835210546178e-13,
+   "span_leak_max_state": 3.27525879279149e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 1.4740499617474063e-13,
    "block_error": 1.2206063556905786e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.76483416557312,
+   "seconds": 1.1497924327850342,
    "n_inputs": 433,
+   "span_leak": 3.821202443684289e-15,
+   "total_error": 2.732868341874828e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.643397371898485e-14,
     "max_dropped_l2": 8.040087435806515e-15,
     "max_span_leak": 5.218048215738236e-15,
-    "op_norm_error_inner_span": 1.2206063556905786e-13
+    "op_norm_error_inner_span": 1.2206063556905786e-13,
+    "span_leak_max_state": 3.7866087012428e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,27 +149,31 @@
    "dropped_total": 1.4481267374071162e-13,
    "block_error": 1.2214732751510832e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.6963791847229004,
+   "seconds": 1.1407182216644287,
    "n_inputs": 433,
+   "span_leak": 5.3693272840687e-15,
+   "total_error": 2.723293285398886e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8365160964400214e-14,
     "max_dropped_l2": 8.211722188123053e-15,
     "max_span_leak": 7.66053886991358e-15,
-    "op_norm_error_inner_span": 1.2214732751510832e-13
+    "op_norm_error_inner_span": 1.2214732751510832e-13,
+    "span_leak_max_state": 5.35664687706843e-15,
+    "gauss": "checked"
    }
   }
  ],
  "skeleton_equal": true,
  "discoveries": [],
  "summary": "the reference circuit of the twelve encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
- "evaluator_sha256": "810e86f2640d4f76b5434e511ff41ccd7c54cce284ad217a11971c8b2d2e26d7",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "a4c28a6",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -172,14 +184,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 17.92728304862976,
- "written_utc": "2026-11-06T06:11:19Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 6.337817192077637,
+ "written_utc": "2026-11-18T03:03:16Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 9.999999999999999e-06
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

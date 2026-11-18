@@ -1,0 +1,149 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "fc43837d40f618f4f5b76afb67a12831100928d86da03a1c5d8e22029cee97d9",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 3.426528209993377e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   0.9617433234158248,
+   0.2739521488601326
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.83835410402301e-16,
+  "block_error": 2.942692799591076e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.004002809524536133,
+  "n_inputs": 16,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.942692799591076e-15,
+   "max_dropped_l2": 1.8482738512810336e-16,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.942692799591076e-15
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 2.2282940079345036e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.7759983079148827,
+    0.630734988813241
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.798699777552591e-17,
+   "block_error": 2.160307010158978e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.0016112327575683594,
+   "n_inputs": 16,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.0713208380380096e-15,
+    "max_dropped_l2": 2.7755575615628914e-17,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.160307010158978e-15
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 4.491409208382607e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.291501685042109,
+    0.9565703150409861
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.451306065445149e-16,
+   "block_error": 4.246278601838092e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.0015838146209716797,
+   "n_inputs": 16,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 4.246278601838092e-15,
+    "max_dropped_l2": 8.777083671441753e-17,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 4.031478201218916e-15
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 13,
+  "t_fixed": 0,
+  "n_rot": 10,
+  "t_eps": 644,
+  "t_estimate": {
+   "1e-06": 597.9470570797253,
+   "1e-10": 996.5784284662087
+  },
+  "t_measured": {
+   "1e-06": 644,
+   "1e-10": 1028
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 17,
+  "depth_ct": 1161,
+  "qubits": 4,
+  "gates": {
+   "cx": 13,
+   "rz": 10,
+   "h": 4
+  },
+  "measured": true
+ },
+ "program_sha256": "f66fd973fddb2cd10bb7dbc1d51e649c21f612fb63543cdc83f4481a4ebe3a5d",
+ "wall_s": 0.5303432941436768,
+ "discoveries": [
+  "DISCOVERY: in the frame (qubit bits b0..b3 after cx(3,1) cx(2,0) h(3) h(2)) H = const - alpha/8 * sum Z_s over s in {0001,0011,0100,0101,0110,0111} - kappa2 * sum Z_s over s in {1000,1011,1110,1111}; signs are constant, so every angle is -alpha/4 or -2 kappa2.",
+  "DISCOVERY: the 9-CX network cx(0,1) cx(0,2) cx(3,1) cx(2,1) cx(0,1) cx(0,2) cx(3,1) cx(0,1) cx(2,1) returns to identity and visits all 7 weight>1 parities (BFS over GL(4,2) x coverage, minimum)."
+ ],
+ "summary": "pair-Bell frame cx(q1,q3) cx(q2,q4) h(q1) h(q2) (2 CX each side) around a BFS-optimal 9-CX I->I parity network carrying the 10 Z-string phases as rz(-alpha/4) (6 K1 strings) and rz(-2 kappa2) (4 K2 strings); 13 CX, 10 rotations."
+}

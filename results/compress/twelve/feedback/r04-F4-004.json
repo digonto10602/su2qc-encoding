@@ -34,14 +34,18 @@
   "dropped_total": 6.367010004495443e-14,
   "block_error": 1.2180181452750423e-13,
   "leak_amplitude": 0.0,
-  "seconds": 6.668421506881714,
+  "seconds": 1.0743324756622314,
   "n_inputs": 433,
+  "span_leak": 3.2064446016414007e-15,
+  "total_error": 1.8867835917410007e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.449950726102053e-14,
    "max_dropped_l2": 3.8010358645795575e-15,
    "max_span_leak": 4.9960036108132044e-15,
-   "op_norm_error_inner_span": 1.2180181452750423e-13
+   "op_norm_error_inner_span": 1.2180181452750423e-13,
+   "span_leak_max_state": 3.1535190818946417e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 6.326816060610226e-14,
    "block_error": 1.2183016096820213e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.286487340927124,
+   "seconds": 1.0709879398345947,
    "n_inputs": 433,
+   "span_leak": 3.923495295985512e-15,
+   "total_error": 1.890218168702899e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.5404685826761287e-14,
     "max_dropped_l2": 3.949083141979109e-15,
     "max_span_leak": 6.217248937900877e-15,
-    "op_norm_error_inner_span": 1.2183016096820213e-13
+    "op_norm_error_inner_span": 1.2183016096820213e-13,
+    "span_leak_max_state": 3.8900486535912976e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 6.413932158233082e-14,
    "block_error": 1.2189538559062766e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.2961061000823975,
+   "seconds": 1.0727591514587402,
    "n_inputs": 433,
+   "span_leak": 5.464284741277323e-15,
+   "total_error": 1.914989919142358e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.760428539993761e-14,
     "max_dropped_l2": 4.26933961246091e-15,
     "max_span_leak": 7.438494264988549e-15,
-    "op_norm_error_inner_span": 1.2189538559062766e-13
+    "op_norm_error_inner_span": 1.2189538559062766e-13,
+    "span_leak_max_state": 5.451281556632859e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "a55cbcf351585c2a96d2b954b741461eaf7bb699a9c85d5afc165966b59a1723",
- "wall_s": 12.580875635147095,
+ "wall_s": 3.6176671981811523,
  "discoveries": [
   "DISCOVERY: The 5-CX clean frame needs no outer read: run in F4's plumbing order (corner 3 with j = j_t raw, corner 2 with j = j_t raw, z, then corners 0 and 1 with j = j_b raw, flags of 0/1 in place) it keeps H_B = kappa X_{j_b} exact on all 433 states with kappa = 2 (n1=0), -(-1)^{t2} (n1=2), -1/2 (n1=4), so 8 plumbing CX replace F3's 6 + 2 outer reads at equal cost.",
   "DISCOVERY: For the F3 sign kappa the support {0, t, z, pb t, pb z t, pa t, pa z t, pa pb t, pa pb z t} has an in-walk pa cycle 0 -t- [pa] -z-pb-z- [pa] -z- (pb,t) -z- 0 with 8 linear toggles and net = pb inside the pa block, so pa costs 2 rccx + 1 CZ (walk 15 CX) instead of a stored pa (6) + 10-CX cycle: 48 forward CX per side, total 111.",

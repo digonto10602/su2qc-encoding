@@ -34,14 +34,18 @@
   "dropped_total": 7.701492269756896e-14,
   "block_error": 1.4504507610240428e-14,
   "leak_amplitude": 0.0,
-  "seconds": 3.4173402786254883,
+  "seconds": 0.791635274887085,
   "n_inputs": 433,
+  "span_leak": 3.1359790882673908e-15,
+  "total_error": 9.465540939607678e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.4504507610240428e-14,
    "max_dropped_l2": 4.414682235735066e-15,
    "max_span_leak": 4.6629367034256575e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.060453857124975e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 7.319306269183281e-14,
    "block_error": 1.496992535368179e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8398337364196777,
+   "seconds": 0.787125825881958,
    "n_inputs": 433,
+   "span_leak": 3.872229237618002e-15,
+   "total_error": 9.20352172831326e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.496992535368179e-14,
     "max_dropped_l2": 4.4315813163784176e-15,
     "max_span_leak": 6.217248937900877e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.7775746806952905e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 8.244314216951985e-14,
    "block_error": 1.762472883708983e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8332958221435547,
+   "seconds": 0.7871794700622559,
    "n_inputs": 433,
+   "span_leak": 5.65180988238409e-15,
+   "total_error": 1.0571968088899377e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.762472883708983e-14,
     "max_dropped_l2": 4.4517127926249956e-15,
     "max_span_leak": 8.43769498715119e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.638907193228691e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "dda2196e14d5c711a4f644ceb73f7b3a0c5328f3572f3a773929392abc3cecb8",
- "wall_s": 10.161855697631836,
+ "wall_s": 2.75685453414917,
  "discoveries": [
   "DISCOVERY: For the F3-frame coupling (kappa = 2, -(-1)^t2, -1/2) the only minimal Walsh supports over (pa, pb, z, t2) have 9 terms (next size 11); with one pair AND in-walk the cheapest cycle is 8 linear toggles + 2 rccx + 1 CZ (15 CX, residual L = {z} or {pb}); a fix-free cycle (pb in-walk with c0 = b2 and L = {t2}, residual (-1)^(b2 t2) = Z(t2) because diff corners are always bright) needs >= 10 linear toggles (>= 16 CX), exhaustive over all 9-term supports and cycles.",
   "DISCOVERY: The three free points (pa & pb = 0, z = t2 = 1) are essential: removing any one of them raises the minimal support from 9 to 12 terms (16 with none), in both the F2 and F3 sign conventions, so no leg-bit proxy for t2 (which is exact only on g = 1) can replace the cx(t2 -> f2) copy.",

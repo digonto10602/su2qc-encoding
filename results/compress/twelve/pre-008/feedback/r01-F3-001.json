@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.8671793103437324e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -3.28195259011596e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 8.84266677773859e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.5540181522531e-14,
+  "block_error": 1.2117774951184225e-13,
+  "leak_amplitude": 0.0,
+  "seconds": 6.355713129043579,
+  "n_inputs": 433,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.0307912451902738e-14,
+   "max_dropped_l2": 3.807355778183506e-15,
+   "max_span_leak": 2.6645352591003757e-15,
+   "op_norm_error_inner_span": 1.2117774951184225e-13
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.8821562263248966e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.5589274803050832e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 7.13454459493015e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.699217918373962e-14,
+   "block_error": 1.2122344344875003e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.1353495121002197,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.071295050818762e-14,
+    "max_dropped_l2": 3.986809094366668e-15,
+    "max_span_leak": 2.4424906541753444e-15,
+    "op_norm_error_inner_span": 1.2122344344875003e-13
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.9034719246055274e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.271756628669937e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 6.205559542702236e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.921379858572667e-14,
+   "block_error": 1.2113339387482607e-13,
+   "leak_amplitude": 0.0,
+   "seconds": 2.140639305114746,
+   "n_inputs": 433,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.1639421096233195e-14,
+    "max_dropped_l2": 4.3757632572676305e-15,
+    "max_span_leak": 5.995204332975845e-15,
+    "op_norm_error_inner_span": 1.2113339387482607e-13
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 132,
+  "t_fixed": 120,
+  "n_rot": 16,
+  "t_eps": 1130,
+  "t_estimate": {
+   "1e-06": 1076.7152913275604,
+   "1e-10": 1714.5254855459339
+  },
+  "t_measured": {
+   "1e-06": 1130,
+   "1e-10": 1770
+  },
+  "synth_error_bound": 1.6e-05,
+  "depth": 95,
+  "depth_ct": 2210,
+  "qubits": 35,
+  "gates": {
+   "cx": 132,
+   "h": 78,
+   "t": 60,
+   "tdg": 60,
+   "x": 24,
+   "rz": 16,
+   "s": 16,
+   "sdg": 16,
+   "z": 4
+  },
+  "measured": true
+ },
+ "program_sha256": "d6aceeb466e55604049fb843b73a2457ae67c15cbd992605291eb0a779ad489a",
+ "wall_s": 11.897056341171265,
+ "discoveries": [
+  "DISCOVERY: A 10-CX corner gadget [rccx(jA,jB->a), cx(A->B), ch(B->A), cx(a->B), rccx(A,~B->a), ch(t->A)] maps every bright pair to a partner differing by X on leg A only and leaves a=1 exactly on dark corners; corners 1,3 need cx(jA->A)+z(A) first.",
+  "DISCOVERY: The fold j_b->j_r, j_l->j_t, j_b->j_l, j_r->j_t, j_t->j_l (5 CX) exposes all four corner types t_c for the t-controlled H and leaves (t1, t1^t3, t2); in that encoding the rotation (angle g*2*beta*h*s, one free point at n1=4,g=0) has an 11-term Walsh support walked with 12 CX.",
+  "DISCOVERY: Outer reads do not pay here: t_c from the j-fold is cheaper than eA^eB, and every dark flag needs inner Bell structure plus j (E-par dark legs equal the vacuum legs), so no flag can be precomputed once; in the 3-CX partner frames (cx, ch, ch(t)) no single-AND dark flag exists (exhaustive check)."
+ ],
+ "summary": "per-corner 10-CX gadget (two Margolus + CX + 2 CH, partner map X on one leg, dark flag left in a corner ancilla), 5-CX fold that exposes the corner types t_c as qubits, 4-input AND of the bright flags, 12-term Walsh multiplexed Rx on j_b (CX 132)."
+}

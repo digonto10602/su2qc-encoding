@@ -34,14 +34,18 @@
   "dropped_total": 6.5540181522531e-14,
   "block_error": 1.2117774951184225e-13,
   "leak_amplitude": 0.0,
-  "seconds": 6.355713129043579,
+  "seconds": 1.077617883682251,
   "n_inputs": 433,
+  "span_leak": 3.1489619036643325e-15,
+  "total_error": 1.8986689293803756e-13,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.0307912451902738e-14,
    "max_dropped_l2": 3.807355778183506e-15,
    "max_span_leak": 2.6645352591003757e-15,
-   "op_norm_error_inner_span": 1.2117774951184225e-13
+   "op_norm_error_inner_span": 1.2117774951184225e-13,
+   "span_leak_max_state": 3.0873209038118063e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 6.699217918373962e-14,
    "block_error": 1.2122344344875003e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.1353495121002197,
+   "seconds": 1.072385311126709,
    "n_inputs": 433,
+   "span_leak": 3.108447465801673e-15,
+   "total_error": 1.9132407009829134e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.071295050818762e-14,
     "max_dropped_l2": 3.986809094366668e-15,
     "max_span_leak": 2.4424906541753444e-15,
-    "op_norm_error_inner_span": 1.2122344344875003e-13
+    "op_norm_error_inner_span": 1.2122344344875003e-13,
+    "span_leak_max_state": 3.0349259531973705e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 6.921379858572667e-14,
    "block_error": 1.2113339387482607e-13,
    "leak_amplitude": 0.0,
-   "seconds": 2.140639305114746,
+   "seconds": 1.0745446681976318,
    "n_inputs": 433,
+   "span_leak": 4.553775621640598e-15,
+   "total_error": 1.9490096808219333e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.1639421096233195e-14,
     "max_dropped_l2": 4.3757632572676305e-15,
     "max_span_leak": 5.995204332975845e-15,
-    "op_norm_error_inner_span": 1.2113339387482607e-13
+    "op_norm_error_inner_span": 1.2113339387482607e-13,
+    "span_leak_max_state": 4.530475303700553e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "d6aceeb466e55604049fb843b73a2457ae67c15cbd992605291eb0a779ad489a",
- "wall_s": 11.897056341171265,
+ "wall_s": 3.725764036178589,
  "discoveries": [
   "DISCOVERY: A 10-CX corner gadget [rccx(jA,jB->a), cx(A->B), ch(B->A), cx(a->B), rccx(A,~B->a), ch(t->A)] maps every bright pair to a partner differing by X on leg A only and leaves a=1 exactly on dark corners; corners 1,3 need cx(jA->A)+z(A) first.",
   "DISCOVERY: The fold j_b->j_r, j_l->j_t, j_b->j_l, j_r->j_t, j_t->j_l (5 CX) exposes all four corner types t_c for the t-controlled H and leaves (t1, t1^t3, t2); in that encoding the rotation (angle g*2*beta*h*s, one free point at n1=4,g=0) has an 11-term Walsh support walked with 12 CX.",

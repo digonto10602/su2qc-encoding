@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 4.439872208401988e-14,
   "block_error": 1.824508569506115e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.06399798393249512,
+  "seconds": 0.040023088455200195,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 6.264380777908103e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.8123808141890034e-14,
    "max_dropped_l2": 5.1419353802135235e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.824508569506115e-14
+   "op_norm_error_inner_span": 1.824508569506115e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.7145233296372486e-14,
    "block_error": 1.069071151282004e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04049396514892578,
+   "seconds": 0.03950381278991699,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.7835944809192524e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.069071151282004e-14,
     "max_dropped_l2": 3.316866455881899e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.065187846624803e-14
+    "op_norm_error_inner_span": 1.065187846624803e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 5.3416829120241553e-14,
    "block_error": 1.7753591940512476e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.03847002983093262,
+   "seconds": 0.03962874412536621,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 7.117042106075404e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7622214616387866e-14,
     "max_dropped_l2": 5.800510835401681e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.7753591940512476e-14
+    "op_norm_error_inner_span": 1.7753591940512476e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "4971c0ef585b4bea55e7be1e8975dad9915da63d1aed4771d50aaa90293e5d5d",
- "wall_s": 0.49627017974853516,
+ "wall_s": 0.46966075897216797,
  "discoveries": [
   "DISCOVERY: two AND toggles of one line with a shared factor A, rccx(A,C) then rccx(B^C, A) with the B^C control first, leave the line at A&B with only the invariant phase i^(A&B) (the (1,0,1) sign of rccx never fires because the line is 1 only when A=1); the mirrored leg gives (-i)^(A&B), so the pair is exact; with A=~p_t, C=~z_r, B=z_r^z_l the per-leg c2 control becomes the persistent g line for 3 CX instead of 3+6 (94 -> 88 CX).",
   "DISCOVERY: exhaustive search over swap words reaching the common (01)(23) frame with controls b*f ^ k(p) (k any invariant function, i.e. any persistent lines): none with <=3 swaps when every f-coefficient b is constant, none with 3 swaps when only one b(p) is free; for the 2-swap word none of the 1024 valid control pairs has c1, c2 and c1^c2 all of the form AND+affine (also with g as a variable), so 4 rccx per leg is minimal for single-AND toggles.",

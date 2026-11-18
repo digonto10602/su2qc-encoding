@@ -1,0 +1,352 @@
+{
+ "round": 1,
+ "n_valid": 4,
+ "n_invalid": 0,
+ "best_key": [
+  126,
+  738,
+  1226,
+  36
+ ],
+ "entries": [
+  "r01-F1-001",
+  "r01-F2-001",
+  "r01-F3-001",
+  "r01-F4-001"
+ ],
+ "lean_seconds": 85.24704766273499,
+ "encoding": "twelve",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "84a20af",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
+  "cpu_count": 12,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T10:42:21Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "001-involution-frame",
+   "id": "r01-F1-001",
+   "family": "F1",
+   "program_sha256": "5c992a210da8741297edd446981a7a69103ba9657a8848cf8a59d607fa7dd7cd",
+   "program_path": "compress/programs/twelve/F1/001-involution-frame.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    146,
+    754,
+    1168,
+    36
+   ],
+   "cell": [
+    57,
+    76
+   ],
+   "metrics": {
+    "cx": 146,
+    "t_fixed": 128,
+    "n_rot": 10,
+    "t_eps": 754,
+    "t_estimate": {
+     "1e-06": 725.9470570797253,
+     "1e-10": 1124.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 754,
+     "1e-10": 1170
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 106,
+    "depth_ct": 1168,
+    "qubits": 36,
+    "gates": {
+     "cx": 146,
+     "h": 90,
+     "t": 64,
+     "tdg": 64,
+     "x": 38,
+     "s": 16,
+     "sdg": 16,
+     "rz": 10,
+     "z": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.0528275501162772e-13,
+    "block_error": 1.1430256925157293e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 7.996303780726207e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "physical"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "84a20af",
+   "summary": "F1 involution frame: per-corner frame CH(t->A).H_A.CX.CH.CX (4 CX) turns every bright pair into X_F (x) prod_c Z_{A_c}; dark flag from the frame marker B_c gated by t_c-bar plus one outer m-AND per corner (reads only the 8 outer m bits); one 6-term multiplexed Rz on F (gzu/t flags).",
+   "lean": null,
+   "round": 1,
+   "mode": "full"
+  },
+  {
+   "label": "001-pair-frame-2cx",
+   "id": "r01-F2-001",
+   "family": "F2",
+   "program_sha256": "37e6e5d968dddeb58dcb1307bc0d923c9d03a6a63ae570e2e12ec0b96baadeb7",
+   "program_path": "compress/programs/twelve/F2/001-pair-frame-2cx.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    126,
+    738,
+    1226,
+    36
+   ],
+   "cell": [
+    55,
+    76
+   ],
+   "metrics": {
+    "cx": 126,
+    "t_fixed": 112,
+    "n_rot": 10,
+    "t_eps": 738,
+    "t_estimate": {
+     "1e-06": 709.9470570797253,
+     "1e-10": 1108.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 738,
+     "1e-10": 1154
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 130,
+    "depth_ct": 1226,
+    "qubits": 36,
+    "gates": {
+     "h": 146,
+     "cx": 126,
+     "t": 56,
+     "tdg": 56,
+     "s": 44,
+     "sdg": 44,
+     "x": 40,
+     "rz": 10,
+     "z": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 8.42948468414216e-14,
+    "block_error": 1.604510562801321e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 1.049127715398514e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "physical"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "84a20af",
+   "summary": "F2 pair frame: per corner a 2-CX leg frame + type-selected C_{jA}(X) makes both partners of every bright pair equal except the flip bit F=j_b; one rccx per corner leaves the bright flag; U_B = one (g, z, t)-multiplexed X rotation of F (6 Rz), U_E = 4 phases.",
+   "lean": {
+    "status": "certified",
+    "reason": "",
+    "cert_path": "/home/digimonk/Projects/su2qc-encoding/compress/lean/certs/step-o1-d8909cbbbc88.json",
+    "seconds": 85.24397397041321,
+    "checker_sha256": "befbd27e3ed4e8229f11320189441597e04c89c7bf7746cf93f1c55de261bfd5",
+    "theorem_path": null,
+    "axioms": []
+   },
+   "round": 1,
+   "mode": "full"
+  },
+  {
+   "label": "001-flag-gadget",
+   "id": "r01-F3-001",
+   "family": "F3",
+   "program_sha256": "d6aceeb466e55604049fb843b73a2457ae67c15cbd992605291eb0a779ad489a",
+   "program_path": "compress/programs/twelve/F3/001-flag-gadget.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    132,
+    1130,
+    2210,
+    35
+   ],
+   "cell": [
+    56,
+    81
+   ],
+   "metrics": {
+    "cx": 132,
+    "t_fixed": 120,
+    "n_rot": 16,
+    "t_eps": 1130,
+    "t_estimate": {
+     "1e-06": 1076.7152913275604,
+     "1e-10": 1714.5254855459339
+    },
+    "t_measured": {
+     "1e-06": 1130,
+     "1e-10": 1770
+    },
+    "synth_error_bound": 1.6e-05,
+    "depth": 95,
+    "depth_ct": 2210,
+    "qubits": 35,
+    "gates": {
+     "cx": 132,
+     "h": 78,
+     "t": 60,
+     "tdg": 60,
+     "x": 24,
+     "rz": 16,
+     "s": 16,
+     "sdg": 16,
+     "z": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.8671793103437324e-13,
+    "block_error": 1.2117774951184225e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 8.84266677773859e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "84a20af",
+   "summary": "per-corner 10-CX gadget (two Margolus + CX + 2 CH, partner map X on one leg, dark flag left in a corner ancilla), 5-CX fold that exposes the corner types t_c as qubits, 4-input AND of the bright flags, 12-term Walsh multiplexed Rx on j_b (CX 132).",
+   "lean": null,
+   "round": 1,
+   "mode": "full"
+  },
+  {
+   "label": "001-spectral-frame",
+   "id": "r01-F4-001",
+   "family": "F4",
+   "program_sha256": "15d0709c4cc2282824fb8abccd429c34a6c965a699b930e3c6b64d0d3d9eacb3",
+   "program_path": "compress/programs/twelve/F4/001-spectral-frame.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    126,
+    1254,
+    2579,
+    34
+   ],
+   "cell": [
+    55,
+    82
+   ],
+   "metrics": {
+    "cx": 126,
+    "t_fixed": 112,
+    "n_rot": 18,
+    "t_eps": 1254,
+    "t_estimate": {
+     "1e-06": 1188.3047027435055,
+     "1e-10": 1905.8411712391758
+    },
+    "t_measured": {
+     "1e-06": 1254,
+     "1e-10": 1968
+    },
+    "synth_error_bound": 1.8e-05,
+    "depth": 169,
+    "depth_ct": 2579,
+    "qubits": 34,
+    "gates": {
+     "cx": 126,
+     "h": 114,
+     "t": 56,
+     "tdg": 56,
+     "x": 28,
+     "s": 24,
+     "sdg": 24,
+     "rz": 18,
+     "z": 4
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.1356961193640924e-13,
+    "block_error": 1.3508583056265959e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 7.640349246885061e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "physical"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "84a20af",
+   "summary": "Spectral frame: 2-CX corner frames + type-controlled CH + padding put every bright pair on one flip qubit F (H_B = kappa(t) g X_F), outer-AND dark bits, pairwise NOR flags, 14-term exact Walsh phase polynomial of the 7-point spectrum on F.",
+   "lean": null,
+   "round": 1,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r01-F2-001",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 10,
+  "t_total": 738,
+  "tolerances": {
+   "tol_err": 1.0001e-05,
+   "tol_gauss": 1.0001e-05
+  },
+  "op_norm_error": 3.281794249938568e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 529.3098149299622,
+ "written_utc": "2026-11-06T10:42:21Z"
+}

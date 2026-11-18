@@ -19,24 +19,25 @@
  "encoding": "twelve",
  "kind": "step",
  "provenance": {
-  "git_commit": "a4c28a6",
+  "git_commit": "b8f2302",
   "git_dirty": true,
   "versions": {
-   "python": "3.12.14",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
-  "cpu_count": 12,
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-06T06:11:28Z"
+  "timestamp_utc": "2026-11-18T03:03:19Z"
  },
- "evaluator_sha256": "810e86f2640d4f76b5434e511ff41ccd7c54cce284ad217a11971c8b2d2e26d7",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
  "invalid": [],
  "external": [
@@ -101,7 +102,7 @@
     },
     "measured": false
    },
-   "op_norm_error": 1.0755864434755643e-05,
+   "op_norm_error": 1.0755851502858386e-05,
    "certified": true,
    "message": "fixed angle beta=1.0, kind UB; synthesised tolerance 1.60e-05 (<= 16 rotations)"
   },
@@ -167,7 +168,9 @@
     "gauss_residual": 3.908513313125536e-15,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 3.323328106290063e-15,
+    "total_error": 2.721364716780211e-13
    },
    "alt_ok": [
     true,
@@ -176,7 +179,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "a4c28a6",
+   "git_commit": "b8f2302",
    "summary": "the reference circuit of the twelve encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
    "lean": null,
    "round": 0,
@@ -238,7 +241,9 @@
     "gauss_residual": 3.908513313125536e-15,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 3.323328106290063e-15,
+    "total_error": 2.721364716780211e-13
    },
    "alt_ok": [
     true,
@@ -247,7 +252,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "a4c28a6",
+   "git_commit": "b8f2302",
    "summary": "the reference circuit after the deterministic polish passes.",
    "lean": null,
    "round": 0,
@@ -309,7 +314,9 @@
     "gauss_residual": 1.2746948296626722e-15,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 3.3630534929497606e-15,
+    "total_error": 3.644929407124996e-13
    },
    "alt_ok": [
     true,
@@ -318,7 +325,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "a4c28a6",
+   "git_commit": "b8f2302",
    "summary": "",
    "lean": null,
    "round": 0,
@@ -380,7 +387,9 @@
     "gauss_residual": 8.633103705055785e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 3.147936877535766e-15,
+    "total_error": 2.170246971598174e-13
    },
    "alt_ok": [
     true,
@@ -389,7 +398,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "a4c28a6",
+   "git_commit": "b8f2302",
    "summary": "su2qc-trotter lean22_v2 plaquette (vendored, plaquette only) behind our electric layer.",
    "lean": null,
    "round": 0,
@@ -451,7 +460,9 @@
     "gauss_residual": 1.1600307436734885e-15,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 3.782489268728263e-15,
+    "total_error": 2.9979033720366065e-13
    },
    "alt_ok": [
     true,
@@ -460,7 +471,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "a4c28a6",
+   "git_commit": "b8f2302",
    "summary": "su2qc-trotter lean22 plaquette (vendored, plaquette only) behind our electric layer.",
    "lean": null,
    "round": 0,
@@ -481,6 +492,6 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 163.82205724716187,
- "written_utc": "2026-11-06T06:11:28Z"
+ "wall_s": 39.398221492767334,
+ "written_utc": "2026-11-18T03:03:19Z"
 }

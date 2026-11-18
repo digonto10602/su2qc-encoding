@@ -1,0 +1,275 @@
+{
+ "round": 3,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  151,
+  1902,
+  4682,
+  13
+ ],
+ "entries": [
+  "r03-F1-003",
+  "r03-F2-003",
+  "r03-F3-003"
+ ],
+ "lean_seconds": 0.0,
+ "encoding": "fuzzy_ub",
+ "kind": "UB",
+ "provenance": {
+  "git_commit": "ebd52e9",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "cpu_count": 48,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T20:37:30Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "003-fredkin7-merged-group",
+   "id": "r03-F1-003",
+   "family": "F1",
+   "program_sha256": "1787bb90402ec88ac79ee609b3f942e49e7c44d1857f97c1167a04f4ae430b6e",
+   "program_path": "compress/programs/fuzzy_ub/F1/003-fredkin7-merged-group.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    164,
+    2920,
+    7222,
+    14
+   ],
+   "cell": [
+    58,
+    92
+   ],
+   "metrics": {
+    "cx": 164,
+    "t_fixed": 112,
+    "n_rot": 44,
+    "t_eps": 2920,
+    "t_estimate": {
+     "1e-06": 2742.967051150791,
+     "1e-10": 4496.945085251318
+    },
+    "t_measured": {
+     "1e-06": 2920,
+     "1e-10": 4688
+    },
+    "synth_error_bound": 4.4e-05,
+    "depth": 229,
+    "depth_ct": 7222,
+    "qubits": 14,
+    "gates": {
+     "cx": 164,
+     "h": 114,
+     "t": 65,
+     "tdg": 47,
+     "rz": 44,
+     "s": 29,
+     "z": 16,
+     "sdg": 11,
+     "x": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 6.913069635670847e-14,
+    "block_error": 1.9523942200154978e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r02-F1-002",
+   "parent_known": true,
+   "git_commit": "ebd52e9",
+   "summary": "parent r02-F1-002 (frames, merged t=1 group phase polynomial, Bell-decoder/Fredkin CX cancellation) with every one of the 8 f-controlled q2 swaps emitted as the 7-CX Clifford+T Fredkin of r02-F3-002 (its dagger form where the first CX is cancelled against the last Bell-decoder CX); 164 CX.",
+   "lean": null,
+   "round": 3,
+   "mode": "full"
+  },
+  {
+   "label": "003-merged-group-fredkin7-resynth",
+   "id": "r03-F2-003",
+   "family": "F2",
+   "program_sha256": "c6fb176abe10ecd57c3092e7f53bc68ef0534143f8a72b0bddee6169c2273d87",
+   "program_path": "compress/programs/fuzzy_ub/F2/003-merged-group-fredkin7-resynth.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    165,
+    2914,
+    7221,
+    14
+   ],
+   "cell": [
+    59,
+    92
+   ],
+   "metrics": {
+    "cx": 165,
+    "t_fixed": 106,
+    "n_rot": 44,
+    "t_eps": 2914,
+    "t_estimate": {
+     "1e-06": 2736.967051150791,
+     "1e-10": 4490.945085251318
+    },
+    "t_measured": {
+     "1e-06": 2914,
+     "1e-10": 4682
+    },
+    "synth_error_bound": 4.4e-05,
+    "depth": 230,
+    "depth_ct": 7221,
+    "qubits": 14,
+    "gates": {
+     "cx": 165,
+     "h": 103,
+     "t": 62,
+     "tdg": 44,
+     "rz": 44,
+     "s": 30,
+     "z": 14,
+     "sdg": 7,
+     "x": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 7.172909387772056e-14,
+    "block_error": 1.926445872016243e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r02-F2-002",
+   "parent_known": true,
+   "git_commit": "ebd52e9",
+   "summary": "F1 elite datapath (parity frame, 8 Fredkin frames, final frame refactored to start with (1 2), merged 12-term phase polynomial for t=1 sectors 2,3,6,7 over x=t~l,y=tl,r,w01,w23, r-split one-hot only for t=0) recorded and re-emitted with level-3 resynthesis of every beta-free segment between rotations (7-CX Fredkins, decoder/one-hot CX cancellations); 6 ancillas, 165 CX.",
+   "lean": null,
+   "round": 3,
+   "mode": "full"
+  },
+  {
+   "label": "003-r-fold-sectors-1-5",
+   "id": "r03-F3-003",
+   "family": "F3",
+   "program_sha256": "5ff89dd88c95dbcbb08f9c120ca360165bc972fd5b235a474edd79444bd4d8a5",
+   "program_path": "compress/programs/fuzzy_ub/F3/003-r-fold-sectors-1-5.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    151,
+    1902,
+    4682,
+    13
+   ],
+   "cell": [
+    57,
+    87
+   ],
+   "metrics": {
+    "cx": 151,
+    "t_fixed": 118,
+    "n_rot": 28,
+    "t_eps": 1902,
+    "t_estimate": {
+     "1e-06": 1792.2517598232307,
+     "1e-10": 2908.4195997053844
+    },
+    "t_measured": {
+     "1e-06": 1902,
+     "1e-10": 3030
+    },
+    "synth_error_bound": 2.8e-05,
+    "depth": 223,
+    "depth_ct": 4682,
+    "qubits": 13,
+    "gates": {
+     "cx": 151,
+     "h": 111,
+     "t": 70,
+     "tdg": 48,
+     "s": 28,
+     "rz": 28,
+     "x": 14,
+     "z": 14,
+     "sdg": 7
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 6.431898734793575e-14,
+    "block_error": 1.9370603628366857e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 0.0,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r02-F1-002",
+   "parent_known": true,
+   "git_commit": "ebd52e9",
+   "summary": "r02-F1-002 layout, but a (p_r & ~p_t & ~f)-controlled [Z q2^0 Z q2^1, then Fredkin(q2^0,q2^2)] at start/end maps sectors 1,5 exactly onto 0,4, so r drops out of the t=0 sectors: 6 frame Fredkins (7-CX), no r-split one-hot, 4 middles instead of 6; 151 CX.",
+   "lean": {
+    "status": "n_a",
+    "reason": "fuzzy: no exact exporter for the Lean certificate (plan 302 \u00a70.5)"
+   },
+   "round": 3,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r03-F3-003",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 28,
+  "t_total": 1902,
+  "tolerances": {
+   "tol_err": 2.8001e-05,
+   "tol_gauss": 2.8001e-05
+  },
+  "op_norm_error": 3.3682814334373704e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 9.309111595153809,
+ "written_utc": "2026-11-06T20:37:30Z"
+}

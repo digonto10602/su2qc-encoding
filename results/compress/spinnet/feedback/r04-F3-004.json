@@ -34,14 +34,18 @@
   "dropped_total": 3.557950808618435e-15,
   "block_error": 2.385201397822692e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.17081713676452637,
+  "seconds": 0.2021784782409668,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 5.9431522064411265e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.2296340532816534e-15,
    "max_dropped_l2": 8.7910305360257005e-16,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.385201397822692e-15
+   "op_norm_error_inner_span": 2.385201397822692e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 3.2729356156004335e-15,
    "block_error": 1.7193869903013337e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.17015480995178223,
+   "seconds": 0.201857328414917,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 4.9923226059017676e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.650465180893349e-15,
     "max_dropped_l2": 7.216449660063518e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 1.7193869903013337e-15
+    "op_norm_error_inner_span": 1.7193869903013337e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 3.5724407080513905e-15,
    "block_error": 2.522878064462804e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.1711263656616211,
+   "seconds": 0.20160651206970215,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 6.0953187725141944e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.303054819864817e-15,
     "max_dropped_l2": 7.286288659966601e-16,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.522878064462804e-15
+    "op_norm_error_inner_span": 2.522878064462804e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "0bab039b12c723846fcda0b9b8b837e5fd4788491c784f7f3b3ee2a1bcff6aef",
- "wall_s": 1.4591460227966309,
+ "wall_s": 1.5239057540893555,
  "discoveries": [
   "DISCOVERY: every crossing of two direct rccx pairs on the pivot (A with a corner NOR, or two corner NORs; all 3 pairings, 4 literal variants each, both first controls, all 7 crossing patterns of three direct units) leaves a sign that is cubic in the corners in sector e=u=v=0 and cannot be fixed with <= 2 CZ; nested or sequential direct pairs confine the walk to 3 of the 4 flag classes and the time-limited MILP finds no support below 13 terms (16 for most pairings, 14-30 for A+NOR direct) while 31 CX would need <= 12, so double/triple direct AND designs do not reach 31 CX (MILP values are incumbents, not proven optima).",
   "DISCOVERY: hosting a corner NOR in the e wire (so that the fused ladder block would unload it for free) ties it to e: f leaves the span without raw corners and needs 25-30 terms with them; Na XORed into the first-control corner of the direct NOR (so that its enclosed toggle would cancel the rccx sign) needs >= 17 terms; dropping A and using only two corner NORs needs 14 terms (no 32-CX all-ancilla walk for pairing 01|23).",

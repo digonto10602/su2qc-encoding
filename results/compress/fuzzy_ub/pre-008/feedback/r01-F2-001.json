@@ -1,0 +1,152 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 5.48201391026558e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   2.047962008517626e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 3.434373630484366e-14,
+  "block_error": 2.047640279781214e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.09380078315734863,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.047640279781214e-14,
+   "max_dropped_l2": 2.8762242349141728e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 2.047640279781214e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.345536533350256e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    1.8032850939950442e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.8020221443523314e-14,
+   "block_error": 1.5435143889979244e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1373136043548584,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.5435143889979244e-14,
+    "max_dropped_l2": 3.1372446413469268e-15,
+    "max_span_leak": 2.220446049250313e-16,
+    "op_norm_error_inner_span": 1.5435143889979244e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 5.778390051705817e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    2.3997549234223766e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 3.77019781870729e-14,
+   "block_error": 2.0081922329985277e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.08634233474731445,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.0081922329985277e-14,
+    "max_dropped_l2": 3.632366171731123e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 2.0081922329985277e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 268,
+  "t_fixed": 280,
+  "n_rot": 16,
+  "t_eps": 1276,
+  "t_estimate": {
+   "1e-06": 1236.7152913275604,
+   "1e-10": 1874.5254855459339
+  },
+  "t_measured": {
+   "1e-06": 1276,
+   "1e-10": 1948
+  },
+  "synth_error_bound": 1.6e-05,
+  "depth": 460,
+  "depth_ct": 2703,
+  "qubits": 14,
+  "gates": {
+   "cx": 268,
+   "h": 158,
+   "t": 144,
+   "tdg": 136,
+   "rz": 16,
+   "x": 14
+  },
+  "measured": true
+ },
+ "program_sha256": "fd42f288d5cbaccfc022874c600913ecbf65cb96fa4aae82a556f1e179458c17",
+ "wall_s": 0.8370809555053711,
+ "discoveries": [
+  "DISCOVERY: every parity sector p of fuzzy_ub becomes sigma_p X_f (x) |1_S><1_S| after one f-controlled permutation of the four q2 qubits plus 0/1/2 CX+H Bell decoders; perm (3,0,1,2) (q2^i -> pi[i]) serves sectors 2,3,4,6,7 at once.",
+  "DISCOVERY: sector frames need no parity control (the middle rotation is identity off-sector), so consecutive frames merge to f-controlled transposition chains; ordered 0,1,2,3,4,6,7,5 only 8 Fredkins (64 CX) are needed in total."
+ ],
+ "summary": "parity frame, then 8 per-sector sandwiches F_p^dag C^{p,S}R_x(-4 beta sigma_p) F_p with uncontrolled frames (f-controlled q2 permutation + Bell decoders), merged permutations between sectors and Gray-shared rccx ladders."
+}

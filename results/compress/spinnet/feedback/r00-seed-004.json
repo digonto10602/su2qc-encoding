@@ -34,14 +34,18 @@
   "dropped_total": 5.1341449487514305e-15,
   "block_error": 2.8894784864687896e-15,
   "leak_amplitude": 0.0,
-  "seconds": 0.2319164276123047,
+  "seconds": 0.2021026611328125,
   "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 8.02362343522022e-15,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.617476330535741e-15,
    "max_dropped_l2": 1.2565503666875752e-15,
    "max_span_leak": 0.0,
-   "op_norm_error_inner_span": 2.8894784864687896e-15
+   "op_norm_error_inner_span": 2.8894784864687896e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 4.9344346089843936e-15,
    "block_error": 2.2678190676267984e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.23123788833618164,
+   "seconds": 0.20022034645080566,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 7.202253676611192e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.2678190676267984e-15,
     "max_dropped_l2": 1.1752466899049236e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 2.144327766856269e-15
+    "op_norm_error_inner_span": 2.144327766856269e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 5.537967648915391e-15,
    "block_error": 3.308266118679627e-15,
    "leak_amplitude": 0.0,
-   "seconds": 0.24996662139892578,
+   "seconds": 0.19656896591186523,
    "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 8.846233767595018e-15,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 3.1783629267252436e-15,
     "max_dropped_l2": 1.1628542516506117e-15,
     "max_span_leak": 0.0,
-    "op_norm_error_inner_span": 3.308266118679627e-15
+    "op_norm_error_inner_span": 3.308266118679627e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
    }
   }
  ],
@@ -143,7 +155,7 @@
   "measured": true
  },
  "program_sha256": "ac24220750f7e273f6009c5107c63a5d5e76a7d213253066209adc3f9d951746",
- "wall_s": 1.5345141887664795,
+ "wall_s": 1.1157581806182861,
  "discoveries": [],
  "summary": "the vendored su2qc-trotter spinnet_v2 flags6 skeleton for U_B (angles solved from K, route-B signs) behind our electric layer; every angle is a linear function of spec.alpha / spec.beta."
 }

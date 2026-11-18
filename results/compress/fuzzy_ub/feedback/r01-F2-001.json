@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 3.434373630484366e-14,
   "block_error": 2.047640279781214e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.09380078315734863,
+  "seconds": 0.05537223815917969,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.48201391026558e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 2.047640279781214e-14,
    "max_dropped_l2": 2.8762242349141728e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 2.047640279781214e-14
+   "op_norm_error_inner_span": 2.047640279781214e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 3.8020221443523314e-14,
    "block_error": 1.5435143889979244e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.1373136043548584,
+   "seconds": 0.05356621742248535,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 5.345536533350256e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.5435143889979244e-14,
     "max_dropped_l2": 3.1372446413469268e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.5435143889979244e-14
+    "op_norm_error_inner_span": 1.5435143889979244e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 3.77019781870729e-14,
    "block_error": 2.0081922329985277e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.08634233474731445,
+   "seconds": 0.05362677574157715,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 5.778390051705817e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 2.0081922329985277e-14,
     "max_dropped_l2": 3.632366171731123e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 2.0081922329985277e-14
+    "op_norm_error_inner_span": 2.0081922329985277e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -143,7 +155,7 @@
   "measured": true
  },
  "program_sha256": "fd42f288d5cbaccfc022874c600913ecbf65cb96fa4aae82a556f1e179458c17",
- "wall_s": 0.8370809555053711,
+ "wall_s": 0.5379142761230469,
  "discoveries": [
   "DISCOVERY: every parity sector p of fuzzy_ub becomes sigma_p X_f (x) |1_S><1_S| after one f-controlled permutation of the four q2 qubits plus 0/1/2 CX+H Bell decoders; perm (3,0,1,2) (q2^i -> pi[i]) serves sectors 2,3,4,6,7 at once.",
   "DISCOVERY: sector frames need no parity control (the middle rotation is identity off-sector), so consecutive frames merge to f-controlled transposition chains; ordered 0,1,2,3,4,6,7,5 only 8 Fredkins (64 CX) are needed in total."

@@ -72,14 +72,18 @@
   "dropped_total": 6.731972510679534e-14,
   "block_error": 1.535610599264494e-14,
   "leak_amplitude": 0.0,
-  "seconds": 3.3145511150360107,
+  "seconds": 0.8074853420257568,
   "n_inputs": 433,
+  "span_leak": 2.975621493697702e-15,
+  "total_error": 8.565145259313799e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.535610599264494e-14,
    "max_dropped_l2": 4.177448895073178e-15,
    "max_span_leak": 3.552713678800501e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 2.8447680212833594e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 6.538698522106464e-14,
    "block_error": 1.7027694070839687e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.7943415641784668,
+   "seconds": 0.802593469619751,
    "n_inputs": 433,
+   "span_leak": 3.9852501079978385e-15,
+   "total_error": 8.639992939990217e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7027694070839687e-14,
     "max_dropped_l2": 4.278809551155217e-15,
     "max_span_leak": 5.551115123125783e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.9508255801495116e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 7.136959041007402e-14,
    "block_error": 1.836931843257298e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.7829606533050537,
+   "seconds": 0.8024251461029053,
    "n_inputs": 433,
+   "span_leak": 4.984401226983679e-15,
+   "total_error": 9.472331006963069e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.836931843257298e-14,
     "max_dropped_l2": 4.17136354213207e-15,
     "max_span_leak": 6.772360450213455e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 4.968947296012186e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: Numerically (least squares over all 1q layers, 512 skeletons) no corner frame [3-CX leg unitary + 2 controlled 1q slots from t, not-t, jA, jB] gives partner equality plus a single-AND t-preloaded flag (residual floor 1.35), so the F2 corner (6 CX + rccx) is locally optimal in that family."
  ],
  "summary": "F2 pair frame (2-CX leg frame, C_t(H) C_jA(X) C_t(YH) per corner, t-preloaded rccx bright flags, 3-rccx AND) without the z flag: U_B is one 11-term Walsh multiplexed X rotation of F over (g, t1, t2, t1^t3), Gray-walked with 12 CX plus one CX(t1->t3) before and after (CX 124, reads 2 outer bits).",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "afa1865",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +188,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 9.91240668296814,
- "written_utc": "2026-11-06T14:12:34Z",
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 3.0891306400299072,
+ "written_utc": "2026-11-18T03:03:24Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.6e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

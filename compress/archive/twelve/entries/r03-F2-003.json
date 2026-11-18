@@ -72,14 +72,18 @@
   "dropped_total": 7.999010341400741e-14,
   "block_error": 1.59073546591171e-14,
   "leak_amplitude": 0.0,
-  "seconds": 3.5278868675231934,
+  "seconds": 0.8485317230224609,
   "n_inputs": 433,
+  "span_leak": 3.3386278237216114e-15,
+  "total_error": 9.923608589684612e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.59073546591171e-14,
    "max_dropped_l2": 6.052415337365267e-15,
    "max_span_leak": 4.551914400963142e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.2852934186657526e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -107,14 +111,18 @@
    "dropped_total": 6.845250335298959e-14,
    "block_error": 1.6664276954720992e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.924851894378662,
+   "seconds": 0.8218972682952881,
    "n_inputs": 433,
+   "span_leak": 3.875229626374053e-15,
+   "total_error": 8.899200993408464e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.6664276954720992e-14,
     "max_dropped_l2": 4.645140448777712e-15,
     "max_span_leak": 5.662137425588298e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.8320193388407535e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -141,14 +149,18 @@
    "dropped_total": 9.418468903219698e-14,
    "block_error": 1.8407611411154245e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.928325891494751,
+   "seconds": 0.8222396373748779,
    "n_inputs": 433,
+   "span_leak": 5.132818848662827e-15,
+   "total_error": 1.1772511929201404e-13,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8407611411154245e-14,
     "max_dropped_l2": 7.594395104709149e-15,
     "max_span_leak": 6.994405055138486e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.118874455066338e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -159,13 +171,13 @@
   "DISCOVERY: with pa in-walk, an exhaustive DFS over multi-target parity networks (CX between F, pb, z, t2 in any direction, rotations on any register, pa toggles on any register, fix cost counted) finds no walk of cost <= 14 for any of the four 9-term supports, so the 15-CX single-target walk is optimal in that model."
  ],
  "summary": "F2 pair frame with in-place flags (parent r02-F2-002) and the pair AND pa = f0 & f1 never stored: in a 10-CX Gray cycle of the 9-term Walsh rotation over (pa, pb, z, t2) pa toggles exactly twice, so both toggles are rccx(f0, f1, F) and the Margolus residual (-1)^(f0 z) (z = net toggle between them) is cancelled by one CZ; CX 119.",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
- "git_commit": "418de65",
+ "git_commit": "b8f2302",
  "versions": {
-  "python": "3.12.14",
-  "numpy": "2.5.2",
-  "scipy": "1.18.0",
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
   "qiskit": "2.5.2",
   "qiskit_aer": "0.17.2",
   "pygridsynth": "1.2.0"
@@ -176,14 +188,15 @@
   "clifford_t_pass_manager": 12345,
   "gridsynth": 0
  },
- "machine": "pichkaCommander x86_64 cpus=12",
- "wall_s": 10.416760921478271,
- "written_utc": "2026-11-06T15:21:03Z",
- "git_dirty": false,
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 2.8858752250671387,
+ "written_utc": "2026-11-18T03:03:31Z",
+ "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 1.3e-05
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37"
 }

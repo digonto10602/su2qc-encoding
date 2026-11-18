@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 4.032060387705155e-14,
   "block_error": 1.9230150803399544e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.060839176177978516,
+  "seconds": 0.0446314811706543,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.95507546804511e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.9125233298823177e-14,
    "max_dropped_l2": 4.2183137159530684e-15,
    "max_span_leak": 2.220446049250313e-16,
-   "op_norm_error_inner_span": 1.9230150803399544e-14
+   "op_norm_error_inner_span": 1.9230150803399544e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 3.358724816044922e-14,
    "block_error": 1.1550127194089407e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04491591453552246,
+   "seconds": 0.04421401023864746,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.5137375354538624e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.1550127194089407e-14,
     "max_dropped_l2": 3.590382447847053e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.1505738041714285e-14
+    "op_norm_error_inner_span": 1.1505738041714285e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 4.9446971672589885e-14,
    "block_error": 1.8604626230959447e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04594087600708008,
+   "seconds": 0.044209957122802734,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.805159790354933e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8604626230959447e-14,
     "max_dropped_l2": 5.103133218672075e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.8506920758404308e-14
+    "op_norm_error_inner_span": 1.8506920758404308e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "7ea742d54f3832ea4969ff56de11b8cb3df68c164869ae7f554318d034a38acb",
- "wall_s": 0.5419409275054932,
+ "wall_s": 0.47515130043029785,
  "discoveries": [
   "DISCOVERY: negative: the 8-CX q2 skeleton floor of r08-F1-008 survives relaxing the middle frame: IDA* (54 CX cosets, local Cliffords and wire labels free, admissible bound = max over pending Paulis of weight - 1) with the w01 and w23 toggles as separately scheduled 3-CX line patterns (Q, P, Q with P, Q in G01 resp. G23 weight-1 at their CX times), and even with w steps allowed before pending Fredkin rotations whose Paulis commute with them, finds no skeleton with <= 7 CX (9.6e8 nodes at bound 7), so 16 + 6 CX per leg is the floor of line-target patterns.",
   "DISCOVERY: rz(theta + j pi) = rz(theta) (-i Z_f)^j, and inside the R_x walk Z_f = Z of the parity f currently holds, so an even set of odd pi shifts costs only Z on the XOR of their parities (control wires, off the critical path) and an x(f) flips the sign of all later rotations; with 2 pi shifts (pure global phase) this picks among ~8 gridsynth words per angle at equal T (0.61: 157 -> 155, -0.61: 164 -> 156): -26 depth_CT here, -34 together with the x(f) sign block and the rccx sign flips.",

@@ -12,11 +12,11 @@
   "r04-F1-004",
   "r04-F3-004"
  ],
- "lean_seconds": 0.002217531204223633,
+ "lean_seconds": 0.0,
  "encoding": "spinnet",
  "kind": "step",
  "provenance": {
-  "git_commit": "a0c90d7",
+  "git_commit": "02c499d",
   "git_dirty": true,
   "versions": {
    "python": "3.12.16",
@@ -31,9 +31,10 @@
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-10T18:32:51Z"
+  "timestamp_utc": "2026-11-18T02:21:12Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
  "spec_sha256": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
  "invalid": [],
  "external": [],
@@ -94,7 +95,9 @@
     "gauss_residual": 5.881301029635769e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 7.34808696138718e-15
    },
    "alt_ok": [
     true,
@@ -103,13 +106,13 @@
    "skeleton_equal": true,
    "parent": "r03-F1-003",
    "parent_known": true,
-   "git_commit": "a0c90d7",
+   "git_commit": "02c499d",
    "summary": "parent circuit unchanged in every gate that costs CX or T (dimer frame, pivot b; flag a1=[c0=c2=0], A=[u=v=0] XORed into c0; 13-toggle all-linear H-frame walk over c1, c3, c0^A, a1, e; 31 CX, 17 qubits, T 1062), with the pivot critical path shortened: each exact phase fix p(-m*pi/4) is one gate (tdg/sdg instead of z s t / z s), the electric phase of b drops its X-frame sandwich (sg=+1 form, 154-gate word plus one tdg), and the per-rotation (sign, pi/4-shift) forms plus pivot X flips are chosen by a DP over the walk for minimal word+fix+flip length at minimal T (walk chain 2010 -> 2004 gates).",
    "lean": {
     "status": "n_a",
     "reason": "non_linear_angle:p:0.5078981633974483",
     "cert_path": null,
-    "seconds": 0.00032901763916015625,
+    "seconds": 0.8273618221282959,
     "checker_sha256": "",
     "theorem_path": null,
     "axioms": [],
@@ -174,7 +177,9 @@
     "gauss_residual": 5.424666426981638e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 5.9431522064411265e-15
    },
    "alt_ok": [
     true,
@@ -183,7 +188,7 @@
    "skeleton_equal": true,
    "parent": "r03-F3-003",
    "parent_known": true,
-   "git_commit": "a0c90d7",
+   "git_commit": "02c499d",
    "summary": "F3 parent circuit (Na=NOR(c0,c1) ancilla, A=[u=v=0] in place in c1, Nd=NOR(c2,c3) direct rccx pair + CZ(Na,c2); 9-term walk e -> 0, 32 CX, 17 qubits) with every rotation that has a cheaper pi/4-shifted Clifford+T form emitted as p/rz(theta + pi/4) . tdg: the 4 electric p(-3alpha/4 +- pi/2) go 64 -> 58+1 T and the rz(+-beta/2) walk term 66 -> 64+1 (fixed decision, same skeleton at all angles); T 832 -> 811, angles k*beta/8, 3*alpha/4 (+ multiples of pi/4).",
    "lean": null,
    "round": 4,
@@ -204,13 +209,11 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 3.8237147331237793,
- "written_utc": "2026-11-10T18:32:51Z",
+ "wall_s": 3.6232409477233887,
+ "written_utc": "2026-11-18T02:21:12Z",
  "spinnet": {
-  "code_sha256": "7f5bb7f8e65f39c89eca59abae352c3f36433e00523ae3321f9b6e59e54d0ed5",
+  "code_sha256": "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4",
   "shim": [
-   "build_in_subprocess",
-   "certify",
    "encoding"
   ]
  }

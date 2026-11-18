@@ -1,0 +1,1414 @@
+{
+ "tag": "008",
+ "encoding": "fuzzy_ub",
+ "kind": "UB",
+ "rounds": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13
+ ],
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
+ "evaluator_sha256_old": [
+  "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582"
+ ],
+ "entries": [
+  {
+   "id": "r00-seed-000",
+   "old_id": "r00-seed-000",
+   "round": 0,
+   "label": "general",
+   "program_path": "compress/programs/fuzzy_ub/seed/000-general-ub.py",
+   "program_sha256": "d833379123ca52b4595313db93eba0971bdabf1140c59c2ef81d3555fdfd7b09",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     1718,
+     2822,
+     4916,
+     15
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     1718,
+     2822,
+     4916,
+     15
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-010",
+   "old_id": "r00-seed-010",
+   "round": 0,
+   "label": "general+polish",
+   "program_path": "compress/programs/fuzzy_ub/seed/010-general_polish.py",
+   "program_sha256": "97be59fb8a8bb2a44eefc6d6970e82f4d9df5b7ab50cf72b5c5921bf9fb99afa",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     1596,
+     2682,
+     4912,
+     15
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     1596,
+     2682,
+     4912,
+     15
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-qiskit_l3",
+   "old_id": "r00-seed-qiskit_l3",
+   "round": 0,
+   "label": "qiskit_l3",
+   "program_path": "compress/programs/fuzzy_ub/seed/qiskit_l3.circuit",
+   "program_sha256": "",
+   "old": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "key": null,
+    "dropped_total": null
+   },
+   "new": {
+    "valid": false,
+    "reason": "pruning_bound",
+    "key": null,
+    "dropped_total": null
+   },
+   "key_equal": null
+  },
+  {
+   "id": "r01-F1-001",
+   "old_id": "r01-F1-001",
+   "round": 1,
+   "label": "001-fredkin-dp-onehot-phasepoly",
+   "program_path": "compress/programs/fuzzy_ub/F1/001-fredkin-dp-onehot-phasepoly.py",
+   "program_sha256": "adc8faafb630a97b1c211637ee52d4698e3520461f306e4d48da78d3bb6bf06e",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     200,
+     3804,
+     9501,
+     16
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     200,
+     3804,
+     9501,
+     16
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F2-001",
+   "old_id": "r01-F2-001",
+   "round": 1,
+   "label": "001-sector-sandwich-gray",
+   "program_path": "compress/programs/fuzzy_ub/F2/001-sector-sandwich-gray.py",
+   "program_sha256": "fd42f288d5cbaccfc022874c600913ecbf65cb96fa4aae82a556f1e179458c17",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     268,
+     1276,
+     2703,
+     14
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     268,
+     1276,
+     2703,
+     14
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F3-001",
+   "old_id": "r01-F3-001",
+   "round": 1,
+   "label": "001-fredkin-singlet-sandwich",
+   "program_path": "compress/programs/fuzzy_ub/F3/001-fredkin-singlet-sandwich.py",
+   "program_sha256": "babd37752a9b747c9c3fdfe84e8e828e1e0598081bdad8407f9f53bd34d8d72f",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     390,
+     1392,
+     2882,
+     14
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     390,
+     1392,
+     2882,
+     14
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F1-002",
+   "old_id": "r02-F1-002",
+   "round": 2,
+   "label": "002-merged-group-phasepoly",
+   "program_path": "compress/programs/fuzzy_ub/F1/002-merged-group-phasepoly.py",
+   "program_sha256": "166e6a0f53b39b1d9c44fecf1168520330aff8befc62e41d027a3fd637a54f56",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     172,
+     2904,
+     7206,
+     14
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     172,
+     2904,
+     7206,
+     14
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F2-002",
+   "old_id": "r02-F2-002",
+   "round": 2,
+   "label": "002-partial-onehot-pair-walsh",
+   "program_path": "compress/programs/fuzzy_ub/F2/002-partial-onehot-pair-walsh.py",
+   "program_sha256": "bc7911b97529c6c0291d13b84ccf7bd4033aed637e756cb8aed17c3e05a269c6",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     172,
+     2916,
+     7263,
+     15
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     172,
+     2916,
+     7263,
+     15
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F3-002",
+   "old_id": "r02-F3-002",
+   "round": 2,
+   "label": "002-fredkin7-dp-onehot-phasepoly",
+   "program_path": "compress/programs/fuzzy_ub/F3/002-fredkin7-dp-onehot-phasepoly.py",
+   "program_sha256": "411f909ae8fa96b34983ecb46b7bd130849339c2bf797baf975d34e456b045e5",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     192,
+     3820,
+     9543,
+     16
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     192,
+     3820,
+     9543,
+     16
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r03-F1-003",
+   "old_id": "r03-F1-003",
+   "round": 3,
+   "label": "003-fredkin7-merged-group",
+   "program_path": "compress/programs/fuzzy_ub/F1/003-fredkin7-merged-group.py",
+   "program_sha256": "1787bb90402ec88ac79ee609b3f942e49e7c44d1857f97c1167a04f4ae430b6e",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     164,
+     2920,
+     7222,
+     14
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     164,
+     2920,
+     7222,
+     14
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r03-F2-003",
+   "old_id": "r03-F2-003",
+   "round": 3,
+   "label": "003-merged-group-fredkin7-resynth",
+   "program_path": "compress/programs/fuzzy_ub/F2/003-merged-group-fredkin7-resynth.py",
+   "program_sha256": "c6fb176abe10ecd57c3092e7f53bc68ef0534143f8a72b0bddee6169c2273d87",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     165,
+     2914,
+     7221,
+     14
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     165,
+     2914,
+     7221,
+     14
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r03-F3-003",
+   "old_id": "r03-F3-003",
+   "round": 3,
+   "label": "003-r-fold-sectors-1-5",
+   "program_path": "compress/programs/fuzzy_ub/F3/003-r-fold-sectors-1-5.py",
+   "program_sha256": "5ff89dd88c95dbcbb08f9c120ca360165bc972fd5b235a474edd79444bd4d8a5",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     151,
+     1902,
+     4682,
+     13
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     151,
+     1902,
+     4682,
+     13
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r04-F1-004",
+   "old_id": "r04-F1-004",
+   "round": 4,
+   "label": "004-single-tour-branch-fold",
+   "program_path": "compress/programs/fuzzy_ub/F1/004-single-tour-branch-fold.py",
+   "program_sha256": "2525cb01ee66f390047de7f93a8489f782423e01678a512323586314f1686861",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     116,
+     1774,
+     4394,
+     12
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     116,
+     1774,
+     4394,
+     12
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r04-F2-004",
+   "old_id": "r04-F2-004",
+   "round": 4,
+   "label": "004-fold-merged-relaxed-frames",
+   "program_path": "compress/programs/fuzzy_ub/F2/004-fold-merged-relaxed-frames.py",
+   "program_sha256": "667447670fb12600ee75f2ed4c99ba2c5cd687c218212a10232a1f008d9db41f",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     129,
+     1895,
+     4674,
+     12
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     129,
+     1895,
+     4674,
+     12
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r04-F3-004",
+   "old_id": "r04-F3-004",
+   "round": 4,
+   "label": "004-cz-knob-fold-constfree-group",
+   "program_path": "compress/programs/fuzzy_ub/F3/004-cz-knob-fold-constfree-group.py",
+   "program_sha256": "536b7edbb0f691c51e895550d1afb2b787aed29e9dcc0b226b1a2be75e03a87f",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     130,
+     1881,
+     4673,
+     12
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     130,
+     1881,
+     4673,
+     12
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r05-F1-005",
+   "old_id": "r05-F1-005",
+   "round": 5,
+   "label": "005-two-swap-single-middle",
+   "program_path": "compress/programs/fuzzy_ub/F1/005-two-swap-single-middle.py",
+   "program_sha256": "cd3e0e70ce255f826713994afc00804c83433ec310b91fceeafdadffdd5bf5b7",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     98,
+     790,
+     1881,
+     12
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     98,
+     790,
+     1881,
+     12
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r05-F2-005",
+   "old_id": "r05-F2-005",
+   "round": 5,
+   "label": "005-affine-control-nine-fredkin-tour",
+   "program_path": "compress/programs/fuzzy_ub/F2/005-affine-control-nine-fredkin-tour.py",
+   "program_sha256": "724828a696c365f13aeead092b65d79f8f3ae87305e2bda7ab4d917fa107f271",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     113,
+     1773,
+     4401,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     113,
+     1773,
+     4401,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r05-F3-005",
+   "old_id": "r05-F3-005",
+   "round": 5,
+   "label": "005-two-swap-single-middle",
+   "program_path": "compress/programs/fuzzy_ub/F3/005-two-swap-single-middle.py",
+   "program_sha256": "68cd3d5853dbe8675497717cd8a41fc789d21cd7e3f7087bbd03488447156af9",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     94,
+     658,
+     1530,
+     12
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     94,
+     658,
+     1530,
+     12
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r06-F1-006",
+   "old_id": "r06-F1-006",
+   "round": 6,
+   "label": "006-chained-control-line",
+   "program_path": "compress/programs/fuzzy_ub/F1/006-chained-control-line.py",
+   "program_sha256": "312004b05ae7c3f812800fe0541795fe0c7fc07c6514a644f9973711b554a88e",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     88,
+     646,
+     1566,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     88,
+     646,
+     1566,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r06-F2-006",
+   "old_id": "r06-F2-006",
+   "round": 6,
+   "label": "006-shared-factor-g-chain",
+   "program_path": "compress/programs/fuzzy_ub/F2/006-shared-factor-g-chain.py",
+   "program_sha256": "4971c0ef585b4bea55e7be1e8975dad9915da63d1aed4771d50aaa90293e5d5d",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     88,
+     646,
+     1567,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     88,
+     646,
+     1567,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r06-F3-006",
+   "old_id": "r06-F3-006",
+   "round": 6,
+   "label": "006-convert-line-g-free",
+   "program_path": "compress/programs/fuzzy_ub/F3/006-convert-line-g-free.py",
+   "program_sha256": "69d2f3afdd068b89164699c33c687e40b35da03559151bf531e786f07f21745e",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     87,
+     650,
+     1571,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     87,
+     650,
+     1571,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r07-F1-007",
+   "old_id": "r07-F1-007",
+   "round": 7,
+   "label": "007-pl-wire-free-walk-ends",
+   "program_path": "compress/programs/fuzzy_ub/F1/007-pl-wire-free-walk-ends.py",
+   "program_sha256": "1e5e383372a9f75dade313ea723d8625e3d213ca08c636492b828cda1bc6a055",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     84,
+     646,
+     1562,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     84,
+     646,
+     1562,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r07-F2-007",
+   "old_id": "r07-F2-007",
+   "round": 7,
+   "label": "007-lbasis-open-walk",
+   "program_path": "compress/programs/fuzzy_ub/F2/007-lbasis-open-walk.py",
+   "program_sha256": "4226b9e2088c1f19af289ec162487d72921efff38b3c0f4f8a0d57662aacc951",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     86,
+     646,
+     1568,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     86,
+     646,
+     1568,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r07-F3-007",
+   "old_id": "r07-F3-007",
+   "round": 7,
+   "label": "007-g-chain-open-walk-rl",
+   "program_path": "compress/programs/fuzzy_ub/F3/007-g-chain-open-walk-rl.py",
+   "program_sha256": "45eef72a63966c0f244d337dfe1be49a66383d621b2f30b33039553fa3da5818",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     86,
+     646,
+     1568,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     86,
+     646,
+     1568,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r08-F1-008",
+   "old_id": "r08-F1-008",
+   "round": 8,
+   "label": "008-pauli-scheduled-fredkins",
+   "program_path": "compress/programs/fuzzy_ub/F1/008-pauli-scheduled-fredkins.py",
+   "program_sha256": "3ac5cc98cfbe4f6f2e3fdd186559cab214c514673fda25d10ec0f4248fe46bbf",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     84,
+     638,
+     1559,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     84,
+     638,
+     1559,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r08-F2-008",
+   "old_id": "r08-F2-008",
+   "round": 8,
+   "label": "008-g-line-free-walk-end",
+   "program_path": "compress/programs/fuzzy_ub/F2/008-g-line-free-walk-end.py",
+   "program_sha256": "238367c780acc1545b91910f07024af7ebd9d503572aa397e046239f3467bca5",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     646,
+     1560,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     646,
+     1560,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r08-F3-008",
+   "old_id": "r08-F3-008",
+   "round": 8,
+   "label": "008-seven-t-fredkin",
+   "program_path": "compress/programs/fuzzy_ub/F3/008-seven-t-fredkin.py",
+   "program_sha256": "894f9272eebbc7c3a85c256c87aa804f3f795a683018965cfe896baea7b7b40f",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     84,
+     638,
+     1587,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     84,
+     638,
+     1587,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r09-F1-009",
+   "old_id": "r09-F1-009",
+   "round": 9,
+   "label": "009-shortest-word-angle-shifts",
+   "program_path": "compress/programs/fuzzy_ub/F1/009-shortest-word-angle-shifts.py",
+   "program_sha256": "7ea742d54f3832ea4969ff56de11b8cb3df68c164869ae7f554318d034a38acb",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1523,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1523,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r09-F2-009",
+   "old_id": "r09-F2-009",
+   "round": 9,
+   "label": "009-short-window-fredkin",
+   "program_path": "compress/programs/fuzzy_ub/F2/009-short-window-fredkin.py",
+   "program_sha256": "f6d92912b4f150c0b90c65877c1f6941eba23e38c653aada527d312e266d50b0",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1522,
+     11
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1522,
+     11
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r09-F3-009",
+   "old_id": "r09-F3-009",
+   "round": 9,
+   "label": "009-and-toggle-on-pr-wire",
+   "program_path": "compress/programs/fuzzy_ub/F3/009-and-toggle-on-pr-wire.py",
+   "program_sha256": "15b0c151bcf71b259811458c42b718f07c73473e31a6e79418e561f76be103a7",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1550,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1550,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r10-F1-010",
+   "old_id": "r10-F1-010",
+   "round": 10,
+   "label": "010-ten-qubit-short-window-exact-angles",
+   "program_path": "compress/programs/fuzzy_ub/F1/010-ten-qubit-short-window-exact-angles.py",
+   "program_sha256": "9fa4444b76651f3bf3221c46621b30d66155034278f904a063431bf731555318",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1546,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1546,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r10-F2-010",
+   "old_id": "r10-F2-010",
+   "round": 10,
+   "label": "010-ten-qubit-pr-wire-w01",
+   "program_path": "compress/programs/fuzzy_ub/F2/010-ten-qubit-pr-wire-w01.py",
+   "program_sha256": "e20609d0f3b93212a4b1d9c0e449663de05fd605dbcdb94742acb98f17e5d95a",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1521,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1521,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r10-F3-010",
+   "old_id": "r10-F3-010",
+   "round": 10,
+   "label": "010-short-window-ten-qubit",
+   "program_path": "compress/programs/fuzzy_ub/F3/010-short-window-ten-qubit.py",
+   "program_sha256": "8451dc0a2062c9232ce6560155bdac7f99c090cb304c75a339ce18f6c953bb19",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1546,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1546,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r11-F1-011",
+   "old_id": "r11-F1-011",
+   "round": 11,
+   "label": "011-pr-wire-port-floor-checks",
+   "program_path": "compress/programs/fuzzy_ub/F1/011-pr-wire-port-floor-checks.py",
+   "program_sha256": "680cb7a6fc7c49512639912b60a2d01157a2307671106ad3ec6264a227ad0bf0",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1521,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1521,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r11-F2-011",
+   "old_id": "r11-F2-011",
+   "round": 11,
+   "label": "011-h-line-seven-rotations",
+   "program_path": "compress/programs/fuzzy_ub/F2/011-h-line-seven-rotations.py",
+   "program_sha256": "59d126950e3a3336e840897e5d9a189662253c7959a4f1ec4d0c2a0a50810940",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     89,
+     514,
+     1246,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     89,
+     514,
+     1246,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r11-F3-011",
+   "old_id": "r11-F3-011",
+   "round": 11,
+   "label": "011-floor-checks-ten-qubit",
+   "program_path": "compress/programs/fuzzy_ub/F3/011-floor-checks-ten-qubit.py",
+   "program_sha256": "f1b1721f1bb8851112b4691b59928da2ce70bf3df5c820558a01ab9d5d77b37e",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1546,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1546,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r12-F1-012",
+   "old_id": "r12-F1-012",
+   "round": 12,
+   "label": "012-diag-ccz-bell02-13-frame",
+   "program_path": "compress/programs/fuzzy_ub/F1/012-diag-ccz-bell02-13-frame.py",
+   "program_sha256": "f0ff86ee07ff472271c075b65e7baa0e38df02d9791131a34c9e1a0d91de613f",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1517,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1517,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r12-F2-012",
+   "old_id": "r12-F2-012",
+   "round": 12,
+   "label": "012-mirrored-chain-frame-floor",
+   "program_path": "compress/programs/fuzzy_ub/F2/012-mirrored-chain-frame-floor.py",
+   "program_sha256": "f7d53e5e880d76459bdbbb733b7c2f0c32179a5c3ecd2f6451b94b32250e9698",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     84,
+     638,
+     1538,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     84,
+     638,
+     1538,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r12-F3-012",
+   "old_id": "r12-F3-012",
+   "round": 12,
+   "label": "012-su2-invariant-leg-floor",
+   "program_path": "compress/programs/fuzzy_ub/F3/012-su2-invariant-leg-floor.py",
+   "program_sha256": "2fd6a18a62ac1b41c62c64ac983c6ccd374119a50a4a2f1aafb709931b5c82fd",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1521,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1521,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r13-F1-013",
+   "old_id": "r13-F1-013",
+   "round": 13,
+   "label": "013-reflection-uniqueness-tie",
+   "program_path": "compress/programs/fuzzy_ub/F1/013-reflection-uniqueness-tie.py",
+   "program_sha256": "533150b7a770a170ace95a6e3d589e81de53920be5e2073d817d18c81d7f1c6a",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1517,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1517,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r13-F2-013",
+   "old_id": "r13-F2-013",
+   "round": 13,
+   "label": "013-partial-recoupling-parity-and",
+   "program_path": "compress/programs/fuzzy_ub/F2/013-partial-recoupling-parity-and.py",
+   "program_sha256": "8e4db9ef27121d18d63fc1e5d5cf75fc3eb012b0bd59bec5d8f01d4fd3f27e8c",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1517,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     83,
+     638,
+     1517,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r13-F3-013",
+   "old_id": "r13-F3-013",
+   "round": 13,
+   "label": "013-ccz-frame-h-line-seven-rot",
+   "program_path": "compress/programs/fuzzy_ub/F3/013-ccz-frame-h-line-seven-rot.py",
+   "program_sha256": "bcf9e869a1de112ce8629620511e30d625f36f9248f0a1e1c4c3cca1e8f90cff",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     89,
+     514,
+     1242,
+     10
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     89,
+     514,
+     1242,
+     10
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  }
+ ],
+ "newly_valid": [],
+ "lost": [],
+ "best_old": {
+  "id": "r12-F1-012",
+  "key": [
+   83,
+   638,
+   1517,
+   10
+  ]
+ },
+ "best_new": {
+  "id": "r12-F1-012",
+  "key": [
+   83,
+   638,
+   1517,
+   10
+  ]
+ },
+ "old_archive_refused": [],
+ "old_archive_unreplayed": [],
+ "attempts_unchanged": true,
+ "discoveries_unchanged": true,
+ "backup": [
+  "results/compress/fuzzy_ub/pre-008/round-000.json",
+  "results/compress/fuzzy_ub/pre-008/round-001.json",
+  "results/compress/fuzzy_ub/pre-008/round-002.json",
+  "results/compress/fuzzy_ub/pre-008/round-003.json",
+  "results/compress/fuzzy_ub/pre-008/round-004.json",
+  "results/compress/fuzzy_ub/pre-008/round-005.json",
+  "results/compress/fuzzy_ub/pre-008/round-006.json",
+  "results/compress/fuzzy_ub/pre-008/round-007.json",
+  "results/compress/fuzzy_ub/pre-008/round-008.json",
+  "results/compress/fuzzy_ub/pre-008/round-009.json",
+  "results/compress/fuzzy_ub/pre-008/round-010.json",
+  "results/compress/fuzzy_ub/pre-008/round-011.json",
+  "results/compress/fuzzy_ub/pre-008/round-012.json",
+  "results/compress/fuzzy_ub/pre-008/round-013.json",
+  "results/compress/fuzzy_ub/pre-008/feedback",
+  "results/compress/fuzzy_ub/pre-008/summary.json",
+  "compress/archive/fuzzy_ub-pre-008"
+ ],
+ "lean": false,
+ "lean_carried": [
+  "r00-seed-010",
+  "r01-F1-001",
+  "r02-F1-002",
+  "r03-F3-003",
+  "r04-F1-004",
+  "r05-F3-005",
+  "r06-F3-006",
+  "r07-F1-007",
+  "r08-F2-008",
+  "r09-F2-009",
+  "r10-F2-010",
+  "r12-F1-012"
+ ],
+ "wall_s": 13.786003112792969,
+ "round_wall_s": [
+  3.0522468090057373,
+  1.3929219245910645,
+  1.1529426574707031,
+  1.0501418113708496,
+  2.576448440551758,
+  0.6316304206848145,
+  0.6126697063446045,
+  0.545473575592041,
+  0.5550069808959961,
+  0.6439468860626221,
+  0.6235694885253906,
+  0.07397341728210449,
+  0.7470297813415527,
+  0.07791352272033691
+ ],
+ "provenance": {
+  "git_commit": "220730e",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "replay_tag": "008"
+  },
+  "timestamp_utc": "2026-11-18T03:02:53Z"
+ },
+ "written_utc": "2026-11-18T03:02:53Z"
+}

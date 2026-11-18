@@ -1,0 +1,156 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 6.47905724593055e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   -1.0,
+   3.8063336784351803e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 0.0,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.611451513017757e-14,
+  "block_error": 1.8676057329127924e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 0.39729833602905273,
+  "n_inputs": 256,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 1.8676057329127924e-14,
+   "max_dropped_l2": 5.6731663667684665e-15,
+   "max_span_leak": 1.1102230246251565e-16,
+   "op_norm_error_inner_span": 1.8557192004352584e-14
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 3.7779367461209716e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    4.0205044207019926e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 2.670393660201706e-14,
+   "block_error": 1.1075430859192655e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04081439971923828,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.1075430859192655e-14,
+    "max_dropped_l2": 3.71071626883264e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.100815563491081e-14
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.488676076713777e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    -1.0,
+    3.696178675467935e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 0.0,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.665377379811937e-14,
+   "block_error": 1.8232986969018403e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 0.04125404357910156,
+   "n_inputs": 256,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 1.8232986969018403e-14,
+    "max_dropped_l2": 8.187200337866204e-15,
+    "max_span_leak": 1.1102230246251565e-16,
+    "op_norm_error_inner_span": 1.821272870681441e-14
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 98,
+  "t_fixed": 92,
+  "n_rot": 11,
+  "t_eps": 790,
+  "t_estimate": {
+   "1e-06": 749.7417627876978,
+   "1e-10": 1188.2362713128296
+  },
+  "t_measured": {
+   "1e-06": 790,
+   "1e-10": 1236
+  },
+  "synth_error_bound": 1.1e-05,
+  "depth": 130,
+  "depth_ct": 1881,
+  "qubits": 12,
+  "gates": {
+   "cx": 98,
+   "h": 70,
+   "t": 52,
+   "tdg": 40,
+   "x": 16,
+   "s": 16,
+   "rz": 11,
+   "z": 8,
+   "sdg": 4
+  },
+  "measured": true
+ },
+ "program_sha256": "cd3e0e70ce255f826713994afc00804c83433ec310b91fceeafdadffdd5bf5b7",
+ "wall_s": 0.9876177310943604,
+ "discoveries": [
+  "DISCOVERY: an exhaustive search over per-sector branch states (none / f=0 / f=1 / both) shows that two commuting swaps (0 2),(1 3) with arbitrary controls bring every sector to a common pairing (0,1),(2,3), the t=0 sectors in the relaxed form 2 w01 (-1)^w23 that the shared w-lines handle for free, so t=0 and t=1 need one middle; in every such 2-swap solution both controls are nonlinear; with GF(2)-linear controls only, no leg of <= 4 swaps reaches the two-middle normal forms of r04-F1-004.",
+  "DISCOVERY: the c1 line shares the c2 AND: u holds ~t&~r for the whole circuit and is toggled per leg by cx(f,u) + rccx(c2, p_l', u) (4 CX), c2 = rccx(f, ~t) is computed and uncomputed in each leg (3+3 CX); total control cost 34 CX and no e-line.",
+  "DISCOVERY: using the persistent u = ~t&~r line as an extra phase-polynomial variable, the merged angle function has an exact 11-term Walsh fit (MILP over supports on (t, r, p_l', w01, w23, u)) with a 14-CX closed walk, versus 17 terms / 18 CX without u and 26 rotations in the parent."
+ ],
+ "summary": "two commuting branch-controlled swaps per leg, (1 3) on c2 = f&~t and (0 2) on c1 = (~t&~r) xor f xor c2&p_l', put all 8 parity sectors into ONE Bell-diagonal frame (pairs (0,1),(2,3)); a single middle (w01, w23 ANDs, 11-term phase polynomial on (t, r, p_l', w01, w23, u=~t&~r), 14-CX walk) serves t=0 and t=1; 4 Fredkins instead of 6, 98 CX, 11 rotations, 12 qubits."
+}

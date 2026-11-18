@@ -14,28 +14,29 @@
   "r01-F3-001",
   "r01-F4-001"
  ],
- "lean_seconds": 85.24704766273499,
+ "lean_seconds": 0.0,
  "encoding": "twelve",
  "kind": "step",
  "provenance": {
-  "git_commit": "84a20af",
+  "git_commit": "b8f2302",
   "git_dirty": true,
   "versions": {
-   "python": "3.12.14",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
-  "cpu_count": 12,
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-06T10:42:21Z"
+  "timestamp_utc": "2026-11-18T03:03:24Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
  "invalid": [],
  "external": [],
@@ -96,7 +97,9 @@
     "gauss_residual": 7.996303780726207e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "physical"
+    "method": "physical",
+    "span_leak": 3.139953598036382e-15,
+    "total_error": 1.0842270860966409e-13
    },
    "alt_ok": [
     true,
@@ -105,7 +108,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "84a20af",
+   "git_commit": "b8f2302",
    "summary": "F1 involution frame: per-corner frame CH(t->A).H_A.CX.CH.CX (4 CX) turns every bright pair into X_F (x) prod_c Z_{A_c}; dark flag from the frame marker B_c gated by t_c-bar plus one outer m-AND per corner (reads only the 8 outer m bits); one 6-term multiplexed Rz on F (gzu/t flags).",
    "lean": null,
    "round": 1,
@@ -167,7 +170,9 @@
     "gauss_residual": 1.049127715398514e-15,
     "certified": true,
     "engine": "sparse",
-    "method": "physical"
+    "method": "physical",
+    "span_leak": 3.0856878867541484e-15,
+    "total_error": 8.738053472817575e-14
    },
    "alt_ok": [
     true,
@@ -176,7 +181,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "84a20af",
+   "git_commit": "b8f2302",
    "summary": "F2 pair frame: per corner a 2-CX leg frame + type-selected C_{jA}(X) makes both partners of every bright pair equal except the flip bit F=j_b; one rccx per corner leaves the bright flag; U_B = one (g, z, t)-multiplexed X rotation of F (6 Rz), U_E = 4 phases.",
    "lean": {
     "status": "certified",
@@ -246,7 +251,9 @@
     "gauss_residual": 8.84266677773859e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 3.1489619036643325e-15,
+    "total_error": 1.8986689293803756e-13
    },
    "alt_ok": [
     true,
@@ -255,7 +262,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "84a20af",
+   "git_commit": "b8f2302",
    "summary": "per-corner 10-CX gadget (two Margolus + CX + 2 CH, partner map X on one leg, dark flag left in a corner ancilla), 5-CX fold that exposes the corner types t_c as qubits, 4-input AND of the bright flags, 12-term Walsh multiplexed Rx on j_b (CX 132).",
    "lean": null,
    "round": 1,
@@ -317,7 +324,9 @@
     "gauss_residual": 7.640349246885061e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "physical"
+    "method": "physical",
+    "span_leak": 3.3709338827399425e-15,
+    "total_error": 1.1694054581914918e-13
    },
    "alt_ok": [
     true,
@@ -326,7 +335,7 @@
    "skeleton_equal": true,
    "parent": null,
    "parent_known": true,
-   "git_commit": "84a20af",
+   "git_commit": "b8f2302",
    "summary": "Spectral frame: 2-CX corner frames + type-controlled CH + padding put every bright pair on one flip qubit F (H_B = kappa(t) g X_F), outer-AND dark bits, pairwise NOR flags, 14-term exact Walsh phase polynomial of the 7-point spectrum on F.",
    "lean": null,
    "round": 1,
@@ -347,6 +356,6 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 529.3098149299622,
- "written_utc": "2026-11-06T10:42:21Z"
+ "wall_s": 5.276691436767578,
+ "written_utc": "2026-11-18T03:03:24Z"
 }

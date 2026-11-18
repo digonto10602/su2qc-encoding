@@ -60,7 +60,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -72,14 +72,18 @@
   "dropped_total": 2.5760686426804324e-14,
   "block_error": 1.791951239136746e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.04178023338317871,
+  "seconds": 0.041474342346191406,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 4.368019881817178e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.791951239136746e-14,
    "max_dropped_l2": 2.591551136551945e-15,
    "max_span_leak": 2.220446049250313e-16,
-   "op_norm_error_inner_span": 1.786475401829891e-14
+   "op_norm_error_inner_span": 1.786475401829891e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -95,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -107,14 +111,18 @@
    "dropped_total": 2.138099766176557e-14,
    "block_error": 1.038199102685303e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.042424678802490234,
+   "seconds": 0.0410006046295166,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.17629886886186e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.038199102685303e-14,
     "max_dropped_l2": 2.821663842844803e-15,
     "max_span_leak": 2.220446049250313e-16,
-    "op_norm_error_inner_span": 1.0316757600916195e-14
+    "op_norm_error_inner_span": 1.0316757600916195e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -129,7 +137,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -141,14 +149,18 @@
    "dropped_total": 2.498254014733753e-14,
    "block_error": 1.7451559593459505e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04147911071777344,
+   "seconds": 0.04304242134094238,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 4.243409974079704e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7451559593459505e-14,
     "max_dropped_l2": 2.738392213554967e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.7451559593459505e-14
+    "op_norm_error_inner_span": 1.7451559593459505e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -159,9 +171,9 @@
   "DISCOVERY: corner picture of the sectors (checked against the oracle): the q2 spin of link l sits at its head corner if q1 = 0 and at its tail corner if q1 = 1, so p6 is occupation (1111), p3 (2020), the rest (2110); the f=0 singlet pair is (12) for p0,p4, (01) for p1,p5,p7, (23) for p2, (01)(23) for p3, the f=1 pair (03) for p0-p3, (23) for p4,p5, (12) for p7, (03)(12) for p3, so the pairing ((01)(23) vs (03)(12)) changes between the f sides iff t|(r^l), and the per-side pairing indicator n(f,p) = ~f~r~t ^ f(~l|t) (p6 assigned either way) has ANF degree 3 in (f, p) and in the raw q1 bits: any frame that carries the pairing decision on one control (K4 two-swap words, S3 words X^a Y^b and X^a Y^b X^c, where it is one control or the XOR of two) needs a degree-3 line, i.e. 2 ANDs."
  ],
  "summary": "no construction beats (83, 638, 1517, 10) (CX and T floors of the two-line family re-derived below), so this is a T-lean Pareto point: the r11-F2-011 seven-rotation datapath (parity frame; L: 0 -> ~p_t&~s_r -> g; a: 0 -> c1 = f&~g -> p_r&~g (rccx with the raw s_r wire) -> h = [p=3]; w01 toggled onto p_r and w23 onto a inside the H(f) window; 7-term 9-CX R_x walk, archived per-class k pi/2 shifts, no new angle choices) on the r12-F1-012 diagonal q2 frame (Bell(02)(13) decoder E1, the two Fredkins as CCZ(L, P13), CCZ(a, P02) fused with one in-pair CX, 4-CX recoupling E2 to AND-decoded (01)/(23) pairs, Z fixes as phase flips on fresh rccx targets); cx(f -> p_r) moves after the a conversion; (89, 514, 1246 -> 1242, 10).",
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
- "git_commit": "d4b38bf",
+ "git_commit": "220730e",
  "versions": {
   "python": "3.12.16",
   "numpy": "2.5.4",
@@ -177,13 +189,14 @@
   "gridsynth": 0
  },
  "machine": "omnicommander x86_64 cpus=20",
- "wall_s": 0.8508927822113037,
- "written_utc": "2026-11-14T04:28:37Z",
+ "wall_s": 0.8360567092895508,
+ "written_utc": "2026-11-18T03:02:53Z",
  "git_dirty": true,
  "synthesis": {
   "measured": true,
   "synth_error_bound": 7e-06
  },
  "lean": null,
- "mode": "full"
+ "mode": "full",
+ "encoding_sha256": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9"
 }

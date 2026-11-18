@@ -34,14 +34,18 @@
   "dropped_total": 7.044063824137897e-14,
   "block_error": 1.4412836492549233e-14,
   "leak_amplitude": 0.0,
-  "seconds": 1.823352575302124,
+  "seconds": 0.7903504371643066,
   "n_inputs": 433,
+  "span_leak": 3.088990031096958e-15,
+  "total_error": 8.794246476502515e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.4412836492549233e-14,
    "max_dropped_l2": 4.113646368820543e-15,
    "max_span_leak": 4.884981308350689e-15,
-   "op_norm_error_inner_span": null
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 3.0295194748877385e-15,
+   "gauss": "checked"
   }
  },
  "verdicts_alt": [
@@ -69,14 +73,18 @@
    "dropped_total": 7.032182932482783e-14,
    "block_error": 1.505673730964281e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.8391830921173096,
+   "seconds": 0.788602352142334,
    "n_inputs": 433,
+   "span_leak": 3.857489395723452e-15,
+   "total_error": 8.92360560301941e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.505673730964281e-14,
     "max_dropped_l2": 4.159848627506143e-15,
     "max_span_leak": 6.5503158452884236e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 3.752781804237082e-15,
+    "gauss": "checked"
    }
   },
   {
@@ -103,14 +111,18 @@
    "dropped_total": 6.930475805031215e-14,
    "block_error": 1.7851488975771236e-14,
    "leak_amplitude": 0.0,
-   "seconds": 1.829766035079956,
+   "seconds": 0.7882976531982422,
    "n_inputs": 433,
+   "span_leak": 5.657919921553223e-15,
+   "total_error": 9.281416694763662e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.7851488975771236e-14,
     "max_dropped_l2": 3.895912820422542e-15,
     "max_span_leak": 7.66053886991358e-15,
-    "op_norm_error_inner_span": null
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 5.645700674911245e-15,
+    "gauss": "checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "231d57277ba3d31bdc91454d3715829cd64fa659c353b446a216a629de72ce3d",
- "wall_s": 6.760688781738281,
+ "wall_s": 2.766268730163574,
  "discoveries": [
   "DISCOVERY: F2/F4's in-walk pair AND composes with the 5-CX clean frame and its sign pattern kappa = 2, -(-1)^{t2}, -1/2: the unique Walsh support of size <= 10 (9 terms, every pa/pb term carries t) has 10-toggle cycles with pa (or pb) toggled twice and L = pb (or pa, or z), so walk + fix = 8 + 2*3 + 1 = 15 is the floor (exhaustive over the support, both in-walk choices and all block paths); no cycle has L = {t}, so the free fix Z(t2) via b2 t2 = t2 is out of reach in this frame.",
   "DISCOVERY: At walk time each corner's legs (X-flipped frame) are |11> (same type, bright), |00> or the singlet (|01>-|10>)/sqrt2 (diff type) and |00>, |01>, |10> (dark); separating same from diff on one qubit needs the observable (XX+YY-Z1-Z2)/2, which has operator-Schmidt rank 4, so no <= 1-CX leg map gives a type proxy and the t2 copy into the corner-2 flag ancilla (2 CX) stays.",

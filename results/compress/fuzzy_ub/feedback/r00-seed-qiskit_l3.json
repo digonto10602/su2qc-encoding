@@ -13,16 +13,16 @@
  "verdict": {
   "ok": false,
   "reason": "pruning_bound",
-  "op_norm_error": 1.3254731294940036e-12,
+  "op_norm_error": 1.2157652345091129e-12,
   "max_leak": 0.0,
   "dirty_ancilla": 0.0,
   "phase": [
    1.0,
-   -1.3141365466098865e-13
+   -1.3135498757328426e-13
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -31,15 +31,17 @@
    "tol_err": 1e-10,
    "tol_gauss": 1e-10
   },
-  "dropped_total": 1.2316086703879526e-12,
-  "block_error": 9.386445910605107e-14,
+  "dropped_total": 1.1201658675097244e-12,
+  "block_error": 9.559936699938857e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.5994968414306641,
+  "seconds": 0.5345282554626465,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 1.2157652345091129e-12,
   "failing_inputs": [
    [
     "dropped_total",
-    1.2316086703879526e-12
+    1.1201658675097244e-12
    ],
    [
     "prune_cap",
@@ -47,10 +49,12 @@
    ]
   ],
   "extra": {
-   "op_norm_error_physical": 9.386445910605107e-14,
-   "max_dropped_l2": 8.856515396990753e-14,
+   "op_norm_error_physical": 9.559936699938857e-14,
+   "max_dropped_l2": 8.213913975817683e-14,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 9.386445910605107e-14
+   "op_norm_error_inner_span": 9.559936699938857e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [],
@@ -83,7 +87,7 @@
   "measured": false
  },
  "program_sha256": "",
- "wall_s": 0.6613562107086182,
+ "wall_s": 0.6097054481506348,
  "discoveries": [],
  "summary": ""
 }

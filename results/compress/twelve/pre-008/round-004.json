@@ -1,0 +1,280 @@
+{
+ "round": 4,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  111,
+  912,
+  1664,
+  32
+ ],
+ "entries": [
+  "r04-F2-004",
+  "r04-F3-004",
+  "r04-F4-004"
+ ],
+ "lean_seconds": 87.61284112930298,
+ "encoding": "twelve",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "3f90240",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.14",
+   "numpy": "2.5.2",
+   "scipy": "1.18.0",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
+  "cpu_count": 12,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-06T15:37:58Z"
+ },
+ "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "004-clean-frame-inwalk-pa",
+   "id": "r04-F2-004",
+   "family": "F2",
+   "program_sha256": "dda2196e14d5c711a4f644ceb73f7b3a0c5328f3572f3a773929392abc3cecb8",
+   "program_path": "compress/programs/twelve/F2/004-clean-frame-inwalk-pa.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    111,
+    912,
+    1664,
+    32
+   ],
+   "cell": [
+    54,
+    78
+   ],
+   "metrics": {
+    "cx": 111,
+    "t_fixed": 104,
+    "n_rot": 13,
+    "t_eps": 912,
+    "t_estimate": {
+     "1e-06": 881.3311742036428,
+     "1e-10": 1399.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 912,
+     "1e-10": 1456
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 149,
+    "depth_ct": 1664,
+    "qubits": 32,
+    "gates": {
+     "h": 128,
+     "cx": 111,
+     "t": 52,
+     "tdg": 52,
+     "s": 32,
+     "sdg": 32,
+     "x": 24,
+     "rz": 13,
+     "z": 12
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 9.15194303078094e-14,
+    "block_error": 1.4504507610240428e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 7.2070192794184e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "physical"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r03-F2-003",
+   "parent_known": true,
+   "git_commit": "3f90240",
+   "summary": "F3 5-CX clean corner frame (r03-F3-003) + F2 in-walk pair AND: pa = b0 & b1 is never stored, its two toggles in the 10-CX Gray cycle of the 9-term Walsh rotation over (pa, pb, z, t2) are rccx(b0, b1, F) and the residual (-1)^(b0 z) is one CZ (CX 111).",
+   "lean": {
+    "status": "certified",
+    "reason": "",
+    "cert_path": "/home/digimonk/Projects/su2qc-encoding/compress/lean/certs/step-o1-24d1bc215a38.json",
+    "seconds": 87.60985159873962,
+    "checker_sha256": "befbd27e3ed4e8229f11320189441597e04c89c7bf7746cf93f1c55de261bfd5",
+    "theorem_path": null,
+    "axioms": []
+   },
+   "round": 4,
+   "mode": "full"
+  },
+  {
+   "label": "004-inwalk-pa-clean-frame",
+   "id": "r04-F3-004",
+   "family": "F3",
+   "program_sha256": "231d57277ba3d31bdc91454d3715829cd64fa659c353b446a216a629de72ce3d",
+   "program_path": "compress/programs/twelve/F3/004-inwalk-pa-clean-frame.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    111,
+    912,
+    1664,
+    32
+   ],
+   "cell": [
+    54,
+    78
+   ],
+   "metrics": {
+    "cx": 111,
+    "t_fixed": 104,
+    "n_rot": 13,
+    "t_eps": 912,
+    "t_estimate": {
+     "1e-06": 881.3311742036428,
+     "1e-10": 1399.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 912,
+     "1e-10": 1456
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 140,
+    "depth_ct": 1664,
+    "qubits": 32,
+    "gates": {
+     "h": 128,
+     "cx": 111,
+     "t": 52,
+     "tdg": 52,
+     "s": 32,
+     "sdg": 32,
+     "x": 24,
+     "rz": 13,
+     "z": 12
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 8.48534747339282e-14,
+    "block_error": 1.4412836492549233e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 7.894497640785698e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "physical"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r03-F3-003",
+   "parent_known": true,
+   "git_commit": "3f90240",
+   "summary": "r03-F3-003 (5-CX clean corner frame, in-place bright flags, 9-term Walsh rotation of F=j_r over (pa, pb, z, t2)) with the pair AND pa = b0 & b1 never stored: in the 10-toggle Gray cycle pa toggles exactly twice, both toggles are rccx(b0, b1, F) and the straddled Margolus residual (-1)^(b0 pb) is cancelled by one CZ (walk 15 CX, storage -6): CX 111.",
+   "lean": null,
+   "round": 4,
+   "mode": "full"
+  },
+  {
+   "label": "004-clean-frame-inwalk-pa",
+   "id": "r04-F4-004",
+   "family": "F4",
+   "program_sha256": "a55cbcf351585c2a96d2b954b741461eaf7bb699a9c85d5afc165966b59a1723",
+   "program_path": "compress/programs/twelve/F4/004-clean-frame-inwalk-pa.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    111,
+    912,
+    1694,
+    32
+   ],
+   "cell": [
+    54,
+    78
+   ],
+   "metrics": {
+    "cx": 111,
+    "t_fixed": 104,
+    "n_rot": 13,
+    "t_eps": 912,
+    "t_estimate": {
+     "1e-06": 881.3311742036428,
+     "1e-10": 1399.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 912,
+     "1e-10": 1456
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 153,
+    "depth_ct": 1694,
+    "qubits": 32,
+    "gates": {
+     "h": 128,
+     "cx": 111,
+     "t": 52,
+     "tdg": 52,
+     "s": 32,
+     "sdg": 32,
+     "x": 24,
+     "rz": 13,
+     "z": 12
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.8547191457245868e-13,
+    "block_error": 1.2180181452750423e-13,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 1.2452028296786458e-15,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span"
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r03-F4-003",
+   "parent_known": true,
+   "git_commit": "3f90240",
+   "summary": "F3's 5-CX clean corner frame (one rccx bright flag per corner) on F4's 8-CX no-outer-read plumbing (flags b0, b1 in place on q11, q8; b2, b3 in ancillas; t2 kept on q5) with only pb = b2&b3 stored; U_B is the 9-term Walsh rotation of F = j_b over (pa, pb, z, t2) for the F3 sign kappa = 2, -(-1)^t2, -1/2 on a closed walk in which pa = b0&b1 is toggled by two in-walk rccx and the straddled phase (-1)^(b1 pb) is cancelled by one CZ: CX 111.",
+   "lean": null,
+   "round": 4,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r04-F2-004",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 13,
+  "t_total": 912,
+  "tolerances": {
+   "tol_err": 1.3001e-05,
+   "tol_gauss": 1.3001e-05
+  },
+  "op_norm_error": 3.7250055680965886e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 136.85333371162415,
+ "written_utc": "2026-11-06T15:37:58Z"
+}

@@ -1,0 +1,774 @@
+{
+ "tag": "008",
+ "encoding": "twelve",
+ "kind": "step",
+ "rounds": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "evaluator_sha256_old": [
+  "810e86f2640d4f76b5434e511ff41ccd7c54cce284ad217a11971c8b2d2e26d7",
+  "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582"
+ ],
+ "entries": [
+  {
+   "id": "r00-seed-000",
+   "old_id": "r00-seed-000",
+   "round": 0,
+   "label": "general",
+   "program_path": "compress/programs/twelve/seed/000-general.py",
+   "program_sha256": "21874db4838605485056abbc85490273bd886dd4524876d2924541750b193bd1",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     294,
+     952,
+     1421,
+     50
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     294,
+     952,
+     1421,
+     50
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-010",
+   "old_id": "r00-seed-010",
+   "round": 0,
+   "label": "general+polish",
+   "program_path": "compress/programs/twelve/seed/010-general_polish.py",
+   "program_sha256": "e2037b877d3f0072188c96b3592f4ad5f413ba378d66ab19198e6cb832bf3b8e",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     294,
+     952,
+     1421,
+     50
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     294,
+     952,
+     1421,
+     50
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-qiskit_l3",
+   "old_id": "r00-seed-qiskit_l3",
+   "round": 0,
+   "label": "qiskit_l3",
+   "program_path": "compress/programs/twelve/seed/qiskit_l3.circuit",
+   "program_sha256": "",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     290,
+     918,
+     1387,
+     50
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     290,
+     918,
+     1387,
+     50
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-001",
+   "old_id": "r00-seed-001",
+   "round": 0,
+   "label": "lean22_v2",
+   "program_path": "compress/programs/twelve/seed/001-lean22_v2.py",
+   "program_sha256": "c97f0c643c33a409172481645828663a2fb4b1559a301bf3f4d1b730aeddf54c",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     162,
+     660,
+     1029,
+     35
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     162,
+     660,
+     1029,
+     35
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r00-seed-002",
+   "old_id": "r00-seed-002",
+   "round": 0,
+   "label": "lean22",
+   "program_path": "compress/programs/twelve/seed/002-lean22.py",
+   "program_sha256": "d01e7d2ac747513988269e91f2e501b7423832976930513c334f95eb77bf6fdc",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     210,
+     704,
+     1148,
+     38
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     210,
+     704,
+     1148,
+     38
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F1-001",
+   "old_id": "r01-F1-001",
+   "round": 1,
+   "label": "001-involution-frame",
+   "program_path": "compress/programs/twelve/F1/001-involution-frame.py",
+   "program_sha256": "5c992a210da8741297edd446981a7a69103ba9657a8848cf8a59d607fa7dd7cd",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     146,
+     754,
+     1168,
+     36
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     146,
+     754,
+     1168,
+     36
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F2-001",
+   "old_id": "r01-F2-001",
+   "round": 1,
+   "label": "001-pair-frame-2cx",
+   "program_path": "compress/programs/twelve/F2/001-pair-frame-2cx.py",
+   "program_sha256": "37e6e5d968dddeb58dcb1307bc0d923c9d03a6a63ae570e2e12ec0b96baadeb7",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     126,
+     738,
+     1226,
+     36
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     126,
+     738,
+     1226,
+     36
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F3-001",
+   "old_id": "r01-F3-001",
+   "round": 1,
+   "label": "001-flag-gadget",
+   "program_path": "compress/programs/twelve/F3/001-flag-gadget.py",
+   "program_sha256": "d6aceeb466e55604049fb843b73a2457ae67c15cbd992605291eb0a779ad489a",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     132,
+     1130,
+     2210,
+     35
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     132,
+     1130,
+     2210,
+     35
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r01-F4-001",
+   "old_id": "r01-F4-001",
+   "round": 1,
+   "label": "001-spectral-frame",
+   "program_path": "compress/programs/twelve/F4/001-spectral-frame.py",
+   "program_sha256": "15d0709c4cc2282824fb8abccd429c34a6c965a699b930e3c6b64d0d3d9eacb3",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     126,
+     1254,
+     2579,
+     34
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     126,
+     1254,
+     2579,
+     34
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F1-002",
+   "old_id": "r02-F1-002",
+   "round": 2,
+   "label": "002-zfree-walsh-pair-frame",
+   "program_path": "compress/programs/twelve/F1/002-zfree-walsh-pair-frame.py",
+   "program_sha256": "5c1e97cf15c110cc84108df32b6ac968592030aeb53e07750fc820faa00b9fbb",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     124,
+     1114,
+     2195,
+     35
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     124,
+     1114,
+     2195,
+     35
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F2-002",
+   "old_id": "r02-F2-002",
+   "round": 2,
+   "label": "002-inplace-flags",
+   "program_path": "compress/programs/twelve/F2/002-inplace-flags.py",
+   "program_sha256": "9e5d9c55ef7e60189bf896a2d4039c92946eb5d1794f38a3d3e07fe4b67cc26f",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     120,
+     912,
+     1671,
+     33
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     120,
+     912,
+     1671,
+     33
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F3-002",
+   "old_id": "r02-F3-002",
+   "round": 2,
+   "label": "002-gmux-pair-frame",
+   "program_path": "compress/programs/twelve/F3/002-gmux-pair-frame.py",
+   "program_sha256": "86ff9c4bfa871a1968478b5b509dfb82c25769b1b6e63bc0b46377544f37e3b2",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     124,
+     1114,
+     2196,
+     35
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     124,
+     1114,
+     2196,
+     35
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r02-F4-002",
+   "old_id": "r02-F4-002",
+   "round": 2,
+   "label": "002-inwalk-and-plumbing",
+   "program_path": "compress/programs/twelve/F4/002-inwalk-and-plumbing.py",
+   "program_sha256": "e284fe9346d501883f822aa3b1691dcf749952d6a111db768de31192efbc2228",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     121,
+     738,
+     1269,
+     33
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     121,
+     738,
+     1269,
+     33
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r03-F2-003",
+   "old_id": "r03-F2-003",
+   "round": 3,
+   "label": "003-inwalk-pa",
+   "program_path": "compress/programs/twelve/F2/003-inwalk-pa.py",
+   "program_sha256": "80b82d0d40e49353865fd32098f89f78d4f68ccd250aae122201c69096cebb81",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     119,
+     912,
+     1678,
+     32
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     119,
+     912,
+     1678,
+     32
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r03-F3-003",
+   "old_id": "r03-F3-003",
+   "round": 3,
+   "label": "003-split-w-clean-frame",
+   "program_path": "compress/programs/twelve/F3/003-split-w-clean-frame.py",
+   "program_sha256": "2bae636f45a6e9811cd84428c63f576f7bd49cb23c1cd575cd5a2dae20361e6c",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     112,
+     912,
+     1648,
+     33
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     112,
+     912,
+     1648,
+     33
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r03-F4-003",
+   "old_id": "r03-F4-003",
+   "round": 3,
+   "label": "003-inwalk-pair-and",
+   "program_path": "compress/programs/twelve/F4/003-inwalk-pair-and.py",
+   "program_sha256": "b4f9ffacd87ec69a8cfea0ccab4260d364148c67b5c09524c178c36bbc009de2",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     119,
+     912,
+     1716,
+     32
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     119,
+     912,
+     1716,
+     32
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r04-F2-004",
+   "old_id": "r04-F2-004",
+   "round": 4,
+   "label": "004-clean-frame-inwalk-pa",
+   "program_path": "compress/programs/twelve/F2/004-clean-frame-inwalk-pa.py",
+   "program_sha256": "dda2196e14d5c711a4f644ceb73f7b3a0c5328f3572f3a773929392abc3cecb8",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     111,
+     912,
+     1664,
+     32
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     111,
+     912,
+     1664,
+     32
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r04-F3-004",
+   "old_id": "r04-F3-004",
+   "round": 4,
+   "label": "004-inwalk-pa-clean-frame",
+   "program_path": "compress/programs/twelve/F3/004-inwalk-pa-clean-frame.py",
+   "program_sha256": "231d57277ba3d31bdc91454d3715829cd64fa659c353b446a216a629de72ce3d",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     111,
+     912,
+     1664,
+     32
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     111,
+     912,
+     1664,
+     32
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r04-F4-004",
+   "old_id": "r04-F4-004",
+   "round": 4,
+   "label": "004-clean-frame-inwalk-pa",
+   "program_path": "compress/programs/twelve/F4/004-clean-frame-inwalk-pa.py",
+   "program_sha256": "a55cbcf351585c2a96d2b954b741461eaf7bb699a9c85d5afc165966b59a1723",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     111,
+     912,
+     1694,
+     32
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     111,
+     912,
+     1694,
+     32
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r05-F2-005",
+   "old_id": "r05-F2-005",
+   "round": 5,
+   "label": "005-outer-t2-peephole",
+   "program_path": "compress/programs/twelve/F2/005-outer-t2-peephole.py",
+   "program_sha256": "4f7fcb1eab11fc709a1e44eb0fdafe9a5f7cd9d48365aea6642cd280170cef92",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     111,
+     912,
+     1663,
+     31
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     111,
+     912,
+     1663,
+     31
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r05-F3-005",
+   "old_id": "r05-F3-005",
+   "round": 5,
+   "label": "005-nopb-inwalk-b2b3-walk",
+   "program_path": "compress/programs/twelve/F3/005-nopb-inwalk-b2b3-walk.py",
+   "program_sha256": "785913dba07d46b217f49906c748026b592867cb0a9c9812ab6e240b25d6daae",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     112,
+     1112,
+     2177,
+     31
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     112,
+     1112,
+     2177,
+     31
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  },
+  {
+   "id": "r05-F4-005",
+   "old_id": "r05-F4-005",
+   "round": 5,
+   "label": "005-sched-heads-under-electric",
+   "program_path": "compress/programs/twelve/F4/005-sched-heads-under-electric.py",
+   "program_sha256": "43d02e768894d11d1b74dd6d8df07bfc578e0232d54c338e59c0b80b2d7a80d5",
+   "old": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     111,
+     912,
+     1672,
+     32
+    ],
+    "dropped_total": null
+   },
+   "new": {
+    "valid": true,
+    "reason": "ok",
+    "key": [
+     111,
+     912,
+     1672,
+     32
+    ],
+    "dropped_total": null
+   },
+   "key_equal": true
+  }
+ ],
+ "newly_valid": [],
+ "lost": [],
+ "best_old": {
+  "id": "r05-F2-005",
+  "key": [
+   111,
+   912,
+   1663,
+   31
+  ]
+ },
+ "best_new": {
+  "id": "r05-F2-005",
+  "key": [
+   111,
+   912,
+   1663,
+   31
+  ]
+ },
+ "old_archive_refused": [],
+ "old_archive_unreplayed": [],
+ "attempts_unchanged": true,
+ "discoveries_unchanged": true,
+ "backup": [
+  "results/compress/twelve/pre-008/round-000.json",
+  "results/compress/twelve/pre-008/round-001.json",
+  "results/compress/twelve/pre-008/round-002.json",
+  "results/compress/twelve/pre-008/round-003.json",
+  "results/compress/twelve/pre-008/round-004.json",
+  "results/compress/twelve/pre-008/round-005.json",
+  "results/compress/twelve/pre-008/feedback",
+  "results/compress/twelve/pre-008/summary.json",
+  "compress/archive/twelve-pre-008"
+ ],
+ "lean": false,
+ "lean_carried": [
+  "r01-F2-001",
+  "r02-F2-002",
+  "r03-F3-003",
+  "r04-F2-004",
+  "r05-F2-005"
+ ],
+ "wall_s": 109.48293161392212,
+ "round_wall_s": [
+  39.398221492767334,
+  5.276691436767578,
+  6.74877142906189,
+  7.057679891586304,
+  6.51787257194519,
+  44.46361970901489
+ ],
+ "provenance": {
+  "git_commit": "b8f2302",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "replay_tag": "008"
+  },
+  "timestamp_utc": "2026-11-18T03:04:29Z"
+ },
+ "written_utc": "2026-11-18T03:04:29Z"
+}

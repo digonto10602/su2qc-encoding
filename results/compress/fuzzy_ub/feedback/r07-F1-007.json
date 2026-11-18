@@ -22,7 +22,7 @@
   ],
   "outer_bits_read": 0,
   "n_blocks": 1,
-  "gauss_residual": 0.0,
+  "gauss_residual": NaN,
   "method": "inner_span",
   "engine": "sparse",
   "engine_accuracy": 0.0,
@@ -34,14 +34,18 @@
   "dropped_total": 3.591516047052159e-14,
   "block_error": 1.881077311286886e-14,
   "leak_amplitude": 0.0,
-  "seconds": 0.5667839050292969,
+  "seconds": 0.040224552154541016,
   "n_inputs": 256,
+  "span_leak": 0.0,
+  "total_error": 5.472593358339045e-14,
   "failing_inputs": [],
   "extra": {
    "op_norm_error_physical": 1.863907898982208e-14,
    "max_dropped_l2": 4.190893226394591e-15,
    "max_span_leak": 1.1102230246251565e-16,
-   "op_norm_error_inner_span": 1.881077311286886e-14
+   "op_norm_error_inner_span": 1.881077311286886e-14,
+   "span_leak_max_state": 0.0,
+   "gauss": "not_checked"
   }
  },
  "verdicts_alt": [
@@ -57,7 +61,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -69,14 +73,18 @@
    "dropped_total": 2.5309022651929275e-14,
    "block_error": 1.0641367810288448e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04774212837219238,
+   "seconds": 0.04027080535888672,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 3.5950390462217725e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.0603984907562706e-14,
     "max_dropped_l2": 3.0942107709071846e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.0641367810288448e-14
+    "op_norm_error_inner_span": 1.0641367810288448e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   },
   {
@@ -91,7 +99,7 @@
    ],
    "outer_bits_read": 0,
    "n_blocks": 1,
-   "gauss_residual": 0.0,
+   "gauss_residual": NaN,
    "method": "inner_span",
    "engine": "sparse",
    "engine_accuracy": 0.0,
@@ -103,14 +111,18 @@
    "dropped_total": 4.8535888567239764e-14,
    "block_error": 1.8437847423056323e-14,
    "leak_amplitude": 0.0,
-   "seconds": 0.04757213592529297,
+   "seconds": 0.03963875770568848,
    "n_inputs": 256,
+   "span_leak": 0.0,
+   "total_error": 6.697373599029609e-14,
    "failing_inputs": [],
    "extra": {
     "op_norm_error_physical": 1.8251112848569213e-14,
     "max_dropped_l2": 4.828240274671057e-15,
     "max_span_leak": 1.1102230246251565e-16,
-    "op_norm_error_inner_span": 1.8437847423056323e-14
+    "op_norm_error_inner_span": 1.8437847423056323e-14,
+    "span_leak_max_state": 0.0,
+    "gauss": "not_checked"
    }
   }
  ],
@@ -146,7 +158,7 @@
   "measured": true
  },
  "program_sha256": "1e5e383372a9f75dade313ea723d8625e3d213ca08c636492b828cda1bc6a055",
- "wall_s": 1.3090472221374512,
+ "wall_s": 0.48021817207336426,
  "discoveries": [
   "DISCOVERY: a walk-end toggle CX(k -> f) next to H(f) equals CZ(k, f) on the leg side, and CZ(k, f) commutes with rccx/Fredkin/CX gates that use k and f only as controls (an X pair on k gives Z_f twice), so it can travel to ANY parity CX(f -> k) of the leg, not just the adjacent one, and merge there for free (cx then cz = sdg(k) cx s(k) s(f)); in the F1-006 leg with p_l on the q1^l wire all of {p_r, p_t, p_l} are free walk ends.",
   "DISCOVERY: open-walk Held-Karp over exact Walsh supports (minimal size up to +2 terms per W/V component) for every 2-swap control pattern whose two lines cost 4 plain rccx per leg (only the u = t&~lp class of r06-F3 and the g = ~t&lp class of r06-F1 exist): g with p_l on the wire and free ends {r,t,l} gives 10 CX with 9 terms (the minimum term count; IDA* over general CX networks finds no 9-CX network for this support), u gives 11; with lp on the wire (free ends {r,t}) g gives 11-12 and u 13.",

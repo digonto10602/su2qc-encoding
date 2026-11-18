@@ -13,28 +13,29 @@
   "r03-F3-003",
   "r03-F4-003"
  ],
- "lean_seconds": 86.86829113960266,
+ "lean_seconds": 0.0,
  "encoding": "twelve",
  "kind": "step",
  "provenance": {
-  "git_commit": "418de65",
+  "git_commit": "b8f2302",
   "git_dirty": true,
   "versions": {
-   "python": "3.12.14",
-   "numpy": "2.5.2",
-   "scipy": "1.18.0",
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
    "qiskit": "2.5.2",
    "qiskit_aer": "0.17.2",
    "pygridsynth": "1.2.0"
   },
-  "platform": "Linux-7.2.11-arch1-1-x86_64-with-glibc2.44",
-  "cpu_count": 12,
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
   "seeds": {
    "trial_seed": 0
   },
-  "timestamp_utc": "2026-11-06T15:22:50Z"
+  "timestamp_utc": "2026-11-18T03:03:38Z"
  },
- "evaluator_sha256": "0bd7e7d91d9d7bcfc78641d1a14bb87f0f82f932c41c601fb991d30de13a0582",
+ "evaluator_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+ "encoding_sha256": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
  "spec_sha256": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
  "invalid": [],
  "external": [],
@@ -95,7 +96,9 @@
     "gauss_residual": 1.0919887934715067e-15,
     "certified": true,
     "engine": "sparse",
-    "method": "physical"
+    "method": "physical",
+    "span_leak": 3.3386278237216114e-15,
+    "total_error": 9.923608589684612e-14
    },
    "alt_ok": [
     true,
@@ -104,7 +107,7 @@
    "skeleton_equal": true,
    "parent": "r02-F2-002",
    "parent_known": true,
-   "git_commit": "418de65",
+   "git_commit": "b8f2302",
    "summary": "F2 pair frame with in-place flags (parent r02-F2-002) and the pair AND pa = f0 & f1 never stored: in a 10-CX Gray cycle of the 9-term Walsh rotation over (pa, pb, z, t2) pa toggles exactly twice, so both toggles are rccx(f0, f1, F) and the Margolus residual (-1)^(f0 z) (z = net toggle between them) is cancelled by one CZ; CX 119.",
    "lean": null,
    "round": 3,
@@ -166,7 +169,9 @@
     "gauss_residual": 7.174963931161662e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "physical"
+    "method": "physical",
+    "span_leak": 3.105689952511959e-15,
+    "total_error": 9.466466501184796e-14
    },
    "alt_ok": [
     true,
@@ -175,7 +180,7 @@
    "skeleton_equal": true,
    "parent": "r02-F2-002",
    "parent_known": true,
-   "git_commit": "418de65",
+   "git_commit": "b8f2302",
    "summary": "F2 in-place-flag pipeline with a 5-CX clean corner frame: W's two CX enclose C_t(T X T^dg), then C_j(Y_a) and C_t(S^dg H S) make bright partners equal and send diff legs off |00>, so each corner's bright flag is one rccx onto its type qubit (8 CX per corner instead of 9); U_B is one 9-term Walsh rotation of F=j_r over (pa, pb, z, t2) on a 10-CX Gray cycle (CX 112).",
    "lean": {
     "status": "certified",
@@ -245,7 +250,9 @@
     "gauss_residual": 9.761916494637743e-16,
     "certified": true,
     "engine": "sparse",
-    "method": "inner_span"
+    "method": "inner_span",
+    "span_leak": 3.1215791612989075e-15,
+    "total_error": 1.8604752372183214e-13
    },
    "alt_ok": [
     true,
@@ -254,7 +261,7 @@
    "skeleton_equal": true,
    "parent": "r02-F4-002",
    "parent_known": true,
-   "git_commit": "418de65",
+   "git_commit": "b8f2302",
    "summary": "F4-002 frame and 8-CX plumbing (no outer reads; flags b0, b1 in place on q11, q8, flags b2, b3 in ancillas) with only pb = b2&b3 stored; U_B is F2's 9-term Walsh rotation of F = j_b over (pa, pb, z, t2) on a closed Gray walk in which pa = b0&b1 is toggled by two in-walk rccx (no pa register) and the straddled Margolus phase (-1)^(b1 pb) is cancelled by one CZ: CX 119.",
    "lean": null,
    "round": 3,
@@ -275,6 +282,6 @@
   "certified": true,
   "reason": "ok"
  },
- "wall_s": 137.33926630020142,
- "written_utc": "2026-11-06T15:22:50Z"
+ "wall_s": 7.057679891586304,
+ "written_utc": "2026-11-18T03:03:38Z"
 }
