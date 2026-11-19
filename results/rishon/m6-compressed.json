@@ -1,0 +1,2238 @@
+{
+  "schema_version": 1,
+  "encoding": "rishon",
+  "circuit_id": "r06-F3-006",
+  "kind": "step",
+  "params": {
+    "alpha": 0.37,
+    "beta": 0.61,
+    "order": 1
+  },
+  "provenance": {
+    "git_commit": "fcd61dd",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+    "cpu_count": 20,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "clifford_t_pass_manager": 12345,
+      "gauss_sample": 20261104,
+      "outer_row_sample": 20261104,
+      "trial_subset": 0,
+      "angle_set": 20261107,
+      "eta_set": 20261110
+    },
+    "timestamp_utc": "2026-11-19T16:44:13Z",
+    "provenance_captured_at": "2026-11-19T16:44:13Z",
+    "host": "omnicommander",
+    "command": "python scripts/m6_results.py",
+    "quick": false,
+    "wall_seconds": 93.22387099266052,
+    "peak_rss_mb": 691.91015625
+  },
+  "verification": {
+    "ok": true,
+    "reason": "ok",
+    "certified": true,
+    "op_norm_error": 1.3484753994748737e-13,
+    "block_error": 1.366190106444107e-14,
+    "leak_amplitude": 0.0,
+    "dropped_total": 1.211856388830463e-13,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      0.0
+    ],
+    "gauss_residual": 7.35784552275496e-16,
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "method": "inner_block",
+    "engine": "sparse",
+    "seconds": 9.383481979370117,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "failing_inputs": [],
+    "inner_verdict": {
+      "ok": true,
+      "reason": "ok",
+      "op_norm_error": 1.3484753994748737e-13,
+      "max_leak": 0.0,
+      "dirty_ancilla": 0.0,
+      "phase": [
+        1.0,
+        0.0
+      ],
+      "outer_bits_read": 0,
+      "n_blocks": 1,
+      "gauss_residual": NaN,
+      "method": "inner_span",
+      "engine": "sparse",
+      "engine_accuracy": 0.0,
+      "certified": true,
+      "tolerances": {
+        "tol_err": 1e-10,
+        "tol_gauss": 1e-10
+      },
+      "dropped_total": 1.211856388830463e-13,
+      "block_error": 1.366190106444107e-14,
+      "leak_amplitude": 0.0,
+      "seconds": 4.819571256637573,
+      "n_inputs": 1296,
+      "span_leak": 0.0,
+      "total_error": 1.3484753994748737e-13,
+      "failing_inputs": [],
+      "extra": {
+        "op_norm_error_physical": 1.366190106444107e-14,
+        "max_dropped_l2": 5.242712805063058e-15,
+        "max_span_leak": 2.220446049250313e-16,
+        "op_norm_error_inner_span": 1.366190106444107e-14,
+        "span_leak_max_state": 0.0,
+        "gauss": "not_checked"
+      }
+    },
+    "extra": {
+      "inner_method": "inner_span",
+      "gauss_sample": 256,
+      "seed": 20261104,
+      "prune_fraction": 0.1,
+      "prune_cap": 1.0000000000000001e-11,
+      "laptop_reason": "ok"
+    }
+  },
+  "metrics": {
+    "logical": {
+      "cx": 216,
+      "depth": 275,
+      "n_rot": 10,
+      "t_fixed": 196,
+      "qubits": 52,
+      "ancilla": 4
+    },
+    "gates_lowered": {
+      "cx": 216,
+      "h": 128,
+      "t": 98,
+      "tdg": 98,
+      "x": 56,
+      "sdg": 27,
+      "s": 27,
+      "rz": 10,
+      "z": 2
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 196,
+        "n_rot": 10,
+        "t_rot_pygridsynth": 420,
+        "t_total": 616,
+        "t_est": 594.6313713864835,
+        "t_qiskit": 608,
+        "cx_qiskit": 216,
+        "depth_qiskit": 1072
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 196,
+        "n_rot": 10,
+        "t_rot_pygridsynth": 636,
+        "t_total": 832,
+        "t_est": 793.9470570797253,
+        "t_qiskit": 806,
+        "cx_qiskit": 216,
+        "depth_qiskit": 1488
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 196,
+        "n_rot": 10,
+        "t_rot_pygridsynth": 828,
+        "t_total": 1024,
+        "t_est": 993.2627427729669,
+        "t_qiskit": 1014,
+        "cx_qiskit": 216,
+        "depth_qiskit": 1871
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 196,
+        "n_rot": 10,
+        "t_rot_pygridsynth": 1032,
+        "t_total": 1228,
+        "t_est": 1192.5784284662086,
+        "t_qiskit": 1196,
+        "cx_qiskit": 216,
+        "depth_qiskit": 2251
+      }
+    ],
+    "macro": {
+      "depth": 173,
+      "depth_label": "depth of the circuit as built (macro gates such as rccx/mcx/crx counted as one layer each); the headline `logical.depth` is the depth of the level-0 lowered circuit (logical_metrics)",
+      "size": 406
+    },
+    "macro_counts": {
+      "cx": 130,
+      "h": 60,
+      "x": 56,
+      "t": 38,
+      "tdg": 38,
+      "rccx": 26,
+      "sdg": 19,
+      "s": 19,
+      "ch": 8,
+      "rz": 6,
+      "p": 4,
+      "z": 2
+    },
+    "compress_metrics": {
+      "cx": 216,
+      "t_fixed": 196,
+      "n_rot": 10,
+      "t_eps": 832,
+      "depth_ct": 1350,
+      "qubits": 52
+    }
+  },
+  "files": {
+    "qpy": "results/rishon/m6-compressed.qpy",
+    "sha256": "f6e5f8a316460c3e12f9a964d6dcac80ccb37ed54677999af116c17a281bd29e",
+    "qasm3": "results/rishon/m6-compressed.qasm3"
+  },
+  "extra": {
+    "headline": {
+      "id": "r06-F3-006",
+      "robust_key": [
+        216,
+        16596,
+        0,
+        26988,
+        52
+      ],
+      "t_mean": 829.8,
+      "lean": "certified",
+      "rule": "valid archive entry with the smallest (CX, sum T(1e-6) over the angle set, angle-linear first, sum depth_CT, qubits) (prompts/203 section 13 E3)",
+      "program_path": "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+      "program_sha256": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+      "family": "F3",
+      "round": 6,
+      "parent": "r05-F3-005",
+      "entry_commit": "7cfe759"
+    },
+    "archive_best": "r06-F3-006",
+    "archive_best_key": [
+      216,
+      832,
+      1350,
+      52
+    ],
+    "archive_best_robust_key": [
+      216,
+      16596,
+      0,
+      26988,
+      52
+    ],
+    "angle_set": {
+      "seed": 20261107,
+      "n": 20,
+      "ranges": [
+        [
+          0.05,
+          2.0
+        ],
+        [
+          0.05,
+          1.2
+        ]
+      ],
+      "pairs": [
+        [
+          1.5818052784823036,
+          0.24787348121639236
+        ],
+        [
+          1.3913089640547196,
+          0.5836353810196808
+        ],
+        [
+          0.3360095773947437,
+          0.39073680193578786
+        ],
+        [
+          1.8190557455302436,
+          0.3767699975600882
+        ],
+        [
+          0.33572525392510616,
+          0.8476462311709164
+        ],
+        [
+          0.08470346209341775,
+          0.4499752918444941
+        ],
+        [
+          1.8460880515966787,
+          0.2549654454920952
+        ],
+        [
+          1.8896754493003163,
+          0.13873246811039036
+        ],
+        [
+          0.15242045264915124,
+          0.3282913539426798
+        ],
+        [
+          1.0723488492846547,
+          1.1817170306277758
+        ],
+        [
+          1.819426073763483,
+          0.9937035318627143
+        ],
+        [
+          1.758143729151256,
+          0.7355528313725614
+        ],
+        [
+          1.7887278032509966,
+          0.36072784229323085
+        ],
+        [
+          0.15554078568626348,
+          0.44565184679683306
+        ],
+        [
+          0.36332287203539654,
+          1.0782523899176797
+        ],
+        [
+          1.7441876387932538,
+          0.5706910207580119
+        ],
+        [
+          1.7034373382202712,
+          0.5071174730948823
+        ],
+        [
+          0.48804855868846264,
+          0.322365214664361
+        ],
+        [
+          1.739370534827694,
+          0.3328437734947383
+        ],
+        [
+          1.6253345877680132,
+          1.0226819502944016
+        ]
+      ],
+      "sha256": "769caec1c2738356f2e5a4f51adc1d286ce3bb585c034c7a98950df701e3cbb2"
+    },
+    "eta_set": {
+      "seed": 20261110,
+      "n": 20,
+      "range": [
+        0.05,
+        1.2
+      ],
+      "values": [
+        0.7699906732973948,
+        0.21343577916215123,
+        0.7833969579324586,
+        0.6533343570248575,
+        0.8640430622180368,
+        0.7533165991563959,
+        1.0644732952696332,
+        0.3467251520177583,
+        0.8353397515921765,
+        0.24155056675653058,
+        0.2993442723902191,
+        0.08858981133062849,
+        0.3613793077257386,
+        0.42899612348195276,
+        0.7606495576336426,
+        0.5792429273458993,
+        1.084574458609753,
+        0.07152064322891662,
+        0.9875058577911827,
+        0.9870365022065123
+      ]
+    },
+    "ranking": [
+      {
+        "id": "r06-F3-006",
+        "lean": "certified",
+        "laptop_key": [
+          216,
+          832,
+          1350,
+          52
+        ],
+        "family": "F3",
+        "round": 6,
+        "cx": 216,
+        "qubits": 52,
+        "t_nominal": 832,
+        "robust_key": [
+          216,
+          16596,
+          0,
+          26988,
+          52
+        ],
+        "t_mean": 829.8,
+        "depth_mean": 1349.4,
+        "angle_linear": true
+      },
+      {
+        "id": "r06-F1-006",
+        "lean": null,
+        "laptop_key": [
+          218,
+          840,
+          1358,
+          52
+        ],
+        "family": "F1",
+        "round": 6,
+        "cx": 218,
+        "qubits": 52,
+        "t_nominal": 840,
+        "robust_key": [
+          218,
+          16584,
+          0,
+          27002,
+          52
+        ],
+        "t_mean": 829.2,
+        "depth_mean": 1350.1,
+        "angle_linear": true
+      },
+      {
+        "id": "r05-F3-005",
+        "lean": null,
+        "laptop_key": [
+          220,
+          840,
+          1389,
+          53
+        ],
+        "family": "F3",
+        "round": 5,
+        "cx": 220,
+        "qubits": 53,
+        "t_nominal": 840,
+        "robust_key": [
+          220,
+          16584,
+          0,
+          27622,
+          53
+        ],
+        "t_mean": 829.2,
+        "depth_mean": 1381.1,
+        "angle_linear": true
+      },
+      {
+        "id": "r05-F1-005",
+        "lean": null,
+        "laptop_key": [
+          226,
+          846,
+          1386,
+          52
+        ],
+        "family": "F1",
+        "round": 5,
+        "cx": 226,
+        "qubits": 52,
+        "t_nominal": 846,
+        "robust_key": [
+          226,
+          16876,
+          0,
+          27708,
+          52
+        ],
+        "t_mean": 843.8,
+        "depth_mean": 1385.4,
+        "angle_linear": true
+      },
+      {
+        "id": "r04-F1-004",
+        "lean": "not_run",
+        "laptop_key": [
+          228,
+          846,
+          1417,
+          53
+        ],
+        "family": "F1",
+        "round": 4,
+        "cx": 228,
+        "qubits": 53,
+        "t_nominal": 846,
+        "robust_key": [
+          228,
+          16876,
+          0,
+          28328,
+          53
+        ],
+        "t_mean": 843.8,
+        "depth_mean": 1416.4,
+        "angle_linear": true
+      },
+      {
+        "id": "r04-F3-003",
+        "lean": null,
+        "laptop_key": [
+          228,
+          846,
+          1417,
+          53
+        ],
+        "family": "F3",
+        "round": 4,
+        "cx": 228,
+        "qubits": 53,
+        "t_nominal": 846,
+        "robust_key": [
+          228,
+          16876,
+          0,
+          28328,
+          53
+        ],
+        "t_mean": 843.8,
+        "depth_mean": 1416.4,
+        "angle_linear": true
+      },
+      {
+        "id": "r03-F3-002",
+        "lean": "not_run",
+        "laptop_key": [
+          232,
+          1090,
+          2037,
+          53
+        ],
+        "family": "F3",
+        "round": 3,
+        "cx": 232,
+        "qubits": 53,
+        "t_nominal": 1090,
+        "robust_key": [
+          232,
+          21936,
+          0,
+          41904,
+          53
+        ],
+        "t_mean": 1096.8,
+        "depth_mean": 2095.2,
+        "angle_linear": true
+      },
+      {
+        "id": "r03-F1-003",
+        "lean": null,
+        "laptop_key": [
+          240,
+          870,
+          1351,
+          55
+        ],
+        "family": "F1",
+        "round": 3,
+        "cx": 240,
+        "qubits": 55,
+        "t_nominal": 870,
+        "robust_key": [
+          240,
+          17356,
+          0,
+          27008,
+          55
+        ],
+        "t_mean": 867.8,
+        "depth_mean": 1350.4,
+        "angle_linear": true
+      },
+      {
+        "id": "r02-F3-001",
+        "lean": "not_run",
+        "laptop_key": [
+          252,
+          1120,
+          2023,
+          54
+        ],
+        "family": "F3",
+        "round": 2,
+        "cx": 252,
+        "qubits": 54,
+        "t_nominal": 1120,
+        "robust_key": [
+          252,
+          22536,
+          0,
+          41624,
+          54
+        ],
+        "t_mean": 1126.8,
+        "depth_mean": 2081.2,
+        "angle_linear": true
+      },
+      {
+        "id": "r02-F1-002",
+        "lean": null,
+        "laptop_key": [
+          252,
+          1150,
+          2073,
+          57
+        ],
+        "family": "F1",
+        "round": 2,
+        "cx": 252,
+        "qubits": 57,
+        "t_nominal": 1150,
+        "robust_key": [
+          252,
+          22692,
+          0,
+          40678,
+          57
+        ],
+        "t_mean": 1134.6,
+        "depth_mean": 2033.9,
+        "angle_linear": true
+      },
+      {
+        "id": "r02-F2-002",
+        "lean": null,
+        "laptop_key": [
+          252,
+          1150,
+          2073,
+          57
+        ],
+        "family": "F2",
+        "round": 2,
+        "cx": 252,
+        "qubits": 57,
+        "t_nominal": 1150,
+        "robust_key": [
+          252,
+          22692,
+          0,
+          40678,
+          57
+        ],
+        "t_mean": 1134.6,
+        "depth_mean": 2033.9,
+        "angle_linear": true
+      },
+      {
+        "id": "r01-F1-001",
+        "lean": "not_run",
+        "laptop_key": [
+          256,
+          1020,
+          1714,
+          58
+        ],
+        "family": "F1",
+        "round": 1,
+        "cx": 256,
+        "qubits": 58,
+        "t_nominal": 1020,
+        "robust_key": [
+          256,
+          20290,
+          0,
+          34110,
+          58
+        ],
+        "t_mean": 1014.5,
+        "depth_mean": 1705.5,
+        "angle_linear": true
+      },
+      {
+        "id": "r05-F4-005",
+        "lean": null,
+        "laptop_key": [
+          274,
+          1186,
+          1767,
+          55
+        ],
+        "family": "F4",
+        "round": 5,
+        "cx": 274,
+        "qubits": 55,
+        "t_nominal": 1186,
+        "robust_key": [
+          274,
+          23392,
+          0,
+          34574,
+          55
+        ],
+        "t_mean": 1169.6,
+        "depth_mean": 1728.7,
+        "angle_linear": true
+      },
+      {
+        "id": "r03-F4-003",
+        "lean": null,
+        "laptop_key": [
+          292,
+          1210,
+          1766,
+          62
+        ],
+        "family": "F4",
+        "round": 3,
+        "cx": 292,
+        "qubits": 62,
+        "t_nominal": 1210,
+        "robust_key": [
+          292,
+          23872,
+          0,
+          34554,
+          62
+        ],
+        "t_mean": 1193.6,
+        "depth_mean": 1727.7,
+        "angle_linear": true
+      },
+      {
+        "id": "r04-F4-004",
+        "lean": null,
+        "laptop_key": [
+          292,
+          1210,
+          1766,
+          62
+        ],
+        "family": "F4",
+        "round": 4,
+        "cx": 292,
+        "qubits": 62,
+        "t_nominal": 1210,
+        "robust_key": [
+          292,
+          23872,
+          0,
+          34554,
+          62
+        ],
+        "t_mean": 1193.6,
+        "depth_mean": 1727.7,
+        "angle_linear": true
+      },
+      {
+        "id": "r02-F4-002",
+        "lean": null,
+        "laptop_key": [
+          326,
+          1232,
+          1752,
+          62
+        ],
+        "family": "F4",
+        "round": 2,
+        "cx": 326,
+        "qubits": 62,
+        "t_nominal": 1232,
+        "robust_key": [
+          326,
+          24436,
+          0,
+          34730,
+          62
+        ],
+        "t_mean": 1221.8,
+        "depth_mean": 1736.5,
+        "angle_linear": true
+      },
+      {
+        "id": "r01-F2-001",
+        "lean": null,
+        "laptop_key": [
+          354,
+          1818,
+          3557,
+          62
+        ],
+        "family": "F2",
+        "round": 1,
+        "cx": 354,
+        "qubits": 62,
+        "t_nominal": 1818,
+        "robust_key": [
+          354,
+          35692,
+          1,
+          70313,
+          62
+        ],
+        "t_mean": 1784.6,
+        "depth_mean": 3515.65,
+        "angle_linear": false
+      },
+      {
+        "id": "r01-F4-001",
+        "lean": null,
+        "laptop_key": [
+          390,
+          1304,
+          1871,
+          62
+        ],
+        "family": "F4",
+        "round": 1,
+        "cx": 390,
+        "qubits": 62,
+        "t_nominal": 1304,
+        "robust_key": [
+          390,
+          25752,
+          0,
+          36672,
+          62
+        ],
+        "t_mean": 1287.6,
+        "depth_mean": 1833.6,
+        "angle_linear": true
+      },
+      {
+        "id": "r01-F5-001",
+        "lean": null,
+        "laptop_key": [
+          492,
+          1739,
+          3142,
+          51
+        ],
+        "family": "F5",
+        "round": 1,
+        "cx": 492,
+        "qubits": 51,
+        "t_nominal": 1739,
+        "robust_key": [
+          492,
+          34860,
+          0,
+          62668,
+          51
+        ],
+        "t_mean": 1743.0,
+        "depth_mean": 3133.4,
+        "angle_linear": true
+      },
+      {
+        "id": "r00-seed-001",
+        "lean": null,
+        "laptop_key": [
+          6874,
+          17694,
+          31954,
+          58
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 6874,
+        "qubits": 58,
+        "t_nominal": 17694,
+        "robust_key": [
+          6874,
+          353284,
+          0,
+          638272,
+          58
+        ],
+        "t_mean": 17664.2,
+        "depth_mean": 31913.6,
+        "angle_linear": true
+      },
+      {
+        "id": "r00-seed-002",
+        "lean": null,
+        "laptop_key": [
+          7360,
+          18180,
+          32428,
+          58
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 7360,
+        "qubits": 58,
+        "t_nominal": 18180,
+        "robust_key": [
+          7360,
+          363004,
+          0,
+          647752,
+          58
+        ],
+        "t_mean": 18150.2,
+        "depth_mean": 32387.6,
+        "angle_linear": true
+      },
+      {
+        "id": "r00-seed-000",
+        "lean": "not_run",
+        "laptop_key": [
+          10102,
+          20650,
+          35639,
+          58
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 10102,
+        "qubits": 58,
+        "t_nominal": 20650,
+        "robust_key": [
+          10102,
+          412404,
+          0,
+          712112,
+          58
+        ],
+        "t_mean": 20620.2,
+        "depth_mean": 35605.6,
+        "angle_linear": true
+      },
+      {
+        "id": "r00-seed-010",
+        "lean": null,
+        "laptop_key": [
+          10102,
+          20650,
+          35639,
+          58
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 10102,
+        "qubits": 58,
+        "t_nominal": 20650,
+        "robust_key": [
+          10102,
+          412404,
+          0,
+          712112,
+          58
+        ],
+        "t_mean": 20620.2,
+        "depth_mean": 35605.6,
+        "angle_linear": true
+      }
+    ],
+    "before_after": [
+      {
+        "row": "general",
+        "layer": "unit",
+        "entry": "r00-seed-000",
+        "family": "seed",
+        "round": 0,
+        "commit": "f7bca4f",
+        "program_path": "compress/programs/rishon/seed/000-general.py",
+        "qubits": 58,
+        "cx": 10102,
+        "t_fixed": 10218,
+        "n_rot": 166,
+        "t_1e-6": 20650,
+        "t_est_1e-6": 20143.92114752344,
+        "t_1e-10": 27482,
+        "depth_ct": 35639,
+        "t_avg": 20620.2,
+        "key": [
+          10102,
+          20650,
+          35639,
+          58
+        ],
+        "verdict": "valid (err 4.13e-13, leak 0)",
+        "lean": "certified",
+        "lean_reason": "",
+        "lean_source": "fresh (9.6 s)",
+        "selection": "round-0 seed r00-seed-000 (ccx ladders, the uncompressed circuit)",
+        "lean_theorem_file": "lean/certs/rishon-general-step.lean"
+      },
+      {
+        "row": "cheapest_valid_seed",
+        "layer": "unit",
+        "entry": "r00-seed-001",
+        "family": "seed",
+        "round": 0,
+        "commit": "f7bca4f",
+        "program_path": "compress/programs/rishon/seed/001-general-rccx.py",
+        "qubits": 58,
+        "cx": 6874,
+        "t_fixed": 7262,
+        "n_rot": 166,
+        "t_1e-6": 17694,
+        "t_est_1e-6": 17187.92114752344,
+        "t_1e-10": 24526,
+        "depth_ct": 31954,
+        "t_avg": 17664.2,
+        "key": [
+          6874,
+          17694,
+          31954,
+          58
+        ],
+        "verdict": "valid (err 3.29e-12, leak 0)",
+        "lean": "certified",
+        "lean_reason": "",
+        "lean_source": "fresh (47.7 s)",
+        "selection": "round-0 seed (smallest valid laptop key)"
+      },
+      {
+        "row": "seed_002",
+        "layer": "unit",
+        "entry": "r00-seed-002",
+        "family": "seed",
+        "round": 0,
+        "commit": "f7bca4f",
+        "program_path": "compress/programs/rishon/seed/002-general-mcx.py",
+        "qubits": 58,
+        "cx": 7360,
+        "t_fixed": 7748,
+        "n_rot": 166,
+        "t_1e-6": 18180,
+        "t_est_1e-6": 17673.92114752344,
+        "t_1e-10": 25012,
+        "depth_ct": 32428,
+        "t_avg": 18150.2,
+        "key": [
+          7360,
+          18180,
+          32428,
+          58
+        ],
+        "verdict": "valid (err 3.03e-12, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "lean_source": "archive",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "seed_010",
+        "layer": "unit",
+        "entry": "r00-seed-010",
+        "family": "seed",
+        "round": 0,
+        "commit": "f7bca4f",
+        "program_path": "compress/programs/rishon/seed/010-general_polish.py",
+        "qubits": 58,
+        "cx": 10102,
+        "t_fixed": 10218,
+        "n_rot": 166,
+        "t_1e-6": 20650,
+        "t_est_1e-6": 20143.92114752344,
+        "t_1e-10": 27482,
+        "depth_ct": 35639,
+        "t_avg": 20620.2,
+        "key": [
+          10102,
+          20650,
+          35639,
+          58
+        ],
+        "verdict": "valid (err 4.13e-13, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "lean_source": "archive",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "best_family_F1",
+        "layer": "unit",
+        "entry": "r06-F1-006",
+        "family": "F1",
+        "round": 6,
+        "commit": "7cfe759",
+        "program_path": "compress/programs/rishon/F1/006-closed-skip-cy-gauge.py",
+        "qubits": 52,
+        "cx": 218,
+        "t_fixed": 196,
+        "n_rot": 10,
+        "t_1e-6": 840,
+        "t_est_1e-6": 793.9470570797253,
+        "t_1e-10": 1228,
+        "depth_ct": 1358,
+        "t_avg": 829.2,
+        "key": [
+          218,
+          840,
+          1358,
+          52
+        ],
+        "verdict": "valid (err 1.34e-13, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "lean_source": "archive",
+        "selection": "best of the family by the robust key"
+      },
+      {
+        "row": "best_family_F2",
+        "layer": "unit",
+        "entry": "r02-F2-002",
+        "family": "F2",
+        "round": 2,
+        "commit": "f7bca4f",
+        "program_path": "compress/programs/rishon/F2/002-ghz-frame-y3-walsh10.py",
+        "qubits": 57,
+        "cx": 252,
+        "t_fixed": 250,
+        "n_rot": 14,
+        "t_1e-6": 1150,
+        "t_est_1e-6": 1087.1258799116154,
+        "t_1e-10": 1678,
+        "depth_ct": 2073,
+        "t_avg": 1134.6,
+        "key": [
+          252,
+          1150,
+          2073,
+          57
+        ],
+        "verdict": "valid (err 1.46e-13, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "lean_source": "archive",
+        "selection": "best of the family by the robust key"
+      },
+      {
+        "row": "best_family_F3",
+        "layer": "unit",
+        "entry": "r06-F3-006",
+        "family": "F3",
+        "round": 6,
+        "commit": "7cfe759",
+        "program_path": "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+        "qubits": 52,
+        "cx": 216,
+        "t_fixed": 196,
+        "n_rot": 10,
+        "t_1e-6": 832,
+        "t_est_1e-6": 793.9470570797253,
+        "t_1e-10": 1228,
+        "depth_ct": 1350,
+        "t_avg": 829.8,
+        "key": [
+          216,
+          832,
+          1350,
+          52
+        ],
+        "verdict": "valid (err 1.35e-13, leak 0)",
+        "lean": "certified",
+        "lean_reason": "",
+        "lean_source": "archive",
+        "selection": "best of the family by the robust key"
+      },
+      {
+        "row": "best_family_F4",
+        "layer": "unit",
+        "entry": "r05-F4-005",
+        "family": "F4",
+        "round": 5,
+        "commit": "bef04cd",
+        "program_path": "compress/programs/rishon/F4/005-five-leaf-test-cover.py",
+        "qubits": 55,
+        "cx": 274,
+        "t_fixed": 282,
+        "n_rot": 14,
+        "t_1e-6": 1186,
+        "t_est_1e-6": 1119.1258799116154,
+        "t_1e-10": 1718,
+        "depth_ct": 1767,
+        "t_avg": 1169.6,
+        "key": [
+          274,
+          1186,
+          1767,
+          55
+        ],
+        "verdict": "valid (err 1.68e-13, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "lean_source": "archive",
+        "selection": "best of the family by the robust key"
+      },
+      {
+        "row": "best_family_F5",
+        "layer": "unit",
+        "entry": "r01-F5-001",
+        "family": "F5",
+        "round": 1,
+        "commit": "f7bca4f",
+        "program_path": "compress/programs/rishon/F5/001-class-batched-givens.py",
+        "qubits": 51,
+        "cx": 492,
+        "t_fixed": 483,
+        "n_rot": 20,
+        "t_1e-6": 1739,
+        "t_est_1e-6": 1678.8941141594505,
+        "t_1e-10": 2563,
+        "depth_ct": 3142,
+        "t_avg": 1743.0,
+        "key": [
+          492,
+          1739,
+          3142,
+          51
+        ],
+        "verdict": "valid (err 1.77e-13, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "lean_source": "archive",
+        "selection": "best of the family by the robust key"
+      },
+      {
+        "row": "global_best",
+        "layer": "unit",
+        "entry": "r06-F3-006",
+        "family": "F3",
+        "round": 6,
+        "commit": "7cfe759",
+        "program_path": "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+        "qubits": 52,
+        "cx": 216,
+        "t_fixed": 196,
+        "n_rot": 10,
+        "t_1e-6": 832,
+        "t_est_1e-6": 793.9470570797253,
+        "t_1e-10": 1228,
+        "depth_ct": 1350,
+        "t_avg": 829.8,
+        "key": [
+          216,
+          832,
+          1350,
+          52
+        ],
+        "verdict": "valid (err 1.35e-13, leak 0)",
+        "lean": "certified",
+        "lean_reason": "",
+        "lean_source": "archive",
+        "selection": "laptop key (CX, T(1e-6) at the nominal pair, depth_CT, qubits)"
+      },
+      {
+        "row": "headline",
+        "layer": "unit",
+        "entry": "r06-F3-006",
+        "family": "F3",
+        "round": 6,
+        "commit": "7cfe759",
+        "program_path": "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+        "qubits": 52,
+        "cx": 216,
+        "t_fixed": 196,
+        "n_rot": 10,
+        "t_1e-6": 832,
+        "t_est_1e-6": 793.9470570797253,
+        "t_1e-10": 1228,
+        "depth_ct": 1350,
+        "t_avg": 829.8,
+        "key": [
+          216,
+          832,
+          1350,
+          52
+        ],
+        "verdict": "valid (err 1.35e-13, leak 0)",
+        "lean": "certified",
+        "lean_reason": "",
+        "lean_source": "archive",
+        "selection": "smallest robust key (prompts/203 section 13 E3)",
+        "robust_key": [
+          216,
+          16596,
+          0,
+          26988,
+          52
+        ]
+      },
+      {
+        "row": "det_layer",
+        "layer": "det",
+        "entry": null,
+        "qubits": 48,
+        "cx": 32,
+        "t_fixed": 0,
+        "n_rot": 8,
+        "t_1e-6": 496,
+        "t_est_1e-6": 478.3576456637802,
+        "t_1e-10": 816,
+        "depth_ct": 326,
+        "t_avg": 500.8,
+        "verdict": "valid (results/rishon/UD.json, eta = 0.29)",
+        "lean": "certified",
+        "lean_reason": "",
+        "eta": 0.29,
+        "t_eps_set_n": 20,
+        "lean_source": "fresh (0.8 s)"
+      },
+      {
+        "row": "general+det",
+        "layer": "three_layer",
+        "entry": "r00-seed-000",
+        "qubits": 58,
+        "cx": 10134,
+        "t_fixed": 10218,
+        "n_rot": 174,
+        "t_1e-6": 21146,
+        "t_est_1e-6": 20622.27879318722,
+        "t_1e-10": 28298,
+        "depth_ct": 35965,
+        "t_avg": 21121.0,
+        "verdict": "unit valid; det layer in front (U_D commutes with U_E)",
+        "lean": "certified",
+        "lean_reason": "unit certificate + det-layer certificate (METHODS-rishon R16: composition, not a Lean theorem)"
+      },
+      {
+        "row": "cheapest_valid_seed+det",
+        "layer": "three_layer",
+        "entry": "r00-seed-001",
+        "qubits": 58,
+        "cx": 6906,
+        "t_fixed": 7262,
+        "n_rot": 174,
+        "t_1e-6": 18190,
+        "t_est_1e-6": 17666.27879318722,
+        "t_1e-10": 25342,
+        "depth_ct": 32280,
+        "t_avg": 18165.0,
+        "verdict": "unit valid; det layer in front (U_D commutes with U_E)",
+        "lean": "certified",
+        "lean_reason": "unit certificate + det-layer certificate (METHODS-rishon R16: composition, not a Lean theorem)"
+      },
+      {
+        "row": "global_best+det",
+        "layer": "three_layer",
+        "entry": "r06-F3-006",
+        "qubits": 52,
+        "cx": 248,
+        "t_fixed": 196,
+        "n_rot": 18,
+        "t_1e-6": 1328,
+        "t_est_1e-6": 1272.3047027435055,
+        "t_1e-10": 2044,
+        "depth_ct": 1676,
+        "t_avg": 1330.6,
+        "verdict": "verified on the 1296 codes at 3 triples (three-layer.json)",
+        "lean": "certified",
+        "lean_reason": "unit certificate + det-layer certificate (METHODS-rishon R16: composition, not a Lean theorem)"
+      },
+      {
+        "row": "headline+det",
+        "layer": "three_layer",
+        "entry": "r06-F3-006",
+        "qubits": 52,
+        "cx": 248,
+        "t_fixed": 196,
+        "n_rot": 18,
+        "t_1e-6": 1328,
+        "t_est_1e-6": 1272.3047027435055,
+        "t_1e-10": 2044,
+        "depth_ct": 1676,
+        "t_avg": 1330.6,
+        "verdict": "verified on the 1296 codes at 3 triples (three-layer.json)",
+        "lean": "certified",
+        "lean_reason": "unit certificate + det-layer certificate (METHODS-rishon R16: composition, not a Lean theorem)"
+      },
+      {
+        "row": "outer_electric_row",
+        "layer": "outer",
+        "entry": null,
+        "qubits": 48,
+        "cx": 24,
+        "t_fixed": 0,
+        "n_rot": 12,
+        "t_1e-6": 768,
+        "t_est_1e-6": 717.5364684956703,
+        "t_1e-10": 1248,
+        "depth_ct": 169,
+        "t_avg": null,
+        "verdict": "certified per link (UE_outer_row_certified.json, commit 59e863d)",
+        "lean": "n_a",
+        "lean_reason": "writes the outer register: certified by an exhaustive per-link check, not by Lean"
+      },
+      {
+        "row": "outer_det_row",
+        "layer": "outer",
+        "entry": null,
+        "qubits": 48,
+        "cx": 96,
+        "t_fixed": 0,
+        "n_rot": 24,
+        "t_1e-6": 1488,
+        "t_est_1e-6": 1435.0729369913406,
+        "t_1e-10": 2448,
+        "depth_ct": 326,
+        "t_avg": null,
+        "verdict": "certified per link (UD_outer_row_certified.json, commit 6fea036)",
+        "lean": "n_a",
+        "lean_reason": "writes the outer register: certified by an exhaustive per-link check, not by Lean"
+      }
+    ],
+    "baselines": {
+      "general_circuit": {
+        "entry": "r00-seed-000",
+        "unit_cx": 10102,
+        "three_layer_cx": 10134,
+        "three_layer_file": "results/rishon/step3.json",
+        "unit_file": "results/rishon/step.json"
+      },
+      "cheapest_valid_seed": {
+        "entry": "r00-seed-001",
+        "label": "general-rccx ladder",
+        "unit_cx": 6874,
+        "three_layer_cx": 6906
+      }
+    },
+    "unit_vs_three_layer": {
+      "unit": [
+        216,
+        832,
+        1350,
+        52
+      ],
+      "det": [
+        32,
+        496,
+        326,
+        48
+      ],
+      "three_layer": [
+        248,
+        1328,
+        1676,
+        52
+      ],
+      "unit_t_mean": 829.8,
+      "det_t_mean": 500.8,
+      "three_layer_t_mean": 1330.6,
+      "verdicts": [
+        {
+          "ok": true,
+          "certified": true,
+          "reason": "ok",
+          "op_norm_error": 1.535398814993358e-13,
+          "block_error": 1.5091070179591615e-14,
+          "leak_amplitude": 0.0,
+          "dropped_total": 1.384488113197442e-13,
+          "gauss_residual": 7.562847260981283e-16
+        },
+        {
+          "ok": true,
+          "certified": true,
+          "reason": "ok",
+          "op_norm_error": 1.592297122157234e-13,
+          "block_error": 1.527204133537338e-14,
+          "leak_amplitude": 0.0,
+          "dropped_total": 1.4395767088035002e-13,
+          "gauss_residual": 1.0687952174274339e-15
+        },
+        {
+          "ok": true,
+          "certified": true,
+          "reason": "ok",
+          "op_norm_error": 1.5712874629512747e-13,
+          "block_error": 1.5136602319224703e-14,
+          "leak_amplitude": 0.0,
+          "dropped_total": 1.4199214397590276e-13,
+          "gauss_residual": 7.105169854919052e-16
+        }
+      ],
+      "triples": [
+        [
+          0.37,
+          0.61,
+          0.29
+        ],
+        [
+          0.91,
+          0.23,
+          0.53
+        ],
+        [
+          1.7,
+          1.0,
+          1.07
+        ]
+      ],
+      "file": "results/compress/rishon/three-layer.json",
+      "file_commit": "086c0fd",
+      "file_git_dirty": false,
+      "outer_touched": false
+    },
+    "det_layer": {
+      "eta": 0.29,
+      "cx": 32,
+      "n_rot": 8,
+      "t_fixed": 0,
+      "t_eps": 496,
+      "depth_ct": 326,
+      "qubits": 48,
+      "key": [
+        32,
+        496,
+        326,
+        48
+      ],
+      "t_sum": 10016,
+      "t_mean": 500.8
+    },
+    "outer_rows": {
+      "outer_electric_row": {
+        "file": "results/rishon/UE_outer_row_certified.json",
+        "ok": true,
+        "commit": "59e863d",
+        "git_dirty": false,
+        "max_link_error": 0.0,
+        "error_bound": 0.0
+      },
+      "outer_det_row": {
+        "file": "results/rishon/UD_outer_row_certified.json",
+        "ok": true,
+        "commit": "6fea036",
+        "git_dirty": false,
+        "max_link_error": 3.3310928468020272e-16,
+        "error_bound": 3.997311416162433e-15
+      }
+    },
+    "replay": {
+      "tag": "204",
+      "prune_fraction": 0.1,
+      "rounds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+      "evaluator_sha256_old": [
+        "d45ffb3116894a24f75864ed708c79b3ad174398e358af0ed5b8bc03845d2793",
+        "43ae85b452e0c2a5bf09d19fbb1d6d56cf6a81599eb5642d2ecb1364a50309f3"
+      ],
+      "newly_valid": [
+        "r00-seed-001",
+        "r00-seed-002"
+      ],
+      "lost": [],
+      "best_old": {
+        "id": "r04-F1-004",
+        "key": [
+          228,
+          846,
+          1417,
+          53
+        ]
+      },
+      "best_new": {
+        "id": "r04-F1-004",
+        "key": [
+          228,
+          846,
+          1417,
+          53
+        ]
+      },
+      "attempts_unchanged": true,
+      "discoveries_unchanged": true,
+      "wall_s": 2083.9072177410126,
+      "n_entries": 19,
+      "all_keys_equal": true,
+      "provenance_commit": "f7bca4f"
+    },
+    "rounds": [
+      {
+        "round": 0,
+        "n_valid": 4,
+        "n_invalid": 1,
+        "best_key": [
+          6874,
+          17694,
+          31954,
+          58
+        ],
+        "n_pruning_bound": 0,
+        "headline": "r00-seed-001",
+        "headline_robust_key": [
+          6874,
+          353284,
+          0,
+          638272,
+          58
+        ],
+        "wall_s": 1633.517837524414,
+        "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+        "synthesis_verification": {
+          "entry": "r00-seed-001",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 166,
+          "t_total": 17694,
+          "tolerances": {
+            "tol_err": 0.00016600099999999998,
+            "tol_gauss": 0.00016600099999999998
+          },
+          "op_norm_error": 1.8995150192913896e-05,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 1,
+        "n_valid": 4,
+        "n_invalid": 0,
+        "best_key": [
+          256,
+          1020,
+          1714,
+          58
+        ],
+        "n_pruning_bound": 0,
+        "headline": "r01-F1-001",
+        "headline_robust_key": [
+          256,
+          20290,
+          0,
+          34110,
+          58
+        ],
+        "wall_s": 110.92882585525513,
+        "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+        "synthesis_verification": {
+          "entry": "r01-F1-001",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 12,
+          "t_total": 1020,
+          "tolerances": {
+            "tol_err": 1.2001e-05,
+            "tol_gauss": 1.2001e-05
+          },
+          "op_norm_error": 3.85345463512864e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 2,
+        "n_valid": 4,
+        "n_invalid": 0,
+        "best_key": [
+          252,
+          1120,
+          2023,
+          54
+        ],
+        "n_pruning_bound": 0,
+        "headline": "r02-F3-001",
+        "headline_robust_key": [
+          252,
+          22536,
+          0,
+          41624,
+          54
+        ],
+        "wall_s": 121.53844547271729,
+        "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+        "synthesis_verification": {
+          "entry": "r02-F3-001",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 14,
+          "t_total": 1120,
+          "tolerances": {
+            "tol_err": 1.4001e-05,
+            "tol_gauss": 1.4001e-05
+          },
+          "op_norm_error": 5.427037764800188e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 3,
+        "n_valid": 3,
+        "n_invalid": 0,
+        "best_key": [
+          232,
+          1090,
+          2037,
+          53
+        ],
+        "n_pruning_bound": 0,
+        "headline": "r03-F3-002",
+        "headline_robust_key": [
+          232,
+          21936,
+          0,
+          41904,
+          53
+        ],
+        "wall_s": 126.10925793647766,
+        "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+        "synthesis_verification": {
+          "entry": "r03-F3-002",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 14,
+          "t_total": 1090,
+          "tolerances": {
+            "tol_err": 1.4001e-05,
+            "tol_gauss": 1.4001e-05
+          },
+          "op_norm_error": 4.156274856144831e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 4,
+        "n_valid": 3,
+        "n_invalid": 0,
+        "best_key": [
+          228,
+          846,
+          1417,
+          53
+        ],
+        "n_pruning_bound": 0,
+        "headline": "r04-F1-004",
+        "headline_robust_key": [
+          228,
+          16876,
+          0,
+          28328,
+          53
+        ],
+        "wall_s": 91.79333996772766,
+        "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+        "synthesis_verification": {
+          "entry": "r04-F1-004",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 10,
+          "t_total": 846,
+          "tolerances": {
+            "tol_err": 1.0001e-05,
+            "tol_gauss": 1.0001e-05
+          },
+          "op_norm_error": 3.031515078495722e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 5,
+        "n_valid": 3,
+        "n_invalid": 0,
+        "best_key": [
+          220,
+          840,
+          1389,
+          53
+        ],
+        "n_pruning_bound": 0,
+        "headline": "r05-F3-005",
+        "headline_robust_key": [
+          220,
+          16584,
+          0,
+          27622,
+          53
+        ],
+        "wall_s": 91.16804027557373,
+        "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+        "synthesis_verification": {
+          "entry": "r05-F3-005",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 10,
+          "t_total": 840,
+          "tolerances": {
+            "tol_err": 1.0001e-05,
+            "tol_gauss": 1.0001e-05
+          },
+          "op_norm_error": 4.324590823042975e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 6,
+        "n_valid": 2,
+        "n_invalid": 0,
+        "best_key": [
+          216,
+          832,
+          1350,
+          52
+        ],
+        "n_pruning_bound": 0,
+        "headline": "r06-F3-006",
+        "headline_robust_key": [
+          216,
+          16596,
+          0,
+          26988,
+          52
+        ],
+        "wall_s": 71.68698740005493,
+        "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+        "synthesis_verification": {
+          "entry": "r06-F3-006",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 10,
+          "t_total": 832,
+          "tolerances": {
+            "tol_err": 1.0001e-05,
+            "tol_gauss": 1.0001e-05
+          },
+          "op_norm_error": 3.0296657189542007e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      }
+    ],
+    "verdicts_alt": [
+      {
+        "ok": true,
+        "reason": "ok",
+        "op_norm_error": 1.3932381997727447e-13,
+        "max_leak": 0.0,
+        "dirty_ancilla": 0.0,
+        "phase": [
+          1.0,
+          -8.772132540248252e-17
+        ],
+        "outer_bits_read": 0,
+        "n_blocks": 1,
+        "gauss_residual": 6.086679710048736e-16,
+        "method": "rishon_inner_block",
+        "engine": "sparse",
+        "engine_accuracy": 0.0,
+        "certified": true,
+        "tolerances": {
+          "tol_err": 1e-10,
+          "tol_gauss": 1e-10
+        },
+        "dropped_total": 1.257627286299806e-13,
+        "block_error": 1.3561091347293863e-14,
+        "leak_amplitude": 0.0,
+        "seconds": 4.693730592727661,
+        "n_inputs": 1296,
+        "span_leak": 0.0,
+        "total_error": 1.3932381997727447e-13,
+        "failing_inputs": [],
+        "extra": {
+          "gauss_states": 273,
+          "outer_bits_read": 0,
+          "inner_method": "inner_span",
+          "rishon": true
+        }
+      },
+      {
+        "ok": true,
+        "reason": "ok",
+        "op_norm_error": 1.3576545119772967e-13,
+        "max_leak": 0.0,
+        "dirty_ancilla": 0.0,
+        "phase": [
+          1.0,
+          -2.63163976207448e-16
+        ],
+        "outer_bits_read": 0,
+        "n_blocks": 1,
+        "gauss_residual": 6.443838111016509e-16,
+        "method": "rishon_inner_block",
+        "engine": "sparse",
+        "engine_accuracy": 0.0,
+        "certified": true,
+        "tolerances": {
+          "tol_err": 1e-10,
+          "tol_gauss": 1e-10
+        },
+        "dropped_total": 1.219195024820854e-13,
+        "block_error": 1.3845948715644261e-14,
+        "leak_amplitude": 0.0,
+        "seconds": 4.651469707489014,
+        "n_inputs": 1296,
+        "span_leak": 0.0,
+        "total_error": 1.3576545119772967e-13,
+        "failing_inputs": [],
+        "extra": {
+          "gauss_states": 273,
+          "outer_bits_read": 0,
+          "inner_method": "inner_span",
+          "rishon": true
+        }
+      }
+    ],
+    "synthesis_verification": {
+      "entry": "r06-F3-006",
+      "ok": true,
+      "eps": 1e-06,
+      "n_rot": 10,
+      "t_total": 832,
+      "tolerances": {
+        "tol_err": 1.0001e-05,
+        "tol_gauss": 1.0001e-05
+      },
+      "op_norm_error": 3.0296657189542007e-06,
+      "certified": true,
+      "reason": "ok"
+    },
+    "lineage": [
+      {
+        "id": "r00-seed-000",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 10102,
+        "t_eps": 20650,
+        "parent_known": true,
+        "t_avg": 20620.2
+      },
+      {
+        "id": "r00-seed-010",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 10102,
+        "t_eps": 20650,
+        "parent_known": true,
+        "t_avg": 20620.2
+      },
+      {
+        "id": "r00-seed-001",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 6874,
+        "t_eps": 17694,
+        "parent_known": true,
+        "t_avg": 17664.2
+      },
+      {
+        "id": "r00-seed-002",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 7360,
+        "t_eps": 18180,
+        "parent_known": true,
+        "t_avg": 18150.2
+      },
+      {
+        "id": "r01-F1-001",
+        "parent": null,
+        "family": "F1",
+        "round": 1,
+        "cx": 256,
+        "t_eps": 1020,
+        "parent_known": true,
+        "t_avg": 1014.5
+      },
+      {
+        "id": "r01-F2-001",
+        "parent": null,
+        "family": "F2",
+        "round": 1,
+        "cx": 354,
+        "t_eps": 1818,
+        "parent_known": true,
+        "t_avg": 1784.6
+      },
+      {
+        "id": "r01-F4-001",
+        "parent": null,
+        "family": "F4",
+        "round": 1,
+        "cx": 390,
+        "t_eps": 1304,
+        "parent_known": true,
+        "t_avg": 1287.6
+      },
+      {
+        "id": "r01-F5-001",
+        "parent": null,
+        "family": "F5",
+        "round": 1,
+        "cx": 492,
+        "t_eps": 1739,
+        "parent_known": true,
+        "t_avg": 1743.0
+      },
+      {
+        "id": "r02-F1-002",
+        "parent": "r01-F1-001",
+        "family": "F1",
+        "round": 2,
+        "cx": 252,
+        "t_eps": 1150,
+        "parent_known": true,
+        "t_avg": 1134.6
+      },
+      {
+        "id": "r02-F2-002",
+        "parent": "r01-F1-001",
+        "family": "F2",
+        "round": 2,
+        "cx": 252,
+        "t_eps": 1150,
+        "parent_known": true,
+        "t_avg": 1134.6
+      },
+      {
+        "id": "r02-F3-001",
+        "parent": null,
+        "family": "F3",
+        "round": 2,
+        "cx": 252,
+        "t_eps": 1120,
+        "parent_known": true,
+        "t_avg": 1126.8
+      },
+      {
+        "id": "r02-F4-002",
+        "parent": "r01-F4-001",
+        "family": "F4",
+        "round": 2,
+        "cx": 326,
+        "t_eps": 1232,
+        "parent_known": true,
+        "t_avg": 1221.8
+      },
+      {
+        "id": "r03-F1-003",
+        "parent": "r02-F1-002",
+        "family": "F1",
+        "round": 3,
+        "cx": 240,
+        "t_eps": 870,
+        "parent_known": true,
+        "t_avg": 867.8
+      },
+      {
+        "id": "r03-F3-002",
+        "parent": "r02-F3-001",
+        "family": "F3",
+        "round": 3,
+        "cx": 232,
+        "t_eps": 1090,
+        "parent_known": true,
+        "t_avg": 1096.8
+      },
+      {
+        "id": "r03-F4-003",
+        "parent": "r02-F4-002",
+        "family": "F4",
+        "round": 3,
+        "cx": 292,
+        "t_eps": 1210,
+        "parent_known": true,
+        "t_avg": 1193.6
+      },
+      {
+        "id": "r04-F1-004",
+        "parent": "r03-F3-002",
+        "family": "F1",
+        "round": 4,
+        "cx": 228,
+        "t_eps": 846,
+        "parent_known": true,
+        "t_avg": 843.8
+      },
+      {
+        "id": "r04-F3-003",
+        "parent": "r03-F3-002",
+        "family": "F3",
+        "round": 4,
+        "cx": 228,
+        "t_eps": 846,
+        "parent_known": true,
+        "t_avg": 843.8
+      },
+      {
+        "id": "r04-F4-004",
+        "parent": "r03-F4-003",
+        "family": "F4",
+        "round": 4,
+        "cx": 292,
+        "t_eps": 1210,
+        "parent_known": true,
+        "t_avg": 1193.6
+      },
+      {
+        "id": "r05-F1-005",
+        "parent": "r04-F1-004",
+        "family": "F1",
+        "round": 5,
+        "cx": 226,
+        "t_eps": 846,
+        "parent_known": true,
+        "t_avg": 843.8
+      },
+      {
+        "id": "r05-F3-005",
+        "parent": "r04-F3-003",
+        "family": "F3",
+        "round": 5,
+        "cx": 220,
+        "t_eps": 840,
+        "parent_known": true,
+        "t_avg": 829.2
+      },
+      {
+        "id": "r05-F4-005",
+        "parent": "r03-F4-003",
+        "family": "F4",
+        "round": 5,
+        "cx": 274,
+        "t_eps": 1186,
+        "parent_known": true,
+        "t_avg": 1169.6
+      },
+      {
+        "id": "r06-F1-006",
+        "parent": "r05-F1-005",
+        "family": "F1",
+        "round": 6,
+        "cx": 218,
+        "t_eps": 840,
+        "parent_known": true,
+        "t_avg": 829.2
+      },
+      {
+        "id": "r06-F3-006",
+        "parent": "r05-F3-005",
+        "family": "F3",
+        "round": 6,
+        "cx": 216,
+        "t_eps": 832,
+        "parent_known": true,
+        "t_avg": 829.8
+      }
+    ],
+    "n_rounds": 7,
+    "n_candidates": 24,
+    "n_valid": 23,
+    "lean": {
+      "archive_status": "certified",
+      "archive_reason": "",
+      "checker_sha256": "6c3c62bea03fb96f00fbe9093a16a6f42c2fe75f43ee0faad0179070dfe24c7e",
+      "trust": "the Lean compiler plus the checker source: the Pins3 constants (the exact targets, generated by su2plaq.rishon.lean_cert.compute_pins), Check3, Gates3 and Laurent3 (Su2PlaqCert.Rishon.*); the theorem file proves Su2PlaqCert.Rishon.checkJsonString certJson = true by native_decide (standard axioms + one native_decide axiom). The angle-fit rule of prompts/204 section 6.4 (certified only if the exponents the exporter emits equal the angle_fit confirmed at the 20 pairs of the angle set) applies to archive entries with a program file",
+      "angle_fit": {
+        "confirmed": true,
+        "reason": "",
+        "fit": [
+          [
+            -3,
+            0,
+            0,
+            4
+          ],
+          [
+            -3,
+            0,
+            0,
+            4
+          ],
+          [
+            -3,
+            0,
+            0,
+            4
+          ],
+          [
+            -3,
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            1,
+            -2,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            2
+          ],
+          [
+            0,
+            -1,
+            0,
+            2
+          ],
+          [
+            0,
+            -1,
+            2,
+            1
+          ],
+          [
+            0,
+            -1,
+            -4,
+            2
+          ],
+          [
+            0,
+            1,
+            4,
+            2
+          ]
+        ]
+      },
+      "status": "certified",
+      "reason": "",
+      "cert_path": "compress/lean/certs/step-o1-24d16bdd9c45.json",
+      "cert_seconds": 5.013610124588013,
+      "cert_sha256": "ef70932c7394e5e2915b3cf18ddca3be2441cead08c23d8d7d4d82e428182987",
+      "same_certificate_as_archive": true,
+      "theorem_file": "lean/certs/rishon-best-step.lean",
+      "theorem_name": "rishon_best_step",
+      "elaboration_status": "certified",
+      "elaboration_seconds": 9.667386770248413,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext",
+        "rishon_best_step._native.native_decide.ax_1_1"
+      ]
+    }
+  }
+}
