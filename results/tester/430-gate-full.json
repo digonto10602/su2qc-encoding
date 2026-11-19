@@ -1,0 +1,24 @@
+{
+ "report": "reports/tests/430-milestone-2c-gate-full.md",
+ "commit": "9483896", "date": "2026-11-19", "machine": "omnicommander, taskset -c 0-8, pytest-safe -n 4, load avg 1-5",
+ "acceptance_tag": "acceptance-v22", "seeds": "none set by tester; tests carry their own fixed seeds",
+ "acceptance": {
+  "m0": {"passed": 34, "failed": 0, "wall_s": 14}, "m1": {"passed": 22, "failed": 0, "wall_s": 65},
+  "m2": {"passed": 46, "failed": 0, "wall_s": 118}, "m2c": {"passed": 28, "failed": 0, "wall_s": 27},
+  "m3": {"passed": 24, "failed": 0, "wall_s": 8}, "m3x": {"passed": 4, "failed": 0, "wall_s": 5},
+  "m4": {"passed": 19, "failed": 0, "wall_s": 28}, "m5": {"passed": 56, "failed": 0, "wall_s": 773},
+  "m5x": {"passed": 8, "failed": 0, "wall_s": 6},
+  "m6": {"passed": 25, "failed": 8, "wall_s": 1203, "pending": ["L2","L3","L4","L5","L6","L7","L9","G6"]},
+  "m7": {"passed": 29, "failed": 0, "wall_s": 8},
+  "m8": {"passed": 17, "failed": 16, "wall_s": 7, "pending": ["E2","S0","S2","S3","S4","S5","H1","L2","G1","G2","G3","G4","L1","L5","R1","H2"]},
+  "m9": {"passed": 28, "failed": 0, "wall_s": 1024}, "m10": {"passed": 10, "failed": 0, "wall_s": 72},
+  "m11": {"passed": 31, "failed": 2, "wall_s": 58, "pending": ["T2","K4[lsh-twelve]"]}
+ },
+ "acceptance_total": {"collected": 407, "passed": 331, "failed": 26, "all_failed_are_PENDING": true},
+ "unit": {"passed": 1145, "failed": 0, "wall_s": 360},
+ "collect_only": "407 tests collected, clean",
+ "check_lock": "LOCK OK", "acceptance_check": "PASS: tests/acceptance matches acceptance-v22",
+ "hashes": {"provenance_twelve": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37", "lsh": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca", "spinnet": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c", "fuzzy_ub_eq_fuzzy_link": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9", "rishon": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23", "spinnet_loop": "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4"},
+ "oom_kills": 0,
+ "restored_files": ["results/spinnet/certs/spinnet-UB-o1-33d95284ebb7.json","results/spinnet/certs/spinnet-UB-o1-458a39365261.json","results/spinnet/certs/spinnet-UE-o1-df0c79b22d3f.json","results/spinnet/certs/spinnet-step-o1-066f66922ff8.json","results/spinnet/certs/spinnet-step-o1-b0a415d9322f.json"]
+}
