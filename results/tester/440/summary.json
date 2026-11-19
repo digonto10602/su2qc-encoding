@@ -1,0 +1,39 @@
+{
+ "commit": "df95e14 (tree dirty: untracked scripts/m8_results.py, tests/unit/test_m8_results_unit.py)",
+ "seed": null,
+ "note": "no RNG; own sparse engine (results/tester/439/own_sparse.py), headline r02-F1-002 from results/compress/lsh archive, 433 states x 3 pairs, native + lowered; 226 JSON field checks in check_json.py all PASS",
+ "own_engine_errors": {
+  "0.37,0.61": {
+   "native": 1.3792189885478776e-15,
+   "lowered": 2.2037297810228142e-15,
+   "stats": {
+    "dirty": 0.0,
+    "leak": 0.0,
+    "outer": 0.0,
+    "gauss": 0.0
+   }
+  },
+  "0.91,0.23": {
+   "native": 6.753223014464261e-16,
+   "lowered": 2.713240612151045e-15,
+   "stats": {
+    "dirty": 0.0,
+    "leak": 0.0,
+    "outer": 0.0,
+    "gauss": 0.0
+   }
+  },
+  "1.7,1.0": {
+   "native": 1.9448322093486645e-15,
+   "lowered": 2.859306591884931e-15,
+   "stats": {
+    "dirty": 0.0,
+    "leak": 0.0,
+    "outer": 0.0,
+    "gauss": 0.0
+   }
+  }
+ },
+ "qpy_file_err_vs_target": 1.3792e-15,
+ "qasm3_file_lowered_err": 2.2037e-15
+}
