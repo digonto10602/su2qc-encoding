@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [ 52%]
+......................F...........................................       [100%]
+=================================== FAILURES ===================================
+________________________ test_M6_G6_three_layer_summary ________________________
+[gw1] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: results/compress/rishon/three-layer.json missing (prompts/204 step C5)
+=========================== short test summary info ============================
+FAILED tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G6_three_layer_summary
+1 failed, 137 passed in 885.35s (0:14:45)

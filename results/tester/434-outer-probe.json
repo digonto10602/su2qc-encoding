@@ -1,0 +1,30 @@
+{
+ "control: unchanged": [
+  "certified",
+  ""
+ ],
+ "data->outer write cx(0,20)": [
+  "n_a",
+  "outer_read"
+ ],
+ "outer-controlled cx(20,1)": [
+  "n_a",
+  "outer_read"
+ ],
+ "rz on outer 40": [
+  "n_a",
+  "outer_read"
+ ],
+ "h on outer 17": [
+  "n_a",
+  "outer_read"
+ ],
+ "x on outer 47 then x (identity pair)": [
+  "n_a",
+  "outer_read"
+ ],
+ "x on unused qubit above outer (if any)": [
+  "n_a",
+  "outer_read"
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "good": {
+  "confirmed": true,
+  "reason": "",
+  "bare_status": "certified",
+  "gated_status": "certified",
+  "gated_reason": "",
+  "round._certify_status": "certified",
+  "round._certify_reason": ""
+ },
+ "const": {
+  "confirmed": false,
+  "reason": "the fit does not reproduce the angle at the pair (1.5818052784823036, 0.24787348121639236)",
+  "bare_status": "certified",
+  "gated_status": "n_a",
+  "gated_reason": "angle_fit_not_confirmed: the fit does not reproduce the angle at the pair (1.5818052784823",
+  "round._certify_status": "n_a",
+  "round._certify_reason": "angle_fit_not_confirmed: the fit does not reproduce the angle at the pair (1.5818052784823"
+ },
+ "quad": {
+  "confirmed": false,
+  "reason": "the fit does not reproduce the angle at the pair (1.5818052784823036, 0.24787348121639236)",
+  "bare_status": "certified",
+  "gated_status": "n_a",
+  "gated_reason": "angle_fit_not_confirmed: the fit does not reproduce the angle at the pair (1.5818052784823",
+  "round._certify_status": "n_a",
+  "round._certify_reason": "angle_fit_not_confirmed: the fit does not reproduce the angle at the pair (1.5818052784823"
+ },
+ "skeleton_changes": {
+  "confirmed": false,
+  "reason": "the gate skeleton changes over the angle set",
+  "bare_status": "certified",
+  "gated_status": "n_a",
+  "gated_reason": "angle_fit_not_confirmed: the gate skeleton changes over the angle set",
+  "round._certify_status": "n_a",
+  "round._certify_reason": "angle_fit_not_confirmed: the gate skeleton changes over the angle set"
+ }
+}

@@ -133,18 +133,23 @@ def _circuit_of(spec, program_path, label, fn, root):
         return None, f"{type(exc).__name__}: {exc}"
 
 
-def _certify(circ, spec):
-    """(asdict(LeanCert) or a status dict, seconds).  Lean never changes validity; a failure or an unbuilt checker is recorded."""
+def _certify(circ, spec, program_path=None, root=None):
+    """(asdict(LeanCert) or a status dict, seconds).  Lean never changes validity; a failure or an unbuilt checker is recorded.
+    With a program file (an archive entry) the exporter rule of prompts/204 section 6.4 applies: `certified` only if the angle fit of
+    every rotation is confirmed at the 20 pairs of the angle set (`lean_cert.confirm_angle_fit`), else `n_a: angle_fit_not_confirmed`."""
     t0 = time.time()
     try:
         from dataclasses import asdict
 
         from su2plaq.rishon import lean_cert
 
-        return asdict(lean_cert.certify_circuit(circ, spec, timeout=1200.0)), time.time() - t0
+        fit = None
+        if program_path is not None and not str(program_path).endswith(".circuit"):
+            fit = lean_cert.confirm_angle_fit(program_path, spec, root=root)
+        return asdict(lean_cert.certify_circuit(circ, spec, timeout=1200.0, angle_fit=fit)), time.time() - t0
     except NotImplementedError as exc:
         return {"status": "not_run", "reason": f"Lean certification not available: {exc}"}, time.time() - t0
-    except (ImportError, OSError, ValueError, RuntimeError, subprocess.SubprocessError) as exc:
+    except (ImportError, OSError, ValueError, RuntimeError, subprocess.SubprocessError, E.ContractError) as exc:
         return {"status": "failed", "reason": f"{type(exc).__name__}: {exc}"}, time.time() - t0
 
 
@@ -230,7 +235,7 @@ def run_round(kind: str, round: int, evaluate: bool, dry_run: bool = False, root
                            "tolerances": sv["tolerances"], "op_norm_error": sv["verdict"].op_norm_error,
                            "certified": sv["verdict"].certified, "reason": sv["verdict"].reason}
             if lean:
-                new_lean, lean_seconds = _certify(circ, spec)
+                new_lean, lean_seconds = _certify(circ, spec, pp, root)
                 LR._store_lean(best, new_lean, root, ENC, f"round {round}")
     archive.save()
     for rec, *_ in records:               # records carry the final lean status
@@ -275,7 +280,7 @@ def certify_best(kind="step", root=None) -> dict:
         if circ is None:
             new, sec = {"status": "failed", "reason": f"cannot rebuild the circuit: {err}"}, 0.0
         else:
-            new, sec = _certify(circ, spec)
+            new, sec = _certify(circ, spec, e.program_path, root)
         before = e.lean
         LR._store_lean(e, new, root, ENC, why)
         return {"entry": e.id, "lean": e.lean, "attempt": new, "kept_previous": before is not None and e.lean is before,

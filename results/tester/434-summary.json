@@ -1,0 +1,41 @@
+{
+ "report": "reports/tests/434-rishon-c4-lean.md",
+ "commit": "3b9c17a (+ builder uncommitted files)",
+ "seed": 434,
+ "verdict": "PASS",
+ "l1_l9": "9 passed 62.0 s",
+ "unit_full": "1169 passed 730 s",
+ "regression_not_slow": "137 passed, 1 failed (M6_G6 PENDING three-layer.json)",
+ "laptop_spinnet_lean": "22 passed 201 s",
+ "mutants_total": 1994,
+ "wrong_accepted": 0,
+ "equivalent_accepted": 89,
+ "timeouts": 1,
+ "theorem_file": {
+  "seconds": 42.3,
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound",
+   "rishon_cert_general_step._native.native_decide.ax_1_1"
+  ]
+ },
+ "target_vs_expm_max": {
+  "UE": 0.0,
+  "UB": 1.6e-15,
+  "UD": 2e-15,
+  "step1": 1e-15,
+  "step2": 5.1e-16
+ },
+ "e2e_float_max": {
+  "UE": 2.5e-16,
+  "UD": 1.4e-15,
+  "UB": 4.9e-14,
+  "step": 6e-14,
+  "F3": 1.3e-14
+ },
+ "F3_angles": {
+  "max_den": 4,
+  "max_dev": 4.4e-16
+ }
+}

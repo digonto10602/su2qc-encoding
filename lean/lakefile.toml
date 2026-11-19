@@ -30,3 +30,9 @@ root = "Su2PlaqCert.SpinNet.Main"
 [[lean_exe]]
 name = "su2plaq_cert_lsh"
 root = "Su2PlaqCert.LSH.Main"
+
+# SHARED APPEND (track R, prompts/203 step 6.L2): exact three-angle (z_alpha, z_beta, z_gamma = e^{i sqrt2 beta / d}) certificate checker for the
+# rishon inner circuits (reuses Su2PlaqCert.K/Json/Gates/Sha256 read-only).  Sources: Su2PlaqCert/Rishon/{Laurent3,Gates3,Check3,Pins3,Main}.lean.
+[[lean_exe]]
+name = "su2plaq_rishon_cert"
+root = "Su2PlaqCert.Rishon.Main"

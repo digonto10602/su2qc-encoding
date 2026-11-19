@@ -190,7 +190,15 @@
   "measured": true,
   "synth_error_bound": 9.999999999999999e-06
  },
- "lean": null,
+ "lean": {
+  "status": "certified",
+  "reason": "",
+  "cert_path": "compress/lean/certs/step-o1-24d16bdd9c45.json",
+  "seconds": 5.867023229598999,
+  "checker_sha256": "6c3c62bea03fb96f00fbe9093a16a6f42c2fe75f43ee0faad0179070dfe24c7e",
+  "theorem_path": null,
+  "axioms": []
+ },
  "mode": "full",
  "encoding_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23"
 }

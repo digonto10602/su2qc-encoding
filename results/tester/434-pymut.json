@@ -1,0 +1,62 @@
+[
+ [
+  "control",
+  "certified",
+  ""
+ ],
+ [
+  "kind swap gate 5",
+  "rejected",
+  "angle exponent on an angle-free gate"
+ ],
+ [
+  "rz exponent +2",
+  "rejected",
+  "state 0 differs from the target"
+ ],
+ [
+  "drop gate 7 (hash updated)",
+  "rejected",
+  "state 0 differs from the target"
+ ],
+ [
+  "append x data (hash updated)",
+  "rejected",
+  "state 0 differs from the target"
+ ],
+ [
+  "target coeff changed",
+  "rejected",
+  "target differs from the exact UD target"
+ ],
+ [
+  "kind UB",
+  "rejected",
+  "target differs from the exact UB target"
+ ],
+ [
+  "states swapped",
+  "rejected",
+  "states differ from the 1296 inner codes"
+ ],
+ [
+  "phase zero",
+  "rejected",
+  "bad phase: needs an eighth root of unity k and three integer exponents"
+ ],
+ [
+  "base 3",
+  "rejected",
+  "target differs from the exact UD target"
+ ],
+ [
+  "schema",
+  "rejected",
+  "not a rishon three-angle certificate"
+ ],
+ [
+  "append x, STALE gates_sha256",
+  "rejected",
+  "gate list does not match its recorded gates_sha256"
+ ]
+]

@@ -1,0 +1,874 @@
+[
+ {
+  "label": "kind t->tdg @gate67",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.22
+ },
+ {
+  "label": "kind t->tdg @gate421",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.27
+ },
+ {
+  "label": "kind tdg->t @gate103",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.32
+ },
+ {
+  "label": "kind tdg->t @gate419",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.21
+ },
+ {
+  "label": "kind s->sdg @gate40",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.21
+ },
+ {
+  "label": "kind s->sdg @gate345",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.09
+ },
+ {
+  "label": "kind sdg->s @gate36",
+  "expect": "reject",
+  "raw_line": "REJECT state 3 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.18
+ },
+ {
+  "label": "kind sdg->s @gate369",
+  "expect": "reject",
+  "raw_line": "REJECT state 5 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.19
+ },
+ {
+  "label": "kind h->sx @gate231",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.17
+ },
+ {
+  "label": "kind h->sx @gate464",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.18
+ },
+ {
+  "label": "kind x->z @gate34",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.13
+ },
+ {
+  "label": "kind x->z @gate200",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.12
+ },
+ {
+  "label": "kind z->x @gate211",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.11
+ },
+ {
+  "label": "kind cx->cz @gate133",
+  "expect": "reject",
+  "raw_line": "REJECT state 6 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.25
+ },
+ {
+  "label": "kind cx->cz @gate574",
+  "expect": "reject",
+  "raw_line": "REJECT state 1 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.15
+ },
+ {
+  "label": "kind rz->p @gate329",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.14
+ },
+ {
+  "label": "kind rz->p @gate335",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.13
+ },
+ {
+  "label": "kind p->rz @gate6",
+  "expect": "reject",
+  "raw_line": "REJECT rz exponent vector must be even",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "qubit last->other @gate103 (tdg)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.26
+ },
+ {
+  "label": "qubit last->other @gate215 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.15
+ },
+ {
+  "label": "qubit last->other @gate298 (t)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.26
+ },
+ {
+  "label": "qubit last->other @gate326 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.21
+ },
+ {
+  "label": "qubit last->other @gate441 (tdg)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.2
+ },
+ {
+  "label": "qubit last->other @gate494 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.12
+ },
+ {
+  "label": "reverse qubits @gate13 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.11
+ },
+ {
+  "label": "reverse qubits @gate275 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 1 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.55
+ },
+ {
+  "label": "reverse qubits @gate443 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 1 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.19
+ },
+ {
+  "label": "reverse qubits @gate570 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.1
+ },
+ {
+  "label": "angle +1 @gate3 (p) m=[-3, 0, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 36 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.42
+ },
+ {
+  "label": "angle zero @gate3 (p) m=[-3, 0, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 36 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.48
+ },
+ {
+  "label": "angle +1 @gate6 (p) m=[-3, 0, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 216 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 1.22
+ },
+ {
+  "label": "angle zero @gate6 (p) m=[-3, 0, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 216 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 1.25
+ },
+ {
+  "label": "angle +1 @gate9 (p) m=[-3, 0, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 6 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.21
+ },
+ {
+  "label": "angle zero @gate9 (p) m=[-3, 0, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 6 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.18
+ },
+ {
+  "label": "angle +1 @gate59 (p) m=[-3, 0, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 1 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.22
+ },
+ {
+  "label": "angle zero @gate59 (p) m=[-3, 0, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 1 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.16
+ },
+ {
+  "label": "angle +1 @gate327 (rz) m=[0, 4, -2]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.27
+ },
+ {
+  "label": "angle zero @gate327 (rz) m=[0, 4, -2]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.24
+ },
+ {
+  "label": "angle +1 @gate329 (rz) m=[0, 2, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.31
+ },
+ {
+  "label": "angle zero @gate329 (rz) m=[0, 2, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.27
+ },
+ {
+  "label": "angle +1 @gate331 (rz) m=[0, -2, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.48
+ },
+ {
+  "label": "angle zero @gate331 (rz) m=[0, -2, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.44
+ },
+ {
+  "label": "angle +1 @gate333 (rz) m=[0, -4, 2]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.26
+ },
+ {
+  "label": "angle zero @gate333 (rz) m=[0, -4, 2]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.24
+ },
+ {
+  "label": "angle +1 @gate335 (rz) m=[0, -2, -2]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.27
+ },
+ {
+  "label": "angle zero @gate335 (rz) m=[0, -2, -2]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.3
+ },
+ {
+  "label": "angle +1 @gate337 (rz) m=[0, 2, 2]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.23
+ },
+ {
+  "label": "angle zero @gate337 (rz) m=[0, 2, 2]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.25
+ },
+ {
+  "label": "rz odd exponent @gate331",
+  "expect": "reject",
+  "raw_line": "REJECT rz exponent vector must be even",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "duplicate gate 76 (tdg)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.21
+ },
+ {
+  "label": "drop gate 199 (x)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.14
+ },
+ {
+  "label": "duplicate gate 227 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 2 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.14
+ },
+ {
+  "label": "drop gate 245 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 6 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.19
+ },
+ {
+  "label": "duplicate gate 259 (h)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.21
+ },
+ {
+  "label": "drop gate 279 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 7 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.3
+ },
+ {
+  "label": "duplicate gate 284 (tdg)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.34
+ },
+ {
+  "label": "drop gate 321 (x)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.23
+ },
+ {
+  "label": "duplicate gate 352 (x)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.16
+ },
+ {
+  "label": "drop gate 477 (sdg)",
+  "expect": "reject",
+  "raw_line": "REJECT state 1 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.16
+ },
+ {
+  "label": "duplicate gate 485 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.15
+ },
+ {
+  "label": "drop gate 529 (h)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.13
+ },
+ {
+  "label": "duplicate gate 532 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 6 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.18
+ },
+ {
+  "label": "drop gate 556 (x)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.16
+ },
+ {
+  "label": "duplicate gate 615 (h)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.14
+ },
+ {
+  "label": "drop gate 655 (cx)",
+  "expect": "reject",
+  "raw_line": "REJECT state 6 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.23
+ },
+ {
+  "label": "drop first gate",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.11
+ },
+ {
+  "label": "append h on ancilla",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.11
+ },
+ {
+  "label": "append t on clean ancilla (no-op)",
+  "expect": "accept",
+  "raw_line": "ACCEPT",
+  "verdict": "accept",
+  "as_expected": true,
+  "seconds": 8.45
+ },
+ {
+  "label": "append x on data qubit 0 (leaves code space)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.15
+ },
+ {
+  "label": "append swap(0,4) (permutes links)",
+  "expect": "reject",
+  "raw_line": "REJECT state 2 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.24
+ },
+ {
+  "label": "append p(1,0,0) on data (relative phase)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.15
+ },
+ {
+  "label": "gate qubit out of range",
+  "expect": "reject",
+  "raw_line": "REJECT gate qubit 20 out of range (n = 20)",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "unknown gate y",
+  "expect": "reject",
+  "raw_line": "REJECT unsupported gate y",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "phase omega^2 (valid root, wrong)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.24
+ },
+ {
+  "label": "phase omega^5 (valid root, wrong)",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.15
+ },
+ {
+  "label": "phase exponent [1, 0, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.13
+ },
+ {
+  "label": "phase exponent [-1, 0, 0]",
+  "expect": "reject",
+  "raw_line": "REJECT state 0 differs from the target",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.1
+ },
+ {
+  "label": "phase missing (defaults to 1; right iff the true phase is 1)",
+  "expect": "accept",
+  "raw_line": "ACCEPT",
+  "verdict": "accept",
+  "as_expected": true,
+  "seconds": 8.34
+ },
+ {
+  "label": "target entry 91: exponent beta shift",
+  "expect": "reject",
+  "raw_line": "REJECT target exponent not divisible by the base ratio",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "target entry 91: i<->j",
+  "expect": "accept",
+  "raw_line": "ACCEPT",
+  "verdict": "accept",
+  "as_expected": true,
+  "seconds": 8.7
+ },
+ {
+  "label": "target entry 122: exponent beta shift",
+  "expect": "reject",
+  "raw_line": "REJECT target exponent not divisible by the base ratio",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "target entry 122: i<->j",
+  "expect": "accept",
+  "raw_line": "ACCEPT",
+  "verdict": "accept",
+  "as_expected": true,
+  "seconds": 8.54
+ },
+ {
+  "label": "target entry 158: exponent beta shift",
+  "expect": "reject",
+  "raw_line": "REJECT target exponent not divisible by the base ratio",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "target entry 158: i<->j",
+  "expect": "reject",
+  "raw_line": "REJECT target entry (125, 65) listed twice",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "target entry 702: exponent beta shift",
+  "expect": "reject",
+  "raw_line": "REJECT target exponent not divisible by the base ratio",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "target entry 702: i<->j",
+  "expect": "reject",
+  "raw_line": "REJECT target entry (1261, 371) listed twice",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "target entry 1091: exponent beta shift",
+  "expect": "reject",
+  "raw_line": "REJECT target exponent not divisible by the base ratio",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "target entry 1091: i<->j",
+  "expect": "accept",
+  "raw_line": "ACCEPT",
+  "verdict": "accept",
+  "as_expected": true,
+  "seconds": 7.82
+ },
+ {
+  "label": "target entry 1096: exponent beta shift",
+  "expect": "reject",
+  "raw_line": "REJECT target exponent not divisible by the base ratio",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "target entry 1096: i<->j",
+  "expect": "reject",
+  "raw_line": "REJECT target entry (978, 582) listed twice",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "target entry 1105: exponent beta shift",
+  "expect": "reject",
+  "raw_line": "REJECT target exponent not divisible by the base ratio",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "target entry 1105: i<->j",
+  "expect": "reject",
+  "raw_line": "REJECT target entry (529, 585) listed twice",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "target entry 1193: exponent beta shift",
+  "expect": "reject",
+  "raw_line": "REJECT target exponent not divisible by the base ratio",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "target entry 1193: i<->j",
+  "expect": "reject",
+  "raw_line": "REJECT target entry (65, 615) listed twice",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "target: extra spurious entry (0,0)=z",
+  "expect": "reject",
+  "raw_line": "REJECT target differs from the pinned exact step target (SHA-256)",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "target kind changed",
+  "expect": "reject",
+  "raw_line": "REJECT target exponent not divisible by the base ratio",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "target order 2",
+  "expect": "reject",
+  "raw_line": "REJECT base must be a positive multiple of the target's base",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "states swap 5,6",
+  "expect": "reject",
+  "raw_line": "REJECT states differ from the 1296 inner codes",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "states extra",
+  "expect": "reject",
+  "raw_line": "REJECT states differ from the 1296 inner codes",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "states only first half (checker must not trust a shorter list)",
+  "expect": "reject",
+  "raw_line": "REJECT states differ from the 1296 inner codes",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "base consistently rescaled x(1,1,5) (same unitary)",
+  "expect": "accept",
+  "raw_line": "ACCEPT",
+  "verdict": "accept",
+  "as_expected": true,
+  "seconds": 7.47
+ },
+ {
+  "label": "base x2 beta only",
+  "expect": "reject",
+  "raw_line": "REJECT target exponent not divisible by the base ratio",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "base d_alpha +1 (not a multiple)",
+  "expect": "reject",
+  "raw_line": "REJECT base must be a positive multiple of the target's base",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "base missing (defaults 1,1,1)",
+  "expect": "reject",
+  "raw_line": "REJECT base must be a positive multiple of the target's base",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "schema = 'su2plaq-cert-1'",
+  "expect": "reject",
+  "raw_line": "REJECT unknown schema su2plaq-cert-1",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "n_outer = 8",
+  "expect": "reject",
+  "raw_line": "REJECT the certificate must have 16 data qubits and no outer register",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.04
+ },
+ {
+  "label": "n_qubits - 1",
+  "expect": "reject",
+  "raw_line": "REJECT gate qubit 19 out of range (n = 19)",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "gates not a list",
+  "expect": "reject",
+  "raw_line": "REJECT array expected",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ },
+ {
+  "label": "fractional qubit",
+  "expect": "reject",
+  "raw_line": "REJECT Natural number expected",
+  "verdict": "reject",
+  "as_expected": true,
+  "seconds": 0.03
+ }
+]
