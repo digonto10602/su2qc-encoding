@@ -1,0 +1,683 @@
+{
+ "round_keys": {
+  "0": [
+   6874,
+   17694,
+   31954,
+   58
+  ],
+  "1": [
+   256,
+   1020,
+   1714,
+   58
+  ],
+  "2": [
+   252,
+   1120,
+   2023,
+   54
+  ],
+  "3": [
+   232,
+   1090,
+   2037,
+   53
+  ],
+  "4": [
+   228,
+   846,
+   1417,
+   53
+  ],
+  "5": [
+   220,
+   840,
+   1389,
+   53
+  ],
+  "6": [
+   216,
+   832,
+   1350,
+   52
+  ]
+ },
+ "T_rot": [
+  64,
+  64,
+  64,
+  64,
+  62,
+  66,
+  66,
+  62,
+  62,
+  62
+ ],
+ "ratios": {
+  "CX general/headline": 46.77,
+  "T general/headline": 24.82,
+  "CX cheapest/headline": 31.82,
+  "T cheapest/headline": 21.27,
+  "CX 3layer general+det/headline+det": 40.86,
+  "T 3layer": 15.92
+ },
+ "checks": [
+  {
+   "check": "provenance.git_dirty",
+   "expected": false,
+   "got": false,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "circuit_id",
+   "expected": "r06-F3-006",
+   "got": "r06-F3-006",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "provenance.git_commit",
+   "expected": "fcd61dd",
+   "got": "fcd61dd",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive r00-seed-000 cx",
+   "expected": 10102,
+   "got": 10102,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive r00-seed-000 T",
+   "expected": 20650,
+   "got": 20650,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive r00-seed-000 valid",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive r00-seed-001 cx",
+   "expected": 6874,
+   "got": 6874,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive r00-seed-001 T",
+   "expected": 17694,
+   "got": 17694,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive r00-seed-001 valid",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive r06-F3-006 cx",
+   "expected": 216,
+   "got": 216,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive r06-F3-006 T",
+   "expected": 832,
+   "got": 832,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive r06-F3-006 valid",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "program file sha == archive entry sha",
+   "expected": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+   "got": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "program sha == m6-compressed headline sha",
+   "expected": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+   "got": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "three-layer entry",
+   "expected": "r06-F3-006",
+   "got": "r06-F3-006",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "three-layer sha == archive",
+   "expected": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+   "got": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "three-layer unit_key",
+   "expected": [
+    216,
+    832,
+    1350,
+    52
+   ],
+   "got": [
+    216,
+    832,
+    1350,
+    52
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "three-layer det_key",
+   "expected": [
+    32,
+    496,
+    326,
+    48
+   ],
+   "got": [
+    32,
+    496,
+    326,
+    48
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "three-layer key",
+   "expected": [
+    248,
+    1328,
+    1676,
+    52
+   ],
+   "got": [
+    248,
+    1328,
+    1676,
+    52
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "three-layer git_dirty",
+   "expected": false,
+   "got": false,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "additivity CX",
+   "expected": 248,
+   "got": 248,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "additivity T",
+   "expected": 1328,
+   "got": 1328,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "additivity depth",
+   "expected": 1676,
+   "got": 1676,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "qubits = max",
+   "expected": 52,
+   "got": 52,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T mean additivity",
+   "expected": 1330.6,
+   "got": 1330.6,
+   "tol": 1e-06,
+   "ok": true
+  },
+  {
+   "check": "three-layer all verdicts ok",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "three-layer 3 triples verdicts",
+   "expected": 3,
+   "got": 3,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "robust.json has headline entry",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "qpy sha256",
+   "expected": "f6e5f8a316460c3e12f9a964d6dcac80ccb37ed54677999af116c17a281bd29e",
+   "got": "f6e5f8a316460c3e12f9a964d6dcac80ccb37ed54677999af116c17a281bd29e",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "qpy qubits",
+   "expected": 52,
+   "got": 52,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "lowered cx",
+   "expected": 216,
+   "got": 216,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "lowered T_fixed",
+   "expected": 196,
+   "got": 196,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "n_rot",
+   "expected": 10,
+   "got": 10,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "sum T_rot pygridsynth eps=1e-6",
+   "expected": 636,
+   "got": 636,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T total",
+   "expected": 832,
+   "got": 832,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after general cx",
+   "expected": 10102,
+   "got": 10102,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after general T",
+   "expected": 20650,
+   "got": 20650,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after general+det cx",
+   "expected": 10134,
+   "got": 10134,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after general+det T",
+   "expected": 21146,
+   "got": 21146,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after cheapest_valid_seed cx",
+   "expected": 6874,
+   "got": 6874,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after cheapest_valid_seed T",
+   "expected": 17694,
+   "got": 17694,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after cheapest_valid_seed+det cx",
+   "expected": 6906,
+   "got": 6906,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after cheapest_valid_seed+det T",
+   "expected": 18190,
+   "got": 18190,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after headline cx",
+   "expected": 216,
+   "got": 216,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after headline T",
+   "expected": 832,
+   "got": 832,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after det_layer cx",
+   "expected": 32,
+   "got": 32,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after det_layer T",
+   "expected": 496,
+   "got": 496,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after headline+det cx",
+   "expected": 248,
+   "got": 248,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after headline+det T",
+   "expected": 1328,
+   "got": 1328,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after global_best+det cx",
+   "expected": 248,
+   "got": 248,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after global_best+det T",
+   "expected": 1328,
+   "got": 1328,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "headline T_avg",
+   "expected": 829.8,
+   "got": 829.8,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "headline depth_ct",
+   "expected": 1350,
+   "got": 1350,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "headline qubits",
+   "expected": 52,
+   "got": 52,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "robust T_sum/20",
+   "expected": 829.8,
+   "got": 829.8,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "check": "UD.json cx/T",
+   "expected": [
+    32,
+    496
+   ],
+   "got": [
+    32,
+    496
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "results/rishon/step.json cx/T",
+   "expected": [
+    10102,
+    20650
+   ],
+   "got": [
+    10102,
+    20650
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "results/rishon/step3.json cx/T",
+   "expected": [
+    10134,
+    21146
+   ],
+   "got": [
+    10134,
+    21146
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "det t_sum/20",
+   "expected": 500.8,
+   "got": 500.8,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "check": "md general cx/T",
+   "expected": [
+    "10102",
+    "20650"
+   ],
+   "got": [
+    "10102",
+    "20650"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md general+det cx/T",
+   "expected": [
+    "10134",
+    "21146"
+   ],
+   "got": [
+    "10134",
+    "21146"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md cheapest_valid_seed cx/T",
+   "expected": [
+    "6874",
+    "17694"
+   ],
+   "got": [
+    "6874",
+    "17694"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md cheapest_valid_seed+det cx/T",
+   "expected": [
+    "6906",
+    "18190"
+   ],
+   "got": [
+    "6906",
+    "18190"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md headline cx/T",
+   "expected": [
+    "216",
+    "832"
+   ],
+   "got": [
+    "216",
+    "832"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md det_layer cx/T",
+   "expected": [
+    "32",
+    "496"
+   ],
+   "got": [
+    "32",
+    "496"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md headline+det cx/T",
+   "expected": [
+    "248",
+    "1328"
+   ],
+   "got": [
+    "248",
+    "1328"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md global_best+det cx/T",
+   "expected": [
+    "248",
+    "1328"
+   ],
+   "got": [
+    "248",
+    "1328"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md headline T_avg",
+   "expected": "829.8",
+   "got": "829.8",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md headline depth",
+   "expected": "1350",
+   "got": "1350",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md headline qubits",
+   "expected": "52",
+   "got": "52",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md det T_avg",
+   "expected": "500.8",
+   "got": "500.8",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md det depth",
+   "expected": "326",
+   "got": "326",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md 3layer T_avg",
+   "expected": "1330.6",
+   "got": "1330.6",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md 3layer depth",
+   "expected": "1676",
+   "got": "1676",
+   "tol": 0.0,
+   "ok": true
+  }
+ ],
+ "commit": "acdc461"
+}
