@@ -1,0 +1,134 @@
+{
+ "report": "reports/tests/429-b7-robust-race-h3.md",
+ "commit": "284bd40 + dirty working tree",
+ "date": "2026-11-19",
+ "machine": "omnicommander, cores 0-8, load<4",
+ "method": "scratch copy, fuzzy_ub UB, 2 writer processes (headline compute=True) + 1 reader process (json.loads of robust.json and headline compute=False in a loop, 10 ms sleep); expected entries 41",
+ "trials": {
+  "A": {
+   "code": "new",
+   "setup": "cache removed",
+   "writers": [
+    {
+     "ok": true,
+     "id": "r10-F1-010",
+     "sec": 170.6715989112854
+    },
+    {
+     "ok": true,
+     "id": "r10-F1-010",
+     "sec": 144.50524067878723
+    }
+   ],
+   "reader": {
+    "missing": 9169,
+    "json_error": 0,
+    "partial": 0,
+    "complete": 1422,
+    "other": 0,
+    "hl_none": 9169,
+    "hl_ok": 1422
+   }
+  },
+  "A2": {
+   "code": "new",
+   "setup": "cache removed",
+   "writers": [
+    {
+     "ok": true,
+     "id": "r10-F1-010",
+     "sec": 167.55667448043823
+    },
+    {
+     "ok": true,
+     "id": "r10-F1-010",
+     "sec": 172.72251081466675
+    }
+   ],
+   "reader": {
+    "missing": 10736,
+    "json_error": 0,
+    "partial": 0,
+    "complete": 354,
+    "other": 0,
+    "hl_none": 10736,
+    "hl_ok": 354
+   }
+  },
+  "B": {
+   "code": "new",
+   "setup": "refresh=1, cache present (content identical, no rewrite)",
+   "writers": [
+    {
+     "ok": true,
+     "id": "r10-F1-010",
+     "sec": 179.54436254501343
+    },
+    {
+     "ok": true,
+     "id": "r10-F1-010",
+     "sec": 140.07132482528687
+    }
+   ],
+   "reader": {
+    "missing": 0,
+    "json_error": 0,
+    "partial": 0,
+    "complete": 9680,
+    "other": 0,
+    "hl_none": 0,
+    "hl_ok": 9680
+   }
+  },
+  "C": {
+   "code": "new",
+   "setup": "refresh=1, cache present",
+   "writers": [
+    {
+     "ok": true,
+     "id": "r10-F1-010",
+     "sec": 174.8213713169098
+    },
+    {
+     "ok": true,
+     "id": "r10-F1-010",
+     "sec": 147.67783164978027
+    }
+   ],
+   "reader": {
+    "missing": 0,
+    "json_error": 0,
+    "partial": 0,
+    "complete": 9479,
+    "other": 0,
+    "hl_none": 0,
+    "hl_ok": 9479
+   }
+  },
+  "D1": {
+   "code": "HEAD robust.py",
+   "setup": "cache removed (control)",
+   "writers": [
+    {
+     "ok": true,
+     "id": "r10-F1-010",
+     "sec": 256.8257546424866
+    },
+    {
+     "ok": true,
+     "id": "r10-F1-010",
+     "sec": 258.6978793144226
+    }
+   ],
+   "reader": {
+    "missing": 319,
+    "json_error": 0,
+    "partial": 15523,
+    "complete": 133,
+    "other": 0,
+    "hl_none": 15842,
+    "hl_ok": 133
+   }
+  }
+ }
+}

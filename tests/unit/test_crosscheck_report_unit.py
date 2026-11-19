@@ -51,25 +51,33 @@ def test_cached_headline_reasons(monkeypatch, tmp_path):
     assert why is None and h["id"] == "e"
 
 
-def test_gate_table_pending_now_and_final_with_synthetic_headlines(monkeypatch):
+def test_gate_table_pending_now_and_final_with_synthetic_headlines(monkeypatch, tmp_path):
     t = R.gate_table(out=False)
     assert [r["encoding"] for r in t["rows"]] == ["twelve", "spinnet", "lsh", "rishon", "fuzzy"]
     for r in t["rows"]:
         assert r["general"]["source"].startswith(R.GENERAL_FILE[r["encoding"]]) and r["general"]["cx"] > 0
         assert r["status"].startswith("pending: ") or r["status"] == "final"
     assert t["rows"][3]["general_two_layer"]["cx"] > 0
-    # synthetic caches for all six archives
+    # synthetic caches for all six archives, on a scratch root that holds only the general-step files (so that the existence of the real
+    # results/fuzzy/compressed_step_headline.json, which step H.3 creates, does not matter)
+    import shutil
+
+    for rel in [*R.GENERAL_FILE.values(), "results/rishon/step.json"]:
+        (tmp_path / rel).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(ROOT / rel, tmp_path / rel)
     monkeypatch.setattr(R, "_cached_headline", lambda enc, kind, root: (_fake_headline(enc), None))
-    t = R.gate_table(out=False)
+    t = R.gate_table(out=False, root=tmp_path)
     tw = t["rows"][0]
     assert tw["headline"]["entry"] == "e" and tw["headline"]["cx"] == 8 and tw["t_first"]["entry"] == "c" and tw["status"] == "final"
     assert [p["entry"] for p in tw["pareto"]] == ["e", "b", "c"]
     fz = t["rows"][4]
     assert fz["headline"]["cx"] == 8 + 4 * 8 and abs(fz["headline"]["t_mean"] - 5 * 900.0) <= 1e-9
     assert fz["t_first"]["cx"] == 12 * 5 and set(fz["units"]) == {"fuzzy_ub", "fuzzy_link"}
-    assert fz["status"].startswith("pending: ") and "compressed_step_headline.json" in fz["status"]       # file does not exist yet
+    assert fz["status"].startswith("pending: ") and "compressed_step_headline.json" in fz["status"]       # file does not exist in the scratch root
     rs = t["rows"][3]
     assert rs["headline_with_det"] is None and "three-layer.json" in rs["status"]
+    (tmp_path / "results" / "fuzzy" / "compressed_step_headline.json").write_text("{}")                  # once the file exists the fuzzy row is final
+    assert R.gate_table(out=False, root=tmp_path)["rows"][4]["status"] == "final"
 
 
 def _synthetic_spectra():

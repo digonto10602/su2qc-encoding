@@ -13,6 +13,7 @@ command names as thin aliases of them (no hook is installed, nothing is patched)
   python scripts/m10_round.py ideation   --encoding E
   python scripts/m10_round.py report     --encoding E [--out path]                        # = compress.report
   python scripts/m10_round.py best-step  [--order 1|2] [--no-outer] [--root R] [--out path]   # results/fuzzy/compressed_step.json
+  python scripts/m10_round.py headline-step [--order 1|2] [--no-outer] [--root R] [--out path] # results/fuzzy/compressed_step_headline.json
 
 `--kind` defaults to the unit's kind."""
 from __future__ import annotations
@@ -27,7 +28,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from su2plaq.fuzzy import compress_hook as H  # noqa: E402
 
-SUBS = ("seed", "round", "candidate", "oracle", "brief", "ideation", "report", "best-step")
+SUBS = ("seed", "round", "candidate", "oracle", "brief", "ideation", "report", "best-step", "headline-step")
 
 
 def main(argv=None) -> int:
@@ -53,6 +54,12 @@ def main(argv=None) -> int:
     if sub == "best-step":
         doc = H.write_compressed_step(root=a.root, out=a.out, order=a.order, with_outer=not a.no_outer)
         print(json.dumps({k: doc[k] for k in ("units", "composed", "general", "verification")}, indent=1, default=str))
+        return 0
+    if sub == "headline-step":
+        from su2plaq.fuzzy import headline_step as HS
+
+        doc = HS.write_headline_step(root=a.root, out=a.out, order=a.order, with_outer=not a.no_outer)
+        print(json.dumps({k: doc[k] for k in ("rule", "units", "composed", "inner", "general", "verification")}, indent=1, default=str))
         return 0
     if a.encoding is None:
         ap.error("--encoding is required")

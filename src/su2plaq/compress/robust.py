@@ -24,7 +24,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import pathlib
+import tempfile
 
 import numpy as np
 
@@ -239,6 +241,30 @@ def _angle_set_record() -> dict:
 _HOOK_CODE_KEYS = {"spinnet_code_sha256": "su2plaq.spinnet.loop:code_hash"}
 
 
+def _atomic_write_text(path: pathlib.Path, text: str) -> None:
+    """Write `text` to `path` so that a reader never sees a partial or invalid file and concurrent writers (xdist workers, separate
+    processes) never share a temporary name: a unique temp file in the same directory, then the atomic `os.replace`.  Identical
+    content is not rewritten (no needless change of the file for readers)."""
+    path = pathlib.Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        if path.read_text() == text:
+            return
+    except FileNotFoundError:
+        pass
+    fd, tmp = tempfile.mkstemp(dir=path.parent, prefix=path.name + ".", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w") as fh:
+            fh.write(text)
+        os.replace(tmp, path)
+    except BaseException:
+        try:
+            os.unlink(tmp)
+        except FileNotFoundError:
+            pass
+        raise
+
+
 def _load_cache(cache_file: pathlib.Path, encoding: str, refresh: bool, hook: bool = False) -> dict:
     """The cached per-entry records, or {} when the file is missing, `refresh`, or keyed by another code / angle set.  `hook`: the file
     was written by the encoding's own `headline` hook (spinnet, rishon): its keys are `evaluator_sha256` (= `stamp_hash`), the angle
@@ -298,33 +324,32 @@ def headline(encoding, kind="step", root=None, refresh=False, compute=True) -> d
     store = {"angle_set": _angle_set_record(), "evaluator_sha256": P.stamp_hash(encoding), "encoding_sha256": P.code_hash_for(encoding),
              "entries": {}}
     unrankable, rows = [], []
-    for e in valid:
-        if not _has_program(e, root):
-            unrankable.append(e.id)
-            continue
-        rec = cached.get(e.id)
-        if (rec is None or rec.get("program_sha256") != e.program_sha256 or rec.get("angle_set_sha256") != as_sha
-                or (not hook and "offset_class" not in rec)):          # prompts/010 §4.1: a record without the class counts as missing
-            if not compute:
-                return None
-            rec = robust_metrics(encoding, kind, _program_file(e.program_path, root), root=root)
-            rec["laptop_key"] = [int(x) for x in e.key]
-            if rec["program_sha256"] != e.program_sha256:
-                raise RuntimeError(f"program file of {e.id} ({e.program_path}) differs from the archived sha256")
-            rec = json.loads(json.dumps(rec))                 # the cached (JSON) shape, also for fresh entries
-        store["entries"][e.id] = rec
-        if compute:
-            cache_file.parent.mkdir(parents=True, exist_ok=True)
-            tmp = cache_file.with_suffix(".json.tmp")
-            tmp.write_text(json.dumps(store, indent=1))
-            tmp.replace(cache_file)
-        if rec["robust_key"] is None:
-            unrankable.append(e.id)
-            continue
-        rows.append({"id": e.id, "robust_key": tuple(rec["robust_key"]), "t_mean": rec["t_mean"], "lean": _lean_status(e),
-                     "laptop_key": tuple(int(x) for x in e.key), "family": e.family, "round": e.round, "cx": rec["cx"],
-                     "qubits": rec["qubits"], "t_nominal": int(e.key[1]), "depth_mean": rec["depth_sum"] / len(rec["depth_ct"]),
-                     "angle_linear": rec["angle_linear"], "offset_class": rec.get("offset_class")})
+    try:
+        for e in valid:
+            if not _has_program(e, root):
+                unrankable.append(e.id)
+                continue
+            rec = cached.get(e.id)
+            if (rec is None or rec.get("program_sha256") != e.program_sha256 or rec.get("angle_set_sha256") != as_sha
+                    or (not hook and "offset_class" not in rec)):          # prompts/010 §4.1: a record without the class counts as missing
+                if not compute:
+                    return None
+                rec = robust_metrics(encoding, kind, _program_file(e.program_path, root), root=root)
+                rec["laptop_key"] = [int(x) for x in e.key]
+                if rec["program_sha256"] != e.program_sha256:
+                    raise RuntimeError(f"program file of {e.id} ({e.program_path}) differs from the archived sha256")
+                rec = json.loads(json.dumps(rec))                 # the cached (JSON) shape, also for fresh entries
+            store["entries"][e.id] = rec
+            if rec["robust_key"] is None:
+                unrankable.append(e.id)
+                continue
+            rows.append({"id": e.id, "robust_key": tuple(rec["robust_key"]), "t_mean": rec["t_mean"], "lean": _lean_status(e),
+                         "laptop_key": tuple(int(x) for x in e.key), "family": e.family, "round": e.round, "cx": rec["cx"],
+                         "qubits": rec["qubits"], "t_nominal": int(e.key[1]), "depth_mean": rec["depth_sum"] / len(rec["depth_ct"]),
+                         "angle_linear": rec["angle_linear"], "offset_class": rec.get("offset_class")})
+    finally:
+        if compute and store["entries"]:        # one atomic write after the loop (also after a failure: the finished entries are kept for the next run)
+            _atomic_write_text(cache_file, json.dumps(store, indent=1))
     rows.sort(key=lambda r: (r["robust_key"], r["laptop_key"], r["id"]))
     top = rows[0] if rows else None
     best_row = next((r for r in rows if best is not None and r["id"] == best.id), None)
@@ -350,7 +375,7 @@ def _write_summary_headline(encoding: str, root: pathlib.Path, h: dict) -> None:
     block = summary_headline(h)
     if summary.get("headline") != block:
         summary["headline"] = block
-        f.write_text(json.dumps(summary, indent=1))
+        _atomic_write_text(f, json.dumps(summary, indent=1))
 
 
 def report_rows(encoding, kind, root=None, h=None) -> list:

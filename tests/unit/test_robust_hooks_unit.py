@@ -1,25 +1,63 @@
 """B6 finding F1 (reports/tests/419): `robust.headline(..., compute=False)` never computes and never writes, also for the encodings
-served by a `headline` hook (spinnet, rishon).  Works on temporary copies of the real archives (never the real results/ tree)."""
+served by a `headline` hook (spinnet, rishon).  Self-contained: every test builds a small toy archive, programs, cache and summary.json in
+`tmp_path` (passed as `root=`); the real results/ and compress/ trees are never read, so replays of the real archives cannot break it."""
 import hashlib
 import json
 import pathlib
-import shutil
+from types import SimpleNamespace
 
 import pytest
 
+from su2plaq.compress import archive as A
+from su2plaq.compress import provenance as P
 from su2plaq.compress import report as RP
 from su2plaq.compress import robust as RB
-from su2plaq.compress.spec import ROOT
 from su2plaq.encodings import registry
 
 HOOKED = [("spinnet", "step"), ("rishon", "step")]
+ENTRIES = [("r01-F1-001", (32, 832, 1583, 18), (32, 16948, 0, 33256, 18), "certified"),         # archive best, angle-linear
+           ("r02-F2-002", (33, 840, 1600, 18), (33, 16000, 1, 33500, 18), None),                   # not angle-linear
+           ("r03-F1-003", (34, 850, 1700, 19), None, None)]                                          # skeleton changes in the set: no robust key
 
 
-def _copy(enc, tmp_path):
-    for rel in (f"compress/archive/{enc}", f"results/compress/{enc}", f"compress/programs/{enc}"):
-        shutil.copytree(ROOT / rel, tmp_path / rel)
-    for old in list((tmp_path / "results" / "compress" / enc).glob("pre-*")):
-        shutil.rmtree(old)
+def _record(i, key, rkey, sha):
+    return {"program_sha256": sha, "angle_set_sha256": RB.angle_set_sha256(), "skeleton_equal": rkey is not None,
+            "t_eps": [rkey[1] // 20] * 20 if rkey else [0] * 20, "depth_ct": [rkey[3] // 20] * 20 if rkey else [0] * 20,
+            "t_sum": rkey[1] if rkey else 0, "depth_sum": rkey[3] if rkey else 0, "t_mean": rkey[1] / 20 if rkey else 0.0, "cx": key[0],
+            "qubits": key[3], "angle_linear": bool(rkey) and rkey[2] == 0, "export_status": "ok", "robust_key": rkey,
+            "laptop_key": list(key)}
+
+
+def _toy(enc, tmp_path, monkeypatch, fresh=True):
+    """A toy tree for `enc` under tmp_path: programs, an Archive.load stub over three entries, results/compress/<enc>/{robust.json,
+    summary.json,round-000.json}.  `fresh`: robust.json carries the keys that make it current for the code of `enc`."""
+    entries, recs = [], {}
+    for i, (eid, key, rkey, lean) in enumerate(ENTRIES):
+        f = tmp_path / "compress" / "programs" / enc / "F1" / f"{i:03d}-x.py"
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(f"# toy {eid}\n")
+        sha = hashlib.sha256(f.read_bytes()).hexdigest()
+        entries.append(SimpleNamespace(id=eid, program_path=str(f.relative_to(tmp_path)), program_sha256=sha, valid=True, key=key,
+                                       family=eid.split("-")[1], round=i + 1, lean=None if lean is None else {"status": lean}))
+        recs[eid] = _record(i, key, rkey, sha)
+    best = min(entries, key=lambda e: (tuple(e.key), e.id))
+    monkeypatch.setattr(A.Archive, "load", classmethod(lambda cls, *a, **k: SimpleNamespace(entries=lambda: list(entries), best=lambda: best)))
+    rdir = tmp_path / "results" / "compress" / enc
+    rdir.mkdir(parents=True)
+    cache = {"angle_set": RB._angle_set_record(), "evaluator_sha256": P.stamp_hash(enc) if fresh else "0" * 64, "entries": recs}
+    if enc == "spinnet" and fresh:
+        from su2plaq.spinnet.loop import code_hash
+
+        cache["spinnet_code_sha256"] = code_hash()
+    (rdir / "robust.json").write_text(json.dumps(cache, indent=1))
+    rid = entries[0]
+    rec = {"label": "001-x", "id": rid.id, "family": "F1", "program_sha256": rid.program_sha256, "program_path": rid.program_path, "valid": True,
+           "key": list(rid.key), "metrics": {"cx": rid.key[0], "t_eps": rid.key[1], "depth_ct": rid.key[2], "qubits": rid.key[3]}, "verdict": {"ok": True},
+           "lean": None, "round": 1, "parent": None, "parent_known": True}
+    (rdir / "round-001.json").write_text(json.dumps({"round": 1, "entries": [rid.id], "candidates": [rec], "external": []}))
+    (rdir / "summary.json").write_text(json.dumps({"encoding": enc, "kind": "step", "n_valid": 1, "t_avg": {rid.id: 1.0},
+                                                   "headline": {"id": rid.id, "robust_key": list(ENTRIES[0][2]), "t_mean": 847.4,
+                                                                "angle_set_sha256": RB.angle_set_sha256()}}, indent=1))
     return tmp_path
 
 
@@ -46,8 +84,8 @@ def no_build(monkeypatch):
 
 
 @pytest.mark.parametrize("enc,kind", HOOKED)
-def test_compute_false_stale_cache_returns_none_without_build_or_write(enc, kind, tmp_path, no_build):
-    root = _copy(enc, tmp_path)
+def test_compute_false_stale_cache_returns_none_without_build_or_write(enc, kind, tmp_path, monkeypatch, no_build):
+    root = _toy(enc, tmp_path, monkeypatch)
     f = root / "results" / "compress" / enc / "robust.json"
     cache = json.loads(f.read_text())
     cache["evaluator_sha256"] = "0" * 64                      # stale: the hook would recompute every entry
@@ -59,8 +97,8 @@ def test_compute_false_stale_cache_returns_none_without_build_or_write(enc, kind
 
 
 @pytest.mark.parametrize("enc,kind", HOOKED)
-def test_compute_false_missing_cache_and_refresh(enc, kind, tmp_path, no_build):
-    root = _copy(enc, tmp_path)
+def test_compute_false_missing_cache_and_refresh(enc, kind, tmp_path, monkeypatch, no_build):
+    root = _toy(enc, tmp_path, monkeypatch)
     f = root / "results" / "compress" / enc / "robust.json"
     assert RB.headline(enc, kind, root=root, compute=False, refresh=True) is None        # refresh would recompute
     f.unlink()
@@ -69,10 +107,8 @@ def test_compute_false_missing_cache_and_refresh(enc, kind, tmp_path, no_build):
 
 
 @pytest.mark.parametrize("enc,kind", HOOKED)
-def test_compute_false_fresh_cache_equals_the_hook_and_writes_nothing(enc, kind, tmp_path, no_build):
-    from su2plaq.compress import provenance as P
-
-    root = _copy(enc, tmp_path)
+def test_compute_false_fresh_cache_equals_the_hook_and_writes_nothing(enc, kind, tmp_path, monkeypatch, no_build):
+    root = _toy(enc, tmp_path, monkeypatch)
     f = root / "results" / "compress" / enc / "robust.json"
     cache = json.loads(f.read_text())
     cache["evaluator_sha256"] = P.stamp_hash(enc)             # make the copy's cache current: only its keys are changed
@@ -110,8 +146,8 @@ def test_compute_true_still_delegates_to_the_hook(monkeypatch, tmp_path):
 
 # ---------------------------------------------------------------------------------------------- N1: a stale cache never degrades summary.json
 @pytest.mark.parametrize("enc,kind", HOOKED)
-def test_generic_report_leaves_a_track_summary_unchanged_and_names_the_refresh_command(enc, kind, tmp_path, no_build):
-    root = _copy(enc, tmp_path)
+def test_generic_report_leaves_a_track_summary_unchanged_and_names_the_refresh_command(enc, kind, tmp_path, monkeypatch, no_build):
+    root = _toy(enc, tmp_path, monkeypatch)
     sf = root / "results" / "compress" / enc / "summary.json"
     before = sf.read_bytes()
     assert "headline" in json.loads(before) and "t_avg" in json.loads(before)
@@ -122,8 +158,6 @@ def test_generic_report_leaves_a_track_summary_unchanged_and_names_the_refresh_c
     text = RP.report_table(enc, kind, root=root)
     assert sf.read_bytes() == before and "stale or missing" in text and RP.refresh_command(enc, kind, root) in text
     assert "python -m su2plaq." in text and "--root" in text and no_build == []
-    from su2plaq.compress import provenance as P
-
     cache["evaluator_sha256"] = P.stamp_hash(enc)                           # a fresh cache: still not rewritten by the generic table
     if enc == "spinnet":
         from su2plaq.spinnet.loop import code_hash
@@ -140,21 +174,18 @@ def test_refresh_commands():
     assert RP.refresh_command("fuzzy_ub", "UB") == "python -m su2plaq.compress.robust --encoding fuzzy_ub --kind UB"
 
 
-def test_generic_report_keeps_an_existing_headline_block_and_writes_otherwise(tmp_path):
+def test_generic_report_keeps_an_existing_headline_block_and_writes_otherwise(tmp_path, monkeypatch):
     """twelve (no hook): with a `headline` block in summary.json and no usable cache the file is not rewritten; without a block it is
     refreshed from the round files; `headline=False` (the track reports) always writes."""
-    root = tmp_path
-    for rel in ("results/compress/twelve",):
-        shutil.copytree(ROOT / rel, root / rel)
-    for old in list((root / "results" / "compress" / "twelve").glob("pre-*")):
-        shutil.rmtree(old)
+    root = _toy("twelve", tmp_path, monkeypatch, fresh=False)
+    (root / "results" / "compress" / "twelve" / "robust.json").unlink()                 # no usable headline cache
     sf = root / "results" / "compress" / "twelve" / "summary.json"
     d = json.loads(sf.read_text())
     d.pop("headline", None)
     d["n_valid"] = -1                                       # a value the report would change
     sf.write_text(json.dumps(d))
     text = RP.report_table("twelve", "step", root=root)
-    assert json.loads(sf.read_text())["n_valid"] != -1 and "stale or missing" not in text      # no block: refreshed as before
+    assert json.loads(sf.read_text())["n_valid"] == 1 and "stale or missing" not in text      # no block: refreshed as before
     d = json.loads(sf.read_text())
     d["headline"] = {"id": "r00-x", "robust_key": None, "t_mean": 1.0, "angle_set_sha256": "x"}
     d["n_valid"] = -1
@@ -163,7 +194,7 @@ def test_generic_report_keeps_an_existing_headline_block_and_writes_otherwise(tm
     text = RP.report_table("twelve", "step", root=root)
     assert sf.read_bytes() == before and "stale or missing" in text and "python -m su2plaq.compress.robust --encoding twelve" in text
     RP.report_table("twelve", "step", root=root, headline=False)
-    assert json.loads(sf.read_text())["n_valid"] != -1
+    assert json.loads(sf.read_text())["n_valid"] == 1
 
 
 def test_robust_cli_computes_the_headline_and_prints_one_json_line(monkeypatch, capsys):
