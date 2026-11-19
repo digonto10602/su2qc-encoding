@@ -1,0 +1,4 @@
+'rishon_cert_general_step' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ rishon_cert_general_step._native.native_decide.ax_1_1]

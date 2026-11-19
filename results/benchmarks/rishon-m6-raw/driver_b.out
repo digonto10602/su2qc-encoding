@@ -1,0 +1,36 @@
+rc_general_full 1 32.63s cpu 32.5s rc 0 load 4.0->3.7 busy {2: 1.0} sib {3: 0.022}
+rc_headline_trial 1 5.85s cpu 5.8s rc 0 load 3.7->3.7 busy {2: 1.0} sib {3: 0.022}
+rc_headline_full 1 32.64s cpu 32.5s rc 0 load 3.7->3.7 busy {2: 1.0} sib {3: 0.025}
+rc_ctl_F1_004_full 1 31.30s cpu 31.2s rc 0 load 3.7->3.7 busy {2: 1.0} sib {3: 0.039}
+cert_general_step 1 35.15s cpu 35.0s rc 0 load 3.7->9.6 busy {2: 0.997} sib {3: 0.012}
+cert_headline 1 25.68s cpu 25.5s rc 0 load 9.6->13.3 busy {2: 0.996} sib {3: 0.015}
+cert_det_layer 1 2.59s cpu 2.5s rc 0 load 13.3->13.3 busy {2: 0.962} sib {3: 0.034}
+three_layer_headline 1 36.56s cpu 36.4s rc 0 load 13.3->11.1 busy {2: 1.0} sib {3: 0.027}
+three_layer_ctl_F1_004 1 38.05s cpu 37.9s rc 0 load 11.1->9.4 busy {2: 1.0} sib {3: 0.063}
+lean_theorem_best_step 1 41.49s cpu 81.4s rc 0 load 9.4->17.7 busy {2: 0.99, 3: 0.979} sib {}
+lean_theorem_general_step 1 75.14s cpu 148.7s rc 0 load 17.7->22.1 busy {2: 0.99, 3: 0.994} sib {}
+rc_general_trial 1 5.83s cpu 5.8s rc 0 load 22.1->19.5 busy {2: 1.0} sib {3: 0.01}
+rc_headline_trial 2 5.68s cpu 5.7s rc 0 load 19.5->18.3 busy {2: 1.0} sib {3: 0.016}
+rc_headline_full 2 30.19s cpu 30.1s rc 0 load 18.3->13.5 busy {2: 1.0} sib {3: 0.039}
+rc_ctl_F1_004_full 2 29.83s cpu 29.7s rc 0 load 13.5->10.0 busy {2: 1.0} sib {3: 0.032}
+cert_general_step 2 35.01s cpu 34.8s rc 0 load 10.0->14.4 busy {2: 0.997} sib {3: 0.007}
+cert_headline 2 25.84s cpu 25.7s rc 0 load 14.4->16.2 busy {2: 0.996} sib {3: 0.013}
+cert_det_layer 2 2.47s cpu 2.4s rc 0 load 16.2->16.2 busy {2: 0.963} sib {3: 0.004}
+three_layer_headline 2 34.43s cpu 34.3s rc 0 load 16.2->11.2 busy {2: 1.0} sib {3: 0.034}
+three_layer_ctl_F1_004 2 34.79s cpu 34.6s rc 0 load 11.2->8.0 busy {2: 1.0} sib {3: 0.055}
+lean_theorem_best_step 2 41.18s cpu 81.0s rc 0 load 8.0->15.9 busy {2: 0.974, 3: 0.997} sib {}
+lean_theorem_general_step 2 75.13s cpu 148.7s rc 0 load 15.9->22.1 busy {2: 0.996, 3: 0.988} sib {}
+rc_general_trial 2 7.12s cpu 7.1s rc 0 load 22.1->20.0 busy {2: 1.0} sib {3: 0.085}
+rc_general_full 2 44.03s cpu 43.8s rc 0 load 20.0->14.0 busy {2: 1.0} sib {3: 0.053}
+rc_headline_full 3 36.45s cpu 36.3s rc 0 load 14.0->11.8 busy {2: 0.999} sib {3: 0.067}
+rc_ctl_F1_004_full 3 32.00s cpu 31.9s rc 0 load 11.8->9.1 busy {2: 1.0} sib {3: 0.035}
+cert_general_step 3 36.60s cpu 36.4s rc 0 load 9.1->16.2 busy {2: 0.998} sib {3: 0.04}
+cert_headline 3 29.53s cpu 29.3s rc 0 load 16.2->18.6 busy {2: 0.997} sib {3: 0.046}
+cert_det_layer 3 2.64s cpu 2.5s rc 0 load 18.6->18.6 busy {2: 0.962} sib {3: 0.004}
+three_layer_headline 3 38.94s cpu 38.8s rc 0 load 18.6->16.1 busy {2: 1.0} sib {3: 0.395}
+three_layer_ctl_F1_004 3 36.76s cpu 36.6s rc 0 load 16.1->11.2 busy {2: 0.999} sib {3: 0.022}
+lean_theorem_best_step 3 41.23s cpu 81.1s rc 0 load 11.2->17.5 busy {2: 0.997, 3: 0.975} sib {}
+lean_theorem_general_step 3 75.02s cpu 148.4s rc 0 load 17.5->23.2 busy {2: 0.996, 3: 0.987} sib {}
+rc_general_trial 3 6.53s cpu 6.5s rc 0 load 23.2->20.9 busy {2: 1.0} sib {3: 0.046}
+rc_general_full 3 34.09s cpu 34.0s rc 0 load 20.9->15.1 busy {2: 1.0} sib {3: 0.022}
+rc_headline_trial 3 5.94s cpu 5.9s rc 0 load 15.1->14.5 busy {2: 1.0} sib {3: 0.017}

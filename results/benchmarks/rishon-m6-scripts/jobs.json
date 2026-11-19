@@ -1,0 +1,1098 @@
+[
+ {
+  "name": "rc_general_trial",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/seed/000-general.py",
+   "--kind",
+   "step",
+   "--trial"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_general_trial.rep0.log"
+ },
+ {
+  "name": "rc_general_full",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/seed/000-general.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_general_full.rep0.log"
+ },
+ {
+  "name": "rc_headline_trial",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+   "--kind",
+   "step",
+   "--trial"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_headline_trial.rep0.log"
+ },
+ {
+  "name": "rc_headline_full",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_headline_full.rep0.log"
+ },
+ {
+  "name": "rc_ctl_F1_004_full",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F1/004-pz-selector-walsh6.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_ctl_F1_004_full.rep0.log"
+ },
+ {
+  "name": "cert_general_step",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "general",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/cg0"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_general_step.rep0.log"
+ },
+ {
+  "name": "cert_headline",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "headline",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/ch0"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_headline.rep0.log"
+ },
+ {
+  "name": "cert_det_layer",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "det",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/cd0"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_det_layer.rep0.log"
+ },
+ {
+  "name": "three_layer_headline",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.three_layer",
+   "--out",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/tl0.json"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/three_layer_headline.rep0.log"
+ },
+ {
+  "name": "three_layer_ctl_F1_004",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.three_layer",
+   "--entry",
+   "r04-F1-004",
+   "--out",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/tlc0.json"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/three_layer_ctl_F1_004.rep0.log"
+ },
+ {
+  "name": "lean_theorem_best_step",
+  "rep": 0,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-best-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_best_step.rep0.log"
+ },
+ {
+  "name": "lean_theorem_general_step",
+  "rep": 0,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-general-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_general_step.rep0.log"
+ },
+ {
+  "name": "rc_general_full",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/seed/000-general.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_general_full.rep1.log"
+ },
+ {
+  "name": "rc_headline_trial",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+   "--kind",
+   "step",
+   "--trial"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_headline_trial.rep1.log"
+ },
+ {
+  "name": "rc_headline_full",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_headline_full.rep1.log"
+ },
+ {
+  "name": "rc_ctl_F1_004_full",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F1/004-pz-selector-walsh6.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_ctl_F1_004_full.rep1.log"
+ },
+ {
+  "name": "cert_general_step",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "general",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/cg1"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_general_step.rep1.log"
+ },
+ {
+  "name": "cert_headline",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "headline",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/ch1"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_headline.rep1.log"
+ },
+ {
+  "name": "cert_det_layer",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "det",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/cd1"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_det_layer.rep1.log"
+ },
+ {
+  "name": "three_layer_headline",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.three_layer",
+   "--out",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/tl1.json"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/three_layer_headline.rep1.log"
+ },
+ {
+  "name": "three_layer_ctl_F1_004",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.three_layer",
+   "--entry",
+   "r04-F1-004",
+   "--out",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/tlc1.json"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/three_layer_ctl_F1_004.rep1.log"
+ },
+ {
+  "name": "lean_theorem_best_step",
+  "rep": 1,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-best-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_best_step.rep1.log"
+ },
+ {
+  "name": "lean_theorem_general_step",
+  "rep": 1,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-general-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_general_step.rep1.log"
+ },
+ {
+  "name": "rc_general_trial",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/seed/000-general.py",
+   "--kind",
+   "step",
+   "--trial"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_general_trial.rep1.log"
+ },
+ {
+  "name": "rc_headline_trial",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+   "--kind",
+   "step",
+   "--trial"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_headline_trial.rep2.log"
+ },
+ {
+  "name": "rc_headline_full",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_headline_full.rep2.log"
+ },
+ {
+  "name": "rc_ctl_F1_004_full",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F1/004-pz-selector-walsh6.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_ctl_F1_004_full.rep2.log"
+ },
+ {
+  "name": "cert_general_step",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "general",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/cg2"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_general_step.rep2.log"
+ },
+ {
+  "name": "cert_headline",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "headline",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/ch2"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_headline.rep2.log"
+ },
+ {
+  "name": "cert_det_layer",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "det",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/cd2"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_det_layer.rep2.log"
+ },
+ {
+  "name": "three_layer_headline",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.three_layer",
+   "--out",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/tl2.json"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/three_layer_headline.rep2.log"
+ },
+ {
+  "name": "three_layer_ctl_F1_004",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.three_layer",
+   "--entry",
+   "r04-F1-004",
+   "--out",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/tlc2.json"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/three_layer_ctl_F1_004.rep2.log"
+ },
+ {
+  "name": "lean_theorem_best_step",
+  "rep": 2,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-best-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_best_step.rep2.log"
+ },
+ {
+  "name": "lean_theorem_general_step",
+  "rep": 2,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-general-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_general_step.rep2.log"
+ },
+ {
+  "name": "rc_general_trial",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/seed/000-general.py",
+   "--kind",
+   "step",
+   "--trial"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_general_trial.rep2.log"
+ },
+ {
+  "name": "rc_general_full",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/seed/000-general.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_general_full.rep2.log"
+ },
+ {
+  "name": "rc_headline_full",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_headline_full.rep3.log"
+ },
+ {
+  "name": "rc_ctl_F1_004_full",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F1/004-pz-selector-walsh6.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_ctl_F1_004_full.rep3.log"
+ },
+ {
+  "name": "cert_general_step",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "general",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/cg3"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_general_step.rep3.log"
+ },
+ {
+  "name": "cert_headline",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "headline",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/ch3"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_headline.rep3.log"
+ },
+ {
+  "name": "cert_det_layer",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "det",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/cd3"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_det_layer.rep3.log"
+ },
+ {
+  "name": "three_layer_headline",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.three_layer",
+   "--out",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/tl3.json"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/three_layer_headline.rep3.log"
+ },
+ {
+  "name": "three_layer_ctl_F1_004",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.three_layer",
+   "--entry",
+   "r04-F1-004",
+   "--out",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/tlc3.json"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/three_layer_ctl_F1_004.rep3.log"
+ },
+ {
+  "name": "lean_theorem_best_step",
+  "rep": 3,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-best-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_best_step.rep3.log"
+ },
+ {
+  "name": "lean_theorem_general_step",
+  "rep": 3,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-general-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_general_step.rep3.log"
+ },
+ {
+  "name": "rc_general_trial",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/seed/000-general.py",
+   "--kind",
+   "step",
+   "--trial"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_general_trial.rep3.log"
+ },
+ {
+  "name": "rc_general_full",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/seed/000-general.py",
+   "--kind",
+   "step",
+   "--full"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_general_full.rep3.log"
+ },
+ {
+  "name": "rc_headline_trial",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "-m",
+   "su2plaq.rishon.compress.run_candidate",
+   "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+   "--kind",
+   "step",
+   "--trial"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/rc_headline_trial.rep3.log"
+ }
+]

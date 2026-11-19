@@ -1,0 +1,434 @@
+[
+ {
+  "name": "cert_general_step",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "general",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2cg0"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_general_step.H2.rep0.log"
+ },
+ {
+  "name": "cert_headline",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "headline",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2ch0"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_headline.H2.rep0.log"
+ },
+ {
+  "name": "cert_det_layer",
+  "rep": 0,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "det",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2cd0"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_det_layer.H2.rep0.log"
+ },
+ {
+  "name": "lean_theorem_best_step",
+  "rep": 0,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-best-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_best_step.H2.rep0.log"
+ },
+ {
+  "name": "lean_theorem_general_step",
+  "rep": 0,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-general-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_general_step.H2.rep0.log"
+ },
+ {
+  "name": "cert_headline",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "headline",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2ch1"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_headline.H2.rep1.log"
+ },
+ {
+  "name": "cert_det_layer",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "det",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2cd1"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_det_layer.H2.rep1.log"
+ },
+ {
+  "name": "lean_theorem_best_step",
+  "rep": 1,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-best-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_best_step.H2.rep1.log"
+ },
+ {
+  "name": "lean_theorem_general_step",
+  "rep": 1,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-general-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_general_step.H2.rep1.log"
+ },
+ {
+  "name": "cert_general_step",
+  "rep": 1,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "general",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2cg1"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_general_step.H2.rep1.log"
+ },
+ {
+  "name": "cert_det_layer",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "det",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2cd2"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_det_layer.H2.rep2.log"
+ },
+ {
+  "name": "lean_theorem_best_step",
+  "rep": 2,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-best-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_best_step.H2.rep2.log"
+ },
+ {
+  "name": "lean_theorem_general_step",
+  "rep": 2,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-general-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_general_step.H2.rep2.log"
+ },
+ {
+  "name": "cert_general_step",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "general",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2cg2"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_general_step.H2.rep2.log"
+ },
+ {
+  "name": "cert_headline",
+  "rep": 2,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "headline",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2ch2"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_headline.H2.rep2.log"
+ },
+ {
+  "name": "lean_theorem_best_step",
+  "rep": 3,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-best-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_best_step.H2.rep3.log"
+ },
+ {
+  "name": "lean_theorem_general_step",
+  "rep": 3,
+  "cmd": [
+   "lake",
+   "env",
+   "lean",
+   "certs/rishon-general-step.lean"
+  ],
+  "cpus": "0-3",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/lean",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/lean_theorem_general_step.H2.rep3.log"
+ },
+ {
+  "name": "cert_general_step",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "general",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2cg3"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_general_step.H2.rep3.log"
+ },
+ {
+  "name": "cert_headline",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "headline",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2ch3"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_headline.H2.rep3.log"
+ },
+ {
+  "name": "cert_det_layer",
+  "rep": 3,
+  "cmd": [
+   "/home/digimonk/miniforge3/envs/coding/bin/python",
+   "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-scripts/cert_worker.py",
+   "det",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+   "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/tmp/h2cd3"
+  ],
+  "cpus": "0",
+  "cwd": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2",
+  "env": {
+   "PYTHONPATH": "/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head2/src",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "20261104",
+   "PATH": "/home/digimonk/.local/bin:/home/digimonk/miniforge3/envs/coding/bin:/usr/bin:/bin"
+  },
+  "log": "/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/cert_det_layer.H2.rep3.log"
+ }
+]

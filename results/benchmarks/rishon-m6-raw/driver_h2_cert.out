@@ -1,0 +1,12 @@
+cert_general_step 0 41.35s cpu 41.1s rc 0 load 4.3->12.2 busy {2: 0.997} sib {3: 0.014}
+cert_headline 0 31.35s cpu 31.1s rc 0 load 12.2->13.8 busy {2: 0.996} sib {3: 0.01}
+cert_det_layer 0 2.55s cpu 2.4s rc 0 load 13.8->14.4 busy {2: 0.961} sib {3: 0.012}
+cert_headline 1 31.79s cpu 31.6s rc 0 load 14.4->16.3 busy {2: 0.997} sib {3: 0.017}
+cert_det_layer 1 2.54s cpu 2.4s rc 0 load 16.3->16.3 busy {2: 0.964} sib {3: 0.008}
+cert_general_step 1 41.01s cpu 40.8s rc 0 load 16.3->18.1 busy {2: 0.998} sib {3: 0.01}
+cert_det_layer 2 2.45s cpu 2.3s rc 0 load 18.1->18.1 busy {2: 0.959} sib {3: 0.012}
+cert_general_step 2 41.08s cpu 40.9s rc 0 load 18.1->20.1 busy {2: 0.998} sib {3: 0.026}
+cert_headline 2 30.76s cpu 30.6s rc 0 load 20.1->19.1 busy {2: 0.997} sib {3: 0.035}
+cert_general_step 3 40.45s cpu 40.3s rc 0 load 19.1->18.7 busy {2: 0.998} sib {3: 0.026}
+cert_headline 3 31.52s cpu 31.3s rc 0 load 18.7->19.6 busy {2: 0.997} sib {3: 0.024}
+cert_det_layer 3 2.44s cpu 2.3s rc 0 load 19.6->19.6 busy {2: 0.959} sib {3: 0.025}

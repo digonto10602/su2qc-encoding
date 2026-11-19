@@ -1,0 +1,5 @@
+valid: ok  [full, 33.8 s]  sha256 6757d91f5a90
+summary: the reference circuit of the rishon encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.
+op_norm_error 4.125e-13 (block 4.495e-14, leak 0.000e+00, pruning 3.676e-13), gauss 2.660e-15, engine sparse, certified True
+alternate angles: ok=True err=3.55e-13, ok=True err=4.28e-13; skeleton_equal=True
+metrics: CX 10102, T_fixed 10218, N_rot 166, T_eps 20650, depth 13685, depth_CT 35639, qubits 58

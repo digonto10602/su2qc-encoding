@@ -1,0 +1,5 @@
+valid: ok  [trial, 5.2 s]  sha256 6757d91f5a90
+note: a trial result is NOT a validity verdict (a seeded subset of the inner codes, nominal angles, no Gauss sample); run --full to decide
+summary: the reference circuit of the rishon encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.
+op_norm_error 4.119e-13 (block 4.437e-14, leak 0.000e+00, pruning 3.676e-13), gauss nan, engine sparse, certified True
+metrics: CX 10102, T_fixed 10218, N_rot 166, T_eps 20143.92114752344 (estimate), depth 13685, depth_CT 13685, qubits 58

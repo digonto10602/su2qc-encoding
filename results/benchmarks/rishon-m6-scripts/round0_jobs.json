@@ -1,0 +1,4 @@
+[{"name":"round0_dry_root","rep":1,"cpus":"0","cwd":"/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head",
+"cmd":["/home/digimonk/miniforge3/envs/coding/bin/python","-m","su2plaq.rishon.compress.round","--seed","--evaluate","--no-lean","--root","/home/digimonk/Projects/su2qc-encoding/scratch/bench305/round0root"],
+"env":{"PYTHONPATH":"/home/digimonk/Projects/su2qc-encoding/scratch/bench305/head/src","OMP_NUM_THREADS":"1","OPENBLAS_NUM_THREADS":"1","MKL_NUM_THREADS":"1","PYTHONHASHSEED":"20261104"},
+"log":"/home/digimonk/Projects/su2qc-encoding/results/benchmarks/rishon-m6-raw/round0_dry_root.log"}]
