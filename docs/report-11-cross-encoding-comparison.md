@@ -1,0 +1,248 @@
+# Report 11 — The five encodings side by side: gate-count table and energy-spectra cross-check (final report, DRAFT)
+
+- Date: 2026-11-19. Git commit at drafting: `2ecb405` (branch `merge-desktop-tracks`). Final commit of the numbers: `[COMMIT AT STEP 11.8]` (the two result files `results/crosscheck/{spectra,gate-table}.json` are regenerated on a clean tree at that step).
+- Plans: `prompts/009-final-cross-encoding-report-spectra-crosscheck.md` (milestone M11; this file name is the one fixed in its section 8) and `prompts/010-fuzzy-headline-rule-clifford-offsets.md` (the fuzzy headline). Research behind them: `reports/research/006-cross-encoding-spectra-and-final-tables.md`, `reports/research/007-fuzzy-headline-rule-clifford-offsets.md`. Methods: `docs/METHODS.md` sections 12.4 and 13 and the per-track `docs/METHODS-{spinnet,rishon,fuzzy,lsh}.md`.
+- Related reports: Report 1 and 2 (twelve: `docs/report-1-twelve-qubit-general-circuit.md`, `docs/report-2-twelve-qubit-compression.md`); Report 3 and 4 (spin network: `docs/report-3-spinnet-general-circuit.md`, `docs/report-4-spinnet-compression.md`); Report 5 and its addendum (rishon: `docs/report-5-rishon-general-circuit.md`, `docs/report-5-rishon-general-circuit-addendum-det.md`); Report 6 (rishon compression: `docs/report-6-rishon-compression.md`, being written in parallel with this one); Report 7 (LSH: `docs/report-7-lsh-general-circuit.md`); Report 8 (LSH compression: `[LSH M8: Report 8 does not exist yet]`); Report 9 and 10 (fuzzy: `docs/report-9-fuzzy-general-circuit.md`, `docs/report-10-fuzzy-compression.md`). Verification of the new code of this report: `reports/tests/421`, `422`, `423` (steps 11.0 to 11.7), audit `reports/audits/305`.
+- Status of this draft: everything about twelve, spin network, rishon and fuzzy is final. Everything about the loop-string-hadron compression is a placeholder written `[LSH M8: ...]`, because the compression loop of that encoding (milestone M8) has not run. The headline cross-verdict numbers and the gate table must be regenerated at step 11.8 (see section 4). Every place where a number or a sentence is still open is listed in section 5.
+
+How numbers are quoted here. Every number carries its unit, its uncertainty or tolerance, and the file it was read from. "Trivial arithmetic" means a sum, difference, ratio or percentage of numbers that are cited. No test, circuit evaluation or compression round was run to write this draft; the only computation was reading the JSON files and the arithmetic just described (and the standard error of a mean, see the definition of $\bar T$).
+
+## Terms (each defined once)
+
+- **Plaquette, outer links, inner links.** One square of the lattice (the smallest closed loop) has 4 *inner links*; 8 *outer links* leave its 4 corners (two per corner). The model is an SU(2) gauge theory on these 12 links with every link truncated to spin $j\le\tfrac12$ (the *truncation* $j_{\max}=\tfrac12$).
+- **Gauss law.** At each of the 4 corners the three generators of SU(2) rotations, summed over the links meeting there, must give zero total charge. States that satisfy this are *physical*. The number of physical states of the encodings that implement the truncated theory is $433$.
+- **Trotter step $U_BU_E$.** One step of the product formula that approximates the time evolution $e^{-i(\alpha H_E+\beta H_B)}$ by alternating the electric part $U_E(\alpha)=e^{-i\alpha H_E}$ and the magnetic (plaquette) part $U_B(\beta)=e^{-i\beta H_B}$. "Nominal angles" are $(\alpha,\beta)=(0.37,0.61)$.
+- **CX.** The two-qubit controlled-NOT gate; the costly gate on most hardware, so it is compared first.
+- **T gate; T count at accuracy $\varepsilon$.** The T gate is the non-Clifford gate that is expensive on an error-corrected machine. A circuit with arbitrary rotation angles is turned into the Clifford+T gate set (the gates H, S, CX and T) by synthesising every rotation $R_z(\theta)$ to operator-norm accuracy $\varepsilon$ with `pygridsynth` (Ross and Selinger, arXiv:1403.2975). The **T count at $\varepsilon$** is $T_{\rm fixed}$ (T gates already in the circuit) plus the sum over the rotations of the T gates of their synthesised words; per rotation it is about $3\log_2(1/\varepsilon)$ with an angle-dependent remainder (METHODS 12.4). Here $\varepsilon=10^{-6}$ throughout, "$T(10^{-6})$".
+- **$\bar T$ (mean T over 20 pairs).** $\bar T=\frac1{20}\sum_{i=1}^{20}T_i$, with $T_i$ the T count at $\varepsilon=10^{-6}$ for the $i$-th of 20 locked angle pairs $(\alpha_i,\beta_i)$ (`default_rng(20261107)`, $\alpha_i\sim U(0.05,2.0)$, $\beta_i\sim U(0.05,1.2)$; METHODS 12.4). The uncertainty quoted next to $\bar T$ is the standard error of that mean, $s/\sqrt{20}$, with $s$ the sample standard deviation of the 20 values in the `t_eps` list of `results/compress/<enc>/robust.json` (my arithmetic).
+- **Robust key and headline (project labels, not standard terms).** The *robust key* of a circuit program is the tuple $(\mathrm{CX},\ \sum_{i=1}^{20}T_i,\ \rho,\ \sum_i\mathrm{depth}_i,\ \mathrm{qubits})$ compared lexicographically (first entry first), with $\rho=0$ if every rotation angle is a linear function $c_\alpha\alpha+c_\beta\beta$ with no constant term ("angle-linear") and $\rho=1$ otherwise. The *headline* of an archive is the valid entry with the smallest robust key; it is what the compression reports quote. The *archive best* is the entry with the smallest key at the nominal angles only (CX, T, depth, qubits). The *T-first pick* exchanges the first two components, so it is the entry with the smallest $\sum T_i$ and then the smallest CX. All of this is METHODS 12.4 and prompts/010.
+- **Compression loop, archive, entry.** A search in which language-model "proposer" agents write small Python programs that build a circuit; a fixed evaluator checks each circuit exactly on all physical states (error in operator norm $\le10^{-10}$ after one global phase, ancilla qubits returned to $|0\rangle$, same gate skeleton at three angle pairs) and scores it; valid circuits are kept in an *archive* (each one an *entry* with an id such as `r05-F2-005`: round 5, family F2, program 005; the family labels are the project's).
+- **Lean status.** Lean 4 is a proof assistant. *Kernel-checked* = proved by the trusted core by computation from definitions. *Native-certified* = a compiled checker program, run through Lean's `native_decide`, accepts a certificate for one circuit (the exact action of the gate list on every physical state, valid for all angles of the angle-linear gate family); its trust root is the Lean compiler plus the checker source (METHODS 11.5). `n_a` = no certificate is available for that circuit.
+- **Encodings** (one line each; details in the Reports 1 to 10). **Twelve** = Paulo's 12-qubit encoding, 3 qubits per inner link (labels $(j,m,m')$). **Spin network** (code name `spinnet`) = one qubit per link and one per corner, built from $6j$ recoupling coefficients. **LSH** = loop-string-hadron encoding (Raychowdhury and Stryker, arXiv:1912.06133): gauge-invariant integers on the corners. **Rishon** = a quantum link model, a gauge theory whose link space is built from two fermionic "rishon" modes (Brower, Chandrasekharan, Wiese, arXiv:hep-th/9704106), plus the det term $\lambda_DH_D$ (Wiese, arXiv:1305.1602). **Fuzzy** = the fuzzy gauge theory of Alexandru et al. (arXiv:2308.05253) whose link wavefunction is a $4\times4$ matrix, with the kinetic terms $\mathcal K_1+r\mathcal K_2$, $r=1$.
+- **Kogut–Susskind (KS)** = the standard lattice Hamiltonian $H(g^2)=\tfrac{g^2}2H_E+\tfrac1{g^2}H_B$ (electric part and plaquette part; $g^2$ is the coupling), here truncated to $j\le\tfrac12$.
+- **Level, closed sector, isometry, compression, leak, cross-verdict.** A *level* is an eigenvalue of a Hamiltonian. The *closed sector* is the set of states with no flux on the 8 outer links. An *isometry* is a matrix $V$ with $V^\dagger V=1$ (it embeds a small space into a larger one); the *compression* of an operator $X$ is $V^\dagger XV$; the *leak* is $(1-VV^\dagger)XV$, the part of $XV$ that leaves the embedded space. A *cross-verdict* (our label) is the verdict of the project's evaluator for the circuit of one encoding judged against the target operator built by the code of another encoding.
+
+## 1. What was asked
+
+Digonto asked (decision of 2026-11-16, `notes/STATUS.md`; option (c)) for a final report that compares the five encodings on one page in gate counts and, because two of the five describe a different theory from the other three, also compares their energy spectra in the ways that are honest. Concretely (`prompts/009` section 8): one gate table in three model blocks; a second table that compares choosing the cheapest circuit by CX with choosing it by T; a third table with the spectra cross-check; and a clear statement of what can and cannot be compared. The report goes in `docs/`.
+
+## 2. What was done
+
+1. **Gate counts.** For each encoding the general (uncompressed) step and the compressed headline were read from the track result files and from `results/compress/<enc>/{summary,robust}.json` (the current headlines, after the consolidation replays of `prompts/008` and the fuzzy headline rule of `prompts/010`). The old `results/crosscheck/gate-table.json` was written before those replays and is stale; none of its rows is quoted.
+2. **Spectra cross-check.** The package `src/su2plaq/crosscheck/` (steps 11.1 to 11.7, verified in `reports/tests/421`, `422`, `423`) computes: (a) the 433 levels of the KS Hamiltonian from three independent constructions and cross-verdicts of circuits against foreign targets; (b) the exact embedding of the KS link into the rishon and the fuzzy link; (c) a limit in which the rishon model reproduces the KS levels; (d) which flavour sectors of the fuzzy model reproduce the KS closed sector, and the weak- and strong-coupling gap. Numbers: `results/crosscheck/spectra.json` (schema `crosscheck-spectra-1`).
+3. **Headline rule for fuzzy.** The fuzzy headline and the composed fuzzy step follow `prompts/010` (verified in `reports/tests/428`, `429`).
+
+## 3. Results and what they mean
+
+### 3.1 The five encodings and the three models
+
+| block | encoding | model | physical states | where described |
+|---|---|---|---|---|
+| A | twelve, spin network, LSH | KS, $j_{\max}=\tfrac12$ | 433 each | Reports 1, 2 / 3, 4 / 7, `[LSH M8: Report 8]` |
+| B | rishon | SU(2) quantum link model with det term $\lambda_DH_D$ | 38 432 | Reports 5, 5 addendum, 6 |
+| C | fuzzy | fuzzy gauge theory, $\mathcal K_1+r\mathcal K_2$, $r=1$ | 101 197 218 (far ends of the outer links fixed) | Reports 9, 10 |
+
+Sources of the state counts: Reports 3, 5, 7, 9 (Lean-counted in `lean/Su2Plaq/*/Counts.lean`). Block A is one theory written three ways, so its encodings are comparable like for like. Blocks B and C are other theories on the same lattice, with other numbers of states, other Hamiltonians and other circuits; the rows of blocks B and C are marked "different model" and must be read within the row only. The quantum link model reaches ordinary gauge theory through an extra dimension (Brower, Chandrasekharan, Wiese, arXiv:hep-th/9704106; Brower et al., arXiv:hep-lat/0309182); for the fuzzy model the correct continuum limit is a conjecture that its authors call difficult to settle (arXiv:2308.05253, Secs. IV and VI). Neither statement can be tested on one plaquette.
+
+### 3.2 Table 1: gate counts, general against compressed (one table, three blocks)
+
+**Which circuit is counted ("the unit").** The first-order step $U_BU_E$ on the 4 inner links, nominal angles, $\varepsilon=10^{-6}$. The phases of the 8 outer links are a separate row (Table 1c); they are the same for every circuit of an encoding. For rishon two lines are given, the loop unit $U_BU_E$ (the object the loop compressed) and the three-layer step that has the det layer $U_D(\eta)$ in front, with $\eta=0.29$ ($\lambda_D=0.43$). For fuzzy the step is the inner step composed from the two unit headlines, $U_B$ unit $+\,4$ link units. "Qubits" is the register of the circuit as the project's evaluator counts it, *data + outer-link qubits (read as controls) + ancillas*, so the numbers in `results/<enc>/step.json` (which leave the outer qubits out: twelve 34, spin network 15, LSH 19, rishon 26) are smaller. The inner fuzzy step does not touch the outer register, so its qubit count has no outer part (the outer register of 32 qubits is added only when the outer rows are included).
+
+**Table 1a. General (uncompressed) step.** $\bar T$: mean over 20 angle pairs $\pm$ standard error; "rot." = number of rotations to be synthesised.
+
+| block | encoding | model | qubits (data+outer+anc.) | CX | rot. | $T_{\rm fixed}$ | $T(10^{-6})$ nominal | $\bar T$ | Lean | source |
+|---|---|---|---|---|---|---|---|---|---|---|
+| A | twelve | KS | 50 (12+16+22) | 294 | 10 | 312 | 952 | $943.2\pm2.3$ | native-certified | `results/twelve/step.json` @ `a9702e5`; `results/lean/general_step_certificate.json`; `robust.json` entry `r00-seed-000` |
+| A | spin network | KS | 23 (8+8+7) | 54 | 8 | 56 | 566 | $560.6\pm1.6$ | certified (compiled checker) | `results/spinnet/step.json` @ `d82a472`; `summary.json` row "general" |
+| A | LSH | KS | 31 (12+12+7) | 94 | 8 | 88 | 598 | `[LSH M8: mean over 20 pairs of the general circuit]` | native-certified (first-order step, 31-qubit circuit) | `results/lsh/step.json` @ `76fd221`; Report 7 section 3.6 |
+| B | rishon, two layers $U_BU_E$ | QLM (different model) | 58 (16+32+10) | 10 102 | 166 | 10 218 | 20 650 | $20\,620.2\pm58.8$ | native-certified | `results/rishon/step.json` @ `b4c1917`; `robust.json` `r00-seed-000` |
+| B | rishon, three layers with det | QLM (different model) | 58 | 10 134 | 174 | 10 218 | 21 146 | $21\,121.0$ (not re-derived; from `before_after` of `m6-compressed.json`) | certified by composition (unit certificate + det-layer certificate, METHODS-rishon R16: not a Lean theorem) | `results/rishon/step3.json` @ `6fea036`; `results/rishon/m6-compressed.json` |
+| C | fuzzy, inner step | fuzzy (different model) | 23 (16+7); 55 with the outer register | 1862 | 56 | 1826 | 5398 | $5336.2\pm17$ (sum of the unit means $2821.0+4\times628.8$, see section 3.6; error in quadrature, trivial arithmetic) | `n_a` | `results/fuzzy/step.json` @ `8e71c38` (dirty tree, see section 4); unit means from `results/compress/fuzzy_{ub,link}/robust.json`, entries `r00-seed-000` |
+
+(The qubit split data+outer+ancilla is from `results/*/step.json` `metrics.logical` and the evaluator registers of `summary.json`; the outer-link qubits are 16 for twelve, 8 for the spin network, 12 for LSH, 32 for rishon and for fuzzy.)
+
+**Table 1b. Compressed headline** (the valid entry of smallest robust key, METHODS 12.4). All circuits verified exact on all physical states (error $\le10^{-10}$; the actual errors are $5\times10^{-15}$ to $1.4\times10^{-13}$).
+
+| block | encoding | headline entry | qubits | CX | rot. | $T_{\rm fixed}$ | $T(10^{-6})$ nominal | $\bar T$ | angle-linear | Lean | source |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| A | twelve | `r05-F2-005` | 31 (12+16+3) | 111 | 13 | 104 | 912 | $927.4\pm2.7$ | yes | native-certified (all angles of the angle-linear family) | `results/compress/twelve/{summary,robust}.json`; Report 2 section 6 |
+| A | spin network | `r02-F1-002` (the archive best `r04-F1-004` has the same CX but $\rho=1$) | 17 (8+8+1) | 31 | 17 | 16 | 1086 | $1092.0\pm3.1$ | yes | native-certified; theorem file `lean/certs/spinnet-best-step.lean` | `results/spinnet/m4-compressed.json` @ `5bbaf0f` |
+| A | LSH | `[LSH M8: headline entry]` | `[LSH M8]` | `[LSH M8]` | `[LSH M8]` | `[LSH M8]` | `[LSH M8]` | `[LSH M8]` | `[LSH M8]` | `[LSH M8]` | `[LSH M8: results/compress/lsh/summary.json]` |
+| B | rishon, loop unit | `r06-F3-006` | 52 (16+32+4) | 216 | 10 | 196 | 832 | $829.8\pm2.2$ | yes | native-certified (three-angle checker; theorem file `lean/certs/rishon-best-step.lean`) | `results/rishon/m6-compressed.json` @ `fcd61dd` |
+| B | rishon, three layers | `r06-F3-006` + det layer | 52 | 248 | 18 | 196 | 1328 | $1330.6$ (unit $829.8$ + det layer $500.8$; the det layer's own CX 32, T 496) | yes | certified by composition (R16) | `results/compress/rishon/three-layer.json` @ `086c0fd`, clean tree |
+| C | fuzzy, inner step | `fuzzy_ub:r10-F1-010` + $4\times$ `fuzzy_link:r02-F2-001` | 18 (16+2) | 131 | 49 | 72 | 3214 | $3149.6\pm16$ (definition in section 3.6) | yes for both units | `n_a` | `results/fuzzy/compressed_step_headline.json` @ `cd468e2`, clean tree; error $1.2\times10^{-14}$, Gauss residual $5.9\times10^{-15}$ on 40 seeded inputs |
+| C | fuzzy unit $U_B$ | `r10-F1-010` | 10 | 83 | 9 | 72 | 638 | $634.4\pm3.2$ | yes | `n_a` | `results/compress/fuzzy_ub/{summary,robust}.json` |
+| C | fuzzy unit link (used 4 times) | `r02-F2-001` | 4 | 12 | 10 | 0 | 644 | $628.8\pm3.8$ | yes | `n_a` | `results/compress/fuzzy_link/{summary,robust}.json` |
+
+Check of the fuzzy composition (trivial arithmetic): $83+4\times12=131$ CX, $9+4\times10=49$ rotations, $72+4\times0=72$ fixed T, $638+4\times644=3214$ nominal T, $634.4+4\times628.8=3149.6$. With the outer rows included the composed step has 227 CX, 129 rotations, depth 151, 50 qubits (same file).
+
+**Table 1c. General against headline, and the separate outer rows.** Percentages are trivial arithmetic on Tables 1a and 1b; they are statements within one row, never between blocks.
+
+| encoding | CX general $\to$ headline | $\bar T$ general $\to$ headline | outer rows (not part of the evaluated unit; same for every circuit of the encoding) |
+|---|---|---|---|
+| twelve | $294\to111$ ($\times2.65$, $-62.2\%$) | $943.2\to927.4$ ($-1.7\%$; the loop traded T for CX) | 8 outer phase rotations, 0 CX, $T(10^{-6})=512$ (the 12-link row has 12 rotations, $T=768$, `results/twelve/UE.json`; inner four $256$, Report 2 section 3.3) |
+| spin network | $54\to31$ ($\times1.74$, $-42.6\%$) | $560.6\to1092.0$ ($+94.8\%$: the loop spent T to save CX; Report 4) | 12-link row: 12 rotations, 0 CX, $T=768$ (`results/spinnet/UE.json`); outer eight $=512$ by the same arithmetic as twelve |
+| LSH | $94\to$ `[LSH M8]` | `[LSH M8]` | 12-link electric row: 20 rotations, 0 CX, $T=1280$ (`results/lsh/UE.json`); how these 20 split between inner and outer links is not restated here |
+| rishon (three layers) | $10\,134\to248$ ($\times40.9$, $-97.6\%$); unit only $10\,102\to216$ ($-97.9\%$) | $21\,121.0\to1330.6$ ($-93.7\%$); unit only $20\,620.2\to829.8$ ($-96.0\%$) | outer electric row: 24 CX, 12 rotations, $T=768$; outer det row: 96 CX, 24 rotations, $T=1488$ (`results/rishon/m6-compressed.json`, rows 16 and 17; certified by an exhaustive per-link check, not by Lean) |
+| fuzzy (inner step) | $1862\to131$ ($\times14.2$, $-93.0\%$); with the outer rows $2150\to227$ ($-89.4\%$) | $5336.2\to3149.6$ ($-41.0\%$) | uncompressed outer row: 288 CX, 80 rotations, $T=5152$ (`results/fuzzy/step.json`); with the link headline the outer links cost $8\times12=96$ CX |
+
+**Reading Table 1.** Within block A the compression gives $-62\%$ and $-43\%$ in CX; the spin network and (once it runs) LSH are the cheapest because their registers are smaller. **Ratios between rows of different blocks are not efficiency statements.** A rishon step acts on 38 432 states and a fuzzy step on 101 197 218 states, a KS step on 433; the circuits implement different unitaries on different registers. Section 3.5 lists what may be compared.
+
+### 3.3 Table 2: choosing by CX first or by T first
+
+The project ranks CX first (`prompts/001` section 1), so "headline" above is the CX-first pick. A T-first pick (smallest $\sum T$, then CX) is a different circuit in three of the five archives (twelve, spin network, fuzzy $U_B$), and a near-identical one for rishon. All entries below are valid entries of the archive with a robust key; $\bar T$ at $\varepsilon=10^{-6}$; source: `robust.headline(enc, kind, compute=False)["ranking"]` over `results/compress/<enc>/robust.json` (read, not recomputed). The Pareto points are the entries that are not beaten in both CX and $\bar T$ by another entry (ties in both keep the first by id).
+
+| archive | headline (CX, $\bar T$) | T-first pick (entry, CX, $\bar T$) | general (CX, $\bar T$) | Pareto points (CX, $\bar T$, entry) | which cost model picks which |
+|---|---|---|---|---|---|
+| twelve (21 ranked entries) | $111$, $927.4$ | `r00-seed-001` (imported seed lean22_v2), $162$, $666.6$ | $294$, $943.2$ | $(111,927.4)$ `r05-F2-005`; $(121,745.6)$ `r02-F4-002`; $(162,666.6)$ `r00-seed-001` | CX first: `r05-F2-005`; T first: the imported seed (51 CX more, $-260.8$ T) |
+| spin network (23) | $31$, $1092.0$ | `r01-F5-001`, $46$, $486.7$ (not angle-linear, $\rho=1$) | $54$, $560.6$ | $(31,1092.0)$ `r02-F1-002`; $(32,847.4)$ `r05-F3-005`; $(34,665.6)$ `r02-F5-002`; $(42,609.1)$ `r00-seed-003`; $(44,553.1)$ `r00-seed-002`; $(46,486.7)$ `r01-F5-001` | the widest trade-off of the five: CX $31\to46$ buys $\bar T$ $1092.0\to486.7$ (Report 4 section 3.4) |
+| LSH | `[LSH M8]` | `[LSH M8]` | $94$, `[LSH M8]` | `[LSH M8]` | `[LSH M8]` |
+| rishon unit (23) | $216$, $829.8$ | `r06-F1-006`, $218$, $829.2$ | $10\,102$, $20\,620.2$ | $(216,829.8)$ `r06-F3-006`; $(218,829.2)$ `r06-F1-006` | practically one point: the two picks differ by 2 CX and 0.6 T (within the standard error of $\bar T$) |
+| fuzzy $U_B$ (41) | $83$, $634.4$ | `r13-F3-013`, $89$, $520.0$ (angle-linear: no, Clifford offsets) | $1718$, $2821.0$ | $(83,634.4)$ `r10-F1-010`; $(89,520.0)$ `r13-F3-013` | T first lowers the composed inner step to 137 CX and $\bar T=3035.2$ (research 007 section 3, with 4 link units) against 131 and 3149.6 |
+| fuzzy link (4) | $12$, $628.8$ | the same entry `r02-F2-001` | $36$, $628.8$ | $(12,628.8)$ `r02-F2-001` | one point |
+
+Figure: `results/crosscheck/tradeoff.pdf` (CX against $\bar T$, one panel per archive) is stale (its panels were drawn before the replays) and is regenerated by `scripts/m11_results.py` at step 11.8; a figure with LSH needs the M8 archive.
+
+### 3.4 Table 3: the spectra cross-check
+
+Source of all numbers of this section: `results/crosscheck/spectra.json` (commit `cdef450`, tree dirty at the time: regenerate at step 11.8) and the tester reports named in each part. Couplings: $g^2\in\{0.5,1,2\}$ unless stated (accepted default D5, section 4).
+
+#### 3a. Same model: twelve, spin network, LSH (exact agreement)
+
+| quantity | result | tolerance | source |
+|---|---|---|---|
+| largest difference between the 433 sorted levels of $H(g^2)$ built by the three encodings' own code (outer electric energy included) | $2.8\times10^{-14}$ ($g^2=0.5$), $1.2\times10^{-14}$ (1.0), $2.7\times10^{-14}$ (2.0) | $10^{-10}$ | `spectra.json` `ks.max_pairwise_level_dev` |
+| multiplicities of the plaquette-term eigenvalues $-2,-1,-\tfrac12,0,\tfrac12,1,2$ | $16,96,16,177,16,96,16$ in all three | exact | `ks.hb_multiplicities` |
+| one encoding's step target moved to another's sign convention against the other's own target | $\le3.0\times10^{-15}$ (2-norm) | $10^{-10}$ | `ks.transported_target_max` |
+| cross-verdict, general step of encoding X against the target built by Y at $(0.37,0.61)$: twelve against LSH | `total_error` $2.7\times10^{-13}$, ok, certified, 3.4 s | $10^{-10}$ | `ks.cross_verdicts[0]` |
+| spin network against twelve | $1.1\times10^{-14}$, ok, certified, 0.35 s | $10^{-10}$ | `ks.cross_verdicts[1]` |
+| LSH against spin network | $1.6\times10^{-14}$, ok, certified, 0.29 s | $10^{-10}$ | `ks.cross_verdicts[2]` |
+| the same three circuits against a target with $\beta+10^{-6}$ (negative control) | all three rejected, block error $2.0000000012\times10^{-6}$, $2.0000000018\times10^{-6}$, $2.0000000034\times10^{-6}$ (expected $\|H_B\|\delta=2\times10^{-6}$ with $\|H_B\|=2$) | window $[1.9,2.1]\times10^{-6}$ | `ks.cross_verdicts[*].mutant` |
+| cross-verdict, compressed headline circuits (spin network `r02-F1-002` against the LSH target; twelve `r05-F2-005` against the spin-network target; LSH against twelve), at $(0.37,0.61)$ and $(0.91,0.23)$ | locked test K4 passes for the first two (`reports/tests/430`, tolerance $10^{-10}$). Numbers of the planner's prototype on the pre-replay caches (`reports/research/006` section 2): $4.8\times10^{-15}$ and $1.0\times10^{-13}$. `[headline cross-verdict numbers: regenerated by scripts/m11_results.py at step 11.8]`. LSH row: `[LSH M8]` | $10^{-10}$ | `spectra.json` `ks.headline_skipped` lists the three as skipped in the committed file |
+
+What it means: the three KS encodings are one theory. Their spectra agree to rounding; the circuits of each encoding are exact for a target built by another encoding's code (after moving the target between the sign conventions of the bases); and the check is not blind, since a foreign target that differs by $10^{-6}$ in $\beta$ is rejected with the predicted error. A passing verdict also pins the circuit's eigenphases up to the one global phase the evaluator chose: by the Bauer–Fike theorem (Numer. Math. 2 (1960) 137, doi:10.1007/BF01386217) every eigenvalue $\mu$ of the circuit's physical block $A$ lies within $\|A-e^{i\varphi}V\|_2\le$ `total_error` of an eigenvalue of $e^{i\varphi}V$ (audit 305 N9: "up to the common global phase").
+
+#### 3b. The KS link is a compression of the rishon link and of the fuzzy link (exact identity)
+
+For each model a $16\times5$ isometry $V$ maps the five KS link states ($j=0$ and the four states $\sqrt2U^{\rm KS}_{ab}|0\rangle$ of $j=\tfrac12$) into the model's 16-dimensional link space so that the compressed link operators equal the KS ones: $V^\dagger V=1$, $V^\dagger U_{ab}V=c\,U^{\rm KS}_{ab}$, $V^\dagger L_aV=L_a^{\rm KS}$, $V^\dagger R_aV=R_a^{\rm KS}$, $V^\dagger H_E^{\rm link}V=j(j+1)$, and the compressed plaquette operator $(V^{\otimes4})^\dagger WV^{\otimes4}$ equals the KS plaquette operator (the unit phase $c$ cancels around the loop). [ATTRIBUTION PENDING DIGONTO] This statement (derivation 1 of the open question in section 4) was derived in the planning research (`reports/research/006` section 3.1, METHODS 13.2) and checked numerically in `reports/tests/421` (the tester rebuilt each $V$ by an independent route, from the intertwiner equations $L_aW=WL_a^{\rm KS}$, $R_aW=WR_a^{\rm KS}$ solved as a null-space problem); we know no paper that states it in this form.
+
+| model (embedding) | largest residual of the identities | squared leak of a link operator, $\max_{ab}\|(1-VV^\dagger)U_{ab}V\|_2^2$ | squared leak of the plaquette operator, $\|(1-P^{\otimes4})WV^{\otimes4}\|_2^2$ |
+|---|---|---|---|
+| rishon, `rishon_plus` / `rishon_minus` | $4.7\times10^{-16}$ | $\tfrac12$ | 15 |
+| fuzzy, `fuzzy_one` / `fuzzy_gamma5` | $3.1\times10^{-16}$ | $\tfrac12$ | $\tfrac{33}8=4.125$ |
+| fuzzy, `fuzzy_fplus` / `fuzzy_fminus` | $4.7\times10^{-16}$ | 1 | 4 |
+
+(Tolerance for the residuals $10^{-12}$; the squared plaquette leaks are exact numbers checked to $10^{-6}$. Source: `spectra.json` `embedding`. On the 38 432 rishon states the same statement is the earlier check `results/rishon/ks_projection.json`: projected $H_E$ and $H_B$ equal KS to $1.4\times10^{-13}$ and $1.8\times10^{-15}$, leak $\|(1-P)H_BP\|_2=\sqrt{28}=5.2915$.) What it means: restricted to the 433 embedded states, both models have exactly the KS $H_E$ and $H_B$. They are different theories because $H_B$ leaves that subspace; the leaks are not small. At the nominal angles the one-step rishon unitary is at operator-norm distance $1.990$ from the KS step (`spectra.json` `not_comparable`, from `ks_projection.json`).
+
+#### 3c. Limits: when do the other models reproduce KS?
+
+**Rishon to KS, large det coupling.** [ATTRIBUTION PENDING DIGONTO] (derivation 2) Derived in the planning research (`reports/research/006` section 3.2, METHODS 13.3, by Schrieffer–Wolff degenerate perturbation theory, Bravyi, DiVincenzo, Loss, arXiv:1105.0675), checked numerically in `reports/tests/422` and the algebra re-done by hand in audit 305. Take the rishon Hamiltonian with three independent couplings, $H=c_EH_E+c_BH_B+\lambda_DH_D$ on the 38 432 states, and choose
+$$\lambda_D=-L,\qquad c_E=\frac{g^2}2-\frac{8L}3,\qquad c_B=\frac1{g^2}\qquad(L>0).$$
+Each link then has the three levels $\{0,\tfrac38g^2,4L\}$ after a shift of $2L$, i.e. the KS link plus one state at $4L$. The statement: the 433 lowest levels of $H+24L$ tend to the 433 KS levels (outer electric energy included) with error proportional to $1/L$; in the closed sector the loop state couples to the high band and
+$$L\big(\lambda_k(L)-\lambda_k^{\rm KS}\big)\;\longrightarrow\;-\frac{13}{4\,g^{4}}\,w_k,\qquad w_k=|\langle{\rm loop}|\lambda_k^{\rm KS}\rangle|^2,$$
+for the two levels $k$ of the KS closed block $\left[\begin{smallmatrix}0&-2/g^2\\-2/g^2&3g^2/2\end{smallmatrix}\right]$.
+
+| $g^2$ | $L\cdot$(largest deviation over the 433 lowest levels), $L=64$ | $L=128$ | slope of $\ln$dev against $\ln L$, 64 to 128 (expected $-1$) | predicted coefficient $\tfrac{13}{4g^4}w_{\rm upper}$ | gap to the next band at $L=128$ |
+|---|---|---|---|---|---|
+| 0.5 | 7.0814 | 7.0947 | $-0.9973$ | 7.1067 | $502.47=4L-9.53$ |
+| 1.0 | 2.1988 | 2.1972 | $-1.0010$ | 2.1956 | $504.74=4L-7.26$ |
+| 2.0 | 0.7487 | 0.7465 | $-1.0043$ | 0.7443 | $502.40=4L-9.60$ |
+
+(Source: `spectra.json` `rishon_ks_limit.full`; coefficient and slopes `reports/research/006` section 3.2 and `reports/tests/422`. Locked tolerances: slope within $0.02$ of $-1$; coefficient within $1\%$ at $L=128$, measured $0.17\%$, $0.08\%$, $0.30\%$; gap to the next band inside $[4L-12,4L]$.) In the closed sector alone ($17\times17$) the prediction is met to $0.17\%$ at $L=256$ (tester 422 at $L=256$: relative deviation $1.7\times10^{-3}$, $1.4\times10^{-3}$, $1.5\times10^{-3}$); the full-space number at $L=128$ equals the closed-sector upper-level number to all digits shown, because the slowest of the 433 levels is the upper closed-sector level. The 305 dynamical blocks (largest 4352 states) used for the full space and the 38 432 levels at the project couplings (lowest level equal to the closed form $\tfrac34g^2-\sqrt{\tfrac9{16}g^4+32g^{-4}}$, 256-fold) are checked in `reports/tests/422`. **What it means, and its limit:** the rishon model contains KS as an exact limit of a three-coupling family. The limit needs $c_E<0$ once $L>\tfrac3{16}g^2$, so it is a property of the model family, not of the project's nominal point ($c_E=g^2/2$, $\lambda_D=0.43$), where the two theories differ at order one (step distance $1.990$ above; Report 5 section 3.4). It is not a continuum-limit statement.
+
+**Fuzzy to KS, statement A: only 2 of the 16 flavour sectors match KS.** [ATTRIBUTION PENDING DIGONTO] (derivation 3) Derived in the planning research (`reports/research/006` section 4.1, METHODS 13.4 (a)); checked numerically in `reports/tests/422` with an independent construction of the 16 sectors (own sparse $65\,536\times65\,536$ operators; eigenvalues agree to $7.1\times10^{-15}$). *Flavour* is the sign $F_\ell=\pm1$ of $\Psi\mapsto\Psi\Gamma_5$ on link $\ell$; with the $\mathcal K_1$ term alone ($r=0$) it is conserved on every link, so the model splits into $2^4=16$ flavour patterns $(F_b,F_r,F_t,F_l)$. The closed sector of a pattern is the cyclic subspace of its flavour vacuum $\bigotimes_\ell(\mathbb 1+F_\ell\Gamma_5)/(2\sqrt2)$ under $\sum\mathcal K_1$ and the plaquette operator $\square$.
+
+| pattern | closed-sector dimension | KS closed block reproduced? |
+|---|---|---|
+| $(+,+,-,-)$ and $(-,-,+,+)$ | 2 | yes, to $1.8\times10^{-15}$ (tolerance $10^{-10}$), at all three $g^2$ |
+| $(+,-,-,+)$ and $(-,+,+,-)$ | 4 | no; nearest KS level at distance 3.69, 1.48, 0.608 ($g^2=0.5,1,2$) |
+| the other twelve | 3 | no; nearest KS level at distance 4.17, 2.27, 1.15 |
+
+(Source: `spectra.json` `fuzzy.flavour_blocks`; locked smallest distance $\ge0.5$, measured $0.608$.) So **only 2 of the 16 flavour sectors match KS**. Reason (METHODS 13.4): an $F=+$ link has its spin-1 states at the $R$ end, an $F=-$ link at the $L$ end; in the two aligned patterns no corner can pair them. This also explains the earlier observation of Report 9 section 3.5 (the $r=0$ closed spectrum from the uniform start state, which is a superposition of all 16 patterns, contains both KS levels).
+
+**Fuzzy to KS, statement B: there is no fuzzy-to-KS limit inside $a\mathcal K_1+b\mathcal K_2$.** [ATTRIBUTION PENDING DIGONTO] (derivation 4) Derived in the planning research (`reports/research/006` section 4.3, METHODS 13.4 (c)); the numbers below are checked in `reports/tests/421` (test F3) and the scan is in the research note. In the embeddings of 3b, $\mathcal K_2$ has eigenvalues $-4,2,2,2,2$ on $\tfrac12\mathbb 1$ and its four flux copies and $+4,-2,-2,-2,-2$ on $\tfrac12\Gamma_5$ and its flux copies (`spectra.json` `fuzzy.k2_on_embeddings`, exact to $10^{-12}$), and the plaquette has no matrix element between the two copies, so no choice of $(a,b)$ makes the fuzzy link a KS link; the scan in `reports/research/006` section 4.3 (e.g. $a=1-\tfrac43b$, $b=32$: lowest closed-sector levels $-0.031,1.299$ against KS $-1.386,2.886$) shows the trivial limit or no limit. $\mathcal K_3$ of the paper ($\Gamma_5$ as a kinetic term, its Eq. 38) is not in the project's model and was not examined.
+
+**Fuzzy gap on one plaquette.** On the 50 Gauss-law states of the four inner links alone, with $H=\tfrac{g^2}4\sum_\ell(a\mathcal K_1+b\mathcal K_2)-\tfrac2{g^2}\square$ (the paper's Eq. 34 differs by constant factors, which do not change exponents), the gap $E_1-E_0$:
+
+| kinetic term | result | source |
+|---|---|---|
+| $\mathcal K_1$ only ($r=0$) | ground level twofold degenerate at every $g^2$ tried (splitting $\le5.1\times10^{-15}$ at $g^2=0.5,1,2$); third level above the ground level: $7.810$, $3.600$, $0.845$ | `spectra.json` `fuzzy.isolated.k1_only`; the paper, Sec. IV B, says the same |
+| $\mathcal K_2$ only | weak-coupling exponent $d\ln{\rm gap}/d\ln g^2=7.0004$ (gap $8.405\times10^{-9}$ at $g^2=0.15$, $6.297\times10^{-8}$ at 0.2) | `fuzzy.isolated.k2_only` |
+| $\mathcal K_1+\mathcal K_2$, $r=1$ (project) | exponent $7.0286$ (gap $8.492\times10^{-9}$, $6.414\times10^{-8}$); doubling the $\mathcal K_2$ coefficient multiplies the gap by $16.003$ (fourth order); strong coupling: gap$/2g^2=0.9999973$ at $g^2=16$ | `fuzzy.isolated.r1`; locked tolerances $7\pm0.06$, $16\pm0.32$, $10^{-4}$ (`reports/tests/422`) |
+| KS closed block, for contrast | gap $2\sqrt{\tfrac9{16}g^4+4g^{-4}}$: $26.7$ and $20.0$ at $g^2=0.15,0.2$, diverging as $4/g^2$; strong coupling gap $\to\tfrac32g^2$ | METHODS 13.4 |
+
+What it means: at weak coupling the fuzzy gap closes like $(g^2)^7$ while the KS gap diverges, which is the design aim of the fuzzy model (arXiv:2308.05253, Fig. 3: "slope of 7"); this is the opposite of KS and is why no KS limit exists inside the family. This is a statement about one isolated plaquette, not a continuum limit.
+
+#### 3d. Closed-sector levels side by side
+
+**Different models: these numbers are not expected to agree.** Lowest closed-sector level at the given $g^2$ (KS: 2 levels; rishon: 17 levels at $\lambda_D=0$; fuzzy: 9 levels at $r=0$, 12 at $r=1$), from `spectra.json` `closed_sector_table` (all levels are stored there; the lowest values are also in `results/crosscheck/tables.md`):
+
+| $g^2$ | KS (2 levels) | rishon ($\lambda_D=0$, 17 levels) | fuzzy $r=0$ (9 levels) | fuzzy $r=1$ (12 levels) |
+|---|---|---|---|---|
+| 0.5 | $-3.6425$ | $-10.9449$ | $-15.2530$ | $-15.2638$ |
+| 1.0 | $-1.3860$ | $-4.9564$ | $-6.5251$ | $-6.6389$ |
+| 2.0 | $-0.3028$ | $-1.7016$ | $-1.2941$ | $-8.0692$ |
+
+(The rishon rows at $\lambda_D=0.2$ and $0.5$ are in the same file.) The only exact relations among these columns are the ones of 3b and 3c.
+
+#### 3e. What is not comparable (different physics, not a defect)
+
+Stated in one sentence each (METHODS 13.5): the numbers of physical states ($433$; $38\,432$; $101\,197\,218$ with fixed far ends); closed-sector spectra at equal $g^2$ outside the relations of 3b and 3c ($2$, $17$, $9$ or $12$ levels); the one-step unitaries at equal angles (rishon step at distance $1.990$ from the KS step); the shared-observable tables of Reports 5 and 9 (differences of order one at the nominal angles); **gate counts across blocks**; and any continuum-limit statement.
+
+### 3.5 What can and cannot be compared across encodings (summary)
+
+| comparison | status |
+|---|---|
+| twelve, spin network, LSH: levels, step unitaries, circuits | exact agreement ($\le3\times10^{-13}$, tolerance $10^{-10}$). Gate counts in Table 1 are comparable like for like, with one caveat: the registers differ (50, 23, 31 qubits for the general circuits) because each encoding stores the state differently; that is part of what an encoding is |
+| KS link inside the rishon link and the fuzzy link | exact identity with a large, quantified leak (3b) |
+| rishon $\to$ KS | limit of a three-coupling family, error $\tfrac{13}{4g^4}w/L$ (3c) |
+| fuzzy $r=0$ to KS | exactly 2 of the 16 flavour sectors; no limit with $\mathcal K_2$ (3c) |
+| fuzzy weak-coupling gap | opposite to KS by design |
+| gate counts of rishon and fuzzy against block A | **not comparable**: different unitaries on different registers; a rishon step needs 216 to 248 CX where the KS steps need 31 to 111, and a fuzzy step 131, but this says nothing about which encoding is "better" |
+| rishon three-layer step against loop unit | comparable only inside the rishon row: the det layer adds 32 CX and 496 T at the nominal angles |
+| fuzzy composed step | $\bar T$ here is a sum of per-unit means (section 3.6), not the mean of the composed step over one common angle set |
+| continuum limit | not testable on one plaquette (section 3.1) |
+
+### 3.6 Two definitions that matter when reading the fuzzy and rishon rows
+
+- **Fuzzy $\bar T$ of the composed step (audit 305 N8).** $\bar T_{\rm step}=\bar T_{U_B}+4\,\bar T_{\rm link}=634.4+4\times628.8=3149.6$ is a sum of two per-unit means over the 20 locked angle pairs. The link unit is averaged over independent pairs $(\alpha,\kappa_2)$ (the second angle slot of that unit carries $\kappa_2$), whereas the composed step uses $\kappa_2=\alpha/2$ ($r=1$); $U_B$ is averaged over $\beta$ only. So it is not the T count of the composed circuit averaged over one common angle set. This is the definition of `prompts/010` section 4.3 and not a physics error (the T per rotation varies by only a few units); the same rule gives $5336.2$ for the general fuzzy step. The CX counts are exact sums, $131=83+4\times12$, and agree with the composed file.
+- **Rishon unit against three layers.** The loop compressed the unit $U_BU_E$ (216 CX). The three-layer step $U_B U_E$ preceded by the det layer $U_D(\eta)$ costs 248 CX ($216+32$) and $\bar T=1330.6$ ($829.8+500.8$); the det layer is not part of the loop's search space (`prompts/204`), which is why both lines are shown. All three-layer numbers are from `results/compress/rishon/three-layer.json`, verified at three triples $(\alpha,\beta,\eta)$ with the outer register untouched.
+
+## 4. Problems and assumptions
+
+**Provenance and what is still to be regenerated.**
+- `results/crosscheck/spectra.json` was written at commit `cdef450` with a dirty tree and contains no headline cross-verdicts (all three are listed as skipped because the caches did not yet exist); `results/crosscheck/gate-table.json`, `tables.md` and `tradeoff.pdf` were written before the replays and are stale. **To be regenerated by `scripts/m11_results.py` at step 11.8**, on a clean commit, after the LSH loop. This report quotes the current headlines from the archives and the track result files instead, so its Tables 1 and 2 will be checked cell by cell against the regenerated `gate-table.json` at that step (locked tests T1 and T2; T2 stays red until LSH exists).
+- The locked K4 tests for the first two headline cross-verdicts passed in `reports/tests/430`; the values are not in the committed `spectra.json`. `[headline cross-verdict numbers: regenerated by scripts/m11_results.py at step 11.8]`.
+- Fuzzy general-circuit numbers (`results/fuzzy/step.json`) come from a commit `8e71c38` on a dirty tree (`provenance.git_dirty: true`); they were reproduced by tester 301 (`prompts/009` section 8). The general numbers are used only as the "before" column.
+- Qubit counts: the registers are not on the same footing (the KS and rishon evaluator registers include the outer-link qubits, the fuzzy inner step does not); each row's composition is given in Tables 1a and 1b.
+- The uncertainty of $\bar T$ is the standard error over the 20 angle pairs. It is a statement about the scatter of the T count with the angle, not about the synthesis, which is deterministic. The fuzzy composed errors ($\pm16$, $\pm17$) assume the unit scatters are independent (arithmetic of mine).
+- The LSH compression loop has not run: every LSH compressed number is a placeholder, and the LSH general mean $\bar T$ was not computed (only the nominal-angle $T(10^{-6})=598$ exists).
+- Lean: no certificate exists for the fuzzy circuits (`n_a`); the rishon three-layer certificate is a composition of two certificates, not a Lean theorem (METHODS-rishon R16); the Lean certificates of twelve, spin network and rishon hold for the angle-linear gate family only.
+- Report 6 (rishon compression) is being drafted in parallel; the rishon numbers here are read from `results/rishon/m6-compressed.json` and `results/compress/rishon/three-layer.json`, so any later correction in Report 6 must be copied here.
+
+**Defaults accepted by Digonto on 2026-11-17** (`notes/STATUS.md`, decision of that date; "i accept the planners defaults"). They are stated as accepted decisions, not as unreviewed defaults:
+- `prompts/009` section 13, D1 to D12: D1 milestone number 11, test folder `tests/acceptance/m11`, name "Report 11", file `docs/report-11-cross-encoding-comparison.md`; D2 one gate table in three model blocks with "different model" marks; D3 headline per encoding = robust-key minimum (CX first), shown with $\bar T$ and nominal $T$, the T-first pick as a second column, Pareto fronts and one figure; D4 unit = first-order step on the inner links with outer rows separate, rishon as loop unit and as three-layer step, fuzzy as the inner step composed from the two unit headlines at $r=1$; D5 couplings of the spectra tables $g^2\in\{0.5,1,2\}$, $\lambda_D\in\{0,0.2,0.5\}$, $r\in\{0,1\}$, limit parameter $L\in\{64,128\}$ (full space) and up to 1024 (closed sector); D6 the rishon KS limit is formulated with three independent couplings and presented as a property of the model family, not of the nominal point; D7 the fuzzy comparisons are the compression identity, the flavour sectors at $r=0$, the weak- and strong-coupling gap, and the statement that no KS limit exists inside $a\mathcal K_1+b\mathcal K_2$ ($\mathcal K_3$ of the paper not examined); D8 cross-verdict pairs are cyclic (three general, three headline), not all six; D9 the package `su2plaq.crosscheck` is not hashed and its results are under `results/crosscheck/`; D10 only `E3[g2=1]` is in the not-slow test set; D11 test T2 ties the milestone gate to Reports 6 and 8 and the Report 10 update; D12 the three derivations are reported as derived and numerically verified, without a literature claim (but see the open question below, which is about whether to name them as the project's own results).
+- `prompts/010` section 8, six items: keep the headline rule and classify the Clifford offsets instead of rewarding them; the table of Clifford-offset units (including $\pi$ for singly controlled rotations); the wording "no (Clifford offsets)"; a separate headline-step file instead of changing the locked `compressed_step.json`; the composed fuzzy step of this report uses the headline units; the classification is computed for every encoding that goes through `robust_metrics` and is informative only. (Effect on the fuzzy numbers: the headline `r10-F1-010` and the archive best `r12-F1-012` have the same CX 83, the same $\sum T=12\,688$, the same $\bar T=634.4$; the archive best is not angle-linear because of constants that are multiples of $\pi/2$, which cost no T gate; Report 10 section 3.5.)
+
+**Open question to Digonto, not yet answered (decision pending).** May this report state four derivations of the planning research as the project's own results? They are: (1) the KS link is a compression of the rishon link and of the fuzzy link (3b); (2) the rishon-to-KS limit with coefficient $\tfrac{13}{4g^4}$ (3c); (3) only 2 of the 16 fuzzy flavour sectors match KS (3c, statement A); (4) there is no fuzzy-to-KS limit inside $a\mathcal K_1+b\mathcal K_2$ (3c, statement B). Until answered, each is written with neutral attribution ("derived in the planning research (`reports/research/006`), checked numerically in `reports/tests/421` and `422`") and carries the visible marker `[ATTRIBUTION PENDING DIGONTO]` at its place in section 3.4, so either answer is a small edit. None of the four was found in the literature searched (`reports/research/006` section 1: the abstracts and sections listed there). The numerical checks are independent of who is named as the author; the coefficient $\tfrac{13}{4g^4}$ was re-derived by hand in audit 305.
+
+**Assumptions in the numbers.** (i) T counts use `pygridsynth` 1.2.0 at $\varepsilon=10^{-6}$ per rotation; the Qiskit Clifford+T pass manager agrees to $\pm6$ T per rotation in the checks of METHODS 7. (ii) The headline rule and its 20 angle pairs are fixed (seed 20261107); a different draw would change $\bar T$ by about its standard error. (iii) The loops stopped by decision (fuzzy_ub after round 13, Digonto 2026-11-14; twelve after round 5; spin network after round 5; rishon after round 6), not at a proven optimum. (iv) The comparison of T-first and CX-first picks is only over the archives' valid entries; a T-focused search could find lower T.
+
+**Not done / not in this draft.** No benchmark (the wall time of `scripts/m11_results.py` is measured at the milestone gate: `[benchmark pending]`); no audit of this report: `[AUDIT OF M11 PENDING]`; the figure `tradeoff.pdf` is stale.
+
+## 5. Placeholders still open in this draft
+
+1. `[COMMIT AT STEP 11.8]` — final commit of the regenerated result files (header).
+2. `[LSH M8: ...]` — in Table 1a (mean $\bar T$ of the LSH general circuit), Table 1b (the whole LSH row: entry, qubits, CX, rotations, $T_{\rm fixed}$, $T$ nominal, $\bar T$, angle-linear, Lean, source), Table 1c (CX and $\bar T$ ratios), Table 2 (headline, T-first, Pareto, which model picks which), 3a (LSH headline cross-verdict), and the reference to Report 8 in the header and in 3.1.
+3. `[headline cross-verdict numbers: regenerated by scripts/m11_results.py at step 11.8]` — 3a and section 4.
+4. "To be regenerated by `scripts/m11_results.py` at step 11.8" — the gate table, Tables 1 and 2 as a whole, and the figure `tradeoff.pdf` (section 3.3 and section 4).
+5. `[ATTRIBUTION PENDING DIGONTO]` — one marker for each of the four derivations in section 3.4 (3b: compression identity; 3c: rishon limit; 3c statement A: flavour sectors; 3c statement B: no fuzzy limit); the open question in section 4 refers to all four.
+6. `[benchmark pending]` and `[AUDIT OF M11 PENDING]` — milestone gate steps after this draft.
+7. Report 6 reference (`docs/report-6-rishon-compression.md`) — exists only as a draft being written in parallel; Report 8 does not exist.
+
+## 6. Sources (files read for this draft; nothing was re-run)
+
+- `results/compress/{twelve,spinnet,rishon,fuzzy_ub,fuzzy_link}/{summary,robust}.json` (headlines, T-first picks, Pareto fronts, general-row means); `results/twelve/step.json`, `results/spinnet/step.json`, `results/lsh/step.json`, `results/rishon/{step,step3}.json`, `results/fuzzy/step.json` (general circuits); `results/spinnet/m4-compressed.json`, `results/rishon/m6-compressed.json`, `results/compress/rishon/three-layer.json`, `results/fuzzy/compressed_step_headline.json` (compressed circuits); `results/{twelve,spinnet,lsh}/UE.json`, `results/rishon/m6-compressed.json` (outer rows); `results/lean/general_step_certificate.json`.
+- `results/crosscheck/spectra.json` (spectra, stale only for the headline cross-verdicts); `results/rishon/ks_projection.json`.
+- `docs/METHODS.md` sections 12.4 and 13; `docs/METHODS-rishon.md` R13, R16; Reports 1 to 10; `reports/research/006`, `007`; `reports/tests/421`, `422`, `423`, `428`, `429`, `430`, `434`; `reports/audits/305` (N8, N9).
+- Literature (each used only for the sentence it supports): arXiv:2308.05253 (fuzzy gauge theory, Eq. 34, Sec. IV B, Fig. 3, Sec. VI); arXiv:hep-th/9704106 and arXiv:hep-lat/0309182 (quantum link models; extra-dimension route to ordinary gauge theory); arXiv:1305.1602 Sec. 4.3 (det term); arXiv:1912.06133 (LSH); arXiv:1105.0675 (Schrieffer–Wolff); arXiv:1403.2975 (Ross and Selinger, rotation synthesis); doi:10.1007/BF01386217 (Bauer–Fike).
