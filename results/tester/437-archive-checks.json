@@ -1,0 +1,655 @@
+{
+ "commit": "7afc110",
+ "checks": {
+  "code_hash_for_lsh": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+  "entries": {
+   "r00-seed-000": {
+    "valid": true,
+    "key_archive": [
+     94,
+     598,
+     880,
+     31
+    ],
+    "key_round": [
+     94,
+     598,
+     880,
+     31
+    ],
+    "key_expected": [
+     94,
+     598,
+     880,
+     31
+    ],
+    "keys_equal": true,
+    "evaluator_hash_ok": true,
+    "reason": "ok",
+    "family": "seed",
+    "round": 0,
+    "n_rot_t_fixed": [
+     8,
+     88
+    ],
+    "nrot_tfixed_ok": true,
+    "verdict_ok": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "op_norm_error": 1.635140978565859e-14,
+    "file_sha": "70d0f5526f73dc7532f7ffcc98b3fc5761c06d144f97f1aacdf8edb279ef5dfc",
+    "sha_three_way": true
+   },
+   "r00-seed-001": {
+    "valid": true,
+    "key_archive": [
+     74,
+     864,
+     1615,
+     27
+    ],
+    "key_round": [
+     74,
+     864,
+     1615,
+     27
+    ],
+    "key_expected": [
+     74,
+     864,
+     1615,
+     27
+    ],
+    "keys_equal": true,
+    "evaluator_hash_ok": true,
+    "reason": "ok",
+    "family": "seed",
+    "round": 0,
+    "n_rot_t_fixed": [
+     13,
+     56
+    ],
+    "nrot_tfixed_ok": true,
+    "verdict_ok": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "op_norm_error": 1.0833038648875992e-14,
+    "file_sha": "16f05df25707bf4620fb4f276049613b1cc144d124c0b02dd89b60887fc5c4f5",
+    "sha_three_way": true
+   },
+   "r00-seed-002": {
+    "valid": true,
+    "key_archive": [
+     84,
+     586,
+     888,
+     27
+    ],
+    "key_round": [
+     84,
+     586,
+     888,
+     27
+    ],
+    "key_expected": [
+     84,
+     586,
+     888,
+     27
+    ],
+    "keys_equal": true,
+    "evaluator_hash_ok": true,
+    "reason": "ok",
+    "family": "seed",
+    "round": 0,
+    "n_rot_t_fixed": [
+     8,
+     80
+    ],
+    "nrot_tfixed_ok": true,
+    "verdict_ok": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "op_norm_error": 1.206339108961003e-14,
+    "file_sha": "47a2dd3c14e03860fae9f8442da6496543c86e69ee26066a12662ed38117277f",
+    "sha_three_way": true
+   },
+   "r00-seed-003": {
+    "valid": true,
+    "key_archive": [
+     82,
+     638,
+     1027,
+     27
+    ],
+    "key_round": [
+     82,
+     638,
+     1027,
+     27
+    ],
+    "key_expected": [
+     82,
+     638,
+     1027,
+     27
+    ],
+    "keys_equal": true,
+    "evaluator_hash_ok": true,
+    "reason": "ok",
+    "family": "seed",
+    "round": 0,
+    "n_rot_t_fixed": [
+     9,
+     72
+    ],
+    "nrot_tfixed_ok": true,
+    "verdict_ok": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "op_norm_error": 1.2192477580793287e-14,
+    "file_sha": "1aeebf18246f041ea9ede6e16bb3eb2269546792e001293e57a88987b0e4398b",
+    "sha_three_way": true
+   },
+   "r00-seed-004": {
+    "valid": true,
+    "key_archive": [
+     76,
+     690,
+     1139,
+     27
+    ],
+    "key_round": [
+     76,
+     690,
+     1139,
+     27
+    ],
+    "key_expected": [
+     76,
+     690,
+     1139,
+     27
+    ],
+    "keys_equal": true,
+    "evaluator_hash_ok": true,
+    "reason": "ok",
+    "family": "seed",
+    "round": 0,
+    "n_rot_t_fixed": [
+     10,
+     64
+    ],
+    "nrot_tfixed_ok": true,
+    "verdict_ok": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "op_norm_error": 1.1290533326992247e-14,
+    "file_sha": "ffaa1f60d2cf988acbe384afcdb8dbcb85951efa74c47ed23a0209ceeab7bb41",
+    "sha_three_way": true
+   },
+   "r00-seed-005": {
+    "valid": true,
+    "key_archive": [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    "key_round": [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    "key_expected": [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    "keys_equal": true,
+    "evaluator_hash_ok": true,
+    "reason": "ok",
+    "family": "seed",
+    "round": 0,
+    "n_rot_t_fixed": [
+     17,
+     48
+    ],
+    "nrot_tfixed_ok": true,
+    "verdict_ok": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "op_norm_error": 8.867360922943197e-15,
+    "file_sha": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+    "sha_three_way": true
+   },
+   "r00-seed-006": {
+    "valid": true,
+    "key_archive": [
+     72,
+     864,
+     1570,
+     25
+    ],
+    "key_round": [
+     72,
+     864,
+     1570,
+     25
+    ],
+    "key_expected": [
+     72,
+     864,
+     1570,
+     25
+    ],
+    "keys_equal": true,
+    "evaluator_hash_ok": true,
+    "reason": "ok",
+    "family": "seed",
+    "round": 0,
+    "n_rot_t_fixed": [
+     13,
+     56
+    ],
+    "nrot_tfixed_ok": true,
+    "verdict_ok": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "op_norm_error": 9.493090965521374e-15,
+    "file_sha": "de89050e3c1ab2f2b4e82c14a0e0fb4b085d118df038c216a81837960ac58a55",
+    "sha_three_way": true
+   },
+   "r00-seed-007": {
+    "valid": true,
+    "key_archive": [
+     74,
+     690,
+     1134,
+     25
+    ],
+    "key_round": [
+     74,
+     690,
+     1134,
+     25
+    ],
+    "key_expected": [
+     74,
+     690,
+     1134,
+     25
+    ],
+    "keys_equal": true,
+    "evaluator_hash_ok": true,
+    "reason": "ok",
+    "family": "seed",
+    "round": 0,
+    "n_rot_t_fixed": [
+     10,
+     64
+    ],
+    "nrot_tfixed_ok": true,
+    "verdict_ok": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "op_norm_error": 1.0898197496748434e-14,
+    "file_sha": "b6e76befd0c2cb8ba36e34ae564e9ad63686179350d1d37389af09c284ddbb0d",
+    "sha_three_way": true
+   },
+   "r00-seed-010": {
+    "valid": true,
+    "key_archive": [
+     94,
+     598,
+     880,
+     31
+    ],
+    "key_round": [
+     94,
+     598,
+     880,
+     31
+    ],
+    "key_expected": [
+     94,
+     598,
+     880,
+     31
+    ],
+    "keys_equal": true,
+    "evaluator_hash_ok": true,
+    "reason": "ok",
+    "family": "seed",
+    "round": 0,
+    "n_rot_t_fixed": [
+     8,
+     88
+    ],
+    "verdict_ok": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "op_norm_error": 1.635140978565859e-14,
+    "file_sha": "892ae6b5b8b627b474f21f8aa21caa330d13155d3a207e4f50f076a201c5867e",
+    "sha_three_way": true
+   },
+   "r00-seed-qiskit_l3": {
+    "valid": true,
+    "key_archive": [
+     94,
+     598,
+     880,
+     31
+    ],
+    "key_round": [
+     94,
+     598,
+     880,
+     31
+    ],
+    "key_expected": [
+     94,
+     598,
+     880,
+     31
+    ],
+    "keys_equal": true,
+    "evaluator_hash_ok": true,
+    "reason": "ok",
+    "family": "seed",
+    "round": 0,
+    "n_rot_t_fixed": [
+     8,
+     88
+    ],
+    "verdict_ok": true,
+    "alt_ok": [
+     true,
+     true
+    ],
+    "op_norm_error": 1.8198856085372476e-14,
+    "sha_three_way": null,
+    "note": "circuit-valued seed, no program file"
+   }
+  },
+  "round_hashes": {
+   "evaluator": true,
+   "encoding": true,
+   "n_valid": 10,
+   "n_invalid": 0,
+   "best_key": [
+    71,
+    1118,
+    2276,
+    25
+   ],
+   "entries": [
+    "r00-seed-000",
+    "r00-seed-001",
+    "r00-seed-002",
+    "r00-seed-003",
+    "r00-seed-004",
+    "r00-seed-005",
+    "r00-seed-006",
+    "r00-seed-007",
+    "r00-seed-010",
+    "r00-seed-qiskit_l3"
+   ],
+   "index_best": "r00-seed-005",
+   "index_n": 10
+  },
+  "pins": {
+   "wrap_sn_headline": {
+    "file_sha": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650",
+    "pin_sha": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650",
+    "equal": true,
+    "spinnet_entry_sha": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650",
+    "git_tracked_unmodified": true
+   },
+   "wrap_sn_r05F3": {
+    "file_sha": "43605421051ce5e26b85b1b5241eb02638fc5f8ad7c6297a67e7dd0e96fd22e4",
+    "pin_sha": "43605421051ce5e26b85b1b5241eb02638fc5f8ad7c6297a67e7dd0e96fd22e4",
+    "equal": true,
+    "spinnet_entry_sha": "43605421051ce5e26b85b1b5241eb02638fc5f8ad7c6297a67e7dd0e96fd22e4",
+    "git_tracked_unmodified": true
+   },
+   "wrap_sn_r02F5": {
+    "file_sha": "734a62fe58f316d6deb59561fb90cedcb04e5854f260f4d78e680eb688428f81",
+    "pin_sha": "734a62fe58f316d6deb59561fb90cedcb04e5854f260f4d78e680eb688428f81",
+    "equal": true,
+    "spinnet_entry_sha": "734a62fe58f316d6deb59561fb90cedcb04e5854f260f4d78e680eb688428f81",
+    "git_tracked_unmodified": true
+   }
+  },
+  "paulo15_wrapped": {
+   "valid": true,
+   "cx": 108,
+   "n_rot": 4,
+   "t_fixed": 96,
+   "kind": "UB",
+   "beta": -0.05,
+   "certified": true,
+   "total_error": 1.3186261017833841e-14
+  },
+  "external_sources": [
+   "qiskit_l3_whole",
+   "spinnet15",
+   "paulo15_wrapped"
+  ],
+  "stop": {
+   "rounds": [
+    {
+     "round": 0,
+     "headline_id": "r00-seed-005",
+     "robust_key": [
+      71,
+      22480,
+      0,
+      46384,
+      25
+     ],
+     "record": {
+      "id": "r00-seed-005",
+      "cx": 71,
+      "t_sum": 22480,
+      "rho": 0,
+      "qubits": 25,
+      "n_rot": 17,
+      "t_fixed": 48
+     },
+     "improved": true
+    }
+   ],
+   "streak": 0,
+   "sessions": 0,
+   "stop": false,
+   "reason": null,
+   "reasons": [],
+   "max_rounds": 8,
+   "no_gain_rounds": 3,
+   "max_sessions": 20
+  },
+  "robust_entries": {
+   "r00-seed-000": {
+    "t_sum": 11852,
+    "cx": 94,
+    "qubits": 31,
+    "robust_key": [
+     94,
+     11852,
+     0,
+     17325,
+     31
+    ]
+   },
+   "r00-seed-001": {
+    "t_sum": 17588,
+    "cx": 74,
+    "qubits": 27,
+    "robust_key": [
+     74,
+     17588,
+     0,
+     33424,
+     27
+    ]
+   },
+   "r00-seed-002": {
+    "t_sum": 11702,
+    "cx": 84,
+    "qubits": 27,
+    "robust_key": [
+     84,
+     11702,
+     0,
+     17607,
+     27
+    ]
+   },
+   "r00-seed-003": {
+    "t_sum": 12822,
+    "cx": 82,
+    "qubits": 27,
+    "robust_key": [
+     82,
+     12822,
+     0,
+     20439,
+     27
+    ]
+   },
+   "r00-seed-004": {
+    "t_sum": 13952,
+    "cx": 76,
+    "qubits": 27,
+    "robust_key": [
+     76,
+     13952,
+     0,
+     23839,
+     27
+    ]
+   },
+   "r00-seed-005": {
+    "t_sum": 22480,
+    "cx": 71,
+    "qubits": 25,
+    "robust_key": [
+     71,
+     22480,
+     0,
+     46384,
+     25
+    ]
+   },
+   "r00-seed-006": {
+    "t_sum": 17588,
+    "cx": 72,
+    "qubits": 25,
+    "robust_key": [
+     72,
+     17588,
+     0,
+     33585,
+     25
+    ]
+   },
+   "r00-seed-007": {
+    "t_sum": 13952,
+    "cx": 74,
+    "qubits": 25,
+    "robust_key": [
+     74,
+     13952,
+     0,
+     23739,
+     25
+    ]
+   },
+   "r00-seed-010": {
+    "t_sum": 11852,
+    "cx": 94,
+    "qubits": 31,
+    "robust_key": [
+     94,
+     11852,
+     0,
+     17325,
+     31
+    ]
+   }
+  },
+  "robust_hash_ok": [
+   true,
+   true
+  ],
+  "lean": {
+   "cert_file_sha": "3baba89c7314549ad14fb7319dd590cd266f60cb16d70fdb249138d32786048d",
+   "program_file_sha_in_cert": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+   "program_file_sha_on_disk": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+   "binding_ok": true,
+   "entry_id_in_cert": null,
+   "archive_lean": {
+    "status": "certified",
+    "reason": "",
+    "cert_path": "results/lsh/certs/lsh-step-o1-975e51bd4fed.json",
+    "seconds": 1.0294849872589111,
+    "axioms": [],
+    "check_seconds": 0.7220492362976074,
+    "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+    "program_file_sha256": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+    "gates_sha256": "975e51bd4fed0ade0fab9bb8e9e51efc2fe68882799e5ae832480aa4aa83b33f"
+   },
+   "gates_sha_ok": true,
+   "gates_sha256": "975e51bd4fed0ade0fab9bb8e9e51efc2fe68882799e5ae832480aa4aa83b33f",
+   "name_matches_sha": true,
+   "n_states": 433,
+   "kind": "step",
+   "n_qubits": 25,
+   "n_gates": 175,
+   "git_dirty_in_cert": false,
+   "provenance_commit": "58e4574",
+   "checker_recheck": {
+    "status": "certified",
+    "reason": "",
+    "seconds": 0.8769617080688477,
+    "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61"
+   },
+   "reexport": {
+    "result": "/tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/c0852fe6-e8f0-4e38-bdd5-b42d861ef247/scratch",
+    "gates_equal": true,
+    "target_equal": true,
+    "states_equal": true,
+    "phase_equal": true,
+    "gates_sha_equal": true
+   },
+   "reexport_check": {
+    "status": "certified",
+    "reason": "",
+    "seconds": 0.3149452209472656,
+    "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61"
+   },
+   "negative_control_swapcx": "rejected"
+  }
+ }
+}

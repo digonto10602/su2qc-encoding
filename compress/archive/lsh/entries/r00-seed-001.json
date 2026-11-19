@@ -1,0 +1,195 @@
+{
+ "id": "r00-seed-001",
+ "program_path": "compress/programs/lsh/seed/001-wrap_pairs9.py",
+ "program_sha256": "16f05df25707bf4620fb4f276049613b1cc144d124c0b02dd89b60887fc5c4f5",
+ "parent": null,
+ "family": "seed",
+ "round": 0,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  74,
+  864,
+  1615,
+  27
+ ],
+ "cell": [
+  49,
+  78
+ ],
+ "metrics_raw": {
+  "cx": 74,
+  "t_fixed": 56,
+  "n_rot": 13,
+  "t_eps": 864,
+  "t_estimate": {
+   "1e-06": 833.3311742036428,
+   "1e-10": 1351.5519570060715
+  },
+  "t_measured": {
+   "1e-06": 864,
+   "1e-10": 1408
+  },
+  "synth_error_bound": 1.3e-05,
+  "depth": 57,
+  "depth_ct": 1615,
+  "qubits": 27,
+  "gates": {
+   "cx": 74,
+   "h": 30,
+   "t": 28,
+   "tdg": 28,
+   "rz": 13,
+   "x": 12
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.0833038648875992e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   6.56390518023189e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.881301029635769e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 7.802719527918867e-15,
+  "block_error": 3.0303191209571246e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.2117927074432373,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.0833038648875992e-14,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 3.0303191209571246e-15,
+   "max_dropped_l2": 1.670929685993454e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.9988948754249286e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.0696634224790129e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -6.563905180231892e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.830322762800934e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.188205260122277e-15,
+   "block_error": 3.5084289646678528e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.20839452743530273,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.0696634224790129e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.2581783028960294e-15,
+    "max_dropped_l2": 1.6710960855209574e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.5084289646678528e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.2422972217168933e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -7.384393327760873e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.276069553530071e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 8.953013324554658e-15,
+   "block_error": 3.4699588926142747e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.21104025840759277,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.2422972217168933e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.2297535324078408e-15,
+    "max_dropped_l2": 1.788833539628701e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.4699588926142747e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [],
+ "summary": "round-0 seed: vendored spinnet_v2 skeleton 'pairs9' (electric layer p(-3 alpha/4) on the four link wires, then the plaquette circuit) between the LSH transcoder and its inverse.",
+ "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "git_commit": "58e4574",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 1.1825416088104248,
+ "written_utc": "2026-11-19T17:49:24Z",
+ "git_dirty": false,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.3e-05
+ },
+ "lean": null,
+ "mode": "full",
+ "encoding_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca"
+}

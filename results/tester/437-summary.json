@@ -1,0 +1,7 @@
+{"commit": "7afc110 (tree: round-0 outputs uncommitted on top of 58e4574; only notes/STATUS.md differs)", "prompt": "prompts/401 step 8.5", "mode": "step",
+ "machine": "omnicommander, taskset -c 6-8", "seeds": "none stochastic; evaluator trial_seed 0, angle set seed 20261107",
+ "m8_acceptance": {"passed": 30, "failed": 3, "failed_ids": ["G3 (compress/ideation/lsh.md absent, later round)", "L5 (lean/certs/lsh-best-step.lean = step 8.8)", "R1 (results/lsh/m8-compressed.json = step 8.9/8.10)"], "G1": "pass", "G2": "pass", "G4": "pass"},
+ "m7_not_slow": 28, "keys_equal_1_3": "10/10", "indep_aer_max_op_norm_err": 6.34e-15, "indep_aer_min_minus_beta_err": 1.878,
+ "lean_recheck": "certified (compiled su2plaq_cert_lsh), reexport gates/target/states/phase equal, swapped-CX negative control rejected",
+ "frozen_hashes": {"twelve": "99663fa6", "lsh": "88e0d76b", "spinnet": "10f5727f", "fuzzy_ub=fuzzy_link": "b4bd20fe", "rishon": "5f5decfa", "spinnet_loop": "f1314a01"},
+ "files": ["437-indep-aer.json", "437-l3-seed.json", "437-archive-checks.json", "437-raw/m8_all.log"]}

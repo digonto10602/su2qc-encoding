@@ -1,0 +1,173 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/digimonk/miniforge3/envs/coding/bin/python
+rootdir: /home/digimonk/Projects/su2qc-encoding
+configfile: pytest.ini
+plugins: platformdirs-4.14.5, anyio-4.16.0, cov-7.1.0, xdist-3.8.0
+created: 2/2 workers
+2 workers [33 items]
+
+scheduling tests via LoadScheduling
+
+tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A1_lean_tables_tied_to_rules 
+tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A4_lean_hygiene_both_folders 
+[gw1] [  3%] PASSED tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A4_lean_hygiene_both_folders 
+tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G1_best_and_headline_reverified_from_source 
+[gw1] [  6%] PASSED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G1_best_and_headline_reverified_from_source 
+tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G2_best_and_headline_second_engine_aer 
+[gw1] [  9%] PASSED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G2_best_and_headline_second_engine_aer 
+tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G3_loop_budget_lineage_and_stop 
+[gw1] [ 12%] FAILED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G3_loop_budget_lineage_and_stop 
+tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G4_best_and_headline_valid_at_unseen_angles 
+[gw1] [ 15%] PASSED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G4_best_and_headline_valid_at_unseen_angles 
+tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_L5_headline_lean_status_theorem_file_and_binding 
+[gw1] [ 18%] FAILED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_L5_headline_lean_status_theorem_file_and_binding 
+tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_R1_results_and_before_after 
+[gw1] [ 21%] FAILED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_R1_results_and_before_after 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E1_registry_entry_lsh 
+[gw1] [ 24%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E1_registry_entry_lsh 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E2_fresh_process_stock_worker_and_no_patching 
+[gw0] [ 27%] PASSED tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A1_lean_tables_tied_to_rules 
+tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A2_committed_certificate_clean_provenance 
+[gw0] [ 30%] PASSED tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A2_committed_certificate_clean_provenance 
+tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A2_certify_binding_fields_and_idempotent_write 
+[gw1] [ 33%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E2_fresh_process_stock_worker_and_no_patching 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S0_spec_oracle_builder_lsh 
+[gw1] [ 36%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S0_spec_oracle_builder_lsh 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S2_general_program_worker_and_sandbox 
+[gw0] [ 39%] PASSED tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A2_certify_binding_fields_and_idempotent_write 
+tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A3_negative_controls_reach_the_checker 
+[gw1] [ 42%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S2_general_program_worker_and_sandbox 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S5_evaluator_rejections_on_lsh 
+[gw1] [ 45%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S5_evaluator_rejections_on_lsh 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S3_seed_round_dry_run 
+[gw0] [ 48%] PASSED tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A3_negative_controls_reach_the_checker 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S4_round_one_dry_run_briefs_and_stop_state 
+[gw1] [ 51%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S3_seed_round_dry_run 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L2_structure_facts_match_lean_sources 
+[gw1] [ 54%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L2_structure_facts_match_lean_sources 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L1_lean_hook_certifies_and_binds 
+[gw1] [ 57%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L1_lean_hook_certifies_and_binds 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L3_theorem_file_writer 
+[gw1] [ 60%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L3_theorem_file_writer 
+tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[general] 
+[gw1] [ 63%] PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[general] 
+tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_pairs9] 
+[gw0] [ 66%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S4_round_one_dry_run_briefs_and_stop_state 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H1_robust_metrics_and_hardenings 
+[gw1] [ 69%] PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_pairs9] 
+tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags4] 
+[gw1] [ 72%] PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags4] 
+tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags5] 
+[gw1] [ 75%] PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags5] 
+tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags6] 
+[gw1] [ 78%] PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags6] 
+tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_headline] 
+[gw1] [ 81%] PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_headline] 
+tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_r05F3] 
+[gw0] [ 84%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H1_robust_metrics_and_hardenings 
+tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H2_headline_selection_on_seed_round 
+[gw1] [ 87%] PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_r05F3] 
+tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_r02F5] 
+[gw1] [ 90%] PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_r02F5] 
+tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_U1_uniform_split_structure_row 
+[gw1] [ 93%] PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_U1_uniform_split_structure_row 
+[gw0] [ 96%] PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H2_headline_selection_on_seed_round 
+tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_H3_stop_rule_comparison 
+[gw0] [100%] PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_H3_stop_rule_comparison 
+
+=================================== FAILURES ===================================
+___________________ test_M8_G3_loop_budget_lineage_and_stop ____________________
+[gw1] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+
+root = PosixPath('/home/digimonk/Projects/su2qc-encoding')
+
+    @pytest.mark.slow
+    def test_M8_G3_loop_budget_lineage_and_stop(root):
+        """Budgets of prompts/001 §4: at most 8 rounds and 20 proposer sessions (ideation counts as one); every proposer entry has a
+        family and a parent that is None or an archived id; synthesis re-verification ok in every round that ran it; the loop
+        ended by its stop rule (prompts/401 §1.6), recomputed here from the recorded headline records; summary complete."""
+        _spec()
+        LL = api("su2plaq.lsh.loop")
+        arch, best, head, h = _best_and_head(root)
+        ids = {e.id for e in arch.entries()}
+        att = [json.loads(x) for x in (root / "compress" / "attempts" / f"{ENC}.jsonl").read_text().splitlines() if x.strip()]
+        assert att and max(a["round"] for a in att) <= 8
+        sessions = {(a["round"], a["family"]) for a in att if a["round"] >= 1}
+>       assert (root / "compress" / "ideation" / f"{ENC}.md").exists()
+E       AssertionError: assert False
+E        +  where False = exists()
+E        +    where exists = (((PosixPath('/home/digimonk/Projects/su2qc-encoding') / 'compress') / 'ideation') / 'lsh.md').exists
+
+tests/acceptance/m8/test_lsh_m8_gate.py:209: AssertionError
+___________ test_M8_L5_headline_lean_status_theorem_file_and_binding ___________
+[gw1] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+
+root = PosixPath('/home/digimonk/Projects/su2qc-encoding')
+tmp_path = PosixPath('/tmp/pytest-of-digimonk/pytest-959/popen-gw1/test_M8_L5_headline_lean_statu0')
+
+    @pytest.mark.slow
+    def test_M8_L5_headline_lean_status_theorem_file_and_binding(root, tmp_path):
+        """Archive best and headline carry a Lean status (`certified`, or `n_a` with an exporter reason); when the headline is
+        certified, lean/certs/lsh-best-step.lean exists, names the entry and its program file in its first line AND inside the
+        proved literal (clean commit), the literal's gates / target / states equal fresh exports of the rebuilt headline program
+        at the nominal pair and at (1.3, 0.17) (same angle exponents: the certificate is the program's, for every angle), and
+        the file elaborates within 900 s with the standard axioms plus exactly one native axiom."""
+        spec = _spec()
+        arch, best, head, h = _best_and_head(root)
+        LE = api("su2plaq.lsh.lean_export")
+        P = api("su2plaq.lean.project")
+        enc = api("su2plaq.compress.spec:get_encoding")(ENC)
+        for e in (best, head):
+            assert isinstance(e.lean, dict) and e.lean["status"] in ("certified", "n_a"), (e.id, e.lean)
+            if e.lean["status"] == "n_a":
+                assert e.lean["reason"].startswith(("non_linear_angle", "phase_not_in_K")), (e.id, e.lean)
+        assert h["lean"] == head.lean["status"]
+        if head.lean["status"] != "certified":
+            return
+        f = root / "lean" / "certs" / "lsh-best-step.lean"
+>       assert f.exists(), "write_theorem_file for the headline circuit (prompts/401 step 8.9)"
+E       AssertionError: write_theorem_file for the headline circuit (prompts/401 step 8.9)
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/home/digimonk/Projects/su2qc-encoding/lean/certs/lsh-best-step.lean').exists
+
+tests/acceptance/m8/test_lsh_m8_gate.py:299: AssertionError
+_____________________ test_M8_R1_results_and_before_after ______________________
+[gw1] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: results/lsh/m8-compressed.json missing (prompts/401 step 8.10: scripts/m8_results.py on a clean commit)
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A4_lean_hygiene_both_folders
+PASSED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G1_best_and_headline_reverified_from_source
+PASSED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G2_best_and_headline_second_engine_aer
+PASSED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G4_best_and_headline_valid_at_unseen_angles
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E1_registry_entry_lsh
+PASSED tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A1_lean_tables_tied_to_rules
+PASSED tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A2_committed_certificate_clean_provenance
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E2_fresh_process_stock_worker_and_no_patching
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S0_spec_oracle_builder_lsh
+PASSED tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A2_certify_binding_fields_and_idempotent_write
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S2_general_program_worker_and_sandbox
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S5_evaluator_rejections_on_lsh
+PASSED tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A3_negative_controls_reach_the_checker
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S3_seed_round_dry_run
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L2_structure_facts_match_lean_sources
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L1_lean_hook_certifies_and_binds
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L3_theorem_file_writer
+PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[general]
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S4_round_one_dry_run_briefs_and_stop_state
+PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_pairs9]
+PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags4]
+PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags5]
+PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags6]
+PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_headline]
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H1_robust_metrics_and_hardenings
+PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_r05F3]
+PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_r02F5]
+PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_U1_uniform_split_structure_row
+PASSED tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H2_headline_selection_on_seed_round
+PASSED tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_H3_stop_rule_comparison
+FAILED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G3_loop_budget_lineage_and_stop
+FAILED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_L5_headline_lean_status_theorem_file_and_binding
+FAILED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_R1_results_and_before_after
+=================== 3 failed, 30 passed in 93.72s (0:01:33) ====================

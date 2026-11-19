@@ -1,0 +1,163 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 8.867360922943197e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -9.845857770347835e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 6.049187461416408e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 5.624825379206043e-15,
+  "block_error": 3.242535543737155e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.2091655731201172,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 8.867360922943197e-15,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 3.242535543737155e-15,
+   "max_dropped_l2": 1.5172949260551054e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 3.086739480564003e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.74181762619551e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -9.845857770347832e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.328058500079354e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.667024997607999e-15,
+   "block_error": 3.0747926285875114e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.21253395080566406,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 8.74181762619551e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.073232898313275e-15,
+    "max_dropped_l2": 1.464090894276535e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.0747926285875114e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 9.34604700618459e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    1.271756628669928e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.405215745588179e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.9476037316099815e-15,
+   "block_error": 3.398443274574609e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.21033143997192383,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 9.34604700618459e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.398443274574609e-15,
+    "max_dropped_l2": 1.4798956403152048e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.3984432745746074e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 71,
+  "t_fixed": 48,
+  "n_rot": 17,
+  "t_eps": 1118,
+  "t_estimate": {
+   "1e-06": 1064.5099970355327,
+   "1e-10": 1742.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1118,
+   "1e-10": 1816
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 68,
+  "depth_ct": 2276,
+  "qubits": 25,
+  "gates": {
+   "cx": 71,
+   "h": 26,
+   "t": 24,
+   "tdg": 24,
+   "rz": 17,
+   "x": 10,
+   "sdg": 2,
+   "s": 1
+  },
+  "measured": true
+ },
+ "program_sha256": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+ "wall_s": 1.1450350284576416,
+ "discoveries": [],
+ "summary": "round-0 seed: spin-network program compress/programs/spinnet/F1/002-dimer-linear-corner-walk.py (archive entry r02-F1-002, sha256 750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650) between the LSH transcoder and its inverse."
+}

@@ -1,0 +1,161 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.206339108961003e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   1.9691715540695694e-16
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.319919222391486e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 7.339251231133291e-15,
+  "block_error": 4.7241398584767375e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.25325894355773926,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.206339108961003e-14,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 4.564083509149713e-15,
+   "max_dropped_l2": 1.8932117765802473e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 4.7241398584767375e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.1596664982066079e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.7230251098108745e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.291788109079048e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.164107377176905e-15,
+   "block_error": 4.432557604889174e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.24745512008666992,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.1596664982066079e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 4.432557604889174e-15,
+    "max_dropped_l2": 1.800558060359169e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 4.432557604889168e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.3371523111827367e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    2.4614644425869637e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.347902362062199e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.429430076566303e-15,
+   "block_error": 5.9420930352610646e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.22445011138916016,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.3371523111827367e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 5.781644363408263e-15,
+    "max_dropped_l2": 2.1089843723555097e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 5.9420930352610646e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 84,
+  "t_fixed": 80,
+  "n_rot": 8,
+  "t_eps": 586,
+  "t_estimate": {
+   "1e-06": 558.3576456637802,
+   "1e-10": 877.2627427729669
+  },
+  "t_measured": {
+   "1e-06": 586,
+   "1e-10": 912
+  },
+  "synth_error_bound": 8e-06,
+  "depth": 80,
+  "depth_ct": 888,
+  "qubits": 27,
+  "gates": {
+   "cx": 84,
+   "h": 42,
+   "t": 40,
+   "tdg": 40,
+   "x": 12,
+   "rz": 8
+  },
+  "measured": true
+ },
+ "program_sha256": "47a2dd3c14e03860fae9f8442da6496543c86e69ee26066a12662ed38117277f",
+ "wall_s": 1.3420467376708984,
+ "discoveries": [],
+ "summary": "round-0 seed: vendored spinnet_v2 skeleton 'flags4' (electric layer p(-3 alpha/4) on the four link wires, then the plaquette circuit) between the LSH transcoder and its inverse."
+}

@@ -1,0 +1,365 @@
+{
+ "commit": "7afc110",
+ "engine": "qiskit-aer statevector, own target from L13 rules, own 47-code set",
+ "seed_note": "deterministic, no RNG",
+ "000-general": {
+  "sha256": "70d0f5526f73dc7532f7ffcc98b3fc5761c06d144f97f1aacdf8edb279ef5dfc",
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 19,
+   "op_norm_err": 5.213549170090913e-15,
+   "max_col_err": 5.1186114240163515e-15,
+   "anc_leak_prob": 5.685841095666651e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.87819871263813
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 19,
+   "op_norm_err": 5.156969593705082e-15,
+   "max_col_err": 5.0967236404180764e-15,
+   "anc_leak_prob": 6.546558785153479e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 19,
+   "op_norm_err": 5.8343980957005604e-15,
+   "max_col_err": 5.734424125586567e-15,
+   "anc_leak_prob": 4.810223845152544e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 94,
+   "t_fixed": 88,
+   "n_rot": 8,
+   "t_rot_sum": 510,
+   "t_total_1e-6": 598,
+   "n_qubits": 31
+  }
+ },
+ "001-wrap_pairs9": {
+  "sha256": "16f05df25707bf4620fb4f276049613b1cc144d124c0b02dd89b60887fc5c4f5",
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 3.3145527038358457e-15,
+   "max_col_err": 3.2279875177626756e-15,
+   "anc_leak_prob": 3.0252880714461824e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.8781987126381328
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 3.446729825341691e-15,
+   "max_col_err": 3.195172204233678e-15,
+   "anc_leak_prob": 3.484262938584019e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 3.5539694582442715e-15,
+   "max_col_err": 3.4212944635334784e-15,
+   "anc_leak_prob": 4.121628042161604e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 74,
+   "t_fixed": 56,
+   "n_rot": 13,
+   "t_rot_sum": 808,
+   "t_total_1e-6": 864,
+   "n_qubits": 27
+  }
+ },
+ "002-wrap_flags4": {
+  "sha256": "47a2dd3c14e03860fae9f8442da6496543c86e69ee26066a12662ed38117277f",
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 5.275470567276773e-15,
+   "max_col_err": 5.210885574012537e-15,
+   "anc_leak_prob": 4.8108861071301455e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.87819871263813
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 5.079706912339735e-15,
+   "max_col_err": 5.070079923238684e-15,
+   "anc_leak_prob": 5.299305637585496e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 6.336046851454671e-15,
+   "max_col_err": 6.299257789056004e-15,
+   "anc_leak_prob": 4.258367754308028e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 84,
+   "t_fixed": 80,
+   "n_rot": 8,
+   "t_rot_sum": 506,
+   "t_total_1e-6": 586,
+   "n_qubits": 27
+  }
+ },
+ "003-wrap_flags5": {
+  "sha256": "1aeebf18246f041ea9ede6e16bb3eb2269546792e001293e57a88987b0e4398b",
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 4.193627740649982e-15,
+   "max_col_err": 4.095756617231357e-15,
+   "anc_leak_prob": 5.032331370689788e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.8781987126381314
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 4.684318744388677e-15,
+   "max_col_err": 4.678001424664093e-15,
+   "anc_leak_prob": 5.248405191542737e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 4.466034179497299e-15,
+   "max_col_err": 4.402091260938723e-15,
+   "anc_leak_prob": 4.3255863901286025e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 82,
+   "t_fixed": 72,
+   "n_rot": 9,
+   "t_rot_sum": 566,
+   "t_total_1e-6": 638,
+   "n_qubits": 27
+  }
+ },
+ "004-wrap_flags6": {
+  "sha256": "ffaa1f60d2cf988acbe384afcdb8dbcb85951efa74c47ed23a0209ceeab7bb41",
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 3.68205687077982e-15,
+   "max_col_err": 3.5171687443383166e-15,
+   "anc_leak_prob": 5.607777925067382e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.8781987126381319
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 4.162416034471065e-15,
+   "max_col_err": 4.157297685494662e-15,
+   "anc_leak_prob": 4.8165638456687554e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 3.789436982079401e-15,
+   "max_col_err": 3.741265244637497e-15,
+   "anc_leak_prob": 4.30125504661318e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 76,
+   "t_fixed": 64,
+   "n_rot": 10,
+   "t_rot_sum": 626,
+   "t_total_1e-6": 690,
+   "n_qubits": 27
+  }
+ },
+ "005-wrap_sn_headline": {
+  "sha256": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 3.14529132685987e-15,
+   "max_col_err": 3.0218884946072007e-15,
+   "anc_leak_prob": 3.1301370392842782e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.8781987126381332
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 3.2365254046077387e-15,
+   "max_col_err": 3.1512205714227318e-15,
+   "anc_leak_prob": 2.891821637082857e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 3.805232211674553e-15,
+   "max_col_err": 3.766998261795386e-15,
+   "anc_leak_prob": 3.2460234136977975e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.13, 0.47)": {
+   "alpha": 1.13,
+   "beta": 0.47,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 2.8441876235509124e-15,
+   "max_col_err": 2.7118393934888245e-15,
+   "anc_leak_prob": 3.8099218061596127e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 71,
+   "t_fixed": 48,
+   "n_rot": 17,
+   "t_rot_sum": 1070,
+   "t_total_1e-6": 1118,
+   "n_qubits": 25
+  }
+ },
+ "006-wrap_sn_r05F3": {
+  "sha256": "de89050e3c1ab2f2b4e82c14a0e0fb4b085d118df038c216a81837960ac58a55",
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 3.87550796825551e-15,
+   "max_col_err": 3.789479351713296e-15,
+   "anc_leak_prob": 4.226938169808272e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.8781987126381328
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 3.903042080808362e-15,
+   "max_col_err": 3.816002998325268e-15,
+   "anc_leak_prob": 3.4245657821620217e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 4.057527225589963e-15,
+   "max_col_err": 4.05132648981453e-15,
+   "anc_leak_prob": 4.146262105378045e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 72,
+   "t_fixed": 56,
+   "n_rot": 13,
+   "t_rot_sum": 808,
+   "t_total_1e-6": 864,
+   "n_qubits": 25
+  }
+ },
+ "007-wrap_sn_r02F5": {
+  "sha256": "b6e76befd0c2cb8ba36e34ae564e9ad63686179350d1d37389af09c284ddbb0d",
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 4.016446827511738e-15,
+   "max_col_err": 3.855676393612947e-15,
+   "anc_leak_prob": 2.5652548785897103e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.8781987126381325
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 4.267674790107656e-15,
+   "max_col_err": 3.924622168501021e-15,
+   "anc_leak_prob": 2.393840443534062e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 4.260562873396694e-15,
+   "max_col_err": 4.183855356707221e-15,
+   "anc_leak_prob": 3.0442424524160183e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 74,
+   "t_fixed": 64,
+   "n_rot": 10,
+   "t_rot_sum": 626,
+   "t_total_1e-6": 690,
+   "n_qubits": 25
+  }
+ },
+ "010-general_polish": {
+  "sha256": "892ae6b5b8b627b474f21f8aa21caa330d13155d3a207e4f50f076a201c5867e",
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 19,
+   "op_norm_err": 5.213549170090913e-15,
+   "max_col_err": 5.1186114240163515e-15,
+   "anc_leak_prob": 5.685841095666651e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.87819871263813
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 19,
+   "op_norm_err": 5.156969593705082e-15,
+   "max_col_err": 5.0967236404180764e-15,
+   "anc_leak_prob": 6.546558785153479e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 19,
+   "op_norm_err": 5.8343980957005604e-15,
+   "max_col_err": 5.734424125586567e-15,
+   "anc_leak_prob": 4.810223845152544e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 94,
+   "t_fixed": 88,
+   "n_rot": 8,
+   "t_rot_sum": 510,
+   "t_total_1e-6": 598,
+   "n_qubits": 31
+  }
+ }
+}

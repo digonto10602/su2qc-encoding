@@ -1,0 +1,878 @@
+{
+ "round": 0,
+ "n_valid": 10,
+ "n_invalid": 0,
+ "best_key": [
+  71,
+  1118,
+  2276,
+  25
+ ],
+ "entries": [
+  "r00-seed-000",
+  "r00-seed-001",
+  "r00-seed-002",
+  "r00-seed-003",
+  "r00-seed-004",
+  "r00-seed-005",
+  "r00-seed-006",
+  "r00-seed-007",
+  "r00-seed-010",
+  "r00-seed-qiskit_l3"
+ ],
+ "lean_seconds": 1.0323963165283203,
+ "encoding": "lsh",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "58e4574",
+  "git_dirty": false,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-19T17:49:26Z"
+ },
+ "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "encoding_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "invalid": [],
+ "external": [
+  {
+   "source": "qiskit_l3_whole",
+   "valid": false,
+   "reason": "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine",
+   "metrics": {
+    "cx": 94,
+    "t_fixed": 88,
+    "n_rot": 8,
+    "t_eps": 566.3576456637802,
+    "t_estimate": {
+     "1e-06": 566.3576456637802,
+     "1e-10": 885.2627427729669
+    },
+    "t_measured": null,
+    "synth_error_bound": 8e-06,
+    "depth": 87,
+    "depth_ct": 87,
+    "qubits": 31,
+    "gates": {
+     "cx": 94,
+     "h": 46,
+     "t": 44,
+     "tdg": 44,
+     "x": 16,
+     "rz": 8
+    },
+    "measured": false
+   }
+  },
+  {
+   "source": "spinnet15",
+   "reason": "spinnet15 is the spin-network 15-qubit file; here it is the external row 'paulo15_wrapped' (the source 'paulo15') and the vendored spin-network skeletons are the seeds 'wrap_*'"
+  },
+  {
+   "source": "paulo15_wrapped",
+   "fixed_angle": true,
+   "kind": "UB",
+   "beta": -0.05,
+   "valid": true,
+   "reason": "ok",
+   "metrics": {
+    "cx": 108,
+    "t_fixed": 96,
+    "n_rot": 4,
+    "t_eps": 348,
+    "t_estimate": {
+     "1e-06": 335.1788228318901,
+     "1e-10": 494.63137138648347
+    },
+    "t_measured": {
+     "1e-06": 348,
+     "1e-10": 510
+    },
+    "synth_error_bound": 4e-06,
+    "depth": 110,
+    "depth_ct": 746,
+    "qubits": 31,
+    "gates": {
+     "cx": 108,
+     "h": 50,
+     "t": 48,
+     "tdg": 48,
+     "x": 12,
+     "rz": 4
+    },
+    "measured": true
+   },
+   "op_norm_error": 1.3186261017833841e-14,
+   "total_error": 1.3186261017833841e-14,
+   "gauss_residual": 5.410557748946589e-16,
+   "certified": true,
+   "message": "fixed angle beta=-0.05, kind UB; exact-angle tolerance 1e-10; the file is U_B(+0.05) of the spin-network gauge = U_B(-0.05) in the LSH gauge (METHODS-lsh L5)"
+  }
+ ],
+ "candidates": [
+  {
+   "label": "general",
+   "id": "r00-seed-000",
+   "family": "seed",
+   "program_sha256": "70d0f5526f73dc7532f7ffcc98b3fc5761c06d144f97f1aacdf8edb279ef5dfc",
+   "program_path": "compress/programs/lsh/seed/000-general.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    94,
+    598,
+    880,
+    31
+   ],
+   "cell": [
+    52,
+    73
+   ],
+   "metrics": {
+    "cx": 94,
+    "t_fixed": 88,
+    "n_rot": 8,
+    "t_eps": 598,
+    "t_estimate": {
+     "1e-06": 566.3576456637802,
+     "1e-10": 885.2627427729669
+    },
+    "t_measured": {
+     "1e-06": 598,
+     "1e-10": 916
+    },
+    "synth_error_bound": 8e-06,
+    "depth": 87,
+    "depth_ct": 880,
+    "qubits": 31,
+    "gates": {
+     "cx": 94,
+     "h": 46,
+     "t": 44,
+     "tdg": 44,
+     "x": 16,
+     "rz": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.635140978565859e-14,
+    "block_error": 4.99530629664423e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.42477737333404e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.635140978565859e-14
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "58e4574",
+   "summary": "the reference circuit of the lsh encoding (step) expressed through the Builder; every angle is a linear function of spec.alpha / spec.beta.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "wrap_pairs9",
+   "id": "r00-seed-001",
+   "family": "seed",
+   "program_sha256": "16f05df25707bf4620fb4f276049613b1cc144d124c0b02dd89b60887fc5c4f5",
+   "program_path": "compress/programs/lsh/seed/001-wrap_pairs9.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    74,
+    864,
+    1615,
+    27
+   ],
+   "cell": [
+    49,
+    78
+   ],
+   "metrics": {
+    "cx": 74,
+    "t_fixed": 56,
+    "n_rot": 13,
+    "t_eps": 864,
+    "t_estimate": {
+     "1e-06": 833.3311742036428,
+     "1e-10": 1351.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 864,
+     "1e-10": 1408
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 57,
+    "depth_ct": 1615,
+    "qubits": 27,
+    "gates": {
+     "cx": 74,
+     "h": 30,
+     "t": 28,
+     "tdg": 28,
+     "rz": 13,
+     "x": 12
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.0833038648875992e-14,
+    "block_error": 3.0303191209571246e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.881301029635769e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.0833038648875992e-14
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "58e4574",
+   "summary": "round-0 seed: vendored spinnet_v2 skeleton 'pairs9' (electric layer p(-3 alpha/4) on the four link wires, then the plaquette circuit) between the LSH transcoder and its inverse.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "wrap_flags4",
+   "id": "r00-seed-002",
+   "family": "seed",
+   "program_sha256": "47a2dd3c14e03860fae9f8442da6496543c86e69ee26066a12662ed38117277f",
+   "program_path": "compress/programs/lsh/seed/002-wrap_flags4.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    84,
+    586,
+    888,
+    27
+   ],
+   "cell": [
+    51,
+    73
+   ],
+   "metrics": {
+    "cx": 84,
+    "t_fixed": 80,
+    "n_rot": 8,
+    "t_eps": 586,
+    "t_estimate": {
+     "1e-06": 558.3576456637802,
+     "1e-10": 877.2627427729669
+    },
+    "t_measured": {
+     "1e-06": 586,
+     "1e-10": 912
+    },
+    "synth_error_bound": 8e-06,
+    "depth": 80,
+    "depth_ct": 888,
+    "qubits": 27,
+    "gates": {
+     "cx": 84,
+     "h": 42,
+     "t": 40,
+     "tdg": 40,
+     "x": 12,
+     "rz": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.206339108961003e-14,
+    "block_error": 4.7241398584767375e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.319919222391486e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.206339108961003e-14
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "58e4574",
+   "summary": "round-0 seed: vendored spinnet_v2 skeleton 'flags4' (electric layer p(-3 alpha/4) on the four link wires, then the plaquette circuit) between the LSH transcoder and its inverse.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "wrap_flags5",
+   "id": "r00-seed-003",
+   "family": "seed",
+   "program_sha256": "1aeebf18246f041ea9ede6e16bb3eb2269546792e001293e57a88987b0e4398b",
+   "program_path": "compress/programs/lsh/seed/003-wrap_flags5.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    82,
+    638,
+    1027,
+    27
+   ],
+   "cell": [
+    51,
+    74
+   ],
+   "metrics": {
+    "cx": 82,
+    "t_fixed": 72,
+    "n_rot": 9,
+    "t_eps": 638,
+    "t_estimate": {
+     "1e-06": 610.1523513717527,
+     "1e-10": 968.9205856195879
+    },
+    "t_measured": {
+     "1e-06": 638,
+     "1e-10": 1008
+    },
+    "synth_error_bound": 9e-06,
+    "depth": 87,
+    "depth_ct": 1027,
+    "qubits": 27,
+    "gates": {
+     "cx": 82,
+     "h": 38,
+     "t": 36,
+     "tdg": 36,
+     "x": 12,
+     "rz": 9
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.2192477580793287e-14,
+    "block_error": 3.958134946221801e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.433645741806906e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.2192477580793287e-14
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "58e4574",
+   "summary": "round-0 seed: vendored spinnet_v2 skeleton 'flags5' (electric layer p(-3 alpha/4) on the four link wires, then the plaquette circuit) between the LSH transcoder and its inverse.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "wrap_flags6",
+   "id": "r00-seed-004",
+   "family": "seed",
+   "program_sha256": "ffaa1f60d2cf988acbe384afcdb8dbcb85951efa74c47ed23a0209ceeab7bb41",
+   "program_path": "compress/programs/lsh/seed/004-wrap_flags6.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    76,
+    690,
+    1139,
+    27
+   ],
+   "cell": [
+    50,
+    75
+   ],
+   "metrics": {
+    "cx": 76,
+    "t_fixed": 64,
+    "n_rot": 10,
+    "t_eps": 690,
+    "t_estimate": {
+     "1e-06": 661.9470570797253,
+     "1e-10": 1060.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 690,
+     "1e-10": 1106
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 71,
+    "depth_ct": 1139,
+    "qubits": 27,
+    "gates": {
+     "cx": 76,
+     "h": 34,
+     "t": 32,
+     "tdg": 32,
+     "x": 12,
+     "rz": 10
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.1290533326992247e-14,
+    "block_error": 3.665417751368235e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.36049202688126e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.1290533326992247e-14
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "58e4574",
+   "summary": "round-0 seed: vendored spinnet_v2 skeleton 'flags6' (electric layer p(-3 alpha/4) on the four link wires, then the plaquette circuit) between the LSH transcoder and its inverse.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "wrap_sn_headline",
+   "id": "r00-seed-005",
+   "family": "seed",
+   "program_sha256": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+   "program_path": "compress/programs/lsh/seed/005-wrap_sn_headline.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    71,
+    1118,
+    2276,
+    25
+   ],
+   "cell": [
+    49,
+    81
+   ],
+   "metrics": {
+    "cx": 71,
+    "t_fixed": 48,
+    "n_rot": 17,
+    "t_eps": 1118,
+    "t_estimate": {
+     "1e-06": 1064.5099970355327,
+     "1e-10": 1742.1833283925548
+    },
+    "t_measured": {
+     "1e-06": 1118,
+     "1e-10": 1816
+    },
+    "synth_error_bound": 1.7e-05,
+    "depth": 68,
+    "depth_ct": 2276,
+    "qubits": 25,
+    "gates": {
+     "cx": 71,
+     "h": 26,
+     "t": 24,
+     "tdg": 24,
+     "rz": 17,
+     "x": 10,
+     "sdg": 2,
+     "s": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 8.867360922943197e-15,
+    "block_error": 3.242535543737155e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 6.049187461416408e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 8.867360922943197e-15
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "58e4574",
+   "summary": "round-0 seed: spin-network program compress/programs/spinnet/F1/002-dimer-linear-corner-walk.py (archive entry r02-F1-002, sha256 750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650) between the LSH transcoder and its inverse.",
+   "lean": {
+    "status": "certified",
+    "reason": "",
+    "cert_path": "results/lsh/certs/lsh-step-o1-975e51bd4fed.json",
+    "seconds": 1.0294849872589111,
+    "axioms": [],
+    "check_seconds": 0.7220492362976074,
+    "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+    "program_file_sha256": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+    "gates_sha256": "975e51bd4fed0ade0fab9bb8e9e51efc2fe68882799e5ae832480aa4aa83b33f"
+   },
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "wrap_sn_r05F3",
+   "id": "r00-seed-006",
+   "family": "seed",
+   "program_sha256": "de89050e3c1ab2f2b4e82c14a0e0fb4b085d118df038c216a81837960ac58a55",
+   "program_path": "compress/programs/lsh/seed/006-wrap_sn_r05F3.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    72,
+    864,
+    1570,
+    25
+   ],
+   "cell": [
+    49,
+    78
+   ],
+   "metrics": {
+    "cx": 72,
+    "t_fixed": 56,
+    "n_rot": 13,
+    "t_eps": 864,
+    "t_estimate": {
+     "1e-06": 833.3311742036428,
+     "1e-10": 1351.5519570060715
+    },
+    "t_measured": {
+     "1e-06": 864,
+     "1e-10": 1408
+    },
+    "synth_error_bound": 1.3e-05,
+    "depth": 84,
+    "depth_ct": 1570,
+    "qubits": 25,
+    "gates": {
+     "cx": 72,
+     "h": 32,
+     "x": 30,
+     "t": 28,
+     "tdg": 28,
+     "rz": 13,
+     "s": 2,
+     "z": 2,
+     "sdg": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 9.493090965521374e-15,
+    "block_error": 3.5405497909262138e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.212952284004132e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 9.493090965521374e-15
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "58e4574",
+   "summary": "round-0 seed: spin-network program compress/programs/spinnet/F3/005-angle-linear-walk.py (archive entry r05-F3-005, sha256 43605421051ce5e26b85b1b5241eb02638fc5f8ad7c6297a67e7dd0e96fd22e4) between the LSH transcoder and its inverse.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "wrap_sn_r02F5",
+   "id": "r00-seed-007",
+   "family": "seed",
+   "program_sha256": "b6e76befd0c2cb8ba36e34ae564e9ad63686179350d1d37389af09c284ddbb0d",
+   "program_path": "compress/programs/lsh/seed/007-wrap_sn_r02F5.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    74,
+    690,
+    1134,
+    25
+   ],
+   "cell": [
+    49,
+    75
+   ],
+   "metrics": {
+    "cx": 74,
+    "t_fixed": 64,
+    "n_rot": 10,
+    "t_eps": 690,
+    "t_estimate": {
+     "1e-06": 661.9470570797253,
+     "1e-10": 1060.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 690,
+     "1e-10": 1106
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 85,
+    "depth_ct": 1134,
+    "qubits": 25,
+    "gates": {
+     "cx": 74,
+     "h": 36,
+     "t": 32,
+     "tdg": 32,
+     "x": 16,
+     "rz": 10,
+     "s": 2,
+     "sdg": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.0898197496748434e-14,
+    "block_error": 3.771491508311586e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.36049202688126e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.0898197496748434e-14
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "58e4574",
+   "summary": "round-0 seed: spin-network program compress/programs/spinnet/F5/002-bright_flag_6rot.py (archive entry r02-F5-002, sha256 734a62fe58f316d6deb59561fb90cedcb04e5854f260f4d78e680eb688428f81) between the LSH transcoder and its inverse.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "general+polish",
+   "id": "r00-seed-010",
+   "family": "seed",
+   "program_sha256": "892ae6b5b8b627b474f21f8aa21caa330d13155d3a207e4f50f076a201c5867e",
+   "program_path": "compress/programs/lsh/seed/010-general_polish.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    94,
+    598,
+    880,
+    31
+   ],
+   "cell": [
+    52,
+    73
+   ],
+   "metrics": {
+    "cx": 94,
+    "t_fixed": 88,
+    "n_rot": 8,
+    "t_eps": 598,
+    "t_estimate": {
+     "1e-06": 566.3576456637802,
+     "1e-10": 885.2627427729669
+    },
+    "t_measured": {
+     "1e-06": 598,
+     "1e-10": 916
+    },
+    "synth_error_bound": 8e-06,
+    "depth": 87,
+    "depth_ct": 880,
+    "qubits": 31,
+    "gates": {
+     "cx": 94,
+     "h": 46,
+     "t": 44,
+     "tdg": 44,
+     "x": 16,
+     "rz": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.635140978565859e-14,
+    "block_error": 4.99530629664423e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.42477737333404e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.635140978565859e-14
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "58e4574",
+   "summary": "the reference circuit after the deterministic polish passes.",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  },
+  {
+   "label": "qiskit_l3",
+   "id": "r00-seed-qiskit_l3",
+   "family": "seed",
+   "program_sha256": "",
+   "program_path": "compress/programs/lsh/seed/qiskit_l3.circuit",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    94,
+    598,
+    880,
+    31
+   ],
+   "cell": [
+    52,
+    73
+   ],
+   "metrics": {
+    "cx": 94,
+    "t_fixed": 88,
+    "n_rot": 8,
+    "t_eps": 598,
+    "t_estimate": {
+     "1e-06": 566.3576456637802,
+     "1e-10": 885.2627427729669
+    },
+    "t_measured": {
+     "1e-06": 598,
+     "1e-10": 916
+    },
+    "synth_error_bound": 8e-06,
+    "depth": 87,
+    "depth_ct": 880,
+    "qubits": 31,
+    "gates": {
+     "cx": 94,
+     "h": 46,
+     "t": 44,
+     "tdg": 44,
+     "x": 16,
+     "rz": 8
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.8198856085372476e-14,
+    "block_error": 5.284130910557307e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.346101418296008e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.8198856085372476e-14
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": null,
+   "parent_known": true,
+   "git_commit": "58e4574",
+   "summary": "",
+   "lean": null,
+   "round": 0,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r00-seed-005",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 17,
+  "t_total": 1118,
+  "tolerances": {
+   "tol_err": 1.7001e-05,
+   "tol_gauss": 1.7001e-05
+  },
+  "op_norm_error": 4.608290744267597e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 15.171650886535645,
+ "written_utc": "2026-11-19T17:49:26Z",
+ "lsh": {
+  "wrapped_sources": {
+   "wrap_sn_headline": {
+    "path": "compress/programs/spinnet/F1/002-dimer-linear-corner-walk.py",
+    "sha256": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650",
+    "spinnet_entry": "r02-F1-002"
+   },
+   "wrap_sn_r05F3": {
+    "path": "compress/programs/spinnet/F3/005-angle-linear-walk.py",
+    "sha256": "43605421051ce5e26b85b1b5241eb02638fc5f8ad7c6297a67e7dd0e96fd22e4",
+    "spinnet_entry": "r05-F3-005"
+   },
+   "wrap_sn_r02F5": {
+    "path": "compress/programs/spinnet/F5/002-bright_flag_6rot.py",
+    "sha256": "734a62fe58f316d6deb59561fb90cedcb04e5854f260f4d78e680eb688428f81",
+    "spinnet_entry": "r02-F5-002"
+   }
+  },
+  "plan": "prompts/401"
+ }
+}
