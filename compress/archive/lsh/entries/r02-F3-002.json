@@ -1,0 +1,201 @@
+{
+ "id": "r02-F3-002",
+ "program_path": "compress/programs/lsh/F3/002-seed-carrier-negative.py",
+ "program_sha256": "ee6521117b1da9f30b612f8de8688409c1d68f9ff2ae9a92b3c0438a3f160602",
+ "parent": "r01-F3-001",
+ "family": "F3",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  71,
+  1118,
+  2276,
+  25
+ ],
+ "cell": [
+  49,
+  81
+ ],
+ "metrics_raw": {
+  "cx": 71,
+  "t_fixed": 48,
+  "n_rot": 17,
+  "t_eps": 1118,
+  "t_estimate": {
+   "1e-06": 1064.5099970355327,
+   "1e-10": 1742.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1118,
+   "1e-10": 1816
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 68,
+  "depth_ct": 2276,
+  "qubits": 25,
+  "gates": {
+   "cx": 71,
+   "h": 26,
+   "t": 24,
+   "tdg": 24,
+   "rz": 17,
+   "x": 10,
+   "sdg": 2,
+   "s": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 8.867360922943197e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -9.845857770347835e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 6.049187461416408e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 5.624825379206043e-15,
+  "block_error": 3.242535543737155e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.2754197120666504,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 8.867360922943197e-15,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 3.242535543737155e-15,
+   "max_dropped_l2": 1.5172949260551054e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 3.086739480564003e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.74181762619551e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -9.845857770347832e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.328058500079354e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.667024997607999e-15,
+   "block_error": 3.0747926285875114e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2727546691894531,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 8.74181762619551e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.073232898313275e-15,
+    "max_dropped_l2": 1.464090894276535e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.0747926285875114e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 9.34604700618459e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    1.271756628669928e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.405215745588179e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.9476037316099815e-15,
+   "block_error": 3.398443274574609e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.26760339736938477,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 9.34604700618459e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.398443274574609e-15,
+    "max_dropped_l2": 1.4798956403152048e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.3984432745746074e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: (claim, C DFS over all walks) with the seed letters (y0^A, y1, y3, e) and the flag a1=[y0=y2=0] used as two direct rccx toggles on the pivot (3 CX each, phase (-1)^(a*L) between them), no walk of cost <= 18 exists (would give 70 CX); with a1 XORed into any redundant w_c qubit (or into u, v) instead of an ancilla, no walk of <= 13 CX exists, so the 25th qubit cannot be freed at equal CX.",
+  "DISCOVERY: (claim) with the raw l_nv parity p folded into site 0, y0 xor A = 1 xor p xor y1 xor y2 xor y3 is linear (A = [u=v=0] = not [#w=2]), so the seed's in-place A flag and site-0 Toffoli (12 CX, 16 T) equal 6 CX of folds at 0 T, but then no 2-literal flag replaces a1=[y0=y2=0] in a <= 13-CX walk (8 candidates, C DFS), and y0 xor A cannot be produced by one AND (GF(2) search over affine pairs).",
+  "DISCOVERY: (claim) F3 frame with one 2-literal flag over (p, y1, y2, y3, e, u, v): MILP support 17-18 (time-limited), so <= 70 CX needs a near-Hamiltonian tour of the support; the round-1 routing (28 CX) is far from it."
+ ],
+ "summary": "negative-result carrier for F3 round 2: the 71-CX transcoder + dimer-walk circuit (archive best, unchanged gate list) re-emitted in F3 after exhaustive searches found no cheaper gating in the transcoder frame; 71 CX, no gain.",
+ "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "git_commit": "d4a691a",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 1.5357170104980469,
+ "written_utc": "2026-11-19T20:09:59Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.7e-05
+ },
+ "lean": null,
+ "mode": "full",
+ "encoding_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca"
+}

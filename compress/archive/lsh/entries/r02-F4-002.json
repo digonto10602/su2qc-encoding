@@ -1,0 +1,199 @@
+{
+ "id": "r02-F4-002",
+ "program_path": "compress/programs/lsh/F4/002-fold-mux-merged-end-toggle.py",
+ "program_sha256": "2c6ef66d4694798f873adbdab6863e452f14bc5d8275bedec4ad87762ff2a7d6",
+ "parent": "r01-F4-001",
+ "family": "F4",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  73,
+  1396,
+  3218,
+  24
+ ],
+ "cell": [
+  49,
+  83
+ ],
+ "metrics_raw": {
+  "cx": 73,
+  "t_fixed": 24,
+  "n_rot": 22,
+  "t_eps": 1396,
+  "t_estimate": {
+   "1e-06": 1339.4835255753956,
+   "1e-10": 2216.472542625659
+  },
+  "t_measured": {
+   "1e-06": 1396,
+   "1e-10": 2312
+  },
+  "synth_error_bound": 2.2e-05,
+  "depth": 100,
+  "depth_ct": 3218,
+  "qubits": 24,
+  "gates": {
+   "cx": 73,
+   "h": 50,
+   "sdg": 26,
+   "s": 25,
+   "rz": 22,
+   "t": 12,
+   "tdg": 12
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.2521682803839607e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   0.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.389157964038493e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.881356466351136e-15,
+  "block_error": 5.640326337488472e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.2661919593811035,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.2521682803839607e-14,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 5.640326337488471e-15,
+   "max_dropped_l2": 1.5359733985561173e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 5.640326337488472e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.235659756182279e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -8.204881475289885e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.394515868888619e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.480800547369062e-15,
+   "block_error": 5.8757970144537275e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.23619699478149414,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.235659756182279e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 5.670838371828312e-15,
+    "max_dropped_l2": 1.476964621795086e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 5.8757970144537275e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.2781235722276474e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -4.102440737644945e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.3063260158928595e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.570096243498749e-15,
+   "block_error": 6.211139478777726e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2679712772369385,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.2781235722276474e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 6.211139478777726e-15,
+    "max_dropped_l2": 1.5476512294314804e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 6.159139401927309e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: (claim) the w_c wires duplicate collapse forms (w_1 = f_0 ^ f_1 = q3 after the collapse), so a walk toggle from a w wire next to h(pivot) can be re-sourced from the collapse wire and merged as CZ into the adjacent collapse CX for free; on the parent's 18-term support the exact open Gray tour (subset DP, free ends in span of the collapse forms, all 8 dark-flag shifts y_S) is 27 toggles, so this frame + support cannot go below 73 with pivot-only walks.",
+  "DISCOVERY: (claim) in this frame (y0 hidden by the fold, p explicit) no single AND of two linear literals F lets the coupling be a function of (F, p^y1^y2^y3, one y_c, two g-forms) on all 39 labels (exhaustive over 10108 distinct flags), so the seed's one-flag walk (a1 = [y0=y2=0]) cannot be transplanted onto the fold frame."
+ ],
+ "summary": "Parent F4/001 (native three-product frame: f_c, w_c per site, raw l_nv parity folded into site 0, three real-phase Margolus Toffolis give y1..y3, collapse onto f_0, flagless 18-term Walsh multiplexer R_X on f_0) with the last walk toggle CX(w_1 -> f_0) replaced by its physical twin CX(g_1 -> f_0) on the collapse wire q3 and merged as CZ into the inverse collapse CX(0,3); 73 CX.",
+ "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "git_commit": "d4a691a",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 1.4965705871582031,
+ "written_utc": "2026-11-19T20:09:59Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 2.2e-05
+ },
+ "lean": null,
+ "mode": "full",
+ "encoding_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca"
+}

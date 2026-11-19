@@ -1,0 +1,200 @@
+{
+ "id": "r02-F2-002",
+ "program_path": "compress/programs/lsh/F2/002-tctt-sa-walk18.py",
+ "program_sha256": "968ec0a03f5b7523cb87e5e0bfd65d2f0e1ef49bf466e0f96c93fdb0ea1844e9",
+ "parent": "r01-F2-001",
+ "family": "F2",
+ "round": 2,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  72,
+  1242,
+  2614,
+  26
+ ],
+ "cell": [
+  49,
+  82
+ ],
+ "metrics_raw": {
+  "cx": 72,
+  "t_fixed": 44,
+  "n_rot": 19,
+  "t_eps": 1242,
+  "t_estimate": {
+   "1e-06": 1180.099408451478,
+   "1e-10": 1937.4990140857965
+  },
+  "t_measured": {
+   "1e-06": 1242,
+   "1e-10": 2020
+  },
+  "synth_error_bound": 1.8999999999999998e-05,
+  "depth": 90,
+  "depth_ct": 2614,
+  "qubits": 26,
+  "gates": {
+   "cx": 72,
+   "h": 62,
+   "sdg": 26,
+   "s": 26,
+   "t": 22,
+   "tdg": 22,
+   "rz": 19,
+   "x": 16
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.55991676159829e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -3.281952590115955e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 6.049187461416408e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 8.998282259794246e-15,
+  "block_error": 6.600885356188653e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.27714061737060547,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.55991676159829e-14,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 6.4949452472438324e-15,
+   "max_dropped_l2": 2.4234502091206476e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 6.600885356188653e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.508018345836016e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    5.743417032702924e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.830322762800934e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 8.810371556805473e-15,
+   "block_error": 6.269811901554684e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.27089452743530273,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.508018345836016e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 6.269811901554684e-15,
+    "max_dropped_l2": 1.9748982400071456e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 6.23511523779847e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.583890910398736e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    8.615125549054391e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.326250846592186e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 9.10520941405857e-15,
+   "block_error": 6.73369968992879e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.27382659912109375,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.583890910398736e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 6.61118934306844e-15,
+    "max_dropped_l2": 2.0147956715796477e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 6.73369968992879e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: (claim, numerical) in the TCTT swap-diagonal layout the shortest closed walk found by SA over toggle sequences is 18 toggles (none at 15, 16 or 17 in about 30, 10 and 35 SA runs, start/end merges with the ladder CX on v, e allowed), so TCTT costs 42 + 12 + 18 = 72 CX, one above the 71-CX seed; the parent's 26-toggle tour came from a min-support MILP that ignores tour length.",
+  "DISCOVERY: (claim, numerical) the w-slot link forms w1=u^e and w3=v^e are free single-qubit toggles; w1 appears in all four 18-toggle TCTT walks found; Held-Karp re-touring of the 15-term support with dark-flag shifts (y3, a1) does not shorten it below 18."
+ ],
+ "summary": "parent's TCTT layout (site 1 swap-diagonal cx, cx, ch; Margolus transcoder on sites 0, 2, 3; flags a1=[y0=y2=0], A=[u=v=0]) with the walk re-optimised for toggle count: simulated annealing directly over toggle sequences (atoms e, v, u, w1=u^e, w3=v^e, A, a1, nv1, y3; link forms from the w slots) gives an 18-toggle closed walk with 15 rotations (MILP min on the visited sets, all k*beta/8), 72 CX instead of 80.",
+ "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "git_commit": "d4a691a",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 1.6441950798034668,
+ "written_utc": "2026-11-19T20:09:59Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.8999999999999998e-05
+ },
+ "lean": null,
+ "mode": "full",
+ "encoding_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca"
+}

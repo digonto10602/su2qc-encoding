@@ -1,0 +1,431 @@
+{
+ "round": 2,
+ "n_valid": 5,
+ "n_invalid": 0,
+ "best_key": [
+  71,
+  1110,
+  2291,
+  25
+ ],
+ "entries": [
+  "r02-F1-002",
+  "r02-F2-002",
+  "r02-F3-002",
+  "r02-F4-002",
+  "r02-F5-002"
+ ],
+ "lean_seconds": 3.0400137901306152,
+ "encoding": "lsh",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "d4a691a",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-19T20:10:04Z"
+ },
+ "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "encoding_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "invalid": [],
+ "external": [],
+ "candidates": [
+  {
+   "label": "002-free-end-walk-v",
+   "id": "r02-F1-002",
+   "family": "F1",
+   "program_sha256": "4fb199500d53a8c4bc0a4656573c56bf3e1b8efcefd9f500cf0c8eb46942df55",
+   "program_path": "compress/programs/lsh/F1/002-free-end-walk-v.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    71,
+    1110,
+    2291,
+    25
+   ],
+   "cell": [
+    49,
+    80
+   ],
+   "metrics": {
+    "cx": 71,
+    "t_fixed": 40,
+    "n_rot": 17,
+    "t_eps": 1110,
+    "t_estimate": {
+     "1e-06": 1056.5099970355327,
+     "1e-10": 1734.1833283925548
+    },
+    "t_measured": {
+     "1e-06": 1110,
+     "1e-10": 1808
+    },
+    "synth_error_bound": 1.7e-05,
+    "depth": 68,
+    "depth_ct": 2291,
+    "qubits": 25,
+    "gates": {
+     "cx": 71,
+     "h": 22,
+     "t": 20,
+     "tdg": 20,
+     "rz": 17,
+     "x": 12,
+     "s": 2,
+     "sdg": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 7.20688854401155e-15,
+    "block_error": 2.4650951625709334e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.31720336112929e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 7.20688854401155e-15
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F1-001",
+   "parent_known": true,
+   "git_commit": "d4a691a",
+   "summary": "parent frame (per-site cx, cx, rccx; class bit = raw l_nv parity folded into vp_0 = w0^p; flag a=[y0=y2=0]) with a 15-toggle walk: first toggle on e=q9 merged into the collapse CX as CZ (free), walk variables (e, pe, a, y1, y3) over a 13-term support (MILP support enumeration + Hamiltonian-path DP with free ends in span{e, v}); 71 CX, 10 rccx (T_fixed 40), 17 rotations, all angles k*beta/4 or 3*alpha/4.",
+   "lean": {
+    "status": "certified",
+    "reason": "",
+    "cert_path": "results/lsh/certs/lsh-step-o1-0320e89c1271.json",
+    "seconds": 3.0294349193573,
+    "axioms": [],
+    "check_seconds": 2.719046115875244,
+    "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+    "program_file_sha256": "4fb199500d53a8c4bc0a4656573c56bf3e1b8efcefd9f500cf0c8eb46942df55",
+    "gates_sha256": "0320e89c1271e56a6324c7ebe340f84a40d10e21ef39abe1e1d515364e9723b1"
+   },
+   "round": 2,
+   "mode": "full"
+  },
+  {
+   "label": "002-tctt-sa-walk18",
+   "id": "r02-F2-002",
+   "family": "F2",
+   "program_sha256": "968ec0a03f5b7523cb87e5e0bfd65d2f0e1ef49bf466e0f96c93fdb0ea1844e9",
+   "program_path": "compress/programs/lsh/F2/002-tctt-sa-walk18.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    72,
+    1242,
+    2614,
+    26
+   ],
+   "cell": [
+    49,
+    82
+   ],
+   "metrics": {
+    "cx": 72,
+    "t_fixed": 44,
+    "n_rot": 19,
+    "t_eps": 1242,
+    "t_estimate": {
+     "1e-06": 1180.099408451478,
+     "1e-10": 1937.4990140857965
+    },
+    "t_measured": {
+     "1e-06": 1242,
+     "1e-10": 2020
+    },
+    "synth_error_bound": 1.8999999999999998e-05,
+    "depth": 90,
+    "depth_ct": 2614,
+    "qubits": 26,
+    "gates": {
+     "cx": 72,
+     "h": 62,
+     "sdg": 26,
+     "s": 26,
+     "t": 22,
+     "tdg": 22,
+     "rz": 19,
+     "x": 16
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.55991676159829e-14,
+    "block_error": 6.600885356188653e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 6.049187461416408e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.55991676159829e-14
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F2-001",
+   "parent_known": true,
+   "git_commit": "d4a691a",
+   "summary": "parent's TCTT layout (site 1 swap-diagonal cx, cx, ch; Margolus transcoder on sites 0, 2, 3; flags a1=[y0=y2=0], A=[u=v=0]) with the walk re-optimised for toggle count: simulated annealing directly over toggle sequences (atoms e, v, u, w1=u^e, w3=v^e, A, a1, nv1, y3; link forms from the w slots) gives an 18-toggle closed walk with 15 rotations (MILP min on the visited sets, all k*beta/8), 72 CX instead of 80.",
+   "lean": null,
+   "round": 2,
+   "mode": "full"
+  },
+  {
+   "label": "002-seed-carrier-negative",
+   "id": "r02-F3-002",
+   "family": "F3",
+   "program_sha256": "ee6521117b1da9f30b612f8de8688409c1d68f9ff2ae9a92b3c0438a3f160602",
+   "program_path": "compress/programs/lsh/F3/002-seed-carrier-negative.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    71,
+    1118,
+    2276,
+    25
+   ],
+   "cell": [
+    49,
+    81
+   ],
+   "metrics": {
+    "cx": 71,
+    "t_fixed": 48,
+    "n_rot": 17,
+    "t_eps": 1118,
+    "t_estimate": {
+     "1e-06": 1064.5099970355327,
+     "1e-10": 1742.1833283925548
+    },
+    "t_measured": {
+     "1e-06": 1118,
+     "1e-10": 1816
+    },
+    "synth_error_bound": 1.7e-05,
+    "depth": 68,
+    "depth_ct": 2276,
+    "qubits": 25,
+    "gates": {
+     "cx": 71,
+     "h": 26,
+     "t": 24,
+     "tdg": 24,
+     "rz": 17,
+     "x": 10,
+     "sdg": 2,
+     "s": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 8.867360922943197e-15,
+    "block_error": 3.242535543737155e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 6.049187461416408e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 8.867360922943197e-15
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F3-001",
+   "parent_known": true,
+   "git_commit": "d4a691a",
+   "summary": "negative-result carrier for F3 round 2: the 71-CX transcoder + dimer-walk circuit (archive best, unchanged gate list) re-emitted in F3 after exhaustive searches found no cheaper gating in the transcoder frame; 71 CX, no gain.",
+   "lean": null,
+   "round": 2,
+   "mode": "full"
+  },
+  {
+   "label": "002-fold-mux-merged-end-toggle",
+   "id": "r02-F4-002",
+   "family": "F4",
+   "program_sha256": "2c6ef66d4694798f873adbdab6863e452f14bc5d8275bedec4ad87762ff2a7d6",
+   "program_path": "compress/programs/lsh/F4/002-fold-mux-merged-end-toggle.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    73,
+    1396,
+    3218,
+    24
+   ],
+   "cell": [
+    49,
+    83
+   ],
+   "metrics": {
+    "cx": 73,
+    "t_fixed": 24,
+    "n_rot": 22,
+    "t_eps": 1396,
+    "t_estimate": {
+     "1e-06": 1339.4835255753956,
+     "1e-10": 2216.472542625659
+    },
+    "t_measured": {
+     "1e-06": 1396,
+     "1e-10": 2312
+    },
+    "synth_error_bound": 2.2e-05,
+    "depth": 100,
+    "depth_ct": 3218,
+    "qubits": 24,
+    "gates": {
+     "cx": 73,
+     "h": 50,
+     "sdg": 26,
+     "s": 25,
+     "rz": 22,
+     "t": 12,
+     "tdg": 12
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.2521682803839607e-14,
+    "block_error": 5.640326337488472e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 5.389157964038493e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 1.2521682803839607e-14
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F4-001",
+   "parent_known": true,
+   "git_commit": "d4a691a",
+   "summary": "Parent F4/001 (native three-product frame: f_c, w_c per site, raw l_nv parity folded into site 0, three real-phase Margolus Toffolis give y1..y3, collapse onto f_0, flagless 18-term Walsh multiplexer R_X on f_0) with the last walk toggle CX(w_1 -> f_0) replaced by its physical twin CX(g_1 -> f_0) on the collapse wire q3 and merged as CZ into the inverse collapse CX(0,3); 73 CX.",
+   "lean": null,
+   "round": 2,
+   "mode": "full"
+  },
+  {
+   "label": "002-two-flag-walk-table",
+   "id": "r02-F5-002",
+   "family": "F5",
+   "program_sha256": "5b94761fcbeab096da89bfb66b39a0928035815a07578c70955d1eeb48bbbd00",
+   "program_path": "compress/programs/lsh/F5/002-two-flag-walk-table.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    71,
+    1118,
+    2276,
+    25
+   ],
+   "cell": [
+    49,
+    81
+   ],
+   "metrics": {
+    "cx": 71,
+    "t_fixed": 48,
+    "n_rot": 17,
+    "t_eps": 1118,
+    "t_estimate": {
+     "1e-06": 1064.5099970355327,
+     "1e-10": 1742.1833283925548
+    },
+    "t_measured": {
+     "1e-06": 1118,
+     "1e-10": 1816
+    },
+    "synth_error_bound": 1.7e-05,
+    "depth": 68,
+    "depth_ct": 2276,
+    "qubits": 25,
+    "gates": {
+     "cx": 71,
+     "h": 26,
+     "t": 24,
+     "tdg": 24,
+     "rz": 17,
+     "x": 10,
+     "sdg": 2,
+     "s": 1
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 8.867360922943197e-15,
+    "block_error": 3.242535543737155e-15,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 6.049187461416408e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "inner_span",
+    "span_leak": 0.0,
+    "total_error": 8.867360922943197e-15
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r01-F5-001",
+   "parent_known": true,
+   "git_commit": "d4a691a",
+   "summary": "F5 restart from the seed core: per-site transcoder, ladder (u, v, e), flags a1=[y0=y2=0] (ancilla) and A=[u=v=0] XORed into y0, 13+1-toggle pivot walk with the last e-toggle merged into the inverse ladder; table-driven walk with free first/last CZ merges; 71 CX, 17 rotations k*beta/8 or 3*alpha/4 (ties the seed, does not beat it).",
+   "lean": null,
+   "round": 2,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r02-F1-002",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 17,
+  "t_total": 1110,
+  "tolerances": {
+   "tol_err": 1.7001e-05,
+   "tol_gauss": 1.7001e-05
+  },
+  "op_norm_error": 5.6064437015976735e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 13.738367557525635,
+ "written_utc": "2026-11-19T20:10:04Z"
+}

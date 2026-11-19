@@ -1,0 +1,167 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 8.867360922943197e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -9.845857770347835e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 6.049187461416408e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 5.624825379206043e-15,
+  "block_error": 3.242535543737155e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.2921626567840576,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 8.867360922943197e-15,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 3.242535543737155e-15,
+   "max_dropped_l2": 1.5172949260551054e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 3.086739480564003e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 8.74181762619551e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -9.845857770347832e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.328058500079354e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.667024997607999e-15,
+   "block_error": 3.0747926285875114e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.30923891067504883,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 8.74181762619551e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.073232898313275e-15,
+    "max_dropped_l2": 1.464090894276535e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.0747926285875114e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 9.34604700618459e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    1.271756628669928e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.405215745588179e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 5.9476037316099815e-15,
+   "block_error": 3.398443274574609e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.30008435249328613,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 9.34604700618459e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 3.398443274574609e-15,
+    "max_dropped_l2": 1.4798956403152048e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 3.3984432745746074e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 71,
+  "t_fixed": 48,
+  "n_rot": 17,
+  "t_eps": 1118,
+  "t_estimate": {
+   "1e-06": 1064.5099970355327,
+   "1e-10": 1742.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1118,
+   "1e-10": 1816
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 68,
+  "depth_ct": 2276,
+  "qubits": 25,
+  "gates": {
+   "cx": 71,
+   "h": 26,
+   "t": 24,
+   "tdg": 24,
+   "rz": 17,
+   "x": 10,
+   "sdg": 2,
+   "s": 1
+  },
+  "measured": true
+ },
+ "program_sha256": "5b94761fcbeab096da89bfb66b39a0928035815a07578c70955d1eeb48bbbd00",
+ "wall_s": 1.6654305458068848,
+ "discoveries": [
+  "DISCOVERY: (claim, numerical, simulated annealing over closed toggle walks with generators u,v,e,u^e,v^e,u^v^e,y0..y3 and two AND flags) with a1=[y_i=y_j=0] for any corner pair and A=[u=v=0] (ancilla or in place in any y slot) no closed walk of cost 12 (14 toggles with both ends free on e/v, or 13 with one) was found; all cost-13 walks found use the pair (0,2) and 13-14 rotations, so the seed walk is a robust local optimum.",
+  "DISCOVERY: (claim, numerical) the three w slots give the free link forms u^e, v^e, u^v^e on all 47 codes (w_c = f_c xor f_{c-1}, also on dark codes; w_0 = e duplicates the ladder qubit), but adding them as walk generators did not shorten the two-flag walk below 13 nor let SA reach a one-flag walk of <= 18 toggles (SA also fails to re-find the parent's 21-toggle walk, so this is not a lower bound).",
+  "DISCOVERY: (claim) the minimum Walsh support with the seed flags is 12 (HiGHS MILP, 114 s) while the seed walk needs 13 rotations (exhaustive subset check on its 14 visited parities), so a 12-rotation walk would save about 60 T at 71 CX if a 13-toggle tour through such a support exists."
+ ],
+ "summary": "F5 restart from the seed core: per-site transcoder, ladder (u, v, e), flags a1=[y0=y2=0] (ancilla) and A=[u=v=0] XORed into y0, 13+1-toggle pivot walk with the last e-toggle merged into the inverse ladder; table-driven walk with free first/last CZ merges; 71 CX, 17 rotations k*beta/8 or 3*alpha/4 (ties the seed, does not beat it)."
+}

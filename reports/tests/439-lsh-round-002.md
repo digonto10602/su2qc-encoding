@@ -1,0 +1,81 @@
+# Tester report 439: LSH M8 step 8.7, real round 2 (mode step)
+
+- Date: 2026-11-19. Commit `d4a691a` (HEAD; the five round-2 programs were committed there before evaluation; the round outputs are uncommitted in the tree).
+- Plan in force: `prompts/401` on `prompts/400` (LSH M8), step 8.7, paragraph "Tester per round". Related: `reports/tests/437` (round 0), `reports/tests/438` (round 1).
+- Raw numbers: `results/tester/439/{own_sparse,aer,robust_stop,gates_f1}.json` (each with the commit; no RNG anywhere: all angle pairs fixed, seed recorded as null, Aer uses the deterministic 47-code columns). Scripts (mine, not collected as tests): `results/tester/439/{own_sparse,aer,robust_stop,gates_f1}.py`, adapted from `results/tester/438/`; the 47-code Aer check reuses `tests/independent/lsh_m8_436/indep_check.py`.
+- Resources: every run `taskset -c 0` (core 0 only), heavy runs through `tools/run-capped`, pytest through `tools/pytest-safe -n 1`. Peak memory far below 4 GB (the 25-qubit Aer runs are the largest).
+
+## Commands
+```
+python results/tester/439/own_sparse.py    # own codes/targets/sparse engine, 433 states x 3 pairs x (5 programs + seed r00-seed-005), native + lowered; recount; outer roles
+python results/tester/439/aer.py           # Aer: 47 inner codes x 4 pairs (incl. unused (1.13,0.47)), 5 programs + seed
+python results/tester/439/robust_stop.py   # stock worker rebuild (cache off), robust metrics, own stop-rule re-derivation
+python results/tester/439/gates_f1.py      # F3/F5 vs seed lowered gate lists; F1-002 free CZ merge: identity, un-merged circuit, no-CZ control
+lean/.lake/build/bin/su2plaq_cert_lsh check <cert>   # compiled Lean checker run by hand on the new cert, the seed cert, and two mutated certs (scratchpad)
+taskset -c 0 tools/pytest-safe -n 1 -m "not slow" tests/acceptance/m8
+taskset -c 0 tools/pytest-safe -n 1 tests/acceptance/m8 -k "G3 or L5 or R1" -rA
+taskset -c 0 tools/pytest-safe -n 1 tests/unit -k lsh
+python tools/check_lock.py ; ~/.claude/bin/acceptance-check ; pytest --collect-only -q tests/acceptance
+```
+
+## Results
+Key = (CX, $T_{10^{-6}}$, depth$_{\rm CT}$, qubits). Pairs $(\alpha,\beta)\in\{(0.37,0.61),(0.91,0.23),(1.7,1.0)\}$, plus the unused $(1.13,0.47)$ where stated. Target $=U_BU_E$ (op-norm distance up to a global phase). "Seed" = `r00-seed-005`.
+
+| # | check | expected | got | tolerance | verdict |
+|---|---|---|---|---|---|
+| 1 | archive: 5 entries valid, key in entry = key in round file = key re-measured by the stock worker (`evaluate_program`, cache off, full mode) | F1 (71,1110,2291,25), F2 (72,1242,2614,26), F3 (71,1118,2276,25), F4 (73,1396,3218,24), F5 (71,1118,2276,25) | identical three ways for all five; reason `ok`, skeleton equal, `alt_ok` [true,true], certified, engine sparse, method `inner_span`, outer bits read 0; fresh `op_norm_error` $7.2\cdot10^{-15}$, $1.6\cdot10^{-14}$, $8.9\cdot10^{-15}$, $1.3\cdot10^{-14}$, $8.9\cdot10^{-15}$ | exact | PASS |
+| 2 | program sha256: file = archive entry = round file = fresh result | equal | equal for all five | exact | PASS |
+| 3 | hashes `evaluator_sha256 = encoding_sha256 = code_hash_for("lsh")` in round file, 5 entries, `robust.json` | `88e0d76b…ec1ca` | equal everywhere; spec sha `a16c8a0a…` unchanged from round 1 | exact | PASS |
+| 4 | own sparse engine (own 24-bit codes, own expm target, own gate walk, circuit as built), ALL 433 states $\times$ 3 pairs | $\le10^{-10}$ | max per program: F1 $1.9\cdot10^{-15}$, F2 $5.9\cdot10^{-15}$, F3 $1.8\cdot10^{-15}$, F4 $6.4\cdot10^{-15}$, F5 $1.8\cdot10^{-15}$ (seed $1.8\cdot10^{-15}$) | $10^{-10}$ | PASS |
+| 5 | same engine on the FULLY LOWERED circuit (qiskit `decompose`; `rccx`, `ch` expanded) | $\le10^{-10}$ | max $2.9\cdot10^{-15}$ (F1), $3.0\cdot10^{-15}$ (F2), $3.3\cdot10^{-15}$ (F3, F5), $6.4\cdot10^{-15}$ (F4) | $10^{-10}$ | PASS |
+| 6 | wrong-sign control (same block vs target at $-\beta$) | must disagree | 1.878, 0.888, 1.819 at the three pairs, all five programs | $O(1)$ | PASS |
+| 7 | unitarity of the $433\times433$ block $\|B^\dagger B-1\|_2$ | $\le10^{-10}$ | max $2.1\cdot10^{-15}$ (F1), $1.2\cdot10^{-14}$ (F2), $1.7\cdot10^{-15}$ (F3, F5), $1.3\cdot10^{-14}$ (F4) | $10^{-10}$ | PASS |
+| 8 | dirty ancilla, leak out of the 433 codes, outer-register-changed weight, inner Abelian-Gauss-law violation (own Gauss operator), worst column, 3 pairs $\times$ native/lowered | 0 | exactly 0.0 in all five programs (and the seed) | $10^{-20}$ | PASS |
+| 9 | outer register: scan of the lowered gate list for any gate on qubits 12..23 | none | `outer_roles` is empty for F1, F2, F3, F4, F5 and the seed: nothing touches the outer register (contrast with round 1, where F3 read qubit 13; this round no full-state 24-qubit Aer check is needed, the 47-code check is sufficient) | exact | PASS |
+| 10 | Aer statevector on data + ancilla qubits, 47 inner codes (own target from the L13 rules, own inner-code set by the Abelian Gauss law), 4 pairs | $\le10^{-10}$ | op-norm error max: F1 $3.0\cdot10^{-15}$, F2 $4.3\cdot10^{-15}$, F3 $3.8\cdot10^{-15}$, F4 $3.1\cdot10^{-15}$, F5 $3.8\cdot10^{-15}$; unused pair $\le3.4\cdot10^{-15}$; ancilla leak $\le5.0\cdot10^{-31}$; Gauss leak 0; wrong sign 1.878 | $10^{-10}$ | PASS |
+| 11 | CX/T recount (own `decompose` lowering, own pygridsynth $\varepsilon=10^{-6}$, multiples of $\pi/4$ fixed) vs archive | = archive | all five equal: (CX, $T_{\rm fixed}$, $N_{\rm rot}$, $T$, qubits) = F1 (71,40,17,1110,25), F2 (72,44,19,1242,26), F3 (71,48,17,1118,25), F4 (73,24,22,1396,24), F5 (71,48,17,1118,25); seed (71,48,17,1118,25) | exact | PASS |
+| 12 | counts vs Qiskit `count_ops` | native + 3/`rccx` + 1/`ch` = reported CX | F1 41+10$\cdot$3=71; F2 58+4$\cdot$3+2$\cdot$1=72; F3 35+12$\cdot$3=71; F4 73; F5 35+12$\cdot$3=71; lowered `count_ops['cx']` = 71/72/71/73/71 | exact | PASS |
+| 13 | depth$_{\rm CT}$ | = archive | not independently recounted (definition in `compress/metrics.py`); the fresh stock rebuild reproduces 2291/2614/2276/3218/2276 | exact | PASS (stock only) |
+| 14 | F3-002 and F5-002 "re-emit the seed gate list": same circuit? same key? | same | **F3**: the native gate list (program order) is element-wise identical to the seed's at all three pairs, and the exported cert gate list has the same `gates_sha256` `975e51bd4fed…` as the committed seed cert. **F5**: native list differs (21 of 175 cert gates in different positions, different gates_sha `7ec83d372ed0`), but the per-qubit gate sequences are identical, the sorted gate multiset is identical, and my qiskit DAG-lowered lists equal the seed's at all three pairs: the same circuit with disjoint-qubit gates commuted. Keys equal: archive key and robust key (71,22480,0,46384,25) for seed, F3, F5; own exactness numbers equal to $10^{-31}$ in Aer. So both proposers' statement is true: a gate-for-gate re-emission (F3), and a reordering of commuting gates (F5); neither is a new circuit | exact | PASS |
+| 15 | F1-002 free CZ merge, algebra: $CZ\cdot CX$ (time order CX then CZ) = the 4-gate block `s(c), sdg(t), cx, s(t)` and CZ-then-CX = `sdg, sdg, cx, s` | equal | both identities hold as $4\times4$ unitaries, `allclose` exact (no phase needed) | exact | PASS |
+| 16 | F1-002 merge, circuit: the circuit with the merged block replaced by CX + a separate CZ (83 gates vs 85) | same block | exactly the same $433\times433$ block (max entry difference 0.0) and error $1.4\cdot10^{-15}$, $6.8\cdot10^{-16}$, $1.9\cdot10^{-15}$, and $1.0\cdot10^{-15}$ at the unused pair, all 433 states. The program contains exactly 1 merged block (start toggle on e = q9; its END list is empty, so no second merge) | $10^{-10}$ | PASS |
+| 17 | F1-002 negative control: drop the CZ (plain CX instead of the block) | must fail | error 2.000 at all four pairs | $\gg10^{-10}$ | PASS |
+| 18 | robust keys: fresh `robust.robust_metrics("lsh","step",…)` (20 pairs, stock worker) vs `results/compress/lsh/robust.json`; angle-linear | equal | F1 (71,22320,0,46684,25); F2 (72,24962,0,53655,26); F3 (71,22480,0,46384,25); F4 (73,28348,0,63538,24); F5 (71,22480,0,46384,25); all equal to file, `angle_linear` True, `export_status ok`; F3, F5 equal to the seed's robust key | exact | PASS |
+| 19 | round file | 5 valid, 0 invalid, best key (71,1110,2291,25) = F1-002, no external rows | exactly that; git_commit `d4a691a`; wall small | exact | PASS |
+| 20 | archive index: `best` = `r02-F1-002`, 20 entry files = `n_entries` 20, per-family best = the round-2 entries (seed family seed-005), 12 elite cells = 12 cells recomputed from entry `cell` and key, min archive key = F1-002 | consistent | all consistent | exact | PASS |
+| 21 | stop record, own re-derivation (comparator written from §1.6; session count = 10 distinct (round, family) + 1 ideation; headline = lexicographic min of robust keys over all valid entries of rounds 0..2) | headline r02-F1-002 (71,22320,0,46684,25), improved True, streak 0, sessions 11, stop false | file = own derivation in every field; own `improved` flags [True, False, True] = file's | exact | PASS |
+| 22 | headline rule (§1.6) on the improvement | see below | improvement confirmed by rule text, by code (`improves`), and by my own comparator | exact | PASS |
+| 23 | Lean: what was certified and where | one cert for the headline, binding fields | `lean_seconds` 3.04 = one certificate, for r02-F1-002 only (F2..F5 `lean` null, since the round certifies only the new best). Cert `results/lsh/certs/lsh-step-o1-0320e89c1271.json` (new, untracked), entry `lean` field: certified, `cert_path` that file, `program_file_sha256` = program sha256 `4fb19950…`, `gates_sha256` `0320e89c1271…`, axioms `[]`, checker sha `16b3278f…` = sha256 of the compiled binary on disk = the seed's checker sha. Cert content: 25 qubits, 433 states, 165 gates: 71 `cx`, 20 `t` + 20 `tdg` (T$_{\rm fixed}$ = 40, vs 48 in the seed cert), 13 `rz` + 4 `p`, matching the recount. I ran the compiled checker by hand: new cert `ACCEPT`, seed cert `ACCEPT`; mutated copies (drop one `cx`; retarget one `cx`) both `REJECT state 72 differs from the target`. Cert provenance `git_dirty` True (commit `d4a691a`); label stays "native-certified, first-order step" | exact | PASS |
+| 24 | proposer did not touch source: `git log 70ab721..HEAD -- src tests` | no proposer commit | only `2b7c68d` (audit 307, rishon files), unrelated; `d4a691a` changes only the five `compress/programs/lsh/F*/002-*.py`; `git status -- src tests`: one untracked `tests/unit/test_m8_results_unit.py` (the builder writing `scripts/m8_results.py`, appeared during my run; not a proposer file) | exact | PASS |
+| 25 | provenance, informational: `git_dirty` | | round file True; entries: F1 False, F2-F5 True (all commit `d4a691a`). Same pattern as rounds 0 and 1 (loop writes tracked files during the round) | | INFO |
+| 26 | m8 acceptance `-m "not slow"`, `-n 1`, core 0 | green | 22 passed in 81.8 s | | PASS |
+| 27 | m8 G3, L5, R1 run on purpose (slow, expected PENDING) | PENDING | all three fail on a missing later artefact: G3 at `st["stop"] is True` (streak 0, stop false: loop not finished; the `improved` flags and streak assertions before it pass); L5 "write_theorem_file for the headline circuit (step 8.9)"; R1 "PENDING: results/lsh/m8-compressed.json missing (step 8.10)" | | 3 PENDING |
+| 28 | unit tests `tests/unit -k lsh` | green | 111 passed in 76 s | | PASS |
+| 29 | lock: `check_lock.py`, `acceptance-check`, collection | OK | `LOCK OK`; `PASS: tests/acceptance matches acceptance-v22`; 407 tests collected | | PASS |
+| 30 | tree side effects | no tracked file changed by me | `git status` before/after identical except `results/tester/439/` (untracked); `results/lsh/certs/`, archive and `scripts/m8_results.py` untouched; mutated certs only in the session scratchpad; `__pycache__` removed | | PASS |
+
+### Headline rule (check 22), in detail
+Rule text (§1.6): $R$ improves on $R'$ iff $(\mathrm{CX},\sum T,\rho,\mathrm{qubits})_R<(\ldots)_{R'}$ lexicographically, except when CX, $N_{\rm rot}$ and $T_{\rm fixed}$ are **all** equal and $|\sum T_R-\sum T_{R'}|\le20N_{\rm rot}$ (then $\sum T$ is a tie).
+
+- $R$ = F1-002: CX 71, $\sum T$ = 22320, $\rho$ 0, qubits 25, $N_{\rm rot}$ 17, $T_{\rm fixed}$ 40. $R'$ = seed: CX 71, 22480, 0, 25, 17, 48 (recounted independently, check 11, and read from the two certs: 20+20 vs 24+24 `t`/`tdg`).
+- $T_{\rm fixed}$ differs (40 vs 48), so the tie clause does not apply (although $|\Delta\sum T|=160\le20\cdot17=340$). The plain lexicographic order gives $(71,22320,0,25)<(71,22480,0,25)$: improved.
+- The code `lsh.loop.improves` does exactly this (`same_structure = all(new[k]==old[k] for k in ("cx","n_rot","t_fixed"))` is False, falls to `stop_key(new) < stop_key(old)`); my own comparator returns the same; `stop.json` says `improved: true`, streak 0.
+- Reading: the saving is real and structural, not Ross–Selinger noise. $\Delta\sum T=-160=-8\times20$ pairs, i.e. exactly $-8$ fixed T per pair (two fewer `rccx`, 4 T each), and the rotation T cost (N_rot 17 both) contributes 0 at nominal and at the 20 pairs. The $-8$ shows in $T_{10^{-6}}$ at nominal too (1110 vs 1118).
+- Cost side (not in the stop rule): robust depth sum rises 46384 $\to$ 46684 ($+0.65\,\%$), nominal depth$_{\rm CT}$ 2276 $\to$ 2291. CX unchanged at 71, so round 2 did not reduce CX.
+
+## Verdict
+PASS. 0 failed checks; 3 PENDING locked tests (M8-G3, M8-L5, M8-R1), each waiting for a later step; no new failure compared with report 438.
+
+Counts: tester checks 29 PASS, 0 FAIL, 1 INFO; m8 not-slow 22 passed; m8 pending-by-design 3; unit lsh 111 passed.
+
+Physics statement: all five round-2 programs reproduce the exact one-step target $U_BU_E$ on all 433 physical states to $\le6.4\cdot10^{-15}$ at three angle pairs (and the 47 inner codes to $\le4.3\cdot10^{-15}$ in Aer, also at a fourth unused pair), against $10^{-10}$ allowed; no program touches the outer register; no ancilla residue, no Gauss-law leak; the wrong-sign target is 0.89-1.88 away. F1-002's free CZ merge is an exact identity ($CZ\cdot CX$ = `s, sdg, cx, s` as $4\times4$ unitaries), the un-merged circuit gives the identical 433$\times$433 block (difference 0.0), and removing the CZ gives error 2.0. The new headline r02-F1-002 keeps 71 CX and saves 8 fixed T (48 $\to$ 40, kernel-side: Lean checker ACCEPT, with REJECT on both mutated certificates); F3-002 and F5-002 are the seed circuit again (F3 literally, F5 up to commuting gates).
+
+## Observations (non-blocking)
+- **O1.** F1-002's improvement is $-8$ T per pair at fixed CX 71 (about 0.7 % of $T$); it is a genuine structural gain by the rule, but small: round 2 did not lower CX.
+- **O2.** F4-002 (73 CX) has a different gate list from F4-001 (72 of 218 gates differ in position, 220 vs 218 gates) but the identical key (73,1396,3218,24) and robust key (73,28348,0,63538,24) as F4-001; its claimed merge saves no resource.
+- **O3.** The proposers' DISCOVERY lines are claims. Confirmed numerically here: the CZ-merge identity and its use in F1-002 (checks 15-17), and the F3/F5 = seed statements (check 14). Not tested: the exhaustive-search negative claims (no 12-toggle walk, no 70-CX walk, MILP support bounds).
+- **O4.** The evaluator method this round is `inner_span` (outer bits read 0) for all five; in round 1 F3 was `physical`. Consistent with check 9.
+- **O5.** `lean_seconds` 3.04 covers a single certification (F1-002 only), as expected for a round whose best changed; the stored seed certificate is untouched. The cert provenance is `git_dirty` True (round runs on a working tree with uncommitted outputs); the committed headline certificate for Report 8 (L5, step 8.9) should presumably be regenerated on a clean commit, as 8.A2 did.
+- **O6.** `tests/unit/test_m8_results_unit.py` appeared untracked during my session (the builder's); `tests/unit -k lsh` ran before/while it existed and does not select it by name, so it is not counted in the 111.
+- **O7.** pygridsynth emits float-angle `UserWarning`s in my scripts; harmless, same as earlier reports.
+- Byproducts: `results/tester/439/` (4 scripts, 4 JSON; `__pycache__` removed); mutated certificates and re-exported F3/F5/seed certificates in the session scratchpad only; nothing in `src/`, `tests/acceptance/`, the archive, `results/lsh/certs/` or `scripts/m8_results.py` was modified.
