@@ -1,0 +1,156 @@
+{
+ "commit": "9761c72",
+ "engine": "qiskit-aer statevector, own target from L13 rules, own inner-code set",
+ "headline": {
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 3.14529132685987e-15,
+   "max_col_err": 3.0218884946072007e-15,
+   "anc_leak_prob": 3.1301370392842782e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.8781987126381332
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 3.2365254046077387e-15,
+   "max_col_err": 3.1512205714227318e-15,
+   "anc_leak_prob": 2.891821637082857e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 3.805232211674553e-15,
+   "max_col_err": 3.766998261795386e-15,
+   "anc_leak_prob": 3.2460234136977975e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 71,
+   "t_fixed": 48,
+   "n_rot": 17,
+   "t_rot_sum": 1070,
+   "t_total_1e-6": 1118,
+   "n_qubits": 25
+  }
+ },
+ "general": {
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 19,
+   "op_norm_err": 5.213549170090913e-15,
+   "max_col_err": 5.1186114240163515e-15,
+   "anc_leak_prob": 5.685841095666651e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.87819871263813
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 19,
+   "op_norm_err": 5.156969593705082e-15,
+   "max_col_err": 5.0967236404180764e-15,
+   "anc_leak_prob": 6.546558785153479e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 19,
+   "op_norm_err": 5.8343980957005604e-15,
+   "max_col_err": 5.734424125586567e-15,
+   "anc_leak_prob": 4.810223845152544e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 94,
+   "t_fixed": 88,
+   "n_rot": 8,
+   "t_rot_sum": 510,
+   "t_total_1e-6": 598,
+   "n_qubits": 31
+  }
+ },
+ "r05F3": {
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 3.87550796825551e-15,
+   "max_col_err": 3.789479351713296e-15,
+   "anc_leak_prob": 4.226938169808272e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.8781987126381328
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 3.903042080808362e-15,
+   "max_col_err": 3.816002998325268e-15,
+   "anc_leak_prob": 3.4245657821620217e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 13,
+   "op_norm_err": 4.057527225589963e-15,
+   "max_col_err": 4.05132648981453e-15,
+   "anc_leak_prob": 4.146262105378045e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 72,
+   "t_fixed": 56,
+   "n_rot": 13,
+   "t_rot_sum": 808,
+   "t_total_1e-6": 864,
+   "n_qubits": 25
+  }
+ },
+ "flags4": {
+  "(0.37, 0.61)": {
+   "alpha": 0.37,
+   "beta": 0.61,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 5.275470567276773e-15,
+   "max_col_err": 5.210885574012537e-15,
+   "anc_leak_prob": 4.8108861071301455e-31,
+   "gauss_leak_prob": 0.0,
+   "op_norm_err_vs_minus_beta": 1.87819871263813
+  },
+  "(0.91, 0.23)": {
+   "alpha": 0.91,
+   "beta": 0.23,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 5.079706912339735e-15,
+   "max_col_err": 5.070079923238684e-15,
+   "anc_leak_prob": 5.299305637585496e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "(1.7, 1.0)": {
+   "alpha": 1.7,
+   "beta": 1.0,
+   "n_qubits_simulated": 15,
+   "op_norm_err": 6.336046851454671e-15,
+   "max_col_err": 6.299257789056004e-15,
+   "anc_leak_prob": 4.258367754308028e-31,
+   "gauss_leak_prob": 0.0
+  },
+  "counts": {
+   "cx": 84,
+   "t_fixed": 80,
+   "n_rot": 8,
+   "t_rot_sum": 506,
+   "t_total_1e-6": 586,
+   "n_qubits": 27
+  }
+ }
+}

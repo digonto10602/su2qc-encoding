@@ -1,0 +1,76 @@
+{
+ "commit": "9761c72",
+ "certs": {
+  "general": {
+   "status": "certified",
+   "reason": "",
+   "lean_seconds": 5.985364198684692,
+   "prov_entry_id": "t436-general",
+   "prov_sha_matches_file": true,
+   "gates_sha_alias": true,
+   "n_gates": 252,
+   "n_states": 433,
+   "target_kind": "step",
+   "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+   "gates_sha256_recomputed_by": "default",
+   "tamper_entry_id": {
+    "checker": "certified",
+    "binding_mismatch_detected": true
+   },
+   "tamper_program_sha": {
+    "checker": "certified",
+    "binding_mismatch_detected": true
+   },
+   "tamper_gate_swap_cx": {
+    "checker": "rejected",
+    "reason": "state 16 differs from the target"
+   },
+   "tamper_program_file": "ProgramShaMismatch: /tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/c0852fe6-e8f0-4e38-bdd5-b42d861ef247/scratch"
+  },
+  "wrap_sn_headline": {
+   "status": "certified",
+   "reason": "",
+   "lean_seconds": 1.2388896942138672,
+   "prov_entry_id": "t436-wrap_sn_headline",
+   "prov_sha_matches_file": true,
+   "gates_sha_alias": true,
+   "n_gates": 175,
+   "n_states": 433,
+   "target_kind": "step",
+   "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+   "gates_sha256_recomputed_by": "default",
+   "tamper_entry_id": {
+    "checker": "certified",
+    "binding_mismatch_detected": true
+   },
+   "tamper_program_sha": {
+    "checker": "certified",
+    "binding_mismatch_detected": true
+   },
+   "tamper_gate_swap_cx": {
+    "checker": "rejected",
+    "reason": "state 16 differs from the target"
+   },
+   "tamper_program_file": "ProgramShaMismatch: /tmp/claude-1000/-home-digimonk-Projects-su2qc-encoding/c0852fe6-e8f0-4e38-bdd5-b42d861ef247/scratch"
+  }
+ },
+ "minus_beta": {
+  "status": "rejected",
+  "reason": "state 0 differs from the target"
+ },
+ "non_linear": {
+  "status": "n_a",
+  "reason": "non_linear_angle:p:-0.15449999999999997"
+ },
+ "angle_linear": {
+  "general": [
+   true,
+   "ok"
+  ],
+  "minus_beta_circuit": true,
+  "nonlinear": [
+   false,
+   "non_linear_angle:p:-0.15449999999999997"
+  ]
+ }
+}
