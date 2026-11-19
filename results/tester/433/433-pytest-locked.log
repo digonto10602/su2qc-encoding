@@ -1,0 +1,121 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/digimonk/Projects/su2qc-encoding
+configfile: pytest.ini
+plugins: platformdirs-4.14.5, anyio-4.16.0, cov-7.1.0, xdist-3.8.0
+created: 4/4 workers
+4 workers [104 items]
+
+........................................................................ [ 69%]
+.....F..........................                                         [100%]
+=================================== FAILURES ===================================
+________________________ test_M6_G6_three_layer_summary ________________________
+[gw1] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: results/compress/rishon/three-layer.json missing (prompts/204 step C5)
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT1_link_det_operator
+PASSED tests/acceptance/m5/test_rishon_algebra.py::test_M5_D1_link_algebra
+PASSED tests/acceptance/m5/test_rishon_algebra.py::test_M5_D1_string_free_and_sector
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT2_inner_det_hamiltonian
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_B1_magnetic_inner_block[1.0]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_E1_electric_step[0.37]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_det_layer_circuit[0.29]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_B1_magnetic_inner_block[2.0]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT3_targets[0.37-0.61-0.29]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_E1_electric_step[0.91]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_det_layer_circuit[0.53]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_B1_physical_with_outer_and_gauss
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_B1_magnetic_inner_block[0.61]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT3_targets[0.91-0.23-0.53]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_det_layer_circuit[1.07]
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_B1_magnetic_inner_block[0.23]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT5_sector_structure_with_det
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_S1_step_orders[1]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT6_observables_with_det[0.37-0.61-0.29]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT3_targets[1.7-1.0-1.07]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT6_observables_with_det[0.91-0.23-0.53]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT6_observables_with_det[1.7-1.0-1.07]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT6_closed_spectrum_with_det
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT7_det_results_files[UD-UD-None]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT7_det_results_files[step3-step-1]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT7_det_results_files[step3_order2-step-2]
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT3_trotter_orders
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT7_det_observables_file
+PASSED tests/acceptance/m5/test_rishon_circuits.py::test_M5_S1_step_orders[2]
+PASSED tests/acceptance/m5/test_rishon_observables.py::test_M5_O1_observables_after_steps[1.7-1.0]
+PASSED tests/acceptance/m5/test_rishon_codec.py::test_M5_C1_encoding_codec_and_vectors
+PASSED tests/acceptance/m5/test_rishon_physical.py::test_M5_C1_counts_two_routes
+PASSED tests/acceptance/m5/test_rishon_physical.py::test_M5_C1_states_gauss_orthonormal
+PASSED tests/acceptance/m5/test_rishon_lean.py::test_M5_L1_counts_kernel_checked
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_three_layer_step[1]
+PASSED tests/acceptance/m5/test_rishon_physical.py::test_M5_C1_inner_span_full
+PASSED tests/acceptance/m5/test_rishon_lean.py::test_M5_L2_jw_facts_kernel_checked
+PASSED tests/acceptance/m5/test_rishon_operators.py::test_M5_X1_plaquette_structure
+PASSED tests/acceptance/m5/test_rishon_operators.py::test_M5_X1_bright_pairs_and_closed_block
+PASSED tests/acceptance/m5/test_rishon_metrics.py::test_M5_T1_t_table_and_synth_verify[UE]
+PASSED tests/acceptance/m5/test_rishon_operators.py::test_M5_X1_inner_target_properties[0.37-0.61]
+PASSED tests/acceptance/m5/test_rishon_operators.py::test_M5_X1_inner_target_properties[1.7-1.0]
+PASSED tests/acceptance/m5/test_rishon_results.py::test_M5_R1_results_files[step]
+PASSED tests/acceptance/m5/test_rishon_results.py::test_M5_R1_observables_and_register_rows
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_three_layer_step[2]
+PASSED tests/acceptance/m5/test_rishon_prune_cap.py::test_M5_V2_rishon_prune_cap
+PASSED tests/acceptance/m5/test_rishon_results.py::test_M5_R1_results_files[UE]
+PASSED tests/acceptance/m5/test_rishon_results.py::test_M5_R1_results_files[UB]
+PASSED tests/acceptance/m5x/test_rishon_outer_row.py::test_M5X_O1_outer_row_results_file
+PASSED tests/acceptance/m5/test_rishon_det.py::test_M5_DT4_physical_cross_check_and_compose
+PASSED tests/acceptance/m6/test_rishon_m6_evaluate.py::test_M6_E1_evaluator_sensitivity
+PASSED tests/acceptance/m6/test_rishon_m6_evaluate.py::test_M6_E2_metrics_match_qiskit_and_T_band
+PASSED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W3_ue_semantics_gate_list_and_qiskit_matrices
+PASSED tests/acceptance/m5/test_rishon_verify.py::test_M5_B1_verifier_sensitivity
+PASSED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W1_hb_link_ops_tied_to_jw
+PASSED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W2_corner_kernel_dims_match_production
+PASSED tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_L_exact_theorems_kernel_checked
+PASSED tests/acceptance/m5x/test_rishon_outer_det_row.py::test_M5X_O2_outer_det_row_certified
+PASSED tests/acceptance/m5x/test_rishon_outer_det_row.py::test_M5X_O2_outer_det_row_results_file
+PASSED tests/acceptance/m5x/test_rishon_outer_row.py::test_M5X_O1_outer_electric_row_certified
+PASSED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L3_cert3_accept_reject_na
+PASSED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L9_det_layer_certificate
+PASSED tests/acceptance/m6/test_rishon_m6_headline.py::test_M6_H1_angle_set_and_robust_metrics
+PASSED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L1_structure_facts_axioms_and_spec_section
+PASSED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L8_polish_rules_lean_certified
+PASSED tests/acceptance/m6/test_rishon_m6_lean.py::test_M6_L2_cert3_builds_and_semantics
+PASSED tests/acceptance/m6/test_rishon_m6_seeds.py::test_M6_S1_seed_programs_and_import_reasons
+PASSED tests/acceptance/m6/test_rishon_m6_seeds.py::test_M6_S2_polish_and_l3_trial
+PASSED tests/acceptance/m6/test_rishon_m6_spec.py::test_M6_K0_ladder_variants_and_casimir
+PASSED tests/acceptance/m6/test_rishon_m6_loop.py::test_M6_R1_run_candidate_cli_trial
+PASSED tests/acceptance/m6/test_rishon_m6_spec.py::test_M6_K1_spec_view_and_oracle
+PASSED tests/acceptance/m6/test_rishon_m6_spec.py::test_M6_K2_structure_facts_and_spec_text
+PASSED tests/acceptance/m6/test_rishon_m6_spec.py::test_M6_K3_builder_registers_and_cap
+PASSED tests/acceptance/m6/test_rishon_m6_evaluate.py::test_M6_E3_full_mode_ue_program_and_cache
+PASSED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G2_best_synthesised_reverified
+PASSED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G3_best_touches_no_outer_qubit
+PASSED tests/acceptance/m6/test_rishon_m6_gate.py::test_M6_G4_summary_and_budgets
+PASSED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E1_span_leak_exact_against_dense_reference
+PASSED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E2_span_leak_zero_on_exact_circuits_and_trial_subset
+PASSED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E3_span_leak_decides_validity
+PASSED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E4_prune_fraction_keyword
+PASSED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E5_gauss_not_checked_is_reported_as_such
+PASSED tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E6_inner_target_dispatch
+PASSED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_Y1_replay_on_a_copy_of_the_link_archive
+PASSED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[twelve-step]
+PASSED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[spinnet-step]
+PASSED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[rishon-step]
+PASSED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[fuzzy_ub-UB]
+PASSED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G1_archive_replayed_under_current_code[fuzzy_link-UE]
+PASSED tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G2_structure_json_is_current
+PASSED tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R1_registry_content
+PASSED tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R2_fresh_process_and_stock_worker_know_every_encoding
+PASSED tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R3_track_facades_patch_nothing
+PASSED tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_P1_code_hash_per_encoding
+PASSED tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_P2_shared_round_stamps_both_hashes
+PASSED tests/acceptance/m6/test_rishon_m6_loop.py::test_M6_R2_round_dry_run_brief_and_report
+PASSED tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_H3_det_layer_metrics_and_eta_set
+PASSED tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_H4_three_layer_headline
+PASSED tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G5_replay_record
+PASSED tests/acceptance/m5/test_rishon_metrics.py::test_M5_T1_t_table_and_synth_verify[UB]
+PASSED tests/acceptance/m5/test_rishon_observables.py::test_M5_O1_closed_spectra
+PASSED tests/acceptance/m5/test_rishon_observables.py::test_M5_O1_observables_after_steps[0.37-0.61]
+PASSED tests/acceptance/m5/test_rishon_observables.py::test_M5_O1_observables_after_steps[0.91-0.23]
+FAILED tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_G6_three_layer_summary
+================== 1 failed, 103 passed in 844.98s (0:14:04) ===================

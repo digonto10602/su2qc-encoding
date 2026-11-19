@@ -1,0 +1,53 @@
+=== 006-closed-mark-in-restore
+valid: ok  [full, 48.4 s]  sha256 78c86d8d1ddd
+op_norm_error 1.348e-13 (block 1.366e-14, leak 0.000e+00, pruning 1.212e-13), gauss 7.358e-16, engine sparse, certified True
+metrics: CX 216, T_fixed 196, N_rot 10, T_eps 832, depth 275, depth_CT 1350, qubits 52
+=== N1_restore_plain_CX
+invalid: error  [full, 18.4 s]  sha256 63d48aafe7f4
+op_norm_error 1.976e+00 (block 1.976e+00, leak 0.000e+00, pruning 1.105e-13), gauss 1.604e+00, engine sparse, certified True
+metrics: CX 212, T_fixed 188, N_rot 10, T_eps 785.9470570797253 (estimate), depth 267, depth_CT 267, qubits 52
+=== N2b_rccx_positive_q3
+invalid: error  [full, 19.1 s]  sha256 9c65d062d318
+op_norm_error 1.976e+00 (block 1.976e+00, leak 0.000e+00, pruning 1.212e-13), gauss 1.604e+00, engine sparse, certified True
+metrics: CX 216, T_fixed 196, N_rot 10, T_eps 793.9470570797253 (estimate), depth 275, depth_CT 275, qubits 52
+=== N2_drop_restore
+invalid: error  [full, 16.6 s]  sha256 d7fb3350d29b
+op_norm_error 1.976e+00 (block 1.976e+00, leak 0.000e+00, pruning 1.095e-13), gauss 7.566e-16, engine sparse, certified True
+metrics: CX 210, T_fixed 188, N_rot 10, T_eps 785.9470570797253 (estimate), depth 267, depth_CT 267, qubits 52
+=== N3b_flip_vc_sign
+invalid: error  [full, 16.6 s]  sha256 1a47032962ff
+op_norm_error 6.084e-01 (block 6.084e-01, leak 0.000e+00, pruning 1.202e-13), gauss 7.722e-16, engine sparse, certified True
+metrics: CX 216, T_fixed 196, N_rot 10, T_eps 793.9470570797253 (estimate), depth 275, depth_CT 275, qubits 52
+=== N3_unnegate_closed_walsh
+invalid: error  [full, 15.8 s]  sha256 0fddbe08820a
+op_norm_error 6.084e-01 (block 6.084e-01, leak 0.000e+00, pruning 1.202e-13), gauss 7.722e-16, engine sparse, certified True
+metrics: CX 216, T_fixed 196, N_rot 10, T_eps 793.9470570797253 (estimate), depth 275, depth_CT 275, qubits 52
+=== N4_H_q3_after_skip
+invalid: error  [full, 15.8 s]  sha256 b0593e3f1b6d
+op_norm_error 1.397e+00 (block 1.397e+00, leak 0.000e+00, pruning 1.147e-13), gauss 9.842e-01, engine sparse, certified True
+metrics: CX 216, T_fixed 196, N_rot 10, T_eps 793.9470570797253 (estimate), depth 275, depth_CT 275, qubits 52
+=== N5_drop_T_Tdg_pair
+invalid: error  [full, 16.6 s]  sha256 8dd66a6f35dc
+op_norm_error 4.302e-01 (block 4.302e-01, leak 0.000e+00, pruning 1.216e-13), gauss 7.200e-16, engine sparse, certified True
+metrics: CX 216, T_fixed 192, N_rot 10, T_eps 789.9470570797253 (estimate), depth 271, depth_CT 271, qubits 52
+=== N6b_plain_cx_no_gauge
+invalid: error  [full, 16.0 s]  sha256 dea1fe25ae1c
+op_norm_error 1.878e+00 (block 1.878e+00, leak 0.000e+00, pruning 1.212e-13), gauss 9.391e-01, engine sparse, certified True
+metrics: CX 216, T_fixed 196, N_rot 10, T_eps 793.9470570797253 (estimate), depth 273, depth_CT 273, qubits 52
+=== N6_drop_S_q3_gauge
+invalid: error  [full, 16.9 s]  sha256 eeae577628ce
+op_norm_error 1.397e+00 (block 1.397e+00, leak 0.000e+00, pruning 1.217e-13), gauss 9.842e-01, engine sparse, certified True
+metrics: CX 216, T_fixed 196, N_rot 10, T_eps 793.9470570797253 (estimate), depth 275, depth_CT 275, qubits 52
+=== N7_drop_Z_gauge_q8
+invalid: error  [full, 21.9 s]  sha256 d2496534a8af
+op_norm_error 1.878e+00 (block 1.878e+00, leak 0.000e+00, pruning 1.212e-13), gauss 9.391e-01, engine sparse, certified True
+metrics: CX 216, T_fixed 196, N_rot 10, T_eps 793.9470570797253 (estimate), depth 275, depth_CT 275, qubits 52
+=== N8_drop_UE_phase_gl
+invalid: error  [full, 27.7 s]  sha256 139a6f7020be
+op_norm_error 1.850e-01 (block 1.850e-01, leak 0.000e+00, pruning 1.193e-13), gauss 7.200e-16, engine sparse, certified True
+metrics: CX 216, T_fixed 196, N_rot 9, T_eps 734.1523513717527 (estimate), depth 275, depth_CT 275, qubits 52
+=== N9_rc3x_drop_T
+invalid: dirty_ancilla  [full, 33.4 s]  sha256 6b23bb511c8a
+op_norm_error 9.895e-01 (block 2.894e-01, leak 7.001e-01, pruning 1.190e-13), gauss 1.375e-01, engine sparse, certified True
+metrics: CX 216, T_fixed 194, N_rot 10, T_eps 791.9470570797253 (estimate), depth 275, depth_CT 275, qubits 52
+ALLDONE

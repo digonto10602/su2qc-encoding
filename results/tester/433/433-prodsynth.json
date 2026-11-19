@@ -1,0 +1,41 @@
+{
+ "commit": "360d54f",
+ "rows": {
+  "r06-F1-006": {
+   "ok": true,
+   "n_rot": 10,
+   "t_total": 840,
+   "tol": {
+    "tol_err": 1.0001e-05,
+    "tol_gauss": 1.0001e-05
+   },
+   "error_bound_sum": 9.999999999999999e-06,
+   "error_measured_sum": 3.933749329646068e-06,
+   "op": 4.307431400899168e-06,
+   "block": 3.5824544238286108e-06,
+   "leak": 5.255645509465539e-13,
+   "dropped": 1.8667082424998963e-11,
+   "gauss": 2.142440876727231e-06,
+   "certified": true,
+   "engine": "sparse"
+  },
+  "r06-F3-006": {
+   "ok": true,
+   "n_rot": 10,
+   "t_total": 832,
+   "tol": {
+    "tol_err": 1.0001e-05,
+    "tol_gauss": 1.0001e-05
+   },
+   "error_bound_sum": 9.999999999999999e-06,
+   "error_measured_sum": 3.90082573292632e-06,
+   "op": 3.0296657189542007e-06,
+   "block": 2.569108312144927e-06,
+   "leak": 2.1209547763940554e-13,
+   "dropped": 1.9157726519302177e-11,
+   "gauss": 1.4462866043123975e-06,
+   "certified": true,
+   "engine": "sparse"
+  }
+ }
+}

@@ -1,0 +1,195 @@
+{
+ "id": "r06-F1-006",
+ "program_path": "compress/programs/rishon/F1/006-closed-skip-cy-gauge.py",
+ "program_sha256": "b4ec4b4d424a247c162ec1b887e82f7fb8eb34bad6648b47744b57156f5add92",
+ "parent": "r05-F1-005",
+ "family": "F1",
+ "round": 6,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  218,
+  840,
+  1358,
+  52
+ ],
+ "cell": [
+  62,
+  77
+ ],
+ "metrics_raw": {
+  "cx": 218,
+  "t_fixed": 196,
+  "n_rot": 10,
+  "t_eps": 840,
+  "t_estimate": {
+   "1e-06": 793.9470570797253,
+   "1e-10": 1192.5784284662086
+  },
+  "t_measured": {
+   "1e-06": 840,
+   "1e-10": 1228
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 269,
+  "depth_ct": 1358,
+  "qubits": 52,
+  "gates": {
+   "cx": 218,
+   "h": 128,
+   "t": 98,
+   "tdg": 98,
+   "x": 52,
+   "sdg": 27,
+   "s": 27,
+   "rz": 10,
+   "z": 2
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.335694912329558e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   0.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 8.7512630081925e-16,
+  "method": "rishon_inner_block",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.2002204055098886e-13,
+  "block_error": 1.354745068196693e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 7.325035095214844,
+  "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.335694912329558e-13,
+  "failing_inputs": [],
+  "extra": {
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "inner_method": "inner_span",
+   "rishon": true
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.3826278756684255e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.0965165675310316e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 6.894341957538585e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.2461607355245875e-13,
+   "block_error": 1.36467140143838e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 4.584193468093872,
+   "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.3826278756684255e-13,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.353668996415987e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -2.467162276944825e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 6.370191828213579e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.214292887304463e-13,
+   "block_error": 1.3937610911152393e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 4.692834854125977,
+   "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.353668996415987e-13,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: the F1 CY gauge (CZ(q3, q2) merged into the tau-fix CX(q3 -> q2)) and the F3 closed skip (Z-toggled control of the c0 C2H with a T / T^dag phase fix) are independent: combined, every one of the 81 couplings stays real with one sign per class (signs -1, -1, -1 for P = 0, kappa = 1, closed) and only the closed Walsh coefficient changes sign; with Z computed before the corner C2H no single 2-qubit gate of the frame or flags can be deleted (exact sign-insensitive check over all 1296 codes), and toggling F instead of q13 (or leaving q13 / F unrestored) fails with every single rccx(Z, q3 or !q3 -> t) closed-dark mark.",
+  "DISCOVERY: the U_E phases cannot move off the Clifford+T critical path in this skeleton: U_E does not commute with U_B (33 of the 81 bright pairs mix codes with different #Q), so the four phase rotations must act before the Walsh chain, and a coordinate-descent scan over every (position, qubit) that holds g_b, g_r, g_t or g_l in the forward half gives depth_CT 1358 as the minimum (the Walsh chain alone gives 1228)."
+ ],
+ "summary": "F1 round 6 = parent r05-F1-005 (F3 controlled-partner frame, (P, Z) class selector, CZ(q3, q2) Margolus gauge merged into the tau-fix CX as S CY, rccx + Maslov RC3X bright-flag AND, U_E on the g_r copy and on g_b after the h_b Toffoli) combined with the closed-sector skip of r05-F3-005: U = P = [r_t = 0 = r_r ^ r_l] and Z = [r = 000] are computed right after the tau fix, the corner C2H at c1, c2, c3 run as before, and the c0 C2H (controls F, q13 = g_l) is skipped on Z = 1 by toggling q13 ^= Z around it (2 CX) with T / T^dag on q13 restoring the loop's (-i) relative phase, so the exact 6-CX closed CCH(Z, F -> e1c0) is gone; closed Walsh coefficient negated (psi = -2, -1, -4 sqrt2); rest unchanged (fold rccx(!e2c3, e1c3 -> F), e1 ^= g ^ delta ^ 1, H(q3) + closed-dark mark rccx(Z, q3 -> e1c0), W = 4 CH(!e2 -> e1), 6-term Gray-cycle Walsh rotation on F over (X, P, Z)); 218 CX (-8 vs parent, -2 vs r05-F3-005), T_fixed 196, 52 qubits; all angles linear in alpha, beta, sqrt2 beta.",
+ "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "git_commit": "7cfe759",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 22.6453697681427,
+ "written_utc": "2026-11-19T14:16:22Z",
+ "git_dirty": false,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 9.999999999999999e-06
+ },
+ "lean": null,
+ "mode": "full",
+ "encoding_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23"
+}

@@ -1,0 +1,216 @@
+{
+ "round": 6,
+ "n_valid": 2,
+ "n_invalid": 0,
+ "best_key": [
+  216,
+  832,
+  1350,
+  52
+ ],
+ "entries": [
+  "r06-F1-006",
+  "r06-F3-006"
+ ],
+ "lean_seconds": 0.0,
+ "headline": "r06-F3-006",
+ "headline_robust_key": [
+  216,
+  16596,
+  0,
+  26988,
+  52
+ ],
+ "encoding": "rishon",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "7cfe759",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-19T14:16:56Z"
+ },
+ "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+ "encoding_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "invalid": [],
+ "external": [],
+ "n_pruning_bound": 0,
+ "candidates": [
+  {
+   "label": "006-closed-skip-cy-gauge",
+   "id": "r06-F1-006",
+   "family": "F1",
+   "program_sha256": "b4ec4b4d424a247c162ec1b887e82f7fb8eb34bad6648b47744b57156f5add92",
+   "program_path": "compress/programs/rishon/F1/006-closed-skip-cy-gauge.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    218,
+    840,
+    1358,
+    52
+   ],
+   "cell": [
+    62,
+    77
+   ],
+   "metrics": {
+    "cx": 218,
+    "t_fixed": 196,
+    "n_rot": 10,
+    "t_eps": 840,
+    "t_estimate": {
+     "1e-06": 793.9470570797253,
+     "1e-10": 1192.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 840,
+     "1e-10": 1228
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 269,
+    "depth_ct": 1358,
+    "qubits": 52,
+    "gates": {
+     "cx": 218,
+     "h": 128,
+     "t": 98,
+     "tdg": 98,
+     "x": 52,
+     "sdg": 27,
+     "s": 27,
+     "rz": 10,
+     "z": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.335694912329558e-13,
+    "block_error": 1.354745068196693e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 8.7512630081925e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.335694912329558e-13,
+    "dropped_total": 1.2002204055098886e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r05-F1-005",
+   "parent_known": true,
+   "git_commit": "7cfe759",
+   "summary": "F1 round 6 = parent r05-F1-005 (F3 controlled-partner frame, (P, Z) class selector, CZ(q3, q2) Margolus gauge merged into the tau-fix CX as S CY, rccx + Maslov RC3X bright-flag AND, U_E on the g_r copy and on g_b after the h_b Toffoli) combined with the closed-sector skip of r05-F3-005: U = P = [r_t = 0 = r_r ^ r_l] and Z = [r = 000] are computed right after the tau fix, the corner C2H at c1, c2, c3 run as before, and the c0 C2H (controls F, q13 = g_l) is skipped on Z = 1 by toggling q13 ^= Z around it (2 CX) with T / T^dag on q13 restoring the loop's (-i) relative phase, so the exact 6-CX closed CCH(Z, F -> e1c0) is gone; closed Walsh coefficient negated (psi = -2, -1, -4 sqrt2); rest unchanged (fold rccx(!e2c3, e1c3 -> F), e1 ^= g ^ delta ^ 1, H(q3) + closed-dark mark rccx(Z, q3 -> e1c0), W = 4 CH(!e2 -> e1), 6-term Gray-cycle Walsh rotation on F over (X, P, Z)); 218 CX (-8 vs parent, -2 vs r05-F3-005), T_fixed 196, 52 qubits; all angles linear in alpha, beta, sqrt2 beta.",
+   "lean": null,
+   "round": 6,
+   "mode": "full"
+  },
+  {
+   "label": "006-closed-mark-in-restore",
+   "id": "r06-F3-006",
+   "family": "F3",
+   "program_sha256": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+   "program_path": "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    216,
+    832,
+    1350,
+    52
+   ],
+   "cell": [
+    62,
+    77
+   ],
+   "metrics": {
+    "cx": 216,
+    "t_fixed": 196,
+    "n_rot": 10,
+    "t_eps": 832,
+    "t_estimate": {
+     "1e-06": 793.9470570797253,
+     "1e-10": 1192.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 832,
+     "1e-10": 1228
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 275,
+    "depth_ct": 1350,
+    "qubits": 52,
+    "gates": {
+     "cx": 216,
+     "h": 128,
+     "t": 98,
+     "tdg": 98,
+     "x": 56,
+     "sdg": 27,
+     "s": 27,
+     "rz": 10,
+     "z": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.3484753994748737e-13,
+    "block_error": 1.366190106444107e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 7.35784552275496e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.3484753994748737e-13,
+    "dropped_total": 1.211856388830463e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r05-F3-005",
+   "parent_known": true,
+   "git_commit": "7cfe759",
+   "summary": "F3 controlled partner involution in CH form with the kappa selector and the skipped loop c0 C2H (parent r05-F3-005), with the closed-dark mark merged into the g_l restore: H(q3) now follows the tau fix directly, and the second CX(Z -> q13) around the skipped c0 C2H becomes rccx(Z, !q3 -> q13), so the closed dark (q3 = 1) keeps g_l toggled and fails a corner test while the closed bright pair is restored; the separate rccx(Z, q3 -> e1c0) is gone (-1 CX per side) and the rccx phase only flips the closed coupling sign (Walsh closed coefficient v = +4 sqrt2); two savings of r05-F1-005 carry over: the h_b Margolus gauge is CZ(q3, q2) merged into the tau-fix CX(q3 -> q2) as S(q3) CY(q3 -> q2) instead of CZ(q3, q4) (-1 CX per side), and the 4-input AND of the corner tests is rccx + a Maslov RC3X (one ancilla fewer); the U_E phases sit on each Q flag as soon as it exists (g_r on its copy in q7, g_b right after the h_b Toffoli) for a shorter Clifford+T depth; rest as the parent (U = [r_t = 0 = r_r^r_l], Z = [r = 000], T / T^dag around the first CX(Z -> q13), one kappa=1 fold rccx(e1c3, !e2c3 -> F), exp(i theta Pi) = W exp(i theta X_F Z_E) W with W = 4 CH(!e2 -> e1), 6-term Gray-cycle Walsh rotation on F over (X, U, Z)); 216 CX (-4), T_eps 832 (-8), depth_CT 1350, 52 qubits (-1); all angles linear in alpha, beta, sqrt2 beta.",
+   "lean": null,
+   "round": 6,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r06-F3-006",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 10,
+  "t_total": 832,
+  "tolerances": {
+   "tol_err": 1.0001e-05,
+   "tol_gauss": 1.0001e-05
+  },
+  "op_norm_error": 3.0296657189542007e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 71.68698740005493,
+ "written_utc": "2026-11-19T14:16:56Z"
+}

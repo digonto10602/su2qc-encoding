@@ -1,0 +1,48 @@
+{
+ "r06-F1-006": {
+  "path": "compress/programs/rishon/F1/006-closed-skip-cy-gauge.py",
+  "sha_file": "b4ec4b4d424a247c162ec1b887e82f7fb8eb34bad6648b47744b57156f5add92",
+  "sha_archive": "b4ec4b4d424a247c162ec1b887e82f7fb8eb34bad6648b47744b57156f5add92",
+  "sha_round": "b4ec4b4d424a247c162ec1b887e82f7fb8eb34bad6648b47744b57156f5add92",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ },
+ "r06-F3-006": {
+  "path": "compress/programs/rishon/F3/006-closed-mark-in-restore.py",
+  "sha_file": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+  "sha_archive": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+  "sha_round": "78c86d8d1dddca4ed31e36d328ab381ad19c849a19275af016f3c54e780abadd",
+  "sha_equal": true,
+  "imports": [
+   [
+    "math",
+    true
+   ],
+   [
+    "su2plaq.compress.builder",
+    true
+   ],
+   [
+    "su2plaq.compress.builder.Builder",
+    true
+   ]
+  ],
+  "all_whitelisted": true,
+  "forbidden_names": []
+ }
+}

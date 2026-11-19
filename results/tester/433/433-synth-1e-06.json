@@ -1,0 +1,62 @@
+{
+ "commit": "360d54f",
+ "eps": 1e-06,
+ "rows": {
+  "r06-F1-006": {
+   "n_rot": 10,
+   "eps": 1e-06,
+   "budget": 1.0001e-05,
+   "block_err": 3.5824544203413596e-06,
+   "leak_spectral": 7.249583090986672e-07,
+   "block_plus_leakspec": 4.307412729440027e-06,
+   "leak": 7.249583087065411e-07,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x",
+    "z"
+   ],
+   "cx": 218,
+   "t": 840,
+   "n_gates": 2299,
+   "max_state": 394836,
+   "my_dropped_fro": 9.82719575009355e-13,
+   "ratio_to_budget": 0.35820962107202875,
+   "seconds": 20.45538902282715,
+   "outer_touched": []
+  },
+  "r06-F3-006": {
+   "n_rot": 10,
+   "eps": 1e-06,
+   "budget": 1.0001e-05,
+   "block_err": 2.5691083107712997e-06,
+   "leak_spectral": 4.605382471875324e-07,
+   "block_plus_leakspec": 3.029646557958832e-06,
+   "leak": 4.605382466226319e-07,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x",
+    "z"
+   ],
+   "cx": 216,
+   "t": 832,
+   "n_gates": 2291,
+   "max_state": 410208,
+   "my_dropped_fro": 1.0095866579841274e-12,
+   "ratio_to_budget": 0.2568851425628737,
+   "seconds": 20.07779359817505,
+   "outer_touched": []
+  }
+ }
+}

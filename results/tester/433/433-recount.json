@@ -1,0 +1,91 @@
+{
+ "commit": "360d54f",
+ "rows": {
+  "r06-F1-006": {
+   "recount": {
+    "cx": 218,
+    "cx_hand": 218,
+    "t_gates": 196,
+    "t_hand": 196,
+    "t_fixed": 196,
+    "n_rot": 10,
+    "t_rot": 644,
+    "t_total": 840,
+    "depth_ct": 1358,
+    "qubits": 52,
+    "distinct_angles": 7
+   },
+   "t_total_1e10": 1228,
+   "archived_key": [
+    218,
+    840,
+    1358,
+    52
+   ],
+   "archived": {
+    "cx": 218,
+    "t_fixed": 196,
+    "n_rot": 10,
+    "t_eps": 840,
+    "depth_ct": 1358,
+    "qubits": 52,
+    "t_measured": {
+     "1e-06": 840,
+     "1e-10": 1228
+    }
+   },
+   "match": {
+    "cx": true,
+    "t_fixed": true,
+    "n_rot": true,
+    "t_total": true,
+    "depth_ct": true,
+    "qubits": true,
+    "t_1e10": true
+   }
+  },
+  "r06-F3-006": {
+   "recount": {
+    "cx": 216,
+    "cx_hand": 216,
+    "t_gates": 196,
+    "t_hand": 196,
+    "t_fixed": 196,
+    "n_rot": 10,
+    "t_rot": 636,
+    "t_total": 832,
+    "depth_ct": 1350,
+    "qubits": 52,
+    "distinct_angles": 7
+   },
+   "t_total_1e10": 1228,
+   "archived_key": [
+    216,
+    832,
+    1350,
+    52
+   ],
+   "archived": {
+    "cx": 216,
+    "t_fixed": 196,
+    "n_rot": 10,
+    "t_eps": 832,
+    "depth_ct": 1350,
+    "qubits": 52,
+    "t_measured": {
+     "1e-06": 832,
+     "1e-10": 1228
+    }
+   },
+   "match": {
+    "cx": true,
+    "t_fixed": true,
+    "n_rot": true,
+    "t_total": true,
+    "depth_ct": true,
+    "qubits": true,
+    "t_1e10": true
+   }
+  }
+ }
+}

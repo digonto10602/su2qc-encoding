@@ -1,0 +1,57 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [  6%]
+........................................................................ [ 12%]
+........................................................................ [ 18%]
+........................................................................ [ 24%]
+........................................................................ [ 30%]
+........................................................................ [ 36%]
+........................................................................ [ 43%]
+........................................................................ [ 49%]
+........................................................................ [ 55%]
+........................................................................ [ 61%]
+........................................................................ [ 67%]
+........................................................................ [ 73%]
+........................................................................ [ 80%]
+........................................................................ [ 86%]
+........................................................................ [ 92%]
+............................F........................................... [ 98%]
+.................                                                        [100%]
+=================================== FAILURES ===================================
+___________________________ test_program_lemma_files ___________________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+
+tmp_path = PosixPath('/tmp/pytest-of-digimonk/pytest-907/popen-gw3/test_program_lemma_files0')
+
+    def test_program_lemma_files(tmp_path):
+        from su2plaq.lean import lemmas
+    
+        prog = tmp_path / "001-x.py"
+        prog.write_text("# program\n")
+        assert lemmas.lemma_file_for(prog) is None and lemmas.check_program_lemmas(prog)["status"] == "none"
+        lem = tmp_path / "001-x.lean"
+    
+        def run(text):
+            lem.write_text(text)
+            return lemmas.check_program_lemmas(prog, timeout=120)
+    
+        ok = run("import Su2Plaq\n\ntheorem fact_a : (2 : Nat) + 2 = 4 := by decide\n\ntheorem fact_b (a b : Nat) : a + b = b + a := Nat.add_comm a b\n")
+>       assert ok["status"] == "proved" and ok["axioms_ok"] and ok["theorems"] == ["fact_a", "fact_b"], ok
+E       AssertionError: {'status': 'failed', 'file': '/tmp/pytest-of-digimonk/pytest-907/popen-gw3/test_program_lemma_files0/001-x.lean', 'theorems': ['fact_a', 'fact_b'], 'axioms_ok': False, ...}
+E       assert ('failed' == 'proved'
+E         
+E         - proved
+E         + failed)
+
+tests/unit/test_lean_project_unit.py:89: AssertionError
+=============================== warnings summary ===============================
+tests/unit/test_robust_atomic_unit.py::test_two_concurrent_writers_and_a_reader_never_fail_or_see_a_partial_cache
+tests/unit/test_robust_atomic_unit.py::test_two_concurrent_writers_and_a_reader_never_fail_or_see_a_partial_cache
+  /home/digimonk/miniforge3/envs/coding/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=2038437) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/unit/test_lean_project_unit.py::test_program_lemma_files - Asser...
+1 failed, 1168 passed, 2 warnings in 1079.47s (0:17:59)

@@ -1,0 +1,127 @@
+{
+  "valid": false,
+  "reason": "error",
+  "mode": "full",
+  "message": "",
+  "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+  "seeds": {
+    "trial_seed": 0,
+    "transpiler_logical": 20261104,
+    "clifford_t_pass_manager": 12345,
+    "gridsynth": 0
+  },
+  "verdict": {
+    "ok": false,
+    "reason": "error",
+    "op_norm_error": 1.9761635832374682,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      0.0
+    ],
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 1.6039444313318527,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "dropped_total": 1.211856388830463e-13,
+    "block_error": 1.976163583237347,
+    "leak_amplitude": 0.0,
+    "seconds": 12.748378038406372,
+    "n_inputs": 1296,
+    "span_leak": 0.0,
+    "total_error": 1.9761635832374682,
+    "failing_inputs": [
+      [
+        1260,
+        1.9761635832373463
+      ],
+      [
+        35,
+        1.9761635832373463
+      ],
+      [
+        525,
+        0.6986793352205172
+      ],
+      [
+        770,
+        0.6986793352205172
+      ],
+      [
+        585,
+        0.6986793352205171
+      ],
+      [
+        314,
+        0.6986793352205171
+      ],
+      [
+        374,
+        0.6986793352205171
+      ],
+      [
+        921,
+        0.6986793352205171
+      ],
+      [
+        710,
+        0.6986793352205171
+      ],
+      [
+        981,
+        0.6986793352205171
+      ]
+    ],
+    "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+    }
+  },
+  "verdicts_alt": [],
+  "skeleton_equal": true,
+  "metrics": {
+    "cx": 216,
+    "t_fixed": 196,
+    "n_rot": 10,
+    "t_eps": 793.9470570797253,
+    "t_estimate": {
+      "1e-06": 793.9470570797253,
+      "1e-10": 1192.5784284662086
+    },
+    "t_measured": null,
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 275,
+    "depth_ct": 275,
+    "qubits": 52,
+    "gates": {
+      "cx": 216,
+      "h": 128,
+      "t": 98,
+      "tdg": 98,
+      "x": 52,
+      "sdg": 27,
+      "s": 27,
+      "rz": 10,
+      "z": 2
+    },
+    "measured": false
+  },
+  "program_sha256": "9c65d062d3186e4fd8072413b40c6139dc20246c35ecd1ed7ce0cbf905ab4a1a",
+  "wall_s": 19.11657190322876,
+  "discoveries": [
+    "DISCOVERY: the closed-dark mark of the F3 frame is free once H(q3) precedes the c0 C2H skip: the restore CX(Z -> g_l) becomes rccx(Z, !q3 -> g_l) (+2 CX, -3 for the mark), the closed dark keeps g_l ^ 1, which the GD and delta conversions carry into the corner tests (it fails one), every other all-Q dark label still fails, and the rccx relative phase only negates the closed coupling (absorbed in the Walsh table); toggling F instead of g_l for the skip fails (magnitude error 0.24).",
+    "DISCOVERY: the conditional restore cannot also absorb the kappa=1 fold: an exhaustive search over all 630 two-literal rccx restores into q13 at 3 positions without the fold gives magnitude error >= 0.66, and no single frame CX made conditional (rccx with a literal true on all bright labels, 136 candidates), redirected to a control equal on all bright labels, or doubled by a CX from a qubit zero on all bright labels kills the 16 kappa=1 dark labels (best 0.18).",
+    "DISCOVERY: U = [r_t = 0 = r_r^r_l] needs the r_r^r_l register: no AND of two single-qubit literals (q7 excluded) equals U on the components of the 306 bright codes at the point where U is formed, so the cx(6, 7), cx(13, 7) preparation cannot be dropped; no single symmetric gate deletion of the 216-CX circuit stays exact."
+  ],
+  "summary": "F3 controlled partner involution in CH form with the kappa selector and the skipped loop c0 C2H (parent r05-F3-005), with the closed-dark mark merged into the g_l restore: H(q3) now follows the tau fix directly, and the second CX(Z -> q13) around the skipped c0 C2H becomes rccx(Z, !q3 -> q13), so the closed dark (q3 = 1) keeps g_l toggled and fails a corner test while the closed bright pair is restored; the separate rccx(Z, q3 -> e1c0) is gone (-1 CX per side) and the rccx phase only flips the closed coupling sign (Walsh closed coefficient v = +4 sqrt2); two savings of r05-F1-005 carry over: the h_b Margolus gauge is CZ(q3, q2) merged into the tau-fix CX(q3 -> q2) as S(q3) CY(q3 -> q2) instead of CZ(q3, q4) (-1 CX per side), and the 4-input AND of the corner tests is rccx + a Maslov RC3X (one ancilla fewer); the U_E phases sit on each Q flag as soon as it exists (g_r on its copy in q7, g_b right after the h_b Toffoli) for a shorter Clifford+T depth; rest as the parent (U = [r_t = 0 = r_r^r_l], Z = [r = 000], T / T^dag around the first CX(Z -> q13), one kappa=1 fold rccx(e1c3, !e2c3 -> F), exp(i theta Pi) = W exp(i theta X_F Z_E) W with W = 4 CH(!e2 -> e1), 6-term Gray-cycle Walsh rotation on F over (X, U, Z)); 216 CX (-4), T_eps 832 (-8), depth_CT 1350, 52 qubits (-1); all angles linear in alpha, beta, sqrt2 beta."
+}

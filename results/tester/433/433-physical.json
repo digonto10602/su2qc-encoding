@@ -1,0 +1,63 @@
+{
+ "commit": "360d54f",
+ "seed": 433,
+ "n_states": 72,
+ "own_gauss_input_max": 5.263964007748472e-16,
+ "norm_dev": 4.440892098500626e-16,
+ "type_examples": [
+  "BBBBQQBBBBAA",
+  "QQQQQQBABAAB",
+  "AABBABBBAAAA",
+  "ABABAABBQQQQ",
+  "QAQQAABQBQQQ",
+  "BAAAABABQQAB",
+  "ABQBAAABQBQA",
+  "BBAQBQABABQA",
+  "AABABABABBQQ",
+  "QBBAQBAQQQAA"
+ ],
+ "rows": {
+  "r06-F1-006@0.37,0.61": {
+   "block_err": 2.0136397524969557e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.849156453783479e-14,
+   "worst_own_gauss_residual_output": 6.502598859611576e-16,
+   "leak": 0.0
+  },
+  "r06-F1-006@0.91,0.23": {
+   "block_err": 1.9866478591924322e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.9239239900416957e-14,
+   "worst_own_gauss_residual_output": 7.483923334190948e-16,
+   "leak": 0.0
+  },
+  "r06-F1-006@1.7,1.0": {
+   "block_err": 2.069308000553038e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.9227110322215447e-14,
+   "worst_own_gauss_residual_output": 6.562553142534581e-16,
+   "leak": 0.0
+  },
+  "r06-F3-006@0.37,0.61": {
+   "block_err": 1.984537243116363e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.874122153707852e-14,
+   "worst_own_gauss_residual_output": 6.761773205288164e-16,
+   "leak": 0.0
+  },
+  "r06-F3-006@0.91,0.23": {
+   "block_err": 2.0118025454426577e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.987558921071102e-14,
+   "worst_own_gauss_residual_output": 6.710308644151443e-16,
+   "leak": 0.0
+  },
+  "r06-F3-006@1.7,1.0": {
+   "block_err": 2.024171333165272e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.8849384915798947e-14,
+   "worst_own_gauss_residual_output": 8.626582930171298e-16,
+   "leak": 0.0
+  }
+ }
+}

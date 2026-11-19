@@ -1,0 +1,113 @@
+{
+ "commit": "360d54f",
+ "seed": 20261107,
+ "n_entries_committed": 23,
+ "n_entries_scratch": 23,
+ "committed_equals_scratch": true,
+ "r06-F1-006": {
+  "T_list_equal": true,
+  "depth_list_equal": true,
+  "mine_sumT": 16584,
+  "prod_sumT": 16584,
+  "mine_sumD": 27002,
+  "prod_sumD": 27002,
+  "robust_key": [
+   218,
+   16584,
+   0,
+   27002,
+   52
+  ],
+  "angle_linear": true
+ },
+ "r06-F3-006": {
+  "T_list_equal": true,
+  "depth_list_equal": true,
+  "mine_sumT": 16596,
+  "prod_sumT": 16596,
+  "mine_sumD": 26988,
+  "prod_sumD": 26988,
+  "robust_key": [
+   216,
+   16596,
+   0,
+   26988,
+   52
+  ],
+  "angle_linear": true
+ },
+ "coefficient_decomposition": {
+  "r06-F1-006": [
+   [
+    "alpha",
+    -0.75
+   ],
+   [
+    "beta",
+    -3.828427125,
+    "(-1 + -2 sqrt2)/1"
+   ],
+   [
+    "beta",
+    -2.328427125,
+    "(1 + -4 sqrt2)/2"
+   ],
+   [
+    "beta",
+    -0.5,
+    "(-1 + 0 sqrt2)/2"
+   ],
+   [
+    "beta",
+    0.5,
+    "(1 + 0 sqrt2)/2"
+   ],
+   [
+    "beta",
+    2.328427125,
+    "(-1 + 4 sqrt2)/2"
+   ],
+   [
+    "beta",
+    3.828427125,
+    "(1 + 2 sqrt2)/1"
+   ]
+  ],
+  "r06-F3-006": [
+   [
+    "alpha",
+    -0.75
+   ],
+   [
+    "beta",
+    -3.328427125,
+    "(-1 + -4 sqrt2)/2"
+   ],
+   [
+    "beta",
+    -1.828427125,
+    "(1 + -2 sqrt2)/1"
+   ],
+   [
+    "beta",
+    -0.5,
+    "(-1 + 0 sqrt2)/2"
+   ],
+   [
+    "beta",
+    0.5,
+    "(1 + 0 sqrt2)/2"
+   ],
+   [
+    "beta",
+    1.828427125,
+    "(-1 + 2 sqrt2)/1"
+   ],
+   [
+    "beta",
+    3.328427125,
+    "(1 + 4 sqrt2)/2"
+   ]
+  ]
+ }
+}

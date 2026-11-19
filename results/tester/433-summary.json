@@ -1,0 +1,130 @@
+{
+ "report": "reports/tests/433-rishon-round-6.md",
+ "commit": "360d54f (HEAD; programs in 7cfe759; git diff 7cfe759 360d54f = notes/STATUS.md only)",
+ "date": "2026-11-19",
+ "mode": "step",
+ "prompt": "prompts/203 row 6.7 + prompts/204 C3 (acceptance-v22)",
+ "machine": "omnicommander, cores 0-8, tools/run-capped",
+ "seeds": {
+  "physical_states": 433,
+  "robust_angle_set": 20261107,
+  "gauge_mutants_cxswap": 220,
+  "three_layer_eta_set": 20261110
+ },
+ "verdict": "PASS",
+ "candidates": {
+  "r06-F1-006": {
+   "key": [
+    218,
+    840,
+    1358,
+    52
+   ],
+   "robust_key": [
+    218,
+    16584,
+    0,
+    27002,
+    52
+   ]
+  },
+  "r06-F3-006": {
+   "key": [
+    216,
+    832,
+    1350,
+    52
+   ],
+   "robust_key": [
+    216,
+    16596,
+    0,
+    26988,
+    52
+   ],
+   "headline": true
+  }
+ },
+ "files": {
+  "sparse": "results/tester/433/433-sparse-<cid>.json",
+  "aer": "results/tester/433/433-aer-summary.json",
+  "recount": "results/tester/433/433-recount.json",
+  "synth": "results/tester/433/433-synth-1e-06.json",
+  "prodsynth": "results/tester/433/433-prodsynth.json",
+  "physical": "results/tester/433/433-physical.json",
+  "robust": "results/tester/433/433-robust.json, 433-robust-compare.json",
+  "headline_scratch": "results/tester/433/433-headline-scratch.json",
+  "mutants_prod": "results/tester/433/433-mutation-probe-fullevaluator.log, mutant-programs/",
+  "mutants_gate": "results/tester/433/433-gauge-mutants-<cid>.json",
+  "mutants_symdel": "results/tester/433/433-symdel-r06-F3-006-{0,1,2}.json, 433-xpairs.json",
+  "three_layer": "results/tester/433/433-three-layer-scratch.json",
+  "archive": "results/tester/433/433-archive.json",
+  "static": "results/tester/433/433-static.json",
+  "hashes": "results/tester/433-hashes.json",
+  "pytest": "results/tester/433/433-pytest-locked.log, 433-pytest-G1.log, 433-pytest-unit.log"
+ },
+ "pytest_locked": {
+  "passed": 103,
+  "failed": 1,
+  "pending_expected": [
+   "M6_G6"
+  ],
+  "note": "L2, L3, L9 passed because uncommitted concurrent Lean (C4) work was in the tree during the run"
+ },
+ "pytest_G1": "1 passed (41 s)",
+ "pytest_unit": {
+  "passed": 1168,
+  "failed": 1,
+  "flaky": "tests/unit/test_lean_project_unit.py::test_program_lemma_files failed once under load, passes alone (12.6 s)"
+ },
+ "aer": {
+  "F3_nominal_max_col_err": 1.1824e-14,
+  "F1_nominal_max_col_err": 1.1768e-14,
+  "codes": 1296,
+  "alt_codes": 80
+ },
+ "mutants": {
+  "production_evaluator": {
+   "n": 12,
+   "rejected": 12
+  },
+  "engine_F3": {
+   "n": 578,
+   "detected": 578
+  },
+  "engine_F1": {
+   "n": 576,
+   "detected": 576
+  },
+  "mirror_pair_F3": {
+   "n": 186,
+   "detected": 182,
+   "survivors": "4 X-X pairs (q3,q7,q11,q12), key unchanged"
+  }
+ },
+ "three_layer": {
+  "unit": [
+   216,
+   832,
+   1350,
+   52
+  ],
+  "det": [
+   32,
+   496,
+   326,
+   48
+  ],
+  "three_layer": [
+   248,
+   1328,
+   1676,
+   52
+  ],
+  "op_norm_errors": [
+   1.535e-13,
+   1.592e-13,
+   1.571e-13
+  ]
+ }
+}

@@ -1,0 +1,39 @@
+r06-F3-006 baseline (1.984537243116363e-14, 0.0) n mutants 578
+0 578 elapsed 3
+/home/digimonk/Projects/su2qc-encoding/results/tester/433/../../rishon/tester-217-engine.py:195: RuntimeWarning: invalid value encountered in scalar divide
+  ph = tr / abs(tr)
+50 578 elapsed 103
+100 578 elapsed 204
+150 578 elapsed 277
+200 578 elapsed 394
+250 578 elapsed 723
+300 578 elapsed 868
+350 578 elapsed 991
+400 578 elapsed 1157
+450 578 elapsed 1310
+500 578 elapsed 1439
+550 578 elapsed 1616
+r06-F3-006 total 578 detected 578 survivors 0 seconds 1714
+  angle:p        n=  4 detected=  4 min_err=6.67e-07
+  angle:rz       n=  6 detected=  6 min_err=5.00e-07
+  cxswap:cx      n= 12 detected= 12 min_err=1.50e+00
+  drop:ch        n=  8 detected=  8 min_err=1.71e+00
+  drop:cx        n=130 detected=130 min_err=2.93e-01
+  drop:h         n= 60 detected= 60 min_err=2.93e-01
+  drop:p         n=  4 detected=  4 min_err=1.85e-01
+  drop:rccx      n= 26 detected= 26 min_err=1.00e+00
+  drop:rz        n=  6 detected=  6 min_err=1.52e-01
+  drop:s         n= 19 detected= 19 min_err=5.79e-01
+  drop:sdg       n= 19 detected= 19 min_err=5.79e-01
+  drop:t         n= 38 detected= 38 min_err=7.61e-02
+  drop:tdg       n= 38 detected= 38 min_err=7.61e-02
+  drop:x         n= 56 detected= 56 min_err=1.49e+00
+  drop:z         n=  2 detected=  2 min_err=2.00e+00
+  flip:p         n=  4 detected=  4 min_err=3.70e-01
+  flip:rz        n=  6 detected=  6 min_err=3.04e-01
+  rccx2ccx:rccx  n= 26 detected= 26 min_err=1.08e+00
+  sswap:s        n= 19 detected= 19 min_err=1.41e+00
+  sswap:sdg      n= 19 detected= 19 min_err=1.41e+00
+  tswap:t        n= 38 detected= 38 min_err=2.93e-01
+  tswap:tdg      n= 38 detected= 38 min_err=2.93e-01
+SURVIVORS []
