@@ -41,7 +41,8 @@ SCHEMA = "su2plaq-rishon-cert3-1"
 _SQRT2 = math.sqrt(2.0)
 N_DATA, N_OUTER, N_INNER = 16, 32, 1296
 PINS_FILE = P.LEAN_DIR / "Su2PlaqCert" / "Rishon" / "Pins3.lean"
-CROSS_TOL = 1e-12                       # exact target vs the float `operators.inner_target` at the nominal angles
+CROSS_TOL = 1e-12                       # exact target vs the float `operators.inner_target` at the nominal / alternate angles
+CROSS_IRRATIONAL_PAIR = (0.7310585786300049, math.pi / 4.0 + 0.1)   # one more pair, beta irrational (angles are arbitrary reals)
 FIT_TOL = 1e-7                          # float phase fit
 LINEAR_TOL = 1e-9                       # as `robust.LINEAR_TOL`
 _KINDS = ("UE", "UB", "UD", "step")
@@ -273,24 +274,27 @@ def _ud_entries() -> dict:
 
 
 def _check_cross(kind: str, order: int, ents: dict, base: tuple) -> None:
-    """The exact target equals the float `operators.inner_target` at the nominal angles to CROSS_TOL (every entry)."""
-    from su2plaq.encodings.rishon import RISHON_NOMINAL, RISHON_NOMINAL_ETA
+    """The exact target equals the float `operators.inner_target` to CROSS_TOL (every entry) at the nominal angles, at the alternate
+    angle pairs (`ALT_ANGLES` / `RISHON_ALT_ETA`) and, for the three-angle kinds, at one more pair with irrational beta (so the
+    recognised coefficients are not trusted from a single point; audit 307 N1)."""
+    from su2plaq.encodings.base import ALT_ANGLES
+    from su2plaq.encodings.rishon import RISHON_ALT_ETA, RISHON_NOMINAL, RISHON_NOMINAL_ETA
     from su2plaq.rishon import operators as O
 
+    points = []                                                     # (float reference, exact evaluation point)
     if kind == "UD":
-        eta = RISHON_NOMINAL_ETA
-        ref = O.inner_target("UD", None, None, eta=eta)
-        th = (eta / base[0], 0.0, 0.0)
+        for eta in (RISHON_NOMINAL_ETA, *RISHON_ALT_ETA):
+            points.append((O.inner_target("UD", None, None, eta=eta), (eta / base[0], 0.0, 0.0)))
     else:
-        al, be = RISHON_NOMINAL
-        ref = O.inner_target(kind, al, be, order)
-        th = (al / base[0], be / base[1], _SQRT2 * be / base[2])
-    got = np.zeros((N_INNER, N_INNER), dtype=np.complex128)
-    for (i, j), lp in ents.items():
-        got[i, j] = lp.evaluate(*th)
-    err = float(np.abs(got - ref).max())
-    if err > CROSS_TOL:
-        raise E.ExactError(f"exact {kind} (order {order}) target deviates from the float target by {err}")
+        for al, be in (RISHON_NOMINAL, *ALT_ANGLES, CROSS_IRRATIONAL_PAIR):
+            points.append((O.inner_target(kind, al, be, order), (al / base[0], be / base[1], _SQRT2 * be / base[2])))
+    for ref, th in points:
+        got = np.zeros((N_INNER, N_INNER), dtype=np.complex128)
+        for (i, j), lp in ents.items():
+            got[i, j] = lp.evaluate(*th)
+        err = float(np.abs(got - ref).max())
+        if err > CROSS_TOL:
+            raise E.ExactError(f"exact {kind} (order {order}) target deviates from the float target by {err} at {th}")
 
 
 @functools.lru_cache(maxsize=None)

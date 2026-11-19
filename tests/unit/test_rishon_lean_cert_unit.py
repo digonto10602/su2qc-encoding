@@ -311,3 +311,34 @@ def test_round_certify_applies_the_angle_fit_rule_only_to_program_entries(monkey
     monkeypatch.setattr(L, "confirm_angle_fit", lambda *a, **k: (_ for _ in ()).throw(RuntimeError("boom")))
     out, _sec = R._certify("circ", "spec", "compress/programs/rishon/F1/001-x.py", None)
     assert out["status"] == "failed" and "boom" in out["reason"]
+
+
+# ----------------------------------------------------------------------------------------------------- pin cross-check (audit 307 N1)
+def test_check_cross_compares_at_nominal_alternate_and_irrational_pairs(monkeypatch):
+    """`_check_cross` is not a single-point guard: it compares the exact target with the float one at the nominal pair, the two
+    `ALT_ANGLES` pairs and one pair with irrational beta (UD: nominal eta and the two alternate etas); a coefficient that is wrong
+    only away from the nominal pair is caught."""
+    from su2plaq.encodings.base import ALT_ANGLES
+    from su2plaq.encodings.rishon import RISHON_ALT_ETA, RISHON_NOMINAL, RISHON_NOMINAL_ETA
+
+    seen = []
+    real = O.inner_target
+
+    def spy(kind, al, be, order=1, **kw):
+        seen.append((kind, al, be, kw.get("eta")))
+        return real(kind, al, be, order, **kw)
+
+    monkeypatch.setattr(O, "inner_target", spy)
+    base, ents = L.exact_target("UD")
+    L._check_cross("UD", 1, ents, base)
+    assert [s[3] for s in seen] == [RISHON_NOMINAL_ETA, *RISHON_ALT_ETA]
+    seen.clear()
+    base, ents = L.exact_target("UE")
+    L._check_cross("UE", 1, ents, base)
+    pairs = [(s[1], s[2]) for s in seen]
+    assert pairs == [RISHON_NOMINAL, *ALT_ANGLES, L.CROSS_IRRATIONAL_PAIR]
+    assert len(set(pairs)) == 4
+    bad = dict(ents)
+    del bad[(0, 0)]                                    # a missing entry is a plain deviation from the float target
+    with pytest.raises(E.ExactError):
+        L._check_cross("UE", 1, bad, base)
