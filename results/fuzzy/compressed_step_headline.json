@@ -1,0 +1,116 @@
+{
+ "rule": "headline",
+ "order": 1,
+ "with_outer": true,
+ "units": {
+  "fuzzy_ub": {
+   "entry": "r10-F1-010",
+   "key": [
+    83.0,
+    638.0,
+    1546.0,
+    10.0
+   ],
+   "robust_key": [
+    83,
+    12688,
+    0,
+    30902,
+    10
+   ],
+   "t_mean": 634.4
+  },
+  "fuzzy_link": {
+   "entry": "r02-F2-001",
+   "key": [
+    12.0,
+    644.0,
+    1183.0,
+    4.0
+   ],
+   "robust_key": [
+    12,
+    12576,
+    0,
+    23373,
+    4
+   ],
+   "t_mean": 628.8
+  }
+ },
+ "composed": {
+  "cx": 227,
+  "depth": 151,
+  "n_rot": 129,
+  "t_fixed": 72,
+  "qubits": 50,
+  "ancilla": 2,
+  "gates": {
+   "h": 306,
+   "cx": 227,
+   "rz": 129,
+   "s": 121,
+   "t": 36,
+   "tdg": 36,
+   "z": 24,
+   "x": 16,
+   "sdg": 13
+  },
+  "t_estimate": 7785.517036328455
+ },
+ "inner": {
+  "cx": 131,
+  "n_rot": 49,
+  "t_fixed": 72,
+  "depth": 151,
+  "qubits": 18,
+  "t_mean": 3149.6,
+  "t_nominal": 3214
+ },
+ "general": {
+  "cx": 2150,
+  "depth": 2690,
+  "n_rot": 136,
+  "t_fixed": 1826,
+  "qubits": 55,
+  "ancilla": 7,
+  "gates": {
+   "cx": 2150,
+   "t": 1036,
+   "tdg": 790,
+   "h": 716,
+   "x": 176,
+   "rz": 136,
+   "s": 52,
+   "sdg": 52,
+   "z": 8
+  },
+  "t_estimate": 9958.079976284262
+ },
+ "verification": {
+  "err": 1.2046988328751851e-14,
+  "gauss": 5.86588890721871e-15,
+  "n_inputs": 40,
+  "seed": 20261104,
+  "mode": "layers",
+  "leak": 0.0
+ },
+ "provenance": {
+  "git_commit": "cd468e2",
+  "git_dirty": false,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "verify_seed": 20261104
+  },
+  "timestamp_utc": "2026-11-19T07:35:46Z"
+ }
+}
