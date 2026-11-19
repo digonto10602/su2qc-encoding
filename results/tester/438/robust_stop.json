@@ -1,0 +1,460 @@
+{
+ "commit": "89c00bc",
+ "code_hash_for_lsh": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "entries": {
+  "r01-F1-001": {
+   "sha_file": "c1aee140b74114bffc5ab21031d4e7f269141e2e3fc54c113fba10651b317a9d",
+   "sha_entry": "c1aee140b74114bffc5ab21031d4e7f269141e2e3fc54c113fba10651b317a9d",
+   "sha_round": "c1aee140b74114bffc5ab21031d4e7f269141e2e3fc54c113fba10651b317a9d",
+   "sha_result": "c1aee140b74114bffc5ab21031d4e7f269141e2e3fc54c113fba10651b317a9d",
+   "valid": true,
+   "reason": "ok",
+   "key_fresh": [
+    73,
+    1056,
+    2125,
+    25
+   ],
+   "key_entry": [
+    73,
+    1056,
+    2125,
+    25
+   ],
+   "key_round": [
+    73,
+    1056,
+    2125,
+    25
+   ],
+   "op_norm_error_fresh": 7.730556097211487e-15,
+   "gauss_fresh": 5.235302333300423e-16,
+   "certified": true,
+   "engine": "sparse",
+   "method": "inner_span",
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "alt_ok_fresh": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "entry_hash_ok": true,
+   "entry_git_commit": "89c00bc",
+   "entry_git_dirty": false,
+   "wall_s": 1.8106863498687744,
+   "robust_fresh": {
+    "t_sum": 21088,
+    "depth_sum": 43561,
+    "cx": 73,
+    "qubits": 25,
+    "angle_linear": true,
+    "robust_key": [
+     73,
+     21088,
+     0,
+     43561,
+     25
+    ],
+    "export_status": "ok"
+   },
+   "robust_file": {
+    "t_sum": 21088,
+    "depth_sum": 43561,
+    "cx": 73,
+    "qubits": 25,
+    "angle_linear": true,
+    "robust_key": [
+     73,
+     21088,
+     0,
+     43561,
+     25
+    ],
+    "export_status": "ok"
+   },
+   "robust_equal": true
+  },
+  "r01-F2-001": {
+   "sha_file": "8eb26ae31c796bfa1741cc1ea5218368ffd91dba167ef7d1779f0c553a217c83",
+   "sha_entry": "8eb26ae31c796bfa1741cc1ea5218368ffd91dba167ef7d1779f0c553a217c83",
+   "sha_round": "8eb26ae31c796bfa1741cc1ea5218368ffd91dba167ef7d1779f0c553a217c83",
+   "sha_result": "8eb26ae31c796bfa1741cc1ea5218368ffd91dba167ef7d1779f0c553a217c83",
+   "valid": true,
+   "reason": "ok",
+   "key_fresh": [
+    80,
+    1176,
+    2423,
+    26
+   ],
+   "key_entry": [
+    80,
+    1176,
+    2423,
+    26
+   ],
+   "key_round": [
+    80,
+    1176,
+    2423,
+    26
+   ],
+   "op_norm_error_fresh": 1.563521998078208e-14,
+   "gauss_fresh": 5.558049685633556e-16,
+   "certified": true,
+   "engine": "sparse",
+   "method": "inner_span",
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "alt_ok_fresh": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "entry_hash_ok": true,
+   "entry_git_commit": "89c00bc",
+   "entry_git_dirty": true,
+   "wall_s": 1.1717679500579834,
+   "robust_fresh": {
+    "t_sum": 23692,
+    "depth_sum": 50485,
+    "cx": 80,
+    "qubits": 26,
+    "angle_linear": true,
+    "robust_key": [
+     80,
+     23692,
+     0,
+     50485,
+     26
+    ],
+    "export_status": "ok"
+   },
+   "robust_file": {
+    "t_sum": 23692,
+    "depth_sum": 50485,
+    "cx": 80,
+    "qubits": 26,
+    "angle_linear": true,
+    "robust_key": [
+     80,
+     23692,
+     0,
+     50485,
+     26
+    ],
+    "export_status": "ok"
+   },
+   "robust_equal": true
+  },
+  "r01-F3-001": {
+   "sha_file": "c09ffcb2afebe5ef956313857c70552f288f7a8038600c22db7e20178fcb895f",
+   "sha_entry": "c09ffcb2afebe5ef956313857c70552f288f7a8038600c22db7e20178fcb895f",
+   "sha_round": "c09ffcb2afebe5ef956313857c70552f288f7a8038600c22db7e20178fcb895f",
+   "sha_result": "c09ffcb2afebe5ef956313857c70552f288f7a8038600c22db7e20178fcb895f",
+   "valid": true,
+   "reason": "ok",
+   "key_fresh": [
+    76,
+    1338,
+    3056,
+    24
+   ],
+   "key_entry": [
+    76,
+    1338,
+    3056,
+    24
+   ],
+   "key_round": [
+    76,
+    1338,
+    3056,
+    24
+   ],
+   "op_norm_error_fresh": 1.2188005109630385e-14,
+   "gauss_fresh": 5.681424633657484e-16,
+   "certified": true,
+   "engine": "sparse",
+   "method": "physical",
+   "outer_bits_read": 1,
+   "n_blocks": 2,
+   "alt_ok_fresh": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "entry_hash_ok": true,
+   "entry_git_commit": "89c00bc",
+   "entry_git_dirty": true,
+   "wall_s": 1.256021499633789,
+   "robust_fresh": {
+    "t_sum": 27086,
+    "depth_sum": 60373,
+    "cx": 76,
+    "qubits": 24,
+    "angle_linear": true,
+    "robust_key": [
+     76,
+     27086,
+     0,
+     60373,
+     24
+    ],
+    "export_status": "ok"
+   },
+   "robust_file": {
+    "t_sum": 27086,
+    "depth_sum": 60373,
+    "cx": 76,
+    "qubits": 24,
+    "angle_linear": true,
+    "robust_key": [
+     76,
+     27086,
+     0,
+     60373,
+     24
+    ],
+    "export_status": "ok"
+   },
+   "robust_equal": true
+  },
+  "r01-F4-001": {
+   "sha_file": "63aab8c33107e07101bbf28d9e063ea40885aa367f29958879a8c9939c3de644",
+   "sha_entry": "63aab8c33107e07101bbf28d9e063ea40885aa367f29958879a8c9939c3de644",
+   "sha_round": "63aab8c33107e07101bbf28d9e063ea40885aa367f29958879a8c9939c3de644",
+   "sha_result": "63aab8c33107e07101bbf28d9e063ea40885aa367f29958879a8c9939c3de644",
+   "valid": true,
+   "reason": "ok",
+   "key_fresh": [
+    74,
+    1396,
+    3218,
+    24
+   ],
+   "key_entry": [
+    74,
+    1396,
+    3218,
+    24
+   ],
+   "key_round": [
+    74,
+    1396,
+    3218,
+    24
+   ],
+   "op_norm_error_fresh": 1.2521682803839607e-14,
+   "gauss_fresh": 5.389157964038493e-16,
+   "certified": true,
+   "engine": "sparse",
+   "method": "inner_span",
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "alt_ok_fresh": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "entry_hash_ok": true,
+   "entry_git_commit": "89c00bc",
+   "entry_git_dirty": true,
+   "wall_s": 1.1489019393920898,
+   "robust_fresh": {
+    "t_sum": 28348,
+    "depth_sum": 63538,
+    "cx": 74,
+    "qubits": 24,
+    "angle_linear": true,
+    "robust_key": [
+     74,
+     28348,
+     0,
+     63538,
+     24
+    ],
+    "export_status": "ok"
+   },
+   "robust_file": {
+    "t_sum": 28348,
+    "depth_sum": 63538,
+    "cx": 74,
+    "qubits": 24,
+    "angle_linear": true,
+    "robust_key": [
+     74,
+     28348,
+     0,
+     63538,
+     24
+    ],
+    "export_status": "ok"
+   },
+   "robust_equal": true
+  },
+  "r01-F5-001": {
+   "sha_file": "a513562a86c66f7e62356f4d75cc8069b08bbe07768a1432d6f86b10d31cfbba",
+   "sha_entry": "a513562a86c66f7e62356f4d75cc8069b08bbe07768a1432d6f86b10d31cfbba",
+   "sha_round": "a513562a86c66f7e62356f4d75cc8069b08bbe07768a1432d6f86b10d31cfbba",
+   "sha_result": "a513562a86c66f7e62356f4d75cc8069b08bbe07768a1432d6f86b10d31cfbba",
+   "valid": true,
+   "reason": "ok",
+   "key_fresh": [
+    73,
+    1442,
+    3159,
+    25
+   ],
+   "key_entry": [
+    73,
+    1442,
+    3159,
+    25
+   ],
+   "key_round": [
+    73,
+    1442,
+    3159,
+    25
+   ],
+   "op_norm_error_fresh": 7.33465633405318e-15,
+   "gauss_fresh": 5.33167196845001e-16,
+   "certified": true,
+   "engine": "sparse",
+   "method": "inner_span",
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "alt_ok_fresh": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "entry_hash_ok": true,
+   "entry_git_commit": "89c00bc",
+   "entry_git_dirty": true,
+   "wall_s": 1.131042718887329,
+   "robust_fresh": {
+    "t_sum": 28626,
+    "depth_sum": 62872,
+    "cx": 73,
+    "qubits": 25,
+    "angle_linear": true,
+    "robust_key": [
+     73,
+     28626,
+     0,
+     62872,
+     25
+    ],
+    "export_status": "ok"
+   },
+   "robust_file": {
+    "t_sum": 28626,
+    "depth_sum": 62872,
+    "cx": 73,
+    "qubits": 25,
+    "angle_linear": true,
+    "robust_key": [
+     73,
+     28626,
+     0,
+     62872,
+     25
+    ],
+    "export_status": "ok"
+   },
+   "robust_equal": true
+  }
+ },
+ "round": {
+  "hash_ok": true,
+  "best_key": [
+   71,
+   1118,
+   2276,
+   25
+  ],
+  "n_valid": 5,
+  "n_invalid": 0,
+  "git_commit": "89c00bc",
+  "git_dirty": true,
+  "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+  "entries": [
+   "r01-F1-001",
+   "r01-F2-001",
+   "r01-F3-001",
+   "r01-F4-001",
+   "r01-F5-001"
+  ]
+ },
+ "robust_file_hash_ok": [
+  true,
+  true
+ ],
+ "stop": {
+  "own_headline_round1": [
+   [
+    71,
+    22480,
+    0,
+    46384,
+    25
+   ],
+   "r00-seed-005"
+  ],
+  "stop_file_headline": [
+   [
+    71,
+    22480,
+    0,
+    46384,
+    25
+   ],
+   "r00-seed-005"
+  ],
+  "own_improved": [
+   [
+    0,
+    "r00-seed-005",
+    true
+   ],
+   [
+    1,
+    "r00-seed-005",
+    false
+   ]
+  ],
+  "file_improved": [
+   [
+    0,
+    true
+   ],
+   [
+    1,
+    false
+   ]
+  ],
+  "own_streak": 1,
+  "file_streak": 1,
+  "own_sessions": 6,
+  "file_sessions": 6,
+  "file_stop": false,
+  "file_reason": null,
+  "file_reasons": [],
+  "max_rounds": 8,
+  "no_gain_rounds": 3,
+  "max_sessions": 20,
+  "ideation_exists": true,
+  "ideation_briefs_exists": true,
+  "attempt_lines": 15,
+  "attempt_ids_r1": [
+   "r01-F1-001",
+   "r01-F2-001",
+   "r01-F3-001",
+   "r01-F4-001",
+   "r01-F5-001"
+  ]
+ }
+}

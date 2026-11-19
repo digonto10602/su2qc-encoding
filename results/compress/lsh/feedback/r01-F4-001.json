@@ -1,0 +1,166 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.2521682803839607e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   0.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.389157964038493e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.881356466351136e-15,
+  "block_error": 5.640326337488472e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.2184441089630127,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.2521682803839607e-14,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 5.640326337488471e-15,
+   "max_dropped_l2": 1.5359733985561173e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 5.640326337488472e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.235659756182279e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -8.204881475289885e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.394515868888619e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.480800547369062e-15,
+   "block_error": 5.8757970144537275e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.21866226196289062,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.235659756182279e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 5.670838371828312e-15,
+    "max_dropped_l2": 1.476964621795086e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 5.8757970144537275e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.2781235722276474e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -4.102440737644945e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.3063260158928595e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.570096243498749e-15,
+   "block_error": 6.211139478777726e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.21547627449035645,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.2781235722276474e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 6.211139478777726e-15,
+    "max_dropped_l2": 1.5476512294314804e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 6.159139401927309e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 74,
+  "t_fixed": 24,
+  "n_rot": 22,
+  "t_eps": 1396,
+  "t_estimate": {
+   "1e-06": 1339.4835255753956,
+   "1e-10": 2216.472542625659
+  },
+  "t_measured": {
+   "1e-06": 1396,
+   "1e-10": 2312
+  },
+  "synth_error_bound": 2.2e-05,
+  "depth": 100,
+  "depth_ct": 3218,
+  "qubits": 24,
+  "gates": {
+   "cx": 74,
+   "h": 50,
+   "sdg": 24,
+   "s": 24,
+   "rz": 22,
+   "t": 12,
+   "tdg": 12
+  },
+  "measured": true
+ },
+ "program_sha256": "63aab8c33107e07101bbf28d9e063ea40885aa367f29958879a8c9939c3de644",
+ "wall_s": 1.2141757011413574,
+ "discoveries": [
+  "DISCOVERY: Folding the four raw l_nv into site 0 gives p = [#w=2] xor (number of dark sites mod 2), invariant on all 47 codes; with Toffolis (w_c, f_c -> l_nv) on sites 1..3 only, the frame holds the same information as the seed's frame after its class AND (p xor y1 xor y2 xor y3 = y0 xor [#w=2]), so the fold replaces that AND but y0 is no longer linear.",
+  "DISCOVERY: qiskit rccx with controls (w_c, f_c) leaves a pair-phase ratio of +-i when an odd number of w=1 sites carry a Toffoli; a Margolus Toffoli (h/t/s, 3 CX, 4 T, -1 only on w=1, f=0, l_nv=1) adds no phase on any physical code, so a three-Toffoli frame is phase-free.",
+  "DISCOVERY: Flagless multiplexer on the moving bit in this frame: minimum Walsh support 16..18 terms (HiGHS, 400 s; 18 found, all coefficients +-1/8), but the shortest Gray tour over the 10 single-qubit forms is 27-28 CX, so frame (46) + mux = 74 CX; one-AND flags do not lower the LP support below 16."
+ ],
+ "summary": "Native three-product frame (per-site f_c, w_c; raw l_nv parity folded into site 0 as class bit; three real-phase Margolus Toffolis give y1..y3; collapse onto f_0) + flagless 18-term Walsh multiplexer R_X on f_0; 74 CX."
+}
