@@ -1,0 +1,59 @@
+{
+ "commit": "a155e59",
+ "rows": {
+  "r05-F1-005": {
+   "ok": true,
+   "n_rot": 10,
+   "t_total": 846,
+   "tol": {
+    "tol_err": 1.0001e-05,
+    "tol_gauss": 1.0001e-05
+   },
+   "error_bound_sum": 9.999999999999999e-06,
+   "error_measured_sum": 3.90082573292632e-06,
+   "op": 3.0050804629601384e-06,
+   "block": 2.5445227588944055e-06,
+   "leak": 2.1209547766013625e-13,
+   "dropped": 1.944994094676274e-11,
+   "gauss": 1.4462866039634183e-06,
+   "certified": true,
+   "engine": "sparse"
+  },
+  "r05-F3-005": {
+   "ok": true,
+   "n_rot": 10,
+   "t_total": 840,
+   "tol": {
+    "tol_err": 1.0001e-05,
+    "tol_gauss": 1.0001e-05
+   },
+   "error_bound_sum": 9.999999999999999e-06,
+   "error_measured_sum": 3.933749329646068e-06,
+   "op": 4.324590823042975e-06,
+   "block": 3.5824544240713204e-06,
+   "leak": 5.255645504081983e-13,
+   "dropped": 1.901539350645244e-11,
+   "gauss": 2.142440876713916e-06,
+   "certified": true,
+   "engine": "sparse"
+  },
+  "r05-F4-005": {
+   "ok": true,
+   "n_rot": 14,
+   "t_total": 1186,
+   "tol": {
+    "tol_err": 1.4001e-05,
+    "tol_gauss": 1.4001e-05
+   },
+   "error_bound_sum": 1.4e-05,
+   "error_measured_sum": 4.912040930835092e-06,
+   "op": 5.205511017750263e-06,
+   "block": 2.9878892861634394e-06,
+   "leak": 2.909742035784285e-12,
+   "dropped": 1.558254083318734e-11,
+   "gauss": 2.322951439846025e-06,
+   "certified": true,
+   "engine": "sparse"
+  }
+ }
+}

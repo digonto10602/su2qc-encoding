@@ -1,0 +1,90 @@
+{
+ "commit": "a155e59",
+ "eps": 1e-06,
+ "rows": {
+  "r05-F1-005": {
+   "n_rot": 10,
+   "eps": 1e-06,
+   "budget": 1.0001e-05,
+   "block_err": 2.5445227586048896e-06,
+   "leak_spectral": 4.605382479101493e-07,
+   "block_plus_leakspec": 3.005061006515039e-06,
+   "leak": 4.605382479093816e-07,
+   "phase_abs": 0.9999999999999999,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x",
+    "z"
+   ],
+   "cx": 226,
+   "t": 846,
+   "n_gates": 2331,
+   "max_state": 417640,
+   "my_dropped_fro": 9.945459425634008e-13,
+   "ratio_to_budget": 0.25442683317717124,
+   "seconds": 11.834137916564941,
+   "outer_touched": []
+  },
+  "r05-F3-005": {
+   "n_rot": 10,
+   "eps": 1e-06,
+   "budget": 1.0001e-05,
+   "block_err": 3.5824544193312987e-06,
+   "leak_spectral": 7.421173817685138e-07,
+   "block_plus_leakspec": 4.324571801099812e-06,
+   "leak": 7.249583086478124e-07,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x",
+    "z"
+   ],
+   "cx": 220,
+   "t": 840,
+   "n_gates": 2299,
+   "max_state": 403520,
+   "my_dropped_fro": 1.0091656092404232e-12,
+   "ratio_to_budget": 0.35820962097103276,
+   "seconds": 15.921325206756592,
+   "outer_touched": []
+  },
+  "r05-F4-005": {
+   "n_rot": 14,
+   "eps": 1e-06,
+   "budget": 1.4001e-05,
+   "block_err": 2.9878892863950415e-06,
+   "leak_spectral": 2.2176061503338625e-06,
+   "block_plus_leakspec": 5.205495436728904e-06,
+   "leak": 1.7057966003019615e-06,
+   "phase_abs": 1.0,
+   "gates": [
+    "cx",
+    "h",
+    "s",
+    "sdg",
+    "t",
+    "tdg",
+    "x",
+    "z"
+   ],
+   "cx": 274,
+   "t": 1186,
+   "n_gates": 3134,
+   "max_state": 221642,
+   "my_dropped_fro": 5.858154434079706e-13,
+   "ratio_to_budget": 0.21340542006964083,
+   "seconds": 10.884143829345703,
+   "outer_touched": []
+  }
+ }
+}

@@ -1,0 +1,84 @@
+{
+ "commit": "a155e59",
+ "seed": 432,
+ "n_states": 72,
+ "own_gauss_input_max": 4.842458133957365e-16,
+ "norm_dev": 4.440892098500626e-16,
+ "type_examples": [
+  "AAAABABAABAB",
+  "QQQQBBAAQQBA",
+  "QABQABQBABAQ",
+  "AAABBABBAAQQ",
+  "QAQQBBBQBQQQ",
+  "BAQBQQABBQQA",
+  "BAQQBQBAQAAA",
+  "BBBBABABBABA",
+  "AAAAAABAQQQQ",
+  "QQQQQQAAABAB"
+ ],
+ "rows": {
+  "r05-F1-005@0.37,0.61": {
+   "block_err": 2.0693080005530368e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.9459731768199664e-14,
+   "worst_own_gauss_residual_output": 6.648133934515503e-16,
+   "leak": 0.0
+  },
+  "r05-F1-005@0.91,0.23": {
+   "block_err": 2.1052416565946146e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.9646301455963702e-14,
+   "worst_own_gauss_residual_output": 7.833270583107501e-16,
+   "leak": 0.0
+  },
+  "r05-F1-005@1.7,1.0": {
+   "block_err": 2.0997602013293832e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.9296613574610137e-14,
+   "worst_own_gauss_residual_output": 7.615495332319223e-16,
+   "leak": 0.0
+  },
+  "r05-F3-005@0.37,0.61": {
+   "block_err": 2.0146800928174666e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.863830819122102e-14,
+   "worst_own_gauss_residual_output": 7.120221057683995e-16,
+   "leak": 0.0
+  },
+  "r05-F3-005@0.91,0.23": {
+   "block_err": 1.9553167725358988e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.9012812409682407e-14,
+   "worst_own_gauss_residual_output": 6.583732683098827e-16,
+   "leak": 0.0
+  },
+  "r05-F3-005@1.7,1.0": {
+   "block_err": 2.056521463081811e-14,
+   "n_states": 72,
+   "worst_full_state_err": 1.900110400254747e-14,
+   "worst_own_gauss_residual_output": 7.310207882049403e-16,
+   "leak": 0.0
+  },
+  "r05-F4-005@0.37,0.61": {
+   "block_err": 2.626915306578658e-14,
+   "n_states": 72,
+   "worst_full_state_err": 2.4889411997688673e-14,
+   "worst_own_gauss_residual_output": 1.0112768352591563e-15,
+   "leak": 0.0
+  },
+  "r05-F4-005@0.91,0.23": {
+   "block_err": 2.6274698084783833e-14,
+   "n_states": 72,
+   "worst_full_state_err": 2.5301663072705527e-14,
+   "worst_own_gauss_residual_output": 7.154551474632564e-16,
+   "leak": 0.0
+  },
+  "r05-F4-005@1.7,1.0": {
+   "block_err": 2.6715541511972217e-14,
+   "n_states": 72,
+   "worst_full_state_err": 2.6398985152108992e-14,
+   "worst_own_gauss_residual_output": 7.299909314633433e-16,
+   "leak": 0.0
+  }
+ }
+}

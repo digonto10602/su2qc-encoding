@@ -1,0 +1,161 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.4213005020804216e-13,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   0.0
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 7.622052005361875e-16,
+  "method": "rishon_inner_block",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 1.2754550539094694e-13,
+  "block_error": 1.458454481709523e-14,
+  "leak_amplitude": 0.0,
+  "seconds": 7.513931512832642,
+  "n_inputs": 1296,
+  "span_leak": 0.0,
+  "total_error": 1.4213005020804216e-13,
+  "failing_inputs": [],
+  "extra": {
+   "gauss_states": 273,
+   "outer_bits_read": 0,
+   "inner_method": "inner_span",
+   "rishon": true
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.4488753552041139e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.0965165675310323e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 9.38778750585887e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.300753128896043e-13,
+   "block_error": 1.48122226308071e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 4.650516033172607,
+   "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.4488753552041139e-13,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.4466265840591372e-13,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.2609940526606888e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 7.392446291451012e-16,
+   "method": "rishon_inner_block",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 1.300072939478709e-13,
+   "block_error": 1.4655364458042807e-14,
+   "leak_amplitude": 0.0,
+   "seconds": 4.673529624938965,
+   "n_inputs": 1296,
+   "span_leak": 0.0,
+   "total_error": 1.4466265840591372e-13,
+   "failing_inputs": [],
+   "extra": {
+    "gauss_states": 273,
+    "outer_bits_read": 0,
+    "inner_method": "inner_span",
+    "rishon": true
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 226,
+  "t_fixed": 210,
+  "n_rot": 10,
+  "t_eps": 846,
+  "t_estimate": {
+   "1e-06": 807.9470570797253,
+   "1e-10": 1206.5784284662086
+  },
+  "t_measured": {
+   "1e-06": 846,
+   "1e-10": 1242
+  },
+  "synth_error_bound": 9.999999999999999e-06,
+  "depth": 305,
+  "depth_ct": 1386,
+  "qubits": 52,
+  "gates": {
+   "cx": 226,
+   "h": 144,
+   "t": 106,
+   "tdg": 104,
+   "x": 52,
+   "sdg": 29,
+   "s": 29,
+   "rz": 10,
+   "z": 2
+  },
+  "measured": true
+ },
+ "program_sha256": "fddee9b3b8b3bdd29eb96a1891a4df676bebd1713d2ad1d3ccc9d0a06c60ee59",
+ "wall_s": 22.724531173706055,
+ "discoveries": [
+  "DISCOVERY: the h_b Margolus gauge has a free merge: a CZ on (q3, q2) directly after the tau-fix CX(q3 -> q2), with no CZ(q3, q4), keeps every coupling sign uniform (the only one of the 2 x 43 placements next to a frame CX on the same pair that does), and CZ(a, b) CX(a -> b) = S(a) CY(a -> b) with CY = S(b) CX Sdg(b), one CX; no single 2-qubit gate of the frame or flags can be deleted, no CX deleted with a merged CZ added, and no Toffoli replaced by CX/X (exhaustive local checks).",
+  "DISCOVERY: relative phases of the bright-flag AND tree only need to depend on registers that the partner rotation leaves invariant (tests, N1, XF), so the Maslov RC3X (6 CX, 8 T, phases i, -i, -1 on control/target patterns) replaces rccx(T2, T3 -> N2) + rccx(N1, N2 -> XF) at equal CX and T and frees the N2 ancilla (53 -> 52 qubits)."
+ ],
+ "summary": "F1 round 5 on the parent r04-F1-004 (F3 controlled-partner frame with the (P, Z) class selector, 6-term Walsh rotation on F): same frame, flags and partner rotation, but the Margolus h_b Toffoli is gauged by CZ(q3, q2) placed right after the tau-fix CX(q3 -> q2), where CZ.CX = S(q3) CY(q3 -> q2) is one CX (-2 CX), the 4-input AND of the corner tests is rccx + one Maslov relative-phase C3X instead of 3 rccx (same CX and T, one ancilla fewer), and the U_E phases sit on the g_r copy in the raw R2 of link r (CX(13, 7) after it) and on g_b after the h_b Toffoli (shorter Clifford+T depth); all angles linear in alpha, beta, sqrt2 beta."
+}

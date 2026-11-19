@@ -1,0 +1,126 @@
+{
+  "valid": false,
+  "reason": "leak",
+  "mode": "full",
+  "message": "",
+  "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+  "seeds": {
+    "trial_seed": 0,
+    "transpiler_logical": 20261104,
+    "clifford_t_pass_manager": 12345,
+    "gridsynth": 0
+  },
+  "verdict": {
+    "ok": false,
+    "reason": "leak",
+    "op_norm_error": 2.2803539825360932,
+    "max_leak": 0.011566474878182083,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      0.0
+    ],
+    "outer_bits_read": 0,
+    "n_blocks": 1,
+    "gauss_residual": 1.6039444313318516,
+    "method": "rishon_inner_block",
+    "engine": "sparse",
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "dropped_total": 1.2267854961038976e-13,
+    "block_error": 1.9761635832373463,
+    "leak_amplitude": 0.3041903992986243,
+    "seconds": 10.798354625701904,
+    "n_inputs": 1296,
+    "span_leak": 0.0,
+    "total_error": 2.2803539825360932,
+    "failing_inputs": [
+      [
+        748,
+        0.10754754705795053
+      ],
+      [
+        746,
+        0.10754754705795051
+      ],
+      [
+        963,
+        0.1075475470579505
+      ],
+      [
+        332,
+        0.1075475470579505
+      ],
+      [
+        549,
+        0.10754754705795046
+      ],
+      [
+        493,
+        0.10754754705795046
+      ],
+      [
+        802,
+        0.10754754705795046
+      ],
+      [
+        1017,
+        0.10754754705795044
+      ],
+      [
+        740,
+        0.10754754705795043
+      ],
+      [
+        742,
+        0.10754754705795043
+      ]
+    ],
+    "extra": {
+      "gauss_states": 273,
+      "outer_bits_read": 0,
+      "inner_method": "inner_span",
+      "rishon": true
+    }
+  },
+  "verdicts_alt": [],
+  "skeleton_equal": true,
+  "metrics": {
+    "cx": 218,
+    "t_fixed": 196,
+    "n_rot": 10,
+    "t_eps": 793.9470570797253,
+    "t_estimate": {
+      "1e-06": 793.9470570797253,
+      "1e-10": 1192.5784284662086
+    },
+    "t_measured": null,
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 253,
+    "depth_ct": 253,
+    "qubits": 53,
+    "gates": {
+      "cx": 218,
+      "h": 132,
+      "t": 98,
+      "tdg": 98,
+      "x": 52,
+      "sdg": 24,
+      "s": 24,
+      "rz": 10,
+      "z": 2
+    },
+    "measured": false
+  },
+  "program_sha256": "7eecb6e1ce08e456c6a227493353486dfcaef6cf7f2941c1bc47e2d3a507d3f7",
+  "wall_s": 16.654435634613037,
+  "discoveries": [
+    "DISCOVERY: the exact closed CCH(Z, F -> e1c0) of the F3 frame only undoes the corner-c0 C2H on the loop (the all-Q mux garbage h is l's colour bit at c0, so the tau fix leaves the loop's e1c0 a basis bit and the c0 C2H turns it into |+->); skipping that C2H on Z = 1 by a CX(Z -> g_l) pair around it costs 2 CX instead of 6, and the missing relative phase (-i) on the loop (which would make only the closed coupling imaginary) comes back for free from T before and T^dag after the first CX: e^{i pi/4 g_l} e^{-i pi/4 (g_l ^ Z)} = e^{-i pi/4 Z} i^(F Z) on reachable labels (Z = 1 implies g_l = F).",
+    "DISCOVERY: tried and failed (exact checks over all 1296 codes): keeping q13 = g_l ^ Z (or r_l ^ Z, or F ^ Z for the other control pairs (F, !r_l), (g_l, !r_l)) to save the restore CX, with any single rccx(Z, q3 or !q3 -> t) closed-dark mark (dark all-Q labels with e2c0 = 0 or e2c3 = 0 then pass the corner tests); any 1- or 2-CX fold (CX or parity into any register, at any point after the C2H) instead of the kappa=1 rccx fold; any 1-3 single-qubit Z/S/T phases at any time instead of the CZ(q3, q4) Margolus gauge; one rccx doing both the kappa=1 fold and the closed-dark mark."
+  ],
+  "summary": "F3 controlled partner involution in CH form with the kappa selector (parent r04-F3-003), but the exact 6-CX closed CCH(Z, F -> e1c0) is gone: U = [r_t = 0 = r_r^r_l] and Z = [r = 000] are computed right after the tau fix, the corner C2H at c1, c2, c3 run as before, and the c0 C2H (controls F, q13 = g_l) is skipped on the closed sector by toggling q13 ^= Z around it (2 CX) - on the loop it only made the e1c0 superposition that the CCH undid (H X X H = X X); T(q13) before and T^dag(q13) after the first CX(Z -> q13) restore the lost (-i) relative phase on the loop (a controlled-S(F, Z) without CX), so all 81 couplings stay real and uniform per class (closed sign flipped, Walsh closed coefficient negated); rest as the parent: frame (L2 = Q flag, U_E as 4 phases on L2; h_b by two in-place rccx Fredkin halves + a Margolus Toffoli with a CZ(h_b, r.L1) gauge; one CX per corner; tau fix; one kappa=1 dark-label fold rccx(e1c3, !e2c3 -> F); e1 ^= g^delta^1; H(q3) and the closed-dark mark rccx(Z, q3 -> e1c0)), exp(i theta Pi) = W exp(i theta X_F Z_E) W with W = 4 CH(!e2 -> e1), bright flag X = AND of 4 in-place corner tests, 6-term Gray-cycle Walsh rotation on F over (X, U, Z); 220 CX (-8), T_fixed 196 (-14); all angles linear in alpha, beta, sqrt2 beta."
+}

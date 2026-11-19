@@ -1,0 +1,128 @@
+{
+ "commit": "a155e59",
+ "rows": {
+  "r05-F1-005": {
+   "alt1": {
+    "n_codes": 80,
+    "qubits_min": 17,
+    "qubits_max": 20,
+    "max_col_maxabs_err": 1.1128982146072922e-14,
+    "max_col_L2_err": 1.1174551798099649e-14,
+    "max_weight_outside": 0.0,
+    "phase_deviation": 0.0,
+    "phase_angle": -8.260124229417903e-15,
+    "alpha": 0.91,
+    "beta": 0.23,
+    "cpu_seconds": 32.292850971221924
+   },
+   "alt2": {
+    "n_codes": 80,
+    "qubits_min": 17,
+    "qubits_max": 20,
+    "max_col_maxabs_err": 1.1538443794359829e-14,
+    "max_col_L2_err": 1.157569413272529e-14,
+    "max_weight_outside": 2.220446049250313e-16,
+    "phase_deviation": 0.0,
+    "phase_angle": -8.20489003086748e-15,
+    "alpha": 1.7,
+    "beta": 1.0,
+    "cpu_seconds": 32.89728808403015
+   },
+   "nominal": {
+    "n_codes": 1296,
+    "qubits_min": 17,
+    "qubits_max": 20,
+    "max_col_maxabs_err": 1.1995547486170449e-14,
+    "max_col_L2_err": 1.2030937107323471e-14,
+    "max_weight_outside": 2.220446049250313e-16,
+    "phase_deviation": 0.0,
+    "phase_angle": -8.023508242205107e-15,
+    "alpha": 0.37,
+    "beta": 0.61,
+    "cpu_seconds": 502.39625215530396
+   }
+  },
+  "r05-F3-005": {
+   "alt1": {
+    "n_codes": 80,
+    "qubits_min": 16,
+    "qubits_max": 21,
+    "max_col_maxabs_err": 1.0350708753043373e-14,
+    "max_col_L2_err": 1.0388745084991032e-14,
+    "max_weight_outside": 0.0,
+    "phase_deviation": 0.0,
+    "phase_angle": -7.614904564560639e-15,
+    "alpha": 0.91,
+    "beta": 0.23,
+    "cpu_seconds": 30.108607530593872
+   },
+   "alt2": {
+    "n_codes": 80,
+    "qubits_min": 16,
+    "qubits_max": 21,
+    "max_col_maxabs_err": 1.0570028722280597e-14,
+    "max_col_L2_err": 1.0605126285812307e-14,
+    "max_weight_outside": 2.220446049250313e-16,
+    "phase_deviation": 0.0,
+    "phase_angle": -7.484145124265789e-15,
+    "alpha": 1.7,
+    "beta": 1.0,
+    "cpu_seconds": 29.70056986808777
+   },
+   "nominal": {
+    "n_codes": 1296,
+    "qubits_min": 16,
+    "qubits_max": 21,
+    "max_col_maxabs_err": 1.06864372913701e-14,
+    "max_col_L2_err": 1.1326396174980268e-14,
+    "max_weight_outside": 1.1102230246251565e-16,
+    "phase_deviation": 0.0,
+    "phase_angle": -7.466419390088456e-15,
+    "alpha": 0.37,
+    "beta": 0.61,
+    "cpu_seconds": 482.21776390075684
+   }
+  },
+  "r05-F4-005": {
+   "alt1": {
+    "n_codes": 80,
+    "qubits_min": 17,
+    "qubits_max": 23,
+    "max_col_maxabs_err": 1.40885727031699e-14,
+    "max_col_L2_err": 1.4678542462270626e-14,
+    "max_weight_outside": 0.0,
+    "phase_deviation": 0.0,
+    "phase_angle": -8.08871613079124e-15,
+    "alpha": 0.91,
+    "beta": 0.23,
+    "cpu_seconds": 92.13925528526306
+   },
+   "alt2": {
+    "n_codes": 80,
+    "qubits_min": 17,
+    "qubits_max": 23,
+    "max_col_maxabs_err": 1.4956315403090868e-14,
+    "max_col_L2_err": 1.5152479792803218e-14,
+    "max_weight_outside": 0.0,
+    "phase_deviation": 0.0,
+    "phase_angle": -7.976827690532118e-15,
+    "alpha": 1.7,
+    "beta": 1.0,
+    "cpu_seconds": 92.64040470123291
+   },
+   "nominal": {
+    "n_codes": 1296,
+    "qubits_min": 17,
+    "qubits_max": 23,
+    "max_col_maxabs_err": 1.566599082673441e-14,
+    "max_col_L2_err": 1.609359761335552e-14,
+    "max_weight_outside": 2.220446049250313e-16,
+    "phase_deviation": 0.0,
+    "phase_angle": -7.923151236430887e-15,
+    "alpha": 0.37,
+    "beta": 0.61,
+    "cpu_seconds": 1632.7586660385132
+   }
+  }
+ }
+}

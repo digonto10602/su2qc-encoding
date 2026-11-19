@@ -1,0 +1,202 @@
+{
+ "commit": "a155e59",
+ "n": 39,
+ "n_pass": 39,
+ "checks": [
+  {
+   "name": "claimed keys",
+   "ok": true,
+   "got": "{'r05-F1-005': (226, 846, 1386, 52), 'r05-F3-005': (220, 840, 1389, 53), 'r05-F4-005': (274, 1186, 1767, 55)}"
+  },
+  {
+   "name": "round: n_valid 3, invalid 0, external [], n_pruning_bound 0",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "round: best_key = min key, headline r05-F3-005",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "synthesis_verification: entry r05-F3-005, ok, certified, eps 1e-6, n_rot 10, T 840, error<=tol",
+   "ok": true,
+   "got": "{'entry': 'r05-F3-005', 'ok': True, 'eps': 1e-06, 'n_rot': 10, 't_total': 840, 'tolerances': {'tol_err': 1.0001e-05, 'tol_gauss': 1.0001e-05}, 'op_norm_error': 4.324590823042975e-06, 'certified': True, 'reason': 'ok'}"
+  },
+  {
+   "name": "round evaluator_sha256 == current rishon code_hash == frozen 5f5decfa",
+   "ok": true,
+   "got": "('5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23', '5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23')"
+  },
+  {
+   "name": "round-004 evaluator_sha256 and spec_sha256 same as round 5",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "r05-F1-005: sha256 file = archive = round = git HEAD blob",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "r05-F1-005: valid, key = metrics, verdict certified, engine sparse",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "r05-F1-005: dropped_total <= 1e-11 (cap), max_leak, outer_bits_read = 0, dirty_ancilla 0",
+   "ok": true,
+   "got": "{'dropped_total': 1.2754550539094694e-13, 'max_leak': 0.0, 'outer_bits_read': 0, 'dirty_ancilla': 0.0, 'op_norm_error': 1.4213005020804216e-13, 'gauss_residual': 7.622052005361875e-16}"
+  },
+  {
+   "name": "r05-F1-005: cell = floor(8 log2(.+1))",
+   "ok": true,
+   "got": "([62, 77], (62, 77))"
+  },
+  {
+   "name": "r05-F1-005: FAMILY / PARENT = expected; parent exists & valid",
+   "ok": true,
+   "got": "('F1', 'r04-F1-004')"
+  },
+  {
+   "name": "r05-F1-005: feedback key/valid = entry",
+   "ok": true,
+   "got": "{'cx': 226, 't_fixed': 210, 'n_rot': 10, 't_eps': 846, 't_estimate': {'1e-06': 807.9470570797253, '1e-10': 1206.5784284662086}, 't_measured': {'1e-06': 846, '1e-10': 1242}, 'synth_error_bound': 9.999999999999999e-06, 'depth': 305, 'depth_ct': 1386, 'qubits': 52, 'gates': {'cx': 226, 'h': 144, 't': 1"
+  },
+  {
+   "name": "r05-F1-005: all 2 DISCOVERY lines of the docstring are in discoveries/rishon.md",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "r05-F3-005: sha256 file = archive = round = git HEAD blob",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "r05-F3-005: valid, key = metrics, verdict certified, engine sparse",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "r05-F3-005: dropped_total <= 1e-11 (cap), max_leak, outer_bits_read = 0, dirty_ancilla 0",
+   "ok": true,
+   "got": "{'dropped_total': 1.2207447943512117e-13, 'max_leak': 0.0, 'outer_bits_read': 0, 'dirty_ancilla': 0.0, 'op_norm_error': 1.3562193011708809e-13, 'gauss_residual': 8.298870694937207e-16}"
+  },
+  {
+   "name": "r05-F3-005: cell = floor(8 log2(.+1))",
+   "ok": true,
+   "got": "([62, 77], (62, 77))"
+  },
+  {
+   "name": "r05-F3-005: FAMILY / PARENT = expected; parent exists & valid",
+   "ok": true,
+   "got": "('F3', 'r04-F3-003')"
+  },
+  {
+   "name": "r05-F3-005: feedback key/valid = entry",
+   "ok": true,
+   "got": "{'cx': 220, 't_fixed': 196, 'n_rot': 10, 't_eps': 840, 't_estimate': {'1e-06': 793.9470570797253, '1e-10': 1192.5784284662086}, 't_measured': {'1e-06': 840, '1e-10': 1228}, 'synth_error_bound': 9.999999999999999e-06, 'depth': 253, 'depth_ct': 1389, 'qubits': 53, 'gates': {'cx': 220, 'h': 132, 't': 9"
+  },
+  {
+   "name": "r05-F3-005: all 2 DISCOVERY lines of the docstring are in discoveries/rishon.md",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "r05-F4-005: sha256 file = archive = round = git HEAD blob",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "r05-F4-005: valid, key = metrics, verdict certified, engine sparse",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "r05-F4-005: dropped_total <= 1e-11 (cap), max_leak, outer_bits_read = 0, dirty_ancilla 0",
+   "ok": true,
+   "got": "{'dropped_total': 1.5335252501570888e-13, 'max_leak': 0.0, 'outer_bits_read': 0, 'dirty_ancilla': 0.0, 'op_norm_error': 1.6803015191704598e-13, 'gauss_residual': 8.864419988414313e-16}"
+  },
+  {
+   "name": "r05-F4-005: cell = floor(8 log2(.+1))",
+   "ok": true,
+   "got": "([64, 81], (64, 81))"
+  },
+  {
+   "name": "r05-F4-005: FAMILY / PARENT = expected; parent exists & valid",
+   "ok": true,
+   "got": "('F4', 'r03-F4-003')"
+  },
+  {
+   "name": "r05-F4-005: feedback key/valid = entry",
+   "ok": true,
+   "got": "{'cx': 274, 't_fixed': 282, 'n_rot': 14, 't_eps': 1186, 't_estimate': {'1e-06': 1119.1258799116154, '1e-10': 1677.2097998526922}, 't_measured': {'1e-06': 1186, '1e-10': 1718}, 'synth_error_bound': 1.4e-05, 'depth': 320, 'depth_ct': 1767, 'qubits': 55, 'gates': {'cx': 274, 'h': 144, 't': 142, 'tdg': "
+  },
+  {
+   "name": "r05-F4-005: all 2 DISCOVERY lines of the docstring are in discoveries/rishon.md",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "index: best = r05-F3-005; n_entries = number of files",
+   "ok": true,
+   "got": "('r05-F3-005', 21, 21)"
+  },
+  {
+   "name": "attempts: HEAD lines are a byte prefix; exactly 3 new lines",
+   "ok": true,
+   "got": "(19, 22)"
+  },
+  {
+   "name": "discoveries: HEAD text is a prefix",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "all pre-round-5 entry files byte-identical to HEAD",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "Archive.load strict: best r05-F3-005, family bests F1 r05-F1-005 / F3 r05-F3-005 / F4 r05-F4-005",
+   "ok": true,
+   "got": "('r05-F3-005',)"
+  },
+  {
+   "name": "best = lexicographic argmin of the key over all valid entries",
+   "ok": true,
+   "got": "r05-F3-005"
+  },
+  {
+   "name": "round 5 improves the previous best key (stop-rule counter -> 0)",
+   "ok": true,
+   "got": "((220, 840, 1389, 53), (228, 846, 1417, 53), 'r04-F1-004')"
+  },
+  {
+   "name": "robust.json evaluator_sha256 = current",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "robust.json has r05-F1-005 with program_sha256 = file",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "robust.json has r05-F3-005 with program_sha256 = file",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "robust.json has r05-F4-005 with program_sha256 = file",
+   "ok": true,
+   "got": ""
+  },
+  {
+   "name": "robust.json: old entries' records unchanged vs HEAD",
+   "ok": true,
+   "got": ""
+  }
+ ]
+}

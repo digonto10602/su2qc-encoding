@@ -1,0 +1,291 @@
+{
+ "round": 5,
+ "n_valid": 3,
+ "n_invalid": 0,
+ "best_key": [
+  220,
+  840,
+  1389,
+  53
+ ],
+ "entries": [
+  "r05-F1-005",
+  "r05-F3-005",
+  "r05-F4-005"
+ ],
+ "lean_seconds": 0.0,
+ "headline": "r05-F3-005",
+ "headline_robust_key": [
+  220,
+  16584,
+  0,
+  27622,
+  53
+ ],
+ "encoding": "rishon",
+ "kind": "step",
+ "provenance": {
+  "git_commit": "bef04cd",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-19T12:33:53Z"
+ },
+ "evaluator_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+ "encoding_sha256": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+ "spec_sha256": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+ "invalid": [],
+ "external": [],
+ "n_pruning_bound": 0,
+ "candidates": [
+  {
+   "label": "005-cy-gauge-rc3x",
+   "id": "r05-F1-005",
+   "family": "F1",
+   "program_sha256": "fddee9b3b8b3bdd29eb96a1891a4df676bebd1713d2ad1d3ccc9d0a06c60ee59",
+   "program_path": "compress/programs/rishon/F1/005-cy-gauge-rc3x.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    226,
+    846,
+    1386,
+    52
+   ],
+   "cell": [
+    62,
+    77
+   ],
+   "metrics": {
+    "cx": 226,
+    "t_fixed": 210,
+    "n_rot": 10,
+    "t_eps": 846,
+    "t_estimate": {
+     "1e-06": 807.9470570797253,
+     "1e-10": 1206.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 846,
+     "1e-10": 1242
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 305,
+    "depth_ct": 1386,
+    "qubits": 52,
+    "gates": {
+     "cx": 226,
+     "h": 144,
+     "t": 106,
+     "tdg": 104,
+     "x": 52,
+     "sdg": 29,
+     "s": 29,
+     "rz": 10,
+     "z": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.4213005020804216e-13,
+    "block_error": 1.458454481709523e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 7.622052005361875e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.4213005020804216e-13,
+    "dropped_total": 1.2754550539094694e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r04-F1-004",
+   "parent_known": true,
+   "git_commit": "bef04cd",
+   "summary": "F1 round 5 on the parent r04-F1-004 (F3 controlled-partner frame with the (P, Z) class selector, 6-term Walsh rotation on F): same frame, flags and partner rotation, but the Margolus h_b Toffoli is gauged by CZ(q3, q2) placed right after the tau-fix CX(q3 -> q2), where CZ.CX = S(q3) CY(q3 -> q2) is one CX (-2 CX), the 4-input AND of the corner tests is rccx + one Maslov relative-phase C3X instead of 3 rccx (same CX and T, one ancilla fewer), and the U_E phases sit on the g_r copy in the raw R2 of link r (CX(13, 7) after it) and on g_b after the h_b Toffoli (shorter Clifford+T depth); all angles linear in alpha, beta, sqrt2 beta.",
+   "lean": null,
+   "round": 5,
+   "mode": "full"
+  },
+  {
+   "label": "005-loop-skips-c0-c2h",
+   "id": "r05-F3-005",
+   "family": "F3",
+   "program_sha256": "0f30af2b3efc0c57617855f3a3732b8fe6f9f58718314af25a7f22130ebc5e2a",
+   "program_path": "compress/programs/rishon/F3/005-loop-skips-c0-c2h.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    220,
+    840,
+    1389,
+    53
+   ],
+   "cell": [
+    62,
+    77
+   ],
+   "metrics": {
+    "cx": 220,
+    "t_fixed": 196,
+    "n_rot": 10,
+    "t_eps": 840,
+    "t_estimate": {
+     "1e-06": 793.9470570797253,
+     "1e-10": 1192.5784284662086
+    },
+    "t_measured": {
+     "1e-06": 840,
+     "1e-10": 1228
+    },
+    "synth_error_bound": 9.999999999999999e-06,
+    "depth": 253,
+    "depth_ct": 1389,
+    "qubits": 53,
+    "gates": {
+     "cx": 220,
+     "h": 132,
+     "t": 98,
+     "tdg": 98,
+     "x": 52,
+     "sdg": 24,
+     "s": 24,
+     "rz": 10,
+     "z": 2
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.3562193011708809e-13,
+    "block_error": 1.354745068196692e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 8.298870694937207e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.3562193011708809e-13,
+    "dropped_total": 1.2207447943512117e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r04-F3-003",
+   "parent_known": true,
+   "git_commit": "bef04cd",
+   "summary": "F3 controlled partner involution in CH form with the kappa selector (parent r04-F3-003), but the exact 6-CX closed CCH(Z, F -> e1c0) is gone: U = [r_t = 0 = r_r^r_l] and Z = [r = 000] are computed right after the tau fix, the corner C2H at c1, c2, c3 run as before, and the c0 C2H (controls F, q13 = g_l) is skipped on the closed sector by toggling q13 ^= Z around it (2 CX) - on the loop it only made the e1c0 superposition that the CCH undid (H X X H = X X); T(q13) before and T^dag(q13) after the first CX(Z -> q13) restore the lost (-i) relative phase on the loop (a controlled-S(F, Z) without CX), so all 81 couplings stay real and uniform per class (closed sign flipped, Walsh closed coefficient negated); rest as the parent: frame (L2 = Q flag, U_E as 4 phases on L2; h_b by two in-place rccx Fredkin halves + a Margolus Toffoli with a CZ(h_b, r.L1) gauge; one CX per corner; tau fix; one kappa=1 dark-label fold rccx(e1c3, !e2c3 -> F); e1 ^= g^delta^1; H(q3) and the closed-dark mark rccx(Z, q3 -> e1c0)), exp(i theta Pi) = W exp(i theta X_F Z_E) W with W = 4 CH(!e2 -> e1), bright flag X = AND of 4 in-place corner tests, 6-term Gray-cycle Walsh rotation on F over (X, U, Z); 220 CX (-8), T_fixed 196 (-14); all angles linear in alpha, beta, sqrt2 beta.",
+   "lean": null,
+   "round": 5,
+   "mode": "full"
+  },
+  {
+   "label": "005-five-leaf-test-cover",
+   "id": "r05-F4-005",
+   "family": "F4",
+   "program_sha256": "0ad5dfa32db1e8132c269368d1003ed8482f51b8cf0ae4514f923a478d0219ee",
+   "program_path": "compress/programs/rishon/F4/005-five-leaf-test-cover.py",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    274,
+    1186,
+    1767,
+    55
+   ],
+   "cell": [
+    64,
+    81
+   ],
+   "metrics": {
+    "cx": 274,
+    "t_fixed": 282,
+    "n_rot": 14,
+    "t_eps": 1186,
+    "t_estimate": {
+     "1e-06": 1119.1258799116154,
+     "1e-10": 1677.2097998526922
+    },
+    "t_measured": {
+     "1e-06": 1186,
+     "1e-10": 1718
+    },
+    "synth_error_bound": 1.4e-05,
+    "depth": 320,
+    "depth_ct": 1767,
+    "qubits": 55,
+    "gates": {
+     "cx": 274,
+     "h": 144,
+     "t": 142,
+     "tdg": 140,
+     "x": 34,
+     "sdg": 25,
+     "s": 25,
+     "z": 18,
+     "rz": 14
+    },
+    "measured": true
+   },
+   "verdict": {
+    "ok": true,
+    "op_norm_error": 1.6803015191704598e-13,
+    "block_error": 1.4677626901337108e-14,
+    "leak_amplitude": 0.0,
+    "gauss_residual": 8.864419988414313e-16,
+    "certified": true,
+    "engine": "sparse",
+    "method": "rishon_inner_block",
+    "span_leak": 0.0,
+    "total_error": 1.6803015191704598e-13,
+    "dropped_total": 1.5335252501570888e-13
+   },
+   "alt_ok": [
+    true,
+    true
+   ],
+   "skeleton_equal": true,
+   "parent": "r03-F4-003",
+   "parent_known": true,
+   "git_commit": "bef04cd",
+   "summary": "F4 flat direction-qubit dilation (parent r03-F4-003; frame, class flags, direction NAND, Maslov RC3X^dag lowering, class-multiplexed Rx on q and closed toggle unchanged) with a cheaper bright test from an exact set-cover search over the J-frame labels: 5 leaves instead of 8 (three in-place corner literals w_c ^ (c_c & !(a_c ^ b_{c-1})) at c0, c1, c2 by one rccx each on the w bits, P_c1 ^ dark_c3 by one rccx into q5, P_c3 by one CX), ANDed by 4 rccx into 4 ancillas instead of 11 rccx into 11 (test 29 CX per side instead of 37); the test preps leave vac_A and the loop differing in 3 data bits instead of 4, so the closed A<->L toggle ladder is 2 CX per side instead of 3; all angles linear in alpha, beta, sqrt2 beta.",
+   "lean": null,
+   "round": 5,
+   "mode": "full"
+  }
+ ],
+ "synthesis_verification": {
+  "entry": "r05-F3-005",
+  "ok": true,
+  "eps": 1e-06,
+  "n_rot": 10,
+  "t_total": 840,
+  "tolerances": {
+   "tol_err": 1.0001e-05,
+   "tol_gauss": 1.0001e-05
+  },
+  "op_norm_error": 4.324590823042975e-06,
+  "certified": true,
+  "reason": "ok"
+ },
+ "wall_s": 91.16804027557373,
+ "written_utc": "2026-11-19T12:33:53Z"
+}
