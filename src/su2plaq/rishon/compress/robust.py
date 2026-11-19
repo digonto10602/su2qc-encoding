@@ -31,7 +31,7 @@ import sys
 import numpy as np
 
 ENC = "rishon"
-from su2plaq.compress.robust import ANGLE_SET, ANGLE_SET_N, ANGLE_SET_RANGES, ANGLE_SET_SEED  # noqa: E402,F401  (one definition for every encoding)
+from su2plaq.compress.robust import ANGLE_SET, ANGLE_SET_N, ANGLE_SET_RANGES, ANGLE_SET_SEED, _atomic_write_text  # noqa: E402,F401  (one definition for every encoding)
 
 LINEAR_TOL = 1e-9                          # the fitted angle expression must reproduce every rotation angle at every pair to this
 ROTATION_GATES = ("rz", "p", "crz", "crx", "cp")
@@ -40,7 +40,7 @@ ROTATION_GATES = ("rz", "p", "crz", "crx", "cp")
 HEADLINE_SECTION_TITLE = "## Headline rule (track R)"
 HEADLINE_SECTION = HEADLINE_SECTION_TITLE + """
 
-The archive key counts T at the nominal pair; the Report 6 headline and the Lean theorem file go to the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth, qubits). Offsetting a rotation by $\\pm\\pi/4$ with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of $\\pi/2$ belong in separate `s`/`sdg`/`z` gates so that the rotation angle stays $(m_\\alpha\\alpha+m_\\beta\\beta+m_\\gamma\\sqrt2\\beta)/d$ (Lean-certifiable). Fewer CX, fewer rotations, smaller coefficients and shared rotations are what move the headline.
+The archive key counts T at the nominal pair; the Report 6 headline and the Lean theorem file go to the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth, qubits). Offsetting a rotation by $\\pm\\pi/4$ with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of $\\pi/2$ on `rz`/`p`/`rx`/`ry` belong in separate `s`/`sdg`/`z` gates (for `crz`/`crx`/`cry`/`cp` only multiples of $\\pi$ are Clifford: $\\mathrm{cp}(\\pi/2)$ is a controlled-$S$ and costs T) so that the rotation angle stays $(m_\\alpha\\alpha+m_\\beta\\beta+m_\\gamma\\sqrt2\\beta)/d$ (Lean-certifiable). Fewer CX, fewer rotations, smaller coefficients and shared rotations are what move the headline.
 """
 
 
@@ -174,10 +174,7 @@ def headline(kind="step", root=None, refresh: bool = False) -> dict:
                 raise RuntimeError(f"program file of {e.id} ({e.program_path}) differs from the archived sha256")
             rec = json.loads(json.dumps(rec))          # the cached (JSON) shape, also for fresh entries
         store["entries"][e.id] = rec
-        cache_file.parent.mkdir(parents=True, exist_ok=True)
-        tmp = cache_file.with_suffix(".json.tmp")
-        tmp.write_text(json.dumps(store, indent=1))
-        tmp.replace(cache_file)
+        _atomic_write_text(cache_file, json.dumps(store, indent=1))          # unique temp name (audit 305 N5)
     rows = []
     for e in valid:
         rec = store["entries"].get(e.id)

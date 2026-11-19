@@ -70,7 +70,7 @@ Numerical structure (not proved in Lean):
 
 ## Headline rule (track R)
 
-The archive key counts T at the nominal pair; the Report 6 headline and the Lean theorem file go to the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth, qubits). Offsetting a rotation by $\pm\pi/4$ with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of $\pi/2$ belong in separate `s`/`sdg`/`z` gates so that the rotation angle stays $(m_\alpha\alpha+m_\beta\beta+m_\gamma\sqrt2\beta)/d$ (Lean-certifiable). Fewer CX, fewer rotations, smaller coefficients and shared rotations are what move the headline.
+The archive key counts T at the nominal pair; the Report 6 headline and the Lean theorem file go to the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth, qubits). Offsetting a rotation by $\pm\pi/4$ with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of $\pi/2$ on `rz`/`p`/`rx`/`ry` belong in separate `s`/`sdg`/`z` gates (for `crz`/`crx`/`cry`/`cp` only multiples of $\pi$ are Clifford: $\mathrm{cp}(\pi/2)$ is a controlled-$S$ and costs T) so that the rotation angle stays $(m_\alpha\alpha+m_\beta\beta+m_\gamma\sqrt2\beta)/d$ (Lean-certifiable). Fewer CX, fewer rotations, smaller coefficients and shared rotations are what move the headline.
 
 ## Tools
 

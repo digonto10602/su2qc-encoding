@@ -9,6 +9,7 @@ of another encoding, moved by T_{s->d} = D_s D_d V_s D_d D_s.  This module decid
 """
 from __future__ import annotations
 
+import hashlib
 import importlib
 import pathlib
 
@@ -77,6 +78,7 @@ def step_circuit(encoding, which="general", alpha=0.37, beta=0.61, order=1, root
     from su2plaq.compress import archive as A
     from su2plaq.compress import evaluate as E
     from su2plaq.compress import robust as RB
+    from su2plaq.compress.round import ProgramShaMismatch
     from su2plaq.compress.spec import ROOT, default_spec
 
     root = pathlib.Path(ROOT if root is None else root)
@@ -87,7 +89,11 @@ def step_circuit(encoding, which="general", alpha=0.37, beta=0.61, order=1, root
     spec = default_spec(encoding, "step")
     arch = A.Archive.load(encoding, root=root, n_alt=len(spec.alt_angles), strict=True)
     entry = next(x for x in arch.entries() if x.id == hid)
-    circuits, _ = E._build_in_subprocess((root / entry.program_path).read_bytes(), [spec.with_angles(alpha, beta)], E.BUILD_TIMEOUT_S)
+    source = (root / entry.program_path).read_bytes()
+    got = hashlib.sha256(source).hexdigest()
+    if got != entry.program_sha256:          # audit 305 N3: the file is the archived program, or nothing is cross-verified under its id
+        raise ProgramShaMismatch(f"{entry.program_path}: file sha256 {got[:12]} != archived program_sha256 {entry.program_sha256[:12]}")
+    circuits, _ = E._build_in_subprocess(source, [spec.with_angles(alpha, beta)], E.BUILD_TIMEOUT_S)
     return circuits[0], {"which": "headline", "entry": hid, "program_sha256": entry.program_sha256}
 
 

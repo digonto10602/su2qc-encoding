@@ -31,11 +31,11 @@ _SRC = pathlib.Path(__file__).resolve().parents[1]            # src/su2plaq
 _LEAN_SPINNET = pathlib.Path("lean") / "Su2Plaq" / "SpinNet"
 
 # headline rule (prompts/104 §11 erratum E3): the angle set on which T and depth_CT are averaged; one definition for every encoding
-from su2plaq.compress.robust import ANGLE_SET, ANGLE_SET_N, ANGLE_SET_RANGES, ANGLE_SET_SEED  # noqa: E402,F401
+from su2plaq.compress.robust import ANGLE_SET, ANGLE_SET_N, ANGLE_SET_RANGES, ANGLE_SET_SEED, _atomic_write_text  # noqa: E402,F401
 
 HEADLINE_RULE_SECTION = """## Headline rule (track S)
 
-The archive key counts T at the nominal pair; the Report 4 headline and the Lean theorem file go to the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth, qubits). Offsetting a rotation by +-pi/4 with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of pi/2 belong in separate `s`/`sdg`/`z` gates so that the rotation angle stays a rational multiple of alpha or beta (Lean-certifiable). Fewer CX, fewer rotations, smaller rational coefficients, and shared rotations are what move the headline.
+The archive key counts T at the nominal pair; the Report 4 headline and the Lean theorem file go to the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth, qubits). Offsetting a rotation by +-pi/4 with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of pi/2 on `rz`/`p`/`rx`/`ry` belong in separate `s`/`sdg`/`z` gates (for `crz`/`crx`/`cry`/`cp` only multiples of pi are Clifford: cp(pi/2) is a controlled-S and costs T) so that the rotation angle stays a rational multiple of alpha or beta (Lean-certifiable). Fewer CX, fewer rotations, smaller rational coefficients, and shared rotations are what move the headline.
 """
 
 
@@ -778,10 +778,7 @@ def headline(root=None, refresh: bool = False) -> dict:
             if rec["program_sha256"] != e.program_sha256:
                 raise RuntimeError(f"program file of {e.id} ({e.program_path}) differs from the archived sha256")
         store["entries"][e.id] = rec
-        cache_file.parent.mkdir(parents=True, exist_ok=True)
-        tmp = cache_file.with_suffix(".json.tmp")
-        tmp.write_text(json.dumps(store, indent=1))
-        tmp.replace(cache_file)
+        _atomic_write_text(cache_file, json.dumps(store, indent=1))          # unique temp name (audit 305 N5)
     by_id = {e.id: e for e in valid}
     rows, unrankable = [], []
     for i, rec in store["entries"].items():

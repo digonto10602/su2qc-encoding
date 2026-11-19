@@ -11,6 +11,7 @@ from __future__ import annotations
 import json
 import pathlib
 
+from su2plaq.compress.round import check_program_sha
 from su2plaq.fuzzy import compress_hook as H
 
 RULE = "headline"
@@ -32,6 +33,8 @@ def _cached_unit(enc: str, root):
     spec = default_spec(enc, kind)
     arch = A.Archive.load(enc, root=H._root(root), n_alt=len(spec.alt_angles), strict=True)
     entry = next(e for e in arch.entries() if e.id == h["id"])
+    if not str(entry.program_path).endswith(".circuit"):          # circuit-valued baselines have no file
+        check_program_sha(entry.program_path, entry.program_sha256, root=H._root(root))      # audit 305 N3 (compress_hook.circuit_of_entry does not)
     return entry, row, spec
 
 

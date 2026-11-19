@@ -1,0 +1,335 @@
+{
+ "report": "reports/tests/431-audit305-cleanup.md",
+ "commit_head": "ef3b15a (src changes uncommitted; code base 0290a01)",
+ "date": "2026-11-19",
+ "machine": "omnicommander, taskset 0-8",
+ "hashes_head_vs_worktree": {
+  "head": {
+   "provenance": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+   "twelve": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+   "lsh": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+   "spinnet": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
+   "fuzzy_ub": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
+   "fuzzy_link": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
+   "rishon": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+   "spinnet_loop": "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4"
+  },
+  "worktree_after": {
+   "provenance": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+   "twelve": "99663fa6cd2550d91f7a52c7aad6097840177cb3b13bff2b06f92a70e02b3e37",
+   "lsh": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+   "spinnet": "10f5727f5379cb44d2a5fccdbb25fa7b279cbd91ca64a2b4f88df201ad35e15c",
+   "fuzzy_ub": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
+   "fuzzy_link": "b4bd20fe811e5c992ff9cfb9257a4847705cb843cfe3a0a1c9c01590dbe287f9",
+   "rishon": "5f5decfa34f53069afe7fc41e0d62f7ceecefe2e56667c42a2de56531324ef23",
+   "spinnet_loop": "f1314a01d7716b7a36ae6ddc8e990c4bd293c97881a7aaf53510cfd6a74663d4"
+  }
+ },
+ "spec_sha256_head_vs_worktree": {
+  "head": {
+   "twelve/step": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+   "spinnet/step": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+   "rishon/step": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+   "fuzzy_ub/UB": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+   "fuzzy_link/UE": "fc43837d40f618f4f5b76afb67a12831100928d86da03a1c5d8e22029cee97d9",
+   "lsh/step": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335"
+  },
+  "worktree": {
+   "twelve/step": "ee3ce506db7749c73a4b577a489fb055c2b4a9263f83bead5c842761c4caaa5d",
+   "spinnet/step": "f85f969319c97b0240f8886c3c5d9fe80bc952d3d9d356f8c13b0d770c9999d7",
+   "rishon/step": "bb0b575b965c61a6dfc1b512a93de21bedb22b1ca4e07334b40c186f1b837569",
+   "fuzzy_ub/UB": "5d7f1f943f41f72df8f6cb58bdcec5a3686149980587465c5b8c7e5be47d1f22",
+   "fuzzy_link/UE": "fc43837d40f618f4f5b76afb67a12831100928d86da03a1c5d8e22029cee97d9",
+   "lsh/step": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335"
+  }
+ },
+ "headline_circuits_head_vs_worktree": {
+  "head": {
+   "twelve": {
+    "entry": "r05-F2-005",
+    "n_ops": {
+     "h": 72,
+     "cx": 60,
+     "sdg": 28,
+     "x": 19,
+     "t": 16,
+     "tdg": 16,
+     "s": 14,
+     "rccx": 14,
+     "z": 11,
+     "rz": 9,
+     "ch": 8,
+     "p": 4,
+     "cz": 1
+    },
+    "depth": 95,
+    "nq": 31,
+    "sha": "5804255d9b65565ec65e071b9d00485f1012b3f229fdaa2509bd7c7dd40fb715"
+   },
+   "spinnet": {
+    "entry": "r02-F1-002",
+    "n_ops": {
+     "cx": 19,
+     "rz": 13,
+     "x": 10,
+     "p": 4,
+     "rccx": 4,
+     "h": 2,
+     "sdg": 2,
+     "s": 1
+    },
+    "depth": 35,
+    "nq": 17,
+    "sha": "768cfeaa1c50b21c729822c3c2303e410a07ff7eccbeaca2893e0be9d6ae4a2a"
+   },
+   "rishon": {
+    "error": "ValueError: not a Kogut-Susskind encoding: 'rishon' (expected one of ('twelve', 'spinnet', 'lsh'))"
+   },
+   "fuzzy_headline_step": {
+    "units": {
+     "fuzzy_ub": "r10-F1-010",
+     "fuzzy_link": "r02-F2-001"
+    },
+    "cx": 227,
+    "depth": 151,
+    "qubits": 50,
+    "n_rot": 129,
+    "t_fixed": 72
+   }
+  },
+  "worktree": {
+   "twelve": {
+    "entry": "r05-F2-005",
+    "n_ops": {
+     "h": 72,
+     "cx": 60,
+     "sdg": 28,
+     "x": 19,
+     "t": 16,
+     "tdg": 16,
+     "s": 14,
+     "rccx": 14,
+     "z": 11,
+     "rz": 9,
+     "ch": 8,
+     "p": 4,
+     "cz": 1
+    },
+    "depth": 95,
+    "nq": 31,
+    "sha": "5804255d9b65565ec65e071b9d00485f1012b3f229fdaa2509bd7c7dd40fb715"
+   },
+   "spinnet": {
+    "entry": "r02-F1-002",
+    "n_ops": {
+     "cx": 19,
+     "rz": 13,
+     "x": 10,
+     "p": 4,
+     "rccx": 4,
+     "h": 2,
+     "sdg": 2,
+     "s": 1
+    },
+    "depth": 35,
+    "nq": 17,
+    "sha": "768cfeaa1c50b21c729822c3c2303e410a07ff7eccbeaca2893e0be9d6ae4a2a"
+   },
+   "rishon": {
+    "error": "ValueError: not a Kogut-Susskind encoding: 'rishon' (expected one of ('twelve', 'spinnet', 'lsh'))"
+   },
+   "fuzzy_headline_step": {
+    "units": {
+     "fuzzy_ub": "r10-F1-010",
+     "fuzzy_link": "r02-F2-001"
+    },
+    "cx": 227,
+    "depth": 151,
+    "qubits": 50,
+    "n_rot": 129,
+    "t_fixed": 72
+   }
+  },
+  "note": "rishon entry is an artefact of my script (rishon is not a KS encoding)"
+ },
+ "tamper_scratch_copy": {
+  "untampered_equals_real": true,
+  "tampered": {
+   "twelve": {
+    "error": "ProgramShaMismatch: compress/programs/twelve/F2/005-outer-t2-peephole.py: file sha256 b8129135a85e != archived program_sha256 4f7fcb1eab11"
+   },
+   "spinnet": {
+    "error": "ProgramShaMismatch: compress/programs/spinnet/F1/002-dimer-linear-corner-walk.py: file sha256 bf2538d35593 != archived program_sha256 750151e9ad41"
+   },
+   "rishon": {
+    "error": "ValueError: not a Kogut-Susskind encoding: 'rishon' (expected one of ('twelve', 'spinnet', 'lsh'))"
+   },
+   "fuzzy_headline_step": {
+    "error": "ProgramShaMismatch: compress/programs/fuzzy_ub/F1/010-ten-qubit-short-window-exact-angles.py: file sha256 97958683a175 != archived program_sha256 9fa4444b7665"
+   }
+  }
+ },
+ "robust_cache_loads": {
+  "head": {
+   "twelve": {
+    "id": "r05-F2-005",
+    "robust_key": [
+     111,
+     18548,
+     0,
+     34384,
+     31
+    ],
+    "t_mean": 927.4
+   },
+   "spinnet": {
+    "id": "r02-F1-002",
+    "robust_key": [
+     31,
+     21840,
+     0,
+     46024,
+     17
+    ],
+    "t_mean": 1092.0
+   },
+   "fuzzy_ub": {
+    "id": "r10-F1-010",
+    "robust_key": [
+     83,
+     12688,
+     0,
+     30902,
+     10
+    ],
+    "t_mean": 634.4
+   },
+   "fuzzy_link": {
+    "id": "r02-F2-001",
+    "robust_key": [
+     12,
+     12576,
+     0,
+     23373,
+     4
+    ],
+    "t_mean": 628.8
+   },
+   "rishon": {
+    "id": "r04-F1-004",
+    "robust_key": [
+     228,
+     16876,
+     0,
+     28328,
+     53
+    ],
+    "t_mean": 843.8
+   }
+  },
+  "worktree": {
+   "twelve": {
+    "id": "r05-F2-005",
+    "robust_key": [
+     111,
+     18548,
+     0,
+     34384,
+     31
+    ],
+    "t_mean": 927.4
+   },
+   "spinnet": {
+    "id": "r02-F1-002",
+    "robust_key": [
+     31,
+     21840,
+     0,
+     46024,
+     17
+    ],
+    "t_mean": 1092.0
+   },
+   "fuzzy_ub": {
+    "id": "r10-F1-010",
+    "robust_key": [
+     83,
+     12688,
+     0,
+     30902,
+     10
+    ],
+    "t_mean": 634.4
+   },
+   "fuzzy_link": {
+    "id": "r02-F2-001",
+    "robust_key": [
+     12,
+     12576,
+     0,
+     23373,
+     4
+    ],
+    "t_mean": 628.8
+   },
+   "rishon": {
+    "id": "r04-F1-004",
+    "robust_key": [
+     228,
+     16876,
+     0,
+     28328,
+     53
+    ],
+    "t_mean": 843.8
+   }
+  }
+ },
+ "replay_scratch_fuzzy_link": {
+  "untampered": {
+   "program_changed": [],
+   "exit": 0
+  },
+  "tampered_r01-F1-001": {
+   "program_changed": [
+    "r01-F1-001"
+   ],
+   "exit": 1
+  }
+ },
+ "n7_clifford": "all 8 gates x k*pi/4, k=0..8: single-qubit Clifford iff k even; controlled iff k%4==0; 0 unexpected; cp(pi/2) not Clifford",
+ "tests": {
+  "unit": {
+   "passed": 1155,
+   "failed": 0,
+   "s": 441.8
+  },
+  "m2c_all": {
+   "passed": 28,
+   "failed": 0,
+   "s": 26.7
+  },
+  "acceptance_not_slow": {
+   "passed": 329,
+   "failed": 13,
+   "s": 1271.3,
+   "failed_ids": [
+    "M11_T2",
+    "M6_L2",
+    "M6_L3",
+    "M6_L9",
+    "M6_G6",
+    "M8_E2",
+    "M8_S0",
+    "M8_S2",
+    "M8_S3",
+    "M8_S4",
+    "M8_S5",
+    "M8_H1",
+    "M8_L2"
+   ]
+  }
+ },
+ "check_lock": "LOCK OK",
+ "acceptance_check": "PASS acceptance-v22"
+}

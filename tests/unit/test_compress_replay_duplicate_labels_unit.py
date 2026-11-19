@@ -52,7 +52,7 @@ def test_round_with_duplicate_labels_replays_with_all_invariants(dup_root, tmp_p
     assert [e["label"] for e in r1] == [STEM, STEM]
     assert sorted(e["program_path"] for e in r1) == sorted(f"compress/programs/{ENC}/{f}/{STEM}.py" for f in ("F1", "F2"))
     assert all(e["id"] == e["old_id"] and e["key_equal"] is True for e in r1)            # each paired with its own recorded candidate
-    assert res["lost"] == [] and res["best_new"] == res["best_old"] and RP.problems(res) == {"key_changed": [], "lost": [], "refused": []}
+    assert res["lost"] == [] and res["best_new"] == res["best_old"] and RP.problems(res) == {"key_changed": [], "lost": [], "refused": [], "program_changed": []}
     assert res["attempts_unchanged"] is True and res["discoveries_unchanged"] is True
 
 

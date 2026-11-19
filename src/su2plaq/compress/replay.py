@@ -172,7 +172,7 @@ def replay(encoding: str, kind: str, root=None, tag: str = "008", lean: bool = F
             if n["valid"] and not o["valid"]:
                 newly.append(nc["id"])
             entries.append({"id": nc["id"], "old_id": oc["id"], "round": r, "label": oc["label"], "program_path": oc["program_path"],
-                            "program_sha256": nc["program_sha256"], "old": o, "new": n,
+                            "program_sha256": nc["program_sha256"], "old_program_sha256": oc.get("program_sha256"), "old": o, "new": n,
                             "key_equal": (o["key"] == n["key"]) if (o["valid"] and n["valid"]) else None})
 
     # Lean records of unchanged programs go over to the new entries (a replay must not erase a certificate)
@@ -237,10 +237,14 @@ def latest_record(encoding: str, root=None) -> dict | None:
 def problems(res: dict) -> dict:
     """What prompts/204 section 12 says to stop on: entries valid before and after whose key changed (`key_equal` is False) and
     entries that were valid and are not any more (`lost`); also (B7-fix N2) the entry files of the OLD archive that the loader refused and
-    the old archived entries that no recorded round produced (`refused`: file names / ids; records without those fields count none).
-    -> {"key_changed": [ids], "lost": [ids], "refused": [names]}."""
+    the old archived entries that no recorded round produced (`refused`: file names / ids; records without those fields count none);
+    and (audit 305 N2) the entries whose program file now has another sha256 than the one recorded in its round (`program_changed`:
+    ids; a record written before `old_program_sha256` existed counts none).
+    -> {"key_changed": [ids], "lost": [ids], "refused": [names], "program_changed": [ids]}."""
     return {"key_changed": [e["id"] for e in res["entries"] if e["key_equal"] is False], "lost": list(res["lost"]),
-            "refused": [x["file"] for x in res.get("old_archive_refused", [])] + list(res.get("old_archive_unreplayed", []))}
+            "refused": [x["file"] for x in res.get("old_archive_refused", [])] + list(res.get("old_archive_unreplayed", [])),
+            "program_changed": [e["id"] for e in res["entries"]
+                                if e.get("old_program_sha256") is not None and e["old_program_sha256"] != e["program_sha256"]]}
 
 
 def report(res: dict, out=None, err=None) -> int:
@@ -248,11 +252,12 @@ def report(res: dict, out=None, err=None) -> int:
     out, err = out or sys.stdout, err or sys.stderr
     bad = problems(res)
     print(json.dumps({"tag": res["tag"], "rounds": res["rounds"], "newly_valid": res["newly_valid"], "lost": res["lost"],
-                      "key_changed": bad["key_changed"], "refused": bad["refused"], "best_old": res["best_old"], "best_new": res["best_new"],
+                      "key_changed": bad["key_changed"], "refused": bad["refused"], "program_changed": bad["program_changed"], "best_old": res["best_old"], "best_new": res["best_new"],
                       "wall_s": round(res["wall_s"])}), file=out)
-    if bad["key_changed"] or bad["lost"] or bad["refused"]:
+    if bad["key_changed"] or bad["lost"] or bad["refused"] or bad["program_changed"]:
         print(f"REPLAY PROBLEM: key changed for {bad['key_changed']}; lost (valid before, invalid now): {bad['lost']}; "
-              f"old archive entries refused by the loader or never produced by a recorded round: {bad['refused']}", file=err)
+              f"old archive entries refused by the loader or never produced by a recorded round: {bad['refused']}; "
+              f"program file sha256 differs from the one recorded in its round: {bad['program_changed']}", file=err)
         return 1
     return 0
 

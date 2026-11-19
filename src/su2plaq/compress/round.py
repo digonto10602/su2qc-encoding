@@ -349,6 +349,19 @@ class ProgramShaMismatch(Exception):
     """The program file on disk is not the file that was evaluated and archived (audit 004 N2).  Never caught."""
 
 
+def check_program_sha(program_path, expected_sha256, root=None) -> None:
+    """Raise `ProgramShaMismatch` when the program file on disk does not have the archived sha256 (audit 305 N3: headline circuits that
+    are rebuilt outside `_circuit_of`).  Circuit-valued baselines (`*.circuit`, no file) are skipped; a missing file is a FileNotFoundError."""
+    if str(program_path).endswith(".circuit"):
+        return
+    root = pathlib.Path(root) if root is not None else ROOT
+    f = pathlib.Path(program_path)
+    f = f if f.is_absolute() else (root / f if (root / f).exists() else ROOT / f)
+    got = hashlib.sha256(f.read_bytes()).hexdigest()
+    if got != expected_sha256:
+        raise ProgramShaMismatch(f"{program_path}: file sha256 {got[:12]} != archived program_sha256 {str(expected_sha256)[:12]}")
+
+
 def _circuit_of(spec, program_path, label, fn, root, expected_sha256=None):
     """(nominal circuit of an evaluated candidate, None) or (None, error text).  Programs are rebuilt in the sandboxed worker, circuit-valued
     seeds from their function; failures are returned, never swallowed.  With `expected_sha256` the program bytes are read once, their

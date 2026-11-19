@@ -56,6 +56,14 @@ def angle_set_sha256() -> str:
     return hashlib.sha256(repr(ANGLE_SET).encode()).hexdigest()
 
 
+def robust_constants_sha256() -> str:
+    """sha256 of the VALUES that decide rho and the offset classes in this module (`LINEAR_TOL`, `OFFSET_TOL`, `CLIFFORD_OFFSET_UNIT`,
+    the angle set).  It keys the generic `robust.json` cache (audit 305 N4): editing a constant makes the cache stale, while an edit that
+    leaves the values alone does not.  (A cache written before this key existed has none and is still accepted.)"""
+    payload = repr((float(LINEAR_TOL), float(OFFSET_TOL), sorted((g, float(u)) for g, u in CLIFFORD_OFFSET_UNIT.items()), ANGLE_SET))
+    return hashlib.sha256(payload.encode()).hexdigest()
+
+
 def generality_points(encoding: str) -> tuple:
     """The pairs of M2C-G4 / M8-G4: two seeded pairs (seed 20261110, the ranges of `ANGLE_SET`) that no loop evaluation used, plus the
     two points (0.37, 0.0) and (0.37, 0.185) (kappa_2 = 0 and alpha/2) for the fuzzy link unit."""
@@ -68,7 +76,7 @@ def generality_points(encoding: str) -> tuple:
 
 HEADLINE_RULE_SECTION = """## Headline rule
 
-The archive key counts T at the nominal angle pair; the number reported for this loop (the headline) is the valid entry with the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth_CT summed over the same pairs, qubits). Offsetting a rotation by $\\pm\\pi/4$ with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of $\\pi/2$ belong in separate `s`/`sdg`/`z` gates so that every rotation angle stays a linear function of the two task angles alpha and beta (angle-linear programs rank first and can be certified for all angles). A program whose gate skeleton changes with the angles has no robust key. Fewer CX, fewer rotations, smaller rotation counts and shared rotations are what move the headline.
+The archive key counts T at the nominal angle pair; the number reported for this loop (the headline) is the valid entry with the smallest robust key (CX, T summed over 20 fixed random angle pairs, angle-linear first, depth_CT summed over the same pairs, qubits). Offsetting a rotation by $\\pm\\pi/4$ with a compensating `t`/`tdg` costs +1 T at every angle and saves nothing on average: it will not count. Offsets that are multiples of $\\pi/2$ on `rz`/`p`/`rx`/`ry` belong in separate `s`/`sdg`/`z` gates (for `crz`/`crx`/`cry`/`cp` only multiples of $\\pi$ are Clifford: $\\mathrm{cp}(\\pi/2)$ is a controlled-$S$ and costs T) so that every rotation angle stays a linear function of the two task angles alpha and beta (angle-linear programs rank first and can be certified for all angles). A program whose gate skeleton changes with the angles has no robust key. Fewer CX, fewer rotations, smaller rotation counts and shared rotations are what move the headline.
 """
 
 HEADLINE_HEADER = ["entry", "family", "round", "CX", "T nominal", "T_avg(1e-6)", "depth_CT avg", "qubits", "angle-linear", "Lean"]
@@ -256,6 +264,9 @@ def _atomic_write_text(path: pathlib.Path, text: str) -> None:
     try:
         with os.fdopen(fd, "w") as fh:
             fh.write(text)
+        umask = os.umask(0)
+        os.umask(umask)
+        os.chmod(tmp, 0o666 & ~umask)          # mkstemp makes the file 0600 (audit 305 N6): readable like any other result file (0644 by default)
         os.replace(tmp, path)
     except BaseException:
         try:
@@ -282,8 +293,11 @@ def _load_cache(cache_file: pathlib.Path, encoding: str, refresh: bool, hook: bo
         for k in (k for k in cache if k.endswith("_code_sha256")):
             if k not in _HOOK_CODE_KEYS or registry.resolve(_HOOK_CODE_KEYS[k])() != cache[k]:
                 return {}
-    elif cache.get("encoding_sha256") != P.code_hash_for(encoding):
-        return {}
+    else:
+        if cache.get("encoding_sha256") != P.code_hash_for(encoding):
+            return {}
+        if "robust_constants_sha256" in cache and cache["robust_constants_sha256"] != robust_constants_sha256():
+            return {}
     return cache.get("entries", {})
 
 
@@ -322,7 +336,7 @@ def headline(encoding, kind="step", root=None, refresh=False, compute=True) -> d
     cached = _load_cache(cache_file, encoding, refresh, hook=hook)
     as_sha = angle_set_sha256()
     store = {"angle_set": _angle_set_record(), "evaluator_sha256": P.stamp_hash(encoding), "encoding_sha256": P.code_hash_for(encoding),
-             "entries": {}}
+             "robust_constants_sha256": robust_constants_sha256(), "entries": {}}
     unrankable, rows = [], []
     try:
         for e in valid:
