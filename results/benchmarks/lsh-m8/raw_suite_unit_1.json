@@ -1,0 +1,46 @@
+{
+ "phase": "suite_unit",
+ "commit": "513eb51",
+ "t0": "2026-11-20T15:02:48-0500",
+ "load_before": [
+  "3.33",
+  "2.29",
+  "2.42"
+ ],
+ "host": "omnicommander",
+ "env": {
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1",
+  "PYTHONHASHSEED": "20261104"
+ },
+ "runs": {
+  "pytest_unit": {
+   "cmd": "taskset -c 0-8 /home/digimonk/Projects/su2qc-encoding/tools/pytest-safe -n 6 -q -p no:cacheprovider tests/unit",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 370.698340324976,
+     "maxrss_kb": 6267220,
+     "tail": "=======================\ntests/unit/test_robust_atomic_unit.py::test_two_concurrent_writers_and_a_reader_never_fail_or_see_a_partial_cache\ntests/unit/test_robust_atomic_unit.py::test_two_concurrent_writers_and_a_reader_never_fail_or_see_a_partial_cache\n  /home/digimonk/miniforge3/envs/coding/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=3373423) is multi-threaded, use of fork() may lead to deadlocks in the child.\n    self.pid = os.fork()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1224 passed, 2 warnings in 370.50s (0:06:10)\n",
+     "load_before": [
+      "3.33",
+      "2.29",
+      "2.42"
+     ],
+     "load_after": [
+      "5.29",
+      "6.38",
+      "4.39"
+     ]
+    }
+   ]
+  }
+ },
+ "t1": "2026-11-20T15:08:59-0500",
+ "load_after": [
+  "5.29",
+  "6.38",
+  "4.39"
+ ]
+}

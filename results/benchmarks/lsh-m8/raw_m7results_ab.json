@@ -1,0 +1,280 @@
+{
+ "phase": "m7results_ab",
+ "commit": "513eb51",
+ "t0": "2026-11-20T14:56:19-0500",
+ "load_before": [
+  "0.96",
+  "1.84",
+  "2.51"
+ ],
+ "host": "omnicommander",
+ "env": {
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1",
+  "PYTHONHASHSEED": "20261104"
+ },
+ "runs": {
+  "m7_results@head_src_m7script": {
+   "cmd": "PYTHONPATH=/home/digimonk/Projects/su2qc-encoding/src taskset -c 0-8 python /home/digimonk/Projects/su2qc-encoding/scratch/bench-m8/m7tree/scripts/m7_results.py --out <scratch>",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 8.728412138007116,
+     "maxrss_kb": 284308,
+     "tail": "",
+     "load_before": [
+      "0.96",
+      "1.84",
+      "2.51"
+     ],
+     "load_after": [
+      "0.97",
+      "1.81",
+      "2.50"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 8.710314397001639,
+     "maxrss_kb": 284528,
+     "tail": "",
+     "load_before": [
+      "0.98",
+      "1.76",
+      "2.46"
+     ],
+     "load_after": [
+      "0.98",
+      "1.74",
+      "2.45"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 8.711943303991575,
+     "maxrss_kb": 287792,
+     "tail": "",
+     "load_before": [
+      "0.99",
+      "1.69",
+      "2.42"
+     ],
+     "load_after": [
+      "0.99",
+      "1.67",
+      "2.41"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 8.711775092990138,
+     "maxrss_kb": 284664,
+     "tail": "",
+     "load_before": [
+      "0.99",
+      "1.64",
+      "2.38"
+     ],
+     "load_after": [
+      "1.07",
+      "1.63",
+      "2.37"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 8.707644387031905,
+     "maxrss_kb": 284696,
+     "tail": "",
+     "load_before": [
+      "1.06",
+      "1.60",
+      "2.35"
+     ],
+     "load_after": [
+      "1.05",
+      "1.58",
+      "2.34"
+     ]
+    }
+   ]
+  },
+  "m7_results@m7src_m7script": {
+   "cmd": "PYTHONPATH=/home/digimonk/Projects/su2qc-encoding/scratch/bench-m8/m7tree/src taskset -c 0-8 python /home/digimonk/Projects/su2qc-encoding/scratch/bench-m8/m7tree/scripts/m7_results.py --out <scratch>",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 7.989901795051992,
+     "maxrss_kb": 285540,
+     "tail": "",
+     "load_before": [
+      "0.97",
+      "1.81",
+      "2.50"
+     ],
+     "load_after": [
+      "0.97",
+      "1.78",
+      "2.48"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 7.942161876999307,
+     "maxrss_kb": 285872,
+     "tail": "",
+     "load_before": [
+      "0.98",
+      "1.74",
+      "2.45"
+     ],
+     "load_after": [
+      "0.98",
+      "1.72",
+      "2.44"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 8.037093046994414,
+     "maxrss_kb": 286160,
+     "tail": "",
+     "load_before": [
+      "0.99",
+      "1.67",
+      "2.41"
+     ],
+     "load_after": [
+      "0.99",
+      "1.66",
+      "2.40"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 8.02190418104874,
+     "maxrss_kb": 285892,
+     "tail": "",
+     "load_before": [
+      "1.07",
+      "1.63",
+      "2.37"
+     ],
+     "load_after": [
+      "1.07",
+      "1.62",
+      "2.37"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 7.985057003970724,
+     "maxrss_kb": 285904,
+     "tail": "",
+     "load_before": [
+      "1.05",
+      "1.58",
+      "2.34"
+     ],
+     "load_after": [
+      "1.11",
+      "1.58",
+      "2.33"
+     ]
+    }
+   ]
+  },
+  "m7_results@head_src_head_script": {
+   "cmd": "PYTHONPATH=/home/digimonk/Projects/su2qc-encoding/src taskset -c 0-8 python scripts/m7_results.py --out <scratch>",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 9.585954450943973,
+     "maxrss_kb": 843028,
+     "tail": "",
+     "load_before": [
+      "0.97",
+      "1.78",
+      "2.48"
+     ],
+     "load_after": [
+      "0.98",
+      "1.76",
+      "2.46"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 9.574231118021999,
+     "maxrss_kb": 841164,
+     "tail": "",
+     "load_before": [
+      "0.98",
+      "1.72",
+      "2.44"
+     ],
+     "load_after": [
+      "0.99",
+      "1.69",
+      "2.42"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 9.603885275952052,
+     "maxrss_kb": 845160,
+     "tail": "",
+     "load_before": [
+      "0.99",
+      "1.66",
+      "2.40"
+     ],
+     "load_after": [
+      "0.99",
+      "1.64",
+      "2.38"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 9.655653816997074,
+     "maxrss_kb": 842948,
+     "tail": "",
+     "load_before": [
+      "1.07",
+      "1.62",
+      "2.37"
+     ],
+     "load_after": [
+      "1.06",
+      "1.60",
+      "2.35"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 9.58562978997361,
+     "maxrss_kb": 843240,
+     "tail": "",
+     "load_before": [
+      "1.11",
+      "1.58",
+      "2.33"
+     ],
+     "load_after": [
+      "1.10",
+      "1.56",
+      "2.31"
+     ]
+    }
+   ]
+  }
+ },
+ "t1": "2026-11-20T14:58:31-0500",
+ "load_after": [
+  "1.10",
+  "1.56",
+  "2.31"
+ ]
+}

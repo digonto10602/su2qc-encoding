@@ -1,0 +1,629 @@
+{
+ "phase": "robust",
+ "commit": "513eb51",
+ "t0": "2026-11-20T14:20:34-0500",
+ "load_before": [
+  "1.25",
+  "0.94",
+  "1.03"
+ ],
+ "host": "omnicommander",
+ "env": {
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1",
+  "PYTHONHASHSEED": "20261104"
+ },
+ "runs": {
+  "robust_headline_warm": {
+   "cmd": "taskset -c 0 python w_eval.py robust compress/programs/lsh/F3/005-alpha-early-walk22.py 5",
+   "runs": [
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+     "cold": false,
+     "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+     "calls": [
+      2.5046126110246405,
+      1.5653046459774487,
+      1.5848159830202349,
+      1.5640453090309165,
+      1.559714090952184,
+      1.562674869026523
+     ],
+     "n_warmup": 1,
+     "robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+     ],
+     "t_sum": 28348,
+     "depth_sum": 63378,
+     "cx": 68,
+     "qubits": 24,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 266.81640625,
+     "load_before": [
+      "1.25",
+      "0.94",
+      "1.03"
+     ],
+     "load_after": [
+      "1.20",
+      "0.94",
+      "1.03"
+     ]
+    },
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+     "cold": false,
+     "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+     "calls": [
+      2.5202268470311537,
+      1.5847776440205052,
+      1.6019626719644293,
+      1.582654231984634,
+      1.592307390004862,
+      1.5814625739585608
+     ],
+     "n_warmup": 1,
+     "robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+     ],
+     "t_sum": 28348,
+     "depth_sum": 63378,
+     "cx": 68,
+     "qubits": 24,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 266.64453125,
+     "load_before": [
+      "1.20",
+      "0.94",
+      "1.03"
+     ],
+     "load_after": [
+      "1.17",
+      "0.94",
+      "1.03"
+     ]
+    },
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+     "cold": false,
+     "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+     "calls": [
+      2.4994398069684394,
+      1.5741695459582843,
+      1.5952872320194729,
+      1.5799402620177716,
+      1.573142958979588,
+      1.575622272968758
+     ],
+     "n_warmup": 1,
+     "robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+     ],
+     "t_sum": 28348,
+     "depth_sum": 63378,
+     "cx": 68,
+     "qubits": 24,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 266.859375,
+     "load_before": [
+      "1.17",
+      "0.94",
+      "1.03"
+     ],
+     "load_after": [
+      "1.14",
+      "0.95",
+      "1.03"
+     ]
+    },
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+     "cold": false,
+     "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+     "calls": [
+      2.491843696043361,
+      1.5508606390212663,
+      1.5778792719938792,
+      1.5506653359625489,
+      1.555582725966815,
+      1.553426401980687
+     ],
+     "n_warmup": 1,
+     "robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+     ],
+     "t_sum": 28348,
+     "depth_sum": 63378,
+     "cx": 68,
+     "qubits": 24,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 266.74609375,
+     "load_before": [
+      "1.14",
+      "0.95",
+      "1.03"
+     ],
+     "load_after": [
+      "1.19",
+      "0.96",
+      "1.03"
+     ]
+    },
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+     "cold": false,
+     "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+     "calls": [
+      2.485719169024378,
+      1.5533765659783967,
+      1.5744483260205016,
+      1.5558534499723464,
+      1.5510685190092772,
+      1.553009363997262
+     ],
+     "n_warmup": 1,
+     "robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+     ],
+     "t_sum": 28348,
+     "depth_sum": 63378,
+     "cx": 68,
+     "qubits": 24,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 266.73828125,
+     "load_before": [
+      "1.19",
+      "0.96",
+      "1.03"
+     ],
+     "load_after": [
+      "1.16",
+      "0.97",
+      "1.03"
+     ]
+    }
+   ]
+  },
+  "robust_headline_cold": {
+   "cmd": "taskset -c 0 python w_eval.py robust compress/programs/lsh/F3/005-alpha-early-walk22.py 2 cold",
+   "runs": [
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+     "cold": true,
+     "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+     "calls": [
+      5.640969570958987,
+      1.5579655570327304
+     ],
+     "n_warmup": 0,
+     "robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+     ],
+     "t_sum": 28348,
+     "depth_sum": 63378,
+     "cx": 68,
+     "qubits": 24,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 263.14453125,
+     "load_before": [
+      "1.16",
+      "0.97",
+      "1.03"
+     ],
+     "load_after": [
+      "1.15",
+      "0.97",
+      "1.03"
+     ]
+    },
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+     "cold": true,
+     "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+     "calls": [
+      5.644479623995721,
+      1.5575127379852347
+     ],
+     "n_warmup": 0,
+     "robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+     ],
+     "t_sum": 28348,
+     "depth_sum": 63378,
+     "cx": 68,
+     "qubits": 24,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 263.16015625,
+     "load_before": [
+      "1.15",
+      "0.97",
+      "1.03"
+     ],
+     "load_after": [
+      "1.13",
+      "0.97",
+      "1.03"
+     ]
+    },
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+     "cold": true,
+     "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+     "calls": [
+      5.6735252540092915,
+      1.566249106952455
+     ],
+     "n_warmup": 0,
+     "robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+     ],
+     "t_sum": 28348,
+     "depth_sum": 63378,
+     "cx": 68,
+     "qubits": 24,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 263.1171875,
+     "load_before": [
+      "1.13",
+      "0.97",
+      "1.03"
+     ],
+     "load_after": [
+      "1.12",
+      "0.97",
+      "1.03"
+     ]
+    },
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+     "cold": true,
+     "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+     "calls": [
+      5.673880818998441,
+      1.5620895969914272
+     ],
+     "n_warmup": 0,
+     "robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+     ],
+     "t_sum": 28348,
+     "depth_sum": 63378,
+     "cx": 68,
+     "qubits": 24,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 263.31640625,
+     "load_before": [
+      "1.12",
+      "0.97",
+      "1.03"
+     ],
+     "load_after": [
+      "1.10",
+      "0.97",
+      "1.03"
+     ]
+    },
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+     "cold": true,
+     "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+     "calls": [
+      5.671935980033595,
+      1.58433221897576
+     ],
+     "n_warmup": 0,
+     "robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+     ],
+     "t_sum": 28348,
+     "depth_sum": 63378,
+     "cx": 68,
+     "qubits": 24,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 263.328125,
+     "load_before": [
+      "1.10",
+      "0.97",
+      "1.03"
+     ],
+     "load_after": [
+      "1.09",
+      "0.97",
+      "1.03"
+     ]
+    }
+   ]
+  },
+  "robust_seed005_warm": {
+   "cmd": "taskset -c 0 python w_eval.py robust compress/programs/lsh/seed/005-wrap_sn_headline.py 5",
+   "runs": [
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/seed/005-wrap_sn_headline.py",
+     "cold": false,
+     "program_sha256": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+     "calls": [
+      2.235486732039135,
+      1.2973962689866312,
+      1.2921873209998012,
+      1.3186143019702286,
+      1.2964894309989177,
+      1.2901159439934418
+     ],
+     "n_warmup": 1,
+     "robust_key": [
+      71,
+      22480,
+      0,
+      46384,
+      25
+     ],
+     "t_sum": 22480,
+     "depth_sum": 46384,
+     "cx": 71,
+     "qubits": 25,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 263.359375,
+     "load_before": [
+      "1.09",
+      "0.97",
+      "1.03"
+     ],
+     "load_after": [
+      "1.08",
+      "0.97",
+      "1.03"
+     ]
+    },
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/seed/005-wrap_sn_headline.py",
+     "cold": false,
+     "program_sha256": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+     "calls": [
+      2.2400355000281706,
+      1.2991223160061054,
+      1.3019574569771066,
+      1.3223890980007127,
+      1.3000209140009247,
+      1.306126720039174
+     ],
+     "n_warmup": 1,
+     "robust_key": [
+      71,
+      22480,
+      0,
+      46384,
+      25
+     ],
+     "t_sum": 22480,
+     "depth_sum": 46384,
+     "cx": 71,
+     "qubits": 25,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 263.1953125,
+     "load_before": [
+      "1.08",
+      "0.97",
+      "1.03"
+     ],
+     "load_after": [
+      "1.06",
+      "0.97",
+      "1.03"
+     ]
+    },
+    {
+     "mode": "robust",
+     "program": "compress/programs/lsh/seed/005-wrap_sn_headline.py",
+     "cold": false,
+     "program_sha256": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+     "calls": [
+      2.2404507469618693,
+      1.2957113570300862,
+      1.2923957550083287,
+      1.3188469349988736,
+      1.2935738490195945,
+      1.2922107760095969
+     ],
+     "n_warmup": 1,
+     "robust_key": [
+      71,
+      22480,
+      0,
+      46384,
+      25
+     ],
+     "t_sum": 22480,
+     "depth_sum": 46384,
+     "cx": 71,
+     "qubits": 25,
+     "skeleton_equal": true,
+     "angle_linear": true,
+     "n_pairs": 20,
+     "rss_mb": 263.2421875,
+     "load_before": [
+      "1.06",
+      "0.97",
+      "1.03"
+     ],
+     "load_after": [
+      "1.05",
+      "0.97",
+      "1.03"
+     ]
+    }
+   ]
+  },
+  "headline_refresh_all_entries": {
+   "cmd": "taskset -c 0-8 ",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 37.53081505995942,
+     "maxrss_kb": 268248,
+     "tail": " 880,\n    31\n   ],\n   \"family\": \"seed\",\n   \"round\": 0,\n   \"cx\": 94,\n   \"qubits\": 31,\n   \"t_nominal\": 598,\n   \"depth_mean\": 866.25,\n   \"angle_linear\": true,\n   \"offset_class\": \"linear\"\n  },\n  {\n   \"id\": \"r00-seed-010\",\n   \"robust_key\": [\n    94,\n    11852,\n    0,\n    17325,\n    31\n   ],\n   \"t_mean\": 592.6,\n   \"lean\": null,\n   \"laptop_key\": [\n    94,\n    598,\n    880,\n    31\n   ],\n   \"family\": \"seed\",\n   \"round\": 0,\n   \"cx\": 94,\n   \"qubits\": 31,\n   \"t_nominal\": 598,\n   \"depth_mean\": 866.25,\n   \"angle_linear\": true,\n   \"offset_class\": \"linear\"\n  }\n ],\n \"unrankable\": [\n  \"r00-seed-qiskit_l3\"\n ]\n}\n",
+     "load_before": [
+      "1.05",
+      "0.97",
+      "1.03"
+     ],
+     "load_after": [
+      "1.11",
+      "0.99",
+      "1.03"
+     ],
+     "post": {
+      "id": "r05-F3-005",
+      "robust_key": [
+       68,
+       28348,
+       0,
+       63378,
+       24
+      ],
+      "n_ranked": 28,
+      "n_unrankable": 1
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 37.513485360948835,
+     "maxrss_kb": 268420,
+     "tail": " 880,\n    31\n   ],\n   \"family\": \"seed\",\n   \"round\": 0,\n   \"cx\": 94,\n   \"qubits\": 31,\n   \"t_nominal\": 598,\n   \"depth_mean\": 866.25,\n   \"angle_linear\": true,\n   \"offset_class\": \"linear\"\n  },\n  {\n   \"id\": \"r00-seed-010\",\n   \"robust_key\": [\n    94,\n    11852,\n    0,\n    17325,\n    31\n   ],\n   \"t_mean\": 592.6,\n   \"lean\": null,\n   \"laptop_key\": [\n    94,\n    598,\n    880,\n    31\n   ],\n   \"family\": \"seed\",\n   \"round\": 0,\n   \"cx\": 94,\n   \"qubits\": 31,\n   \"t_nominal\": 598,\n   \"depth_mean\": 866.25,\n   \"angle_linear\": true,\n   \"offset_class\": \"linear\"\n  }\n ],\n \"unrankable\": [\n  \"r00-seed-qiskit_l3\"\n ]\n}\n",
+     "load_before": [
+      "1.11",
+      "0.99",
+      "1.03"
+     ],
+     "load_after": [
+      "1.05",
+      "1.00",
+      "1.02"
+     ],
+     "post": {
+      "id": "r05-F3-005",
+      "robust_key": [
+       68,
+       28348,
+       0,
+       63378,
+       24
+      ],
+      "n_ranked": 28,
+      "n_unrankable": 1
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 37.59881553897867,
+     "maxrss_kb": 267860,
+     "tail": " 880,\n    31\n   ],\n   \"family\": \"seed\",\n   \"round\": 0,\n   \"cx\": 94,\n   \"qubits\": 31,\n   \"t_nominal\": 598,\n   \"depth_mean\": 866.25,\n   \"angle_linear\": true,\n   \"offset_class\": \"linear\"\n  },\n  {\n   \"id\": \"r00-seed-010\",\n   \"robust_key\": [\n    94,\n    11852,\n    0,\n    17325,\n    31\n   ],\n   \"t_mean\": 592.6,\n   \"lean\": null,\n   \"laptop_key\": [\n    94,\n    598,\n    880,\n    31\n   ],\n   \"family\": \"seed\",\n   \"round\": 0,\n   \"cx\": 94,\n   \"qubits\": 31,\n   \"t_nominal\": 598,\n   \"depth_mean\": 866.25,\n   \"angle_linear\": true,\n   \"offset_class\": \"linear\"\n  }\n ],\n \"unrankable\": [\n  \"r00-seed-qiskit_l3\"\n ]\n}\n",
+     "load_before": [
+      "1.05",
+      "1.00",
+      "1.02"
+     ],
+     "load_after": [
+      "1.26",
+      "1.05",
+      "1.04"
+     ],
+     "post": {
+      "id": "r05-F3-005",
+      "robust_key": [
+       68,
+       28348,
+       0,
+       63378,
+       24
+      ],
+      "n_ranked": 28,
+      "n_unrankable": 1
+     }
+    }
+   ]
+  }
+ },
+ "t1": "2026-11-20T14:24:24-0500",
+ "load_after": [
+  "1.26",
+  "1.05",
+  "1.04"
+ ]
+}

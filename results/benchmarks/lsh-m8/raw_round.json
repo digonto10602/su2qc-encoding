@@ -1,0 +1,275 @@
+{
+ "phase": "round",
+ "commit": "513eb51",
+ "t0": "2026-11-20T14:55:33-0500",
+ "load_before": [
+  "0.92",
+  "1.98",
+  "2.59"
+ ],
+ "host": "omnicommander",
+ "env": {
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1",
+  "PYTHONHASHSEED": "20261104"
+ },
+ "runs": {
+  "lsh_round5_3programs_warm_gridsynth": {
+   "cmd": "taskset -c 0-8 ",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 5.730933242011815,
+     "maxrss_kb": 264980,
+     "tail": "rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   },\n   {\n    \"round\": 6,\n    \"headline_id\": \"r05-F3-005\",\n    \"robust_key\": [\n     68,\n     28348,\n     0,\n     63378,\n     24\n    ],\n    \"record\": {\n     \"id\": \"r05-F3-005\",\n     \"cx\": 68,\n     \"t_sum\": 28348,\n     \"rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   }\n  ],\n  \"streak\": 2,\n  \"sessions\": 20,\n  \"stop\": true,\n  \"reason\": \"max_sessions\",\n  \"reasons\": [\n   \"max_sessions\"\n  ],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "0.92",
+      "1.98",
+      "2.59"
+     ],
+     "load_after": [
+      "0.92",
+      "1.96",
+      "2.58"
+     ],
+     "post": {
+      "best_key": [
+       68,
+       1396,
+       3210,
+       24
+      ],
+      "n_valid": 3,
+      "entries": [
+       "r05-F1-004",
+       "r05-F3-005",
+       "r05-F5-005"
+      ]
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 5.689784295042045,
+     "maxrss_kb": 264532,
+     "tail": "rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   },\n   {\n    \"round\": 6,\n    \"headline_id\": \"r05-F3-005\",\n    \"robust_key\": [\n     68,\n     28348,\n     0,\n     63378,\n     24\n    ],\n    \"record\": {\n     \"id\": \"r05-F3-005\",\n     \"cx\": 68,\n     \"t_sum\": 28348,\n     \"rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   }\n  ],\n  \"streak\": 2,\n  \"sessions\": 20,\n  \"stop\": true,\n  \"reason\": \"max_sessions\",\n  \"reasons\": [\n   \"max_sessions\"\n  ],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "0.92",
+      "1.96",
+      "2.58"
+     ],
+     "load_after": [
+      "0.93",
+      "1.94",
+      "2.57"
+     ],
+     "post": {
+      "best_key": [
+       68,
+       1396,
+       3210,
+       24
+      ],
+      "n_valid": 3,
+      "entries": [
+       "r05-F1-004",
+       "r05-F3-005",
+       "r05-F5-005"
+      ]
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 5.712938936019782,
+     "maxrss_kb": 264552,
+     "tail": "rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   },\n   {\n    \"round\": 6,\n    \"headline_id\": \"r05-F3-005\",\n    \"robust_key\": [\n     68,\n     28348,\n     0,\n     63378,\n     24\n    ],\n    \"record\": {\n     \"id\": \"r05-F3-005\",\n     \"cx\": 68,\n     \"t_sum\": 28348,\n     \"rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   }\n  ],\n  \"streak\": 2,\n  \"sessions\": 20,\n  \"stop\": true,\n  \"reason\": \"max_sessions\",\n  \"reasons\": [\n   \"max_sessions\"\n  ],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "0.93",
+      "1.94",
+      "2.57"
+     ],
+     "load_after": [
+      "0.94",
+      "1.93",
+      "2.56"
+     ],
+     "post": {
+      "best_key": [
+       68,
+       1396,
+       3210,
+       24
+      ],
+      "n_valid": 3,
+      "entries": [
+       "r05-F1-004",
+       "r05-F3-005",
+       "r05-F5-005"
+      ]
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 5.682895712030586,
+     "maxrss_kb": 265004,
+     "tail": "rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   },\n   {\n    \"round\": 6,\n    \"headline_id\": \"r05-F3-005\",\n    \"robust_key\": [\n     68,\n     28348,\n     0,\n     63378,\n     24\n    ],\n    \"record\": {\n     \"id\": \"r05-F3-005\",\n     \"cx\": 68,\n     \"t_sum\": 28348,\n     \"rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   }\n  ],\n  \"streak\": 2,\n  \"sessions\": 20,\n  \"stop\": true,\n  \"reason\": \"max_sessions\",\n  \"reasons\": [\n   \"max_sessions\"\n  ],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "0.94",
+      "1.93",
+      "2.56"
+     ],
+     "load_after": [
+      "0.95",
+      "1.90",
+      "2.55"
+     ],
+     "post": {
+      "best_key": [
+       68,
+       1396,
+       3210,
+       24
+      ],
+      "n_valid": 3,
+      "entries": [
+       "r05-F1-004",
+       "r05-F3-005",
+       "r05-F5-005"
+      ]
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 5.663741038006265,
+     "maxrss_kb": 265304,
+     "tail": "rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   },\n   {\n    \"round\": 6,\n    \"headline_id\": \"r05-F3-005\",\n    \"robust_key\": [\n     68,\n     28348,\n     0,\n     63378,\n     24\n    ],\n    \"record\": {\n     \"id\": \"r05-F3-005\",\n     \"cx\": 68,\n     \"t_sum\": 28348,\n     \"rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   }\n  ],\n  \"streak\": 2,\n  \"sessions\": 20,\n  \"stop\": true,\n  \"reason\": \"max_sessions\",\n  \"reasons\": [\n   \"max_sessions\"\n  ],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "0.95",
+      "1.90",
+      "2.55"
+     ],
+     "load_after": [
+      "0.95",
+      "1.88",
+      "2.54"
+     ],
+     "post": {
+      "best_key": [
+       68,
+       1396,
+       3210,
+       24
+      ],
+      "n_valid": 3,
+      "entries": [
+       "r05-F1-004",
+       "r05-F3-005",
+       "r05-F5-005"
+      ]
+     }
+    }
+   ]
+  },
+  "lsh_round5_3programs_cold_gridsynth": {
+   "cmd": "taskset -c 0-8 ",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 5.941110574000049,
+     "maxrss_kb": 267776,
+     "tail": "rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   },\n   {\n    \"round\": 6,\n    \"headline_id\": \"r05-F3-005\",\n    \"robust_key\": [\n     68,\n     28348,\n     0,\n     63378,\n     24\n    ],\n    \"record\": {\n     \"id\": \"r05-F3-005\",\n     \"cx\": 68,\n     \"t_sum\": 28348,\n     \"rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   }\n  ],\n  \"streak\": 2,\n  \"sessions\": 20,\n  \"stop\": true,\n  \"reason\": \"max_sessions\",\n  \"reasons\": [\n   \"max_sessions\"\n  ],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "0.95",
+      "1.88",
+      "2.54"
+     ],
+     "load_after": [
+      "0.95",
+      "1.87",
+      "2.53"
+     ],
+     "post": {
+      "best_key": [
+       68,
+       1396,
+       3210,
+       24
+      ],
+      "n_valid": 3,
+      "entries": [
+       "r05-F1-004",
+       "r05-F3-005",
+       "r05-F5-005"
+      ]
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 5.950383651012089,
+     "maxrss_kb": 265700,
+     "tail": "rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   },\n   {\n    \"round\": 6,\n    \"headline_id\": \"r05-F3-005\",\n    \"robust_key\": [\n     68,\n     28348,\n     0,\n     63378,\n     24\n    ],\n    \"record\": {\n     \"id\": \"r05-F3-005\",\n     \"cx\": 68,\n     \"t_sum\": 28348,\n     \"rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   }\n  ],\n  \"streak\": 2,\n  \"sessions\": 20,\n  \"stop\": true,\n  \"reason\": \"max_sessions\",\n  \"reasons\": [\n   \"max_sessions\"\n  ],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "0.95",
+      "1.87",
+      "2.53"
+     ],
+     "load_after": [
+      "0.96",
+      "1.85",
+      "2.52"
+     ],
+     "post": {
+      "best_key": [
+       68,
+       1396,
+       3210,
+       24
+      ],
+      "n_valid": 3,
+      "entries": [
+       "r05-F1-004",
+       "r05-F3-005",
+       "r05-F5-005"
+      ]
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 5.9444506040308625,
+     "maxrss_kb": 265924,
+     "tail": "rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   },\n   {\n    \"round\": 6,\n    \"headline_id\": \"r05-F3-005\",\n    \"robust_key\": [\n     68,\n     28348,\n     0,\n     63378,\n     24\n    ],\n    \"record\": {\n     \"id\": \"r05-F3-005\",\n     \"cx\": 68,\n     \"t_sum\": 28348,\n     \"rho\": 0,\n     \"qubits\": 24,\n     \"n_rot\": 22,\n     \"t_fixed\": 24\n    },\n    \"improved\": false\n   }\n  ],\n  \"streak\": 2,\n  \"sessions\": 20,\n  \"stop\": true,\n  \"reason\": \"max_sessions\",\n  \"reasons\": [\n   \"max_sessions\"\n  ],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "0.96",
+      "1.85",
+      "2.52"
+     ],
+     "load_after": [
+      "0.96",
+      "1.84",
+      "2.51"
+     ],
+     "post": {
+      "best_key": [
+       68,
+       1396,
+       3210,
+       24
+      ],
+      "n_valid": 3,
+      "entries": [
+       "r05-F1-004",
+       "r05-F3-005",
+       "r05-F5-005"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ "t1": "2026-11-20T14:56:19-0500",
+ "load_after": [
+  "0.96",
+  "1.84",
+  "2.51"
+ ]
+}

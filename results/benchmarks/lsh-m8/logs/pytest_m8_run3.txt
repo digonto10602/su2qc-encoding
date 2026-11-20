@@ -1,0 +1,38 @@
+bringing up nodes...
+bringing up nodes...
+
+.................................                                        [100%]
+============================== slowest durations ===============================
+106.75s call     tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G2_best_and_headline_second_engine_aer
+25.31s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H2_headline_selection_on_seed_round
+24.51s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S4_round_one_dry_run_briefs_and_stop_state
+22.72s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S3_seed_round_dry_run
+3.90s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H1_robust_metrics_and_hardenings
+2.47s call     tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A1_lean_tables_tied_to_rules
+2.05s call     tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A3_negative_controls_reach_the_checker
+1.95s call     tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G1_best_and_headline_reverified_from_source
+1.90s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S2_general_program_worker_and_sandbox
+1.66s call     tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_L5_headline_lean_status_theorem_file_and_binding
+1.59s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_E2_fresh_process_stock_worker_and_no_patching
+1.57s call     tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A2_certify_binding_fields_and_idempotent_write
+1.50s call     tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_r05F3]
+1.20s call     tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G4_best_and_headline_valid_at_unseen_angles
+0.97s call     tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[general]
+0.91s call     tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags5]
+0.89s call     tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags6]
+0.89s call     tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_flags4]
+0.88s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L3_theorem_file_writer
+0.88s call     tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_headline]
+0.88s call     tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_pairs9]
+0.87s call     tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_S1_seed_circuits_exact[wrap_sn_r02F5]
+0.79s call     tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A2_committed_certificate_clean_provenance
+0.78s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S5_evaluator_rejections_on_lsh
+0.66s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L1_lean_hook_certifies_and_binds
+0.20s call     tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_U1_uniform_split_structure_row
+0.18s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S0_spec_oracle_builder_lsh
+0.14s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L2_structure_facts_match_lean_sources
+0.01s call     tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G3_loop_budget_lineage_and_stop
+0.01s call     tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_R1_results_and_before_after
+
+(69 durations < 0.005s hidden.  Use -vv to show these durations.)
+33 passed in 109.26s (0:01:49)

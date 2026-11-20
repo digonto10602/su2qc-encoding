@@ -1,0 +1,348 @@
+{
+ "phase": "seed",
+ "commit": "513eb51",
+ "t0": "2026-11-20T14:24:24-0500",
+ "load_before": [
+  "1.26",
+  "1.05",
+  "1.04"
+ ],
+ "host": "omnicommander",
+ "env": {
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1",
+  "PYTHONHASHSEED": "20261104"
+ },
+ "runs": {
+  "seed_lean_warm": {
+   "cmd": "taskset -c 0-8 ",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 23.34465522604296,
+     "maxrss_kb": 844168,
+     "tail": "conds\": 0.8640456199645996,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.26",
+      "1.05",
+      "1.04"
+     ],
+     "load_after": [
+      "1.38",
+      "1.09",
+      "1.05"
+     ],
+     "post": {
+      "n_files": 43,
+      "best_key": [
+       71,
+       1118,
+       2276,
+       25
+      ],
+      "n_valid": 10
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 23.193726084020454,
+     "maxrss_kb": 844404,
+     "tail": "conds\": 0.8411390781402588,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.38",
+      "1.09",
+      "1.05"
+     ],
+     "load_after": [
+      "1.33",
+      "1.10",
+      "1.06"
+     ],
+     "post": {
+      "n_files": 43,
+      "best_key": [
+       71,
+       1118,
+       2276,
+       25
+      ],
+      "n_valid": 10
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 23.24036098900251,
+     "maxrss_kb": 846544,
+     "tail": "conds\": 0.8394737243652344,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.33",
+      "1.10",
+      "1.06"
+     ],
+     "load_after": [
+      "1.31",
+      "1.11",
+      "1.06"
+     ],
+     "post": {
+      "n_files": 43,
+      "best_key": [
+       71,
+       1118,
+       2276,
+       25
+      ],
+      "n_valid": 10
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 23.241413409006782,
+     "maxrss_kb": 842296,
+     "tail": "conds\": 0.8404850959777832,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.31",
+      "1.11",
+      "1.06"
+     ],
+     "load_after": [
+      "1.27",
+      "1.12",
+      "1.06"
+     ],
+     "post": {
+      "n_files": 43,
+      "best_key": [
+       71,
+       1118,
+       2276,
+       25
+      ],
+      "n_valid": 10
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 23.136491381039377,
+     "maxrss_kb": 842052,
+     "tail": "conds\": 0.8393595218658447,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.27",
+      "1.12",
+      "1.06"
+     ],
+     "load_after": [
+      "1.31",
+      "1.14",
+      "1.07"
+     ],
+     "post": {
+      "n_files": 43,
+      "best_key": [
+       71,
+       1118,
+       2276,
+       25
+      ],
+      "n_valid": 10
+     }
+    }
+   ]
+  },
+  "seed_nolean_warm": {
+   "cmd": "taskset -c 0-8 ",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 22.565280302020255,
+     "maxrss_kb": 312540,
+     "tail": "\"\n ],\n \"lean_seconds\": 0.0,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.31",
+      "1.14",
+      "1.07"
+     ],
+     "load_after": [
+      "1.22",
+      "1.13",
+      "1.07"
+     ],
+     "post": {
+      "n_files": 43,
+      "best_key": [
+       71,
+       1118,
+       2276,
+       25
+      ],
+      "n_valid": 10
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 22.547582582978066,
+     "maxrss_kb": 313184,
+     "tail": "\"\n ],\n \"lean_seconds\": 0.0,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.22",
+      "1.13",
+      "1.07"
+     ],
+     "load_after": [
+      "1.15",
+      "1.12",
+      "1.07"
+     ],
+     "post": {
+      "n_files": 43,
+      "best_key": [
+       71,
+       1118,
+       2276,
+       25
+      ],
+      "n_valid": 10
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 22.543767764000222,
+     "maxrss_kb": 315384,
+     "tail": "\"\n ],\n \"lean_seconds\": 0.0,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.15",
+      "1.12",
+      "1.07"
+     ],
+     "load_after": [
+      "1.18",
+      "1.13",
+      "1.07"
+     ],
+     "post": {
+      "n_files": 43,
+      "best_key": [
+       71,
+       1118,
+       2276,
+       25
+      ],
+      "n_valid": 10
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 22.54817131202435,
+     "maxrss_kb": 315620,
+     "tail": "\"\n ],\n \"lean_seconds\": 0.0,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.18",
+      "1.13",
+      "1.07"
+     ],
+     "load_after": [
+      "1.17",
+      "1.13",
+      "1.08"
+     ],
+     "post": {
+      "n_files": 43,
+      "best_key": [
+       71,
+       1118,
+       2276,
+       25
+      ],
+      "n_valid": 10
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 22.54022842698032,
+     "maxrss_kb": 314668,
+     "tail": "\"\n ],\n \"lean_seconds\": 0.0,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.17",
+      "1.13",
+      "1.08"
+     ],
+     "load_after": [
+      "1.20",
+      "1.14",
+      "1.08"
+     ],
+     "post": {
+      "n_files": 43,
+      "best_key": [
+       71,
+       1118,
+       2276,
+       25
+      ],
+      "n_valid": 10
+     }
+    }
+   ]
+  },
+  "seed_lean_cold_gridsynth": {
+   "cmd": "taskset -c 0-8 ",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 59.50737178797135,
+     "maxrss_kb": 842244,
+     "tail": "conds\": 0.8353052139282227,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.20",
+      "1.14",
+      "1.08"
+     ],
+     "load_after": [
+      "1.20",
+      "1.14",
+      "1.09"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 59.7065816730028,
+     "maxrss_kb": 842040,
+     "tail": "conds\": 0.8378746509552002,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.20",
+      "1.14",
+      "1.09"
+     ],
+     "load_after": [
+      "1.16",
+      "1.14",
+      "1.09"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 59.632580996956676,
+     "maxrss_kb": 842164,
+     "tail": "econds\": 0.838181734085083,\n \"external\": [\n  \"qiskit_l3_whole\",\n  \"spinnet15\",\n  \"paulo15_wrapped\"\n ],\n \"stop\": {\n  \"rounds\": [\n   {\n    \"round\": 0,\n    \"headline_id\": \"r00-seed-005\",\n    \"robust_key\": [\n     71,\n     22480,\n     0,\n     46384,\n     25\n    ],\n    \"record\": {\n     \"id\": \"r00-seed-005\",\n     \"cx\": 71,\n     \"t_sum\": 22480,\n     \"rho\": 0,\n     \"qubits\": 25,\n     \"n_rot\": 17,\n     \"t_fixed\": 48\n    },\n    \"improved\": true\n   }\n  ],\n  \"streak\": 0,\n  \"sessions\": 0,\n  \"stop\": false,\n  \"reason\": null,\n  \"reasons\": [],\n  \"max_rounds\": 8,\n  \"no_gain_rounds\": 3,\n  \"max_sessions\": 20\n }\n}\n",
+     "load_before": [
+      "1.16",
+      "1.14",
+      "1.09"
+     ],
+     "load_after": [
+      "1.09",
+      "1.13",
+      "1.09"
+     ]
+    }
+   ]
+  }
+ },
+ "t1": "2026-11-20T14:31:12-0500",
+ "load_after": [
+  "1.09",
+  "1.13",
+  "1.09"
+ ]
+}

@@ -1,0 +1,78 @@
+{
+ "phase": "suite_m7",
+ "commit": "513eb51",
+ "t0": "2026-11-20T14:58:31-0500",
+ "load_before": [
+  "1.10",
+  "1.56",
+  "2.31"
+ ],
+ "host": "omnicommander",
+ "env": {
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1",
+  "PYTHONHASHSEED": "20261104"
+ },
+ "runs": {
+  "pytest_m7": {
+   "cmd": "taskset -c 0-8 /home/digimonk/Projects/su2qc-encoding/tools/pytest-safe -n 6 -q -p no:cacheprovider tests/acceptance/m7",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 10.74384170898702,
+     "maxrss_kb": 6615124,
+     "tail": "bringing up nodes...\nbringing up nodes...\n\n.............................                                            [100%]\n29 passed in 10.48s\n",
+     "load_before": [
+      "1.10",
+      "1.56",
+      "2.31"
+     ],
+     "load_after": [
+      "1.53",
+      "1.64",
+      "2.33"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 6.9413549159653485,
+     "maxrss_kb": 6626552,
+     "tail": "bringing up nodes...\nbringing up nodes...\n\n.............................                                            [100%]\n29 passed in 6.73s\n",
+     "load_before": [
+      "1.53",
+      "1.64",
+      "2.33"
+     ],
+     "load_after": [
+      "1.89",
+      "1.71",
+      "2.35"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 8.227443806012161,
+     "maxrss_kb": 6923280,
+     "tail": "bringing up nodes...\nbringing up nodes...\n\n.............................                                            [100%]\n29 passed in 8.01s\n",
+     "load_before": [
+      "1.89",
+      "1.71",
+      "2.35"
+     ],
+     "load_after": [
+      "2.12",
+      "1.77",
+      "2.36"
+     ]
+    }
+   ]
+  }
+ },
+ "t1": "2026-11-20T14:58:57-0500",
+ "load_after": [
+  "2.12",
+  "1.77",
+  "2.36"
+ ]
+}

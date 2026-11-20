@@ -1,0 +1,110 @@
+{
+ "phase": "scripts",
+ "commit": "513eb51",
+ "t0": "2026-11-20T14:35:45-0500",
+ "load_before": [
+  "2.30",
+  "1.28",
+  "1.11"
+ ],
+ "host": "omnicommander",
+ "env": {
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1",
+  "PYTHONHASHSEED": "20261104"
+ },
+ "runs": {
+  "m7_results": {
+   "cmd": "taskset -c 0-8 /home/digimonk/Projects/su2qc-encoding/tools/run-capped /home/digimonk/miniforge3/envs/coding/bin/python scripts/m7_results.py --out /home/digimonk/Projects/su2qc-encoding/scratch/bench-m8/run1/m7_results_out",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 9.637229350046255,
+     "maxrss_kb": 842216,
+     "tail": "",
+     "load_before": [
+      "2.30",
+      "1.28",
+      "1.11"
+     ],
+     "load_after": [
+      "2.10",
+      "1.27",
+      "1.11"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 9.67678318999242,
+     "maxrss_kb": 842040,
+     "tail": "",
+     "load_before": [
+      "2.10",
+      "1.27",
+      "1.11"
+     ],
+     "load_after": [
+      "2.01",
+      "1.26",
+      "1.11"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 9.62404557003174,
+     "maxrss_kb": 842420,
+     "tail": "",
+     "load_before": [
+      "2.01",
+      "1.26",
+      "1.11"
+     ],
+     "load_after": [
+      "1.85",
+      "1.25",
+      "1.11"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 9.605486991000362,
+     "maxrss_kb": 844180,
+     "tail": "",
+     "load_before": [
+      "1.85",
+      "1.25",
+      "1.11"
+     ],
+     "load_after": [
+      "1.72",
+      "1.25",
+      "1.11"
+     ]
+    },
+    {
+     "rc": 0,
+     "wall": 9.683111277990974,
+     "maxrss_kb": 844380,
+     "tail": "",
+     "load_before": [
+      "1.72",
+      "1.25",
+      "1.11"
+     ],
+     "load_after": [
+      "1.61",
+      "1.24",
+      "1.10"
+     ]
+    }
+   ]
+  }
+ },
+ "t1": "2026-11-20T14:36:34-0500",
+ "load_after": [
+  "1.61",
+  "1.24",
+  "1.10"
+ ]
+}

@@ -1,0 +1,185 @@
+{
+ "phase": "certify",
+ "commit": "513eb51",
+ "t0": "2026-11-20T14:31:12-0500",
+ "load_before": [
+  "1.09",
+  "1.13",
+  "1.09"
+ ],
+ "host": "omnicommander",
+ "env": {
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1",
+  "PYTHONHASHSEED": "20261104"
+ },
+ "runs": {
+  "certify_headline_cli": {
+   "cmd": "taskset -c 0-8 ",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 1.872342143964488,
+     "maxrss_kb": 842124,
+     "tail": "h\": \"results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json\",\n  \"seconds\": 0.8900547027587891,\n  \"axioms\": [],\n  \"check_seconds\": 0.5984945297241211,\n  \"checker_sha256\": \"16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61\",\n  \"program_file_sha256\": \"5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07\",\n  \"gates_sha256\": \"dd63c8bf6fadb0f75d45bcd7e9bf4f14eda02108029815b5130ff82d3b83553c\",\n  \"entry_id\": \"r05-F3-005\"\n },\n \"theorem_file\": \"/home/digimonk/Projects/su2qc-encoding/scratch/bench-m8/run1/root_certify_0_1795203072/lean/certs/lsh-best-step.lean\",\n \"git_dirty\": false\n}\n",
+     "load_before": [
+      "1.09",
+      "1.13",
+      "1.09"
+     ],
+     "load_after": [
+      "1.09",
+      "1.13",
+      "1.09"
+     ],
+     "post": {
+      "headline": "r05-F3-005",
+      "status": "certified",
+      "seconds": 0.8900547027587891,
+      "check_seconds": 0.5984945297241211,
+      "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+      "git_dirty": false,
+      "cert_name": "lsh-step-o1-dd63c8bf6fad.json",
+      "committed_exists": true,
+      "bytes_identical": false,
+      "fields_differing": [
+       "provenance"
+      ],
+      "theorem_file_identical": false
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 1.8806272459914908,
+     "maxrss_kb": 840188,
+     "tail": "h\": \"results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json\",\n  \"seconds\": 0.8875832557678223,\n  \"axioms\": [],\n  \"check_seconds\": 0.5975296497344971,\n  \"checker_sha256\": \"16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61\",\n  \"program_file_sha256\": \"5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07\",\n  \"gates_sha256\": \"dd63c8bf6fadb0f75d45bcd7e9bf4f14eda02108029815b5130ff82d3b83553c\",\n  \"entry_id\": \"r05-F3-005\"\n },\n \"theorem_file\": \"/home/digimonk/Projects/su2qc-encoding/scratch/bench-m8/run1/root_certify_1_1795203073/lean/certs/lsh-best-step.lean\",\n \"git_dirty\": false\n}\n",
+     "load_before": [
+      "1.09",
+      "1.13",
+      "1.09"
+     ],
+     "load_after": [
+      "1.09",
+      "1.13",
+      "1.09"
+     ],
+     "post": {
+      "headline": "r05-F3-005",
+      "status": "certified",
+      "seconds": 0.8875832557678223,
+      "check_seconds": 0.5975296497344971,
+      "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+      "git_dirty": false,
+      "cert_name": "lsh-step-o1-dd63c8bf6fad.json",
+      "committed_exists": true,
+      "bytes_identical": false,
+      "fields_differing": [
+       "provenance"
+      ],
+      "theorem_file_identical": false
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 1.8680861680186354,
+     "maxrss_kb": 842228,
+     "tail": "h\": \"results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json\",\n  \"seconds\": 0.8921971321105957,\n  \"axioms\": [],\n  \"check_seconds\": 0.5993978977203369,\n  \"checker_sha256\": \"16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61\",\n  \"program_file_sha256\": \"5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07\",\n  \"gates_sha256\": \"dd63c8bf6fadb0f75d45bcd7e9bf4f14eda02108029815b5130ff82d3b83553c\",\n  \"entry_id\": \"r05-F3-005\"\n },\n \"theorem_file\": \"/home/digimonk/Projects/su2qc-encoding/scratch/bench-m8/run1/root_certify_2_1795203075/lean/certs/lsh-best-step.lean\",\n \"git_dirty\": false\n}\n",
+     "load_before": [
+      "1.09",
+      "1.13",
+      "1.09"
+     ],
+     "load_after": [
+      "1.09",
+      "1.13",
+      "1.09"
+     ],
+     "post": {
+      "headline": "r05-F3-005",
+      "status": "certified",
+      "seconds": 0.8921971321105957,
+      "check_seconds": 0.5993978977203369,
+      "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+      "git_dirty": false,
+      "cert_name": "lsh-step-o1-dd63c8bf6fad.json",
+      "committed_exists": true,
+      "bytes_identical": false,
+      "fields_differing": [
+       "provenance"
+      ],
+      "theorem_file_identical": false
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 1.8676047879853286,
+     "maxrss_kb": 844176,
+     "tail": "t_path\": \"results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json\",\n  \"seconds\": 0.88818359375,\n  \"axioms\": [],\n  \"check_seconds\": 0.5987529754638672,\n  \"checker_sha256\": \"16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61\",\n  \"program_file_sha256\": \"5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07\",\n  \"gates_sha256\": \"dd63c8bf6fadb0f75d45bcd7e9bf4f14eda02108029815b5130ff82d3b83553c\",\n  \"entry_id\": \"r05-F3-005\"\n },\n \"theorem_file\": \"/home/digimonk/Projects/su2qc-encoding/scratch/bench-m8/run1/root_certify_3_1795203077/lean/certs/lsh-best-step.lean\",\n \"git_dirty\": false\n}\n",
+     "load_before": [
+      "1.09",
+      "1.13",
+      "1.09"
+     ],
+     "load_after": [
+      "1.09",
+      "1.13",
+      "1.09"
+     ],
+     "post": {
+      "headline": "r05-F3-005",
+      "status": "certified",
+      "seconds": 0.88818359375,
+      "check_seconds": 0.5987529754638672,
+      "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+      "git_dirty": false,
+      "cert_name": "lsh-step-o1-dd63c8bf6fad.json",
+      "committed_exists": true,
+      "bytes_identical": false,
+      "fields_differing": [
+       "provenance"
+      ],
+      "theorem_file_identical": false
+     }
+    },
+    {
+     "rc": 0,
+     "wall": 1.8702471029828303,
+     "maxrss_kb": 844136,
+     "tail": "h\": \"results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json\",\n  \"seconds\": 0.8928253650665283,\n  \"axioms\": [],\n  \"check_seconds\": 0.6001565456390381,\n  \"checker_sha256\": \"16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61\",\n  \"program_file_sha256\": \"5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07\",\n  \"gates_sha256\": \"dd63c8bf6fadb0f75d45bcd7e9bf4f14eda02108029815b5130ff82d3b83553c\",\n  \"entry_id\": \"r05-F3-005\"\n },\n \"theorem_file\": \"/home/digimonk/Projects/su2qc-encoding/scratch/bench-m8/run1/root_certify_4_1795203079/lean/certs/lsh-best-step.lean\",\n \"git_dirty\": false\n}\n",
+     "load_before": [
+      "1.09",
+      "1.13",
+      "1.09"
+     ],
+     "load_after": [
+      "1.08",
+      "1.13",
+      "1.09"
+     ],
+     "post": {
+      "headline": "r05-F3-005",
+      "status": "certified",
+      "seconds": 0.8928253650665283,
+      "check_seconds": 0.6001565456390381,
+      "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+      "git_dirty": false,
+      "cert_name": "lsh-step-o1-dd63c8bf6fad.json",
+      "committed_exists": true,
+      "bytes_identical": false,
+      "fields_differing": [
+       "provenance"
+      ],
+      "theorem_file_identical": false
+     }
+    }
+   ]
+  }
+ },
+ "t1": "2026-11-20T14:31:21-0500",
+ "load_after": [
+  "1.08",
+  "1.13",
+  "1.09"
+ ]
+}

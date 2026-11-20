@@ -1,0 +1,46 @@
+{
+ "phase": "suite_m8",
+ "commit": "513eb51",
+ "t0": "2026-11-20T15:00:58-0500",
+ "load_before": [
+  "1.74",
+  "1.83",
+  "2.32"
+ ],
+ "host": "omnicommander",
+ "env": {
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "MKL_NUM_THREADS": "1",
+  "PYTHONHASHSEED": "20261104"
+ },
+ "runs": {
+  "pytest_m8": {
+   "cmd": "taskset -c 0-7 /home/digimonk/Projects/su2qc-encoding/tools/pytest-safe -n 2 -q -p no:cacheprovider --durations=0 tests/acceptance/m8 -m slow or not slow",
+   "runs": [
+    {
+     "rc": 0,
+     "wall": 109.46469459502259,
+     "maxrss_kb": 6916868,
+     "tail": "hook_certifies_and_binds\n0.20s call     tests/acceptance/m8/test_lsh_m8_seeds.py::test_M8_U1_uniform_split_structure_row\n0.18s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S0_spec_oracle_builder_lsh\n0.14s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_L2_structure_facts_match_lean_sources\n0.01s call     tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G3_loop_budget_lineage_and_stop\n0.01s call     tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_R1_results_and_before_after\n\n(69 durations < 0.005s hidden.  Use -vv to show these durations.)\n33 passed in 109.26s (0:01:49)\n",
+     "load_before": [
+      "1.74",
+      "1.83",
+      "2.32"
+     ],
+     "load_after": [
+      "3.33",
+      "2.29",
+      "2.42"
+     ]
+    }
+   ]
+  }
+ },
+ "t1": "2026-11-20T15:02:48-0500",
+ "load_after": [
+  "3.33",
+  "2.29",
+  "2.42"
+ ]
+}
