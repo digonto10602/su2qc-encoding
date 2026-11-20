@@ -6,8 +6,16 @@ G2: second engine.  Qiskit-Aer statevector on the data + ancilla qubits of the c
     against the 47 x 47 inner target.  This covers all 433 states because (i) the circuit must not touch the outer register
     (asserted here), and (ii) the LSH step is block-diagonal in the outer-site pattern with every block the restriction of the
     inner operator (locked M7-K2 / M7-C2).  A full 24-qubit register plus ancillas would need 2^25..2^31 amplitudes per
-    state; the reduced circuit needs 2^(12 + ancillas).  A circuit that reads outer qubits, or has more than 14 ancillas,
-    fails here with a message (a planner decision, not a skip).
+    state; the reduced circuit needs 2^(12 + ancillas).  A circuit with more than 14 ancillas fails here with a message
+    (a planner decision, not a skip).
+    Erratum prompts/402 (approved 2026-11-20): a circuit that READS outer qubits (every gate on an outer qubit is diagonal
+    in that qubit: a control; checked gate by gate, a gate that writes an outer qubit fails) is checked on data + ancilla +
+    the read outer qubits (the untouched outer qubits are idle, the gate list is unchanged): every distinct
+    (data code, read bits) input among the 433 physical codes is run, and all 433 columns are compared with the
+    433 x 433 target `enc.target` (the shared evaluator's target) at the three spec angle pairs.  Same 26-qubit limit.
+    In addition Aer runs the circuit on the full register (24 qubits; a circuit that reads outer qubits and has ancillas
+    fails here with a message: 4 copies of the state, 1.0 GB at 24 qubits) on 10 seeded physical states (seed 20261120)
+    that each have weight in every sector of the read bits, at the same three pairs.
 G3: the loop stayed inside its budgets and ended by its stop rule; lineage and summary are complete.
 G4: best and headline are exact at two seeded angle pairs that no evaluation used (audit 301 A2, prompts/008 M2C-G4).
 L5: Lean status of best and headline; the theorem file lean/certs/lsh-best-step.lean is the headline's: the binding fields sit
@@ -16,7 +24,9 @@ L5: Lean status of best and headline; the theorem file lean/certs/lsh-best-step.
 R1: results/lsh/m8-compressed.json (clean commit) and the before/after table.
 
 Tolerances: `total_error` <= 1e-10, Gauss <= 1e-10 (exact-angle rule); Aer: operator norm after one global phase <= 1e-10,
-weights <= 1e-20 (as M4-G2; M7 Aer runs gave <= 3.7e-15); synthesised rows N_rot * eps + 1e-9 (prompts/003-004); 300 s per
+weights <= 1e-20 (as M4-G2; M7 Aer runs gave <= 3.7e-15; prompts/402: the same two numbers on the outer-reading path, plus the
+weight on changed read bits <= 1e-20, same definition as the other weights, and on the full register the change of the
+probability of every outer pattern <= 1e-10, the first-order image 2 * 1e-10 of the amplitude tolerance); synthesised rows N_rot * eps + 1e-9 (prompts/003-004); 300 s per
 evaluation, 900 s per Lean call.  All tests are `slow` and `PENDING` until the loop has run."""
 from __future__ import annotations
 
@@ -34,6 +44,8 @@ from tests.acceptance._api import api
 ENC, KIND = "lsh", "step"
 NOMINAL = (0.37, 0.61)
 TOL = 1e-10
+G2_PAIRS = (NOMINAL, (0.91, 0.23), (1.70, 1.00))   # prompts/402: the three spec angle pairs (outer-reading path of G2)
+G2_SEED, G2_STATES = 20261120, 10                   # prompts/402: seeded physical states of the full-register Aer run
 STANDARD = {"propext", "Classical.choice", "Quot.sound"}
 ANGLE_SET_SEED, ANGLE_SET_N = 20261107, 20
 ANGLE_RANGES = ((0.05, 2.0), (0.05, 1.2))
@@ -148,6 +160,209 @@ def aer_inner_check(qc: QuantumCircuit, enc, alpha: float, beta: float) -> dict:
     return {"n_qubits": n, "error": float(np.linalg.norm(outs - ph * V, 2)), "ancilla_weight": worst_anc, "leak_weight": worst_leak}
 
 
+def outer_reads(qc: QuantumCircuit, enc) -> dict:
+    """Static scan (prompts/402 section 3.1): {outer qubit: number of gates that read it}.  A gate may touch an outer qubit
+    only as a control in the general sense: its matrix is |0><0| (x) A + |1><1| (x) B on that qubit, i.e. no entry couples
+    the two values of the bit (exact zeros of the gate's own matrix; qubit p of the gate is bit p of the matrix index).
+    AssertionError for every other gate on an outer qubit: it writes the outer register."""
+    from qiskit.quantum_info import Operator
+
+    outer = set(enc.layout_of(qc).outer)
+    reads: dict = {}
+    for inst in qc.data:
+        qs = [qc.find_bit(q).index for q in inst.qubits]
+        hit = [p for p, q in enumerate(qs) if q in outer]
+        if not hit:
+            continue
+        U = np.asarray(Operator(inst.operation).data)
+        bits = np.arange(U.shape[0])
+        for p in hit:
+            b = (bits >> p) & 1
+            assert not np.any(U[b[:, None] != b[None, :]]), f"gate {inst.operation.name} on qubits {qs} writes the outer qubit {qs[p]}: invalid circuit (prompts/402)"
+            reads[qs[p]] = reads.get(qs[p], 0) + 1
+    return reads
+
+
+def aer_outer_read_check(qc: QuantumCircuit, enc, alpha: float, beta: float, reads) -> dict:
+    """Second engine for a circuit that reads the outer qubits `reads` (prompts/402 section 3.2).  No gate acts on the other
+    outer qubits, so the circuit is the identity on them and Aer runs the unchanged gate list on data + ancilla + read outer
+    qubits.  Every distinct (data code, read bits) input among the 433 physical codes is run once (ancillas in |0>); the
+    output of the physical code (d, o) is the run of (d, o restricted to the read qubits) with the outer pattern o kept.
+    All 433 columns are compared with enc.target (433 x 433, physical-basis order) after one global phase.
+    Returns {"n_qubits", "n_runs", "error", "ancilla_weight", "leak_weight", "outer_weight"}; the weights sum |amplitude|^2
+    over the amplitudes above 1e-13 (as in aer_inner_check): ancilla not |0>; read outer bits changed; a code that is not
+    one of the 433 physical codes (worst case over the runs, for the leak over the 433 columns)."""
+    from qiskit import transpile
+    from qiskit_aer import AerSimulator
+
+    layout = enc.layout_of(qc)
+    R = sorted(reads)
+    assert len(layout.data) == 12 and len(layout.outer) == 12 and set(R) <= set(layout.outer)
+    na = len(layout.ancilla)
+    n = 12 + na + len(R)
+    assert n <= 26, f"the circuit has {na} ancillas and reads {len(R)} outer qubits: Aer on 2^{n} amplitudes exceeds the 26-qubit limit (planner decision)"
+    pos = {q: i for i, q in enumerate(layout.data)}
+    pos.update({q: 12 + k for k, q in enumerate(layout.ancilla)})
+    pos.update({q: 12 + na + k for k, q in enumerate(R)})
+    red = QuantumCircuit(n, global_phase=qc.global_phase)
+    for inst in qc.data:
+        qs = [qc.find_bit(q).index for q in inst.qubits]
+        assert all(q in pos for q in qs), f"gate {inst.operation.name} on qubits {qs} touches an outer qubit outside the read set {R}"
+        red.append(inst.operation, [pos[q] for q in qs])
+    sim = AerSimulator(method="statevector")
+    body = transpile(red, sim, optimization_level=0)
+    basis = enc.physical_vectors()
+    assert all(len(c) == 1 and a[0] == 1 for c, a in zip(basis.codes, basis.amps))
+    codes = [int(c[0]) for c in basis.codes]
+    index = {c: k for k, c in enumerate(codes)}
+    V = np.asarray(enc.target("step", alpha, beta, 1))
+    assert len(index) == 433 and V.shape == (433, 433)
+    rbit = [12 + layout.outer.index(q) for q in R]          # outer qubit layout.outer[j] holds bit 12 + j of the code
+    runs: dict = {}
+    for k, c in enumerate(codes):
+        runs.setdefault((c & 0xFFF, sum(((c >> j) & 1) << i for i, j in enumerate(rbit))), []).append(k)
+    outs = np.zeros((433, 433), dtype=complex)
+    worst_anc = worst_leak = worst_outer = 0.0
+    for (d, r), cols in runs.items():
+        prep = QuantumCircuit(n)
+        for q in range(12):
+            if (d >> q) & 1:
+                prep.x(q)
+        for i in range(len(R)):
+            if (r >> i) & 1:
+                prep.x(12 + na + i)
+        full = prep.compose(body)
+        full.save_statevector()
+        psi = np.asarray(sim.run(full, shots=1).result().get_statevector(full))
+        nz = np.nonzero(np.abs(psi) > 1e-13)[0]
+        amp = psi[nz]
+        w = np.abs(amp) ** 2
+        anc_set = ((nz >> 12) & ((1 << na) - 1)) != 0
+        moved = ~anc_set & ((nz >> (12 + na)) != r)
+        keep = ~anc_set & ~moved
+        worst_anc, worst_outer = max(worst_anc, float(w[anc_set].sum())), max(worst_outer, float(w[moved].sum()))
+        d_out = (nz[keep] & 0xFFF).tolist()
+        a_out = amp[keep]
+        for k in cols:
+            o = (codes[k] >> 12) << 12
+            leak_w = 0.0
+            for dp, a in zip(d_out, a_out):
+                j = index.get(dp | o)
+                if j is None:
+                    leak_w += abs(a) ** 2
+                else:
+                    outs[j, k] = a
+            worst_leak = max(worst_leak, leak_w)
+    ov = np.trace(V.conj().T @ outs)
+    ph = ov / abs(ov) if abs(ov) > 1e-300 else 1.0
+    return {"n_qubits": n, "n_runs": len(runs), "error": float(np.linalg.norm(outs - ph * V, 2)),
+            "ancilla_weight": worst_anc, "leak_weight": worst_leak, "outer_weight": worst_outer}
+
+
+def g2_states(qc: QuantumCircuit, enc, reads) -> np.ndarray:
+    """G2_STATES seeded random physical states (rows: complex amplitudes over the 433 physical codes, unit norm, seed
+    G2_SEED).  Every state has weight in every sector, i.e. for every value of the read outer bits that occurs among the
+    physical codes (asserted)."""
+    layout = enc.layout_of(qc)
+    codes = np.array([int(c[0]) for c in enc.physical_vectors().codes])
+    rng = np.random.default_rng(G2_SEED)
+    c = rng.normal(size=(G2_STATES, len(codes))) + 1j * rng.normal(size=(G2_STATES, len(codes)))
+    c /= np.linalg.norm(c, axis=1, keepdims=True)
+    sector = sum(((codes >> (12 + layout.outer.index(q))) & 1) << i for i, q in enumerate(sorted(reads)))
+    for s_ in np.unique(sector):
+        assert (np.abs(c[:, sector == s_]) ** 2).sum(axis=1).min() > 0, f"a state has no weight in sector {int(s_)}"
+    return c
+
+
+def aer_full_register_check(qc: QuantumCircuit, enc, alpha: float, beta: float, states: np.ndarray) -> dict:
+    """Aer statevector on the FULL register (12 data + 12 outer qubits + ancillas in |0>, unchanged gate list) for the given
+    physical states (prompts/402 section 3.3) against enc.target, one global phase for all states.
+    Returns {"n_qubits", "n_states", "error" (largest 2-norm of output - phase * target state), "ancilla_weight",
+    "leak_weight" (amplitudes above 1e-13: ancilla not |0>; ancilla |0> and not a physical code),
+    "outer_weight_change" (largest change of the probability of any of the 4096 outer patterns, no threshold)}."""
+    import gc
+
+    from qiskit import transpile
+    from qiskit_aer import AerSimulator
+
+    layout = enc.layout_of(qc)
+    assert len(layout.data) == 12 and len(layout.outer) == 12
+    na = len(layout.ancilla)
+    n = 24 + na
+    assert n <= 24, f"the circuit reads outer qubits and has {na} ancillas: the full-register Aer run on 2^{n} amplitudes exceeds the 24-qubit limit (planner decision)"
+    pos = {q: i for i, q in enumerate(layout.data)}
+    pos.update({q: 12 + j for j, q in enumerate(layout.outer)})
+    pos.update({q: 24 + k for k, q in enumerate(layout.ancilla)})
+    red = QuantumCircuit(n, global_phase=qc.global_phase)
+    for inst in qc.data:
+        red.append(inst.operation, [pos[qc.find_bit(q).index] for q in inst.qubits])
+    sim = AerSimulator(method="statevector")
+    body = transpile(red, sim, optimization_level=0)
+    codes = np.array([int(c[0]) for c in enc.physical_vectors().codes])
+    V = np.asarray(enc.target("step", alpha, beta, 1))
+    assert V.shape == (433, 433) and states.shape[1] == 433
+    got, exp = [], []
+    worst_anc = worst_leak = worst_outer = 0.0
+    for c in states:
+        psi = np.zeros(1 << n, dtype=complex)
+        psi[codes] = c
+        full = QuantumCircuit(n)
+        full.set_statevector(psi)
+        del psi
+        full.compose(body, inplace=True)
+        full.save_statevector()
+        psi = np.asarray(sim.run(full, shots=1).result().get_statevector(full))
+        del full
+        got.append(psi[codes].copy())
+        exp.append(V @ c)
+        w_out = np.zeros(4096)
+        for blk in psi.reshape(1 << na, 4096, 4096):                 # [ancilla, outer pattern, data code]
+            for lo in range(0, 4096, 256):
+                part = blk[lo:lo + 256]
+                w_out[lo:lo + 256] += (part.real ** 2 + part.imag ** 2).sum(axis=1)
+        w_in = np.bincount(codes >> 12, weights=np.abs(c) ** 2, minlength=4096)
+        worst_outer = max(worst_outer, float(np.abs(w_out - w_in).max()))
+        nz = np.nonzero(np.abs(psi) > 1e-13)[0]
+        w = np.abs(psi[nz]) ** 2
+        anc_set = (nz >> 24) != 0
+        stray = ~anc_set & ~np.isin(nz, codes)
+        worst_anc, worst_leak = max(worst_anc, float(w[anc_set].sum())), max(worst_leak, float(w[stray].sum()))
+        del psi
+        gc.collect()                                                 # the circuit that holds the input state is in a reference cycle
+    G, X = np.array(got), np.array(exp)
+    ov = np.vdot(X, G)
+    ph = ov / abs(ov) if abs(ov) > 1e-300 else 1.0
+    return {"n_qubits": n, "n_states": len(states), "error": float(np.linalg.norm(G - ph * X, axis=1).max()),
+            "ancilla_weight": worst_anc, "leak_weight": worst_leak, "outer_weight_change": worst_outer}
+
+
+def g2_second_engine(rebuild, spec, enc, tag) -> list:
+    """The G2 check of one archive entry; `rebuild(specs)` returns its circuits from the program source (stock worker).
+    No outer qubit touched: the check of prompts/401, unchanged (47 inner codes, nominal angles).  Outer qubits read
+    (prompts/402), at each of the three spec angle pairs: static scan with the same read set; all 433 physical codes on the
+    reduced register; G2_STATES seeded physical states on the full register."""
+    qc = rebuild([spec])[0]
+    reads = outer_reads(qc, enc)
+    if not reads:
+        res = aer_inner_check(qc, enc, *NOMINAL)
+        assert res["error"] <= TOL, (tag, res)
+        assert res["ancilla_weight"] <= 1e-20 and res["leak_weight"] <= 1e-20, (tag, res)
+        return [res]
+    assert (spec.alpha, spec.beta) == G2_PAIRS[0]
+    states = g2_states(qc, enc, reads)
+    out = []
+    for (a, b), qc in zip(G2_PAIRS, rebuild([spec] + [spec.with_angles(a, b) for a, b in G2_PAIRS[1:]])):
+        assert set(outer_reads(qc, enc)) == set(reads), (tag, a, b)
+        res = aer_outer_read_check(qc, enc, a, b, reads)
+        assert res["error"] <= TOL, (tag, a, b, res)
+        assert res["ancilla_weight"] <= 1e-20 and res["leak_weight"] <= 1e-20 and res["outer_weight"] <= 1e-20, (tag, a, b, res)
+        full = aer_full_register_check(qc, enc, a, b, states)
+        assert full["error"] <= TOL, (tag, a, b, full)
+        assert full["ancilla_weight"] <= 1e-20 and full["leak_weight"] <= 1e-20 and full["outer_weight_change"] <= TOL, (tag, a, b, full)
+        out.append({**res, "full": full})
+    return out
+
+
 # ---------------------------------------------------------------------------------------------------- G1
 @pytest.mark.slow
 def test_M8_G1_best_and_headline_reverified_from_source(root):
@@ -180,17 +395,19 @@ def test_M8_G1_best_and_headline_reverified_from_source(root):
 # ---------------------------------------------------------------------------------------------------- G2
 @pytest.mark.slow
 def test_M8_G2_best_and_headline_second_engine_aer(root):
-    """Aer statevector (second engine) on the 47 inner codes, data + ancilla qubits only, for the archive best and the
-    headline rebuilt through the stock worker at the nominal angles: equal to the inner target up to one global phase,
-    ancillas back in |0>, no weight outside the inner codes, outer register untouched."""
+    """Aer statevector (second engine) for the archive best and the headline rebuilt through the stock worker.  A circuit
+    that touches no outer qubit: the 47 inner codes, data + ancilla qubits only, at the nominal angles: equal to the inner
+    target up to one global phase, ancillas back in |0>, no weight outside the inner codes.  A circuit that reads outer
+    qubits as controls (prompts/402): all 433 physical codes on data + ancilla + read outer qubits at the three spec angle
+    pairs: equal to the 433 x 433 target up to one global phase, ancillas back in |0>, no weight outside the physical
+    codes, read bits unchanged; and 10 seeded physical states on the full register at the same pairs: equal to the target
+    states up to one global phase, probability of every outer pattern unchanged.  A gate that writes an outer qubit fails
+    in both cases."""
     spec = _spec()
     enc = api("su2plaq.compress.spec:get_encoding")(ENC)
     arch, best, head, h = _best_and_head(root)
     for e in {best.id: best, head.id: head}.values():
-        qc = _rebuild(root, e, [spec])[0]
-        res = aer_inner_check(qc, enc, *NOMINAL)
-        assert res["error"] <= TOL, (e.id, res)
-        assert res["ancilla_weight"] <= 1e-20 and res["leak_weight"] <= 1e-20, (e.id, res)
+        g2_second_engine(lambda specs, e=e: _rebuild(root, e, specs), spec, enc, e.id)
 
 
 # ---------------------------------------------------------------------------------------------------- G3
