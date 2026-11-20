@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+.................................                                        [100%]
+============================= slowest 5 durations ==============================
+23.06s call     tests/acceptance/m11/test_cross_models.py::test_M11_F2_fuzzy_isolated_plaquette_gap
+19.52s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[2.0]
+19.18s call     tests/acceptance/m11/test_headline_rule.py::test_M11_H3_fuzzy_step_composed_from_the_headline_units
+16.70s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[0.5]
+15.99s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K4_headline_circuit_against_another_encodings_target[twelve-spinnet]
+33 passed in 58.35s
+{"rc": 0, "wall_s": 58.7, "peak_sum_rss_GiB": 2.465, "peak_sum_pss_GiB": 2.311}

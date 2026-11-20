@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+........................                                                 [100%]
+============================= slowest 5 durations ==============================
+9.05s call     tests/acceptance/m3/test_spinnet_lean.py::test_M3_L2_general_circuit_structure_kernel_checked
+8.99s call     tests/acceptance/m3/test_spinnet_lean.py::test_M3_L1_spinnet_counts_kernel_checked
+3.03s call     tests/acceptance/m3/test_spinnet_circuits.py::test_M3_E1_electric_step[0.37]
+2.51s call     tests/acceptance/m3/test_spinnet_circuits.py::test_M3_B1_magnetic_inner_block[0.4]
+2.41s call     tests/acceptance/m3/test_spinnet_circuits.py::test_M3_B1_magnetic_inner_block[1.0]
+24 passed in 17.69s
+{"rc": 0, "wall_s": 18.1, "peak_sum_rss_GiB": 14.856, "peak_sum_pss_GiB": 7.381}

@@ -1,0 +1,18 @@
+bringing up nodes...
+bringing up nodes...
+
+..................................                                       [100%]
+=============================== warnings summary ===============================
+tests/acceptance/m0/test_algebra.py: 96 warnings
+  /home/digimonk/miniforge3/envs/coding/lib/python3.12/site-packages/mpmath/libmp/libintmath.py:75: DeprecationWarning: bitcount function is deprecated
+    warnings.warn("bitcount function is deprecated",
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 5 durations ==============================
+9.47s call     tests/acceptance/m0/test_evaluator.py::test_M0_E3_sensitivity
+8.27s call     tests/acceptance/m0/test_evaluator.py::test_M0_E5_gauss_of_outputs
+5.59s call     tests/acceptance/m0/test_evaluator.py::test_M0_E6_leak_is_judged_as_amplitude
+3.87s call     tests/acceptance/m0/test_evaluator.py::test_M0_E4_outer_control_blocks
+0.83s call     tests/acceptance/m0/test_physical.py::test_M0_C6_jmax1_count_slow
+34 passed, 96 warnings in 14.60s
+{"rc": 0, "wall_s": 15.0, "peak_sum_rss_GiB": 1.6, "peak_sum_pss_GiB": 1.472}

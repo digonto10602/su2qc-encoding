@@ -1,0 +1,73 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 34%]
+........................................................................ [ 40%]
+........................................................................ [ 46%]
+........................................................................ [ 52%]
+........................................................................ [ 58%]
+........................................................................ [ 64%]
+........................................................................ [ 69%]
+........................................................................ [ 75%]
+........................................................................ [ 81%]
+........................................................................ [ 87%]
+........................................................................ [ 93%]
+................................F....................................... [ 99%]
+............                                                             [100%]
+=================================== FAILURES ===================================
+_____ test_check_cross_compares_at_nominal_alternate_and_irrational_pairs ______
+[gw0] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fb4f85a6d80>
+
+    def test_check_cross_compares_at_nominal_alternate_and_irrational_pairs(monkeypatch):
+        """`_check_cross` is not a single-point guard: it compares the exact target with the float one at the nominal pair, the two
+        `ALT_ANGLES` pairs and one pair with irrational beta (UD: nominal eta and the two alternate etas); a coefficient that is wrong
+        only away from the nominal pair is caught."""
+        from su2plaq.encodings.base import ALT_ANGLES
+        from su2plaq.encodings.rishon import RISHON_ALT_ETA, RISHON_NOMINAL, RISHON_NOMINAL_ETA
+    
+        seen = []
+        real = O.inner_target
+    
+        def spy(kind, al, be, order=1, **kw):
+            seen.append((kind, al, be, kw.get("eta")))
+            return real(kind, al, be, order, **kw)
+    
+        monkeypatch.setattr(O, "inner_target", spy)
+        base, ents = L.exact_target("UD")
+        L._check_cross("UD", 1, ents, base)
+>       assert [s[3] for s in seen] == [RISHON_NOMINAL_ETA, *RISHON_ALT_ETA]
+E       assert [0.29, 0.53, ...9, 0.53, 1.07] == [0.29, 0.53, 1.07]
+E         
+E         Left contains 3 more items, first extra item: 0.29
+E         Use -v to get more diff
+
+scratch/tester/448/test_head448_check_cross.py:43: AssertionError
+=============================== warnings summary ===============================
+tests/unit/test_robust_atomic_unit.py::test_two_concurrent_writers_and_a_reader_never_fail_or_see_a_partial_cache
+tests/unit/test_robust_atomic_unit.py::test_two_concurrent_writers_and_a_reader_never_fail_or_see_a_partial_cache
+  /home/digimonk/miniforge3/envs/coding/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=3699176) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 10 durations =============================
+104.46s setup    tests/unit/test_rishon_compress_replay_unit.py::test_replay_record_and_backup
+71.14s setup    tests/unit/test_compress_replay_unit.py::test_record_schema_backup_and_hashes
+41.20s call     tests/unit/test_crosscheck_limits_unit.py::test_isolated_plaquette_levels
+41.02s setup    tests/unit/test_rishon_results_unit.py::test_quick_result_files[UE]
+33.02s call     tests/unit/test_compress_replay_unit.py::test_tampered_archive_entry_is_a_problem_named_in_the_record_and_the_cli_exits_1
+32.32s call     tests/unit/test_compress_replay_unit.py::test_archived_entry_that_no_recorded_round_produced_is_a_problem
+31.21s call     tests/unit/test_lean_round_unit.py::test_round_lean_default_records_certificate_and_lemma_check
+25.54s call     tests/unit/test_lean_round_unit.py::test_certify_best_after_a_lean_free_round
+24.23s setup    tests/unit/test_lsh_loop_unit.py::test_dry_seed_round_files_and_stop_record
+21.30s call     tests/unit/test_m9_results_script_unit.py::test_isolated_plaquette_basis_is_the_gauss_kernel
+=========================== short test summary info ============================
+FAILED scratch/tester/448/test_head448_check_cross.py::test_check_cross_compares_at_nominal_alternate_and_irrational_pairs
+1 failed, 1235 passed, 2 warnings in 495.56s (0:08:15)
+{"rc": 1, "wall_s": 495.8, "peak_sum_rss_GiB": 11.01, "peak_sum_pss_GiB": 10.198}

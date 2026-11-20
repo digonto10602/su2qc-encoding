@@ -1,0 +1,34 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_check_cross_compares_at_nominal_alternate_and_irrational_pairs ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f4ceb9a48c0>
+
+    def test_check_cross_compares_at_nominal_alternate_and_irrational_pairs(monkeypatch):
+        """`_check_cross` is not a single-point guard: it compares the exact target with the float one at the nominal pair, the two
+        `ALT_ANGLES` pairs and one pair with irrational beta (UD: nominal eta and the two alternate etas); a coefficient that is wrong
+        only away from the nominal pair is caught."""
+        from su2plaq.encodings.base import ALT_ANGLES
+        from su2plaq.encodings.rishon import RISHON_ALT_ETA, RISHON_NOMINAL, RISHON_NOMINAL_ETA
+    
+        seen = []
+        real = O.inner_target
+    
+        def spy(kind, al, be, order=1, **kw):
+            seen.append((kind, al, be, kw.get("eta")))
+            return real(kind, al, be, order, **kw)
+    
+        monkeypatch.setattr(O, "inner_target", spy)
+        base, ents = L.exact_target("UD")
+        L._check_cross("UD", 1, ents, base)
+>       assert [s[3] for s in seen] == [RISHON_NOMINAL_ETA, *RISHON_ALT_ETA]
+E       assert [0.29, 0.53, ...9, 0.53, 1.07] == [0.29, 0.53, 1.07]
+E         
+E         Left contains 3 more items, first extra item: 0.29
+E         Use -v to get more diff
+
+scratch/tester/448/test_head448_check_cross.py:43: AssertionError
+=========================== short test summary info ============================
+FAILED scratch/tester/448/test_head448_check_cross.py::test_check_cross_compares_at_nominal_alternate_and_irrational_pairs
+1 failed in 0.66s
+{"rc": 1, "wall_s": 1.0, "peak_sum_rss_GiB": 0.23, "peak_sum_pss_GiB": 0.224}

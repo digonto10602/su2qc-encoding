@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+..............................................                           [100%]
+============================= slowest 5 durations ==============================
+69.07s call     tests/acceptance/m2/test_lean_formal.py::test_lean_theorem_file_general
+57.90s call     tests/acceptance/m2/test_lean_structure.py::test_structure_json_and_spec_section
+56.13s call     tests/acceptance/m2/test_compress_machinery.py::test_round_dry_run_end_to_end
+55.22s call     tests/acceptance/m2/test_lean_formal.py::test_round_records_lean_certificate
+35.43s call     tests/acceptance/m2/test_lean_formal.py::test_lean_certificate_general_circuit
+46 passed in 164.77s (0:02:44)
+{"rc": 0, "wall_s": 165.2, "peak_sum_rss_GiB": 10.873, "peak_sum_pss_GiB": 8.721}

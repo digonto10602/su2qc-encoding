@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+............................                                             [100%]
+============================= slowest 5 durations ==============================
+925.70s call     tests/acceptance/m9/test_fuzzy_metrics.py::test_M9_T1_t_table_and_synth_verify[step]
+418.01s call     tests/acceptance/m9/test_fuzzy_codec_gauss.py::test_M9_C1_seeded_physical_states_and_gauss
+76.70s call     tests/acceptance/m9/test_fuzzy_circuits.py::test_M9_S1_step_orders[1.0-2]
+75.06s call     tests/acceptance/m9/test_fuzzy_circuits.py::test_M9_S1_step_orders[1.0-1]
+68.91s call     tests/acceptance/m9/test_fuzzy_circuits.py::test_M9_S1_step_orders[0.0-2]
+28 passed in 1012.58s (0:16:52)
+{"rc": 0, "wall_s": 1013.0, "peak_sum_rss_GiB": 7.935, "peak_sum_pss_GiB": 7.79}

@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+......................                                                   [100%]
+============================= slowest 5 durations ==============================
+53.12s call     tests/acceptance/m1/test_twelve_outer.py::test_M1_O1_outer_dont_care_table
+50.72s call     tests/acceptance/m1/test_twelve_paulo.py::test_M1_P1_paulo_qpy_verifies
+7.80s call     tests/acceptance/m1/test_evaluator_prune.py::test_M1_V1_pruning_cap_is_relative_to_tol_err
+4.41s call     tests/acceptance/m1/test_twelve_circuits.py::test_M1_E1_electric_step[0.37]
+4.40s call     tests/acceptance/m1/test_twelve_circuits.py::test_M1_B1_magnetic_inner_block[0.4]
+22 passed in 68.06s (0:01:08)
+{"rc": 0, "wall_s": 68.3, "peak_sum_rss_GiB": 4.295, "peak_sum_pss_GiB": 4.144}

@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+............................                                             [100%]
+============================= slowest 5 durations ==============================
+33.16s call     tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G4_best_and_headline_valid_at_unseen_angles[rishon-step]
+20.50s call     tests/acceptance/m2c/test_consolidation_registry.py::test_M2C_R2_fresh_process_and_stock_worker_know_every_encoding
+16.18s call     tests/acceptance/m2c/test_consolidation_gate.py::test_M2C_G4_best_and_headline_valid_at_unseen_angles[twelve-step]
+7.85s call     tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E4_prune_fraction_keyword
+4.84s call     tests/acceptance/m2c/test_consolidation_evaluator.py::test_M2C_E2_span_leak_zero_on_exact_circuits_and_trial_subset
+28 passed in 43.59s
+{"rc": 0, "wall_s": 44.0, "peak_sum_rss_GiB": 2.73, "peak_sum_pss_GiB": 2.44}

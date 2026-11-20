@@ -1,0 +1,19 @@
+bringing up nodes...
+bringing up nodes...
+
+....                                                                     [100%]
+=============================== warnings summary ===============================
+tests/acceptance/m3x/test_spinnet_lean_exact.py: 20 warnings
+  /home/digimonk/miniforge3/envs/coding/lib/python3.12/site-packages/mpmath/libmp/libintmath.py:75: DeprecationWarning: bitcount function is deprecated
+    warnings.warn("bitcount function is deprecated",
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 5 durations ==============================
+7.46s call     tests/acceptance/m3x/test_spinnet_lean_exact.py::test_M3X_W2_semantics_gate_list_and_qiskit_matrices
+4.62s call     tests/acceptance/m3x/test_spinnet_lean_exact.py::test_M3X_L_exact_theorems_kernel_checked
+2.48s call     tests/acceptance/m3x/test_spinnet_lean_exact.py::test_M3X_W1_recoupling_matches_wigner_and_codec
+1.31s call     tests/acceptance/m3x/test_spinnet_lean_exact.py::test_M3X_W3_spectrum_states_and_multiplicities
+
+(1 durations < 0.005s hidden.  Use -vv to show these durations.)
+4 passed, 20 warnings in 8.04s
+{"rc": 0, "wall_s": 8.6, "peak_sum_rss_GiB": 8.559, "peak_sum_pss_GiB": 6.827}

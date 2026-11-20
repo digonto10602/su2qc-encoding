@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+.................................                                        [100%]
+============================= slowest 5 durations ==============================
+105.60s call     tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G2_best_and_headline_second_engine_aer
+26.40s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H2_headline_selection_on_seed_round
+24.60s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S4_round_one_dry_run_briefs_and_stop_state
+23.07s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S3_seed_round_dry_run
+4.02s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H1_robust_metrics_and_hardenings
+33 passed in 109.63s (0:01:49)
+{"rc": 0, "wall_s": 110.0, "peak_sum_rss_GiB": 8.009, "peak_sum_pss_GiB": 7.18}

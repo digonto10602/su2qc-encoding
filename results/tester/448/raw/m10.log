@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+..........                                                               [100%]
+============================= slowest 5 durations ==============================
+72.30s call     tests/acceptance/m10/test_fuzzy_compression.py::test_M10_H3_compose_step_general_matches_m9_and_verifies
+26.42s call     tests/acceptance/m10/test_fuzzy_compression.py::test_M10_G3_composed_step_from_best_verifies_and_is_recorded
+1.35s call     tests/acceptance/m10/test_fuzzy_compression.py::test_M10_H2_general_seed_valid_counts_and_sensitivity[fuzzy_ub-UB]
+1.05s call     tests/acceptance/m10/test_fuzzy_compression.py::test_M10_G1_archive_best_valid_and_not_worse_than_seed[fuzzy_ub-UB]
+0.44s call     tests/acceptance/m10/test_fuzzy_compression.py::test_M10_G2_best_counts_match_qiskit_count_ops[fuzzy_ub-UB]
+10 passed in 73.37s (0:01:13)
+{"rc": 0, "wall_s": 73.8, "peak_sum_rss_GiB": 2.204, "peak_sum_pss_GiB": 2.076}

@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+.................................                                        [100%]
+============================= slowest 5 durations ==============================
+1168.59s call     tests/acceptance/m6/test_rishon_m6_evaluate.py::test_M6_E4_full_mode_general_step
+121.88s call     tests/acceptance/m6/test_rishon_m6_headline.py::test_M6_H2_headline_selection_on_seed_round
+60.02s call     tests/acceptance/m6/test_rishon_m6_loop.py::test_M6_R2_round_dry_run_brief_and_report
+57.49s call     tests/acceptance/m6/test_rishon_m6_three_layer.py::test_M6_H4_three_layer_headline
+55.71s call     tests/acceptance/m6/test_rishon_m6_evaluate.py::test_M6_E3_full_mode_ue_program_and_cache
+33 passed in 1252.28s (0:20:52)
+{"rc": 0, "wall_s": 1252.7, "peak_sum_rss_GiB": 9.496, "peak_sum_pss_GiB": 8.661}

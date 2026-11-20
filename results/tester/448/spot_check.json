@@ -1,0 +1,656 @@
+[
+ {
+  "cell": "T1a LSH CX",
+  "report": 94,
+  "source": "gate-table lsh.general.cx / robust r00-seed-000 cx",
+  "value": 94,
+  "ok": true
+ },
+ {
+  "cell": "T1a LSH qubits 31",
+  "report": 31,
+  "source": "robust lsh r00-seed-000 qubits",
+  "value": 31,
+  "ok": true
+ },
+ {
+  "cell": "T1a LSH rot 8",
+  "report": 8,
+  "source": "gate-table lsh.general.n_rot",
+  "value": 8,
+  "ok": true
+ },
+ {
+  "cell": "T1a LSH T_fixed 88",
+  "report": 88,
+  "source": "gate-table lsh.general.t_fixed",
+  "value": 88,
+  "ok": true
+ },
+ {
+  "cell": "T1a LSH T(1e-6) 598",
+  "report": 598,
+  "source": "gate-table lsh.general.t_1e6",
+  "value": 598,
+  "ok": true
+ },
+ {
+  "cell": "T1a LSH Tbar 592.6",
+  "report": 592.6,
+  "source": "robust r00-seed-000 t_mean",
+  "value": 592.6,
+  "ok": true
+ },
+ {
+  "cell": "T1a LSH Tbar SE 1.6",
+  "report": 1.6,
+  "source": "robust r00-seed-000 stdev(t_eps)/sqrt(20), ddof=1",
+  "value": 1.6,
+  "ok": true
+ },
+ {
+  "cell": "T1b LSH entry",
+  "report": "r05-F3-005",
+  "source": "gate-table lsh.headline.entry",
+  "value": "r05-F3-005",
+  "ok": true
+ },
+ {
+  "cell": "T1b LSH qubits 24",
+  "report": 24,
+  "source": "m8-compressed metrics.logical.qubits",
+  "value": 24,
+  "ok": true
+ },
+ {
+  "cell": "T1b LSH CX 68",
+  "report": 68,
+  "source": "m8-compressed metrics.logical.cx",
+  "value": 68,
+  "ok": true
+ },
+ {
+  "cell": "T1b LSH rot 22",
+  "report": 22,
+  "source": "m8-compressed metrics.logical.n_rot",
+  "value": 22,
+  "ok": true
+ },
+ {
+  "cell": "T1b LSH T_fixed 24",
+  "report": 24,
+  "source": "m8-compressed metrics.logical.t_fixed",
+  "value": 24,
+  "ok": true
+ },
+ {
+  "cell": "T1b LSH T(1e-6) 1396",
+  "report": 1396,
+  "source": "gate-table lsh.headline.t_nominal",
+  "value": 1396,
+  "ok": true
+ },
+ {
+  "cell": "T1b LSH Tbar 1417.4",
+  "report": 1417.4,
+  "source": "robust r05-F3-005 t_mean",
+  "value": 1417.4,
+  "ok": true
+ },
+ {
+  "cell": "T1b LSH Tbar SE 8.0",
+  "report": 8.0,
+  "source": "robust r05-F3-005 stdev(t_eps)/sqrt(20) ddof=1",
+  "value": 8.0,
+  "ok": true
+ },
+ {
+  "cell": "T1b LSH angle-linear yes",
+  "report": true,
+  "source": "robust r05-F3-005 angle_linear",
+  "value": true,
+  "ok": true
+ },
+ {
+  "cell": "T1c LSH CX -27.7%",
+  "report": -27.7,
+  "source": "(68-94)/94*100",
+  "value": -27.7,
+  "ok": true
+ },
+ {
+  "cell": "T1c LSH CX x1.38",
+  "report": 1.38,
+  "source": "94/68",
+  "value": 1.38,
+  "ok": true
+ },
+ {
+  "cell": "T1c LSH Tbar +139.2%",
+  "report": 139.2,
+  "source": "(1417.4-592.6)/592.6*100",
+  "value": 139.2,
+  "ok": true
+ },
+ {
+  "cell": "T1c LSH UE row 20 rotations",
+  "report": 20,
+  "source": "results/lsh/UE.json extra.outer_electric_row n_rot",
+  "value": 20,
+  "ok": true
+ },
+ {
+  "cell": "T1c LSH UE row T(1e-6)=1280",
+  "report": 1280,
+  "source": "results/lsh/UE.json extra.outer_electric_row t_table[1e-6]",
+  "value": 1280,
+  "ok": true
+ },
+ {
+  "cell": "T2 LSH headline (68,1417.4)",
+  "report": [
+   68,
+   1417.4
+  ],
+  "source": "gate-table lsh.headline",
+  "value": [
+   68,
+   1417.4
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T2 LSH T-first r00-seed-002 (84,585.1)",
+  "report": [
+   "r00-seed-002",
+   84,
+   585.1
+  ],
+  "source": "gate-table lsh.t_first",
+  "value": [
+   "r00-seed-002",
+   84,
+   585.1
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T2 LSH general (94,592.6)",
+  "report": [
+   94,
+   592.6
+  ],
+  "source": "robust r00-seed-000",
+  "value": [
+   94,
+   592.6
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T2 LSH Pareto 7 distinct points",
+  "report": [
+   [
+    68,
+    1417.4
+   ],
+   [
+    70,
+    1354.3
+   ],
+   [
+    71,
+    1116.0
+   ],
+   [
+    72,
+    879.4
+   ],
+   [
+    74,
+    697.6
+   ],
+   [
+    82,
+    641.1
+   ],
+   [
+    84,
+    585.1
+   ]
+  ],
+  "source": "gate-table lsh.pareto (distinct (cx,T))",
+  "value": [
+   [
+    68,
+    1417.4
+   ],
+   [
+    70,
+    1354.3
+   ],
+   [
+    71,
+    1116.0
+   ],
+   [
+    72,
+    879.4
+   ],
+   [
+    74,
+    697.6
+   ],
+   [
+    82,
+    641.1
+   ],
+   [
+    84,
+    585.1
+   ]
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T2 LSH tie entries r04-F3-004, r05-F5-005 in Pareto",
+  "report": true,
+  "source": "gate-table lsh.pareto ids",
+  "value": true,
+  "ok": true
+ },
+ {
+  "cell": "T2 LSH 28 ranked",
+  "report": 28,
+  "source": "robust lsh entries with robust_key",
+  "value": 28,
+  "ok": true
+ },
+ {
+  "cell": "T2 LSH T-first diff: 16 CX more, -832.3 Tbar",
+  "report": [
+   16,
+   -832.3
+  ],
+  "source": "84-68, 585.1-1417.4",
+  "value": [
+   16,
+   -832.3
+  ],
+  "ok": true
+ },
+ {
+  "cell": "3a max level dev g2=0.5 2.8e-14",
+  "report": 2.8e-14,
+  "source": "spectra ks.max_pairwise_level_dev[0.5]",
+  "value": 2.7533531010703882e-14,
+  "ok": true
+ },
+ {
+  "cell": "3a max level dev g2=1 1.2e-14",
+  "report": 1.2e-14,
+  "source": "ks.max_pairwise_level_dev[1.0]",
+  "value": 1.199040866595169e-14,
+  "ok": true
+ },
+ {
+  "cell": "3a max level dev g2=2 2.7e-14",
+  "report": 2.7e-14,
+  "source": "ks.max_pairwise_level_dev[2.0]",
+  "value": 2.6645352591003757e-14,
+  "ok": true
+ },
+ {
+  "cell": "3a LSH multiplicities 16,96,16,177,16,96,16",
+  "report": [
+   16,
+   96,
+   16,
+   177,
+   16,
+   96,
+   16
+  ],
+  "source": "ks.hb_multiplicities.lsh",
+  "value": [
+   16,
+   96,
+   16,
+   177,
+   16,
+   96,
+   16
+  ],
+  "ok": true
+ },
+ {
+  "cell": "3a transported target 3.0e-15",
+  "report": 3e-15,
+  "source": "ks.transported_target_max",
+  "value": 3.0373479264368552e-15,
+  "ok": true
+ },
+ {
+  "cell": "3a twelve vs LSH 2.7e-13",
+  "report": 2.7e-13,
+  "source": "cross_verdicts[0].total_error",
+  "value": 2.721351977491546e-13,
+  "ok": true
+ },
+ {
+  "cell": "3a spinnet vs twelve 1.1e-14",
+  "report": 1.1e-14,
+  "source": "cross_verdicts[1].total_error",
+  "value": 1.1049525251145847e-14,
+  "ok": true
+ },
+ {
+  "cell": "3a LSH vs spinnet 1.6e-14",
+  "report": 1.6e-14,
+  "source": "cross_verdicts[2].total_error",
+  "value": 1.6483590154922412e-14,
+  "ok": true
+ },
+ {
+  "cell": "3a mutants 2.0000000012e-6",
+  "report": [
+   2.0000000012e-06,
+   2.0000000018e-06,
+   2.0000000034e-06
+  ],
+  "source": "cross_verdicts[0..2].mutant.block_error",
+  "value": [
+   2.0000000012e-06,
+   2.0000000018e-06,
+   2.0000000034e-06
+  ],
+  "ok": true
+ },
+ {
+  "cell": "3a headline LSH r05-F3-005 vs twelve 1.4e-14 / 1.3e-14",
+  "report": [
+   1.4e-14,
+   1.3e-14
+  ],
+  "source": "cross_verdicts[7,8].total_error",
+  "value": [
+   1.4e-14,
+   1.3e-14
+  ],
+  "ok": true
+ },
+ {
+  "cell": "3a all 9 verdicts ok & certified",
+  "report": true,
+  "source": "cross_verdicts[*].ok and certified",
+  "value": true,
+  "ok": true
+ },
+ {
+  "cell": "3a mutants all rejected",
+  "report": true,
+  "source": "cross_verdicts[0..2].mutant.ok == False",
+  "value": true,
+  "ok": true
+ },
+ {
+  "cell": "3a headline_skipped empty",
+  "report": [],
+  "source": "ks.headline_skipped",
+  "value": [],
+  "ok": true
+ },
+ {
+  "cell": "T1a twelve Tbar 943.2 +- 2.3",
+  "report": [
+   943.2,
+   2.3
+  ],
+  "source": "robust twelve r00-seed-000",
+  "value": [
+   943.2,
+   2.3
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T1b twelve r05-F2-005 (31,111,927.4)",
+  "report": [
+   31,
+   111,
+   927.4
+  ],
+  "source": "robust twelve r05-F2-005",
+  "value": [
+   31,
+   111,
+   927.4
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T1b twelve T(1e-6) 912",
+  "report": 912,
+  "source": "gate-table twelve.headline.t_nominal",
+  "value": 912,
+  "ok": true
+ },
+ {
+  "cell": "T1a spinnet Tbar 560.6 +- 1.6",
+  "report": [
+   560.6,
+   1.6
+  ],
+  "source": "robust spinnet r00-seed-000",
+  "value": [
+   560.6,
+   1.6
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T1b spinnet r02-F1-002 (17,31,1092.0 +- 3.1)",
+  "report": [
+   17,
+   31,
+   1092.0,
+   3.1
+  ],
+  "source": "robust spinnet r02-F1-002",
+  "value": [
+   17,
+   31,
+   1092.0,
+   3.1
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T1c spinnet +94.8%",
+  "report": 94.8,
+  "source": "(1092.0-560.6)/560.6",
+  "value": 94.8,
+  "ok": true
+ },
+ {
+  "cell": "T1a rishon two-layer (58,10102,20620.2 +- 58.8)",
+  "report": [
+   58,
+   10102,
+   20620.2,
+   58.8
+  ],
+  "source": "robust rishon r00-seed-000",
+  "value": [
+   58,
+   10102,
+   20620.2,
+   58.8
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T1b rishon r06-F3-006 (52,216,829.8 +- 2.2)",
+  "report": [
+   52,
+   216,
+   829.8,
+   2.2
+  ],
+  "source": "robust rishon r06-F3-006",
+  "value": [
+   52,
+   216,
+   829.8,
+   2.2
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T1c rishon unit -96.0%",
+  "report": -96.0,
+  "source": "(829.8-20620.2)/20620.2",
+  "value": -96.0,
+  "ok": true
+ },
+ {
+  "cell": "T1a fuzzy inner (23?,1862,5398)",
+  "report": [
+   1862,
+   5398
+  ],
+  "source": "gate-table fuzzy.general cx,t_1e6",
+  "value": [
+   1862,
+   5398
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T1a fuzzy Tbar 2821.0+4*628.8 = 5336.2",
+  "report": 5336.2,
+  "source": "robust fuzzy_ub seed0 + 4 fuzzy_link seed0",
+  "value": 5336.2,
+  "ok": true
+ },
+ {
+  "cell": "T1b fuzzy unit UB (83,634.4 +- 3.2)",
+  "report": [
+   83,
+   634.4,
+   3.2
+  ],
+  "source": "robust fuzzy_ub r10-F1-010",
+  "value": [
+   83,
+   634.4,
+   3.2
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T1b fuzzy link (12,628.8 +- 3.8)",
+  "report": [
+   12,
+   628.8,
+   3.8
+  ],
+  "source": "robust fuzzy_link r02-F2-001",
+  "value": [
+   12,
+   628.8,
+   3.8
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T1b fuzzy composed (131, 3149.6)",
+  "report": [
+   131,
+   3149.6
+  ],
+  "source": "gate-table fuzzy.headline",
+  "value": [
+   131,
+   3149.6
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T2 fuzzy T-first (137, 3035.2)",
+  "report": [
+   137,
+   3035.2
+  ],
+  "source": "gate-table fuzzy.t_first",
+  "value": [
+   137,
+   3035.2
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T2 rishon T-first r06-F1-006 (218,829.2)",
+  "report": [
+   "r06-F1-006",
+   218,
+   829.2
+  ],
+  "source": "gate-table rishon.t_first",
+  "value": [
+   "r06-F1-006",
+   218,
+   829.2
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T2 spinnet T-first r01-F5-001 (46,486.7)",
+  "report": [
+   "r01-F5-001",
+   46,
+   486.7
+  ],
+  "source": "gate-table spinnet.t_first",
+  "value": [
+   "r01-F5-001",
+   46,
+   486.7
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T2 twelve T-first r00-seed-001 (162,666.6)",
+  "report": [
+   "r00-seed-001",
+   162,
+   666.6
+  ],
+  "source": "gate-table twelve.t_first",
+  "value": [
+   "r00-seed-001",
+   162,
+   666.6
+  ],
+  "ok": true
+ },
+ {
+  "cell": "T2 twelve 21 ranked / spinnet 23 / rishon 23 / fuzzy_ub 41 / fuzzy_link 4",
+  "report": [
+   21,
+   23,
+   23,
+   41,
+   4
+  ],
+  "source": "robust.json entries with robust_key",
+  "value": [
+   21,
+   23,
+   23,
+   41,
+   4
+  ],
+  "ok": true
+ }
+]

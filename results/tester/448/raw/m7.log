@@ -1,0 +1,12 @@
+bringing up nodes...
+bringing up nodes...
+
+.............................                                            [100%]
+============================= slowest 5 durations ==============================
+2.83s call     tests/acceptance/m7/test_lsh_lean.py::test_M7_L1_lsh_counts_kernel_checked
+2.26s call     tests/acceptance/m7/test_lsh_lean.py::test_M7_L2_general_circuit_structure_kernel_checked
+1.44s call     tests/acceptance/m7/test_lsh_codec.py::test_M7_C1_codec_and_vectors
+1.42s call     tests/acceptance/m7/test_lsh_circuits.py::test_M7_S1_step_orders[2]
+1.41s call     tests/acceptance/m7/test_lsh_circuits.py::test_M7_S1_step_orders[1]
+29 passed in 9.45s
+{"rc": 0, "wall_s": 9.7, "peak_sum_rss_GiB": 8.818, "peak_sum_pss_GiB": 7.452}
