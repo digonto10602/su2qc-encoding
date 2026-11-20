@@ -130,7 +130,7 @@
    "t_fixed": 0,
    "t_1e6": 512,
    "error": 4.440892098500626e-16,
-   "source": "results/lsh/UE.json @ 3d99f68"
+   "source": "results/lsh/UE.json @ 76fd221"
   },
   {
    "encoding": "4. Loop-string-hadron",
@@ -141,7 +141,7 @@
    "t_fixed": 88,
    "t_1e6": 342,
    "error": 1.4412387114434048e-14,
-   "source": "results/lsh/UB.json @ 3d99f68"
+   "source": "results/lsh/UB.json @ 76fd221"
   },
   {
    "encoding": "4. Loop-string-hadron",
@@ -152,7 +152,7 @@
    "t_fixed": 88,
    "t_1e6": 598,
    "error": 1.5911416978087472e-14,
-   "source": "results/lsh/step.json @ 3d99f68"
+   "source": "results/lsh/step.json @ 76fd221"
   },
   {
    "encoding": "5. Fuzzy",
@@ -213,12 +213,12 @@
     "T(1e-10)": "1352",
     "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
     "depth_CT": "1421",
-    "verdict": "valid (err 2.68813e-13, leak 0)",
+    "verdict": "valid (err 2.72136e-13, leak 0)",
     "Lean": "not_run",
-    "entry / commit": "r00-seed-000 @ a4c28a6"
+    "entry / commit": "r00-seed-000 @ b8f2302"
    },
-   "best": {
-    "row": "GLOBAL BEST",
+   "headline": {
+    "row": "best of family F2",
     "qubits": "31",
     "CX": "111",
     "T_fixed": "104",
@@ -228,10 +228,19 @@
     "T(1e-10)": "1456",
     "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
     "depth_CT": "1663",
-    "verdict": "valid (err 1.00444e-13, leak 0)",
+    "verdict": "valid (err 1.03681e-13, leak 0)",
     "Lean": "certified",
-    "entry / commit": "r05-F2-005 @ d05f973"
+    "entry / commit": "r05-F2-005 @ b8f2302"
    },
+   "headline_id": "r05-F2-005",
+   "archive_best": "r05-F2-005",
+   "archive_best_key": [
+    111,
+    912,
+    1663,
+    31
+   ],
+   "t_mean_robust": 927.4,
    "state": "stopped after round 5",
    "rounds": 6
   },
@@ -250,17 +259,26 @@
     "depth_CT": "861",
     "verdict": "valid (err 1.22976e-14, leak 0)",
     "Lean": "certified",
-    "entry / commit": "r00-seed-000 @ 2fd5b3d"
+    "entry / commit": "r00-seed-000 @ 02c499d"
    },
-   "best": {
+   "headline": {
     "qubits": 17,
     "CX": 31,
     "N_rot": 17,
     "T(1e-6)": 1086,
-    "verdict": "valid (err 5.1e-15)",
+    "verdict": "valid (err 5.12669e-15)",
     "Lean": "certified",
-    "entry / commit": "r02-F1-002 (headline) @ 7d06d8e"
+    "entry / commit": "r02-F1-002 @ 5bbaf0f"
    },
+   "headline_id": "r02-F1-002",
+   "archive_best": "r04-F1-004",
+   "archive_best_key": [
+    31,
+    1062,
+    2173,
+    17
+   ],
+   "t_mean_robust": 1092.0,
    "state": "stopped after round 5",
    "rounds": 6
   },
@@ -279,25 +297,66 @@
     "depth_CT": "35639",
     "verdict": "valid (err 4.12516e-13, leak 0)",
     "Lean": "n_a",
-    "entry / commit": "r00-seed-000 @ d68fdec"
+    "entry / commit": "r00-seed-000 @ f7bca4f"
    },
-   "best": {
-    "row": "GLOBAL BEST",
-    "qubits": "53",
-    "CX": "228",
-    "T_fixed": "210",
-    "N_rot": "10",
-    "T(1e-6)": "846",
-    "T_est(1e-6)": "807.947",
-    "T(1e-10)": "1242",
+   "headline": {
+    "qubits": 52,
+    "CX": 216,
+    "N_rot": 10,
+    "T(1e-6)": 832,
+    "verdict": "valid (err 1.34848e-13)",
+    "Lean": "certified",
+    "entry / commit": "r06-F3-006 @ 072cdfe"
+   },
+   "headline_id": "r06-F3-006",
+   "archive_best": "r06-F3-006",
+   "archive_best_key": [
+    216,
+    832,
+    1350,
+    52
+   ],
+   "t_mean_robust": 829.8,
+   "state": "stopped after round 6",
+   "rounds": 7
+  },
+  {
+   "loop": "4. Loop-string-hadron, step",
+   "general": {
+    "row": "general",
+    "qubits": "31",
+    "CX": "94",
+    "T_fixed": "88",
+    "N_rot": "8",
+    "T(1e-6)": "598",
+    "T_est(1e-6)": "566.358",
+    "T(1e-10)": "916",
     "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
-    "depth_CT": "1417",
-    "verdict": "valid (err 1.45095e-13, leak 0)",
-    "Lean": "n_a",
-    "entry / commit": "r04-F1-004 @ 68b8b76"
+    "depth_CT": "880",
+    "verdict": "valid (err 1.63514e-14, leak 0)",
+    "Lean": "not_run",
+    "entry / commit": "r00-seed-000 @ 58e4574"
    },
-   "state": "paused: replay rounds 0-4 under 10 % cap",
-   "rounds": 5
+   "headline": {
+    "qubits": 24,
+    "CX": 68,
+    "N_rot": 22,
+    "T(1e-6)": 1396,
+    "verdict": "valid (err 1.44056e-14)",
+    "Lean": "certified",
+    "entry / commit": "r05-F3-005 @ b422e78"
+   },
+   "headline_id": "r05-F3-005",
+   "archive_best": "r05-F3-005",
+   "archive_best_key": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "t_mean_robust": 1417.4,
+   "state": "stopped after round 6 (session limit)",
+   "rounds": 7
   },
   {
    "loop": "5. Fuzzy, U_B",
@@ -314,25 +373,28 @@
     "depth_CT": "4916",
     "verdict": "valid (err 3.81199e-14, leak 0)",
     "Lean": "not_run",
-    "entry / commit": "r00-seed-000 @ 4f7126f"
+    "entry / commit": "r00-seed-000 @ 220730e"
    },
-   "best": {
-    "row": "GLOBAL BEST",
-    "qubits": "11",
-    "CX": "87",
-    "T_fixed": "84",
-    "N_rot": "9",
-    "T(1e-6)": "650",
-    "T_est(1e-6)": "622.152",
-    "T(1e-10)": "1020",
-    "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
-    "depth_CT": "1571",
-    "verdict": "valid (err 4.56378e-14, leak 0)",
+   "headline": {
+    "qubits": 10,
+    "CX": 83,
+    "N_rot": 9,
+    "T(1e-6)": 638,
+    "verdict": "valid (err 5.43744e-14)",
     "Lean": "n_a",
-    "entry / commit": "r06-F3-006 @ 49e247e"
+    "entry / commit": "r10-F1-010 @ 220730e"
    },
-   "state": "running (round 7)",
-   "rounds": 7
+   "headline_id": "r10-F1-010",
+   "archive_best": "r12-F1-012",
+   "archive_best_key": [
+    83,
+    638,
+    1517,
+    10
+   ],
+   "t_mean_robust": 634.4,
+   "state": "stopped after round 13 (Digonto)",
+   "rounds": 14
   },
   {
    "loop": "5. Fuzzy, link U_E",
@@ -345,13 +407,14 @@
     "T(1e-6)": "644",
     "T_est(1e-6)": "597.947",
     "T(1e-10)": "1028",
+    "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
     "depth_CT": "1515",
     "verdict": "valid (err 3.41658e-15, leak 0)",
     "Lean": "not_run",
-    "entry / commit": "r00-seed-000 @ 4f7126f"
+    "entry / commit": "r00-seed-000 @ 02c499d"
    },
-   "best": {
-    "row": "GLOBAL BEST",
+   "headline": {
+    "row": "best of family F2",
     "qubits": "4",
     "CX": "12",
     "T_fixed": "0",
@@ -359,11 +422,21 @@
     "T(1e-6)": "644",
     "T_est(1e-6)": "597.947",
     "T(1e-10)": "1028",
+    "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
     "depth_CT": "1183",
-    "verdict": "valid (err 5.61492e-15, leak 0)",
+    "verdict": "valid (err 5.50205e-15, leak 0)",
     "Lean": "n_a",
-    "entry / commit": "r02-F2-001 @ 6d221d5"
+    "entry / commit": "r02-F2-001 @ 02c499d"
    },
+   "headline_id": "r02-F2-001",
+   "archive_best": "r02-F2-001",
+   "archive_best_key": [
+    12,
+    644,
+    1183,
+    4
+   ],
+   "t_mean_robust": 628.8,
    "state": "finished",
    "rounds": 3
   }
@@ -390,34 +463,42 @@
    "t_estimate": 9958.079976284262
   },
   "composed": {
-   "cx": 295,
-   "depth": 255,
-   "n_rot": 148,
-   "t_fixed": 118,
-   "qubits": 53,
-   "ancilla": 5,
+   "cx": 227,
+   "depth": 151,
+   "n_rot": 129,
+   "t_fixed": 72,
+   "qubits": 50,
+   "ancilla": 2,
    "gates": {
-    "h": 375,
-    "cx": 295,
-    "rz": 148,
-    "s": 136,
-    "t": 70,
-    "tdg": 48,
-    "x": 26,
-    "z": 26,
-    "sdg": 7
+    "h": 306,
+    "cx": 227,
+    "rz": 129,
+    "s": 121,
+    "t": 36,
+    "tdg": 36,
+    "z": 24,
+    "x": 16,
+    "sdg": 13
    },
-   "t_estimate": 8967.616444779933
+   "t_estimate": 7785.517036328455
   },
   "units": {
    "fuzzy_ub": {
-    "entry": "r03-F3-003",
+    "entry": "r10-F1-010",
     "key": [
-     151.0,
-     1902.0,
-     4682.0,
-     13.0
-    ]
+     83.0,
+     638.0,
+     1546.0,
+     10.0
+    ],
+    "robust_key": [
+     83,
+     12688,
+     0,
+     30902,
+     10
+    ],
+    "t_mean": 634.4
    },
    "fuzzy_link": {
     "entry": "r02-F2-001",
@@ -426,15 +507,24 @@
      644.0,
      1183.0,
      4.0
-    ]
+    ],
+    "robust_key": [
+     12,
+     12576,
+     0,
+     23373,
+     4
+    ],
+    "t_mean": 628.8
    }
   },
-  "commit": "7b0e5d0"
+  "rule": "headline",
+  "commit": "cd468e2"
  },
  "provenance": {
-  "git_commit": "964bc05",
-  "results_dirty": true,
+  "git_commit": "b8e8d76",
+  "results_dirty": false,
   "command": "python scripts/summary_table.py",
-  "written_utc": "2026-11-13T13:08:08+00:00"
+  "written_utc": "2026-11-20T22:36:30+00:00"
  }
 }
