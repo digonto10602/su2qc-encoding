@@ -1,0 +1,2972 @@
+{
+  "schema_version": 1,
+  "encoding": "lsh",
+  "circuit_id": "r05-F3-005",
+  "kind": "step",
+  "params": {
+    "alpha": 0.37,
+    "beta": 0.61,
+    "order": 1
+  },
+  "provenance": {
+    "git_commit": "b422e78",
+    "git_dirty": false,
+    "versions": {
+      "python": "3.12.16",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "qiskit": "2.5.2",
+      "qiskit_aer": "0.17.2",
+      "pygridsynth": "1.2.0"
+    },
+    "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+    "cpu_count": 20,
+    "seeds": {
+      "transpiler_logical": 20261104,
+      "trial_subset": 0,
+      "angle_set": 20261107
+    },
+    "timestamp_utc": "2026-11-20T07:49:01Z",
+    "provenance_captured_at": "2026-11-20T07:49:01Z",
+    "host": "omnicommander",
+    "command": "python scripts/m8_results.py",
+    "quick": false,
+    "wall_seconds": 5.699064254760742,
+    "peak_rss_mb": 288.15625
+  },
+  "verification": {
+    "ok": true,
+    "reason": "ok",
+    "op_norm_error": 1.4405612410430306e-14,
+    "max_leak": 0.0,
+    "dirty_ancilla": 0.0,
+    "phase": [
+      1.0,
+      3.281952590115953e-17
+    ],
+    "outer_bits_read": 2,
+    "n_blocks": 4,
+    "gauss_residual": 5.681424633657484e-16,
+    "method": "physical",
+    "engine": "sparse",
+    "engine_accuracy": 0.0,
+    "certified": true,
+    "tolerances": {
+      "tol_err": 1e-10,
+      "tol_gauss": 1e-10
+    },
+    "dropped_total": 8.264162090605225e-15,
+    "block_error": 6.141450319825082e-15,
+    "leak_amplitude": 0.0,
+    "seconds": 0.24213147163391113,
+    "n_inputs": 433,
+    "span_leak": 0.0,
+    "total_error": 1.4405612410430306e-14,
+    "extra": {
+      "op_norm_error_physical": 6.141450319825082e-15,
+      "max_dropped_l2": 1.7147612854650412e-15,
+      "max_span_leak": 0.0,
+      "op_norm_error_inner_span": null,
+      "span_leak_max_state": 0.0,
+      "gauss": "checked"
+    }
+  },
+  "metrics": {
+    "logical": {
+      "cx": 68,
+      "depth": 96,
+      "n_rot": 22,
+      "t_fixed": 24,
+      "qubits": 24,
+      "ancilla": 0
+    },
+    "gates_lowered": {
+      "cx": 68,
+      "h": 50,
+      "s": 26,
+      "sdg": 25,
+      "rz": 22,
+      "t": 12,
+      "tdg": 12
+    },
+    "t_table": [
+      {
+        "eps": 0.0001,
+        "t_fixed": 24,
+        "n_rot": 22,
+        "t_rot_pygridsynth": 932,
+        "t_total": 956,
+        "t_est": 900.9890170502637,
+        "t_qiskit": null,
+        "cx_qiskit": null,
+        "depth_qiskit": null,
+        "synth": {
+          "n_rot": 22,
+          "t_rot": 932,
+          "error_bound_sum": 0.0022,
+          "error_measured_sum": 0.0005179419744559332,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 0.0006319195874298472,
+            "max_leak": 3.048512619516473e-08,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.9999999952347979,
+              9.762378853749688e-05
+            ],
+            "outer_bits_read": 2,
+            "n_blocks": 4,
+            "gauss_residual": 5.571892919244074e-16,
+            "method": "physical",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 0.002200001,
+              "tol_gauss": 0.002200001
+            },
+            "dropped_total": 4.858070627251836e-13,
+            "block_error": 0.00045731968375058255,
+            "leak_amplitude": 0.00017459990319345755,
+            "seconds": 0.6091916561126709,
+            "n_inputs": 433,
+            "span_leak": 0.0,
+            "total_error": 0.0006319195874298472,
+            "extra": {
+              "op_norm_error_physical": 0.00045731968375058255,
+              "max_dropped_l2": 1.1496612569931615e-13,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": null,
+              "span_leak_max_state": 0.0,
+              "gauss": "checked"
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-06,
+        "t_fixed": 24,
+        "n_rot": 22,
+        "t_rot_pygridsynth": 1372,
+        "t_total": 1396,
+        "t_est": 1339.4835255753956,
+        "t_qiskit": null,
+        "cx_qiskit": null,
+        "depth_qiskit": null,
+        "synth": {
+          "n_rot": 22,
+          "t_rot": 1372,
+          "error_bound_sum": 2.2e-05,
+          "error_measured_sum": 9.281083972902003e-06,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 8.101336063738177e-06,
+            "max_leak": 2.320295541656886e-12,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              -0.7071065622590718,
+              -0.7071070001139554
+            ],
+            "outer_bits_read": 2,
+            "n_blocks": 4,
+            "gauss_residual": 5.676337548948129e-16,
+            "method": "physical",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 2.2000999999999998e-05,
+              "tol_gauss": 2.2000999999999998e-05
+            },
+            "dropped_total": 2.619590754040582e-12,
+            "block_error": 6.578081809762321e-06,
+            "leak_amplitude": 1.5232516343851027e-06,
+            "seconds": 0.6785156726837158,
+            "n_inputs": 433,
+            "span_leak": 0.0,
+            "total_error": 8.101336063738177e-06,
+            "extra": {
+              "op_norm_error_physical": 6.578081809762321e-06,
+              "max_dropped_l2": 4.787023927519698e-13,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": null,
+              "span_leak_max_state": 0.0,
+              "gauss": "checked"
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-08,
+        "t_fixed": 24,
+        "n_rot": 22,
+        "t_rot_pygridsynth": 1804,
+        "t_total": 1828,
+        "t_est": 1777.9780341005273,
+        "t_qiskit": null,
+        "cx_qiskit": null,
+        "depth_qiskit": null,
+        "synth": {
+          "n_rot": 22,
+          "t_rot": 1804,
+          "error_bound_sum": 2.2e-07,
+          "error_measured_sum": 6.5749471707387e-08,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 6.031305323181992e-08,
+            "max_leak": 1.8314550512506085e-16,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              -0.7071067838861191,
+              0.7071067784869759
+            ],
+            "outer_bits_read": 2,
+            "n_blocks": 4,
+            "gauss_residual": 5.710165843342547e-16,
+            "method": "physical",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 2.21e-07,
+              "tol_gauss": 2.21e-07
+            },
+            "dropped_total": 1.240532731813668e-14,
+            "block_error": 4.6779914612455396e-08,
+            "leak_amplitude": 1.3533126214037205e-08,
+            "seconds": 0.8569550514221191,
+            "n_inputs": 433,
+            "span_leak": 0.0,
+            "total_error": 6.031305323181992e-08,
+            "extra": {
+              "op_norm_error_physical": 4.6779914612455396e-08,
+              "max_dropped_l2": 3.3152912952666476e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": null,
+              "span_leak_max_state": 0.0,
+              "gauss": "checked"
+            }
+          }
+        }
+      },
+      {
+        "eps": 1e-10,
+        "t_fixed": 24,
+        "n_rot": 22,
+        "t_rot_pygridsynth": 2288,
+        "t_total": 2312,
+        "t_est": 2216.472542625659,
+        "t_qiskit": null,
+        "cx_qiskit": null,
+        "depth_qiskit": null,
+        "synth": {
+          "n_rot": 22,
+          "t_rot": 2288,
+          "error_bound_sum": 2.2000000000000003e-09,
+          "error_measured_sum": 8.854687452641228e-10,
+          "verdict": {
+            "ok": true,
+            "reason": "ok",
+            "op_norm_error": 1.0258157408092284e-09,
+            "max_leak": 5.623594847986307e-20,
+            "dirty_ancilla": 0.0,
+            "phase": [
+              0.7071067812616368,
+              0.7071067811114583
+            ],
+            "outer_bits_read": 2,
+            "n_blocks": 4,
+            "gauss_residual": 5.67294362484863e-16,
+            "method": "physical",
+            "engine": "sparse",
+            "engine_accuracy": 0.0,
+            "certified": true,
+            "tolerances": {
+              "tol_err": 3.2000000000000005e-09,
+              "tol_gauss": 3.2000000000000005e-09
+            },
+            "dropped_total": 6.523075035035416e-15,
+            "block_error": 7.886680182772809e-10,
+            "leak_amplitude": 2.371411994569125e-10,
+            "seconds": 0.973768949508667,
+            "n_inputs": 433,
+            "span_leak": 0.0,
+            "total_error": 1.0258157408092284e-09,
+            "extra": {
+              "op_norm_error_physical": 7.886680182772809e-10,
+              "max_dropped_l2": 1.4908850085452734e-15,
+              "max_span_leak": 0.0,
+              "op_norm_error_inner_span": null,
+              "span_leak_max_state": 0.0,
+              "gauss": "checked"
+            }
+          }
+        }
+      }
+    ],
+    "macro_counts": {
+      "cx": 68,
+      "h": 50,
+      "s": 26,
+      "sdg": 25,
+      "rz": 18,
+      "t": 12,
+      "tdg": 12,
+      "p": 4
+    }
+  },
+  "files": {
+    "qpy": "results/lsh/m8-headline-step.qpy",
+    "sha256": "19f2d5331b1616a0fe9ccbeb2b22181c48536eb0b61672d04927c22a40a7647f",
+    "qasm3": "results/lsh/m8-headline-step.qasm3"
+  },
+  "extra": {
+    "order": 1,
+    "angle_set": {
+      "seed": 20261107,
+      "n": 20,
+      "ranges": [
+        [
+          0.05,
+          2.0
+        ],
+        [
+          0.05,
+          1.2
+        ]
+      ],
+      "pairs": [
+        [
+          1.5818052784823036,
+          0.24787348121639236
+        ],
+        [
+          1.3913089640547196,
+          0.5836353810196808
+        ],
+        [
+          0.3360095773947437,
+          0.39073680193578786
+        ],
+        [
+          1.8190557455302436,
+          0.3767699975600882
+        ],
+        [
+          0.33572525392510616,
+          0.8476462311709164
+        ],
+        [
+          0.08470346209341775,
+          0.4499752918444941
+        ],
+        [
+          1.8460880515966787,
+          0.2549654454920952
+        ],
+        [
+          1.8896754493003163,
+          0.13873246811039036
+        ],
+        [
+          0.15242045264915124,
+          0.3282913539426798
+        ],
+        [
+          1.0723488492846547,
+          1.1817170306277758
+        ],
+        [
+          1.819426073763483,
+          0.9937035318627143
+        ],
+        [
+          1.758143729151256,
+          0.7355528313725614
+        ],
+        [
+          1.7887278032509966,
+          0.36072784229323085
+        ],
+        [
+          0.15554078568626348,
+          0.44565184679683306
+        ],
+        [
+          0.36332287203539654,
+          1.0782523899176797
+        ],
+        [
+          1.7441876387932538,
+          0.5706910207580119
+        ],
+        [
+          1.7034373382202712,
+          0.5071174730948823
+        ],
+        [
+          0.48804855868846264,
+          0.322365214664361
+        ],
+        [
+          1.739370534827694,
+          0.3328437734947383
+        ],
+        [
+          1.6253345877680132,
+          1.0226819502944016
+        ]
+      ],
+      "sha256": "769caec1c2738356f2e5a4f51adc1d286ce3bb585c034c7a98950df701e3cbb2"
+    },
+    "headline": {
+      "id": "r05-F3-005",
+      "robust_key": [
+        68,
+        28348,
+        0,
+        63378,
+        24
+      ],
+      "t_mean": 1417.4,
+      "lean": "certified",
+      "rule": "valid archive entry with the smallest (CX, sum T(1e-6) over the angle set, angle-linear first, sum depth_CT, qubits) (prompts/008 section 6)",
+      "program_path": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+      "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+      "family": "F3",
+      "round": 5,
+      "parent": "r04-F3-004",
+      "entry_commit": "4bff9e6",
+      "angle_linear": true,
+      "offset_class": "linear"
+    },
+    "archive_best": "r05-F3-005",
+    "archive_best_key": [
+      68,
+      1396,
+      3210,
+      24
+    ],
+    "archive_best_robust_key": [
+      68,
+      28348,
+      0,
+      63378,
+      24
+    ],
+    "ranking": [
+      {
+        "id": "r05-F3-005",
+        "robust_key": [
+          68,
+          28348,
+          0,
+          63378,
+          24
+        ],
+        "t_mean": 1417.4,
+        "lean": "certified",
+        "laptop_key": [
+          68,
+          1396,
+          3210,
+          24
+        ],
+        "family": "F3",
+        "round": 5,
+        "cx": 68,
+        "qubits": 24,
+        "t_nominal": 1396,
+        "depth_mean": 3168.9,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r05-F5-005",
+        "robust_key": [
+          68,
+          28348,
+          0,
+          63578,
+          24
+        ],
+        "t_mean": 1417.4,
+        "lean": null,
+        "laptop_key": [
+          68,
+          1396,
+          3220,
+          24
+        ],
+        "family": "F5",
+        "round": 5,
+        "cx": 68,
+        "qubits": 24,
+        "t_nominal": 1396,
+        "depth_mean": 3178.9,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r04-F3-004",
+        "robust_key": [
+          68,
+          28348,
+          0,
+          63598,
+          24
+        ],
+        "t_mean": 1417.4,
+        "lean": "certified",
+        "laptop_key": [
+          68,
+          1396,
+          3221,
+          24
+        ],
+        "family": "F3",
+        "round": 4,
+        "cx": 68,
+        "qubits": 24,
+        "t_nominal": 1396,
+        "depth_mean": 3179.9,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r06-F3-006",
+        "robust_key": [
+          68,
+          30888,
+          0,
+          69806,
+          24
+        ],
+        "t_mean": 1544.4,
+        "lean": null,
+        "laptop_key": [
+          68,
+          1528,
+          3485,
+          24
+        ],
+        "family": "F3",
+        "round": 6,
+        "cx": 68,
+        "qubits": 24,
+        "t_nominal": 1528,
+        "depth_mean": 3490.3,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r03-F3-003",
+        "robust_key": [
+          70,
+          27086,
+          0,
+          60193,
+          24
+        ],
+        "t_mean": 1354.3,
+        "lean": "certified",
+        "laptop_key": [
+          70,
+          1338,
+          3047,
+          24
+        ],
+        "family": "F3",
+        "round": 3,
+        "cx": 70,
+        "qubits": 24,
+        "t_nominal": 1338,
+        "depth_mean": 3009.65,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r02-F1-002",
+        "robust_key": [
+          71,
+          22320,
+          0,
+          46684,
+          25
+        ],
+        "t_mean": 1116.0,
+        "lean": "certified",
+        "laptop_key": [
+          71,
+          1110,
+          2291,
+          25
+        ],
+        "family": "F1",
+        "round": 2,
+        "cx": 71,
+        "qubits": 25,
+        "t_nominal": 1110,
+        "depth_mean": 2334.2,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r03-F5-003",
+        "robust_key": [
+          71,
+          22320,
+          0,
+          46724,
+          25
+        ],
+        "t_mean": 1116.0,
+        "lean": null,
+        "laptop_key": [
+          71,
+          1110,
+          2293,
+          25
+        ],
+        "family": "F5",
+        "round": 3,
+        "cx": 71,
+        "qubits": 25,
+        "t_nominal": 1110,
+        "depth_mean": 2336.2,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r04-F1-003",
+        "robust_key": [
+          71,
+          22320,
+          0,
+          46724,
+          25
+        ],
+        "t_mean": 1116.0,
+        "lean": null,
+        "laptop_key": [
+          71,
+          1110,
+          2293,
+          25
+        ],
+        "family": "F1",
+        "round": 4,
+        "cx": 71,
+        "qubits": 25,
+        "t_nominal": 1110,
+        "depth_mean": 2336.2,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r04-F5-004",
+        "robust_key": [
+          71,
+          22320,
+          0,
+          46724,
+          25
+        ],
+        "t_mean": 1116.0,
+        "lean": null,
+        "laptop_key": [
+          71,
+          1110,
+          2293,
+          25
+        ],
+        "family": "F5",
+        "round": 4,
+        "cx": 71,
+        "qubits": 25,
+        "t_nominal": 1110,
+        "depth_mean": 2336.2,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r00-seed-005",
+        "robust_key": [
+          71,
+          22480,
+          0,
+          46384,
+          25
+        ],
+        "t_mean": 1124.0,
+        "lean": "certified",
+        "laptop_key": [
+          71,
+          1118,
+          2276,
+          25
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 71,
+        "qubits": 25,
+        "t_nominal": 1118,
+        "depth_mean": 2319.2,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r02-F3-002",
+        "robust_key": [
+          71,
+          22480,
+          0,
+          46384,
+          25
+        ],
+        "t_mean": 1124.0,
+        "lean": null,
+        "laptop_key": [
+          71,
+          1118,
+          2276,
+          25
+        ],
+        "family": "F3",
+        "round": 2,
+        "cx": 71,
+        "qubits": 25,
+        "t_nominal": 1118,
+        "depth_mean": 2319.2,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r02-F5-002",
+        "robust_key": [
+          71,
+          22480,
+          0,
+          46384,
+          25
+        ],
+        "t_mean": 1124.0,
+        "lean": null,
+        "laptop_key": [
+          71,
+          1118,
+          2276,
+          25
+        ],
+        "family": "F5",
+        "round": 2,
+        "cx": 71,
+        "qubits": 25,
+        "t_nominal": 1118,
+        "depth_mean": 2319.2,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r00-seed-006",
+        "robust_key": [
+          72,
+          17588,
+          0,
+          33585,
+          25
+        ],
+        "t_mean": 879.4,
+        "lean": null,
+        "laptop_key": [
+          72,
+          864,
+          1570,
+          25
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 72,
+        "qubits": 25,
+        "t_nominal": 864,
+        "depth_mean": 1679.25,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r02-F2-002",
+        "robust_key": [
+          72,
+          24962,
+          0,
+          53655,
+          26
+        ],
+        "t_mean": 1248.1,
+        "lean": null,
+        "laptop_key": [
+          72,
+          1242,
+          2614,
+          26
+        ],
+        "family": "F2",
+        "round": 2,
+        "cx": 72,
+        "qubits": 26,
+        "t_nominal": 1242,
+        "depth_mean": 2682.75,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r01-F1-001",
+        "robust_key": [
+          73,
+          21088,
+          0,
+          43561,
+          25
+        ],
+        "t_mean": 1054.4,
+        "lean": null,
+        "laptop_key": [
+          73,
+          1056,
+          2125,
+          25
+        ],
+        "family": "F1",
+        "round": 1,
+        "cx": 73,
+        "qubits": 25,
+        "t_nominal": 1056,
+        "depth_mean": 2178.05,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r02-F4-002",
+        "robust_key": [
+          73,
+          28348,
+          0,
+          63538,
+          24
+        ],
+        "t_mean": 1417.4,
+        "lean": null,
+        "laptop_key": [
+          73,
+          1396,
+          3218,
+          24
+        ],
+        "family": "F4",
+        "round": 2,
+        "cx": 73,
+        "qubits": 24,
+        "t_nominal": 1396,
+        "depth_mean": 3176.9,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r01-F5-001",
+        "robust_key": [
+          73,
+          28626,
+          0,
+          62872,
+          25
+        ],
+        "t_mean": 1431.3,
+        "lean": null,
+        "laptop_key": [
+          73,
+          1442,
+          3159,
+          25
+        ],
+        "family": "F5",
+        "round": 1,
+        "cx": 73,
+        "qubits": 25,
+        "t_nominal": 1442,
+        "depth_mean": 3143.6,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r00-seed-007",
+        "robust_key": [
+          74,
+          13952,
+          0,
+          23739,
+          25
+        ],
+        "t_mean": 697.6,
+        "lean": null,
+        "laptop_key": [
+          74,
+          690,
+          1134,
+          25
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 74,
+        "qubits": 25,
+        "t_nominal": 690,
+        "depth_mean": 1186.95,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r00-seed-001",
+        "robust_key": [
+          74,
+          17588,
+          0,
+          33424,
+          27
+        ],
+        "t_mean": 879.4,
+        "lean": null,
+        "laptop_key": [
+          74,
+          864,
+          1615,
+          27
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 74,
+        "qubits": 27,
+        "t_nominal": 864,
+        "depth_mean": 1671.2,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r01-F4-001",
+        "robust_key": [
+          74,
+          28348,
+          0,
+          63538,
+          24
+        ],
+        "t_mean": 1417.4,
+        "lean": null,
+        "laptop_key": [
+          74,
+          1396,
+          3218,
+          24
+        ],
+        "family": "F4",
+        "round": 1,
+        "cx": 74,
+        "qubits": 24,
+        "t_nominal": 1396,
+        "depth_mean": 3176.9,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r00-seed-004",
+        "robust_key": [
+          76,
+          13952,
+          0,
+          23839,
+          27
+        ],
+        "t_mean": 697.6,
+        "lean": null,
+        "laptop_key": [
+          76,
+          690,
+          1139,
+          27
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 76,
+        "qubits": 27,
+        "t_nominal": 690,
+        "depth_mean": 1191.95,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r01-F3-001",
+        "robust_key": [
+          76,
+          27086,
+          0,
+          60373,
+          24
+        ],
+        "t_mean": 1354.3,
+        "lean": null,
+        "laptop_key": [
+          76,
+          1338,
+          3056,
+          24
+        ],
+        "family": "F3",
+        "round": 1,
+        "cx": 76,
+        "qubits": 24,
+        "t_nominal": 1338,
+        "depth_mean": 3018.65,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r05-F1-004",
+        "robust_key": [
+          76,
+          35960,
+          0,
+          83329,
+          24
+        ],
+        "t_mean": 1798.0,
+        "lean": null,
+        "laptop_key": [
+          76,
+          1784,
+          4151,
+          24
+        ],
+        "family": "F1",
+        "round": 5,
+        "cx": 76,
+        "qubits": 24,
+        "t_nominal": 1784,
+        "depth_mean": 4166.45,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r01-F2-001",
+        "robust_key": [
+          80,
+          23692,
+          0,
+          50485,
+          26
+        ],
+        "t_mean": 1184.6,
+        "lean": null,
+        "laptop_key": [
+          80,
+          1176,
+          2423,
+          26
+        ],
+        "family": "F2",
+        "round": 1,
+        "cx": 80,
+        "qubits": 26,
+        "t_nominal": 1176,
+        "depth_mean": 2524.25,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r00-seed-003",
+        "robust_key": [
+          82,
+          12822,
+          0,
+          20439,
+          27
+        ],
+        "t_mean": 641.1,
+        "lean": null,
+        "laptop_key": [
+          82,
+          638,
+          1027,
+          27
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 82,
+        "qubits": 27,
+        "t_nominal": 638,
+        "depth_mean": 1021.95,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r00-seed-002",
+        "robust_key": [
+          84,
+          11702,
+          0,
+          17607,
+          27
+        ],
+        "t_mean": 585.1,
+        "lean": null,
+        "laptop_key": [
+          84,
+          586,
+          888,
+          27
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 84,
+        "qubits": 27,
+        "t_nominal": 586,
+        "depth_mean": 880.35,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r00-seed-000",
+        "robust_key": [
+          94,
+          11852,
+          0,
+          17325,
+          31
+        ],
+        "t_mean": 592.6,
+        "lean": null,
+        "laptop_key": [
+          94,
+          598,
+          880,
+          31
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 94,
+        "qubits": 31,
+        "t_nominal": 598,
+        "depth_mean": 866.25,
+        "angle_linear": true,
+        "offset_class": "linear"
+      },
+      {
+        "id": "r00-seed-010",
+        "robust_key": [
+          94,
+          11852,
+          0,
+          17325,
+          31
+        ],
+        "t_mean": 592.6,
+        "lean": null,
+        "laptop_key": [
+          94,
+          598,
+          880,
+          31
+        ],
+        "family": "seed",
+        "round": 0,
+        "cx": 94,
+        "qubits": 31,
+        "t_nominal": 598,
+        "depth_mean": 866.25,
+        "angle_linear": true,
+        "offset_class": "linear"
+      }
+    ],
+    "unrankable": [
+      "r00-seed-qiskit_l3"
+    ],
+    "before_after": [
+      {
+        "row": "general",
+        "entry": "r00-seed-000",
+        "family": "seed",
+        "round": 0,
+        "commit": "58e4574",
+        "program_path": "compress/programs/lsh/seed/000-general.py",
+        "qubits": 31,
+        "cx": 94,
+        "t_fixed": 88,
+        "n_rot": 8,
+        "t_1e-6": 598,
+        "t_est_1e-6": 566.3576456637802,
+        "t_1e-10": 916,
+        "depth_ct": 880,
+        "t_avg": 592.6,
+        "robust_key": [
+          94,
+          11852,
+          0,
+          17325,
+          31
+        ],
+        "key": [
+          94,
+          598,
+          880,
+          31
+        ],
+        "verdict": "valid (err 1.64e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "general+polish",
+        "entry": "r00-seed-010",
+        "family": "seed",
+        "round": 0,
+        "commit": "58e4574",
+        "program_path": "compress/programs/lsh/seed/010-general_polish.py",
+        "qubits": 31,
+        "cx": 94,
+        "t_fixed": 88,
+        "n_rot": 8,
+        "t_1e-6": 598,
+        "t_est_1e-6": 566.3576456637802,
+        "t_1e-10": 916,
+        "depth_ct": 880,
+        "t_avg": 592.6,
+        "robust_key": [
+          94,
+          11852,
+          0,
+          17325,
+          31
+        ],
+        "key": [
+          94,
+          598,
+          880,
+          31
+        ],
+        "verdict": "valid (err 1.64e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "qiskit_l3",
+        "entry": "r00-seed-qiskit_l3",
+        "family": "seed",
+        "round": 0,
+        "commit": "58e4574",
+        "program_path": "compress/programs/lsh/seed/qiskit_l3.circuit",
+        "qubits": 31,
+        "cx": 94,
+        "t_fixed": 88,
+        "n_rot": 8,
+        "t_1e-6": 598,
+        "t_est_1e-6": 566.3576456637802,
+        "t_1e-10": 916,
+        "depth_ct": 880,
+        "t_avg": null,
+        "robust_key": null,
+        "key": [
+          94,
+          598,
+          880,
+          31
+        ],
+        "verdict": "valid (err 1.82e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "qiskit_l3_whole",
+        "entry": null,
+        "qubits": 31,
+        "cx": 94,
+        "t_fixed": 88,
+        "n_rot": 8,
+        "t_1e-6": null,
+        "t_est_1e-6": 566.3576456637802,
+        "t_1e-10": null,
+        "depth_ct": null,
+        "t_avg": null,
+        "robust_key": null,
+        "verdict": "unverifiable: Qiskit's whole-circuit level-3 transpile hoists Hadamards (more than 1e6 amplitudes per input), beyond the exact sparse engine (counts only)",
+        "lean": "n_a",
+        "lean_reason": "external circuit (counts only / fixed angle): no native certificate",
+        "fixed_angle": false
+      },
+      {
+        "row": "wrap_pairs9",
+        "entry": "r00-seed-001",
+        "family": "seed",
+        "round": 0,
+        "commit": "58e4574",
+        "program_path": "compress/programs/lsh/seed/001-wrap_pairs9.py",
+        "qubits": 27,
+        "cx": 74,
+        "t_fixed": 56,
+        "n_rot": 13,
+        "t_1e-6": 864,
+        "t_est_1e-6": 833.3311742036428,
+        "t_1e-10": 1408,
+        "depth_ct": 1615,
+        "t_avg": 879.4,
+        "robust_key": [
+          74,
+          17588,
+          0,
+          33424,
+          27
+        ],
+        "key": [
+          74,
+          864,
+          1615,
+          27
+        ],
+        "verdict": "valid (err 1.08e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "wrap_flags4",
+        "entry": "r00-seed-002",
+        "family": "seed",
+        "round": 0,
+        "commit": "58e4574",
+        "program_path": "compress/programs/lsh/seed/002-wrap_flags4.py",
+        "qubits": 27,
+        "cx": 84,
+        "t_fixed": 80,
+        "n_rot": 8,
+        "t_1e-6": 586,
+        "t_est_1e-6": 558.3576456637802,
+        "t_1e-10": 912,
+        "depth_ct": 888,
+        "t_avg": 585.1,
+        "robust_key": [
+          84,
+          11702,
+          0,
+          17607,
+          27
+        ],
+        "key": [
+          84,
+          586,
+          888,
+          27
+        ],
+        "verdict": "valid (err 1.21e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "wrap_flags5",
+        "entry": "r00-seed-003",
+        "family": "seed",
+        "round": 0,
+        "commit": "58e4574",
+        "program_path": "compress/programs/lsh/seed/003-wrap_flags5.py",
+        "qubits": 27,
+        "cx": 82,
+        "t_fixed": 72,
+        "n_rot": 9,
+        "t_1e-6": 638,
+        "t_est_1e-6": 610.1523513717527,
+        "t_1e-10": 1008,
+        "depth_ct": 1027,
+        "t_avg": 641.1,
+        "robust_key": [
+          82,
+          12822,
+          0,
+          20439,
+          27
+        ],
+        "key": [
+          82,
+          638,
+          1027,
+          27
+        ],
+        "verdict": "valid (err 1.22e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "wrap_flags6",
+        "entry": "r00-seed-004",
+        "family": "seed",
+        "round": 0,
+        "commit": "58e4574",
+        "program_path": "compress/programs/lsh/seed/004-wrap_flags6.py",
+        "qubits": 27,
+        "cx": 76,
+        "t_fixed": 64,
+        "n_rot": 10,
+        "t_1e-6": 690,
+        "t_est_1e-6": 661.9470570797253,
+        "t_1e-10": 1106,
+        "depth_ct": 1139,
+        "t_avg": 697.6,
+        "robust_key": [
+          76,
+          13952,
+          0,
+          23839,
+          27
+        ],
+        "key": [
+          76,
+          690,
+          1139,
+          27
+        ],
+        "verdict": "valid (err 1.13e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "wrap_sn_headline",
+        "entry": "r00-seed-005",
+        "family": "seed",
+        "round": 0,
+        "commit": "58e4574",
+        "program_path": "compress/programs/lsh/seed/005-wrap_sn_headline.py",
+        "qubits": 25,
+        "cx": 71,
+        "t_fixed": 48,
+        "n_rot": 17,
+        "t_1e-6": 1118,
+        "t_est_1e-6": 1064.5099970355327,
+        "t_1e-10": 1816,
+        "depth_ct": 2276,
+        "t_avg": 1124.0,
+        "robust_key": [
+          71,
+          22480,
+          0,
+          46384,
+          25
+        ],
+        "key": [
+          71,
+          1118,
+          2276,
+          25
+        ],
+        "verdict": "valid (err 8.87e-15, leak 0)",
+        "lean": "certified",
+        "lean_reason": "",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "wrap_sn_r05F3",
+        "entry": "r00-seed-006",
+        "family": "seed",
+        "round": 0,
+        "commit": "58e4574",
+        "program_path": "compress/programs/lsh/seed/006-wrap_sn_r05F3.py",
+        "qubits": 25,
+        "cx": 72,
+        "t_fixed": 56,
+        "n_rot": 13,
+        "t_1e-6": 864,
+        "t_est_1e-6": 833.3311742036428,
+        "t_1e-10": 1408,
+        "depth_ct": 1570,
+        "t_avg": 879.4,
+        "robust_key": [
+          72,
+          17588,
+          0,
+          33585,
+          25
+        ],
+        "key": [
+          72,
+          864,
+          1570,
+          25
+        ],
+        "verdict": "valid (err 9.49e-15, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "wrap_sn_r02F5",
+        "entry": "r00-seed-007",
+        "family": "seed",
+        "round": 0,
+        "commit": "58e4574",
+        "program_path": "compress/programs/lsh/seed/007-wrap_sn_r02F5.py",
+        "qubits": 25,
+        "cx": 74,
+        "t_fixed": 64,
+        "n_rot": 10,
+        "t_1e-6": 690,
+        "t_est_1e-6": 661.9470570797253,
+        "t_1e-10": 1106,
+        "depth_ct": 1134,
+        "t_avg": 697.6,
+        "robust_key": [
+          74,
+          13952,
+          0,
+          23739,
+          25
+        ],
+        "key": [
+          74,
+          690,
+          1134,
+          25
+        ],
+        "verdict": "valid (err 1.09e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "round-0 seed"
+      },
+      {
+        "row": "paulo15_wrapped",
+        "entry": null,
+        "qubits": 31,
+        "cx": 108,
+        "t_fixed": 96,
+        "n_rot": 4,
+        "t_1e-6": 348,
+        "t_est_1e-6": 335.1788228318901,
+        "t_1e-10": 510,
+        "depth_ct": 746,
+        "t_avg": null,
+        "robust_key": null,
+        "verdict": "valid at its own angle (kind UB, beta = -0.05), err 1.32e-14",
+        "lean": "n_a",
+        "lean_reason": "external circuit (counts only / fixed angle): no native certificate",
+        "fixed_angle": true
+      },
+      {
+        "row": "best_family_F1",
+        "entry": "r02-F1-002",
+        "family": "F1",
+        "round": 2,
+        "commit": "d4a691a",
+        "program_path": "compress/programs/lsh/F1/002-free-end-walk-v.py",
+        "qubits": 25,
+        "cx": 71,
+        "t_fixed": 40,
+        "n_rot": 17,
+        "t_1e-6": 1110,
+        "t_est_1e-6": 1056.5099970355327,
+        "t_1e-10": 1808,
+        "depth_ct": 2291,
+        "t_avg": 1116.0,
+        "robust_key": [
+          71,
+          22320,
+          0,
+          46684,
+          25
+        ],
+        "key": [
+          71,
+          1110,
+          2291,
+          25
+        ],
+        "verdict": "valid (err 7.21e-15, leak 0)",
+        "lean": "certified",
+        "lean_reason": "",
+        "selection": "best of the family by the robust key"
+      },
+      {
+        "row": "best_family_F2",
+        "entry": "r02-F2-002",
+        "family": "F2",
+        "round": 2,
+        "commit": "d4a691a",
+        "program_path": "compress/programs/lsh/F2/002-tctt-sa-walk18.py",
+        "qubits": 26,
+        "cx": 72,
+        "t_fixed": 44,
+        "n_rot": 19,
+        "t_1e-6": 1242,
+        "t_est_1e-6": 1180.099408451478,
+        "t_1e-10": 2020,
+        "depth_ct": 2614,
+        "t_avg": 1248.1,
+        "robust_key": [
+          72,
+          24962,
+          0,
+          53655,
+          26
+        ],
+        "key": [
+          72,
+          1242,
+          2614,
+          26
+        ],
+        "verdict": "valid (err 1.56e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "best of the family by the robust key"
+      },
+      {
+        "row": "best_family_F3",
+        "entry": "r05-F3-005",
+        "family": "F3",
+        "round": 5,
+        "commit": "4bff9e6",
+        "program_path": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+        "qubits": 24,
+        "cx": 68,
+        "t_fixed": 24,
+        "n_rot": 22,
+        "t_1e-6": 1396,
+        "t_est_1e-6": 1339.4835255753956,
+        "t_1e-10": 2312,
+        "depth_ct": 3210,
+        "t_avg": 1417.4,
+        "robust_key": [
+          68,
+          28348,
+          0,
+          63378,
+          24
+        ],
+        "key": [
+          68,
+          1396,
+          3210,
+          24
+        ],
+        "verdict": "valid (err 1.44e-14, leak 0)",
+        "lean": "certified",
+        "lean_reason": "",
+        "selection": "best of the family by the robust key"
+      },
+      {
+        "row": "best_family_F4",
+        "entry": "r02-F4-002",
+        "family": "F4",
+        "round": 2,
+        "commit": "d4a691a",
+        "program_path": "compress/programs/lsh/F4/002-fold-mux-merged-end-toggle.py",
+        "qubits": 24,
+        "cx": 73,
+        "t_fixed": 24,
+        "n_rot": 22,
+        "t_1e-6": 1396,
+        "t_est_1e-6": 1339.4835255753956,
+        "t_1e-10": 2312,
+        "depth_ct": 3218,
+        "t_avg": 1417.4,
+        "robust_key": [
+          73,
+          28348,
+          0,
+          63538,
+          24
+        ],
+        "key": [
+          73,
+          1396,
+          3218,
+          24
+        ],
+        "verdict": "valid (err 1.25e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "best of the family by the robust key"
+      },
+      {
+        "row": "best_family_F5",
+        "entry": "r05-F5-005",
+        "family": "F5",
+        "round": 5,
+        "commit": "4bff9e6",
+        "program_path": "compress/programs/lsh/F5/005-all-pivot-collapse-fold-frame.py",
+        "qubits": 24,
+        "cx": 68,
+        "t_fixed": 24,
+        "n_rot": 22,
+        "t_1e-6": 1396,
+        "t_est_1e-6": 1339.4835255753956,
+        "t_1e-10": 2312,
+        "depth_ct": 3220,
+        "t_avg": 1417.4,
+        "robust_key": [
+          68,
+          28348,
+          0,
+          63578,
+          24
+        ],
+        "key": [
+          68,
+          1396,
+          3220,
+          24
+        ],
+        "verdict": "valid (err 1.27e-14, leak 0)",
+        "lean": "not_run",
+        "lean_reason": "",
+        "selection": "best of the family by the robust key"
+      },
+      {
+        "row": "global_best",
+        "entry": "r05-F3-005",
+        "family": "F3",
+        "round": 5,
+        "commit": "4bff9e6",
+        "program_path": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+        "qubits": 24,
+        "cx": 68,
+        "t_fixed": 24,
+        "n_rot": 22,
+        "t_1e-6": 1396,
+        "t_est_1e-6": 1339.4835255753956,
+        "t_1e-10": 2312,
+        "depth_ct": 3210,
+        "t_avg": 1417.4,
+        "robust_key": [
+          68,
+          28348,
+          0,
+          63378,
+          24
+        ],
+        "key": [
+          68,
+          1396,
+          3210,
+          24
+        ],
+        "verdict": "valid (err 1.44e-14, leak 0)",
+        "lean": "certified",
+        "lean_reason": "",
+        "selection": "archive key (CX, T(1e-6) at the nominal pair, depth_CT, qubits)"
+      },
+      {
+        "row": "headline",
+        "entry": "r05-F3-005",
+        "family": "F3",
+        "round": 5,
+        "commit": "4bff9e6",
+        "program_path": "compress/programs/lsh/F3/005-alpha-early-walk22.py",
+        "qubits": 24,
+        "cx": 68,
+        "t_fixed": 24,
+        "n_rot": 22,
+        "t_1e-6": 1396,
+        "t_est_1e-6": 1339.4835255753956,
+        "t_1e-10": 2312,
+        "depth_ct": 3210,
+        "t_avg": 1417.4,
+        "robust_key": [
+          68,
+          28348,
+          0,
+          63378,
+          24
+        ],
+        "key": [
+          68,
+          1396,
+          3210,
+          24
+        ],
+        "verdict": "valid (err 1.44e-14, leak 0)",
+        "lean": "certified",
+        "lean_reason": "",
+        "selection": "smallest robust key (prompts/008 section 6)"
+      }
+    ],
+    "m7_general_check": {
+      "file": "results/lsh/step.json",
+      "cx": 94,
+      "t_fixed": 88,
+      "n_rot": 8
+    },
+    "vs_spinnet": {
+      "spinnet_headline": {
+        "id": "r02-F1-002",
+        "cx": 31,
+        "t_avg": 1092.0
+      },
+      "wrapped": {
+        "entry": "r00-seed-005",
+        "cx": 71,
+        "t_avg": 1124.0
+      },
+      "lsh_headline": {
+        "id": "r05-F3-005",
+        "cx": 68,
+        "t_avg": 1417.4
+      },
+      "transcoder": {
+        "cx": 40,
+        "t_fixed": 32
+      },
+      "native_gain_cx": 3,
+      "overhead_cx": 37,
+      "native_gain_t_avg": -293.4000000000001,
+      "overhead_t_avg": 325.4000000000001,
+      "wrapped_minus_spinnet_t_avg": 32.0,
+      "reading": "the loop removed 3 of the 40 transcoder CX; the LSH register still costs 37 CX beyond the spin-network optimum",
+      "transcoder_detail": {
+        "cx": 40,
+        "depth": 22,
+        "n_rot": 0,
+        "t_fixed": 32,
+        "qubits": 24,
+        "ancilla": 0
+      }
+    },
+    "pareto_cx_tavg": [
+      {
+        "id": "r04-F3-004",
+        "cx": 68,
+        "t_avg": 1417.4,
+        "robust_key": [
+          68,
+          28348,
+          0,
+          63598,
+          24
+        ],
+        "family": "F3",
+        "round": 4,
+        "lean": "certified"
+      },
+      {
+        "id": "r03-F3-003",
+        "cx": 70,
+        "t_avg": 1354.3,
+        "robust_key": [
+          70,
+          27086,
+          0,
+          60193,
+          24
+        ],
+        "family": "F3",
+        "round": 3,
+        "lean": "certified"
+      },
+      {
+        "id": "r02-F1-002",
+        "cx": 71,
+        "t_avg": 1116.0,
+        "robust_key": [
+          71,
+          22320,
+          0,
+          46684,
+          25
+        ],
+        "family": "F1",
+        "round": 2,
+        "lean": "certified"
+      },
+      {
+        "id": "r00-seed-006",
+        "cx": 72,
+        "t_avg": 879.4,
+        "robust_key": [
+          72,
+          17588,
+          0,
+          33585,
+          25
+        ],
+        "family": "seed",
+        "round": 0,
+        "lean": "not_run"
+      },
+      {
+        "id": "r00-seed-007",
+        "cx": 74,
+        "t_avg": 697.6,
+        "robust_key": [
+          74,
+          13952,
+          0,
+          23739,
+          25
+        ],
+        "family": "seed",
+        "round": 0,
+        "lean": "not_run"
+      },
+      {
+        "id": "r00-seed-003",
+        "cx": 82,
+        "t_avg": 641.1,
+        "robust_key": [
+          82,
+          12822,
+          0,
+          20439,
+          27
+        ],
+        "family": "seed",
+        "round": 0,
+        "lean": "not_run"
+      },
+      {
+        "id": "r00-seed-002",
+        "cx": 84,
+        "t_avg": 585.1,
+        "robust_key": [
+          84,
+          11702,
+          0,
+          17607,
+          27
+        ],
+        "family": "seed",
+        "round": 0,
+        "lean": "not_run"
+      }
+    ],
+    "uniform_split": {
+      "nnz": 400,
+      "max_per_row": 4,
+      "rows_nonzero": 324,
+      "moduli": [
+        0.25,
+        0.433012702,
+        0.5,
+        0.75,
+        0.866025404,
+        1.0,
+        1.5,
+        1.732050808,
+        2.0
+      ],
+      "ours": {
+        "nnz": 256,
+        "max_per_row": 1,
+        "rows_nonzero": 256,
+        "moduli": [
+          0.5,
+          1.0,
+          2.0
+        ]
+      },
+      "n_inner_patterns": 47,
+      "outer_dependent_inner_patterns": 16,
+      "spectrum_diff": 3.3306690738754696e-15,
+      "corners_repaired": [
+        1,
+        3
+      ],
+      "sites_touched": 6,
+      "qubits_touched": 18,
+      "sites_touched_ours": 4,
+      "qubits_touched_ours": 12,
+      "circuit": "not built"
+    },
+    "stop": {
+      "rounds": [
+        {
+          "round": 0,
+          "headline_id": "r00-seed-005",
+          "robust_key": [
+            71,
+            22480,
+            0,
+            46384,
+            25
+          ],
+          "record": {
+            "id": "r00-seed-005",
+            "cx": 71,
+            "t_sum": 22480,
+            "rho": 0,
+            "qubits": 25,
+            "n_rot": 17,
+            "t_fixed": 48
+          },
+          "improved": true
+        },
+        {
+          "round": 1,
+          "headline_id": "r00-seed-005",
+          "robust_key": [
+            71,
+            22480,
+            0,
+            46384,
+            25
+          ],
+          "record": {
+            "id": "r00-seed-005",
+            "cx": 71,
+            "t_sum": 22480,
+            "rho": 0,
+            "qubits": 25,
+            "n_rot": 17,
+            "t_fixed": 48
+          },
+          "improved": false
+        },
+        {
+          "round": 2,
+          "headline_id": "r02-F1-002",
+          "robust_key": [
+            71,
+            22320,
+            0,
+            46684,
+            25
+          ],
+          "record": {
+            "id": "r02-F1-002",
+            "cx": 71,
+            "t_sum": 22320,
+            "rho": 0,
+            "qubits": 25,
+            "n_rot": 17,
+            "t_fixed": 40
+          },
+          "improved": true
+        },
+        {
+          "round": 3,
+          "headline_id": "r03-F3-003",
+          "robust_key": [
+            70,
+            27086,
+            0,
+            60193,
+            24
+          ],
+          "record": {
+            "id": "r03-F3-003",
+            "cx": 70,
+            "t_sum": 27086,
+            "rho": 0,
+            "qubits": 24,
+            "n_rot": 21,
+            "t_fixed": 24
+          },
+          "improved": true
+        },
+        {
+          "round": 4,
+          "headline_id": "r04-F3-004",
+          "robust_key": [
+            68,
+            28348,
+            0,
+            63598,
+            24
+          ],
+          "record": {
+            "id": "r04-F3-004",
+            "cx": 68,
+            "t_sum": 28348,
+            "rho": 0,
+            "qubits": 24,
+            "n_rot": 22,
+            "t_fixed": 24
+          },
+          "improved": true
+        },
+        {
+          "round": 5,
+          "headline_id": "r05-F3-005",
+          "robust_key": [
+            68,
+            28348,
+            0,
+            63378,
+            24
+          ],
+          "record": {
+            "id": "r05-F3-005",
+            "cx": 68,
+            "t_sum": 28348,
+            "rho": 0,
+            "qubits": 24,
+            "n_rot": 22,
+            "t_fixed": 24
+          },
+          "improved": false
+        },
+        {
+          "round": 6,
+          "headline_id": "r05-F3-005",
+          "robust_key": [
+            68,
+            28348,
+            0,
+            63378,
+            24
+          ],
+          "record": {
+            "id": "r05-F3-005",
+            "cx": 68,
+            "t_sum": 28348,
+            "rho": 0,
+            "qubits": 24,
+            "n_rot": 22,
+            "t_fixed": 24
+          },
+          "improved": false
+        }
+      ],
+      "streak": 2,
+      "sessions": 20,
+      "stop": true,
+      "reason": "max_sessions",
+      "reasons": [
+        "max_sessions"
+      ],
+      "max_rounds": 8,
+      "no_gain_rounds": 3,
+      "max_sessions": 20
+    },
+    "lean": {
+      "status": "certified",
+      "reason": "",
+      "trust": "native-certified",
+      "trust_label": "native-certified, first-order step",
+      "trust_note": "native-certified (not kernel-checked): the compiled Lean checker su2plaq_cert_lsh (computable code) accepted the exact certificate; the theorem file proves Su2PlaqCert.LSH.checkJsonString certJson = true by native_decide (the standard axioms plus one native_decide axiom, so the trust root is the Lean compiler plus the checker source).  The certificate is of the first-order step U_B U_E and holds for every (alpha, beta) of the angle-linear family of the program, not only at (0.37, 0.61); a headline with status n_a (non_linear_angle... / phase_not_in_K) has no certificate and is reported as such.",
+      "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+      "cert_path": "results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json",
+      "cert_sha256": "b05ef21d7e077d977e0189491fd80599d83e628032517fe1a7678a0110ebef44",
+      "program_file_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+      "theorem_file": "lean/certs/lsh-best-step.lean",
+      "theorem_name": "lsh_best",
+      "theorem_file_status": "elaborated",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "lsh_best._native.native_decide.ax_1_1",
+        "propext"
+      ],
+      "angle_linear": true,
+      "binding": {
+        "entry_id": "r05-F3-005",
+        "program_file_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+        "git_dirty": false,
+        "git_commit": "1e765f1",
+        "matches_headline": true
+      },
+      "theorem_file_sha256": "dae606e5a2b6f32a827f39441568f639bc8acca1eb6aad92c08dbcfb10079447",
+      "theorem_first_line": "-- entry r05-F3-005, program sha256 5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+      "theorem_names_headline": true,
+      "elaboration_seconds": 0.9628429412841797,
+      "elaboration_returncode": 0
+    },
+    "lineage": [
+      {
+        "id": "r00-seed-000",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 94,
+        "t_eps": 598,
+        "t_avg": 592.6,
+        "parent_known": true
+      },
+      {
+        "id": "r00-seed-001",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 74,
+        "t_eps": 864,
+        "t_avg": 879.4,
+        "parent_known": true
+      },
+      {
+        "id": "r00-seed-002",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 84,
+        "t_eps": 586,
+        "t_avg": 585.1,
+        "parent_known": true
+      },
+      {
+        "id": "r00-seed-003",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 82,
+        "t_eps": 638,
+        "t_avg": 641.1,
+        "parent_known": true
+      },
+      {
+        "id": "r00-seed-004",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 76,
+        "t_eps": 690,
+        "t_avg": 697.6,
+        "parent_known": true
+      },
+      {
+        "id": "r00-seed-005",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 71,
+        "t_eps": 1118,
+        "t_avg": 1124.0,
+        "parent_known": true
+      },
+      {
+        "id": "r00-seed-006",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 72,
+        "t_eps": 864,
+        "t_avg": 879.4,
+        "parent_known": true
+      },
+      {
+        "id": "r00-seed-007",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 74,
+        "t_eps": 690,
+        "t_avg": 697.6,
+        "parent_known": true
+      },
+      {
+        "id": "r00-seed-010",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 94,
+        "t_eps": 598,
+        "t_avg": 592.6,
+        "parent_known": true
+      },
+      {
+        "id": "r00-seed-qiskit_l3",
+        "parent": null,
+        "family": "seed",
+        "round": 0,
+        "cx": 94,
+        "t_eps": 598,
+        "t_avg": null,
+        "parent_known": true
+      },
+      {
+        "id": "r01-F1-001",
+        "parent": null,
+        "family": "F1",
+        "round": 1,
+        "cx": 73,
+        "t_eps": 1056,
+        "t_avg": 1054.4,
+        "parent_known": true
+      },
+      {
+        "id": "r01-F2-001",
+        "parent": null,
+        "family": "F2",
+        "round": 1,
+        "cx": 80,
+        "t_eps": 1176,
+        "t_avg": 1184.6,
+        "parent_known": true
+      },
+      {
+        "id": "r01-F3-001",
+        "parent": null,
+        "family": "F3",
+        "round": 1,
+        "cx": 76,
+        "t_eps": 1338,
+        "t_avg": 1354.3,
+        "parent_known": true
+      },
+      {
+        "id": "r01-F4-001",
+        "parent": null,
+        "family": "F4",
+        "round": 1,
+        "cx": 74,
+        "t_eps": 1396,
+        "t_avg": 1417.4,
+        "parent_known": true
+      },
+      {
+        "id": "r01-F5-001",
+        "parent": null,
+        "family": "F5",
+        "round": 1,
+        "cx": 73,
+        "t_eps": 1442,
+        "t_avg": 1431.3,
+        "parent_known": true
+      },
+      {
+        "id": "r02-F1-002",
+        "parent": "r01-F1-001",
+        "family": "F1",
+        "round": 2,
+        "cx": 71,
+        "t_eps": 1110,
+        "t_avg": 1116.0,
+        "parent_known": true
+      },
+      {
+        "id": "r02-F2-002",
+        "parent": "r01-F2-001",
+        "family": "F2",
+        "round": 2,
+        "cx": 72,
+        "t_eps": 1242,
+        "t_avg": 1248.1,
+        "parent_known": true
+      },
+      {
+        "id": "r02-F3-002",
+        "parent": "r01-F3-001",
+        "family": "F3",
+        "round": 2,
+        "cx": 71,
+        "t_eps": 1118,
+        "t_avg": 1124.0,
+        "parent_known": true
+      },
+      {
+        "id": "r02-F4-002",
+        "parent": "r01-F4-001",
+        "family": "F4",
+        "round": 2,
+        "cx": 73,
+        "t_eps": 1396,
+        "t_avg": 1417.4,
+        "parent_known": true
+      },
+      {
+        "id": "r02-F5-002",
+        "parent": "r01-F5-001",
+        "family": "F5",
+        "round": 2,
+        "cx": 71,
+        "t_eps": 1118,
+        "t_avg": 1124.0,
+        "parent_known": true
+      },
+      {
+        "id": "r03-F3-003",
+        "parent": "r01-F3-001",
+        "family": "F3",
+        "round": 3,
+        "cx": 70,
+        "t_eps": 1338,
+        "t_avg": 1354.3,
+        "parent_known": true
+      },
+      {
+        "id": "r03-F5-003",
+        "parent": "r02-F1-002",
+        "family": "F5",
+        "round": 3,
+        "cx": 71,
+        "t_eps": 1110,
+        "t_avg": 1116.0,
+        "parent_known": true
+      },
+      {
+        "id": "r04-F1-003",
+        "parent": "r02-F1-002",
+        "family": "F1",
+        "round": 4,
+        "cx": 71,
+        "t_eps": 1110,
+        "t_avg": 1116.0,
+        "parent_known": true
+      },
+      {
+        "id": "r04-F3-004",
+        "parent": "r03-F3-003",
+        "family": "F3",
+        "round": 4,
+        "cx": 68,
+        "t_eps": 1396,
+        "t_avg": 1417.4,
+        "parent_known": true
+      },
+      {
+        "id": "r04-F5-004",
+        "parent": "r03-F5-003",
+        "family": "F5",
+        "round": 4,
+        "cx": 71,
+        "t_eps": 1110,
+        "t_avg": 1116.0,
+        "parent_known": true
+      },
+      {
+        "id": "r05-F1-004",
+        "parent": "r02-F1-002",
+        "family": "F1",
+        "round": 5,
+        "cx": 76,
+        "t_eps": 1784,
+        "t_avg": 1798.0,
+        "parent_known": true
+      },
+      {
+        "id": "r05-F3-005",
+        "parent": "r04-F3-004",
+        "family": "F3",
+        "round": 5,
+        "cx": 68,
+        "t_eps": 1396,
+        "t_avg": 1417.4,
+        "parent_known": true
+      },
+      {
+        "id": "r05-F5-005",
+        "parent": "r04-F3-004",
+        "family": "F5",
+        "round": 5,
+        "cx": 68,
+        "t_eps": 1396,
+        "t_avg": 1417.4,
+        "parent_known": true
+      },
+      {
+        "id": "r06-F3-006",
+        "parent": "r05-F3-005",
+        "family": "F3",
+        "round": 6,
+        "cx": 68,
+        "t_eps": 1528,
+        "t_avg": 1544.4,
+        "parent_known": true
+      }
+    ],
+    "rounds": [
+      {
+        "round": 0,
+        "n_candidates": 10,
+        "n_valid": 10,
+        "n_invalid": 0,
+        "best_key": [
+          71,
+          1118,
+          2276,
+          25
+        ],
+        "wall_s": 15.171650886535645,
+        "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+        "headline_id": "r00-seed-005",
+        "headline_robust_key": [
+          71,
+          22480,
+          0,
+          46384,
+          25
+        ],
+        "improved": true,
+        "synthesis_verification": {
+          "entry": "r00-seed-005",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 17,
+          "t_total": 1118,
+          "tolerances": {
+            "tol_err": 1.7001e-05,
+            "tol_gauss": 1.7001e-05
+          },
+          "op_norm_error": 4.608290744267597e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 1,
+        "n_candidates": 5,
+        "n_valid": 5,
+        "n_invalid": 0,
+        "best_key": [
+          71,
+          1118,
+          2276,
+          25
+        ],
+        "wall_s": 6.9633893966674805,
+        "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+        "headline_id": "r00-seed-005",
+        "headline_robust_key": [
+          71,
+          22480,
+          0,
+          46384,
+          25
+        ],
+        "improved": false,
+        "synthesis_verification": null
+      },
+      {
+        "round": 2,
+        "n_candidates": 5,
+        "n_valid": 5,
+        "n_invalid": 0,
+        "best_key": [
+          71,
+          1110,
+          2291,
+          25
+        ],
+        "wall_s": 13.738367557525635,
+        "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+        "headline_id": "r02-F1-002",
+        "headline_robust_key": [
+          71,
+          22320,
+          0,
+          46684,
+          25
+        ],
+        "improved": true,
+        "synthesis_verification": {
+          "entry": "r02-F1-002",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 17,
+          "t_total": 1110,
+          "tolerances": {
+            "tol_err": 1.7001e-05,
+            "tol_gauss": 1.7001e-05
+          },
+          "op_norm_error": 5.6064437015976735e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 3,
+        "n_candidates": 2,
+        "n_valid": 2,
+        "n_invalid": 0,
+        "best_key": [
+          70,
+          1338,
+          3047,
+          24
+        ],
+        "wall_s": 6.29456353187561,
+        "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+        "headline_id": "r03-F3-003",
+        "headline_robust_key": [
+          70,
+          27086,
+          0,
+          60193,
+          24
+        ],
+        "improved": true,
+        "synthesis_verification": {
+          "entry": "r03-F3-003",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 21,
+          "t_total": 1338,
+          "tolerances": {
+            "tol_err": 2.1000999999999998e-05,
+            "tol_gauss": 2.1000999999999998e-05
+          },
+          "op_norm_error": 7.446717173965605e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 4,
+        "n_candidates": 3,
+        "n_valid": 3,
+        "n_invalid": 0,
+        "best_key": [
+          68,
+          1396,
+          3221,
+          24
+        ],
+        "wall_s": 5.9821977615356445,
+        "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+        "headline_id": "r04-F3-004",
+        "headline_robust_key": [
+          68,
+          28348,
+          0,
+          63598,
+          24
+        ],
+        "improved": true,
+        "synthesis_verification": {
+          "entry": "r04-F3-004",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 22,
+          "t_total": 1396,
+          "tolerances": {
+            "tol_err": 2.2000999999999998e-05,
+            "tol_gauss": 2.2000999999999998e-05
+          },
+          "op_norm_error": 8.10133606806784e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 5,
+        "n_candidates": 3,
+        "n_valid": 3,
+        "n_invalid": 0,
+        "best_key": [
+          68,
+          1396,
+          3210,
+          24
+        ],
+        "wall_s": 6.225193500518799,
+        "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+        "headline_id": "r05-F3-005",
+        "headline_robust_key": [
+          68,
+          28348,
+          0,
+          63378,
+          24
+        ],
+        "improved": false,
+        "synthesis_verification": {
+          "entry": "r05-F3-005",
+          "ok": true,
+          "eps": 1e-06,
+          "n_rot": 22,
+          "t_total": 1396,
+          "tolerances": {
+            "tol_err": 2.2000999999999998e-05,
+            "tol_gauss": 2.2000999999999998e-05
+          },
+          "op_norm_error": 8.101336063738177e-06,
+          "certified": true,
+          "reason": "ok"
+        }
+      },
+      {
+        "round": 6,
+        "n_candidates": 1,
+        "n_valid": 1,
+        "n_invalid": 0,
+        "best_key": [
+          68,
+          1396,
+          3210,
+          24
+        ],
+        "wall_s": 1.8516414165496826,
+        "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+        "headline_id": "r05-F3-005",
+        "headline_robust_key": [
+          68,
+          28348,
+          0,
+          63378,
+          24
+        ],
+        "improved": false,
+        "synthesis_verification": null
+      }
+    ],
+    "verdicts_alt": [
+      {
+        "ok": true,
+        "reason": "ok",
+        "op_norm_error": 1.3010879619620472e-14,
+        "max_leak": 0.0,
+        "dirty_ancilla": 0.0,
+        "phase": [
+          1.0,
+          -1.7230251098108752e-16
+        ],
+        "outer_bits_read": 2,
+        "n_blocks": 4,
+        "gauss_residual": 5.461927758452897e-16,
+        "method": "physical",
+        "engine": "sparse",
+        "engine_accuracy": 0.0,
+        "certified": true,
+        "tolerances": {
+          "tol_err": 1e-10,
+          "tol_gauss": 1e-10
+        },
+        "dropped_total": 7.74579982463805e-15,
+        "block_error": 5.2650797949824226e-15,
+        "leak_amplitude": 0.0,
+        "seconds": 0.22586989402770996,
+        "n_inputs": 433,
+        "span_leak": 0.0,
+        "total_error": 1.3010879619620472e-14,
+        "failing_inputs": [],
+        "extra": {
+          "op_norm_error_physical": 5.2650797949824226e-15,
+          "max_dropped_l2": 1.809834295996975e-15,
+          "max_span_leak": 0.0,
+          "op_norm_error_inner_span": null,
+          "span_leak_max_state": 0.0,
+          "gauss": "checked"
+        }
+      },
+      {
+        "ok": true,
+        "reason": "ok",
+        "op_norm_error": 1.4951599468216685e-14,
+        "max_leak": 0.0,
+        "dirty_ancilla": 0.0,
+        "phase": [
+          1.0,
+          -1.1897078139170338e-16
+        ],
+        "outer_bits_read": 2,
+        "n_blocks": 4,
+        "gauss_residual": 5.347902362062199e-16,
+        "method": "physical",
+        "engine": "sparse",
+        "engine_accuracy": 0.0,
+        "certified": true,
+        "tolerances": {
+          "tol_err": 1e-10,
+          "tol_gauss": 1e-10
+        },
+        "dropped_total": 8.491284284972979e-15,
+        "block_error": 6.460315183243706e-15,
+        "leak_amplitude": 0.0,
+        "seconds": 0.2254931926727295,
+        "n_inputs": 433,
+        "span_leak": 0.0,
+        "total_error": 1.4951599468216685e-14,
+        "failing_inputs": [],
+        "extra": {
+          "op_norm_error_physical": 6.460315183243706e-15,
+          "max_dropped_l2": 1.7100107231587567e-15,
+          "max_span_leak": 0.0,
+          "op_norm_error_inner_span": null,
+          "span_leak_max_state": 0.0,
+          "gauss": "checked"
+        }
+      }
+    ],
+    "n_rounds": 7,
+    "wrapped_sources": {
+      "wrap_sn_headline": {
+        "path": "compress/programs/spinnet/F1/002-dimer-linear-corner-walk.py",
+        "sha256": "750151e9ad417de7d52e4c59a203f1dc493bdea3be5742aa331533170a0ec650",
+        "spinnet_entry": "r02-F1-002"
+      },
+      "wrap_sn_r05F3": {
+        "path": "compress/programs/spinnet/F3/005-angle-linear-walk.py",
+        "sha256": "43605421051ce5e26b85b1b5241eb02638fc5f8ad7c6297a67e7dd0e96fd22e4",
+        "spinnet_entry": "r05-F3-005"
+      },
+      "wrap_sn_r02F5": {
+        "path": "compress/programs/spinnet/F5/002-bright_flag_6rot.py",
+        "sha256": "734a62fe58f316d6deb59561fb90cedcb04e5854f260f4d78e680eb688428f81",
+        "spinnet_entry": "r02-F5-002"
+      }
+    },
+    "synthesis_verification": {
+      "entry": "r05-F3-005",
+      "ok": true,
+      "eps": 1e-06,
+      "n_rot": 22,
+      "t_total": 1396,
+      "tolerances": {
+        "tol_err": 2.2000999999999998e-05,
+        "tol_gauss": 2.2000999999999998e-05
+      },
+      "op_norm_error": 8.101336063738177e-06,
+      "certified": true,
+      "reason": "ok"
+    },
+    "outer_electric_row": {
+      "verification": {
+        "ok": true,
+        "reason": "ok",
+        "op_norm_error": 7.696856831808123e-16,
+        "max_leak": 0.0,
+        "dirty_ancilla": 0.0,
+        "phase": [
+          1.0,
+          1.9691715540695625e-16
+        ],
+        "outer_bits_read": 12,
+        "n_blocks": 305,
+        "gauss_residual": 5.592593521511171e-16,
+        "method": "physical",
+        "engine": "sparse",
+        "engine_accuracy": 0.0,
+        "certified": true,
+        "tolerances": {
+          "tol_err": 1e-10,
+          "tol_gauss": 1e-10
+        },
+        "dropped_total": 0.0,
+        "block_error": 7.696856831808123e-16,
+        "leak_amplitude": 0.0,
+        "seconds": 0.22987771034240723,
+        "n_inputs": 433,
+        "extra": {
+          "op_norm_error_physical": 7.696856831808123e-16,
+          "max_dropped_l2": 0.0,
+          "max_span_leak": 0.0,
+          "op_norm_error_inner_span": null
+        }
+      },
+      "metrics": {
+        "logical": {
+          "cx": 0,
+          "depth": 1,
+          "n_rot": 20,
+          "t_fixed": 0,
+          "qubits": 24,
+          "ancilla": 0
+        },
+        "gates_lowered": {
+          "rz": 20
+        },
+        "t_table": [
+          {
+            "eps": 0.0001,
+            "t_fixed": 0,
+            "n_rot": 20,
+            "t_rot_pygridsynth": 880,
+            "t_total": 880,
+            "t_est": 797.2627427729669,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null,
+            "synth": {
+              "n_rot": 20,
+              "t_rot": 880,
+              "error_bound_sum": 0.002,
+              "error_measured_sum": 0.0004831302603324418,
+              "verdict": {
+                "evaluable": false,
+                "reason": "writes_outer",
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
+              }
+            }
+          },
+          {
+            "eps": 1e-06,
+            "t_fixed": 0,
+            "n_rot": 20,
+            "t_rot_pygridsynth": 1280,
+            "t_total": 1280,
+            "t_est": 1195.8941141594505,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null,
+            "synth": {
+              "n_rot": 20,
+              "t_rot": 1280,
+              "error_bound_sum": 1.9999999999999998e-05,
+              "error_measured_sum": 7.955084021092354e-06,
+              "verdict": {
+                "evaluable": false,
+                "reason": "writes_outer",
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
+              }
+            }
+          },
+          {
+            "eps": 1e-08,
+            "t_fixed": 0,
+            "n_rot": 20,
+            "t_rot_pygridsynth": 1640,
+            "t_total": 1640,
+            "t_est": 1594.5254855459339,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null,
+            "synth": {
+              "n_rot": 20,
+              "t_rot": 1640,
+              "error_bound_sum": 2e-07,
+              "error_measured_sum": 6.375979360256933e-08,
+              "verdict": {
+                "evaluable": false,
+                "reason": "writes_outer",
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
+              }
+            }
+          },
+          {
+            "eps": 1e-10,
+            "t_fixed": 0,
+            "n_rot": 20,
+            "t_rot_pygridsynth": 2088,
+            "t_total": 2088,
+            "t_est": 1993.1568569324174,
+            "t_qiskit": null,
+            "cx_qiskit": null,
+            "depth_qiskit": null,
+            "synth": {
+              "n_rot": 20,
+              "t_rot": 2088,
+              "error_bound_sum": 2e-09,
+              "error_measured_sum": 5.92964934403626e-10,
+              "verdict": {
+                "evaluable": false,
+                "reason": "writes_outer",
+                "explanation": "not evaluable by this evaluator: the Clifford+T words of the synthesised rotations put Hadamards on the outer-register qubits the rotation acts on, but the evaluator requires every gate to be diagonal on the outer qubits (they are controls). The exact-angle circuit (diagonal p gates) is verified; the T cost of the outer row is reported from the T table."
+              }
+            }
+          }
+        ],
+        "macro_counts": {
+          "p": 20
+        }
+      },
+      "files": {
+        "qpy": "results/lsh/UE_outer_row.qpy",
+        "sha256": "ce1b707fab2603087b454b062ce8fcdbc38538b4882285f801cad3b3a526887d",
+        "qasm3": "results/lsh/UE_outer_row.qasm3"
+      },
+      "note": "the same electric layer with 12 extra phases on the outer-site qubits (include_outer_electric); it reads 12 outer bits and is unchanged by the compression loop (committed M7 result results/lsh/UE.json).  Its exact-angle circuit is verified; its synthesised (Clifford+T) form writes the outer register and is NOT verifiable by this evaluator (audit 303 N5), so only its T cost is reported.",
+      "file": "results/lsh/UE.json",
+      "file_commit": "76fd221",
+      "file_git_dirty": false
+    },
+    "verification_seconds": 4.016265392303467
+  }
+}
