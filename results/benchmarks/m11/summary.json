@@ -1,0 +1,121 @@
+{
+ "commit": "5e9f808",
+ "worktree": "/home/digimonk/Projects/su2qc-wt/bench307",
+ "core": 2,
+ "m11_results_wall_s": [
+  77.21089694200782,
+  76.33869504003087,
+  76.6763919039513,
+  76.32056317897514,
+  78.19165562599665,
+  78.62266258196905
+ ],
+ "m11_results_median": 76.94364442297956,
+ "cross_rows": [
+  {
+   "circuit": "twelve",
+   "target": "lsh",
+   "which": "general",
+   "alpha": 0.37,
+   "median": 3.543262004852295,
+   "min": 3.4283971786499023,
+   "max": 3.58626389503479,
+   "committed": 3.411527395248413,
+   "ratio": 1.038614554227928
+  },
+  {
+   "circuit": "spinnet",
+   "target": "twelve",
+   "which": "general",
+   "alpha": 0.37,
+   "median": 0.37093639373779297,
+   "min": 0.3543553352355957,
+   "max": 0.40969014167785645,
+   "committed": 0.36677026748657227,
+   "ratio": 1.0113589530573746
+  },
+  {
+   "circuit": "lsh",
+   "target": "spinnet",
+   "which": "general",
+   "alpha": 0.37,
+   "median": 0.29030776023864746,
+   "min": 0.27648115158081055,
+   "max": 0.3234372138977051,
+   "committed": 0.30098438262939453,
+   "ratio": 0.9645276532374328
+  },
+  {
+   "circuit": "twelve",
+   "target": "spinnet",
+   "which": "headline",
+   "alpha": 0.37,
+   "median": 4.3935593366622925,
+   "min": 4.21843957901001,
+   "max": 4.7237067222595215,
+   "committed": 4.214669227600098,
+   "ratio": 1.0424446378592935
+  },
+  {
+   "circuit": "twelve",
+   "target": "spinnet",
+   "which": "headline",
+   "alpha": 0.91,
+   "median": 4.421609163284302,
+   "min": 4.25766921043396,
+   "max": 4.491634130477905,
+   "committed": 4.2219154834747314,
+   "ratio": 1.0472993077647348
+  },
+  {
+   "circuit": "spinnet",
+   "target": "lsh",
+   "which": "headline",
+   "alpha": 0.37,
+   "median": 0.7018953561782837,
+   "min": 0.6737170219421387,
+   "max": 0.7216339111328125,
+   "committed": 0.6672625541687012,
+   "ratio": 1.0519028106600845
+  },
+  {
+   "circuit": "spinnet",
+   "target": "lsh",
+   "which": "headline",
+   "alpha": 0.91,
+   "median": 0.6972815990447998,
+   "min": 0.675861120223999,
+   "max": 0.7173037528991699,
+   "committed": 0.6625885963439941,
+   "ratio": 1.0523597944369
+  },
+  {
+   "circuit": "lsh",
+   "target": "twelve",
+   "which": "headline",
+   "alpha": 0.37,
+   "median": 0.8186769485473633,
+   "min": 0.7918875217437744,
+   "max": 0.8380868434906006,
+   "committed": 0.7798161506652832,
+   "ratio": 1.0498332816637959
+  },
+  {
+   "circuit": "lsh",
+   "target": "twelve",
+   "which": "headline",
+   "alpha": 0.91,
+   "median": 0.8006421327590942,
+   "min": 0.7792761325836182,
+   "max": 0.8197176456451416,
+   "committed": 0.7643513679504395,
+   "ratio": 1.0474791651200497
+  }
+ ],
+ "suite_walls": [
+  55.08164286997635,
+  54.867014585004654,
+  55.20540938398335
+ ],
+ "seed": "PYTHONHASHSEED=20261104; nothing stochastic timed"
+}

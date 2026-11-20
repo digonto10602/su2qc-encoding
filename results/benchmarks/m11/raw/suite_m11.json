@@ -1,0 +1,35 @@
+[
+ {
+  "rc": 0,
+  "wall": 55.08164286997635,
+  "maxrss_kb": 1326796,
+  "out": "bringing up nodes...\nbringing up nodes...\n\n.................................                                        [100%]\n============================= slowest 10 durations =============================\n32.46s call     tests/acceptance/m11/test_headline_rule.py::test_M11_H3_fuzzy_step_composed_from_the_headline_units\n25.37s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[2.0]\n25.11s call     tests/acceptance/m11/test_cross_models.py::test_M11_F2_fuzzy_isolated_plaquette_gap\n24.78s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[0.5]\n19.65s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[1.0]\n19.03s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_levels_at_the_project_couplings\n18.14s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K4_headline_circuit_against_another_encodings_target[twelve-spinnet]\n6.72s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K3_general_circuit_against_another_encodings_target[twelve-lsh]\n4.83s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K2_gauge_signs_and_transported_targets\n2.54s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K4_headline_circuit_against_another_encodings_target[spinnet-lsh]\n33 passed in 54.84s\n",
+  "load_before": [
+   "1.00",
+   "1.20",
+   "1.85"
+  ]
+ },
+ {
+  "rc": 0,
+  "wall": 54.867014585004654,
+  "maxrss_kb": 1325344,
+  "out": "bringing up nodes...\nbringing up nodes...\n\n.................................                                        [100%]\n============================= slowest 10 durations =============================\n31.94s call     tests/acceptance/m11/test_headline_rule.py::test_M11_H3_fuzzy_step_composed_from_the_headline_units\n25.53s call     tests/acceptance/m11/test_cross_models.py::test_M11_F2_fuzzy_isolated_plaquette_gap\n24.71s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[0.5]\n24.59s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[2.0]\n19.94s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[1.0]\n18.75s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K4_headline_circuit_against_another_encodings_target[twelve-spinnet]\n18.42s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_levels_at_the_project_couplings\n6.63s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K3_general_circuit_against_another_encodings_target[twelve-lsh]\n4.83s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K2_gauge_signs_and_transported_targets\n2.61s call     tests/acceptance/m11/test_cross_models.py::test_M11_E2_rishon_closed_sector_reaches_the_ks_block\n33 passed in 54.65s\n",
+  "load_before": [
+   "2.56",
+   "1.63",
+   "1.97"
+  ]
+ },
+ {
+  "rc": 0,
+  "wall": 55.20540938398335,
+  "maxrss_kb": 1327204,
+  "out": "bringing up nodes...\nbringing up nodes...\n\n.................................                                        [100%]\n============================= slowest 10 durations =============================\n32.38s call     tests/acceptance/m11/test_headline_rule.py::test_M11_H3_fuzzy_step_composed_from_the_headline_units\n25.03s call     tests/acceptance/m11/test_cross_models.py::test_M11_F2_fuzzy_isolated_plaquette_gap\n24.05s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[2.0]\n23.86s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[0.5]\n20.52s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[1.0]\n20.37s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_levels_at_the_project_couplings\n18.65s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K4_headline_circuit_against_another_encodings_target[twelve-spinnet]\n6.64s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K3_general_circuit_against_another_encodings_target[twelve-lsh]\n4.83s call     tests/acceptance/m11/test_cross_ks.py::test_M11_K2_gauge_signs_and_transported_targets\n2.57s call     tests/acceptance/m11/test_cross_models.py::test_M11_E2_rishon_closed_sector_reaches_the_ks_block\n33 passed in 54.98s\n",
+  "load_before": [
+   "3.24",
+   "2.02",
+   "2.09"
+  ]
+ }
+]

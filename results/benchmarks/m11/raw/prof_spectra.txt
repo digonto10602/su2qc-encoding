@@ -1,0 +1,38 @@
+wall under cProfile 69.51271016598912
+         28909387 function calls (28815337 primitive calls) in 69.507 seconds
+
+   Ordered by: cumulative time
+   List reduced from 9332 to 28 due to restriction <28>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.010    0.010   69.513   69.513 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/report.py:105(spectra_results)
+        6    0.000    0.000   34.735    5.789 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/limits.py:162(rishon_ks_limit)
+        6    0.018    0.003   34.480    5.747 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/limits.py:150(rishon_levels)
+     2017   27.924    0.014   27.939    0.014 /home/digimonk/miniforge3/envs/coding/lib/python3.12/site-packages/numpy/linalg/_linalg.py:1269(eigvalsh)
+       22    0.000    0.000   17.548    0.798 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/limits.py:283(fuzzy_isolated_levels)
+        1    0.000    0.000   17.545   17.545 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/limits.py:267(_fuzzy_isolated_blocks)
+        1    0.120    0.120   16.469   16.469 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/limits.py:175(isolated_plaquette_basis)
+       19    0.000    0.000   12.548    0.660 /home/digimonk/miniforge3/envs/coding/lib/python3.12/site-packages/numpy/_core/einsumfunc.py:1242(einsum)
+       19   12.548    0.660   12.548    0.660 {built-in method numpy._core._multiarray_umath.c_einsum}
+        1    0.088    0.088    6.720    6.720 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/limits.py:28(_rishon_phys_ops)
+        3    0.007    0.002    6.358    2.119 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/report.py:140(record)
+        1    0.000    0.000    6.352    6.352 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/rishon/physical.py:331(rishon_basis)
+        6    0.733    0.122    6.074    1.012 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/evaluate/evaluator.py:359(evaluate)
+        1    0.628    0.628    5.913    5.913 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/rishon/physical.py:287(_build_basis)
+      324    0.011    0.000    4.943    0.015 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/rishon/physical.py:97(_corner_kernel_cached)
+     8100    0.012    0.000    4.685    0.001 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/rishon/algebra.py:38(jw_annihilation)
+    16882    0.351    0.000    4.670    0.000 /home/digimonk/miniforge3/envs/coding/lib/python3.12/site-packages/scipy/sparse/_construct.py:761(kron)
+     8100    0.027    0.000    4.634    0.001 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/rishon/algebra.py:30(_kron_little_endian)
+     3888    0.016    0.000    4.464    0.001 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/rishon/physical.py:73(_gen_restricted)
+     3888    0.007    0.000    4.403    0.001 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/rishon/algebra.py:101(end_generator)
+      592    3.692    0.006    3.697    0.006 /home/digimonk/miniforge3/envs/coding/lib/python3.12/site-packages/numpy/linalg/_linalg.py:1513(eigh)
+       72    0.353    0.005    3.156    0.044 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/rishon/operators.py:328(closed_block_full)
+84507/50743    0.273    0.000    2.895    0.000 /home/digimonk/miniforge3/envs/coding/lib/python3.12/site-packages/scipy/sparse/_coo.py:32(__init__)
+       78    2.851    0.037    2.852    0.037 /home/digimonk/miniforge3/envs/coding/lib/python3.12/site-packages/numpy/linalg/_linalg.py:1666(svd)
+        6    0.736    0.123    2.698    0.450 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/evaluate/evaluator.py:304(_inner_span_error)
+       21    0.005    0.000    2.637    0.126 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/limits.py:15(rishon_closed_block)
+        6    0.000    0.000    2.114    0.352 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/report.py:94(_embedding_record)
+        6    0.169    0.028    2.114    0.352 /home/digimonk/Projects/su2qc-wt/bench307/src/su2plaq/crosscheck/embed.py:98(link_compression)
+
+
+

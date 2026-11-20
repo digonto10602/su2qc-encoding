@@ -1,0 +1,511 @@
+{
+ "worktree": "/home/digimonk/Projects/su2qc-wt/bench307",
+ "core": "2",
+ "commit": "5e9f808",
+ "runs": [
+  {
+   "rc": 0,
+   "wall": 77.21089694200782,
+   "maxrss_kb": 1066320,
+   "tail": "spectra.json: 9 cross-verdicts, 0 headline cross-verdicts skipped\ngate-table.json: twelve   final\ngate-table.json: spinnet  final\ngate-table.json: lsh      final\ngate-table.json: rishon   final\ngate-table.json: fuzzy    final\nwrote /home/digimonk/Projects/su2qc-wt/bench307/results/crosscheck/{spectra.json,gate-table.json,tradeoff.pdf,tables.md}\n",
+   "kind": "cold",
+   "load_before": [
+    "0.48",
+    "2.18",
+    "3.18"
+   ],
+   "load_after": [
+    "1.16",
+    "1.99",
+    "3.03"
+   ],
+   "cross_verdict_seconds": [
+    [
+     "twelve",
+     "lsh",
+     "general",
+     0.37,
+     3.561953067779541
+    ],
+    [
+     "spinnet",
+     "twelve",
+     "general",
+     0.37,
+     0.3629131317138672
+    ],
+    [
+     "lsh",
+     "spinnet",
+     "general",
+     0.37,
+     0.3212118148803711
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.37,
+     4.355962038040161
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.91,
+     4.478754758834839
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.37,
+     0.6737170219421387
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.91,
+     0.6772885322570801
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.37,
+     0.8226156234741211
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.91,
+     0.8094618320465088
+    ]
+   ],
+   "spectra_sha_noprov": "667f0b4ec73384e03ded41985872acabd3fc7535acedd2237bdfc77b3125abab",
+   "cache_exists": false
+  },
+  {
+   "rc": 0,
+   "wall": 76.33869504003087,
+   "maxrss_kb": 1108552,
+   "tail": "spectra.json: 9 cross-verdicts, 0 headline cross-verdicts skipped\ngate-table.json: twelve   final\ngate-table.json: spinnet  final\ngate-table.json: lsh      final\ngate-table.json: rishon   final\ngate-table.json: fuzzy    final\nwrote /home/digimonk/Projects/su2qc-wt/bench307/results/crosscheck/{spectra.json,gate-table.json,tradeoff.pdf,tables.md}\n",
+   "kind": "cold",
+   "load_before": [
+    "1.16",
+    "1.99",
+    "3.03"
+   ],
+   "load_after": [
+    "1.51",
+    "1.93",
+    "2.92"
+   ],
+   "cross_verdict_seconds": [
+    [
+     "twelve",
+     "lsh",
+     "general",
+     0.37,
+     3.58626389503479
+    ],
+    [
+     "spinnet",
+     "twelve",
+     "general",
+     0.37,
+     0.3782033920288086
+    ],
+    [
+     "lsh",
+     "spinnet",
+     "general",
+     0.37,
+     0.2963094711303711
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.37,
+     4.546347618103027
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.91,
+     4.3293468952178955
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.37,
+     0.7216339111328125
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.91,
+     0.7173037528991699
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.37,
+     0.8380868434906006
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.91,
+     0.7918224334716797
+    ]
+   ],
+   "spectra_sha_noprov": "b811f69e922db1a3e2feb0be1b2e0c1ac9071c0867253d15fdb94cb207f6e83c",
+   "cache_exists": false
+  },
+  {
+   "rc": 0,
+   "wall": 76.6763919039513,
+   "maxrss_kb": 1108088,
+   "tail": "spectra.json: 9 cross-verdicts, 0 headline cross-verdicts skipped\ngate-table.json: twelve   final\ngate-table.json: spinnet  final\ngate-table.json: lsh      final\ngate-table.json: rishon   final\ngate-table.json: fuzzy    final\nwrote /home/digimonk/Projects/su2qc-wt/bench307/results/crosscheck/{spectra.json,gate-table.json,tradeoff.pdf,tables.md}\n",
+   "kind": "cold",
+   "load_before": [
+    "1.51",
+    "1.93",
+    "2.92"
+   ],
+   "load_after": [
+    "1.35",
+    "1.79",
+    "2.80"
+   ],
+   "cross_verdict_seconds": [
+    [
+     "twelve",
+     "lsh",
+     "general",
+     0.37,
+     3.5441060066223145
+    ],
+    [
+     "spinnet",
+     "twelve",
+     "general",
+     0.37,
+     0.40969014167785645
+    ],
+    [
+     "lsh",
+     "spinnet",
+     "general",
+     0.37,
+     0.3234372138977051
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.37,
+     4.7237067222595215
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.91,
+     4.491634130477905
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.37,
+     0.7083775997161865
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.91,
+     0.7043848037719727
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.37,
+     0.8147382736206055
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.91,
+     0.8197176456451416
+    ]
+   ],
+   "spectra_sha_noprov": "46a145454ed2ec8ddb80b4c66812936d696e682705b902776e773b2e317ac51f",
+   "cache_exists": false
+  },
+  {
+   "rc": 0,
+   "wall": 76.32056317897514,
+   "maxrss_kb": 1108092,
+   "tail": "spectra.json: 9 cross-verdicts, 0 headline cross-verdicts skipped\ngate-table.json: twelve   final\ngate-table.json: spinnet  final\ngate-table.json: lsh      final\ngate-table.json: rishon   final\ngate-table.json: fuzzy    final\nwrote /home/digimonk/Projects/su2qc-wt/bench307/results/crosscheck/{spectra.json,gate-table.json,tradeoff.pdf,tables.md}\n",
+   "kind": "warm",
+   "load_before": [
+    "1.35",
+    "1.79",
+    "2.80"
+   ],
+   "load_after": [
+    "1.35",
+    "1.69",
+    "2.68"
+   ],
+   "cross_verdict_seconds": [
+    [
+     "twelve",
+     "lsh",
+     "general",
+     0.37,
+     3.4283971786499023
+    ],
+    [
+     "spinnet",
+     "twelve",
+     "general",
+     0.37,
+     0.3543553352355957
+    ],
+    [
+     "lsh",
+     "spinnet",
+     "general",
+     0.37,
+     0.27801060676574707
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.37,
+     4.21843957901001
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.91,
+     4.25766921043396
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.37,
+     0.6954131126403809
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.91,
+     0.675861120223999
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.37,
+     0.7960841655731201
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.91,
+     0.7792761325836182
+    ]
+   ],
+   "spectra_sha_noprov": "18d2805c89aea11692dd24941e23d65c6d6a6b6312a58c785207f65484f03b29",
+   "cache_exists": false
+  },
+  {
+   "rc": 0,
+   "wall": 78.19165562599665,
+   "maxrss_kb": 1068564,
+   "tail": "spectra.json: 9 cross-verdicts, 0 headline cross-verdicts skipped\ngate-table.json: twelve   final\ngate-table.json: spinnet  final\ngate-table.json: lsh      final\ngate-table.json: rishon   final\ngate-table.json: fuzzy    final\nwrote /home/digimonk/Projects/su2qc-wt/bench307/results/crosscheck/{spectra.json,gate-table.json,tradeoff.pdf,tables.md}\n",
+   "kind": "warm",
+   "load_before": [
+    "1.35",
+    "1.69",
+    "2.68"
+   ],
+   "load_after": [
+    "1.65",
+    "1.69",
+    "2.60"
+   ],
+   "cross_verdict_seconds": [
+    [
+     "twelve",
+     "lsh",
+     "general",
+     0.37,
+     3.527092933654785
+    ],
+    [
+     "spinnet",
+     "twelve",
+     "general",
+     0.37,
+     0.37704944610595703
+    ],
+    [
+     "lsh",
+     "spinnet",
+     "general",
+     0.37,
+     0.27648115158081055
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.37,
+     4.358667612075806
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.91,
+     4.4169533252716064
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.37,
+     0.6921665668487549
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.91,
+     0.690178394317627
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.37,
+     0.7918875217437744
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.91,
+     0.7872107028961182
+    ]
+   ],
+   "spectra_sha_noprov": "9361697a502dc23cc3bcf4276df442c4371fe85f0a8e8f1ab208726df421298f",
+   "cache_exists": false
+  },
+  {
+   "rc": 0,
+   "wall": 78.62266258196905,
+   "maxrss_kb": 1109380,
+   "tail": "spectra.json: 9 cross-verdicts, 0 headline cross-verdicts skipped\ngate-table.json: twelve   final\ngate-table.json: spinnet  final\ngate-table.json: lsh      final\ngate-table.json: rishon   final\ngate-table.json: fuzzy    final\nwrote /home/digimonk/Projects/su2qc-wt/bench307/results/crosscheck/{spectra.json,gate-table.json,tradeoff.pdf,tables.md}\n",
+   "kind": "warm",
+   "load_before": [
+    "1.65",
+    "1.69",
+    "2.60"
+   ],
+   "load_after": [
+    "1.60",
+    "1.67",
+    "2.51"
+   ],
+   "cross_verdict_seconds": [
+    [
+     "twelve",
+     "lsh",
+     "general",
+     0.37,
+     3.5424180030822754
+    ],
+    [
+     "spinnet",
+     "twelve",
+     "general",
+     0.37,
+     0.3648233413696289
+    ],
+    [
+     "lsh",
+     "spinnet",
+     "general",
+     0.37,
+     0.28430604934692383
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.37,
+     4.428451061248779
+    ],
+    [
+     "twelve",
+     "spinnet",
+     "headline",
+     0.91,
+     4.426265001296997
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.37,
+     0.7116446495056152
+    ],
+    [
+     "spinnet",
+     "lsh",
+     "headline",
+     0.91,
+     0.7074646949768066
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.37,
+     0.8287522792816162
+    ],
+    [
+     "lsh",
+     "twelve",
+     "headline",
+     0.91,
+     0.8096563816070557
+    ]
+   ],
+   "spectra_sha_noprov": "d37355115743308ec559c62e9813af8652fe9c9959d3d29434ea7b29055863d1",
+   "cache_exists": false
+  }
+ ]
+}

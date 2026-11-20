@@ -1,0 +1,503 @@
+{
+ "schema": "crosscheck-gate-table-1",
+ "unit": "first-order step on the inner links; outer rows separate; T at eps = 1e-6 per rotation (pygridsynth); T_avg = mean over the 20 locked angle pairs; headline = smallest robust key (CX first), T-first = same with the first two key components exchanged",
+ "rows": [
+  {
+   "encoding": "twelve",
+   "block": "A",
+   "model": "Kogut-Susskind, j_max = 1/2",
+   "n_physical_states": 433,
+   "comparable_with": [
+    "spinnet",
+    "lsh"
+   ],
+   "general": {
+    "qubits": 34,
+    "cx": 294,
+    "n_rot": 10,
+    "t_fixed": 312,
+    "t_1e6": 952,
+    "source": "results/twelve/step.json @ a9702e5"
+   },
+   "headline": {
+    "entry": "r05-F2-005",
+    "loop_unit": "step",
+    "qubits": 31,
+    "cx": 111,
+    "t_nominal": 912,
+    "t_mean": 927.4,
+    "depth_mean": 1719.2,
+    "angle_linear": true,
+    "offset_class": "linear",
+    "lean": "certified",
+    "source": "results/compress/twelve/robust.json"
+   },
+   "t_first": {
+    "entry": "r00-seed-001",
+    "cx": 162,
+    "t_mean": 666.6
+   },
+   "pareto": [
+    {
+     "entry": "r04-F2-004",
+     "cx": 111,
+     "t_mean": 927.4
+    },
+    {
+     "entry": "r04-F3-004",
+     "cx": 111,
+     "t_mean": 927.4
+    },
+    {
+     "entry": "r04-F4-004",
+     "cx": 111,
+     "t_mean": 927.4
+    },
+    {
+     "entry": "r05-F2-005",
+     "cx": 111,
+     "t_mean": 927.4
+    },
+    {
+     "entry": "r05-F4-005",
+     "cx": 111,
+     "t_mean": 927.4
+    },
+    {
+     "entry": "r02-F4-002",
+     "cx": 121,
+     "t_mean": 745.6
+    },
+    {
+     "entry": "r00-seed-001",
+     "cx": 162,
+     "t_mean": 666.6
+    }
+   ],
+   "status": "final"
+  },
+  {
+   "encoding": "spinnet",
+   "block": "A",
+   "model": "Kogut-Susskind, j_max = 1/2",
+   "n_physical_states": 433,
+   "comparable_with": [
+    "twelve",
+    "lsh"
+   ],
+   "general": {
+    "qubits": 15,
+    "cx": 54,
+    "n_rot": 8,
+    "t_fixed": 56,
+    "t_1e6": 566,
+    "source": "results/spinnet/step.json @ d82a472"
+   },
+   "headline": {
+    "entry": "r02-F1-002",
+    "loop_unit": "step",
+    "qubits": 17,
+    "cx": 31,
+    "t_nominal": 1086,
+    "t_mean": 1092.0,
+    "depth_mean": 2301.2,
+    "angle_linear": true,
+    "offset_class": null,
+    "lean": "certified",
+    "source": "results/compress/spinnet/robust.json"
+   },
+   "t_first": {
+    "entry": "r01-F5-001",
+    "cx": 46,
+    "t_mean": 486.7
+   },
+   "pareto": [
+    {
+     "entry": "r02-F1-002",
+     "cx": 31,
+     "t_mean": 1092.0
+    },
+    {
+     "entry": "r03-F1-003",
+     "cx": 31,
+     "t_mean": 1092.0
+    },
+    {
+     "entry": "r03-F2-003",
+     "cx": 31,
+     "t_mean": 1092.0
+    },
+    {
+     "entry": "r04-F1-004",
+     "cx": 31,
+     "t_mean": 1092.0
+    },
+    {
+     "entry": "r05-F2-005",
+     "cx": 31,
+     "t_mean": 1092.0
+    },
+    {
+     "entry": "r01-F1-001",
+     "cx": 32,
+     "t_mean": 847.4
+    },
+    {
+     "entry": "r02-F2-002",
+     "cx": 32,
+     "t_mean": 847.4
+    },
+    {
+     "entry": "r02-F3-002",
+     "cx": 32,
+     "t_mean": 847.4
+    },
+    {
+     "entry": "r03-F3-003",
+     "cx": 32,
+     "t_mean": 847.4
+    },
+    {
+     "entry": "r05-F3-005",
+     "cx": 32,
+     "t_mean": 847.4
+    },
+    {
+     "entry": "r02-F5-002",
+     "cx": 34,
+     "t_mean": 665.6
+    },
+    {
+     "entry": "r00-seed-003",
+     "cx": 42,
+     "t_mean": 609.1
+    },
+    {
+     "entry": "r00-seed-002",
+     "cx": 44,
+     "t_mean": 553.1
+    },
+    {
+     "entry": "r01-F5-001",
+     "cx": 46,
+     "t_mean": 486.7
+    }
+   ],
+   "status": "final"
+  },
+  {
+   "encoding": "lsh",
+   "block": "A",
+   "model": "Kogut-Susskind, j_max = 1/2",
+   "n_physical_states": 433,
+   "comparable_with": [
+    "twelve",
+    "spinnet"
+   ],
+   "general": {
+    "qubits": 19,
+    "cx": 94,
+    "n_rot": 8,
+    "t_fixed": 88,
+    "t_1e6": 598,
+    "source": "results/lsh/step.json @ 76fd221"
+   },
+   "headline": {
+    "entry": "r05-F3-005",
+    "loop_unit": "step",
+    "qubits": 24,
+    "cx": 68,
+    "t_nominal": 1396,
+    "t_mean": 1417.4,
+    "depth_mean": 3168.9,
+    "angle_linear": true,
+    "offset_class": "linear",
+    "lean": "certified",
+    "source": "results/compress/lsh/robust.json"
+   },
+   "t_first": {
+    "entry": "r00-seed-002",
+    "cx": 84,
+    "t_mean": 585.1
+   },
+   "pareto": [
+    {
+     "entry": "r04-F3-004",
+     "cx": 68,
+     "t_mean": 1417.4
+    },
+    {
+     "entry": "r05-F3-005",
+     "cx": 68,
+     "t_mean": 1417.4
+    },
+    {
+     "entry": "r05-F5-005",
+     "cx": 68,
+     "t_mean": 1417.4
+    },
+    {
+     "entry": "r03-F3-003",
+     "cx": 70,
+     "t_mean": 1354.3
+    },
+    {
+     "entry": "r02-F1-002",
+     "cx": 71,
+     "t_mean": 1116.0
+    },
+    {
+     "entry": "r03-F5-003",
+     "cx": 71,
+     "t_mean": 1116.0
+    },
+    {
+     "entry": "r04-F1-003",
+     "cx": 71,
+     "t_mean": 1116.0
+    },
+    {
+     "entry": "r04-F5-004",
+     "cx": 71,
+     "t_mean": 1116.0
+    },
+    {
+     "entry": "r00-seed-006",
+     "cx": 72,
+     "t_mean": 879.4
+    },
+    {
+     "entry": "r00-seed-007",
+     "cx": 74,
+     "t_mean": 697.6
+    },
+    {
+     "entry": "r00-seed-003",
+     "cx": 82,
+     "t_mean": 641.1
+    },
+    {
+     "entry": "r00-seed-002",
+     "cx": 84,
+     "t_mean": 585.1
+    }
+   ],
+   "status": "final"
+  },
+  {
+   "encoding": "rishon",
+   "block": "B",
+   "model": "SU(2) quantum link model + det term",
+   "n_physical_states": 38432,
+   "comparable_with": [],
+   "general": {
+    "qubits": 26,
+    "cx": 10134,
+    "n_rot": 174,
+    "t_fixed": 10218,
+    "t_1e6": 21146,
+    "source": "results/rishon/step3.json @ 6fea036"
+   },
+   "headline": {
+    "entry": "r06-F3-006",
+    "loop_unit": "loop unit U_B U_E (no det layer)",
+    "qubits": 52,
+    "cx": 216,
+    "t_nominal": 832,
+    "t_mean": 829.8,
+    "depth_mean": 1349.4,
+    "angle_linear": true,
+    "offset_class": null,
+    "lean": "certified",
+    "source": "results/compress/rishon/robust.json"
+   },
+   "t_first": {
+    "entry": "r06-F1-006",
+    "cx": 218,
+    "t_mean": 829.2
+   },
+   "pareto": [
+    {
+     "entry": "r06-F3-006",
+     "cx": 216,
+     "t_mean": 829.8
+    },
+    {
+     "entry": "r06-F1-006",
+     "cx": 218,
+     "t_mean": 829.2
+    }
+   ],
+   "general_two_layer": {
+    "qubits": 26,
+    "cx": 10102,
+    "n_rot": 166,
+    "t_fixed": 10218,
+    "t_1e6": 20650,
+    "source": "results/rishon/step.json @ b4c1917"
+   },
+   "headline_with_det": {
+    "cx": 248,
+    "t_nominal": 1328,
+    "source": "results/compress/rishon/three-layer.json"
+   },
+   "status": "final"
+  },
+  {
+   "encoding": "fuzzy",
+   "block": "C",
+   "model": "fuzzy gauge theory, K1 + r K2, r = 1",
+   "n_physical_states": 101197218,
+   "comparable_with": [],
+   "general": {
+    "qubits": 23,
+    "cx": 1862,
+    "n_rot": 56,
+    "t_fixed": 1826,
+    "t_1e6": 5398,
+    "source": "results/fuzzy/step.json @ 8e71c38 (dirty)"
+   },
+   "headline": {
+    "entry": "fuzzy_ub:r10-F1-010 + 4 x fuzzy_link:r02-F2-001",
+    "cx": 131,
+    "t_mean": 3149.6,
+    "t_nominal": 3214,
+    "source": "results/fuzzy/compressed_step_headline.json"
+   },
+   "t_first": {
+    "entry": "fuzzy_ub:r13-F3-013 + 4 x fuzzy_link:r02-F2-001",
+    "cx": 137,
+    "t_mean": 3035.2,
+    "t_nominal": 3090,
+    "source": "results/fuzzy/compressed_step_headline.json"
+   },
+   "units": {
+    "fuzzy_ub": {
+     "entry": "r10-F1-010",
+     "loop_unit": "U_B",
+     "qubits": 10,
+     "cx": 83,
+     "t_nominal": 638,
+     "t_mean": 634.4,
+     "depth_mean": 1545.1,
+     "angle_linear": true,
+     "offset_class": "linear",
+     "lean": null,
+     "source": "results/compress/fuzzy_ub/robust.json"
+    },
+    "fuzzy_link": {
+     "entry": "r02-F2-001",
+     "loop_unit": "U_E (one link)",
+     "qubits": 4,
+     "cx": 12,
+     "t_nominal": 644,
+     "t_mean": 628.8,
+     "depth_mean": 1168.65,
+     "angle_linear": true,
+     "offset_class": "linear",
+     "lean": "n_a",
+     "source": "results/compress/fuzzy_link/robust.json"
+    }
+   },
+   "units_pareto": {
+    "fuzzy_ub": [
+     {
+      "entry": "r09-F1-009",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r09-F2-009",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r09-F3-009",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r10-F1-010",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r10-F2-010",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r10-F3-010",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r11-F1-011",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r11-F3-011",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r12-F1-012",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r12-F3-012",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r13-F1-013",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r13-F2-013",
+      "cx": 83,
+      "t_mean": 634.4
+     },
+     {
+      "entry": "r11-F2-011",
+      "cx": 89,
+      "t_mean": 520.0
+     },
+     {
+      "entry": "r13-F3-013",
+      "cx": 89,
+      "t_mean": 520.0
+     }
+    ],
+    "fuzzy_link": [
+     {
+      "entry": "r02-F2-001",
+      "cx": 12,
+      "t_mean": 628.8
+     }
+    ]
+   },
+   "status": "final"
+  }
+ ],
+ "provenance": {
+  "git_commit": "328e071",
+  "git_dirty": false,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {},
+  "timestamp_utc": "2026-11-20T20:45:07Z",
+  "command": "python scripts/m11_results.py"
+ }
+}
