@@ -1,0 +1,596 @@
+[
+ {
+  "check": "spinnet id vs summary",
+  "expected": "r02-F1-002",
+  "got": "r02-F1-002",
+  "ok": true
+ },
+ {
+  "check": "spinnet id vs file",
+  "expected": "r02-F1-002",
+  "got": "r02-F1-002",
+  "ok": true
+ },
+ {
+  "check": "spinnet qubits",
+  "expected": 17,
+  "got": 17,
+  "ok": true
+ },
+ {
+  "check": "spinnet CX",
+  "expected": 31,
+  "got": 31,
+  "ok": true
+ },
+ {
+  "check": "spinnet rot",
+  "expected": 17,
+  "got": 17,
+  "ok": true
+ },
+ {
+  "check": "spinnet T1e-6",
+  "expected": 1086,
+  "got": 1086,
+  "ok": true
+ },
+ {
+  "check": "spinnet err",
+  "expected": "valid (err 5.12669e-15)",
+  "got": "valid (err 5.12669e-15)",
+  "ok": true
+ },
+ {
+  "check": "spinnet lean",
+  "expected": "certified",
+  "got": "certified",
+  "ok": true
+ },
+ {
+  "check": "rishon id vs summary",
+  "expected": "r06-F3-006",
+  "got": "r06-F3-006",
+  "ok": true
+ },
+ {
+  "check": "rishon id vs file",
+  "expected": "r06-F3-006",
+  "got": "r06-F3-006",
+  "ok": true
+ },
+ {
+  "check": "rishon qubits",
+  "expected": 52,
+  "got": 52,
+  "ok": true
+ },
+ {
+  "check": "rishon CX",
+  "expected": 216,
+  "got": 216,
+  "ok": true
+ },
+ {
+  "check": "rishon rot",
+  "expected": 10,
+  "got": 10,
+  "ok": true
+ },
+ {
+  "check": "rishon T1e-6",
+  "expected": 832,
+  "got": 832,
+  "ok": true
+ },
+ {
+  "check": "rishon err",
+  "expected": "valid (err 1.34848e-13)",
+  "got": "valid (err 1.34848e-13)",
+  "ok": true
+ },
+ {
+  "check": "rishon lean",
+  "expected": "certified",
+  "got": "certified",
+  "ok": true
+ },
+ {
+  "check": "rishon summary-row CX==file",
+  "expected": "216",
+  "got": 216,
+  "ok": true
+ },
+ {
+  "check": "rishon summary-row T==file",
+  "expected": "832",
+  "got": 832,
+  "ok": true
+ },
+ {
+  "check": "rishon summary-row qubits==file",
+  "expected": "52",
+  "got": 52,
+  "ok": true
+ },
+ {
+  "check": "rishon summary-row rot==file",
+  "expected": "10",
+  "got": 10,
+  "ok": true
+ },
+ {
+  "check": "lsh id vs summary",
+  "expected": "r05-F3-005",
+  "got": "r05-F3-005",
+  "ok": true
+ },
+ {
+  "check": "lsh id vs file",
+  "expected": "r05-F3-005",
+  "got": "r05-F3-005",
+  "ok": true
+ },
+ {
+  "check": "lsh qubits",
+  "expected": 24,
+  "got": 24,
+  "ok": true
+ },
+ {
+  "check": "lsh CX",
+  "expected": 68,
+  "got": 68,
+  "ok": true
+ },
+ {
+  "check": "lsh rot",
+  "expected": 22,
+  "got": 22,
+  "ok": true
+ },
+ {
+  "check": "lsh T1e-6",
+  "expected": 1396,
+  "got": 1396,
+  "ok": true
+ },
+ {
+  "check": "lsh err",
+  "expected": "valid (err 1.44056e-14)",
+  "got": "valid (err 1.44056e-14)",
+  "ok": true
+ },
+ {
+  "check": "lsh lean",
+  "expected": "certified",
+  "got": "certified",
+  "ok": true
+ },
+ {
+  "check": "lsh summary-row CX==file",
+  "expected": "68",
+  "got": 68,
+  "ok": true
+ },
+ {
+  "check": "lsh summary-row T==file",
+  "expected": "1396",
+  "got": 1396,
+  "ok": true
+ },
+ {
+  "check": "lsh summary-row qubits==file",
+  "expected": "24",
+  "got": 24,
+  "ok": true
+ },
+ {
+  "check": "lsh summary-row rot==file",
+  "expected": "22",
+  "got": 22,
+  "ok": true
+ },
+ {
+  "check": "fub id",
+  "expected": "r10-F1-010",
+  "got": "r10-F1-010",
+  "ok": true
+ },
+ {
+  "check": "fub qubits",
+  "expected": 10,
+  "got": 10,
+  "ok": true
+ },
+ {
+  "check": "fub CX",
+  "expected": 83,
+  "got": 83,
+  "ok": true
+ },
+ {
+  "check": "fub rot",
+  "expected": 9,
+  "got": 9,
+  "ok": true
+ },
+ {
+  "check": "fub T",
+  "expected": 638,
+  "got": 638,
+  "ok": true
+ },
+ {
+  "check": "fub err",
+  "expected": "valid (err 5.43744e-14)",
+  "got": "valid (err 5.43744e-14)",
+  "ok": true
+ },
+ {
+  "check": "twelve id",
+  "expected": "r05-F2-005",
+  "got": "r05-F2-005",
+  "ok": true
+ },
+ {
+  "check": "twelve CX",
+  "expected": "111",
+  "got": "111",
+  "ok": true
+ },
+ {
+  "check": "twelve T",
+  "expected": "912",
+  "got": "912",
+  "ok": true
+ },
+ {
+  "check": "twelve q",
+  "expected": "31",
+  "got": "31",
+  "ok": true
+ },
+ {
+  "check": "twelve rot",
+  "expected": "13",
+  "got": "13",
+  "ok": true
+ },
+ {
+  "check": "twelve lean",
+  "expected": "certified",
+  "got": "certified",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link id",
+  "expected": "r02-F2-001",
+  "got": "r02-F2-001",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link CX",
+  "expected": "12",
+  "got": "12",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link T",
+  "expected": "644",
+  "got": "644",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link q",
+  "expected": "4",
+  "got": "4",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link rot",
+  "expected": "10",
+  "got": "10",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link lean",
+  "expected": "n_a",
+  "got": "n_a",
+  "ok": true
+ },
+ {
+  "check": "twelve general CX",
+  "expected": "294",
+  "got": "294",
+  "ok": true
+ },
+ {
+  "check": "twelve general T",
+  "expected": "952",
+  "got": "952",
+  "ok": true
+ },
+ {
+  "check": "twelve general q",
+  "expected": "50",
+  "got": "50",
+  "ok": true
+ },
+ {
+  "check": "twelve archive_best",
+  "expected": "r05-F2-005",
+  "got": "r05-F2-005",
+  "ok": true
+ },
+ {
+  "check": "twelve t_mean",
+  "expected": 927.4,
+  "got": 927.4,
+  "ok": true
+ },
+ {
+  "check": "twelve n_rounds",
+  "expected": 6,
+  "got": 6,
+  "ok": true
+ },
+ {
+  "check": "spinnet general CX",
+  "expected": "54",
+  "got": "54",
+  "ok": true
+ },
+ {
+  "check": "spinnet general T",
+  "expected": "566",
+  "got": "566",
+  "ok": true
+ },
+ {
+  "check": "spinnet general q",
+  "expected": "23",
+  "got": "23",
+  "ok": true
+ },
+ {
+  "check": "spinnet archive_best",
+  "expected": "r04-F1-004",
+  "got": "r04-F1-004",
+  "ok": true
+ },
+ {
+  "check": "spinnet t_mean",
+  "expected": 1092.0,
+  "got": 1092.0,
+  "ok": true
+ },
+ {
+  "check": "spinnet n_rounds",
+  "expected": 6,
+  "got": 6,
+  "ok": true
+ },
+ {
+  "check": "rishon general CX",
+  "expected": "10102",
+  "got": "10102",
+  "ok": true
+ },
+ {
+  "check": "rishon general T",
+  "expected": "20650",
+  "got": "20650",
+  "ok": true
+ },
+ {
+  "check": "rishon general q",
+  "expected": "58",
+  "got": "58",
+  "ok": true
+ },
+ {
+  "check": "rishon archive_best",
+  "expected": "r06-F3-006",
+  "got": "r06-F3-006",
+  "ok": true
+ },
+ {
+  "check": "rishon t_mean",
+  "expected": 829.8,
+  "got": 829.8,
+  "ok": true
+ },
+ {
+  "check": "rishon n_rounds",
+  "expected": 7,
+  "got": 7,
+  "ok": true
+ },
+ {
+  "check": "lsh general CX",
+  "expected": "94",
+  "got": "94",
+  "ok": true
+ },
+ {
+  "check": "lsh general T",
+  "expected": "598",
+  "got": "598",
+  "ok": true
+ },
+ {
+  "check": "lsh general q",
+  "expected": "31",
+  "got": "31",
+  "ok": true
+ },
+ {
+  "check": "lsh archive_best",
+  "expected": "r05-F3-005",
+  "got": "r05-F3-005",
+  "ok": true
+ },
+ {
+  "check": "lsh t_mean",
+  "expected": 1417.4,
+  "got": 1417.4,
+  "ok": true
+ },
+ {
+  "check": "lsh n_rounds",
+  "expected": 7,
+  "got": 7,
+  "ok": true
+ },
+ {
+  "check": "fuzzy_ub general CX",
+  "expected": "1718",
+  "got": "1718",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_ub general T",
+  "expected": "2822",
+  "got": "2822",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_ub general q",
+  "expected": "15",
+  "got": "15",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_ub archive_best",
+  "expected": "r12-F1-012",
+  "got": "r12-F1-012",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_ub t_mean",
+  "expected": 634.4,
+  "got": 634.4,
+  "ok": true
+ },
+ {
+  "check": "fuzzy_ub n_rounds",
+  "expected": 14,
+  "got": 14,
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link general CX",
+  "expected": "36",
+  "got": "36",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link general T",
+  "expected": "644",
+  "got": "644",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link general q",
+  "expected": "4",
+  "got": "4",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link archive_best",
+  "expected": "r02-F2-001",
+  "got": "r02-F2-001",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link t_mean",
+  "expected": 628.8,
+  "got": 628.8,
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link n_rounds",
+  "expected": 3,
+  "got": 3,
+  "ok": true
+ },
+ {
+  "check": "fuzzy composed cx",
+  "expected": 227,
+  "got": 227,
+  "ok": true
+ },
+ {
+  "check": "fuzzy composed n_rot",
+  "expected": 129,
+  "got": 129,
+  "ok": true
+ },
+ {
+  "check": "fuzzy composed qubits",
+  "expected": 50,
+  "got": 50,
+  "ok": true
+ },
+ {
+  "check": "fuzzy composed depth",
+  "expected": 151,
+  "got": 151,
+  "ok": true
+ },
+ {
+  "check": "fuzzy ub entry == summary headline",
+  "expected": "r10-F1-010",
+  "got": "r10-F1-010",
+  "ok": true
+ },
+ {
+  "check": "fuzzy link entry",
+  "expected": "r02-F2-001",
+  "got": "r02-F2-001",
+  "ok": true
+ },
+ {
+  "check": "composed CX = 131 + outer? file inner cx 83+4*12",
+  "expected": 131,
+  "got": 131,
+  "ok": true
+ },
+ {
+  "check": "twelve robust-key min == summary headline",
+  "expected": "r05-F2-005",
+  "got": "r05-F2-005",
+  "ok": true
+ },
+ {
+  "check": "spinnet robust-key min == summary headline",
+  "expected": "r02-F1-002",
+  "got": "r02-F1-002",
+  "ok": true
+ },
+ {
+  "check": "rishon robust-key min == summary headline",
+  "expected": "r06-F3-006",
+  "got": "r06-F3-006",
+  "ok": true
+ },
+ {
+  "check": "lsh robust-key min == summary headline",
+  "expected": "r05-F3-005",
+  "got": "r05-F3-005",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_ub robust-key min == summary headline",
+  "expected": "r10-F1-010",
+  "got": "r10-F1-010",
+  "ok": true
+ },
+ {
+  "check": "fuzzy_link robust-key min == summary headline",
+  "expected": "r02-F2-001",
+  "got": "r02-F2-001",
+  "ok": true
+ }
+]

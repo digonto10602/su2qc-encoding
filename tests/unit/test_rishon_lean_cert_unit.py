@@ -321,6 +321,10 @@ def test_check_cross_compares_at_nominal_alternate_and_irrational_pairs(monkeypa
     from su2plaq.encodings.base import ALT_ANGLES
     from su2plaq.encodings.rishon import RISHON_ALT_ETA, RISHON_NOMINAL, RISHON_NOMINAL_ETA
 
+    # `exact_target` is lru_cached and runs `_check_cross` itself on a cache miss; warm the cache BEFORE spying so the spy sees
+    # exactly the explicit `_check_cross` calls below regardless of test order / isolation (run alone vs. after other tests).
+    L.exact_target("UD")
+    L.exact_target("UE")
     seen = []
     real = O.inner_target
 

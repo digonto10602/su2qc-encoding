@@ -1,0 +1,26 @@
+{
+ "commit_head_at_end": "3a791fd",
+ "builder_changes_on": "688af32 (HEAD moved to c788a3d by a STATUS-only commit)",
+ "machine": "omnicommander",
+ "cores": "taskset 0-3",
+ "unit": {
+  "passed": 1235,
+  "failed": 0,
+  "wall_s": 582.1
+ },
+ "pair_runs": [
+  33,
+  33
+ ],
+ "summary_alone": 10,
+ "rishon_alone": 23,
+ "single_rishon_repeats": [
+  1,
+  1,
+  1
+ ],
+ "head_version_single_alone": "FAILED (3 extra spy items, first 0.29)",
+ "row_checks": "results/tester/449/row_checks.json 99/0 mismatches",
+ "seeds": "none (deterministic file reads); unit-suite seeds fixed in tests",
+ "date": "2026-11-20"
+}

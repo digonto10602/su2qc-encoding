@@ -2,9 +2,15 @@
 
 Reads only committed result files (no circuit is rebuilt):
   results/<enc>/{UE,UB,step,...}.json          general (uncompressed) circuits, data register only
-  results/compress/<enc>/summary.json           compression-loop rows (general vs best; loop registers)
-  results/spinnet/m4-compressed.json            spinnet headline (robust rule, prompts/104)
-  results/fuzzy/compressed_step.json            fuzzy composed step
+  results/compress/<enc>/summary.json           compression-loop rows (general vs headline; loop registers)
+  results/compress/<enc>/robust.json            robust-key bookkeeping (angle set, hashes)
+  results/{spinnet/m4,rishon/m6,lsh/m8}-compressed.json   native-certified headline circuit of that loop (robust rule)
+  results/compress/<enc>/round-NNN.json         archive candidate records (headline fallback when no dedicated file)
+  results/compress/lsh/stop.json                LSH stop reason
+  results/fuzzy/compressed_step_headline.json   fuzzy composed step with the headline units (prompts/010)
+
+Every loop row shows the HEADLINE (robust-key rule, `summary.json["headline"]`), not the nominal-angle archive best; when the
+two differ the archive best is listed in the notes.
 
   python scripts/summary_table.py [--out results/summary]
 """
@@ -25,15 +31,28 @@ ENCODINGS = [  # (label, results dir, circuits in order)
 ]
 CIRCUIT_NAME = {"UE": "U_E (electric)", "UB": "U_B (magnetic)", "UK": "U_K (fuzzy kinetic)",
                 "step": "step, order 1", "UD": "U_D (det layer)", "step3": "step + det, order 1"}
-LOOPS = [  # (label, compress dir, loop state, how the best is chosen)
-    ("1. 12-qubit, step", "twelve", "stopped after round 5", "global"),
-    ("2. Spin network, step", "spinnet", "stopped after round 5", "headline"),
-    ("3. Rishon, step (no det)", "rishon", "paused: replay rounds 0-4 under 10 % cap", "global"),
-    ("5. Fuzzy, U_B", "fuzzy_ub", "stopped after round 13 (Digonto)", "global"),
-    ("5. Fuzzy, link U_E", "fuzzy_link", "finished", "global"),
+LOOPS = [  # (label, compress dir)
+    ("1. 12-qubit, step", "twelve"),
+    ("2. Spin network, step", "spinnet"),
+    ("3. Rishon, step (no det)", "rishon"),
+    ("4. Loop-string-hadron, step", "lsh"),
+    ("5. Fuzzy, U_B", "fuzzy_ub"),
+    ("5. Fuzzy, link U_E", "fuzzy_link"),
 ]
+# Dedicated native-certified headline files (they carry the Lean status of the headline); used only if their headline id equals
+# the one in results/compress/<enc>/summary.json.
+HEADLINE_FILES = {"spinnet": "results/spinnet/m4-compressed.json", "rishon": "results/rishon/m6-compressed.json",
+                  "lsh": "results/lsh/m8-compressed.json"}
 
-
+# ---- HAND-WRITTEN STATUS TEXT (the only strings in this script that are not read from a result file) ----------------------------
+# Default loop state is derived: "stopped after round <n_rounds-1>" (+ the stop reason of results/compress/<enc>/stop.json if it
+# exists, translated with STOP_REASON_TEXT).  These dicts only add what no result file records.
+HAND_WRITTEN = {
+    "state_override": {"fuzzy_link": "finished"},                                   # loop ended because the family was exhausted
+    "state_suffix": {"fuzzy_ub": " (Digonto)"},                                     # stopped by Digonto's decision
+    "lean_when_not_run": {"fuzzy_ub": "n_a", "fuzzy_link": "n_a"},                  # no exact Lean exporter for fuzzy (plan 302 s0.5)
+}
+STOP_REASON_TEXT = {"max_sessions": "session limit", "max_rounds": "round limit", "no_gain": "no gain"}
 def load(rel):
     return json.loads((ROOT / rel).read_text())
 
@@ -73,24 +92,64 @@ def _row(summary, name):
     return None
 
 
+def _rows_by_id(summary):
+    hdr = summary.get("header") or ["row", "qubits", "CX", "T_fixed", "N_rot", "T(1e-6)", "T_est(1e-6)", "T(1e-10)",
+                                    "depth_CT", "verdict", "Lean", "entry / commit"]
+    return {r[0]: dict(zip(hdr, r)) for r in summary["rows"]}, hdr
+
+
+def _entry_id(row):
+    return str(row.get("entry / commit", "")).split(" @ ")[0]
+
+
+def headline_record(enc, summary):
+    """The headline row of loop `enc` as a dict with the summary-row keys, read from result files only."""
+    hid = summary["headline"]["id"]
+    rr, _ = _rows_by_id(summary)
+    pth = HEADLINE_FILES.get(enc)
+    if pth and (ROOT / pth).exists():
+        hd = load(pth)
+        hl = (hd.get("extra") or {}).get("headline")
+        if isinstance(hl, dict) and hl.get("id") == hid:
+            lg = hd["metrics"].get("logical", hd["metrics"])
+            return {"qubits": lg["qubits"], "CX": lg["cx"], "N_rot": lg["n_rot"], "T(1e-6)": t_at(hd["metrics"]),
+                    "verdict": f"valid (err {hd['verification']['op_norm_error']:.6g})",
+                    "Lean": hl.get("lean", "not_run"), "entry / commit": f"{hid} @ {hd['provenance']['git_commit']}"}
+    for name, r in rr.items():                                      # the headline is also a summary row (e.g. GLOBAL BEST)
+        if _entry_id(r) == hid:
+            return dict(r)
+    rnd = hid.split("-")[0]                                         # r10-... -> results/compress/<enc>/round-010.json
+    rp = ROOT / "results" / "compress" / enc / f"round-{int(rnd[1:]):03d}.json"
+    for c in load(rp.relative_to(ROOT)).get("candidates", []):
+        if c.get("id") == hid:
+            m = c["metrics"]
+            lean = (c.get("lean") or {}).get("status") or HAND_WRITTEN["lean_when_not_run"].get(enc, "not_run")
+            return {"qubits": m["qubits"], "CX": m["cx"], "N_rot": m["n_rot"], "T(1e-6)": m["t_eps"],
+                    "verdict": f"valid (err {c['verdict']['op_norm_error']:.6g})", "Lean": lean,
+                    "entry / commit": f"{hid} @ {c.get('git_commit')}"}
+    raise KeyError(f"headline {hid} of {enc} not found in summary rows, headline file or round record")
+
+
+def loop_state(enc, summary):
+    if enc in HAND_WRITTEN["state_override"]:
+        return HAND_WRITTEN["state_override"][enc]
+    state = f"stopped after round {summary['n_rounds'] - 1}"
+    sp = ROOT / "results" / "compress" / enc / "stop.json"
+    if sp.exists():
+        reason = (load(sp.relative_to(ROOT)).get("reasons") or ["?"])[0]
+        state += f" ({STOP_REASON_TEXT.get(reason, reason)})"
+    return state + HAND_WRITTEN["state_suffix"].get(enc, "")
+
+
 def loop_rows():
     rows = []
-    for label, enc, state, how in LOOPS:
+    for label, enc in LOOPS:
         s = load(f"results/compress/{enc}/summary.json")
-        hdr = s.get("header") or ["row", "qubits", "CX", "T_fixed", "N_rot", "T(1e-6)", "T_est(1e-6)", "T(1e-10)",
-                                  "depth_CT", "verdict", "Lean", "entry / commit"]
-        rr = {r[0]: dict(zip(hdr, r)) for r in s["rows"]}
-        g = rr["general"]
-        if how == "headline":
-            hd = load("results/spinnet/m4-compressed.json")
-            lg = hd["metrics"].get("logical", hd["metrics"])
-            hid = hd["extra"]["headline"]["id"] if isinstance(hd["extra"].get("headline"), dict) else s["headline"]["id"]
-            b = {"qubits": lg["qubits"], "CX": lg["cx"], "N_rot": lg["n_rot"], "T(1e-6)": t_at(hd["metrics"]),
-                 "verdict": f"valid (err {hd['verification']['op_norm_error']:.2g})", "Lean": "certified",
-                 "entry / commit": f"{hid} (headline) @ {hd['provenance']['git_commit']}"}
-        else:
-            b = rr["GLOBAL BEST"]
-        rows.append({"loop": label, "general": g, "best": b, "state": state, "rounds": s.get("n_rounds")})
+        rr, _ = _rows_by_id(s)
+        hl = s["headline"]
+        rows.append({"loop": label, "general": rr["general"], "headline": headline_record(enc, s), "headline_id": hl["id"],
+                     "archive_best": s["global_best"], "archive_best_key": s["global_best_key"], "t_mean_robust": hl["t_mean"],
+                     "state": loop_state(enc, s), "rounds": s.get("n_rounds")})
     return rows
 
 
@@ -117,9 +176,9 @@ def build(out):
     dirty = bool(subprocess.run(["git", "status", "--porcelain", "--", "results", ":(exclude)results/summary"], cwd=ROOT,
                                 capture_output=True, text=True).stdout.strip())
     gen, loops = general_rows(), loop_rows()
-    fz = load("results/fuzzy/compressed_step.json")
+    fz = load("results/fuzzy/compressed_step_headline.json")
     data = {"general": gen, "loops": loops, "fuzzy_composed_step": {"general": fz["general"], "composed": fz["composed"],
-            "units": fz["units"], "commit": fz["provenance"]["git_commit"]},
+            "units": fz["units"], "rule": fz.get("rule"), "commit": fz["provenance"]["git_commit"]},
             "provenance": {"git_commit": commit, "results_dirty": dirty, "command": "python scripts/summary_table.py",
                            "written_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}}
     (out / "encodings-gate-counts.json").write_text(json.dumps(data, indent=1, default=str) + "\n")
@@ -130,33 +189,38 @@ def build(out):
     t2_head = ["Loop", "Version", "Qubits", "CX", "Rotations", "T(1e-6)", "Error", "Lean", "Entry", "State"]
     t2 = []
     for r in loops:
-        for tag, x in (("general", r["general"]), ("best", r["best"])):
+        for tag, x in (("general", r["general"]), ("headline", r["headline"])):
             t2.append([r["loop"] if tag == "general" else "", tag, fmt(x.get("qubits")), fmt(x.get("CX")),
                        fmt(x.get("N_rot")), fmt(x.get("T(1e-6)")), fmt(err_of(x.get("verdict"))), x.get("Lean", "-"),
-                       str(x.get("entry / commit", "-")).split(" @ ")[0], r["state"] if tag == "best" else ""])
+                       _entry_id(x), r["state"] if tag == "headline" else ""])
     c = fz["composed"]; g = fz["general"]
+    ub = fz["units"]["fuzzy_ub"]["entry"]
     t2.append(["5. Fuzzy, full step + outer", "general", fmt(g["qubits"]), fmt(g["cx"]), fmt(g["n_rot"]), "-",
                "-", "-", "-", ""])
-    t2.append(["", "composed", fmt(c["qubits"]), fmt(c["cx"]), fmt(c["n_rot"]), "-",
-               fmt(fz["verification"]["err"]), "-", f"U_B {fz['units']['fuzzy_ub']['entry']}",
-               "rebuilt with r12-F1-012"])
-    t2.append(["4. Loop-string-hadron", "-", "-", "-", "-", "-", "-", "-", "-", "M8 not started"])
+    t2.append(["", "headline composed", fmt(c["qubits"]), fmt(c["cx"]), fmt(c["n_rot"]), "-",
+               fmt(fz["verification"]["err"]), "-", f"U_B {ub}; link {fz['units']['fuzzy_link']['entry']}",
+               "headline units (prompts/010)"])
 
+    differ = [r for r in loops if r["archive_best"] != r["headline_id"]]
     notes = [
         "CX = CNOT count. Rotations = arbitrary-angle rotations. Fixed T = T gates already in the circuit (Toffoli-type parts).",
         "T(1e-6) = fixed T + T gates of all rotations synthesised to accuracy 1e-6 each (pygridsynth). Error = largest operator-norm",
         "  difference from the exact target over all Gauss-law states (433 states; rishon on its inner codes).",
         "Table 1 counts the data register plus helper qubits; Table 2 uses each loop's own register (outer links included), so qubit",
         "  totals differ between the tables. Compare rows within one encoding; the circuits differ (U_B only vs full step) across encodings.",
-        "Spin-network best = headline chosen by the robust rule (average T over 20 angle pairs, prompts/104), not the nominal-angle key.",
-        "Lean: certified = native Lean checker accepted that exact circuit; n_a = checker cannot handle it yet (rishon: 3 angles;",
-        "  fuzzy: angle form not checked); not_run = not attempted. Fuzzy general results were made on a dirty tree (8e71c38).",
+        "Table 2 'headline' = the circuit chosen by the robust-key rule (smallest CX, then sum of T(1e-6) over 20 angle pairs; prompts/104,",
+        "  203, 008, 010), read from results/compress/<enc>/summary.json; it is not always the nominal-angle archive best:",
+    ] + [f"  {r['loop']}: headline {r['headline_id']} (T mean over the angle set {r['t_mean_robust']}); archive best {r['archive_best']} "
+         f"(CX, T(1e-6), depth_CT, qubits) = {tuple(r['archive_best_key'])}." for r in differ] + [
+        "Lean: certified = native Lean checker accepted that exact circuit; n_a = checker cannot handle it yet (rishon general: 3",
+        "  angles; fuzzy: no exact exporter); not_run = not attempted. Fuzzy general results were made on a dirty tree (8e71c38).",
+        "Fuzzy composed step: units are the headline U_B and link U_E (results/fuzzy/compressed_step_headline.json, prompts/010).",
         f"Generated by `python scripts/summary_table.py` at commit {commit}" + (" (results dirty)" if dirty else "") + ".",
     ]
     md = ["# Gate counts of the five encodings", "", f"Commit {commit}. Command: `python scripts/summary_table.py`.", "",
           "## Table 1. General (uncompressed) circuits", "", "| " + " | ".join(t1_head) + " |",
           "|" + "---|" * len(t1_head)] + ["| " + " | ".join(r) + " |" for r in t1] + [
-          "", "## Table 2. Compression loops: general vs best", "", "| " + " | ".join(t2_head) + " |",
+          "", "## Table 2. Compression loops: general vs headline", "", "| " + " | ".join(t2_head) + " |",
           "|" + "---|" * len(t2_head)] + ["| " + " | ".join(r) + " |" for r in t2] + ["", "## Notes", ""] + \
          ["- " + n.strip() if not n.startswith("  ") else "  " + n.strip() for n in notes]
     (out / "encodings-gate-counts.md").write_text("\n".join(md) + "\n")
@@ -182,7 +246,7 @@ def build(out):
     with PdfPages(out / "encodings-gate-counts.pdf") as pdf:
         page(pdf, f"Table 1. General (uncompressed) circuits, all five encodings  (commit {commit})", t1_head, t1,
              [0.14, 0.13, 0.05, 0.06, 0.07, 0.06, 0.06, 0.07, 0.30], notes)
-        page(pdf, f"Table 2. Compression loops: general vs best circuit  (commit {commit})", t2_head, t2,
+        page(pdf, f"Table 2. Compression loops: general vs headline circuit  (commit {commit})", t2_head, t2,
              [0.15, 0.06, 0.05, 0.05, 0.06, 0.06, 0.06, 0.06, 0.16, 0.23], notes)
     return out
 
