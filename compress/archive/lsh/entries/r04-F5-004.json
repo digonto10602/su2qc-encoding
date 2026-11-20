@@ -1,0 +1,200 @@
+{
+ "id": "r04-F5-004",
+ "program_path": "compress/programs/lsh/F5/004-reversed-walk-end-merge.py",
+ "program_sha256": "4e22fed4027ee334f0c670590b71501f8421e9cca5d63646ca6dd0d776df73d0",
+ "parent": "r03-F5-003",
+ "family": "F5",
+ "round": 4,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  71,
+  1110,
+  2293,
+  25
+ ],
+ "cell": [
+  49,
+  80
+ ],
+ "metrics_raw": {
+  "cx": 71,
+  "t_fixed": 40,
+  "n_rot": 17,
+  "t_eps": 1110,
+  "t_estimate": {
+   "1e-06": 1056.5099970355327,
+   "1e-10": 1734.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1110,
+   "1e-10": 1808
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 70,
+  "depth_ct": 2293,
+  "qubits": 25,
+  "gates": {
+   "cx": 71,
+   "h": 22,
+   "t": 20,
+   "tdg": 20,
+   "rz": 17,
+   "x": 12,
+   "sdg": 2,
+   "s": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 7.481644672880296e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   6.563905180231888e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.959374814064025e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.889942611311752e-15,
+  "block_error": 2.5917020615685433e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.19728541374206543,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 7.481644672880296e-15,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.4650951625709354e-15,
+   "max_dropped_l2": 1.2286468470720273e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.5917020615685433e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.061728989415422e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.0666345917876812e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.383794727051534e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.502791356154971e-15,
+   "block_error": 2.558937633260452e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.19711923599243164,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 7.061728989415422e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.558937633260452e-15,
+    "max_dropped_l2": 1.0934773163831647e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.4949159465319764e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.740695775463575e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    7.384393327760872e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.383794727051534e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.910171341961733e-15,
+   "block_error": 2.8305244335018412e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.19400286674499512,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 7.740695775463575e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.8305244335018412e-15,
+    "max_dropped_l2": 1.1674579604895726e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.7877587866918005e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: (claim, HiGHS min-support MILP 60 s per solve + exact Held-Karp) on the plain 52-CX frame with walk coordinates (e, v, u, a, y1, y3), generators e, v, u^e, u^v^e, v^e, a, y1, y3 and free ends in span{u, v, e}, the smallest Walsh support found has 17 terms and both 17-term supports found need 22 paid toggles (74 CX), so a <= 18-toggle walk there must use a non-minimum support.",
+  "DISCOVERY: (claim) in that cube the bright layer (a, y1, y3) = (1, 0, 0) fixes all 8 Walsh coefficients over (u, v, e) to nonzero values (7/8; -9/8 on u, v, u^v; -3/8 on the four characters containing e), so every walk must visit all 8 S-columns; the 22 dark points add only vanishing conditions (30 points, null dimension 34)."
+ ],
+ "summary": "time-reversed parent walk (r03-F5-003 frame: F1-002 fold frame, all-pivot ladder, flag a=[y0=y2=0]): the 15-toggle walk runs backwards from character 0 and its last toggle on e=q9 is merged as CZ into the inverse ladder CX instead of the first one into the forward ladder; 71 CX, 17 rotations, structural variant (exact 6-variable walk searches for <= 18 toggles on the 52-CX plain frame did not finish in budget; no 70-CX walk found).",
+ "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "git_commit": "82e85a4",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 1.0623576641082764,
+ "written_utc": "2026-11-20T06:12:17Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.7e-05
+ },
+ "lean": null,
+ "mode": "full",
+ "encoding_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca"
+}

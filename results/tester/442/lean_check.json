@@ -1,0 +1,91 @@
+{
+ "commit": "82e85a4",
+ "seed": null,
+ "checker_sha256_disk": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+ "checker_sha256_entry": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+ "entry_lean": {
+  "status": "certified",
+  "reason": "",
+  "cert_path": "results/lsh/certs/lsh-step-o1-43bdeb21d084.json",
+  "seconds": 0.8888044357299805,
+  "axioms": [],
+  "check_seconds": 0.591991662979126,
+  "checker_sha256": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+  "program_file_sha256": "0c90091e52e0ff35e458491770f99f779e9885d5c26097215f1f172358bca0b8",
+  "gates_sha256": "43bdeb21d0847d7bb1c2660886c430d2549c6279b01b76e9d3eaaf48de8f1a19"
+ },
+ "cert_provenance": {
+  "git_commit": "82e85a4",
+  "git_dirty": true,
+  "program_file_sha256": "0c90091e52e0ff35e458491770f99f779e9885d5c26097215f1f172358bca0b8",
+  "encoding": "lsh",
+  "alpha_nominal": 0.37,
+  "beta_nominal": 0.61
+ },
+ "program_sha_file": "0c90091e52e0ff35e458491770f99f779e9885d5c26097215f1f172358bca0b8",
+ "program_sha_entry": "0c90091e52e0ff35e458491770f99f779e9885d5c26097215f1f172358bca0b8",
+ "gates_sha_cert": "43bdeb21d0847d7bb1c2660886c430d2549c6279b01b76e9d3eaaf48de8f1a19",
+ "gates_sha_entry_lean": "43bdeb21d0847d7bb1c2660886c430d2549c6279b01b76e9d3eaaf48de8f1a19",
+ "n_qubits": 24,
+ "n_states": 433,
+ "n_gates": 215,
+ "gate_counts_cert": {
+  "cx": 68,
+  "sdg": 25,
+  "h": 50,
+  "t": 12,
+  "s": 26,
+  "tdg": 12,
+  "p": 4,
+  "rz": 18
+ },
+ "cx_controls_outer": {
+  "14": 5,
+  "13": 3
+ },
+ "outer_as_target_or_1q": [],
+ "gate_list_equal_own_rebuild": true,
+ "n_gates_own": 215,
+ "check_new": {
+  "rc": 0,
+  "stdout": "ACCEPT",
+  "stderr": ""
+ },
+ "check_prev_headline_F3-003": {
+  "rc": 0,
+  "stdout": "ACCEPT",
+  "stderr": ""
+ },
+ "rz_gate_example": {
+  "g": "rz",
+  "q": [
+   0
+  ],
+  "m": [
+   0,
+   -2
+  ]
+ },
+ "mutants": {
+  "drop_first_cx": {
+   "rc": 1,
+   "stdout": "REJECT state 164 differs from the target",
+   "stderr": ""
+  },
+  "retarget_cx_at_84": {
+   "rc": 1,
+   "stdout": "REJECT state 16 differs from the target",
+   "stderr": ""
+  },
+  "drop_cx_from_q13_at_97": {
+   "rc": 1,
+   "stdout": "REJECT state 16 differs from the target",
+   "stderr": ""
+  },
+  "reroute_q14_control_to_q1_at_92": {
+   "rc": 1,
+   "stdout": "REJECT state 16 differs from the target",
+   "stderr": ""
+  }
+ }
+}

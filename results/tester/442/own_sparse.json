@@ -1,0 +1,761 @@
+{
+ "commit": "82e85a4",
+ "seed": null,
+ "pairs": [
+  [
+   0.37,
+   0.61
+  ],
+  [
+   0.91,
+   0.23
+  ],
+  [
+   1.7,
+   1.0
+  ]
+ ],
+ "engine": "own dict sparse engine, own 24-bit codes, own expm target",
+ "programs": {
+  "r04-F3-004": {
+   "sha_file": "0c90091e52e0ff35e458491770f99f779e9885d5c26097215f1f172358bca0b8",
+   "sha_entry": "0c90091e52e0ff35e458491770f99f779e9885d5c26097215f1f172358bca0b8",
+   "count_ops_native": {
+    "cx": 68,
+    "h": 50,
+    "s": 26,
+    "sdg": 25,
+    "rz": 18,
+    "t": 12,
+    "tdg": 12,
+    "p": 4
+   },
+   "count_ops_lowered": {
+    "cx": 68,
+    "h": 50,
+    "s": 26,
+    "sdg": 25,
+    "rz": 18,
+    "t": 12,
+    "tdg": 12,
+    "p": 4
+   },
+   "recount": {
+    "cx": 68,
+    "t_fixed": 24,
+    "n_rot": 22,
+    "t_total": 1396,
+    "qubits": 24
+   },
+   "archive_key": [
+    68,
+    1396,
+    3221,
+    24
+   ],
+   "archive_metrics": {
+    "cx": 68,
+    "t_fixed": 24,
+    "n_rot": 22,
+    "t_eps": 1396,
+    "depth_ct": 3221,
+    "qubits": 24
+   },
+   "outer_roles": {
+    "14": {
+     "cx_control": 5
+    },
+    "13": {
+     "cx_control": 3
+    }
+   },
+   "by_pair": {
+    "0.37,0.61": {
+     "err_native": 5.80293055712143e-15,
+     "err_lowered": 5.80293055712143e-15,
+     "err_vs_minus_beta": 1.8781987126381317,
+     "unitarity_defect_433block": 1.1777026977038711e-14,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.42948102951049805
+    },
+    "0.91,0.23": {
+     "err_native": 5.3604920268812606e-15,
+     "err_lowered": 5.3604920268812606e-15,
+     "err_vs_minus_beta": 0.8878962139310378,
+     "unitarity_defect_433block": 1.1102231015835282e-14,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.40750932693481445
+    },
+    "1.7,1.0": {
+     "err_native": 6.056676836228531e-15,
+     "err_lowered": 6.056676836228531e-15,
+     "err_vs_minus_beta": 1.8185948536513583,
+     "unitarity_defect_433block": 1.222694087520141e-14,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.4236752986907959
+    }
+   }
+  },
+  "r04-F1-003": {
+   "sha_file": "b85829962a08dccef6821345c445f88f011abc375aaf0ef6a809b3fc11da0b8a",
+   "sha_entry": "b85829962a08dccef6821345c445f88f011abc375aaf0ef6a809b3fc11da0b8a",
+   "count_ops_native": {
+    "cx": 41,
+    "rz": 13,
+    "x": 12,
+    "rccx": 10,
+    "p": 4,
+    "s": 2,
+    "h": 2,
+    "sdg": 1
+   },
+   "count_ops_lowered": {
+    "cx": 71,
+    "h": 20,
+    "t": 20,
+    "tdg": 20,
+    "u": 18,
+    "p": 16
+   },
+   "recount": {
+    "cx": 71,
+    "t_fixed": 40,
+    "n_rot": 17,
+    "t_total": 1110,
+    "qubits": 25
+   },
+   "archive_key": [
+    71,
+    1110,
+    2293,
+    25
+   ],
+   "archive_metrics": {
+    "cx": 71,
+    "t_fixed": 40,
+    "n_rot": 17,
+    "t_eps": 1110,
+    "depth_ct": 2293,
+    "qubits": 25
+   },
+   "outer_roles": {},
+   "by_pair": {
+    "0.37,0.61": {
+     "err_native": 1.0993518691569336e-15,
+     "err_lowered": 2.2071560054368145e-15,
+     "err_vs_minus_beta": 1.8781987126381359,
+     "unitarity_defect_433block": 1.4441644938509712e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.48520565032958984
+    },
+    "0.91,0.23": {
+     "err_native": 6.684427777288346e-16,
+     "err_lowered": 2.4101047098148877e-15,
+     "err_vs_minus_beta": 0.8878962139310401,
+     "unitarity_defect_433block": 1.3322773275798845e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.4753692150115967
+    },
+    "1.7,1.0": {
+     "err_native": 2.1245764838992374e-15,
+     "err_lowered": 2.925102030601765e-15,
+     "err_vs_minus_beta": 1.8185948536513625,
+     "unitarity_defect_433block": 2.073397675581124e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.48720455169677734
+    }
+   }
+  },
+  "r04-F5-004": {
+   "sha_file": "4e22fed4027ee334f0c670590b71501f8421e9cca5d63646ca6dd0d776df73d0",
+   "sha_entry": "4e22fed4027ee334f0c670590b71501f8421e9cca5d63646ca6dd0d776df73d0",
+   "count_ops_native": {
+    "cx": 41,
+    "rz": 13,
+    "x": 12,
+    "rccx": 10,
+    "p": 4,
+    "h": 2,
+    "sdg": 2,
+    "s": 1
+   },
+   "count_ops_lowered": {
+    "cx": 71,
+    "h": 20,
+    "t": 20,
+    "tdg": 20,
+    "u": 18,
+    "p": 16
+   },
+   "recount": {
+    "cx": 71,
+    "t_fixed": 40,
+    "n_rot": 17,
+    "t_total": 1110,
+    "qubits": 25
+   },
+   "archive_key": [
+    71,
+    1110,
+    2293,
+    25
+   ],
+   "archive_metrics": {
+    "cx": 71,
+    "t_fixed": 40,
+    "n_rot": 17,
+    "t_eps": 1110,
+    "depth_ct": 2293,
+    "qubits": 25
+   },
+   "outer_roles": {},
+   "by_pair": {
+    "0.37,0.61": {
+     "err_native": 1.1502544847041354e-15,
+     "err_lowered": 2.1326687873800046e-15,
+     "err_vs_minus_beta": 1.8781987126381354,
+     "unitarity_defect_433block": 8.882310499391321e-16,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.49442219734191895
+    },
+    "0.91,0.23": {
+     "err_native": 8.47801006751656e-16,
+     "err_lowered": 2.4077778777593974e-15,
+     "err_vs_minus_beta": 0.8878962139310399,
+     "unitarity_defect_433block": 1.4433613221948944e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.46745729446411133
+    },
+    "1.7,1.0": {
+     "err_native": 1.846140142941651e-15,
+     "err_lowered": 2.8685279374925244e-15,
+     "err_vs_minus_beta": 1.8185948536513628,
+     "unitarity_defect_433block": 2.1539960797628623e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.4862244129180908
+    }
+   }
+  },
+  "r03-F3-003": {
+   "sha_file": "4cc8e5fba20e8a6582780bdcbe6965dbc3b4e54e5d00e3be0a46e81096dc7bcc",
+   "sha_entry": "4cc8e5fba20e8a6582780bdcbe6965dbc3b4e54e5d00e3be0a46e81096dc7bcc",
+   "count_ops_native": {
+    "cx": 70,
+    "h": 50,
+    "s": 26,
+    "sdg": 25,
+    "rz": 17,
+    "t": 12,
+    "tdg": 12,
+    "p": 4
+   },
+   "count_ops_lowered": {
+    "cx": 70,
+    "h": 50,
+    "s": 26,
+    "sdg": 25,
+    "rz": 17,
+    "t": 12,
+    "tdg": 12,
+    "p": 4
+   },
+   "recount": {
+    "cx": 70,
+    "t_fixed": 24,
+    "n_rot": 21,
+    "t_total": 1338,
+    "qubits": 24
+   },
+   "archive_key": [
+    70,
+    1338,
+    3047,
+    24
+   ],
+   "archive_metrics": {
+    "cx": 70,
+    "t_fixed": 24,
+    "n_rot": 21,
+    "t_eps": 1338,
+    "depth_ct": 3047,
+    "qubits": 24
+   },
+   "outer_roles": {
+    "14": {
+     "cx_control": 5
+    },
+    "13": {
+     "cx_control": 3
+    }
+   },
+   "by_pair": {
+    "0.37,0.61": {
+     "err_native": 5.779732325322715e-15,
+     "err_lowered": 5.779732325322715e-15,
+     "err_vs_minus_beta": 1.8781987126381317,
+     "unitarity_defect_433block": 1.156396705896084e-14,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.4291658401489258
+    },
+    "0.91,0.23": {
+     "err_native": 5.484097192022682e-15,
+     "err_lowered": 5.484097192022682e-15,
+     "err_vs_minus_beta": 0.887896213931038,
+     "unitarity_defect_433block": 1.1102231015835282e-14,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.40522193908691406
+    },
+    "1.7,1.0": {
+     "err_native": 6.412679328685964e-15,
+     "err_lowered": 6.412679328685964e-15,
+     "err_vs_minus_beta": 1.8185948536513585,
+     "unitarity_defect_433block": 1.276758281920778e-14,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.4249231815338135
+    }
+   }
+  },
+  "r03-F5-003": {
+   "sha_file": "10c546e534be6d627731ef40191fbbc42c321cb8fb419e699c159b11f1746480",
+   "sha_entry": "10c546e534be6d627731ef40191fbbc42c321cb8fb419e699c159b11f1746480",
+   "count_ops_native": {
+    "cx": 41,
+    "rz": 13,
+    "x": 12,
+    "rccx": 10,
+    "p": 4,
+    "s": 2,
+    "h": 2,
+    "sdg": 1
+   },
+   "count_ops_lowered": {
+    "cx": 71,
+    "h": 20,
+    "t": 20,
+    "tdg": 20,
+    "u": 18,
+    "p": 16
+   },
+   "recount": {
+    "cx": 71,
+    "t_fixed": 40,
+    "n_rot": 17,
+    "t_total": 1110,
+    "qubits": 25
+   },
+   "archive_key": [
+    71,
+    1110,
+    2293,
+    25
+   ],
+   "archive_metrics": {
+    "cx": 71,
+    "t_fixed": 40,
+    "n_rot": 17,
+    "t_eps": 1110,
+    "depth_ct": 2293,
+    "qubits": 25
+   },
+   "outer_roles": {},
+   "by_pair": {
+    "0.37,0.61": {
+     "err_native": 1.3792189885478776e-15,
+     "err_lowered": 2.2037297810228142e-15,
+     "err_vs_minus_beta": 1.8781987126381365,
+     "unitarity_defect_433block": 1.2788084637989043e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.4662749767303467
+    },
+    "0.91,0.23": {
+     "err_native": 6.753223014464261e-16,
+     "err_lowered": 2.713240612151045e-15,
+     "err_vs_minus_beta": 0.8878962139310401,
+     "unitarity_defect_433block": 1.4433613221948935e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.4513275623321533
+    },
+    "1.7,1.0": {
+     "err_native": 1.9448322093486645e-15,
+     "err_lowered": 2.859306591884931e-15,
+     "err_vs_minus_beta": 1.8185948536513628,
+     "unitarity_defect_433block": 2.0677386477793165e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.4660146236419678
+    }
+   }
+  },
+  "r02-F1-002": {
+   "sha_file": "4fb199500d53a8c4bc0a4656573c56bf3e1b8efcefd9f500cf0c8eb46942df55",
+   "sha_entry": "4fb199500d53a8c4bc0a4656573c56bf3e1b8efcefd9f500cf0c8eb46942df55",
+   "count_ops_native": {
+    "cx": 41,
+    "rz": 13,
+    "x": 12,
+    "rccx": 10,
+    "p": 4,
+    "s": 2,
+    "h": 2,
+    "sdg": 1
+   },
+   "count_ops_lowered": {
+    "cx": 71,
+    "h": 20,
+    "t": 20,
+    "tdg": 20,
+    "u": 18,
+    "p": 16
+   },
+   "recount": {
+    "cx": 71,
+    "t_fixed": 40,
+    "n_rot": 17,
+    "t_total": 1110,
+    "qubits": 25
+   },
+   "archive_key": [
+    71,
+    1110,
+    2291,
+    25
+   ],
+   "archive_metrics": {
+    "cx": 71,
+    "t_fixed": 40,
+    "n_rot": 17,
+    "t_eps": 1110,
+    "depth_ct": 2291,
+    "qubits": 25
+   },
+   "outer_roles": {},
+   "by_pair": {
+    "0.37,0.61": {
+     "err_native": 1.3792189885478776e-15,
+     "err_lowered": 2.2037297810228142e-15,
+     "err_vs_minus_beta": 1.8781987126381365,
+     "unitarity_defect_433block": 1.2788084637989043e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.4667787551879883
+    },
+    "0.91,0.23": {
+     "err_native": 6.753223014464261e-16,
+     "err_lowered": 2.713240612151045e-15,
+     "err_vs_minus_beta": 0.8878962139310401,
+     "unitarity_defect_433block": 1.4433613221948935e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.45115232467651367
+    },
+    "1.7,1.0": {
+     "err_native": 1.9448322093486645e-15,
+     "err_lowered": 2.859306591884931e-15,
+     "err_vs_minus_beta": 1.8185948536513628,
+     "unitarity_defect_433block": 2.0677386477793165e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.47028374671936035
+    }
+   }
+  },
+  "r00-seed-005": {
+   "sha_file": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+   "sha_entry": "01effa8dfbded4d0b403b787b1ea5076a1d0978aa04a5810b11ed6da81249e9f",
+   "count_ops_native": {
+    "cx": 35,
+    "rz": 13,
+    "rccx": 12,
+    "x": 10,
+    "p": 4,
+    "h": 2,
+    "sdg": 2,
+    "s": 1
+   },
+   "count_ops_lowered": {
+    "cx": 71,
+    "h": 24,
+    "t": 24,
+    "tdg": 24,
+    "u": 16,
+    "p": 16
+   },
+   "recount": {
+    "cx": 71,
+    "t_fixed": 48,
+    "n_rot": 17,
+    "t_total": 1118,
+    "qubits": 25
+   },
+   "archive_key": [
+    71,
+    1118,
+    2276,
+    25
+   ],
+   "archive_metrics": {
+    "cx": 71,
+    "t_fixed": 48,
+    "n_rot": 17,
+    "t_eps": 1118,
+    "depth_ct": 2276,
+    "qubits": 25
+   },
+   "outer_roles": {},
+   "by_pair": {
+    "0.37,0.61": {
+     "err_native": 1.154587686371636e-15,
+     "err_lowered": 2.92528493123343e-15,
+     "err_vs_minus_beta": 1.8781987126381354,
+     "unitarity_defect_433block": 1.110295209437499e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.487884521484375
+    },
+    "0.91,0.23": {
+     "err_native": 6.684427777288337e-16,
+     "err_lowered": 2.886579864025409e-15,
+     "err_vs_minus_beta": 0.8878962139310401,
+     "unitarity_defect_433block": 1.2212525102559998e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.4661691188812256
+    },
+    "1.7,1.0": {
+     "err_native": 1.7817935636488847e-15,
+     "err_lowered": 3.3158260078161053e-15,
+     "err_vs_minus_beta": 1.8185948536513625,
+     "unitarity_defect_433block": 1.6771947510307334e-15,
+     "stats_native": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "stats_lowered": {
+      "dirty": 0.0,
+      "leak": 0.0,
+      "outer": 0.0,
+      "gauss": 0.0
+     },
+     "seconds": 0.48966455459594727
+    }
+   }
+  }
+ },
+ "wall_s": 12.308521270751953
+}

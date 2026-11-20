@@ -1,0 +1,42 @@
+r04-F1-003 {'(0.37, 0.61)': (2.5995981558780067e-15, 2.4317133311256384e-31, 0.0), '(0.91, 0.23)': (2.689195974874452e-15, 1.8167844651912611e-31, 0.0), '(1.7, 1.0)': (3.1460771664183914e-15, 2.0657147232609307e-31, 0.0), '(1.13, 0.47)': (2.4850541979356654e-15, 1.8340607804447301e-31, 0.0)} wrong sign 1.8781987126381336
+r04-F5-004 {'(0.37, 0.61)': (2.446936884545638e-15, 1.70255583067117e-31, 0.0), '(0.91, 0.23)': (2.6635909658861194e-15, 2.4169792611212847e-31, 0.0), '(1.7, 1.0)': (2.909328678990495e-15, 2.6295989189256318e-31, 0.0), '(1.13, 0.47)': (2.7440627070986684e-15, 2.2182630829788996e-31, 0.0)} wrong sign 1.8781987126381336
+r03-F5-003 {'(0.37, 0.61)': (2.5702846354736064e-15, 2.24013697805921e-31, 0.0), '(0.91, 0.23)': (2.829332905545561e-15, 1.252196084824769e-31, 0.0), '(1.7, 1.0)': (2.9896494488793987e-15, 3.502303603868189e-31, 0.0), '(1.13, 0.47)': (2.6819700140563544e-15, 2.3198954374062223e-31, 0.0)} wrong sign 1.8781987126381332
+r02-F1-002 {'(0.37, 0.61)': (2.5702846354736064e-15, 2.24013697805921e-31, 0.0), '(0.91, 0.23)': (2.829332905545561e-15, 1.252196084824769e-31, 0.0), '(1.7, 1.0)': (2.9896494488793987e-15, 3.502303603868189e-31, 0.0), '(1.13, 0.47)': (2.6819700140563544e-15, 2.3198954374062223e-31, 0.0)} wrong sign 1.8781987126381332
+r00-seed-005 {'(0.37, 0.61)': (3.14529132685987e-15, 3.1301370392842782e-31, 0.0), '(0.91, 0.23)': (3.2365254046077387e-15, 2.891821637082857e-31, 0.0), '(1.7, 1.0)': (3.805232211674553e-15, 3.2460234136977975e-31, 0.0), '(1.13, 0.47)': (2.8441876235509124e-15, 3.8099218061596127e-31, 0.0)} wrong sign 1.8781987126381332
+states per (bit13,bit14) {(0, 0): 190, (0, 1): 92, (1, 0): 92, (1, 1): 59}
+F3-004 (0.37, 0.61) pure (0, 0) err 1.92e-15 leak 3.4e-15 outer-weight change 1.5e-16 gauss 0.0e+00
+F3-004 (0.37, 0.61) pure (0, 0) err 1.84e-15 leak 3.7e-15 outer-weight change 1.0e-16 gauss 0.0e+00
+F3-004 (0.37, 0.61) pure (0, 1) err 1.95e-15 leak 3.6e-15 outer-weight change 2.0e-16 gauss 0.0e+00
+F3-004 (0.37, 0.61) pure (0, 1) err 1.86e-15 leak 3.1e-15 outer-weight change 3.2e-16 gauss 0.0e+00
+F3-004 (0.37, 0.61) pure (1, 0) err 1.99e-15 leak 4.0e-15 outer-weight change 2.8e-16 gauss 0.0e+00
+F3-004 (0.37, 0.61) pure (1, 0) err 2.08e-15 leak 3.8e-15 outer-weight change 3.1e-16 gauss 0.0e+00
+F3-004 (0.37, 0.61) pure (1, 1) err 2.38e-15 leak 4.6e-15 outer-weight change 4.4e-16 gauss 0.0e+00
+F3-004 (0.37, 0.61) pure (1, 1) err 2.19e-15 leak 4.1e-15 outer-weight change 3.7e-16 gauss 0.0e+00
+F3-004 (0.37, 0.61) mix None err 1.94e-15 leak 3.8e-15 outer-weight change 6.2e-17 gauss 0.0e+00
+F3-004 (0.37, 0.61) mix None err 1.98e-15 leak 3.8e-15 outer-weight change 7.3e-17 gauss 0.0e+00
+F3-004 (0.37, 0.61) mix None err 1.97e-15 leak 3.6e-15 outer-weight change 6.6e-17 gauss 0.0e+00
+F3-004 (0.37, 0.61) mix None err 1.97e-15 leak 3.4e-15 outer-weight change 5.7e-17 gauss 0.0e+00
+F3-004 (0.91, 0.23) pure (0, 0) err 1.45e-15 leak 2.6e-15 outer-weight change 9.7e-17 gauss 0.0e+00
+F3-004 (0.91, 0.23) pure (0, 0) err 1.43e-15 leak 2.9e-15 outer-weight change 8.0e-17 gauss 0.0e+00
+F3-004 (0.91, 0.23) pure (0, 1) err 1.39e-15 leak 2.6e-15 outer-weight change 1.4e-16 gauss 0.0e+00
+F3-004 (0.91, 0.23) pure (0, 1) err 1.29e-15 leak 2.0e-15 outer-weight change 1.4e-16 gauss 0.0e+00
+F3-004 (0.91, 0.23) pure (1, 0) err 1.37e-15 leak 2.8e-15 outer-weight change 2.1e-16 gauss 0.0e+00
+F3-004 (0.91, 0.23) pure (1, 0) err 1.43e-15 leak 2.7e-15 outer-weight change 2.1e-16 gauss 0.0e+00
+F3-004 (0.91, 0.23) pure (1, 1) err 1.67e-15 leak 3.2e-15 outer-weight change 3.2e-16 gauss 0.0e+00
+F3-004 (0.91, 0.23) pure (1, 1) err 1.56e-15 leak 2.8e-15 outer-weight change 2.9e-16 gauss 0.0e+00
+F3-004 (0.91, 0.23) mix None err 1.40e-15 leak 2.8e-15 outer-weight change 4.9e-17 gauss 0.0e+00
+F3-004 (0.91, 0.23) mix None err 1.42e-15 leak 2.7e-15 outer-weight change 5.0e-17 gauss 0.0e+00
+F3-004 (0.91, 0.23) mix None err 1.39e-15 leak 2.7e-15 outer-weight change 4.2e-17 gauss 0.0e+00
+F3-004 (0.91, 0.23) mix None err 1.41e-15 leak 2.4e-15 outer-weight change 5.7e-17 gauss 0.0e+00
+F3-004 (1.7, 1.0) pure (0, 0) err 2.47e-15 leak 4.7e-15 outer-weight change 1.7e-16 gauss 0.0e+00
+F3-004 (1.7, 1.0) pure (0, 0) err 2.52e-15 leak 5.2e-15 outer-weight change 1.7e-16 gauss 0.0e+00
+F3-004 (1.7, 1.0) pure (0, 1) err 2.32e-15 leak 4.7e-15 outer-weight change 2.5e-16 gauss 0.0e+00
+F3-004 (1.7, 1.0) pure (0, 1) err 2.34e-15 leak 4.4e-15 outer-weight change 4.2e-16 gauss 0.0e+00
+F3-004 (1.7, 1.0) pure (1, 0) err 2.55e-15 leak 5.3e-15 outer-weight change 3.3e-16 gauss 0.0e+00
+F3-004 (1.7, 1.0) pure (1, 0) err 2.57e-15 leak 5.1e-15 outer-weight change 3.7e-16 gauss 0.0e+00
+F3-004 (1.7, 1.0) pure (1, 1) err 2.86e-15 leak 5.8e-15 outer-weight change 5.3e-16 gauss 0.0e+00
+F3-004 (1.7, 1.0) pure (1, 1) err 2.62e-15 leak 5.0e-15 outer-weight change 4.2e-16 gauss 0.0e+00
+F3-004 (1.7, 1.0) mix None err 2.48e-15 leak 5.1e-15 outer-weight change 8.3e-17 gauss 0.0e+00
+F3-004 (1.7, 1.0) mix None err 2.50e-15 leak 5.1e-15 outer-weight change 8.7e-17 gauss 0.0e+00
+F3-004 (1.7, 1.0) mix None err 2.44e-15 leak 4.9e-15 outer-weight change 8.3e-17 gauss 0.0e+00
+F3-004 (1.7, 1.0) mix None err 2.49e-15 leak 4.6e-15 outer-weight change 9.0e-17 gauss 0.0e+00

@@ -1,0 +1,1783 @@
+{
+ "commit": "82e85a4",
+ "seed": null,
+ "A": {
+  "len": [
+   215,
+   216
+  ],
+  "common_prefix": 91,
+  "common_suffix": 84,
+  "mid_len_F3-004": 40,
+  "mid_len_F3-003": 41,
+  "mid_counts_F3-004": {
+   "rz": 18,
+   "cx": 22
+  },
+  "mid_counts_F3-003": {
+   "rz": 17,
+   "cx": 24
+  },
+  "all_counts_F3-004": {
+   "cx": 68,
+   "sdg": 25,
+   "h": 50,
+   "t": 12,
+   "s": 26,
+   "tdg": 12,
+   "p": 4,
+   "rz": 18
+  },
+  "all_counts_F3-003": {
+   "cx": 70,
+   "sdg": 25,
+   "h": 50,
+   "t": 12,
+   "s": 26,
+   "tdg": 12,
+   "p": 4,
+   "rz": 17
+  },
+  "mid_cx_sources_F3-004": [
+   14,
+   7,
+   1,
+   13,
+   10,
+   14,
+   7,
+   4,
+   10,
+   14,
+   7,
+   14,
+   10,
+   1,
+   13,
+   1,
+   14,
+   7,
+   13,
+   4,
+   1,
+   10
+  ],
+  "mid_cx_sources_F3-003": [
+   14,
+   4,
+   5,
+   14,
+   1,
+   3,
+   13,
+   9,
+   4,
+   10,
+   14,
+   13,
+   1,
+   11,
+   14,
+   3,
+   7,
+   10,
+   14,
+   1,
+   8,
+   13,
+   7,
+   1
+  ],
+  "n_cx_total": [
+   68,
+   70
+  ],
+  "prefix_gate_for_gate_equal_incl_angles": true,
+  "mid_first_gates_F3-004": [
+   [
+    "rz",
+    [
+     0
+    ],
+    [
+     -0.1525
+    ]
+   ],
+   [
+    "cx",
+    [
+     14,
+     0
+    ],
+    []
+   ],
+   [
+    "rz",
+    [
+     0
+    ],
+    [
+     -0.1525
+    ]
+   ],
+   [
+    "cx",
+    [
+     7,
+     0
+    ],
+    []
+   ],
+   [
+    "cx",
+    [
+     1,
+     0
+    ],
+    []
+   ],
+   [
+    "rz",
+    [
+     0
+    ],
+    [
+     -0.1525
+    ]
+   ]
+  ],
+  "mid_first_gates_F3-003": [
+   [
+    "rz",
+    [
+     0
+    ],
+    [
+     -0.305
+    ]
+   ],
+   [
+    "cx",
+    [
+     14,
+     0
+    ],
+    []
+   ],
+   [
+    "rz",
+    [
+     0
+    ],
+    [
+     -0.1525
+    ]
+   ],
+   [
+    "cx",
+    [
+     4,
+     0
+    ],
+    []
+   ],
+   [
+    "cx",
+    [
+     5,
+     0
+    ],
+    []
+   ],
+   [
+    "rz",
+    [
+     0
+    ],
+    [
+     -0.1525
+    ]
+   ]
+  ],
+  "cx_controls_outer": {
+   "14": 5,
+   "13": 3
+  },
+  "cx_controls_outer_F3-003": {
+   "14": 5,
+   "13": 3
+  },
+  "any_target_outer": false,
+  "any_1q_on_outer": false,
+  "rz_p_angles_F3-004": [
+   -0.25,
+   0.25
+  ],
+  "pairs": {
+   "0.37,0.61": {
+    "prefix": 91,
+    "suffix": 84,
+    "len": [
+     215,
+     216
+    ]
+   },
+   "0.91,0.23": {
+    "prefix": 91,
+    "suffix": 84,
+    "len": [
+     215,
+     216
+    ]
+   },
+   "1.7,1.0": {
+    "prefix": 91,
+    "suffix": 84,
+    "len": [
+     215,
+     216
+    ]
+   }
+  }
+ },
+ "B": {
+  "r04-F1-003": {
+   "r00-seed-005": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 10
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 10
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 10
+    }
+   },
+   "r02-F1-002": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 20,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 5
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 20,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 5
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 20,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 5
+    }
+   },
+   "r02-F3-002": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 10
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 10
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 10
+    }
+   },
+   "r02-F5-002": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 10
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 10
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 10
+    }
+   },
+   "r03-F3-003": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      216
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 15
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      216
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 15
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      216
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 15
+    }
+   },
+   "r03-F5-003": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 19,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 3
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 19,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 3
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 19,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 3
+    }
+   },
+   "r04-F5-004": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 44,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 4
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 44,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 4
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 44,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 4
+    }
+   }
+  },
+  "r04-F5-004": {
+   "r00-seed-005": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 9
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 9
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 9
+    }
+   },
+   "r02-F1-002": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 39,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 3
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 39,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 3
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 39,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 3
+    }
+   },
+   "r02-F3-002": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 9
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 9
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 9
+    }
+   },
+   "r02-F5-002": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 9
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 9
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      79
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 9
+    }
+   },
+   "r03-F3-003": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      216
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 15
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      216
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 15
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      216
+     ],
+     "n_pos_diff": null,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 15
+    }
+   },
+   "r03-F5-003": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 37,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 2
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 37,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 2
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 37,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 2
+    }
+   },
+   "r04-F1-003": {
+    "0.37,0.61": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 44,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 4
+    },
+    "0.91,0.23": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 44,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 4
+    },
+    "1.7,1.0": {
+     "len": [
+      85,
+      85
+     ],
+     "n_pos_diff": 44,
+     "dag_equal": false,
+     "multiset_equal": false,
+     "wires_equal": false,
+     "n_wires_differing": 4
+    }
+   }
+  }
+ },
+ "B_detail": {
+  "r04-F1-003_vs_r02-F1-002": {
+   "len": [
+    85,
+    85
+   ],
+   "n_diff": 20,
+   "first_diffs": [
+    [
+     20,
+     [
+      "cx",
+      [
+       0,
+       3
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       9,
+       3
+      ],
+      []
+     ]
+    ],
+    [
+     37,
+     [
+      "cx",
+      [
+       10,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     39,
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       10,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     41,
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       9,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     42,
+     [
+      "cx",
+      [
+       9,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     48,
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     49,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.305
+      ]
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.1525
+      ]
+     ]
+    ],
+    [
+     51,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.1525
+      ]
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.305
+      ]
+     ]
+    ],
+    [
+     52,
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     54,
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     55,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.305
+      ]
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.1525
+      ]
+     ]
+    ],
+    [
+     57,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.1525
+      ]
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.305
+      ]
+     ]
+    ]
+   ],
+   "counts_new": {
+    "cx": 41,
+    "rccx": 10,
+    "x": 12,
+    "p": 4,
+    "s": 2,
+    "sdg": 1,
+    "h": 2,
+    "rz": 13
+   },
+   "counts_old": {
+    "cx": 41,
+    "rccx": 10,
+    "x": 12,
+    "p": 4,
+    "s": 2,
+    "sdg": 1,
+    "h": 2,
+    "rz": 13
+   }
+  },
+  "r04-F5-004_vs_r03-F5-003": {
+   "len": [
+    85,
+    85
+   ],
+   "n_diff": 37,
+   "first_diffs": [
+    [
+     22,
+     [
+      "cx",
+      [
+       0,
+       9
+      ],
+      []
+     ],
+     [
+      "s",
+      [
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     23,
+     [
+      "x",
+      [
+       1
+      ],
+      []
+     ],
+     [
+      "sdg",
+      [
+       9
+      ],
+      []
+     ]
+    ],
+    [
+     24,
+     [
+      "x",
+      [
+       7
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       0,
+       9
+      ],
+      []
+     ]
+    ],
+    [
+     25,
+     [
+      "rccx",
+      [
+       1,
+       7,
+       24
+      ],
+      []
+     ],
+     [
+      "s",
+      [
+       9
+      ],
+      []
+     ]
+    ],
+    [
+     28,
+     [
+      "h",
+      [
+       0
+      ],
+      []
+     ],
+     [
+      "rccx",
+      [
+       1,
+       7,
+       24
+      ],
+      []
+     ]
+    ],
+    [
+     29,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.61
+      ]
+     ],
+     [
+      "x",
+      [
+       1
+      ],
+      []
+     ]
+    ],
+    [
+     30,
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ],
+     [
+      "x",
+      [
+       7
+      ],
+      []
+     ]
+    ],
+    [
+     31,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.305
+      ]
+     ],
+     [
+      "h",
+      [
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     32,
+     [
+      "cx",
+      [
+       10,
+       0
+      ],
+      []
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.4575
+      ]
+     ]
+    ],
+    [
+     33,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.1525
+      ]
+     ],
+     [
+      "cx",
+      [
+       2,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     34,
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.4575
+      ]
+     ]
+    ],
+    [
+     35,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.305
+      ]
+     ],
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ]
+    ]
+   ],
+   "counts_new": {
+    "cx": 41,
+    "rccx": 10,
+    "x": 12,
+    "p": 4,
+    "h": 2,
+    "rz": 13,
+    "sdg": 2,
+    "s": 1
+   },
+   "counts_old": {
+    "cx": 41,
+    "rccx": 10,
+    "x": 12,
+    "p": 4,
+    "s": 2,
+    "sdg": 1,
+    "h": 2,
+    "rz": 13
+   }
+  },
+  "r04-F1-003_vs_r03-F5-003": {
+   "len": [
+    85,
+    85
+   ],
+   "n_diff": 19,
+   "first_diffs": [
+    [
+     37,
+     [
+      "cx",
+      [
+       10,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     39,
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       10,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     41,
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       9,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     42,
+     [
+      "cx",
+      [
+       9,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     48,
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     49,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.305
+      ]
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.1525
+      ]
+     ]
+    ],
+    [
+     51,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.1525
+      ]
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.305
+      ]
+     ]
+    ],
+    [
+     52,
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     54,
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     55,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.305
+      ]
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.1525
+      ]
+     ]
+    ],
+    [
+     57,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.1525
+      ]
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.305
+      ]
+     ]
+    ],
+    [
+     58,
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ]
+    ]
+   ],
+   "counts_new": {
+    "cx": 41,
+    "rccx": 10,
+    "x": 12,
+    "p": 4,
+    "s": 2,
+    "sdg": 1,
+    "h": 2,
+    "rz": 13
+   },
+   "counts_old": {
+    "cx": 41,
+    "rccx": 10,
+    "x": 12,
+    "p": 4,
+    "s": 2,
+    "sdg": 1,
+    "h": 2,
+    "rz": 13
+   }
+  },
+  "r04-F5-004_vs_r04-F1-003": {
+   "len": [
+    85,
+    85
+   ],
+   "n_diff": 44,
+   "first_diffs": [
+    [
+     22,
+     [
+      "cx",
+      [
+       0,
+       9
+      ],
+      []
+     ],
+     [
+      "s",
+      [
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     23,
+     [
+      "x",
+      [
+       1
+      ],
+      []
+     ],
+     [
+      "sdg",
+      [
+       9
+      ],
+      []
+     ]
+    ],
+    [
+     24,
+     [
+      "x",
+      [
+       7
+      ],
+      []
+     ],
+     [
+      "cx",
+      [
+       0,
+       9
+      ],
+      []
+     ]
+    ],
+    [
+     25,
+     [
+      "rccx",
+      [
+       1,
+       7,
+       24
+      ],
+      []
+     ],
+     [
+      "s",
+      [
+       9
+      ],
+      []
+     ]
+    ],
+    [
+     28,
+     [
+      "h",
+      [
+       0
+      ],
+      []
+     ],
+     [
+      "rccx",
+      [
+       1,
+       7,
+       24
+      ],
+      []
+     ]
+    ],
+    [
+     29,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.61
+      ]
+     ],
+     [
+      "x",
+      [
+       1
+      ],
+      []
+     ]
+    ],
+    [
+     30,
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ],
+     [
+      "x",
+      [
+       7
+      ],
+      []
+     ]
+    ],
+    [
+     31,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.305
+      ]
+     ],
+     [
+      "h",
+      [
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     32,
+     [
+      "cx",
+      [
+       10,
+       0
+      ],
+      []
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.4575
+      ]
+     ]
+    ],
+    [
+     33,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       0.1525
+      ]
+     ],
+     [
+      "cx",
+      [
+       2,
+       0
+      ],
+      []
+     ]
+    ],
+    [
+     34,
+     [
+      "cx",
+      [
+       4,
+       0
+      ],
+      []
+     ],
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.4575
+      ]
+     ]
+    ],
+    [
+     35,
+     [
+      "rz",
+      [
+       0
+      ],
+      [
+       -0.305
+      ]
+     ],
+     [
+      "cx",
+      [
+       24,
+       0
+      ],
+      []
+     ]
+    ]
+   ],
+   "counts_new": {
+    "cx": 41,
+    "rccx": 10,
+    "x": 12,
+    "p": 4,
+    "h": 2,
+    "rz": 13,
+    "sdg": 2,
+    "s": 1
+   },
+   "counts_old": {
+    "cx": 41,
+    "rccx": 10,
+    "x": 12,
+    "p": 4,
+    "s": 2,
+    "sdg": 1,
+    "h": 2,
+    "rz": 13
+   }
+  }
+ }
+}

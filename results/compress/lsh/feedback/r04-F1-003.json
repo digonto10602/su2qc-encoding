@@ -1,0 +1,166 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 7.15543603518247e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -3.281952590115944e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.959374814064025e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.753656409690436e-15,
+  "block_error": 2.401779625492034e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.5195693969726562,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 7.15543603518247e-15,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.401779625492034e-15,
+   "max_dropped_l2": 1.133057817440002e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.343048142565523e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 6.7628089572426126e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    0.9999999999999999,
+    -1.0666345917876809e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.433645741806906e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.428038708461454e-15,
+   "block_error": 2.334770248781159e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.21613740921020508,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 6.7628089572426126e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.334770248781159e-15,
+    "max_dropped_l2": 1.0836505827514962e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.2821874230649366e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.654932566559578e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    8.204881475289856e-18
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.383794727051534e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.847693311015427e-15,
+   "block_error": 2.8072392555441507e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1932523250579834,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 7.654932566559578e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.7916093793667677e-15,
+    "max_dropped_l2": 1.1254294789724447e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.8072392555441507e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 71,
+  "t_fixed": 40,
+  "n_rot": 17,
+  "t_eps": 1110,
+  "t_estimate": {
+   "1e-06": 1056.5099970355327,
+   "1e-10": 1734.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1110,
+   "1e-10": 1808
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 73,
+  "depth_ct": 2293,
+  "qubits": 25,
+  "gates": {
+   "cx": 71,
+   "h": 22,
+   "t": 20,
+   "tdg": 20,
+   "rz": 17,
+   "x": 12,
+   "s": 2,
+   "sdg": 1
+  },
+  "measured": true
+ },
+ "program_sha256": "b85829962a08dccef6821345c445f88f011abc375aaf0ef6a809b3fc11da0b8a",
+ "wall_s": 1.6820755004882812,
+ "discoveries": [
+  "DISCOVERY: (claim, numerical, not a proof) re-touring the F1-002 13-term support in the 7-variable cube (e, v, u, pe, a, y1, y3) with all single-wire forms e, v, v^e, u^e, u^v^e as generators, free ends anywhere in span{u, v, e} and the 8 dark-flag shifts span{a, y1, y3} gives no tour below 15 (exact Held-Karp); the 7-cube minimum Walsh support is 12 (HiGHS, optimal), but random L1-LP supports of size 12-15 tour at >= 20.",
+  "DISCOVERY: (claim, numerical, time-limited HiGHS, no incumbent = not a proof) no walk of <= 14 paid toggles was found for the F1 frame in the cubes (e, v, u, pe, a, y1, y3) (900 s Eulerian MILP + 12 min time-indexed MILP), (e, v, pe, a, y1, y3) and (e, u, pe, a, y1, y3) (420 s each), nor a walk of <= 18 toggles for the plain 52-CX frame (e, v, u, a, y1, y3) (time-indexed MILP stopped after 4 min); the same Eulerian MILP also found no incumbent at <= 15 toggles in the 7-cube in 700 s although the F1-002 walk exists there, so these searches are weak; the sparsest Walsh support found for the plain frame has 18 terms (HiGHS, 150 s, not proven minimal)."
+ ],
+ "summary": "F1-002 frame (per-site cx, cx, rccx; raw l_nv parity folded into vp_0 = w0^p; flag a=[y0=y2=0]) with an all-pivot-controlled ladder (free walk ends in span{u, v, e}) and the F1-002 13-term support re-toured by an Eulerian-trail MILP (edge multiplicities + single-commodity flow, free ends via a super node): 15 paid toggles from the free start e, 71 CX, 10 rccx, 17 rotations, all angles k*beta/4 or 3*alpha/4; no walk of <= 14 toggles was found, so this is a structural variant, not an improvement."
+}
