@@ -130,3 +130,35 @@ def test_embedding_record_stores_squared_leaks(model, leak_u, leak_w):
         assert 0.0 <= rec[k] <= 1e-12, k
     assert abs(rec["leak_U_sq"] - leak_u) <= 1e-9 and abs(rec["leak_plaquette_sq"] - leak_w) <= 1e-6
     assert rec["phase"] == [1.0, 0.0] and set(rec) >= {"leak_U_sq", "leak_plaquette_sq", "phase"}
+
+
+def test_m11_results_takes_one_git_snapshot_before_any_write(monkeypatch, tmp_path):
+    """The first output file dirties the tree; both files must still carry the pre-write git state (bug: gate-table.json said dirty on a clean checkout)."""
+    import importlib.util
+
+    from su2plaq.metrics import provenance as P
+
+    out = tmp_path / "out"
+    out.mkdir()
+    monkeypatch.setattr(P, "_git", lambda *a: ("abc1234" if a[0] == "rev-parse" else ("M results/crosscheck/spectra.json" if (out / "spectra.json").exists() else "")))
+    assert R.git_snapshot() == {"git_commit": "abc1234", "git_dirty": False}
+    orig_gate = R.gate_table
+
+    def fake_spectra(out=None, root=None, headline=True, command=None, **kw):
+        d = {"ks": {"cross_verdicts": [], "headline_skipped": []}, "provenance": R._prov(command, **kw)}
+        R._write_json(d, tmp_path / "out" / "spectra.json")
+        return d
+
+    monkeypatch.setattr(R, "spectra_results", fake_spectra)
+    monkeypatch.setattr(R, "gate_table", lambda out=None, root=None, command=None, **kw: orig_gate(out=tmp_path / "out" / "gate-table.json", root=ROOT, command=command, **kw))
+    monkeypatch.setattr(R, "_cached_headline", lambda enc, kind, root: (None, "synthetic: pending"))
+    monkeypatch.setattr(R, "tradeoff_figure", lambda root=None: tmp_path / "out" / "tradeoff.pdf")
+    monkeypatch.setattr(R, "render", lambda root=None: "")
+    spec = importlib.util.spec_from_file_location("m11_results_script", ROOT / "scripts" / "m11_results.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    mod.main(["--no-headline"])
+    ps = [json.loads((out / f).read_text())["provenance"] for f in ("spectra.json", "gate-table.json")]
+    assert [p["git_dirty"] for p in ps] == [False, False]
+    assert ps[0]["git_commit"] == ps[1]["git_commit"] == "abc1234"
+    assert P._git("status") != ""                                      # the simulated first write did dirty the tree

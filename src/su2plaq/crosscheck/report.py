@@ -45,10 +45,22 @@ def _root(root):
     return pathlib.Path(root) if root is not None else pathlib.Path(ROOT)
 
 
-def _prov(command):
+def git_snapshot():
+    """{"git_commit","git_dirty"} as of now.  A script that writes several tracked files takes this ONCE, before the first write, and
+    passes it to every writer (`git=`): otherwise the second file sees the first one as an uncommitted change (git_dirty always true)."""
     from su2plaq.metrics.provenance import provenance
 
     p = provenance({})
+    return {"git_commit": p["git_commit"], "git_dirty": p["git_dirty"]}
+
+
+def _prov(command, git=None):
+    """Provenance dict; `git` = a `git_snapshot()` taken earlier (default: take one now).  Everything else is read per file."""
+    from su2plaq.metrics.provenance import provenance
+
+    p = provenance({})
+    if git is not None:
+        p["git_commit"], p["git_dirty"] = git["git_commit"], git["git_dirty"]
     p["command"] = command
     return p
 
@@ -90,7 +102,7 @@ def _embedding_record(model) -> dict:
     return rec
 
 
-def spectra_results(out=None, root=None, headline=True, command=None):
+def spectra_results(out=None, root=None, headline=True, command=None, git=None):
     """Compute every number of the spectra cross-check and write it (out=None: <root>/results/crosscheck/spectra.json; out=False: write
     nothing; else the given path).  Returns the dict.  `headline=False` skips the headline cross-verdicts (recorded as skipped)."""
     from su2plaq.compress.spec import get_encoding
@@ -217,7 +229,7 @@ def spectra_results(out=None, root=None, headline=True, command=None):
         d["not_comparable"] = {"rishon_step_distance_to_ks_step": float(x), "source": f"results/rishon/ks_projection.json: {path}"}
     else:
         d["not_comparable"] = {"rishon_step_distance_to_ks_step": None, "source": "results/rishon/ks_projection.json missing"}
-    d["provenance"] = _prov(command or SPECTRA_COMMAND)
+    d["provenance"] = _prov(command or SPECTRA_COMMAND, git)
     if out is not False:
         _write_json(d, root / "results" / "crosscheck" / "spectra.json" if out is None else out)
     return d
@@ -264,7 +276,7 @@ def _headlines(root):
     return {enc: _cached_headline(enc, kind, root) for loops in LOOPS.values() for enc, kind in loops}
 
 
-def gate_table(out=None, root=None, command=None):
+def gate_table(out=None, root=None, command=None, git=None):
     """One row per encoding in three model blocks (prompts/009 §5.4).  out=None: <root>/results/crosscheck/gate-table.json; out=False:
     write nothing.  A row is "final" only if every source file and headline cache it quotes exists; otherwise "pending: <reasons>"."""
     root = _root(root)
@@ -314,7 +326,7 @@ def gate_table(out=None, root=None, command=None):
          "unit": "first-order step on the inner links; outer rows separate; T at eps = 1e-6 per rotation (pygridsynth); "
                  "T_avg = mean over the 20 locked angle pairs; headline = smallest robust key (CX first), T-first = same with the first "
                  "two key components exchanged",
-         "rows": rows, "provenance": _prov(command or SPECTRA_COMMAND)}
+         "rows": rows, "provenance": _prov(command or SPECTRA_COMMAND, git)}
     if out is not False:
         _write_json(d, root / "results" / "crosscheck" / "gate-table.json" if out is None else out)
     return d
