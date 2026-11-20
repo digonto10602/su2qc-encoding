@@ -1,0 +1,156 @@
+{
+ "commit": "4177db4",
+ "headline": "r05-F3-005",
+ "best": "r05-F3-005",
+ "seed": 20261120,
+ "n_states": 10,
+ "rows": [
+  {
+   "pair": [
+    0.37,
+    0.61
+   ],
+   "reads": {
+    "14": 5,
+    "13": 3
+   },
+   "reduced": {
+    "n_qubits": 14.0,
+    "n_runs": 63.0,
+    "error": 2.979761393168651e-15,
+    "ancilla_weight": 0.0,
+    "leak_weight": 0.0,
+    "outer_weight": 0.0
+   },
+   "full": {
+    "n_qubits": 24.0,
+    "n_states": 10.0,
+    "error": 1.8044415342108104e-15,
+    "ancilla_weight": 0.0,
+    "leak_weight": 0.0,
+    "outer_weight_change": 7.806255641895632e-17
+   },
+   "t_reduced": 1.1,
+   "t_full": 34.9
+  },
+  {
+   "pair": [
+    0.91,
+    0.23
+   ],
+   "reads": {
+    "14": 5,
+    "13": 3
+   },
+   "reduced": {
+    "n_qubits": 14.0,
+    "n_runs": 63.0,
+    "error": 2.5918417478740274e-15,
+    "ancilla_weight": 0.0,
+    "leak_weight": 0.0,
+    "outer_weight": 0.0
+   },
+   "full": {
+    "n_qubits": 24.0,
+    "n_states": 10.0,
+    "error": 1.4583007634288795e-15,
+    "ancilla_weight": 0.0,
+    "leak_weight": 0.0,
+    "outer_weight_change": 6.071532165918825e-17
+   },
+   "t_reduced": 0.6,
+   "t_full": 34.8
+  },
+  {
+   "pair": [
+    1.7,
+    1.0
+   ],
+   "reads": {
+    "14": 5,
+    "13": 3
+   },
+   "reduced": {
+    "n_qubits": 14.0,
+    "n_runs": 63.0,
+    "error": 3.1027945283677573e-15,
+    "ancilla_weight": 0.0,
+    "leak_weight": 0.0,
+    "outer_weight": 0.0
+   },
+   "full": {
+    "n_qubits": 24.0,
+    "n_states": 10.0,
+    "error": 2.2022849848193874e-15,
+    "ancilla_weight": 0.0,
+    "leak_weight": 0.0,
+    "outer_weight_change": 7.979727989493313e-17
+   },
+   "t_reduced": 0.6,
+   "t_full": 34.6
+  }
+ ],
+ "reads": {
+  "14": 5,
+  "13": 3
+ },
+ "n_ancilla": 0,
+ "n_qubits": 24,
+ "gate_counts": {
+  "cx": 68,
+  "h": 50,
+  "s": 26,
+  "sdg": 25,
+  "rz": 18,
+  "t": 12,
+  "tdg": 12,
+  "p": 4
+ },
+ "lay_data": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11
+ ],
+ "lay_outer": [
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23
+ ],
+ "sector_sizes_and_min_state_weight": [
+  [
+   190,
+   0.4222076697883471
+  ],
+  [
+   92,
+   0.17931565211087713
+  ],
+  [
+   92,
+   0.18313733132001647
+  ],
+  [
+   59,
+   0.11215074486051392
+  ]
+ ],
+ "best_is_headline": true
+}
