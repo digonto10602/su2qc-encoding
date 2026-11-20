@@ -1,0 +1,43 @@
+{
+ "commit": "4bff9e6",
+ "seed": null,
+ "cli_current": {
+  "rc": 0,
+  "stdout_head": "{\n \"rounds\": [\n  {\n   \"round\": 0,\n   \"headline_id\": \"r00-seed-005\",\n   \"robust_key\": [\n    71,\n    22480,\n    0,\n    46384,\n    25\n   ],\n   \"record\": {\n    \"id\": \"r00-seed-005\",\n    \"cx\": 71,\n    \"t_sum\": 22480,\n    \"rho\": 0,\n    \"qubits\": 25,\n    \"n_rot\": 17,\n    \"t_fixed\": 48\n   },\n   \"improved\": "
+ },
+ "a": {
+  "streak": 1,
+  "sessions": 19,
+  "stop": false,
+  "reason": null,
+  "reasons": []
+ },
+ "b_no_improvement": {
+  "streak": 2,
+  "sessions": 20,
+  "stop": true,
+  "reason": "max_sessions",
+  "reasons": [
+   "max_sessions"
+  ]
+ },
+ "c_improvement": {
+  "streak": 0,
+  "sessions": 20,
+  "stop": true,
+  "reason": "max_sessions",
+  "reasons": [
+   "max_sessions"
+  ]
+ },
+ "d": {
+  "r5_vs_r4": false,
+  "r4_vs_r5": false,
+  "r5_equal_but_qubits_23": true,
+  "r5_equal_but_rho_1": false,
+  "cx_67": true,
+  "t_sum_minus_441 (outside 20*22 band, same cx/n_rot/t_fixed)": true,
+  "t_sum_minus_440 (inside band -> tie -> (rho,qubits) equal -> False)": false,
+  "depth_not_in_record": true
+ }
+}

@@ -1,0 +1,165 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.2013166065549209e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   1.3127810360463806e-16
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 5.933464366067994e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.256041438539074e-15,
+  "block_error": 5.757124627010136e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.24128460884094238,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.2013166065549209e-14,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 5.757124627010136e-15,
+   "max_dropped_l2": 1.756081717664859e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.1290473210096907e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    9.025369622818874e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 5.353751245373942e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.265652553420198e-15,
+   "block_error": 5.02482065667671e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.22629570960998535,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.1290473210096907e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 5.02482065667671e-15,
+    "max_dropped_l2": 1.39664704874634e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.3094579421121921e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    6.974149253996407e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 5.346551711109465e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 6.686707199055078e-15,
+   "block_error": 6.407872222066843e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.22769951820373535,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.3094579421121921e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 6.407872222066843e-15,
+    "max_dropped_l2": 1.807246055779237e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 76,
+  "t_fixed": 24,
+  "n_rot": 28,
+  "t_eps": 1784,
+  "t_estimate": {
+   "1e-06": 1698.2517598232307,
+   "1e-10": 2814.4195997053844
+  },
+  "t_measured": {
+   "1e-06": 1784,
+   "1e-10": 2936
+  },
+  "synth_error_bound": 2.8e-05,
+  "depth": 108,
+  "depth_ct": 4151,
+  "qubits": 24,
+  "gates": {
+   "cx": 76,
+   "h": 50,
+   "sdg": 30,
+   "s": 30,
+   "rz": 28,
+   "t": 12,
+   "tdg": 12
+  },
+  "measured": true
+ },
+ "program_sha256": "6337da3fe8071b5af732c76c02304c2bfdaeea643fb218ae49017c4c65296840",
+ "wall_s": 1.8053793907165527,
+ "discoveries": [
+  "DISCOVERY: (claim, numerical) in the 3-Toffoli fold frame each site Toffoli may take its second control from any f_D (Margolus, 3 CX): the frame stays exact (partner pairs differ only in the pivot, all pair signs +1) and the labels become y_c xor w_c (f_c xor f_D), i.e. products of w's for free; but with SA over walks (8-dim cube, 51 labels) the D = (3, 0, 1) frame gave no walk shorter than 30 toggles versus 27 for the plain frame under the same search.",
+  "DISCOVERY: (claim, numerical) F3 frame plus one 2-literal AND flag (26 pairs of dark-related wires tried: y1-y3, p and outer l_2v/l_v1, incl. y0 = l_2v(0) AND l_v1(0); 52 CX) and the F1 frame without its flag (50 CX, y0..y3 explicit, outer generators) gave no exact walk <= 18 (resp. 20) toggles in short SA runs; these SA runs also failed to re-find known walks (F1 frame: 16 found vs 15 known; F3 frame: 27 vs 22), so they are weak bounds."
+ ],
+ "summary": "F1 recode-gate fusion probe: F3-style 46-CX frame (raw l_nv parity folded into site 0, three Margolus Toffolis) whose site-c Toffoli is controlled by f_D instead of f_c (D = (3, 0, 1)), so the labels become y_c xor w_c (f_c xor f_D) at no extra CX; SA walk of 30 toggles (free ends in span{u, v, e}), 24 walk rotations; 76 CX, a negative result versus the 68-CX headline."
+}

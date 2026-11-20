@@ -1,0 +1,63 @@
+{
+ "commit": "4bff9e6",
+ "seed": null,
+ "programs": {
+  "r05-F3-005": {
+   "outer_controls": [
+    13,
+    14
+   ],
+   "n_cx_from": {
+    "13": 3,
+    "14": 5
+   },
+   "errors": {
+    "original": 6.26151268176308e-15,
+    "drop_cx_from_13": 1.9999999999999978,
+    "ctrl_13_replaced_by_q1": 1.9999999999999973,
+    "drop_cx_from_14": 1.9999999999999976,
+    "ctrl_14_replaced_by_q1": 1.999999999999997,
+    "drop_all_outer": 1.9999999999999976,
+    "ctrl_all_outer_replaced_by_q1": 1.9999999999999971
+   }
+  },
+  "r05-F5-005": {
+   "outer_controls": [
+    13,
+    14
+   ],
+   "n_cx_from": {
+    "13": 3,
+    "14": 5
+   },
+   "errors": {
+    "original": 5.80293055712143e-15,
+    "drop_cx_from_13": 1.9999999999999991,
+    "ctrl_13_replaced_by_q1": 1.9999999999999978,
+    "drop_cx_from_14": 1.9999999999999973,
+    "ctrl_14_replaced_by_q1": 1.9999999999999973,
+    "drop_all_outer": 1.9999999999999971,
+    "ctrl_all_outer_replaced_by_q1": 1.9999999999999976
+   }
+  },
+  "r05-F1-004": {
+   "outer_controls": [
+    13,
+    14
+   ],
+   "n_cx_from": {
+    "13": 1,
+    "14": 1
+   },
+   "errors": {
+    "original": 5.974444214801431e-15,
+    "drop_cx_from_13": 1.9999999999999982,
+    "ctrl_13_replaced_by_q1": 1.9999999999999998,
+    "drop_cx_from_14": 1.9999999999999978,
+    "ctrl_14_replaced_by_q1": 1.9999999999999978,
+    "drop_all_outer": 1.999999999999996,
+    "ctrl_all_outer_replaced_by_q1": 1.999999999999996
+   }
+  }
+ }
+}

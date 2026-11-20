@@ -1,0 +1,165 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.4405612410430306e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.281952590115953e-17
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 5.681424633657484e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 8.264162090605225e-15,
+  "block_error": 6.141450319825082e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.23043298721313477,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.4405612410430306e-14,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 6.141450319825082e-15,
+   "max_dropped_l2": 1.7147612854650412e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.3010879619620472e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.7230251098108752e-16
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 5.461927758452897e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.74579982463805e-15,
+   "block_error": 5.2650797949824226e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.22586989402770996,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.3010879619620472e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 5.2650797949824226e-15,
+    "max_dropped_l2": 1.809834295996975e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.4951599468216685e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.1897078139170338e-16
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 5.347902362062199e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 8.491284284972979e-15,
+   "block_error": 6.460315183243706e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2254931926727295,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.4951599468216685e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 6.460315183243706e-15,
+    "max_dropped_l2": 1.7100107231587567e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 68,
+  "t_fixed": 24,
+  "n_rot": 22,
+  "t_eps": 1396,
+  "t_estimate": {
+   "1e-06": 1339.4835255753956,
+   "1e-10": 2216.472542625659
+  },
+  "t_measured": {
+   "1e-06": 1396,
+   "1e-10": 2312
+  },
+  "synth_error_bound": 2.2e-05,
+  "depth": 96,
+  "depth_ct": 3210,
+  "qubits": 24,
+  "gates": {
+   "cx": 68,
+   "h": 50,
+   "s": 26,
+   "sdg": 25,
+   "rz": 22,
+   "t": 12,
+   "tdg": 12
+  },
+  "measured": true
+ },
+ "program_sha256": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+ "wall_s": 1.1686475276947021,
+ "discoveries": [
+  "DISCOVERY: (claim, exact enumeration + Held-Karp) in the 64-point walk space (p, y1, y2, y3, e, l_2v(0)) the 16 classes of F2^6 modulo <e, p+y1+y2+y3+l_2v(0)> are each a 4-point cocircuit (every walk must visit all 16), the minimum Walsh support is 16 (HiGHS optimal) and there are exactly 8 such supports, all coefficients -beta/4 up to sign, each touring at >= 24 toggles; the 48 17-term supports tour at >= 23; so a 22-toggle walk needs >= 18 rotations (the parent's 18 is optimal).",
+  "DISCOVERY: (claim, exhaustive two-phase C search: closed walks on the e-quotient hypercube Q5 + e-lifts) no walk of <= 18 toggles exists in that space; 19-21 not settled in the time budget (the full-space DFS with 1834 cocircuits needed 1.6e8 nodes already at 17 toggles)."
+ ],
+ "summary": "parent r04-F3-004 gate list (3-AND fold frame 46 CX, 22-toggle walk, 18 rotations, all angles k*beta/4 or 3*alpha/4) with the four 3*alpha/4 phases moved ahead of the Margolus Toffolis (they act on the f_c wires, which the Toffolis only use as controls), so the alpha layer runs in parallel with the frame instead of in series before the walk; 68 CX, same T, lower depth; exhaustive support enumeration shows 18 rotations is optimal for any 22-toggle walk in this frame's 64-point space."
+}
