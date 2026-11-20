@@ -1,0 +1,165 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.2220378371388369e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.2819525901159515e-17
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 5.44603719630737e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 6.523092901691131e-15,
+  "block_error": 5.6972854696972375e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.2428722381591797,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.2220378371388369e-14,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 5.6972854696972375e-15,
+   "max_dropped_l2": 1.4354462597973061e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.2205800736133715e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    5.743417032702918e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 5.369466571967547e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.312940674706343e-15,
+   "block_error": 4.892860061427373e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.23264145851135254,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.2205800736133715e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 4.892860061427373e-15,
+    "max_dropped_l2": 1.4235844983720439e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.3687911911318131e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    5.3331729589384284e-17
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 5.326250846592186e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 7.729571351828724e-15,
+   "block_error": 5.958340559489408e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.23074817657470703,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.3687911911318131e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 5.958340559489408e-15,
+    "max_dropped_l2": 1.7259032288290566e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 70,
+  "t_fixed": 24,
+  "n_rot": 21,
+  "t_eps": 1338,
+  "t_estimate": {
+   "1e-06": 1279.688819867423,
+   "1e-10": 2116.814699779038
+  },
+  "t_measured": {
+   "1e-06": 1338,
+   "1e-10": 2208
+  },
+  "synth_error_bound": 2.1e-05,
+  "depth": 92,
+  "depth_ct": 3047,
+  "qubits": 24,
+  "gates": {
+   "cx": 70,
+   "h": 50,
+   "s": 26,
+   "sdg": 25,
+   "rz": 21,
+   "t": 12,
+   "tdg": 12
+  },
+  "measured": true
+ },
+ "program_sha256": "4cc8e5fba20e8a6582780bdcbe6965dbc3b4e54e5d00e3be0a46e81096dc7bcc",
+ "wall_s": 1.9113211631774902,
+ "discoveries": [
+  "DISCOVERY: (claim) the r01-F3-001 multiplexer support (17 terms, coefficients +-beta/4, +-beta/2) has an exact optimal open tour of 24 toggles once the outer pair (l_2v, l_v1) of site 0 is used as two generators (l_v1 = l_2v xor e) and the start is free on e; beam routing had 30, so the 3-AND frame gives 46 + 24 = 70 CX with no flag and 6 rccx-free Toffolis.",
+  "DISCOVERY: (claim) fresh time-limited MILP multiplexers in the same frame (19-21 terms) tour worse (31-33, same Held-Karp) than this 17-term support, and an add-and-prune local search finds no exact neighbouring support; y0 = (not e) AND l_2v(0) holds on all 433 states, but spending a 6-CX flag on it gives a 16-term support with a 27-toggle tour (79 CX)."
+ ],
+ "summary": "native 3-AND frame of r01-F3-001 (raw l_nv parity folded into site 0, Margolus Toffolis on sites 1-3 only, f-collapse; 46 CX, 24 fixed T, no flag ancilla) with its 17-term ungated Walsh multiplexer re-toured exactly: Held-Karp over the support with BFS distances in the Cayley graph of all single-wire forms (p, e, u, v, y1-y3, w1-w3, outer l_2v/l_v1 of site 0) and free ends in span{e, v}; the walk starts free on e (merged into the collapse CX as CZ) and needs 24 toggles instead of 30, 70 CX, all angles k*beta/4 or 3*alpha/4."
+}

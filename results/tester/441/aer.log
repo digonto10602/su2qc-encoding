@@ -1,0 +1,44 @@
+r03-F5-003 {'(0.37, 0.61)': (2.5702846354736064e-15, 2.24013697805921e-31, 0.0), '(0.91, 0.23)': (2.829332905545561e-15, 1.252196084824769e-31, 0.0), '(1.7, 1.0)': (2.9896494488793987e-15, 3.502303603868189e-31, 0.0), '(1.13, 0.47)': (2.6819700140563544e-15, 2.3198954374062223e-31, 0.0)} wrong sign 1.8781987126381332
+r02-F1-002 {'(0.37, 0.61)': (2.5702846354736064e-15, 2.24013697805921e-31, 0.0), '(0.91, 0.23)': (2.829332905545561e-15, 1.252196084824769e-31, 0.0), '(1.7, 1.0)': (2.9896494488793987e-15, 3.502303603868189e-31, 0.0), '(1.13, 0.47)': (2.6819700140563544e-15, 2.3198954374062223e-31, 0.0)} wrong sign 1.8781987126381332
+r00-seed-005 {'(0.37, 0.61)': (3.14529132685987e-15, 3.1301370392842782e-31, 0.0), '(0.91, 0.23)': (3.2365254046077387e-15, 2.891821637082857e-31, 0.0), '(1.7, 1.0)': (3.805232211674553e-15, 3.2460234136977975e-31, 0.0), '(1.13, 0.47)': (2.8441876235509124e-15, 3.8099218061596127e-31, 0.0)} wrong sign 1.8781987126381332
+states per (bit13,bit14) {(0, 0): 190, (0, 1): 92, (1, 0): 92, (1, 1): 59}
+F3-003 (0.37, 0.61) pure (0, 0) err 1.86e-15 leak 3.3e-15 outer-weight change 1.2e-16 gauss 0.0e+00
+F3-003 (0.37, 0.61) pure (0, 0) err 1.85e-15 leak 3.7e-15 outer-weight change 1.3e-16 gauss 0.0e+00
+F3-003 (0.37, 0.61) pure (0, 1) err 1.93e-15 leak 3.6e-15 outer-weight change 2.2e-16 gauss 0.0e+00
+F3-003 (0.37, 0.61) pure (0, 1) err 1.93e-15 leak 3.1e-15 outer-weight change 3.6e-16 gauss 0.0e+00
+F3-003 (0.37, 0.61) pure (1, 0) err 1.83e-15 leak 3.6e-15 outer-weight change 2.2e-16 gauss 0.0e+00
+F3-003 (0.37, 0.61) pure (1, 0) err 1.96e-15 leak 3.6e-15 outer-weight change 2.9e-16 gauss 0.0e+00
+F3-003 (0.37, 0.61) pure (1, 1) err 2.20e-15 leak 4.0e-15 outer-weight change 4.4e-16 gauss 0.0e+00
+F3-003 (0.37, 0.61) pure (1, 1) err 2.03e-15 leak 3.4e-15 outer-weight change 3.5e-16 gauss 0.0e+00
+F3-003 (0.37, 0.61) mix None err 1.93e-15 leak 3.8e-15 outer-weight change 6.2e-17 gauss 0.0e+00
+F3-003 (0.37, 0.61) mix None err 1.96e-15 leak 3.8e-15 outer-weight change 7.3e-17 gauss 0.0e+00
+F3-003 (0.37, 0.61) mix None err 1.93e-15 leak 3.4e-15 outer-weight change 5.4e-17 gauss 0.0e+00
+F3-003 (0.37, 0.61) mix None err 1.90e-15 leak 3.2e-15 outer-weight change 6.6e-17 gauss 0.0e+00
+F3-003 (0.91, 0.23) pure (0, 0) err 1.52e-15 leak 2.7e-15 outer-weight change 1.2e-16 gauss 0.0e+00
+F3-003 (0.91, 0.23) pure (0, 0) err 1.45e-15 leak 2.9e-15 outer-weight change 7.6e-17 gauss 0.0e+00
+F3-003 (0.91, 0.23) pure (0, 1) err 1.46e-15 leak 2.7e-15 outer-weight change 1.7e-16 gauss 0.0e+00
+F3-003 (0.91, 0.23) pure (0, 1) err 1.43e-15 leak 2.3e-15 outer-weight change 2.2e-16 gauss 0.0e+00
+F3-003 (0.91, 0.23) pure (1, 0) err 1.45e-15 leak 2.8e-15 outer-weight change 2.1e-16 gauss 0.0e+00
+F3-003 (0.91, 0.23) pure (1, 0) err 1.43e-15 leak 2.7e-15 outer-weight change 2.2e-16 gauss 0.0e+00
+F3-003 (0.91, 0.23) pure (1, 1) err 1.73e-15 leak 3.2e-15 outer-weight change 3.2e-16 gauss 0.0e+00
+F3-003 (0.91, 0.23) pure (1, 1) err 1.64e-15 leak 2.9e-15 outer-weight change 3.2e-16 gauss 0.0e+00
+F3-003 (0.91, 0.23) mix None err 1.48e-15 leak 2.9e-15 outer-weight change 4.9e-17 gauss 0.0e+00
+F3-003 (0.91, 0.23) mix None err 1.48e-15 leak 2.9e-15 outer-weight change 5.7e-17 gauss 0.0e+00
+F3-003 (0.91, 0.23) mix None err 1.47e-15 leak 2.8e-15 outer-weight change 4.7e-17 gauss 0.0e+00
+F3-003 (0.91, 0.23) mix None err 1.45e-15 leak 2.3e-15 outer-weight change 5.0e-17 gauss 0.0e+00
+F3-003 (1.7, 1.0) pure (0, 0) err 2.49e-15 leak 4.9e-15 outer-weight change 1.8e-16 gauss 0.0e+00
+F3-003 (1.7, 1.0) pure (0, 0) err 2.49e-15 leak 5.1e-15 outer-weight change 1.3e-16 gauss 0.0e+00
+F3-003 (1.7, 1.0) pure (0, 1) err 2.40e-15 leak 4.7e-15 outer-weight change 2.7e-16 gauss 0.0e+00
+F3-003 (1.7, 1.0) pure (0, 1) err 2.40e-15 leak 4.4e-15 outer-weight change 4.6e-16 gauss 0.0e+00
+F3-003 (1.7, 1.0) pure (1, 0) err 2.40e-15 leak 5.0e-15 outer-weight change 2.8e-16 gauss 0.0e+00
+F3-003 (1.7, 1.0) pure (1, 0) err 2.41e-15 leak 4.7e-15 outer-weight change 3.3e-16 gauss 0.0e+00
+F3-003 (1.7, 1.0) pure (1, 1) err 2.78e-15 leak 5.3e-15 outer-weight change 5.3e-16 gauss 0.0e+00
+F3-003 (1.7, 1.0) pure (1, 1) err 2.63e-15 leak 5.0e-15 outer-weight change 4.4e-16 gauss 0.0e+00
+F3-003 (1.7, 1.0) mix None err 2.49e-15 leak 5.0e-15 outer-weight change 9.0e-17 gauss 0.0e+00
+F3-003 (1.7, 1.0) mix None err 2.48e-15 leak 5.0e-15 outer-weight change 9.4e-17 gauss 0.0e+00
+F3-003 (1.7, 1.0) mix None err 2.45e-15 leak 4.9e-15 outer-weight change 9.4e-17 gauss 0.0e+00
+F3-003 (1.7, 1.0) mix None err 2.48e-15 leak 4.4e-15 outer-weight change 9.0e-17 gauss 0.0e+00
+
+real	2m41.160s
+user	2m33.384s
+sys	0m7.415s

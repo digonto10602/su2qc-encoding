@@ -1,0 +1,200 @@
+{
+ "id": "r03-F5-003",
+ "program_path": "compress/programs/lsh/F5/003-pivot-ladder-free-ends.py",
+ "program_sha256": "10c546e534be6d627731ef40191fbbc42c321cb8fb419e699c159b11f1746480",
+ "parent": "r02-F1-002",
+ "family": "F5",
+ "round": 3,
+ "valid": true,
+ "reason": "ok",
+ "key": [
+  71,
+  1110,
+  2293,
+  25
+ ],
+ "cell": [
+  49,
+  80
+ ],
+ "metrics_raw": {
+  "cx": 71,
+  "t_fixed": 40,
+  "n_rot": 17,
+  "t_eps": 1110,
+  "t_estimate": {
+   "1e-06": 1056.5099970355327,
+   "1e-10": 1734.1833283925548
+  },
+  "t_measured": {
+   "1e-06": 1110,
+   "1e-10": 1808
+  },
+  "synth_error_bound": 1.7e-05,
+  "depth": 70,
+  "depth_ct": 2293,
+  "qubits": 25,
+  "gates": {
+   "cx": 71,
+   "h": 22,
+   "t": 20,
+   "tdg": 20,
+   "rz": 17,
+   "x": 12,
+   "s": 2,
+   "sdg": 1
+  },
+  "measured": true
+ },
+ "metrics_polished": null,
+ "verdict_nominal": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 7.20688854401155e-15,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   -6.563905180231888e-17
+  ],
+  "outer_bits_read": 0,
+  "n_blocks": 1,
+  "gauss_residual": 5.31720336112929e-16,
+  "method": "inner_span",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 4.7417933814406165e-15,
+  "block_error": 2.4650951625709334e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.21043896675109863,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 7.20688854401155e-15,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 2.4650951625709334e-15,
+   "max_dropped_l2": 1.2182634394793265e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": 2.3942164638864498e-15,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.187075716292736e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.0666345917876812e-16
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.433645741806906e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.548105712881508e-15,
+   "block_error": 2.6389700034112274e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.19822120666503906,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 7.187075716292736e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.6389700034112274e-15,
+    "max_dropped_l2": 1.1568555165924452e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.515212651312646e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 7.547541753430593e-15,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    2.87170851635145e-17
+   ],
+   "outer_bits_read": 0,
+   "n_blocks": 1,
+   "gauss_residual": 5.383794727051534e-16,
+   "method": "inner_span",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 4.641810025243414e-15,
+   "block_error": 2.9057317281871788e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.1967771053314209,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 7.547541753430593e-15,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 2.9057317281871788e-15,
+    "max_dropped_l2": 1.031090568231624e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": 2.826593009034965e-15,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "discoveries": [
+  "DISCOVERY: (claim, exhaustive C enumeration of all basic sparse solutions + Held-Karp) in every 5-variable walk cube from {e, v, u, pe, q1, y0..y3, six corner-pair flags, A} with null dimension <= 12 and frame <= 61 CX, every 12-term Walsh support gives frame + shortest free-end tour >= 73 CX (F1 cube (e, pe, a, y1, y3): exactly 8 such supports, tours 17-18 paid toggles; seed cube (e, q1, a, y1, y3): tour 15 on a 58-CX frame), so a 12-rotation walk at 71 CX needs a 6th walk variable.",
+  "DISCOVERY: (claim) replacing the ladder CX(f3 -> f1) by CX(f0 -> f1) costs nothing and makes all three ladder CX pivot-controlled, so the free-end rule extends to all of span{u, v, e}; with u, v, e and the w slots every nonzero form of span{u, v, e} is a 1-CX toggle, i.e. the bright layer is a complete graph K8 for the walk."
+ ],
+ "summary": "F1-002 frame and 15-toggle walk with an all-pivot-controlled ladder (cx(0,3), cx(0,6), cx(0,9): q3 = f0^f1 = w1 instead of u = f1^f3), so free walk ends lie anywhere in span{u, v, e}; same cost as the headline (71 CX, 10 rccx, 17 rotations), submitted as a structural variant, not an improvement.",
+ "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "git_commit": "eaada2c",
+ "versions": {
+  "python": "3.12.16",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.5.2",
+  "qiskit_aer": "0.17.2",
+  "pygridsynth": "1.2.0"
+ },
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "machine": "omnicommander x86_64 cpus=20",
+ "wall_s": 1.0890467166900635,
+ "written_utc": "2026-11-20T05:29:34Z",
+ "git_dirty": true,
+ "synthesis": {
+  "measured": true,
+  "synth_error_bound": 1.7e-05
+ },
+ "lean": null,
+ "mode": "full",
+ "encoding_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca"
+}
