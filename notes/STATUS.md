@@ -71,7 +71,7 @@ Latest acceptance tag: acceptance-v22 (m11, prompts/009+010; v21 = 008 E1); prev
 PAUSED 2026-11-19 15:40 by usage guard (5-hour 97 %, reset 16:20 EST). Resume steps, in order:
 1. DONE: LSH round 3 evaluated + tester 441 PASS + committed (new headline r03-F3-003 native 70 CX).
 2. DONE: LSH loop STOPPED after round 6 (max_sessions 20; tester 444). Headline r05-F3-005 (68,1396,3210,24), robust (68,28348,0,63378,24).
-3. LSH 8.8 certify-headline in a clean worktree (cert must carry provenance.entry_id, tester 440 obs. 1), 8.9 run scripts/m8_results.py there, 8.10 gate -> milestone-8 -> Report 8.
+3. LSH 8.8 DONE (b422e78), 8.9 DONE (2b0a311; M8 L5/R1/G3 green). 8.10 gate RUNNING: tester full (reports/tests/445, cores 0-7) + builder METHODS-lsh L12 measured numbers (core 8); then auditor -> benchmark -> tag milestone-8 -> Report 8.
 4. M11 11.8 regenerate results/crosscheck on a clean commit; finalise Report 11; refresh results/summary/encodings-gate-counts.md.
 5. Waiting on Digonto: (a) Report 11 attribution of the four planner derivations; (b) acceptance of the 12 rishon 204 §14 defaults; (c) push target (branch merge-desktop-tracks is 158+ commits ahead of origin/master).
 Unexplained: `results/spinnet/certs/spinnet-step-o1-b0a415d9322f.json` modified in the working tree (one-line rewrite, not by this session's agents as far as known; possibly the other session or a unit test) -- left uncommitted, check before the next commit.
