@@ -1,7 +1,7 @@
 # Report 8 — loop-string-hadron (LSH) encoding: compressing the one-Trotter-step circuit
 
-Date: 2026-11-20 · Repository commit at writing: `e729f15` (branch `merge-desktop-tracks`, host omnicommander) · Tag: `milestone-8` at [TAG: milestone-8 commit] · Plans in force: `prompts/401-lsh-m8-compression-plan.md` on `prompts/400-lsh-m7-plan.md`, with `prompts/008` for the shared registry, headline rule and replay, and `prompts/002`–`008` for the shared machinery · Conventions: `docs/METHODS-lsh.md` L10, L12–L16 and `docs/METHODS.md` §6–§9, §11, §12 · Related reports: Report 7 (`docs/report-7-lsh-general-circuit.md`, the general LSH circuit and the transcoder); Report 4 (`docs/report-4-spinnet-compression.md`, whose 31-CX headline is wrapped here); Reports 2 and 6 (`docs/report-2-twelve-qubit-compression.md`, `docs/report-6-rishon-compression.md`, the same loop on other encodings).
-Verification: tester reports `reports/tests/436` (steps 8.2–8.4), `437` (round 0), `438`–`439` (rounds 1–2), `440` (the results script), `441`–`444` (rounds 3–6, with 444 also covering the 21-toggle search). Milestone gate: [GATE: tester 445 full — counts and verdict]; audit [GATE: audit NNN verdict and notes]; benchmark [GATE: benchmark NNN]. Research: `reports/research/401-lsh-m8-compression.md`.
+Date: 2026-11-20 · Repository commit at writing: `e729f15` (branch `merge-desktop-tracks`, host omnicommander) · Tag: `milestone-8` at [TAG: milestone-8 commit] · Plans in force: `prompts/402-lsh-m8-g2-erratum.md` (amended gate test M8-G2, acceptance-v23) on `prompts/401-lsh-m8-compression-plan.md` on `prompts/400-lsh-m7-plan.md`, with `prompts/008` for the shared registry, headline rule and replay, and `prompts/002`–`008` for the shared machinery · Conventions: `docs/METHODS-lsh.md` L10, L12–L16 and `docs/METHODS.md` §6–§9, §11, §12 · Related reports: Report 7 (`docs/report-7-lsh-general-circuit.md`, the general LSH circuit and the transcoder); Report 4 (`docs/report-4-spinnet-compression.md`, whose 31-CX headline is wrapped here); Reports 2 and 6 (`docs/report-2-twelve-qubit-compression.md`, `docs/report-6-rishon-compression.md`, the same loop on other encodings).
+Verification: tester reports `reports/tests/436` (steps 8.2–8.4), `437` (round 0), `438`–`439` (rounds 1–2), `440` (the results script), `441`–`444` (rounds 3–6, with 444 also covering the 21-toggle search). Milestone gate: tester `reports/tests/445` (full; one red, M8-G2, by design, §5) and `446` (full re-run on acceptance-v23: PASS); audit `reports/audits/308` (PASS WITH NOTES); benchmark [GATE: benchmark 306]. Research: `reports/research/401-lsh-m8-compression.md`.
 
 **Where the numbers come from.** Every number is read from a committed file and cited. "Trivial difference" means a subtraction, ratio or percentage of two cited numbers; such numbers are marked. No test, evaluator run, compression round or Lean check was run for this report.
 - **Headline and main table.** Sources: `results/lsh/m8-compressed.json` and `results/lsh/m8-before-after.md`. They were produced by `python scripts/m8_results.py` on the clean commit `b422e78` (`provenance.git_dirty: false`, host omnicommander, python 3.12.16, numpy 2.5.4, scipy 1.18.1, qiskit 2.5.2, qiskit-aer 0.17.2, pygridsynth 1.2.0, wall 5.7 s, peak 288 MB) and committed in `2b0a311`. The headline circuit is also stored as `results/lsh/m8-headline-step.{qasm3,qpy}` (QPY sha256 `19f2d533…`).
@@ -81,7 +81,7 @@ $$k_{\rm rob}=\Big(\mathrm{CX},\ \sum_{i=1}^{20}T_{10^{-6}}(\alpha_i,\beta_i),\ 
 - F3, minimal-AND synthesis (native);
 - F4, three-product cleaning (native);
 - F5, dead-syndrome multiplexer (transcoding).
-- As run, the F3 programs build a "3-AND fold frame" (the proposer's label) that is close to the ideation's F4 idea. F1's round-5 program and F5's round-5 program used F3's native frame (`r05-F1-004`, `r05-F5-005`, parent `r04-F3-004`). Family label and kind therefore do not match one-for-one; this is judged from the programs' SUMMARY lines (§5).
+- As run, the F3 programs (and F4 in rounds 1–2) build a "3-AND fold frame" (the proposer's label), which is the ideation's family-4 frame. It meets family 3's AND-count goal, but not by family 3's planned SAT / XOR-AND search (audit 308 (e)). F1's round-5 program and F5's round-5 program used F3's native frame (`r05-F1-004`, `r05-F5-005`, parent `r04-F3-004`). Family label and kind therefore do not match one-for-one; this is judged from the programs' SUMMARY lines (§5).
 - **Rounds 1–6** (`prompts/401` §1.7): one proposer session per active family.
 - Round 1: F1–F5. Round 2: F1–F5.
 - From round 3: the best three families by robust key, F1, F3, F5.
@@ -210,7 +210,7 @@ What the front shows:
 
 The native frame halves the fixed T ($48\to24$) but needs 22 rotations instead of 17, so rotation T grows by $1372-1070=302$. The net is $+278$ (trivial differences). The extra rotations, not the CX gates, are the cost.
 
-That this is structural and not angle luck: $\bar T=1417.4$ lies within 22 of the nominal $T$ (1396), inside the noise band of L14.
+That this is structural and not angle luck: $\bar T=1417.4$ differs from the nominal $T$ (1396) by 21.4 T ($1.5\,\%$), so the nominal pair is typical of the 20 pairs. (An earlier draft called this "inside the noise band of L14"; that band is defined for $\sum T$ differences between two records at fixed structure, not for a mean against a nominal value; audit 308.)
 
 ### 3.4 How the search went
 Sources:
@@ -301,7 +301,7 @@ The testers confirmed the circuit, its counts and the gate-list facts below (tes
 - round 5: $6.6\times10^{-15}$ (443);
 - round 6: $6.4\times10^{-15}$ (444).
 - The wrong-sign target ($-\beta$) is 0.89–1.88 away, so the check can fail.
-- **Second engine, Qiskit-Aer statevector.** Aer is Qiskit's high-performance simulator; a statevector run holds the full amplitude vector. Circuits that never touch the outer register were checked on the 47 inner codes (data + ancilla qubits). Circuits that read outer qubits were checked on **full 24-qubit seeded states** across the four $(q13,q14)$ sectors plus mixtures, because the 47-code check does not apply to them.
+- **Second engine, Qiskit-Aer statevector.** Aer is Qiskit's high-performance simulator; a statevector run holds the full amplitude vector. Circuits that never touch the outer register were checked on the 47 inner codes (data + ancilla qubits). Circuits that read outer qubits were checked by the per-round testers on **full 24-qubit seeded states** across the four $(q13,q14)$ sectors plus mixtures, starting in round 1 (`r01-F3-001`, tester 438). At the gate the amended locked test M8-G2 (`prompts/402`) checks them on all 433 physical codes on data + ancilla + read outer qubits and on 10 seeded full-register states (seed 20261120); see the gate item below.
 
 | round (tester) | Aer mode | max error | other |
 |---|---|---|---|
@@ -316,7 +316,13 @@ The testers confirmed the circuit, its counts and the gate-list facts below (tes
 - **Counts, robust keys, stop record.** In every round the testers recomputed CX, $T_{\rm fixed}$, $N_{\rm rot}$, $T$, $\mathrm{depth}_{\rm CT}$ and qubits with their own lowering and own pygridsynth, and all were equal to the archive. Robust keys from the stock worker were equal to `robust.json`. Their own derivation of the stop record was equal to `stop.json` (tester 444 checks 12–20).
 - **Programs and provenance.** Program sha256 on disk equals the archive and the round file for every new entry. No proposer committed to `src/`, `tests/` or `lean/` (tester 444 check 27).
 - **Hashes.** The evaluator hash `88e0d76b…` is the same in all round files, entries and `robust.json` (tester 444 check 3).
-- **Milestone gate.** Gate tester: [GATE: tester 445 full — counts and verdict]. Audit: [GATE: audit NNN verdict and notes]. Benchmark: [GATE: benchmark NNN].
+- **The headline relies on the Gauss law.** It replaces the read of $\ell_{v1}(0)$ by $\ell_{2v}(0)\oplus e$, the site-0 virtual-link Gauss identity (true on all 433 physical codes). So it equals the M7 step only on Gauss-law states, which is all the specification requires. On non-physical inputs (q14 flipped) it differs from the M7 circuit on 327 of 433 inputs, by up to 2.0 (audit 308 §4.1, N8). Do not run it on unprojected states expecting the M7 behaviour.
+- **Independent audit check.** Audit 308 used its own sparse full-register simulator (not Aer, not the project engine) on all 433 physical codes at 29 angle pairs (3 spec, 2 G4, 20 robust-key, 4 outside the spec range). Headline vs target: $\le7.4\times10^{-15}$; headline vs M7 circuit: $\le1.1\times10^{-14}$; leak, ancilla weight, outer-pattern change and cross-sector amplitude exactly 0; the $-\beta$ control is 1.878 away (tolerance $10^{-10}$). Its own enumeration of the LSH rules gives exactly the 433 production codes, so these are the whole physical subspace.
+- **Milestone gate.**
+  - Gate tester 445 (full, acceptance-v22): 405 of 407 acceptance tests green, M11_T2 PENDING (expected), one red: M8-G2 (by design, §5); unit 1224 pass; lock and frozen hashes OK.
+  - Gate tester 446 (full re-run on acceptance-v23, after the erratum): **PASS**. m8 33 passed including slow (114.8 s), m7 29 passed, unit `lsh or m8` 125 passed, 407 collected, lock OK, frozen hashes equal to tester 434. M8-G2 alone: 113.6 s, peak 1.64 GiB (process-tree RSS, sampled every 0.2 s; budget 2.2 GB).
+  - Audit 308: **PASS WITH NOTES**, no blocking issue, no acceptance test or tolerance judged wrong. All counts reproduced at commit `b422e78` (clean) via `python scripts/m8_results.py`; headline selection, stop rule and Lean theorem confirmed. Notes N1–N9 are applied in this report or listed in §5.
+  - Benchmark: [GATE: benchmark 306].
 
 ### 3.7 Lean status (trust label: native-certified, first-order step)
 **Definitions.**
@@ -357,6 +363,7 @@ At corners 1 and 3 the uniform splitting of Raychowdhury–Stryker re-pairs the 
 | ours, (inner $\mid$ outer) | 256 | 1 | 256 | $\tfrac12,1,2$ | none | 4 / 12 |
 
 - The two have the same spectrum (difference $3.3\times10^{-15}$). Circuit: **not built**.
+- The "sites / qubits touched" column is set by construction (the plaquette passes through both split sites at corners 1 and 3), not computed from the operator's support (audit 308 N4).
 - **The LSH-versus-spin-network comparison holds for the (inner $\mid$ outer) splitting only.** A circuit in the uniform splitting would have to write outer-site qubits; that would be a sixth encoding and is not planned (`prompts/401` §12 D10).
 
 ## 4. Findings
@@ -380,8 +387,9 @@ At corners 1 and 3 the uniform splitting of Raychowdhury–Stryker re-pairs the 
    - Removing the class-cover bound (≤ 19 toggles) or the superset pruning (≤ 20 toggles) changes no feasible set.
    - An independent exact brute force agrees on 13 positive controls and finds nothing on more than 25 000 closed 5-cube walks ($2.2\times10^8$ lifts; part of this was sampled).
    - The search re-finds the known 22-toggle walks.
+ - **Model assumptions** (audit 308): one pivot qubit; toggles only from the 7 single-wire generators; the target on the 37 labels fixed (no sign freedom from changed frame phases); the 46-CX frame fixed. The evidence (`x3.c` header, `X21_*.txt`: `found=0`, `mismatches=0`; `L22_0.txt` re-finds the 22-toggle walk) supports exactly this statement; the audit judged the scope statement honest.
  - **Scope.** Only this 64-point space. Not covered: the $u,v,w$ wires, the outer bits of sites 1–3, other free toggles, flags or ancillas, other frames. **This is not a CX lower bound for the circuit family** (tester 444 O3; METHODS-lsh L12 (vii)).
-7. **$U_E$ needs 4 rotations (tester-confirmed).** On the 47 inner codes, $\sum_cN_n(c)$ is not a constant plus 1, 2 or 3 parity characters. It is exactly a constant plus the 4 characters $\chi_{\ell_{pn}\oplus\ell_{nv}}(c)$ (residual $6.8\times10^{-15}$; tester 444 (d)6, model "constant plus $k$ parity characters").
+7. **$U_E$ needs 4 rotations (tester-confirmed).** On the 47 inner codes, $\sum_cN_n(c)$ is not a constant plus 1, 2 or 3 parity characters. It is exactly a constant plus the 4 characters $\chi_{\ell_{pn}\oplus\ell_{nv}}(c)$ (residual $6.8\times10^{-15}$; tester 444 (d)6, model "constant plus $k$ parity characters"). Audit 308 confirmed it independently: the smallest least-squares residual with 1, 2 or 3 characters is 5.79, 4.24 and 3.00; with the four characters it is $5.9\times10^{-15}$.
 8. **Weak negatives, not bounds.** Several "no walk found" statements of F1 and F5 (rounds 1–5) come from time-limited MILP (mixed-integer linear programming) or simulated annealing. The proposers themselves call several of them weak, because the same searches failed to re-find walks known to exist (`r04-F1-003`, `r05-F1-004`, `r02-F5-002`).
 
 **Kernel-checked facts given to the proposers and used.** These are in `lean/Su2Plaq/LSH/Facts.lean`, kernel-checked, `decide` (METHODS-lsh L13); the mapping to the headline below is mine, read from the program comments and the ideation, not a formal dependency.
@@ -396,12 +404,19 @@ At corners 1 and 3 the uniform splitting of Raychowdhury–Stryker re-pairs the 
 
 ## 5. Problems and assumptions
 
-- **Expected conflict with locked test M8-G2 (gate item; not run for this report).**
-- `tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G2` runs Aer on data + ancilla qubits only. Its helper asserts that no gate touches an outer qubit: "a circuit that reads outer qubits … fails here with a message (a planner decision, not a skip)".
-- The headline and archive best `r05-F3-005` reads q13 and q14 as CX controls (§3.5). So M8-G2 is expected to fail on it by design.
-- `prompts/401` §9 lists "the archive best or headline touches the outer register" as **stop and return to the planner**, and §12 D11 says such a best "goes back to the planner".
-- The per-round testers covered these circuits with full 24-qubit Aer states (§3.6), so the physics check exists; the locked test does not accept it.
-- Outcome: [GATE: tester 445 full — counts and verdict].
+- **Locked test M8-G2 was amended for this headline (`prompts/402`, acceptance-v23, Digonto's decision of 2026-11-20).**
+- The original M8-G2 ran Aer on data + ancilla qubits only and refused any circuit that touches an outer qubit. The headline `r05-F3-005` reads q13 and q14 as CX controls (§3.5), so the original test failed on it by design (tester 445: the only red). `prompts/401` §9 and D11 sent this case back to the planner; Digonto chose the planner amendment.
+- The amended test keeps the old check, byte-identical, for circuits that touch no outer qubit. For circuits that read outer qubits it adds: (i) a static scan that refuses any gate not diagonal in an outer qubit (a "write"); (ii) Aer on all 433 physical codes on data + ancilla + read outer qubits (exhaustive on the physical subspace; operator norm of the $433\times433$ block after one global phase $\le10^{-10}$); (iii) Aer on 10 seeded states of the full 24-qubit register (seed 20261120). Check (ii) was added by the planner beyond the approved sampled check (iii), because a sample cannot bound the operator norm (`prompts/402` §11.1).
+- Result for the headline (`prompts/402` §7, reproduced to the printed digits by tester 446; tolerances $10^{-10}$ for errors and probability change, $10^{-20}$ for weights):
+
+| pair $(\alpha,\beta)$ | error, 433 codes | weights (ancilla, leak, outer) | error, 10 full-register states | outer-pattern probability change |
+|---|---|---|---|---|
+| $(0.37,0.61)$ | $2.98\times10^{-15}$ | 0, 0, 0 | $1.80\times10^{-15}$ | $7.8\times10^{-17}$ |
+| $(0.91,0.23)$ | $2.59\times10^{-15}$ | 0, 0, 0 | $1.46\times10^{-15}$ | $6.1\times10^{-17}$ |
+| $(1.70,1.00)$ | $3.10\times10^{-15}$ | 0, 0, 0 | $2.20\times10^{-15}$ | $8.0\times10^{-17}$ |
+
+- 17 deliberately broken circuits (writes to outer qubits, wrong signs, a rotation off by $10^{-8}$, a dirty ancilla) all gave the expected pass or fail (planner; re-run by tester 446). A rotation off by $10^{-13}$, below tolerance, correctly passes.
+- Limits: a circuit that reads outer qubits **and** uses an ancilla is refused at 25 qubits (memory limit, `prompts/402` §5); the archive does not contain one. The test's amplitude threshold of $10^{-13}$ can hide up to $4.3\times10^{-11}$ of operator-norm error, and the per-column leak weight bounds the leak block only to $2.1\times10^{-9}$ (audit 308 N1, inherited per-state convention). Measured values are $\le3.1\times10^{-15}$ and 0, so no verdict depends on this. M8-G2 now takes 112 s of the 115 s m8 run and about 74 % of the 2.2 GB memory budget.
 - **Defaults of `prompts/401` §12, taken without asking ("default, not reviewed by Digonto").** `notes/STATUS.md` 2026-11-13 lists D1–D13 "for Digonto". The acceptance of 2026-11-17 covered `prompts/009` and `prompts/010` only.
 - **D1:** target = full LSH-register first-order step, transcoder included.
 - **D2:** Phase 0 first; registry entry inside the 008 window; rounds after the freeze; no shim.
@@ -413,9 +428,10 @@ At corners 1 and 3 the uniform splitting of Raychowdhury–Stryker re-pairs the 
 - **D8:** Lean facts in `Facts.lean`, theorem `lsh_best`, no-rewrite rule.
 - **D9:** audit N8/N4 handled by new locked tests.
 - **D10:** uniform splitting as a structure row only.
-- **D11:** Aer on data + ancilla at the gate (see the first item).
+- **D11:** Aer on data + ancilla at the gate. **Amended** by `prompts/402` on Digonto's decision of 2026-11-20 (see the first item).
 - **D12:** Paulo's file as an external $U_B$ row at $\beta=-0.05$; order 2 and the outer electric row outside the loop.
 - **D13:** file numbers.
+- **Planner additions in `prompts/402` §11, also not reviewed by Digonto:** (1) the exhaustive 433-code check in addition to the approved sampled full-register check; (2) "diagonal in the outer qubit" counts as a read, which is wider than "control of a `cx`" (an `rz` on an outer qubit passes the scan and is then judged by simulation); (3) a circuit that reads outer qubits and has ancillas still returns to the planner.
 - **What `n_a` means.** `n_a` ("not applicable") is the Lean status when the exporter cannot write a certificate:
 - `non_linear_angle…`: some rotation angle is not a rational multiple of $\alpha$ or $\beta$;
 - `phase_not_in_K`: the global phase is not in the exact number field;
@@ -426,8 +442,10 @@ At corners 1 and 3 the uniform splitting of Raychowdhury–Stryker re-pairs the 
 - **N3:** the word "certified" has two meanings. In the verdict columns and `verification.certified`, it is the **numerical evaluator's** verdict. In the Lean column, it is the compiled checker. Only the Lean meaning carries the trust label of §3.7.
 - **N5:** the synthesised outer electric row is not verifiable by the evaluator (§3.5).
 - **N6:** route A and LSH differ by a diagonal $\pm1$ sign matrix; 64 of the 128 bright pairs of physical states have opposite matrix-element sign, and which member of a pair carries the minus is a choice of the alignment routine (Report 7 §2). Nothing in M8 depends on it.
-- **The depth tie-break is below noise.** `r05-F3-005`, `r04-F3-004` and `r05-F5-005` are equal on $(\mathrm{CX},\sum T,\rho,\text{qubits})$. The headline is picked by summed depth: 63378 vs 63598 vs 63578, a 0.3 % difference, below the 0.6 % synthesis-word noise of L14 (tester 444). This changes no CX or T number in this report.
-- **Table quirk in `m8-before-after.md`.** The front table lists `r04-F3-004` as its first row and then says "the first row is the headline". The headline is `r05-F3-005`; it ties `r04-F3-004` on CX and $\bar T$. `m8-compressed.json::extra.headline` is authoritative.
+- **The depth tie-break is below noise.** `r05-F3-005`, `r04-F3-004` and `r05-F5-005` are equal on $(\mathrm{CX},\sum T,\rho,\text{qubits})$. The headline is picked by summed depth: 63378 vs 63598 vs 63578, a 0.3 % difference, below the 0.6 % synthesis-word noise of L14 (tester 444). The three also tie on nominal T, number of rotations and fixed T (audit 308). The tie order is the same under both depth conventions below. This changes no CX or T number in this report.
+- **Depth convention.** $\mathrm{depth}_{\rm CT}$ follows METHODS §7: each gridsynth letter X is expanded to H S S H. Counting X as one gate (as tester 445 did) gives 3207 instead of 3210 for the headline at the nominal pair (+3) and 62910 instead of 63378 for the 20-pair sum (+468); the seed's sum differs by +33. So the offset is not a constant 3 (audit 308 §4.2, N3).
+- **Table quirk in `m8-before-after.md` (not fixed).** The front table lists `r04-F3-004` as its first row and then says "the first row is the headline". The headline is `r05-F3-005`; it ties `r04-F3-004` on CX and $\bar T$. Cause: `scripts/m8_results.py:178-190` sorts tied front entries by id, and line 270 then calls the first row the headline (audit 308 N2). `m8-compressed.json::extra.headline` is authoritative. Left as is so the committed results match the audited script.
+- **Code hygiene notes from audit 308 (not fixed, no result affected).** N4: `rs_split.structure()` sets "sites / qubits touched" (6 / 18 vs 4 / 12, §3.8) by a formula, not from the operator's support; the values are right by construction. N5: the certificate no-rewrite rule in `lean_export.py` can keep a stale `git_dirty: true` when only volatile provenance differs; the headline certificate records `1e765f1`, clean.
 - **The loop stopped by the session limit, not by saturation.** The last improvement was round 4 (68 CX); rounds 5–6 were variants and a negative-result carrier. A different search (more sessions, other frames, a T-first key) could find other points; the 21-toggle result closes only one design space.
 - **Session accounting.** The round-3 F1 session stopped by the usage guard wrote no program and is not counted (§2). Counting launched sessions would have stopped the loop one session earlier; the stop reason would not change.
 - **Provenance.**
