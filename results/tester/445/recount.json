@@ -1,0 +1,2552 @@
+{
+ "commit": "e8f6212",
+ "seeds": {
+  "angle_set": 20261107,
+  "transpiler": 20261104
+ },
+ "per_pair_T": [
+  1424,
+  1432,
+  1424,
+  1388,
+  1460,
+  1440,
+  1404,
+  1388,
+  1316,
+  1468,
+  1460,
+  1424,
+  1432,
+  1432,
+  1432,
+  1404,
+  1360,
+  1432,
+  1432,
+  1396
+ ],
+ "checks": [
+  {
+   "check": "prov git_commit",
+   "expected": "b422e78",
+   "got": "b422e78",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "prov git_dirty",
+   "expected": false,
+   "got": false,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "prov command",
+   "expected": "python scripts/m8_results.py",
+   "got": "python scripts/m8_results.py",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "prov quick",
+   "expected": false,
+   "got": false,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "circuit_id",
+   "expected": "r05-F3-005",
+   "got": "r05-F3-005",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "params",
+   "expected": {
+    "alpha": 0.37,
+    "beta": 0.61,
+    "order": 1
+   },
+   "got": {
+    "alpha": 0.37,
+    "beta": 0.61,
+    "order": 1
+   },
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "git commit b422e78 is an ancestor of HEAD",
+   "expected": 0,
+   "got": 0,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "results file last committed at 2b0a311",
+   "expected": "2b0a311",
+   "got": "2b0a311",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive n entries",
+   "expected": 29,
+   "got": 29,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive all valid",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive evaluator sha all equal frozen lsh hash",
+   "expected": "{'88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca'}",
+   "got": "{'88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca'}",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive best by key = r05-F3-005",
+   "expected": "r05-F3-005",
+   "got": "r05-F3-005",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive best key",
+   "expected": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "got": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md/JSON archive_best_key",
+   "expected": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "got": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "program sha256 == JSON headline == archive",
+   "expected": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+   "got": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "JSON headline program sha",
+   "expected": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+   "got": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "angle set n",
+   "expected": 20,
+   "got": 20,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "own sum T(1e-6) over the 20 pairs",
+   "expected": 28348,
+   "got": 28348,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "own mean T",
+   "expected": 1417.4,
+   "got": 1417.4,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "check": "structure (CX,T_fixed,N_rot,qubits) same for all 20 pairs",
+   "expected": "{(68, 24, 22, 24)}",
+   "got": "{(68, 24, 22, 24)}",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "JSON headline robust_key",
+   "expected": [
+    68,
+    28348,
+    0,
+    63378,
+    24
+   ],
+   "got": [
+    68,
+    28348,
+    0,
+    63378,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "JSON t_mean",
+   "expected": 1417.4,
+   "got": 1417.4,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=0.0001) own",
+   "expected": 956,
+   "got": 956,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=0.0001) JSON",
+   "expected": 956,
+   "got": 956,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=1e-06) own",
+   "expected": 1396,
+   "got": 1396,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=1e-06) JSON",
+   "expected": 1396,
+   "got": 1396,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=1e-08) own",
+   "expected": 1828,
+   "got": 1828,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=1e-08) JSON",
+   "expected": 1828,
+   "got": 1828,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=1e-10) own",
+   "expected": 2312,
+   "got": 2312,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=1e-10) JSON",
+   "expected": 2312,
+   "got": 2312,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "before_after rows count (JSON)",
+   "expected": 19,
+   "got": 19,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md table rows (before/after table 19 rows)",
+   "expected": 19,
+   "got": 19,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general (r00-seed-000) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    94,
+    88,
+    8,
+    31
+   ],
+   "got": [
+    94,
+    88,
+    8,
+    31
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general key vs archive key",
+   "expected": [
+    94,
+    598,
+    880,
+    31
+   ],
+   "got": [
+    94,
+    598,
+    880,
+    31
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general T(1e-6)",
+   "expected": 598,
+   "got": 598,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general T(1e-10)",
+   "expected": 916,
+   "got": 916,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general depth_ct",
+   "expected": 880,
+   "got": 880,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row general (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "31",
+    "94",
+    "88",
+    "8"
+   ],
+   "got": [
+    "31",
+    "94",
+    "88",
+    "8"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general+polish (r00-seed-010) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    94,
+    88,
+    8,
+    31
+   ],
+   "got": [
+    94,
+    88,
+    8,
+    31
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general+polish key vs archive key",
+   "expected": [
+    94,
+    598,
+    880,
+    31
+   ],
+   "got": [
+    94,
+    598,
+    880,
+    31
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general+polish T(1e-6)",
+   "expected": 598,
+   "got": 598,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general+polish T(1e-10)",
+   "expected": 916,
+   "got": 916,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general+polish depth_ct",
+   "expected": 880,
+   "got": 880,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row general+polish (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "31",
+    "94",
+    "88",
+    "8"
+   ],
+   "got": [
+    "31",
+    "94",
+    "88",
+    "8"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row qiskit_l3 (r00-seed-qiskit_l3) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    94,
+    88,
+    8,
+    31
+   ],
+   "got": [
+    94,
+    88,
+    8,
+    31
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row qiskit_l3 key vs archive key",
+   "expected": [
+    94,
+    598,
+    880,
+    31
+   ],
+   "got": [
+    94,
+    598,
+    880,
+    31
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row qiskit_l3 T(1e-6)",
+   "expected": 598,
+   "got": 598,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row qiskit_l3 T(1e-10)",
+   "expected": 916,
+   "got": 916,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row qiskit_l3 depth_ct",
+   "expected": 880,
+   "got": 880,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row qiskit_l3 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "31",
+    "94",
+    "88",
+    "8"
+   ],
+   "got": [
+    "31",
+    "94",
+    "88",
+    "8"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row qiskit_l3_whole (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "31",
+    "94",
+    "88",
+    "8"
+   ],
+   "got": [
+    "31",
+    "94",
+    "88",
+    "8"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_pairs9 (r00-seed-001) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    74,
+    56,
+    13,
+    27
+   ],
+   "got": [
+    74,
+    56,
+    13,
+    27
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_pairs9 key vs archive key",
+   "expected": [
+    74,
+    864,
+    1615,
+    27
+   ],
+   "got": [
+    74,
+    864,
+    1615,
+    27
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_pairs9 T(1e-6)",
+   "expected": 864,
+   "got": 864,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_pairs9 T(1e-10)",
+   "expected": 1408,
+   "got": 1408,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_pairs9 depth_ct",
+   "expected": 1615,
+   "got": 1615,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row wrap_pairs9 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "27",
+    "74",
+    "56",
+    "13"
+   ],
+   "got": [
+    "27",
+    "74",
+    "56",
+    "13"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags4 (r00-seed-002) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    84,
+    80,
+    8,
+    27
+   ],
+   "got": [
+    84,
+    80,
+    8,
+    27
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags4 key vs archive key",
+   "expected": [
+    84,
+    586,
+    888,
+    27
+   ],
+   "got": [
+    84,
+    586,
+    888,
+    27
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags4 T(1e-6)",
+   "expected": 586,
+   "got": 586,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags4 T(1e-10)",
+   "expected": 912,
+   "got": 912,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags4 depth_ct",
+   "expected": 888,
+   "got": 888,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row wrap_flags4 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "27",
+    "84",
+    "80",
+    "8"
+   ],
+   "got": [
+    "27",
+    "84",
+    "80",
+    "8"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags5 (r00-seed-003) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    82,
+    72,
+    9,
+    27
+   ],
+   "got": [
+    82,
+    72,
+    9,
+    27
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags5 key vs archive key",
+   "expected": [
+    82,
+    638,
+    1027,
+    27
+   ],
+   "got": [
+    82,
+    638,
+    1027,
+    27
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags5 T(1e-6)",
+   "expected": 638,
+   "got": 638,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags5 T(1e-10)",
+   "expected": 1008,
+   "got": 1008,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags5 depth_ct",
+   "expected": 1027,
+   "got": 1027,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row wrap_flags5 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "27",
+    "82",
+    "72",
+    "9"
+   ],
+   "got": [
+    "27",
+    "82",
+    "72",
+    "9"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags6 (r00-seed-004) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    76,
+    64,
+    10,
+    27
+   ],
+   "got": [
+    76,
+    64,
+    10,
+    27
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags6 key vs archive key",
+   "expected": [
+    76,
+    690,
+    1139,
+    27
+   ],
+   "got": [
+    76,
+    690,
+    1139,
+    27
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags6 T(1e-6)",
+   "expected": 690,
+   "got": 690,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags6 T(1e-10)",
+   "expected": 1106,
+   "got": 1106,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_flags6 depth_ct",
+   "expected": 1139,
+   "got": 1139,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row wrap_flags6 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "27",
+    "76",
+    "64",
+    "10"
+   ],
+   "got": [
+    "27",
+    "76",
+    "64",
+    "10"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_headline (r00-seed-005) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    71,
+    48,
+    17,
+    25
+   ],
+   "got": [
+    71,
+    48,
+    17,
+    25
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_headline key vs archive key",
+   "expected": [
+    71,
+    1118,
+    2276,
+    25
+   ],
+   "got": [
+    71,
+    1118,
+    2276,
+    25
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_headline T(1e-6)",
+   "expected": 1118,
+   "got": 1118,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_headline T(1e-10)",
+   "expected": 1816,
+   "got": 1816,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_headline depth_ct",
+   "expected": 2276,
+   "got": 2276,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row wrap_sn_headline (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "25",
+    "71",
+    "48",
+    "17"
+   ],
+   "got": [
+    "25",
+    "71",
+    "48",
+    "17"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_r05F3 (r00-seed-006) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    72,
+    56,
+    13,
+    25
+   ],
+   "got": [
+    72,
+    56,
+    13,
+    25
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_r05F3 key vs archive key",
+   "expected": [
+    72,
+    864,
+    1570,
+    25
+   ],
+   "got": [
+    72,
+    864,
+    1570,
+    25
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_r05F3 T(1e-6)",
+   "expected": 864,
+   "got": 864,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_r05F3 T(1e-10)",
+   "expected": 1408,
+   "got": 1408,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_r05F3 depth_ct",
+   "expected": 1570,
+   "got": 1570,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row wrap_sn_r05F3 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "25",
+    "72",
+    "56",
+    "13"
+   ],
+   "got": [
+    "25",
+    "72",
+    "56",
+    "13"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_r02F5 (r00-seed-007) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    74,
+    64,
+    10,
+    25
+   ],
+   "got": [
+    74,
+    64,
+    10,
+    25
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_r02F5 key vs archive key",
+   "expected": [
+    74,
+    690,
+    1134,
+    25
+   ],
+   "got": [
+    74,
+    690,
+    1134,
+    25
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_r02F5 T(1e-6)",
+   "expected": 690,
+   "got": 690,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_r02F5 T(1e-10)",
+   "expected": 1106,
+   "got": 1106,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_r02F5 depth_ct",
+   "expected": 1134,
+   "got": 1134,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row wrap_sn_r02F5 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "25",
+    "74",
+    "64",
+    "10"
+   ],
+   "got": [
+    "25",
+    "74",
+    "64",
+    "10"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row paulo15_wrapped (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "31",
+    "108",
+    "96",
+    "4"
+   ],
+   "got": [
+    "31",
+    "108",
+    "96",
+    "4"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F1 (r02-F1-002) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    71,
+    40,
+    17,
+    25
+   ],
+   "got": [
+    71,
+    40,
+    17,
+    25
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F1 key vs archive key",
+   "expected": [
+    71,
+    1110,
+    2291,
+    25
+   ],
+   "got": [
+    71,
+    1110,
+    2291,
+    25
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F1 T(1e-6)",
+   "expected": 1110,
+   "got": 1110,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F1 T(1e-10)",
+   "expected": 1808,
+   "got": 1808,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F1 depth_ct",
+   "expected": 2291,
+   "got": 2291,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row best_family_F1 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "25",
+    "71",
+    "40",
+    "17"
+   ],
+   "got": [
+    "25",
+    "71",
+    "40",
+    "17"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F2 (r02-F2-002) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    72,
+    44,
+    19,
+    26
+   ],
+   "got": [
+    72,
+    44,
+    19,
+    26
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F2 key vs archive key",
+   "expected": [
+    72,
+    1242,
+    2614,
+    26
+   ],
+   "got": [
+    72,
+    1242,
+    2614,
+    26
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F2 T(1e-6)",
+   "expected": 1242,
+   "got": 1242,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F2 T(1e-10)",
+   "expected": 2020,
+   "got": 2020,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F2 depth_ct",
+   "expected": 2614,
+   "got": 2614,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row best_family_F2 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "26",
+    "72",
+    "44",
+    "19"
+   ],
+   "got": [
+    "26",
+    "72",
+    "44",
+    "19"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F3 (r05-F3-005) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    68,
+    24,
+    22,
+    24
+   ],
+   "got": [
+    68,
+    24,
+    22,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F3 key vs archive key",
+   "expected": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "got": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F3 T(1e-6)",
+   "expected": 1396,
+   "got": 1396,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F3 T(1e-10)",
+   "expected": 2312,
+   "got": 2312,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F3 depth_ct",
+   "expected": 3210,
+   "got": 3210,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row best_family_F3 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "24",
+    "68",
+    "24",
+    "22"
+   ],
+   "got": [
+    "24",
+    "68",
+    "24",
+    "22"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F4 (r02-F4-002) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    73,
+    24,
+    22,
+    24
+   ],
+   "got": [
+    73,
+    24,
+    22,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F4 key vs archive key",
+   "expected": [
+    73,
+    1396,
+    3218,
+    24
+   ],
+   "got": [
+    73,
+    1396,
+    3218,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F4 T(1e-6)",
+   "expected": 1396,
+   "got": 1396,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F4 T(1e-10)",
+   "expected": 2312,
+   "got": 2312,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F4 depth_ct",
+   "expected": 3218,
+   "got": 3218,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row best_family_F4 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "24",
+    "73",
+    "24",
+    "22"
+   ],
+   "got": [
+    "24",
+    "73",
+    "24",
+    "22"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F5 (r05-F5-005) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    68,
+    24,
+    22,
+    24
+   ],
+   "got": [
+    68,
+    24,
+    22,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F5 key vs archive key",
+   "expected": [
+    68,
+    1396,
+    3220,
+    24
+   ],
+   "got": [
+    68,
+    1396,
+    3220,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F5 T(1e-6)",
+   "expected": 1396,
+   "got": 1396,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F5 T(1e-10)",
+   "expected": 2312,
+   "got": 2312,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F5 depth_ct",
+   "expected": 3220,
+   "got": 3220,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row best_family_F5 (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "24",
+    "68",
+    "24",
+    "22"
+   ],
+   "got": [
+    "24",
+    "68",
+    "24",
+    "22"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row global_best (r05-F3-005) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    68,
+    24,
+    22,
+    24
+   ],
+   "got": [
+    68,
+    24,
+    22,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row global_best key vs archive key",
+   "expected": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "got": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row global_best T(1e-6)",
+   "expected": 1396,
+   "got": 1396,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row global_best T(1e-10)",
+   "expected": 2312,
+   "got": 2312,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row global_best depth_ct",
+   "expected": 3210,
+   "got": 3210,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row global_best (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "24",
+    "68",
+    "24",
+    "22"
+   ],
+   "got": [
+    "24",
+    "68",
+    "24",
+    "22"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row headline (r05-F3-005) CX/T_fixed/N_rot/qubits vs archive",
+   "expected": [
+    68,
+    24,
+    22,
+    24
+   ],
+   "got": [
+    68,
+    24,
+    22,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row headline key vs archive key",
+   "expected": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "got": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row headline T(1e-6)",
+   "expected": 1396,
+   "got": 1396,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row headline T(1e-10)",
+   "expected": 2312,
+   "got": 2312,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row headline depth_ct",
+   "expected": 3210,
+   "got": 3210,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md row headline (qubits,CX,T_fixed,N_rot)",
+   "expected": [
+    "24",
+    "68",
+    "24",
+    "22"
+   ],
+   "got": [
+    "24",
+    "68",
+    "24",
+    "22"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row general (cx,t_fixed,n_rot,T)",
+   "expected": [
+    94,
+    88,
+    8,
+    598
+   ],
+   "got": [
+    94,
+    88,
+    8,
+    598
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row headline (cx,t_fixed,n_rot,T)",
+   "expected": [
+    68,
+    24,
+    22,
+    1396
+   ],
+   "got": [
+    68,
+    24,
+    22,
+    1396
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row global_best (cx,t_fixed,n_rot,T)",
+   "expected": [
+    68,
+    24,
+    22,
+    1396
+   ],
+   "got": [
+    68,
+    24,
+    22,
+    1396
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row wrap_sn_headline (cx,t_fixed,n_rot,T)",
+   "expected": [
+    71,
+    48,
+    17,
+    1118
+   ],
+   "got": [
+    71,
+    48,
+    17,
+    1118
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "row best_family_F1 (cx,t_fixed,n_rot,T)",
+   "expected": [
+    71,
+    40,
+    17,
+    1110
+   ],
+   "got": [
+    71,
+    40,
+    17,
+    1110
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "general seed T_avg 592.6",
+   "expected": 592.6,
+   "got": 592.6,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "headline T_avg",
+   "expected": 1417.4,
+   "got": 1417.4,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "m7 general step.json cx/t_fixed/n_rot",
+   "expected": [
+    94,
+    88,
+    8
+   ],
+   "got": [
+    94,
+    88,
+    8
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "spinnet headline cx (spinnet archive)",
+   "expected": 31,
+   "got": 31,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "wrapped cx = 71",
+   "expected": 71,
+   "got": 71,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "transcoder CX (wrapped - spinnet)",
+   "expected": 40,
+   "got": 40,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "transcoder T_fixed (wrapped - spinnet)",
+   "expected": 32,
+   "got": 32,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "JSON transcoder",
+   "expected": {
+    "cx": 40,
+    "t_fixed": 32
+   },
+   "got": {
+    "cx": 40,
+    "t_fixed": 32
+   },
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "wrapped T = spinnet T + 32 (1118 = 1086 + 32)",
+   "expected": 1118,
+   "got": 1118,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "native_gain_cx = 71 - 68",
+   "expected": 3,
+   "got": 3,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "overhead_cx = 68 - 31",
+   "expected": 37,
+   "got": 37,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "native_gain_t_avg = 1124.0 - 1417.4",
+   "expected": -293.4,
+   "got": -293.4000000000001,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "check": "overhead_t_avg = 1417.4 - 1092.0",
+   "expected": 325.4,
+   "got": 325.4000000000001,
+   "tol": 1e-09,
+   "ok": true
+  },
+  {
+   "check": "spinnet T_avg 1092.0 and wrapped 1124.0",
+   "expected": [
+    1092.0,
+    1124.0
+   ],
+   "got": [
+    1092.0,
+    1124.0
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "own count of wrapped seed-005 (CX,T_fixed,N_rot,T)",
+   "expected": [
+    71,
+    48,
+    17,
+    1118
+   ],
+   "got": [
+    71,
+    48,
+    17,
+    1118
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "ranking n ranked",
+   "expected": 28,
+   "got": 28,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "ranking leader",
+   "expected": "r05-F3-005",
+   "got": "r05-F3-005",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "unrankable",
+   "expected": [
+    "r00-seed-qiskit_l3"
+   ],
+   "got": [
+    "r00-seed-qiskit_l3"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "ranking is sorted by robust key ascending",
+   "expected": [
+    "r05-F3-005",
+    "r05-F5-005",
+    "r04-F3-004",
+    "r06-F3-006",
+    "r03-F3-003",
+    "r02-F1-002",
+    "r03-F5-003",
+    "r04-F1-003",
+    "r04-F5-004",
+    "r00-seed-005",
+    "r02-F3-002",
+    "r02-F5-002",
+    "r00-seed-006",
+    "r02-F2-002",
+    "r01-F1-001",
+    "r02-F4-002",
+    "r01-F5-001",
+    "r00-seed-007",
+    "r00-seed-001",
+    "r01-F4-001",
+    "r00-seed-004",
+    "r01-F3-001",
+    "r05-F1-004",
+    "r01-F2-001",
+    "r00-seed-003",
+    "r00-seed-002",
+    "r00-seed-000",
+    "r00-seed-010"
+   ],
+   "got": [
+    "r05-F3-005",
+    "r05-F5-005",
+    "r04-F3-004",
+    "r06-F3-006",
+    "r03-F3-003",
+    "r02-F1-002",
+    "r03-F5-003",
+    "r04-F1-003",
+    "r04-F5-004",
+    "r00-seed-005",
+    "r02-F3-002",
+    "r02-F5-002",
+    "r00-seed-006",
+    "r02-F2-002",
+    "r01-F1-001",
+    "r02-F4-002",
+    "r01-F5-001",
+    "r00-seed-007",
+    "r00-seed-001",
+    "r01-F4-001",
+    "r00-seed-004",
+    "r01-F3-001",
+    "r05-F1-004",
+    "r01-F2-001",
+    "r00-seed-003",
+    "r00-seed-002",
+    "r00-seed-000",
+    "r00-seed-010"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "Pareto (CX, T_avg) front points recomputed from ranking",
+   "expected": [
+    [
+     68,
+     1417.4
+    ],
+    [
+     70,
+     1354.3
+    ],
+    [
+     71,
+     1116.0
+    ],
+    [
+     72,
+     879.4
+    ],
+    [
+     74,
+     697.6
+    ],
+    [
+     82,
+     641.1
+    ],
+    [
+     84,
+     585.1
+    ]
+   ],
+   "got": [
+    [
+     68,
+     1417.4
+    ],
+    [
+     70,
+     1354.3
+    ],
+    [
+     71,
+     1116.0
+    ],
+    [
+     72,
+     879.4
+    ],
+    [
+     74,
+     697.6
+    ],
+    [
+     82,
+     641.1
+    ],
+    [
+     84,
+     585.1
+    ]
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "OBSERVATION (not a failure of numbers) md claim \"first row is the headline\": first front id == headline id",
+   "expected": "r05-F3-005",
+   "got": "r04-F3-004",
+   "tol": 0.0,
+   "ok": false
+  },
+  {
+   "check": "headline weakly Pareto-optimal (no ranked entry with CX<=68 and T_avg<1417.4)",
+   "expected": 0,
+   "got": 0,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "Pareto: ties at (68, 1417.4)",
+   "expected": [
+    "r04-F3-004",
+    "r05-F3-005",
+    "r05-F5-005"
+   ],
+   "got": [
+    "r04-F3-004",
+    "r05-F3-005",
+    "r05-F5-005"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "stop flag/reason/streak/sessions",
+   "expected": [
+    true,
+    "max_sessions",
+    2,
+    20
+   ],
+   "got": [
+    true,
+    "max_sessions",
+    2,
+    20
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "stop JSON == results/compress/lsh/stop.json",
+   "expected": {
+    "stop": true,
+    "reason": "max_sessions",
+    "streak": 2,
+    "sessions": 20
+   },
+   "got": {
+    "stop": true,
+    "reason": "max_sessions",
+    "streak": 2,
+    "sessions": 20
+   },
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "stop params max_sessions 20, no_gain 3",
+   "expected": [
+    20,
+    3
+   ],
+   "got": [
+    20,
+    3
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "improved flags rounds 0..6",
+   "expected": [
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false
+   ],
+   "got": [
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "streak recomputed from trailing non-improving rounds",
+   "expected": 2,
+   "got": 2,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "round files best_key",
+   "expected": [
+    [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    [
+     71,
+     1110,
+     2291,
+     25
+    ],
+    [
+     70,
+     1338,
+     3047,
+     24
+    ],
+    [
+     68,
+     1396,
+     3221,
+     24
+    ],
+    [
+     68,
+     1396,
+     3210,
+     24
+    ],
+    [
+     68,
+     1396,
+     3210,
+     24
+    ]
+   ],
+   "got": [
+    [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    [
+     71,
+     1110,
+     2291,
+     25
+    ],
+    [
+     70,
+     1338,
+     3047,
+     24
+    ],
+    [
+     68,
+     1396,
+     3221,
+     24
+    ],
+    [
+     68,
+     1396,
+     3210,
+     24
+    ],
+    [
+     68,
+     1396,
+     3210,
+     24
+    ]
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "round files n_candidates/valid sum",
+   "expected": [
+    29,
+    29
+   ],
+   "got": [
+    29,
+    29
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "JSON rounds == round files best keys",
+   "expected": [
+    [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    [
+     71,
+     1110,
+     2291,
+     25
+    ],
+    [
+     70,
+     1338,
+     3047,
+     24
+    ],
+    [
+     68,
+     1396,
+     3221,
+     24
+    ],
+    [
+     68,
+     1396,
+     3210,
+     24
+    ],
+    [
+     68,
+     1396,
+     3210,
+     24
+    ]
+   ],
+   "got": [
+    [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    [
+     71,
+     1118,
+     2276,
+     25
+    ],
+    [
+     71,
+     1110,
+     2291,
+     25
+    ],
+    [
+     70,
+     1338,
+     3047,
+     24
+    ],
+    [
+     68,
+     1396,
+     3221,
+     24
+    ],
+    [
+     68,
+     1396,
+     3210,
+     24
+    ],
+    [
+     68,
+     1396,
+     3210,
+     24
+    ]
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "rounds headline ids",
+   "expected": [
+    "r00-seed-005",
+    "r00-seed-005",
+    "r02-F1-002",
+    "r03-F3-003",
+    "r04-F3-004",
+    "r05-F3-005",
+    "r05-F3-005"
+   ],
+   "got": [
+    "r00-seed-005",
+    "r00-seed-005",
+    "r02-F1-002",
+    "r03-F3-003",
+    "r04-F3-004",
+    "r05-F3-005",
+    "r05-F3-005"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "summary.json global_best/n_candidates",
+   "expected": [
+    "r05-F3-005",
+    29
+   ],
+   "got": [
+    "r05-F3-005",
+    29
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "lineage covers 29 entries",
+   "expected": 29,
+   "got": 29,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "lineage parents == archive parents",
+   "expected": {
+    "r00-seed-000": null,
+    "r00-seed-001": null,
+    "r00-seed-002": null,
+    "r00-seed-003": null,
+    "r00-seed-004": null,
+    "r00-seed-005": null,
+    "r00-seed-006": null,
+    "r00-seed-007": null,
+    "r00-seed-010": null,
+    "r00-seed-qiskit_l3": null,
+    "r01-F1-001": null,
+    "r01-F2-001": null,
+    "r01-F3-001": null,
+    "r01-F4-001": null,
+    "r01-F5-001": null,
+    "r02-F1-002": "r01-F1-001",
+    "r02-F2-002": "r01-F2-001",
+    "r02-F3-002": "r01-F3-001",
+    "r02-F4-002": "r01-F4-001",
+    "r02-F5-002": "r01-F5-001",
+    "r03-F3-003": "r01-F3-001",
+    "r03-F5-003": "r02-F1-002",
+    "r04-F1-003": "r02-F1-002",
+    "r04-F3-004": "r03-F3-003",
+    "r04-F5-004": "r03-F5-003",
+    "r05-F1-004": "r02-F1-002",
+    "r05-F3-005": "r04-F3-004",
+    "r05-F5-005": "r04-F3-004",
+    "r06-F3-006": "r05-F3-005"
+   },
+   "got": {
+    "r00-seed-000": null,
+    "r00-seed-001": null,
+    "r00-seed-002": null,
+    "r00-seed-003": null,
+    "r00-seed-004": null,
+    "r00-seed-005": null,
+    "r00-seed-006": null,
+    "r00-seed-007": null,
+    "r00-seed-010": null,
+    "r00-seed-qiskit_l3": null,
+    "r01-F1-001": null,
+    "r01-F2-001": null,
+    "r01-F3-001": null,
+    "r01-F4-001": null,
+    "r01-F5-001": null,
+    "r02-F1-002": "r01-F1-001",
+    "r02-F2-002": "r01-F2-001",
+    "r02-F3-002": "r01-F3-001",
+    "r02-F4-002": "r01-F4-001",
+    "r02-F5-002": "r01-F5-001",
+    "r03-F3-003": "r01-F3-001",
+    "r03-F5-003": "r02-F1-002",
+    "r04-F1-003": "r02-F1-002",
+    "r04-F3-004": "r03-F3-003",
+    "r04-F5-004": "r03-F5-003",
+    "r05-F1-004": "r02-F1-002",
+    "r05-F3-005": "r04-F3-004",
+    "r05-F5-005": "r04-F3-004",
+    "r06-F3-006": "r05-F3-005"
+   },
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "headline lineage chain",
+   "expected": [
+    "r05-F3-005",
+    "r04-F3-004",
+    "r03-F3-003",
+    "r01-F3-001"
+   ],
+   "got": [
+    "r05-F3-005",
+    "r04-F3-004",
+    "r03-F3-003",
+    "r01-F3-001"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "OBSERVATION lineage root of the headline is a from-scratch F3 program (PARENT=None), not a seed",
+   "expected": [
+    "r01-F3-001",
+    null
+   ],
+   "got": [
+    "r01-F3-001",
+    null
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "every lineage parent_known",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "cert file sha256",
+   "expected": "b05ef21d7e077d977e0189491fd80599d83e628032517fe1a7678a0110ebef44",
+   "got": "b05ef21d7e077d977e0189491fd80599d83e628032517fe1a7678a0110ebef44",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "theorem file sha256",
+   "expected": "dae606e5a2b6f32a827f39441568f639bc8acca1eb6aad92c08dbcfb10079447",
+   "got": "dae606e5a2b6f32a827f39441568f639bc8acca1eb6aad92c08dbcfb10079447",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "theorem first line",
+   "expected": "-- entry r05-F3-005, program sha256 5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+   "got": "-- entry r05-F3-005, program sha256 5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "lean binding",
+   "expected": [
+    "r05-F3-005",
+    "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+    false,
+    true
+   ],
+   "got": [
+    "r05-F3-005",
+    "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+    false,
+    true
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive lean status certified",
+   "expected": "certified",
+   "got": "certified",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "cert path == archive cert path",
+   "expected": "results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json",
+   "got": "results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "lean status/trust",
+   "expected": [
+    "certified",
+    "native-certified",
+    true,
+    "elaborated"
+   ],
+   "got": [
+    "certified",
+    "native-certified",
+    true,
+    "elaborated"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "lean axioms JSON",
+   "expected": [
+    "Classical.choice",
+    "Quot.sound",
+    "lsh_best._native.native_decide.ax_1_1",
+    "propext"
+   ],
+   "got": [
+    "Classical.choice",
+    "Quot.sound",
+    "lsh_best._native.native_decide.ax_1_1",
+    "propext"
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "checker sha256 (JSON) == archive",
+   "expected": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+   "got": "16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md Lean line mentions certified + elaborated",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md stop line",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md three-numbers lines",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "md headline line",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "qpy sha in JSON",
+   "expected": "19f2d5331b1616a0fe9ccbeb2b22181c48536eb0b61672d04927c22a40a7647f",
+   "got": "19f2d5331b1616a0fe9ccbeb2b22181c48536eb0b61672d04927c22a40a7647f",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "qasm3 cx count",
+   "expected": 68,
+   "got": 68,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "verdict",
+   "expected": [
+    true,
+    433,
+    false
+   ],
+   "got": [
+    true,
+    433,
+    false
+   ],
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "metrics logical",
+   "expected": {
+    "cx": 68,
+    "depth": 96,
+    "n_rot": 22,
+    "t_fixed": 24,
+    "qubits": 24,
+    "ancilla": 0
+   },
+   "got": {
+    "cx": 68,
+    "depth": 96,
+    "n_rot": 22,
+    "t_fixed": 24,
+    "qubits": 24,
+    "ancilla": 0
+   },
+   "tol": 0.0,
+   "ok": true
+  }
+ ],
+ "all_ok": false
+}

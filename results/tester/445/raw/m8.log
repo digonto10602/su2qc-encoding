@@ -1,0 +1,61 @@
+bringing up nodes...
+bringing up nodes...
+
+.F...............................                                        [100%]
+=================================== FAILURES ===================================
+________________ test_M8_G2_best_and_headline_second_engine_aer ________________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+
+root = PosixPath('/home/digimonk/Projects/su2qc-encoding')
+
+    @pytest.mark.slow
+    def test_M8_G2_best_and_headline_second_engine_aer(root):
+        """Aer statevector (second engine) on the 47 inner codes, data + ancilla qubits only, for the archive best and the
+        headline rebuilt through the stock worker at the nominal angles: equal to the inner target up to one global phase,
+        ancillas back in |0>, no weight outside the inner codes, outer register untouched."""
+        spec = _spec()
+        enc = api("su2plaq.compress.spec:get_encoding")(ENC)
+        arch, best, head, h = _best_and_head(root)
+        for e in {best.id: best, head.id: head}.values():
+            qc = _rebuild(root, e, [spec])[0]
+>           res = aer_inner_check(qc, enc, *NOMINAL)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/acceptance/m8/test_lsh_m8_gate.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+qc = <qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7f26542f5d60>
+enc = <su2plaq.encodings.lsh.LSH object at 0x7f26700a2690>, alpha = 0.37
+beta = 0.61
+
+    def aer_inner_check(qc: QuantumCircuit, enc, alpha: float, beta: float) -> dict:
+        """Aer statevector of the circuit restricted to its data and ancilla qubits on the 47 inner codes vs enc.inner_target.
+        Returns {"n_qubits", "error", "ancilla_weight", "leak_weight"}; AssertionError if the circuit touches an outer qubit."""
+        from qiskit import transpile
+        from qiskit_aer import AerSimulator
+    
+        layout = enc.layout_of(qc)
+        outer = set(layout.outer)
+        pos = {q: i for i, q in enumerate(layout.data)}
+        pos.update({q: 12 + k for k, q in enumerate(layout.ancilla)})
+        n = 12 + len(layout.ancilla)
+        assert len(layout.data) == 12 and len(layout.outer) == 12
+        assert n <= 26, f"the circuit has {len(layout.ancilla)} ancillas: Aer on 2^{n} amplitudes exceeds the 26-qubit limit (planner decision)"
+        red = QuantumCircuit(n, global_phase=qc.global_phase)
+        for inst in qc.data:
+            qs = [qc.find_bit(q).index for q in inst.qubits]
+>           assert not (set(qs) & outer), f"gate {inst.operation.name} touches the outer register: the reduced check does not apply (planner decision)"
+E           AssertionError: gate cx touches the outer register: the reduced check does not apply (planner decision)
+E           assert not ({0, 14} & {12, 13, 14, 15, 16, 17, ...})
+E            +  where {0, 14} = set([14, 0])
+
+tests/acceptance/m8/test_lsh_m8_gate.py:118: AssertionError
+============================= slowest 5 durations ==============================
+149.63s call     tests/acceptance/m8/test_lsh_m8_followups.py::test_M8_A1_lean_tables_tied_to_rules
+51.30s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H2_headline_selection_on_seed_round
+48.34s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S4_round_one_dry_run_briefs_and_stop_state
+44.76s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_S3_seed_round_dry_run
+7.59s call     tests/acceptance/m8/test_lsh_m8_loop.py::test_M8_H1_robust_metrics_and_hardenings
+=========================== short test summary info ============================
+FAILED tests/acceptance/m8/test_lsh_m8_gate.py::test_M8_G2_best_and_headline_second_engine_aer
+1 failed, 32 passed in 151.67s (0:02:31)

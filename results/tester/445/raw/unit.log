@@ -1,0 +1,117 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................................ [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 52%]
+........................................................................ [ 58%]
+........................................................................ [ 64%]
+........................................................................ [ 70%]
+........................................................................ [ 76%]
+........................................................................ [ 82%]
+........................................................................ [ 88%]
+........................................................................ [ 94%]
+.............................FFF........................................ [100%]
+=================================== FAILURES ===================================
+___________________________ test_program_lemma_files ___________________________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+
+tmp_path = PosixPath('/tmp/pytest-of-digimonk/pytest-1088/popen-gw3/test_program_lemma_files0')
+
+    def test_program_lemma_files(tmp_path):
+        from su2plaq.lean import lemmas
+    
+        prog = tmp_path / "001-x.py"
+        prog.write_text("# program\n")
+        assert lemmas.lemma_file_for(prog) is None and lemmas.check_program_lemmas(prog)["status"] == "none"
+        lem = tmp_path / "001-x.lean"
+    
+        def run(text):
+            lem.write_text(text)
+            return lemmas.check_program_lemmas(prog, timeout=120)
+    
+        ok = run("import Su2Plaq\n\ntheorem fact_a : (2 : Nat) + 2 = 4 := by decide\n\ntheorem fact_b (a b : Nat) : a + b = b + a := Nat.add_comm a b\n")
+>       assert ok["status"] == "proved" and ok["axioms_ok"] and ok["theorems"] == ["fact_a", "fact_b"], ok
+E       AssertionError: {'status': 'failed', 'file': '/tmp/pytest-of-digimonk/pytest-1088/popen-gw3/test_program_lemma_files0/001-x.lean', 'theorems': ['fact_a', 'fact_b'], 'axioms_ok': False, ...}
+E       assert ('failed' == 'proved'
+E         
+E         - proved
+E         + failed)
+
+tests/unit/test_lean_project_unit.py:89: AssertionError
+_______________ test_lemma_files_with_side_effects_or_no_theorem _______________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+
+tmp_path = PosixPath('/tmp/pytest-of-digimonk/pytest-1088/popen-gw3/test_lemma_files_with_side_eff0')
+
+    def test_lemma_files_with_side_effects_or_no_theorem(tmp_path):
+        from su2plaq.lean import lemmas
+    
+        prog = tmp_path / "002-y.py"
+        prog.write_text("# program\n")
+        lem = tmp_path / "002-y.lean"
+        victim = tmp_path / "pwned.txt"
+    
+        def run(text):
+            lem.write_text(text)
+            return lemmas.check_program_lemmas(prog, timeout=120)
+    
+        base = "import Su2Plaq\ntheorem t : (2 : Nat) + 2 = 4 := by decide\n"
+        for bad in (f'#eval IO.FS.writeFile "{victim}" "x"', "#exit", "run_cmd pure ()", "run_tac pure ()", "initialize foo : IO.Ref Nat <- IO.mkRef 0",
+                    "elab \"evil\" : command => pure ()", "macro \"m\" : term => `(1)", "unsafe def u : Nat := 1", "axiom ax : False"):
+            r = run(base + bad + "\n")
+            assert r["status"] == "failed" and "not accepted" in r["message"], (bad, r)
+            assert not victim.exists()
+        # words inside comments and identifiers are fine
+>       assert run("import Su2Plaq\n-- #eval IO.println in a comment\ntheorem eval_io_ok : (1 : Nat) = 1 := rfl\n")["status"] == "proved"
+E       AssertionError: assert 'failed' == 'proved'
+E         
+E         - proved
+E         + failed
+
+tests/unit/test_lean_project_unit.py:120: AssertionError
+_________ test_round_lean_default_records_certificate_and_lemma_check __________
+[gw3] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+
+tmp_path = PosixPath('/tmp/pytest-of-digimonk/pytest-1088/popen-gw3/test_round_lean_default_record0')
+
+    def test_round_lean_default_records_certificate_and_lemma_check(tmp_path):
+        prog = _program(tmp_path, with_lemma=True)
+        info = R.run_round("twelve", "step", 0, evaluate=True, dry_run=True, root=tmp_path, proposals=[str(prog)])
+        assert info["n_valid"] == 1 and 0 < info["lean_seconds"] <= 1200
+        best = A.Archive.load("twelve", root=tmp_path).best()
+        assert best.lean["status"] == "certified", best.lean
+        rec = json.loads((tmp_path / "results" / "compress" / "twelve" / "round-000.json").read_text())
+        cand = rec["candidates"][0]
+        assert cand["lean"]["status"] == "certified"
+>       assert cand["lean_lemmas"]["status"] == "proved" and cand["lean_lemmas"]["theorems"] == ["proposer_fact"]
+E       AssertionError: assert ('failed' == 'proved'
+E         
+E         - proved
+E         + failed)
+
+tests/unit/test_lean_round_unit.py:35: AssertionError
+=============================== warnings summary ===============================
+tests/unit/test_robust_atomic_unit.py::test_two_concurrent_writers_and_a_reader_never_fail_or_see_a_partial_cache
+tests/unit/test_robust_atomic_unit.py::test_two_concurrent_writers_and_a_reader_never_fail_or_see_a_partial_cache
+  /home/digimonk/miniforge3/envs/coding/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=1467643) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 5 durations ==============================
+196.69s call     tests/unit/test_lean_project_unit.py::test_print_axioms_real_and_unknown
+169.69s setup    tests/unit/test_rishon_compress_replay_unit.py::test_replay_record_and_backup
+165.56s call     tests/unit/test_lean_project_unit.py::test_polish_rules_table_and_theorems
+148.37s call     tests/unit/test_lean_round_unit.py::test_round_lean_default_records_certificate_and_lemma_check
+120.13s call     tests/unit/test_lean_project_unit.py::test_program_lemma_files
+=========================== short test summary info ============================
+FAILED tests/unit/test_lean_project_unit.py::test_program_lemma_files - Asser...
+FAILED tests/unit/test_lean_project_unit.py::test_lemma_files_with_side_effects_or_no_theorem
+FAILED tests/unit/test_lean_round_unit.py::test_round_lean_default_records_certificate_and_lemma_check
+3 failed, 1221 passed, 2 warnings in 1020.42s (0:17:00)

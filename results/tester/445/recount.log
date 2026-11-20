@@ -1,0 +1,217 @@
+PASS prov git_commit b422e78 b422e78
+PASS prov git_dirty False False
+PASS prov command python scripts/m8_results.py python scripts/m8_results.py
+PASS prov quick False False
+PASS circuit_id r05-F3-005 r05-F3-005
+PASS params {'alpha': 0.37, 'beta': 0.61, 'order': 1} {'alpha': 0.37, 'beta': 0.61, 'order': 1}
+PASS git commit b422e78 is an ancestor of HEAD 0 0
+PASS results file last committed at 2b0a311 2b0a311 2b0a311
+PASS archive n entries 29 29
+PASS archive all valid True True
+PASS archive evaluator sha all equal frozen lsh hash {'88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca'} {'88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca'}
+PASS archive best by key = r05-F3-005 r05-F3-005 r05-F3-005
+PASS archive best key [68, 1396, 3210, 24] [68, 1396, 3210, 24]
+PASS md/JSON archive_best_key [68, 1396, 3210, 24] [68, 1396, 3210, 24]
+PASS program sha256 == JSON headline == archive 5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07 5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07
+PASS JSON headline program sha 5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07 5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07
+PASS angle set n 20 20
+angle pairs regenerated from numpy default_rng(seed) as (a,b) pairs: False
+regen alt (a-array then b-array) matches: True
+angle set sha256 stored 769caec1c2738356 from pairs json 3f309ab7af661f81
+PASS own sum T(1e-6) over the 20 pairs 28348 28348
+PASS own mean T 1417.4 1417.4
+PASS structure (CX,T_fixed,N_rot,qubits) same for all 20 pairs {(68, 24, 22, 24)} {(68, 24, 22, 24)}
+PASS JSON headline robust_key [68, 28348, 0, 63378, 24] [68, 28348, 0, 63378, 24]
+PASS JSON t_mean 1417.4 1417.4
+PASS T(eps=0.0001) own 956 956
+PASS T(eps=0.0001) JSON 956 956
+PASS T(eps=1e-06) own 1396 1396
+PASS T(eps=1e-06) JSON 1396 1396
+PASS T(eps=1e-08) own 1828 1828
+PASS T(eps=1e-08) JSON 1828 1828
+PASS T(eps=1e-10) own 2312 2312
+PASS T(eps=1e-10) JSON 2312 2312
+t_est JSON 0.0001 900.9890170502637 candidate 24+22*(1.15*log2(1/e)+9.2)= 562.5791232026011
+t_est JSON 1e-06 1339.4835255753956 candidate 24+22*(1.15*log2(1/e)+9.2)= 730.6686848039016
+t_est JSON 1e-10 2216.472542625659 candidate 24+22*(1.15*log2(1/e)+9.2)= 1066.8478080065024
+PASS before_after rows count (JSON) 19 19
+PASS md table rows (before/after table 19 rows) 19 19
+PASS row general (r00-seed-000) CX/T_fixed/N_rot/qubits vs archive [94, 88, 8, 31] [94, 88, 8, 31]
+PASS row general key vs archive key [94, 598, 880, 31] [94, 598, 880, 31]
+PASS row general T(1e-6) 598 598
+PASS row general T(1e-10) 916 916
+PASS row general depth_ct 880 880
+PASS md row general (qubits,CX,T_fixed,N_rot) ['31', '94', '88', '8'] ['31', '94', '88', '8']
+PASS row general+polish (r00-seed-010) CX/T_fixed/N_rot/qubits vs archive [94, 88, 8, 31] [94, 88, 8, 31]
+PASS row general+polish key vs archive key [94, 598, 880, 31] [94, 598, 880, 31]
+PASS row general+polish T(1e-6) 598 598
+PASS row general+polish T(1e-10) 916 916
+PASS row general+polish depth_ct 880 880
+PASS md row general+polish (qubits,CX,T_fixed,N_rot) ['31', '94', '88', '8'] ['31', '94', '88', '8']
+PASS row qiskit_l3 (r00-seed-qiskit_l3) CX/T_fixed/N_rot/qubits vs archive [94, 88, 8, 31] [94, 88, 8, 31]
+PASS row qiskit_l3 key vs archive key [94, 598, 880, 31] [94, 598, 880, 31]
+PASS row qiskit_l3 T(1e-6) 598 598
+PASS row qiskit_l3 T(1e-10) 916 916
+PASS row qiskit_l3 depth_ct 880 880
+PASS md row qiskit_l3 (qubits,CX,T_fixed,N_rot) ['31', '94', '88', '8'] ['31', '94', '88', '8']
+PASS md row qiskit_l3_whole (qubits,CX,T_fixed,N_rot) ['31', '94', '88', '8'] ['31', '94', '88', '8']
+PASS row wrap_pairs9 (r00-seed-001) CX/T_fixed/N_rot/qubits vs archive [74, 56, 13, 27] [74, 56, 13, 27]
+PASS row wrap_pairs9 key vs archive key [74, 864, 1615, 27] [74, 864, 1615, 27]
+PASS row wrap_pairs9 T(1e-6) 864 864
+PASS row wrap_pairs9 T(1e-10) 1408 1408
+PASS row wrap_pairs9 depth_ct 1615 1615
+PASS md row wrap_pairs9 (qubits,CX,T_fixed,N_rot) ['27', '74', '56', '13'] ['27', '74', '56', '13']
+PASS row wrap_flags4 (r00-seed-002) CX/T_fixed/N_rot/qubits vs archive [84, 80, 8, 27] [84, 80, 8, 27]
+PASS row wrap_flags4 key vs archive key [84, 586, 888, 27] [84, 586, 888, 27]
+PASS row wrap_flags4 T(1e-6) 586 586
+PASS row wrap_flags4 T(1e-10) 912 912
+PASS row wrap_flags4 depth_ct 888 888
+PASS md row wrap_flags4 (qubits,CX,T_fixed,N_rot) ['27', '84', '80', '8'] ['27', '84', '80', '8']
+PASS row wrap_flags5 (r00-seed-003) CX/T_fixed/N_rot/qubits vs archive [82, 72, 9, 27] [82, 72, 9, 27]
+PASS row wrap_flags5 key vs archive key [82, 638, 1027, 27] [82, 638, 1027, 27]
+PASS row wrap_flags5 T(1e-6) 638 638
+PASS row wrap_flags5 T(1e-10) 1008 1008
+PASS row wrap_flags5 depth_ct 1027 1027
+PASS md row wrap_flags5 (qubits,CX,T_fixed,N_rot) ['27', '82', '72', '9'] ['27', '82', '72', '9']
+PASS row wrap_flags6 (r00-seed-004) CX/T_fixed/N_rot/qubits vs archive [76, 64, 10, 27] [76, 64, 10, 27]
+PASS row wrap_flags6 key vs archive key [76, 690, 1139, 27] [76, 690, 1139, 27]
+PASS row wrap_flags6 T(1e-6) 690 690
+PASS row wrap_flags6 T(1e-10) 1106 1106
+PASS row wrap_flags6 depth_ct 1139 1139
+PASS md row wrap_flags6 (qubits,CX,T_fixed,N_rot) ['27', '76', '64', '10'] ['27', '76', '64', '10']
+PASS row wrap_sn_headline (r00-seed-005) CX/T_fixed/N_rot/qubits vs archive [71, 48, 17, 25] [71, 48, 17, 25]
+PASS row wrap_sn_headline key vs archive key [71, 1118, 2276, 25] [71, 1118, 2276, 25]
+PASS row wrap_sn_headline T(1e-6) 1118 1118
+PASS row wrap_sn_headline T(1e-10) 1816 1816
+PASS row wrap_sn_headline depth_ct 2276 2276
+PASS md row wrap_sn_headline (qubits,CX,T_fixed,N_rot) ['25', '71', '48', '17'] ['25', '71', '48', '17']
+PASS row wrap_sn_r05F3 (r00-seed-006) CX/T_fixed/N_rot/qubits vs archive [72, 56, 13, 25] [72, 56, 13, 25]
+PASS row wrap_sn_r05F3 key vs archive key [72, 864, 1570, 25] [72, 864, 1570, 25]
+PASS row wrap_sn_r05F3 T(1e-6) 864 864
+PASS row wrap_sn_r05F3 T(1e-10) 1408 1408
+PASS row wrap_sn_r05F3 depth_ct 1570 1570
+PASS md row wrap_sn_r05F3 (qubits,CX,T_fixed,N_rot) ['25', '72', '56', '13'] ['25', '72', '56', '13']
+PASS row wrap_sn_r02F5 (r00-seed-007) CX/T_fixed/N_rot/qubits vs archive [74, 64, 10, 25] [74, 64, 10, 25]
+PASS row wrap_sn_r02F5 key vs archive key [74, 690, 1134, 25] [74, 690, 1134, 25]
+PASS row wrap_sn_r02F5 T(1e-6) 690 690
+PASS row wrap_sn_r02F5 T(1e-10) 1106 1106
+PASS row wrap_sn_r02F5 depth_ct 1134 1134
+PASS md row wrap_sn_r02F5 (qubits,CX,T_fixed,N_rot) ['25', '74', '64', '10'] ['25', '74', '64', '10']
+PASS md row paulo15_wrapped (qubits,CX,T_fixed,N_rot) ['31', '108', '96', '4'] ['31', '108', '96', '4']
+PASS row best_family_F1 (r02-F1-002) CX/T_fixed/N_rot/qubits vs archive [71, 40, 17, 25] [71, 40, 17, 25]
+PASS row best_family_F1 key vs archive key [71, 1110, 2291, 25] [71, 1110, 2291, 25]
+PASS row best_family_F1 T(1e-6) 1110 1110
+PASS row best_family_F1 T(1e-10) 1808 1808
+PASS row best_family_F1 depth_ct 2291 2291
+PASS md row best_family_F1 (qubits,CX,T_fixed,N_rot) ['25', '71', '40', '17'] ['25', '71', '40', '17']
+PASS row best_family_F2 (r02-F2-002) CX/T_fixed/N_rot/qubits vs archive [72, 44, 19, 26] [72, 44, 19, 26]
+PASS row best_family_F2 key vs archive key [72, 1242, 2614, 26] [72, 1242, 2614, 26]
+PASS row best_family_F2 T(1e-6) 1242 1242
+PASS row best_family_F2 T(1e-10) 2020 2020
+PASS row best_family_F2 depth_ct 2614 2614
+PASS md row best_family_F2 (qubits,CX,T_fixed,N_rot) ['26', '72', '44', '19'] ['26', '72', '44', '19']
+PASS row best_family_F3 (r05-F3-005) CX/T_fixed/N_rot/qubits vs archive [68, 24, 22, 24] [68, 24, 22, 24]
+PASS row best_family_F3 key vs archive key [68, 1396, 3210, 24] [68, 1396, 3210, 24]
+PASS row best_family_F3 T(1e-6) 1396 1396
+PASS row best_family_F3 T(1e-10) 2312 2312
+PASS row best_family_F3 depth_ct 3210 3210
+PASS md row best_family_F3 (qubits,CX,T_fixed,N_rot) ['24', '68', '24', '22'] ['24', '68', '24', '22']
+PASS row best_family_F4 (r02-F4-002) CX/T_fixed/N_rot/qubits vs archive [73, 24, 22, 24] [73, 24, 22, 24]
+PASS row best_family_F4 key vs archive key [73, 1396, 3218, 24] [73, 1396, 3218, 24]
+PASS row best_family_F4 T(1e-6) 1396 1396
+PASS row best_family_F4 T(1e-10) 2312 2312
+PASS row best_family_F4 depth_ct 3218 3218
+PASS md row best_family_F4 (qubits,CX,T_fixed,N_rot) ['24', '73', '24', '22'] ['24', '73', '24', '22']
+PASS row best_family_F5 (r05-F5-005) CX/T_fixed/N_rot/qubits vs archive [68, 24, 22, 24] [68, 24, 22, 24]
+PASS row best_family_F5 key vs archive key [68, 1396, 3220, 24] [68, 1396, 3220, 24]
+PASS row best_family_F5 T(1e-6) 1396 1396
+PASS row best_family_F5 T(1e-10) 2312 2312
+PASS row best_family_F5 depth_ct 3220 3220
+PASS md row best_family_F5 (qubits,CX,T_fixed,N_rot) ['24', '68', '24', '22'] ['24', '68', '24', '22']
+PASS row global_best (r05-F3-005) CX/T_fixed/N_rot/qubits vs archive [68, 24, 22, 24] [68, 24, 22, 24]
+PASS row global_best key vs archive key [68, 1396, 3210, 24] [68, 1396, 3210, 24]
+PASS row global_best T(1e-6) 1396 1396
+PASS row global_best T(1e-10) 2312 2312
+PASS row global_best depth_ct 3210 3210
+PASS md row global_best (qubits,CX,T_fixed,N_rot) ['24', '68', '24', '22'] ['24', '68', '24', '22']
+PASS row headline (r05-F3-005) CX/T_fixed/N_rot/qubits vs archive [68, 24, 22, 24] [68, 24, 22, 24]
+PASS row headline key vs archive key [68, 1396, 3210, 24] [68, 1396, 3210, 24]
+PASS row headline T(1e-6) 1396 1396
+PASS row headline T(1e-10) 2312 2312
+PASS row headline depth_ct 3210 3210
+PASS md row headline (qubits,CX,T_fixed,N_rot) ['24', '68', '24', '22'] ['24', '68', '24', '22']
+general r00-seed-000 31 94 88 8 598 592.6 880
+general+polish r00-seed-010 31 94 88 8 598 592.6 880
+qiskit_l3 r00-seed-qiskit_l3 31 94 88 8 598 None 880
+wrap_sn_headline r00-seed-005 25 71 48 17 1118 1124.0 2276
+best_family_F1 r02-F1-002 25 71 40 17 1110 1116.0 2291
+best_family_F3 r05-F3-005 24 68 24 22 1396 1417.4 3210
+global_best r05-F3-005 24 68 24 22 1396 1417.4 3210
+headline r05-F3-005 24 68 24 22 1396 1417.4 3210
+PASS row general (cx,t_fixed,n_rot,T) [94, 88, 8, 598] [94, 88, 8, 598]
+PASS row headline (cx,t_fixed,n_rot,T) [68, 24, 22, 1396] [68, 24, 22, 1396]
+PASS row global_best (cx,t_fixed,n_rot,T) [68, 24, 22, 1396] [68, 24, 22, 1396]
+PASS row wrap_sn_headline (cx,t_fixed,n_rot,T) [71, 48, 17, 1118] [71, 48, 17, 1118]
+PASS row best_family_F1 (cx,t_fixed,n_rot,T) [71, 40, 17, 1110] [71, 40, 17, 1110]
+PASS general seed T_avg 592.6 592.6 592.6
+PASS headline T_avg 1417.4 1417.4
+PASS m7 general step.json cx/t_fixed/n_rot [94, 88, 8] [94, 88, 8]
+PASS spinnet headline cx (spinnet archive) 31 31
+PASS wrapped cx = 71 71 71
+PASS transcoder CX (wrapped - spinnet) 40 40
+PASS transcoder T_fixed (wrapped - spinnet) 32 32
+PASS JSON transcoder {'cx': 40, 't_fixed': 32} {'cx': 40, 't_fixed': 32}
+PASS wrapped T = spinnet T + 32 (1118 = 1086 + 32) 1118 1118
+PASS native_gain_cx = 71 - 68 3 3
+PASS overhead_cx = 68 - 31 37 37
+PASS native_gain_t_avg = 1124.0 - 1417.4 -293.4 -293.4000000000001
+PASS overhead_t_avg = 1417.4 - 1092.0 325.4 325.4000000000001
+PASS spinnet T_avg 1092.0 and wrapped 1124.0 [1092.0, 1124.0] [1092.0, 1124.0]
+PASS own count of wrapped seed-005 (CX,T_fixed,N_rot,T) [71, 48, 17, 1118] [71, 48, 17, 1118]
+PASS ranking n ranked 28 28
+PASS ranking leader r05-F3-005 r05-F3-005
+PASS unrankable ['r00-seed-qiskit_l3'] ['r00-seed-qiskit_l3']
+PASS ranking is sorted by robust key ascending ['r05-F3-005', 'r05-F5-005', 'r04-F3-004', 'r06-F3-006', 'r03-F3-003', 'r02-F1-002', 'r03-F5-003', 'r04-F1-003', 'r04-F5-004', 'r00-seed-005', 'r02-F3-002', 'r02-F5-002', 'r00-seed-006', 'r02-F2-002', 'r01-F1-001', 'r02-F4-002', 'r01-F5-001', 'r00-seed-007', 'r00-seed-001', 'r01-F4-001', 'r00-seed-004', 'r01-F3-001', 'r05-F1-004', 'r01-F2-001', 'r00-seed-003', 'r00-seed-002', 'r00-seed-000', 'r00-seed-010'] ['r05-F3-005', 'r05-F5-005', 'r04-F3-004', 'r06-F3-006', 'r03-F3-003', 'r02-F1-002', 'r03-F5-003', 'r04-F1-003', 'r04-F5-004', 'r00-seed-005', 'r02-F3-002', 'r02-F5-002', 'r00-seed-006', 'r02-F2-002', 'r01-F1-001', 'r02-F4-002', 'r01-F5-001', 'r00-seed-007', 'r00-seed-001', 'r01-F4-001', 'r00-seed-004', 'r01-F3-001', 'r05-F1-004', 'r01-F2-001', 'r00-seed-003', 'r00-seed-002', 'r00-seed-000', 'r00-seed-010']
+front [('r04-F3-004', 68, 1417.4), ('r03-F3-003', 70, 1354.3), ('r02-F1-002', 71, 1116.0), ('r00-seed-006', 72, 879.4), ('r00-seed-007', 74, 697.6), ('r00-seed-003', 82, 641.1), ('r00-seed-002', 84, 585.1)]
+PASS Pareto (CX, T_avg) front points recomputed from ranking [(68, 1417.4), (70, 1354.3), (71, 1116.0), (72, 879.4), (74, 697.6), (82, 641.1), (84, 585.1)] [(68, 1417.4), (70, 1354.3), (71, 1116.0), (72, 879.4), (74, 697.6), (82, 641.1), (84, 585.1)]
+FAIL OBSERVATION (not a failure of numbers) md claim "first row is the headline": first front id == headline id r05-F3-005 r04-F3-004
+PASS headline weakly Pareto-optimal (no ranked entry with CX<=68 and T_avg<1417.4) 0 0
+PASS Pareto: ties at (68, 1417.4) ['r04-F3-004', 'r05-F3-005', 'r05-F5-005'] ['r04-F3-004', 'r05-F3-005', 'r05-F5-005']
+PASS stop flag/reason/streak/sessions [True, 'max_sessions', 2, 20] [True, 'max_sessions', 2, 20]
+PASS stop JSON == results/compress/lsh/stop.json {'stop': True, 'reason': 'max_sessions', 'streak': 2, 'sessions': 20} {'stop': True, 'reason': 'max_sessions', 'streak': 2, 'sessions': 20}
+PASS stop params max_sessions 20, no_gain 3 [20, 3] [20, 3]
+PASS improved flags rounds 0..6 [True, False, True, True, True, False, False] [True, False, True, True, True, False, False]
+PASS streak recomputed from trailing non-improving rounds 2 2
+PASS round files best_key [[71, 1118, 2276, 25], [71, 1118, 2276, 25], [71, 1110, 2291, 25], [70, 1338, 3047, 24], [68, 1396, 3221, 24], [68, 1396, 3210, 24], [68, 1396, 3210, 24]] [[71, 1118, 2276, 25], [71, 1118, 2276, 25], [71, 1110, 2291, 25], [70, 1338, 3047, 24], [68, 1396, 3221, 24], [68, 1396, 3210, 24], [68, 1396, 3210, 24]]
+PASS round files n_candidates/valid sum [29, 29] [29, 29]
+PASS JSON rounds == round files best keys [[71, 1118, 2276, 25], [71, 1118, 2276, 25], [71, 1110, 2291, 25], [70, 1338, 3047, 24], [68, 1396, 3221, 24], [68, 1396, 3210, 24], [68, 1396, 3210, 24]] [[71, 1118, 2276, 25], [71, 1118, 2276, 25], [71, 1110, 2291, 25], [70, 1338, 3047, 24], [68, 1396, 3221, 24], [68, 1396, 3210, 24], [68, 1396, 3210, 24]]
+PASS rounds headline ids ['r00-seed-005', 'r00-seed-005', 'r02-F1-002', 'r03-F3-003', 'r04-F3-004', 'r05-F3-005', 'r05-F3-005'] ['r00-seed-005', 'r00-seed-005', 'r02-F1-002', 'r03-F3-003', 'r04-F3-004', 'r05-F3-005', 'r05-F3-005']
+PASS summary.json global_best/n_candidates ['r05-F3-005', 29] ['r05-F3-005', 29]
+PASS lineage covers 29 entries 29 29
+PASS lineage parents == archive parents {'r00-seed-000': None, 'r00-seed-001': None, 'r00-seed-002': None, 'r00-seed-003': None, 'r00-seed-004': None, 'r00-seed-005': None, 'r00-seed-006': None, 'r00-seed-007': None, 'r00-seed-010': None, 'r00-seed-qiskit_l3': None, 'r01-F1-001': None, 'r01-F2-001': None, 'r01-F3-001': None, 'r01-F4-001': None, 'r01-F5-001': None, 'r02-F1-002': 'r01-F1-001', 'r02-F2-002': 'r01-F2-001', 'r02-F3-002': 'r01-F3-001', 'r02-F4-002': 'r01-F4-001', 'r02-F5-002': 'r01-F5-001', 'r03-F3-003': 'r01-F3-001', 'r03-F5-003': 'r02-F1-002', 'r04-F1-003': 'r02-F1-002', 'r04-F3-004': 'r03-F3-003', 'r04-F5-004': 'r03-F5-003', 'r05-F1-004': 'r02-F1-002', 'r05-F3-005': 'r04-F3-004', 'r05-F5-005': 'r04-F3-004', 'r06-F3-006': 'r05-F3-005'} {'r00-seed-000': None, 'r00-seed-001': None, 'r00-seed-002': None, 'r00-seed-003': None, 'r00-seed-004': None, 'r00-seed-005': None, 'r00-seed-006': None, 'r00-seed-007': None, 'r00-seed-010': None, 'r00-seed-qiskit_l3': None, 'r01-F1-001': None, 'r01-F2-001': None, 'r01-F3-001': None, 'r01-F4-001': None, 'r01-F5-001': None, 'r02-F1-002': 'r01-F1-001', 'r02-F2-002': 'r01-F2-001', 'r02-F3-002': 'r01-F3-001', 'r02-F4-002': 'r01-F4-001', 'r02-F5-002': 'r01-F5-001', 'r03-F3-003': 'r01-F3-001', 'r03-F5-003': 'r02-F1-002', 'r04-F1-003': 'r02-F1-002', 'r04-F3-004': 'r03-F3-003', 'r04-F5-004': 'r03-F5-003', 'r05-F1-004': 'r02-F1-002', 'r05-F3-005': 'r04-F3-004', 'r05-F5-005': 'r04-F3-004', 'r06-F3-006': 'r05-F3-005'}
+lineage chain ['r05-F3-005', 'r04-F3-004', 'r03-F3-003', 'r01-F3-001']
+PASS headline lineage chain ['r05-F3-005', 'r04-F3-004', 'r03-F3-003', 'r01-F3-001'] ['r05-F3-005', 'r04-F3-004', 'r03-F3-003', 'r01-F3-001']
+PASS OBSERVATION lineage root of the headline is a from-scratch F3 program (PARENT=None), not a seed ['r01-F3-001', None] ['r01-F3-001', None]
+PASS every lineage parent_known True True
+PASS cert file sha256 b05ef21d7e077d977e0189491fd80599d83e628032517fe1a7678a0110ebef44 b05ef21d7e077d977e0189491fd80599d83e628032517fe1a7678a0110ebef44
+PASS theorem file sha256 dae606e5a2b6f32a827f39441568f639bc8acca1eb6aad92c08dbcfb10079447 dae606e5a2b6f32a827f39441568f639bc8acca1eb6aad92c08dbcfb10079447
+PASS theorem first line -- entry r05-F3-005, program sha256 5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07 -- entry r05-F3-005, program sha256 5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07
+PASS lean binding ['r05-F3-005', '5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07', False, True] ['r05-F3-005', '5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07', False, True]
+cert keys ['schema', 'circuit_id', 'gates_sha256', 'program_sha256', 'n_qubits', 'n_data', 'n_outer', 'base', 'gates', 'states', 'target', 'phase']
+archive lean {'status': 'certified', 'reason': '', 'cert_path': 'results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json', 'seconds': 0.8947958946228027, 'axioms': '...', 'check_seconds': 0.5924012660980225, 'checker_sha256': '16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61', 'program_file_sha256': '5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07', 'gates_sha256': 'dd63c8bf6fadb0f75d45bcd7e9bf4f14eda02108029815b5130ff82d3b83553c'}
+PASS archive lean status certified certified certified
+PASS cert path == archive cert path results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json results/lsh/certs/lsh-step-o1-dd63c8bf6fad.json
+PASS lean status/trust ['certified', 'native-certified', True, 'elaborated'] ['certified', 'native-certified', True, 'elaborated']
+PASS lean axioms JSON ['Classical.choice', 'Quot.sound', 'lsh_best._native.native_decide.ax_1_1', 'propext'] ['Classical.choice', 'Quot.sound', 'lsh_best._native.native_decide.ax_1_1', 'propext']
+PASS checker sha256 (JSON) == archive 16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61 16b3278fd88d73416b2376da524791cc19e229c96ab42020fe489256aa36ce61
+PASS md Lean line mentions certified + elaborated True True
+PASS md stop line True True
+PASS md three-numbers lines True True
+PASS md headline line True True
+PASS qpy sha in JSON 19f2d5331b1616a0fe9ccbeb2b22181c48536eb0b61672d04927c22a40a7647f 19f2d5331b1616a0fe9ccbeb2b22181c48536eb0b61672d04927c22a40a7647f
+qasm3 bytes 2663 cx lines 68
+PASS qasm3 cx count 68 68
+PASS verdict [True, 433, False] [True, 433, False]
+verdict 1.4405612410430306e-14 0.0 5.681424633657484e-16 0.0 True
+PASS metrics logical {'cx': 68, 'depth': 96, 'n_rot': 22, 't_fixed': 24, 'qubits': 24, 'ancilla': 0} {'cx': 68, 'depth': 96, 'n_rot': 22, 't_fixed': 24, 'qubits': 24, 'ancilla': 0}
+195 / 196 ok; FAILS: ['OBSERVATION (not a failure of numbers) md claim "first row is the headline": first front id == headline id']

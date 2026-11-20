@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="33" time="151.683" timestamp="2026-11-20T03:22:59.411894-05:00" hostname="omnicommander"><testcase classname="tests.acceptance.m8.test_lsh_m8_gate" name="test_M8_G2_best_and_headline_second_engine_aer" time="1.603"><failure message="AssertionError: gate cx touches the outer register: the reduced check does not apply (planner decision)&#10;assert not ({0, 14} &amp; {12, 13, 14, 15, 16, 17, ...})&#10; +  where {0, 14} = set([14, 0])">root = PosixPath('/home/digimonk/Projects/su2qc-encoding')
+
+    @pytest.mark.slow
+    def test_M8_G2_best_and_headline_second_engine_aer(root):
+        """Aer statevector (second engine) on the 47 inner codes, data + ancilla qubits only, for the archive best and the
+        headline rebuilt through the stock worker at the nominal angles: equal to the inner target up to one global phase,
+        ancillas back in |0&gt;, no weight outside the inner codes, outer register untouched."""
+        spec = _spec()
+        enc = api("su2plaq.compress.spec:get_encoding")(ENC)
+        arch, best, head, h = _best_and_head(root)
+        for e in {best.id: best, head.id: head}.values():
+            qc = _rebuild(root, e, [spec])[0]
+&gt;           res = aer_inner_check(qc, enc, *NOMINAL)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/acceptance/m8/test_lsh_m8_gate.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+qc = &lt;qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7f26542f5d60&gt;
+enc = &lt;su2plaq.encodings.lsh.LSH object at 0x7f26700a2690&gt;, alpha = 0.37
+beta = 0.61
+
+    def aer_inner_check(qc: QuantumCircuit, enc, alpha: float, beta: float) -&gt; dict:
+        """Aer statevector of the circuit restricted to its data and ancilla qubits on the 47 inner codes vs enc.inner_target.
+        Returns {"n_qubits", "error", "ancilla_weight", "leak_weight"}; AssertionError if the circuit touches an outer qubit."""
+        from qiskit import transpile
+        from qiskit_aer import AerSimulator
+    
+        layout = enc.layout_of(qc)
+        outer = set(layout.outer)
+        pos = {q: i for i, q in enumerate(layout.data)}
+        pos.update({q: 12 + k for k, q in enumerate(layout.ancilla)})
+        n = 12 + len(layout.ancilla)
+        assert len(layout.data) == 12 and len(layout.outer) == 12
+        assert n &lt;= 26, f"the circuit has {len(layout.ancilla)} ancillas: Aer on 2^{n} amplitudes exceeds the 26-qubit limit (planner decision)"
+        red = QuantumCircuit(n, global_phase=qc.global_phase)
+        for inst in qc.data:
+            qs = [qc.find_bit(q).index for q in inst.qubits]
+&gt;           assert not (set(qs) &amp; outer), f"gate {inst.operation.name} touches the outer register: the reduced check does not apply (planner decision)"
+E           AssertionError: gate cx touches the outer register: the reduced check does not apply (planner decision)
+E           assert not ({0, 14} &amp; {12, 13, 14, 15, 16, 17, ...})
+E            +  where {0, 14} = set([14, 0])
+
+tests/acceptance/m8/test_lsh_m8_gate.py:118: AssertionError</failure></testcase><testcase classname="tests.acceptance.m8.test_lsh_m8_followups" name="test_M8_A4_lean_hygiene_both_folders" time="0.002" /><testcase classname="tests.acceptance.m8.test_lsh_m8_followups" name="test_M8_A1_lean_tables_tied_to_rules" time="149.635" /><testcase classname="tests.acceptance.m8.test_lsh_m8_followups" name="test_M8_A2_certify_binding_fields_and_idempotent_write" time="5.702" /><testcase classname="tests.acceptance.m8.test_lsh_m8_gate" name="test_M8_G1_best_and_headline_reverified_from_source" time="4.206" /><testcase classname="tests.acceptance.m8.test_lsh_m8_gate" name="test_M8_G3_loop_budget_lineage_and_stop" time="0.034" /><testcase classname="tests.acceptance.m8.test_lsh_m8_gate" name="test_M8_R1_results_and_before_after" time="0.013" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_E1_registry_entry_lsh" time="0.005" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_E2_fresh_process_stock_worker_and_no_patching" time="4.204" /><testcase classname="tests.acceptance.m8.test_lsh_m8_gate" name="test_M8_G4_best_and_headline_valid_at_unseen_angles" time="2.789" /><testcase classname="tests.acceptance.m8.test_lsh_m8_followups" name="test_M8_A3_negative_controls_reach_the_checker" time="4.061" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_S0_spec_oracle_builder_lsh" time="1.279" /><testcase classname="tests.acceptance.m8.test_lsh_m8_gate" name="test_M8_L5_headline_lean_status_theorem_file_and_binding" time="5.417" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_S5_evaluator_rejections_on_lsh" time="1.755" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_S4_round_one_dry_run_briefs_and_stop_state" time="48.338" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_S2_general_program_worker_and_sandbox" time="4.954" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_S3_seed_round_dry_run" time="44.760" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_H2_headline_selection_on_seed_round" time="51.302" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_L2_structure_facts_match_lean_sources" time="0.299" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_H1_robust_metrics_and_hardenings" time="7.586" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_L3_theorem_file_writer" time="4.926" /><testcase classname="tests.acceptance.m8.test_lsh_m8_seeds" name="test_M8_S1_seed_circuits_exact[wrap_pairs9]" time="1.658" /><testcase classname="tests.acceptance.m8.test_lsh_m8_seeds" name="test_M8_S1_seed_circuits_exact[wrap_flags4]" time="1.615" /><testcase classname="tests.acceptance.m8.test_lsh_m8_seeds" name="test_M8_S1_seed_circuits_exact[general]" time="1.576" /><testcase classname="tests.acceptance.m8.test_lsh_m8_seeds" name="test_M8_S1_seed_circuits_exact[wrap_flags5]" time="1.491" /><testcase classname="tests.acceptance.m8.test_lsh_m8_loop" name="test_M8_L1_lean_hook_certifies_and_binds" time="1.536" /><testcase classname="tests.acceptance.m8.test_lsh_m8_seeds" name="test_M8_S1_seed_circuits_exact[wrap_flags6]" time="1.600" /><testcase classname="tests.acceptance.m8.test_lsh_m8_seeds" name="test_M8_S1_seed_circuits_exact[wrap_sn_headline]" time="1.478" /><testcase classname="tests.acceptance.m8.test_lsh_m8_seeds" name="test_M8_S1_seed_circuits_exact[wrap_sn_r05F3]" time="2.387" /><testcase classname="tests.acceptance.m8.test_lsh_m8_seeds" name="test_M8_S1_seed_circuits_exact[wrap_sn_r02F5]" time="1.362" /><testcase classname="tests.acceptance.m8.test_lsh_m8_seeds" name="test_M8_H3_stop_rule_comparison" time="0.000" /><testcase classname="tests.acceptance.m8.test_lsh_m8_seeds" name="test_M8_U1_uniform_split_structure_row" time="0.285" /><testcase classname="tests.acceptance.m8.test_lsh_m8_followups" name="test_M8_A2_committed_certificate_clean_provenance" time="0.910" /></testsuite></testsuites>

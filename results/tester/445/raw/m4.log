@@ -1,0 +1,11 @@
+bringing up nodes...
+bringing up nodes...
+
+...................                                                      [100%]
+============================= slowest 5 durations ==============================
+27.26s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_S9_headline_selection_on_seed_round
+20.91s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_S3_seed_round_dry_run
+12.36s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_G2_archive_best_second_engine_aer
+10.98s call     tests/acceptance/m4/test_spinnet_compress_lean.py::test_M4_L2_seed_round_records_certificates
+10.80s call     tests/acceptance/m4/test_spinnet_compress.py::test_M4_S4_round_one_dry_run_and_brief
+19 passed in 32.66s

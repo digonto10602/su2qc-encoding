@@ -1,0 +1,17 @@
+bringing up nodes...
+bringing up nodes...
+
+......................F..........                                        [100%]
+=================================== FAILURES ===================================
+___________________ test_M11_T2_final_report_inputs_complete ___________________
+[gw1] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+PENDING: rows not final: {'twelve': 'pending: no cached headline for twelve: no cache file results/compress/twelve/robust.json; waits for prompts/008 Phase C replay (M2c gate)', 'spinnet': 'pending: no cached headline for spinnet: results/compress/spinnet/robust.json is present but stale for the current code hash; waits for prompts/008 Phase C replay (M2c gate)', 'lsh': 'pending: no cached headline for lsh: the lsh archive has no ranked valid entry; waits for the LSH loop (M8 phases 1-2, prompts/401)', 'rishon': 'pending: no cached headline for rishon: results/compress/rishon/robust.json is present but stale for the current code hash; waits for prompts/008 Phase C replay and Report 6 (prompts/204-205); results/compress/rishon/three-layer.json missing (prompts/204 step C5; Report 6)', 'fuzzy': 'pending: no cached headline for fuzzy_ub: no cache file results/compress/fuzzy_ub/robust.json; waits for prompts/008 Phase C replay (M2c gate) and prompts/010 step H.2; no cached headline for fuzzy_link: no cache file results/compress/fuzzy_link/robust.json; waits for prompts/008 Phase C replay (M2c gate) and prompts/010 step H.2'}
+============================= slowest 5 durations ==============================
+30.83s call     tests/acceptance/m11/test_headline_rule.py::test_M11_H3_fuzzy_step_composed_from_the_headline_units
+24.46s call     tests/acceptance/m11/test_cross_models.py::test_M11_F2_fuzzy_isolated_plaquette_gap
+23.87s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[2.0]
+23.81s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[0.5]
+19.93s call     tests/acceptance/m11/test_cross_models.py::test_M11_E3_rishon_433_lowest_levels_reach_the_ks_spectrum[1.0]
+=========================== short test summary info ============================
+FAILED tests/acceptance/m11/test_cross_results.py::test_M11_T2_final_report_inputs_complete
+1 failed, 32 passed in 53.31s

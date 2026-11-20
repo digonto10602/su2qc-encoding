@@ -1,0 +1,11 @@
+bringing up nodes...
+bringing up nodes...
+
+.............                                                            [100%]
+============================= slowest 5 durations ==============================
+43.55s call     tests/unit/test_lean_round_unit.py::test_round_lean_default_records_certificate_and_lemma_check
+39.67s call     tests/unit/test_lean_round_unit.py::test_certify_best_after_a_lean_free_round
+8.26s call     tests/unit/test_lean_round_unit.py::test_certify_best_does_not_erase_a_certificate_after_a_crash
+6.88s call     tests/unit/test_lean_project_unit.py::test_program_lemma_files
+6.85s call     tests/unit/test_lean_round_unit.py::test_certify_best_refuses_a_program_file_changed_after_evaluation
+13 passed in 57.75s

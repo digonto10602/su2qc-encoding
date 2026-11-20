@@ -1,0 +1,42 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................F.....                           [100%]
+=================================== FAILURES ===================================
+_______________________ test_program_lemma_file_checked ________________________
+[gw0] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+
+root = PosixPath('/home/digimonk/Projects/su2qc-encoding')
+tmp_path = PosixPath('/tmp/pytest-of-digimonk/pytest-1080/popen-gw0/test_program_lemma_file_checke0')
+
+    def test_program_lemma_file_checked(root, tmp_path):
+        """A proposer may ship NNN-slug.lean next to NNN-slug.py: a valid lemma file -> proved (standard axioms); one with
+        `sorry` -> failed; no file -> none.  Informative only — never part of validity."""
+        _lean_dir(root)
+        L = api("su2plaq.lean.lemmas")
+        spec = _spec()
+        src = pathlib.Path(api("su2plaq.compress.baselines:general_program_path")(spec))
+        prog = tmp_path / "001-general-copy.py"
+        shutil.copy(src, prog)
+        assert L.check_program_lemmas(prog, timeout=120)["status"] == "none"
+        lem = tmp_path / "001-general-copy.lean"
+        lem.write_text("import Su2Plaq\n\ntheorem proposer_fact : (2 : Nat) + 2 = 4 := by decide\n")
+        t0 = time.time()
+        r = L.check_program_lemmas(prog, timeout=120)
+>       assert r["status"] == "proved" and r["axioms_ok"] and "proposer_fact" in r["theorems"], r
+E       AssertionError: {'status': 'failed', 'file': '/tmp/pytest-of-digimonk/pytest-1080/popen-gw0/test_program_lemma_file_checke0/001-general-copy.lean', 'theorems': ['proposer_fact'], 'axioms_ok': False, ...}
+E       assert ('failed' == 'proved'
+E         
+E         - proved
+E         + failed)
+
+tests/acceptance/m2/test_lean_formal.py:256: AssertionError
+============================= slowest 5 durations ==============================
+141.21s call     tests/acceptance/m2/test_lean_structure.py::test_lean_counts_kernel_checked
+127.61s call     tests/acceptance/m2/test_lean_formal.py::test_lean_generic_theorems_standard_axioms
+120.11s call     tests/acceptance/m2/test_lean_formal.py::test_program_lemma_file_checked
+79.43s call     tests/acceptance/m2/test_lean_formal.py::test_polish_rules_are_lean_certified
+75.93s call     tests/acceptance/m2/test_compress_machinery.py::test_round_dry_run_end_to_end
+=========================== short test summary info ============================
+FAILED tests/acceptance/m2/test_lean_formal.py::test_program_lemma_file_checked
+1 failed, 45 passed in 270.38s (0:04:30)

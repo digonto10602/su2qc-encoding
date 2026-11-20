@@ -1,0 +1,11 @@
+bringing up nodes...
+bringing up nodes...
+
+........                                                                 [100%]
+============================= slowest 5 durations ==============================
+3.63s call     tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W3_ue_semantics_gate_list_and_qiskit_matrices
+3.38s call     tests/acceptance/m5x/test_rishon_outer_det_row.py::test_M5X_O2_outer_det_row_certified
+3.13s call     tests/acceptance/m5x/test_rishon_outer_row.py::test_M5X_O1_outer_electric_row_certified
+2.81s call     tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_L_exact_theorems_kernel_checked
+1.52s call     tests/acceptance/m5x/test_rishon_lean_exact.py::test_M5X_W2_corner_kernel_dims_match_production
+8 passed in 7.08s

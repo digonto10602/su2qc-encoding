@@ -1,0 +1,11 @@
+bringing up nodes...
+bringing up nodes...
+
+........................................................                 [100%]
+============================= slowest 5 durations ==============================
+762.32s call     tests/acceptance/m5/test_rishon_metrics.py::test_M5_T1_t_table_and_synth_verify[step]
+503.57s call     tests/acceptance/m5/test_rishon_metrics.py::test_M5_T1_t_table_and_synth_verify[UB]
+124.54s call     tests/acceptance/m5/test_rishon_lean.py::test_M5_L1_counts_kernel_checked
+116.06s call     tests/acceptance/m5/test_rishon_lean.py::test_M5_L2_jw_facts_kernel_checked
+110.17s call     tests/acceptance/m5/test_rishon_prune_cap.py::test_M5_V2_rishon_prune_cap
+56 passed in 1005.29s (0:16:45)

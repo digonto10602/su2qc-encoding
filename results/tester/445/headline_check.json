@@ -1,0 +1,223 @@
+{
+ "commit": "240adae",
+ "seed": null,
+ "pair": [
+  0.37,
+  0.61
+ ],
+ "native_ops": {
+  "cx": 68,
+  "h": 50,
+  "s": 26,
+  "sdg": 25,
+  "rz": 18,
+  "t": 12,
+  "tdg": 12,
+  "p": 4
+ },
+ "lowered_ops": {
+  "cx": 68,
+  "h": 50,
+  "s": 26,
+  "sdg": 25,
+  "rz": 18,
+  "t": 12,
+  "tdg": 12,
+  "p": 4
+ },
+ "own_count": {
+  "cx": 68,
+  "t_fixed": 24,
+  "n_rot": 22,
+  "t_total": 1396,
+  "qubits": 24
+ },
+ "T_by_eps": {
+  "0.0001": 956,
+  "1e-06": 1396,
+  "1e-10": 2312
+ },
+ "err_native": 6.26151268176308e-15,
+ "err_lowered": 6.26151268176308e-15,
+ "err_wrong_sign": 1.8781987126381317,
+ "unitarity_defect": 1.2351402299743542e-14,
+ "stats_native": {
+  "dirty": 0.0,
+  "leak": 0.0,
+  "outer": 0.0,
+  "gauss": 0.0
+ },
+ "stats_lowered": {
+  "dirty": 0.0,
+  "leak": 0.0,
+  "outer": 0.0,
+  "gauss": 0.0
+ },
+ "checks": [
+  {
+   "check": "qpy sha256 == json files.sha256",
+   "expected": "19f2d5331b1616a0fe9ccbeb2b22181c48536eb0b61672d04927c22a40a7647f",
+   "got": "19f2d5331b1616a0fe9ccbeb2b22181c48536eb0b61672d04927c22a40a7647f",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "qpy qubits",
+   "expected": 24,
+   "got": 24,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "own CX",
+   "expected": 68,
+   "got": 68,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "own T_fixed",
+   "expected": 24,
+   "got": 24,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "own N_rot",
+   "expected": 22,
+   "got": 22,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "own T total eps 1e-6",
+   "expected": 1396,
+   "got": 1396,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "own T total eps 1e-6 == json t_table",
+   "expected": 1396,
+   "got": 1396,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=0.0001) own vs json",
+   "expected": 956,
+   "got": 956,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=1e-08) own vs json",
+   "expected": 1828,
+   "got": 1828,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "T(eps=1e-10) own vs json",
+   "expected": 2312,
+   "got": 2312,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "native 433-state op-norm error < 1e-10",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "lowered err < 1e-10",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "native err vs json op_norm_error (both <1e-10)",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "leak 0",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "dirty ancilla 0",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "outer register unchanged",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "Abelian Gauss residual 0",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "wrong-sign target distinguishable (err vs -beta > 0.1)",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "unitarity defect of 433 block < 1e-10",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "program sha == archive",
+   "expected": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+   "got": "5b00e6e72bc4a9161204efdfec7a60572929cbc6a504cbe97f79163e887e8c07",
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "qpy gate list == program-built gate list",
+   "expected": true,
+   "got": true,
+   "tol": 0.0,
+   "ok": true
+  },
+  {
+   "check": "archive key",
+   "expected": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "got": [
+    68,
+    1396,
+    3210,
+    24
+   ],
+   "tol": 0.0,
+   "ok": true
+  }
+ ],
+ "all_ok": true
+}

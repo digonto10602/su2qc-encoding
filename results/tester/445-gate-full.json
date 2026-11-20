@@ -1,0 +1,120 @@
+{
+ "commit_at_launch": "2b0a311",
+ "head_at_end": "e8f6212 (docs only after 2b0a311: docs/METHODS-lsh.md, docs/report-8-lsh-compression.md, notes/STATUS.md)",
+ "plan": "prompts/401 on 400 (row 8.10)",
+ "mode": "full",
+ "seed": "none of my own (acceptance tests fix theirs); recount angle set seed 20261107 (from file), Aer states seed 20261121",
+ "command": "taskset -c 0-7 tools/pytest-safe -n 4 <tests/acceptance/mN | tests/unit> -p no:cacheprovider -q -rfEs (two streams in parallel in the first pass)",
+ "first_pass": {
+  "m0": {
+   "passed": 34,
+   "failed": 0,
+   "s": 27
+  },
+  "m1": {
+   "passed": 22,
+   "failed": 0,
+   "s": 162
+  },
+  "m2": {
+   "passed": 45,
+   "failed": 1,
+   "s": 271,
+   "red": "test_program_lemma_file_checked: 120 s Lean timeout under load"
+  },
+  "m3": {
+   "passed": 24,
+   "failed": 0,
+   "s": 19
+  },
+  "m3x": {
+   "passed": 4,
+   "failed": 0,
+   "s": 6
+  },
+  "m4": {
+   "passed": 19,
+   "failed": 0,
+   "s": 33
+  },
+  "m5": {
+   "passed": 56,
+   "failed": 0,
+   "s": 1005
+  },
+  "m5x": {
+   "passed": 8,
+   "failed": 0,
+   "s": 7
+  },
+  "m6": {
+   "passed": 33,
+   "failed": 0,
+   "s": 1958
+  },
+  "m7": {
+   "passed": 29,
+   "failed": 0,
+   "s": 10
+  },
+  "m8": {
+   "passed": 32,
+   "failed": 1,
+   "s": 152,
+   "red": "M8_G2 second engine Aer: headline reads outer qubits"
+  },
+  "m9": {
+   "passed": 27,
+   "failed": 1,
+   "s": 1085,
+   "red": "M9_C1 worker killed by kernel OOM (su2qc.slice MemoryMax 11G)"
+  },
+  "m10": {
+   "passed": 10,
+   "failed": 0,
+   "s": 72
+  },
+  "m11": {
+   "passed": 32,
+   "failed": 1,
+   "s": 53,
+   "red": "M11_T2 PENDING rows not final (expected)"
+  },
+  "m2c": {
+   "passed": 28,
+   "failed": 0,
+   "s": 27
+  },
+  "unit": {
+   "passed": 1221,
+   "failed": 3,
+   "s": 1021,
+   "red": "3 Lean lemma-file tests, 120 s timeouts under load"
+  }
+ },
+ "reruns_quiet": {
+  "m2": {
+   "passed": 46,
+   "failed": 0,
+   "s": 129
+  },
+  "unit_lean_files(test_lean_project_unit.py,test_lean_round_unit.py)": {
+   "passed": 13,
+   "failed": 0,
+   "s": 58
+  },
+  "m9_test_fuzzy_codec_gauss.py": {
+   "passed": 3,
+   "failed": 0,
+   "s": 371
+  }
+ },
+ "collect_only": "407 tests collected",
+ "check_lock": "LOCK OK",
+ "acceptance_check": "PASS: tests/acceptance matches acceptance-v22",
+ "hashes": true,
+ "recount": "results/tester/445/recount.json (196 checks, 195 ok, 1 documentation observation)",
+ "headline_check": "results/tester/445/headline_check.json (22/22)",
+ "aer_full24": "results/tester/445/aer_headline.json (max err 2.44e-15 over 3 angle pairs x 12 states)",
+ "lean": "rc 0, 4 s; axioms propext, Classical.choice, Quot.sound, lsh_best._native.native_decide.ax_1_1"
+}

@@ -1,0 +1,11 @@
+bringing up nodes...
+bringing up nodes...
+
+..............................................                           [100%]
+============================= slowest 5 durations ==============================
+74.01s call     tests/acceptance/m2/test_lean_formal.py::test_lean_theorem_file_general
+63.12s call     tests/acceptance/m2/test_lean_formal.py::test_round_records_lean_certificate
+51.90s call     tests/acceptance/m2/test_compress_machinery.py::test_report_table_from_results
+48.41s call     tests/acceptance/m2/test_compress_machinery.py::test_round_dry_run_end_to_end
+43.32s call     tests/acceptance/m2/test_compress_machinery.py::test_seed_import_declared[paulo34]
+46 passed in 128.78s (0:02:08)

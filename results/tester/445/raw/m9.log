@@ -1,0 +1,18 @@
+bringing up nodes...
+bringing up nodes...
+
+........[gw2] node down: Not properly terminated
+F...................                                                     [100%]
+=================================== FAILURES ===================================
+________________ tests/acceptance/m9/test_fuzzy_codec_gauss.py _________________
+[gw2] linux -- Python 3.12.16 /home/digimonk/miniforge3/envs/coding/bin/python
+worker 'gw2' crashed while running 'tests/acceptance/m9/test_fuzzy_codec_gauss.py::test_M9_C1_seeded_physical_states_and_gauss'
+============================= slowest 5 durations ==============================
+1009.81s call     tests/acceptance/m9/test_fuzzy_metrics.py::test_M9_T1_t_table_and_synth_verify[step]
+108.13s call     tests/acceptance/m9/test_fuzzy_circuits.py::test_M9_S1_step_orders[1.0-1]
+106.36s call     tests/acceptance/m9/test_fuzzy_circuits.py::test_M9_S1_step_orders[1.0-2]
+97.79s call     tests/acceptance/m9/test_fuzzy_circuits.py::test_M9_S1_step_orders[0.0-2]
+54.14s call     tests/acceptance/m9/test_fuzzy_circuits.py::test_M9_S1_step_orders[0.0-1]
+=========================== short test summary info ============================
+FAILED tests/acceptance/m9/test_fuzzy_codec_gauss.py::test_M9_C1_seeded_physical_states_and_gauss
+1 failed, 27 passed in 1084.75s (0:18:04)
