@@ -15,7 +15,7 @@ Gu-et-al-style LLM loop → report. Full plan: `prompts/001-plaquette-five-encod
 | spinnet (M3/M4) | 100–199 | prompts/104 (§11 E1–E3) | m3, m3x, m4 | milestone-3, -4 |
 | rishon (M5/M6) | 200–299 | prompts/205 (M6_S3 erratum) on 204 (det term, prune cap 10 %) on 203 | m5, m5x, m6 | milestone-5, -5x, -5d |
 | fuzzy (M9/M10) | 300–399 | prompts/302 | m9, m10 | milestone-9, -10 |
-| LSH (M7/M8) | 400–499 | prompts/401 (on 400) | m7, m8 | milestone-7 |
+| LSH (M7/M8) | 400–499 | prompts/402 (G2 erratum) on 401 (on 400) | m7, m8 | milestone-7 |
 Latest acceptance tag: acceptance-v22 (m11, prompts/009+010; v21 = 008 E1); previously acceptance-v20 (m6 S3 erratum, prompts/205; v19 = m8 LSH compression, prompts/401) (tags v8–v13 are old track-local locks; v14 = merged tree).
 
 ## Current milestone / step (per track)
@@ -72,7 +72,7 @@ Latest acceptance tag: acceptance-v22 (m11, prompts/009+010; v21 = 008 E1); prev
 PAUSED 2026-11-19 15:40 by usage guard (5-hour 97 %, reset 16:20 EST). Resume steps, in order:
 1. DONE: LSH round 3 evaluated + tester 441 PASS + committed (new headline r03-F3-003 native 70 CX).
 2. DONE: LSH loop STOPPED after round 6 (max_sessions 20; tester 444). Headline r05-F3-005 (68,1396,3210,24), robust (68,28348,0,63378,24).
-3. LSH 8.8 DONE (b422e78), 8.9 DONE (2b0a311, METHODS-lsh L12 e729f15). 8.10 gate step 1 (tester 445 full): FAIL on M8-G2 only (by design, prompts/401 §9 / D11: headline r05-F3-005 reads outer q13/q14 as controls; the locked aer_inner_check refuses any outer-touching gate). Physics fine (tester full-state Aer 2.4e-15). Digonto chose the planner erratum (2026-11-20): planner writing prompts/402 + amended G2 (running). Report 8 DRAFT committed (e8f6212). Open notes for audit: md Pareto wording (O3), depth offset 3 (O4), slice MemoryMax 11G (O2).
+3. LSH 8.8 DONE (b422e78), 8.9 DONE (2b0a311, METHODS-lsh L12 e729f15). 8.10 gate step 1 (tester 445 full): FAIL on M8-G2 only (by design, prompts/401 §9 / D11: headline r05-F3-005 reads outer q13/q14 as controls; the locked aer_inner_check refuses any outer-touching gate). Physics fine (tester full-state Aer 2.4e-15). Digonto chose the planner erratum (2026-11-20): prompts/402 + amended G2 locked as acceptance-v23 (b94a6f9); G2 passes (109 s). Gate resumed: tester m8 full -> auditor -> benchmark -> milestone-8. Report 8 DRAFT committed (e8f6212). Open notes for audit: md Pareto wording (O3), depth offset 3 (O4), slice MemoryMax 11G (O2).
 4. M11 11.8 regenerate results/crosscheck on a clean commit; finalise Report 11; refresh results/summary/encodings-gate-counts.md.
 5. Waiting on Digonto: (a) Report 11 attribution of the four planner derivations; (b) acceptance of the 12 rishon 204 §14 defaults; (c) push target (branch merge-desktop-tracks is 158+ commits ahead of origin/master).
 Unexplained: `results/spinnet/certs/spinnet-step-o1-b0a415d9322f.json` modified in the working tree (one-line rewrite, not by this session's agents as far as known; possibly the other session or a unit test) -- left uncommitted, check before the next commit.
