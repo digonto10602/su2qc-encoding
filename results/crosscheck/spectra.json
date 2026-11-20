@@ -1375,7 +1375,7 @@
     "total_error": 2.721351977491546e-13,
     "certified": true,
     "outer_bits_read": 0,
-    "seconds": 3.3617424964904785,
+    "seconds": 3.411527395248413,
     "mutant": {
      "beta_shift": 1e-06,
      "ok": false,
@@ -1393,7 +1393,7 @@
     "total_error": 1.1049525251145847e-14,
     "certified": true,
     "outer_bits_read": 0,
-    "seconds": 0.34606313705444336,
+    "seconds": 0.36677026748657227,
     "mutant": {
      "beta_shift": 1e-06,
      "ok": false,
@@ -1411,34 +1411,93 @@
     "total_error": 1.6483590154922412e-14,
     "certified": true,
     "outer_bits_read": 0,
-    "seconds": 0.29085469245910645,
+    "seconds": 0.30098438262939453,
     "mutant": {
      "beta_shift": 1e-06,
      "ok": false,
      "block_error": 2.0000000033521785e-06
     }
-   }
-  ],
-  "headline_skipped": [
+   },
    {
     "circuit": "twelve",
     "target": "spinnet",
     "which": "headline",
-    "reason": "no cache file results/compress/twelve/robust.json; waits for prompts/008 Phase C replay (M2c gate)"
+    "entry": "r05-F2-005",
+    "alpha": 0.37,
+    "beta": 0.61,
+    "ok": true,
+    "total_error": 1.037294908896855e-13,
+    "certified": true,
+    "outer_bits_read": 4,
+    "seconds": 4.214669227600098
+   },
+   {
+    "circuit": "twelve",
+    "target": "spinnet",
+    "which": "headline",
+    "entry": "r05-F2-005",
+    "alpha": 0.91,
+    "beta": 0.23,
+    "ok": true,
+    "total_error": 9.964882946092989e-14,
+    "certified": true,
+    "outer_bits_read": 4,
+    "seconds": 4.2219154834747314
    },
    {
     "circuit": "spinnet",
     "target": "lsh",
     "which": "headline",
-    "reason": "results/compress/spinnet/robust.json is present but stale for the current code hash; waits for prompts/008 Phase C replay (M2c gate)"
+    "entry": "r02-F1-002",
+    "alpha": 0.37,
+    "beta": 0.61,
+    "ok": true,
+    "total_error": 4.813935390631442e-15,
+    "certified": true,
+    "outer_bits_read": 0,
+    "seconds": 0.6672625541687012
+   },
+   {
+    "circuit": "spinnet",
+    "target": "lsh",
+    "which": "headline",
+    "entry": "r02-F1-002",
+    "alpha": 0.91,
+    "beta": 0.23,
+    "ok": true,
+    "total_error": 5.168771673458676e-15,
+    "certified": true,
+    "outer_bits_read": 0,
+    "seconds": 0.6625885963439941
    },
    {
     "circuit": "lsh",
     "target": "twelve",
     "which": "headline",
-    "reason": "the lsh archive has no ranked valid entry; waits for the LSH loop (M8 phases 1-2, prompts/401)"
+    "entry": "r05-F3-005",
+    "alpha": 0.37,
+    "beta": 0.61,
+    "ok": true,
+    "total_error": 1.440623932656731e-14,
+    "certified": true,
+    "outer_bits_read": 2,
+    "seconds": 0.7798161506652832
+   },
+   {
+    "circuit": "lsh",
+    "target": "twelve",
+    "which": "headline",
+    "entry": "r05-F3-005",
+    "alpha": 0.91,
+    "beta": 0.23,
+    "ok": true,
+    "total_error": 1.3010984644531898e-14,
+    "certified": true,
+    "outer_bits_read": 2,
+    "seconds": 0.7643513679504395
    }
   ],
+  "headline_skipped": [],
   "transported_target_max": 3.0373479264368552e-15
  },
  "embedding": {
@@ -2540,8 +2599,8 @@
   "source": "results/rishon/ks_projection.json: variants.plus.check3_step.circuit_rishon.vs_KS_exact_nominal.op_norm_after_gauge"
  },
  "provenance": {
-  "git_commit": "cdef450",
-  "git_dirty": true,
+  "git_commit": "328e071",
+  "git_dirty": false,
   "versions": {
    "python": "3.12.16",
    "numpy": "2.5.4",
@@ -2553,7 +2612,7 @@
   "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
   "cpu_count": 20,
   "seeds": {},
-  "timestamp_utc": "2026-11-17T06:09:15Z",
+  "timestamp_utc": "2026-11-20T20:45:07Z",
   "command": "python scripts/m11_results.py"
  }
 }

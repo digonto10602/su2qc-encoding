@@ -4,27 +4,27 @@ Blocks: A = Kogut-Susskind j_max = 1/2 (same 433 states, like for like); B = SU(
 
 | block | encoding | model | qubits | general CX | general rot | general fixed T | general T(1e-6) | headline entry | headline qubits | headline CX | headline T nominal | headline T_avg | angle-linear | Lean | CX general/headline | T general/T_avg | status |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| A | twelve | Kogut-Susskind, j_max = 1/2 | 34 | 294 | 10 | 312 | 952 | pending | - | - | - | - | - | - | - | - | pending: no cached headline for twelve: no cache file results/compress/twelve/robust.json; waits for prompts/008 Phase C replay (M2c gate) |
-| A | spinnet | Kogut-Susskind, j_max = 1/2 | 15 | 54 | 8 | 56 | 566 | pending | - | - | - | - | - | - | - | - | pending: no cached headline for spinnet: results/compress/spinnet/robust.json is present but stale for the current code hash; waits for prompts/008 Phase C replay (M2c gate) |
-| A | lsh | Kogut-Susskind, j_max = 1/2 | 19 | 94 | 8 | 88 | 598 | pending | - | - | - | - | - | - | - | - | pending: no cached headline for lsh: the lsh archive has no ranked valid entry; waits for the LSH loop (M8 phases 1-2, prompts/401) |
-| B | rishon | SU(2) quantum link model + det term (different model) | 26 | 10134 | 174 | 10218 | 21146 | pending | - | - | - | - | - | - | - | - | pending: no cached headline for rishon: results/compress/rishon/robust.json is present but stale for the current code hash; waits for prompts/008 Phase C replay and Report 6 (prompts/204-205); results/compress/rishon/three-layer.json missing (prompts/204 step C5; Report 6) |
-| C | fuzzy | fuzzy gauge theory, K1 + r K2, r = 1 (different model) | 23 | 1862 | 56 | 1826 | 5398 | pending | - | - | - | - | - | - | - | - | pending: no cached headline for fuzzy_ub: no cache file results/compress/fuzzy_ub/robust.json; waits for prompts/008 Phase C replay (M2c gate) and prompts/010 step H.2; no cached headline for fuzzy_link: no cache file results/compress/fuzzy_link/robust.json; waits for prompts/008 Phase C replay (M2c gate) and prompts/010 step H.2 |
+| A | twelve | Kogut-Susskind, j_max = 1/2 | 34 | 294 | 10 | 312 | 952 | r05-F2-005 | 31 | 111 | 912 | 927.4 | True | certified | 2.65 | 1.03 | final |
+| A | spinnet | Kogut-Susskind, j_max = 1/2 | 15 | 54 | 8 | 56 | 566 | r02-F1-002 | 17 | 31 | 1086 | 1092.0 | True | certified | 1.74 | 0.52 | final |
+| A | lsh | Kogut-Susskind, j_max = 1/2 | 19 | 94 | 8 | 88 | 598 | r05-F3-005 | 24 | 68 | 1396 | 1417.4 | True | certified | 1.38 | 0.42 | final |
+| B | rishon | SU(2) quantum link model + det term (different model) | 26 | 10134 | 174 | 10218 | 21146 | r06-F3-006 | 52 | 216 | 832 | 829.8 | True | certified | 46.92 | 25.48 | final |
+| C | fuzzy | fuzzy gauge theory, K1 + r K2, r = 1 (different model) | 23 | 1862 | 56 | 1826 | 5398 | fuzzy_ub:r10-F1-010 + 4 x fuzzy_link:r02-F2-001 | - | 131 | 3214 | 3149.6 | - | - | 14.21 | 1.71 | final |
 
 Ratios between blocks are not efficiency statements: the rows describe different theories on the same lattice.
 
-Rishon three-layer step with det layer: pending; general two-layer step (results/rishon/step.json): CX 10102.
-Fuzzy unit fuzzy_ub: pending
-Fuzzy unit fuzzy_link: pending
+Rishon three-layer step with det layer: CX 248, T nominal 1328 (results/compress/rishon/three-layer.json); general two-layer step (results/rishon/step.json): CX 10102.
+Fuzzy unit fuzzy_ub: r10-F1-010, CX 83, T_avg 634.4
+Fuzzy unit fuzzy_link: r02-F2-001, CX 12, T_avg 628.8
 
 ## Table 2. CX first against T first (source: gate-table.json; figure results/crosscheck/tradeoff.pdf)
 
 | encoding | headline (CX, T_avg) | T-first pick (entry, CX, T_avg) | general (CX, T(1e-6)) | Pareto points (CX, T_avg) |
 |---|---|---|---|---|
-| twelve | pending | pending | 294, 952 | pending |
-| spinnet | pending | pending | 54, 566 | pending |
-| lsh | pending | pending | 94, 598 | pending |
-| rishon | pending | pending | 10134, 21146 | pending |
-| fuzzy | pending | pending | 1862, 5398 | pending |
+| twelve | 111, 927.4 | r00-seed-001, 162, 666.6 | 294, 952 | (111, 927.4); (111, 927.4); (111, 927.4); (111, 927.4); (111, 927.4); (121, 745.6); (162, 666.6) |
+| spinnet | 31, 1092.0 | r01-F5-001, 46, 486.7 | 54, 566 | (31, 1092.0); (31, 1092.0); (31, 1092.0); (31, 1092.0); (31, 1092.0); (32, 847.4); (32, 847.4); (32, 847.4); (32, 847.4); (32, 847.4); (34, 665.6); (42, 609.1); (44, 553.1); (46, 486.7) |
+| lsh | 68, 1417.4 | r00-seed-002, 84, 585.1 | 94, 598 | (68, 1417.4); (68, 1417.4); (68, 1417.4); (70, 1354.3); (71, 1116.0); (71, 1116.0); (71, 1116.0); (71, 1116.0); (72, 879.4); (74, 697.6); (82, 641.1); (84, 585.1) |
+| rishon | 216, 829.8 | r06-F1-006, 218, 829.2 | 10134, 21146 | (216, 829.8); (218, 829.2) |
+| fuzzy | 131, 3149.6 | fuzzy_ub:r13-F3-013 + 4 x fuzzy_link:r02-F2-001, 137, 3035.2 | 1862, 5398 | pending |
 
 The project ranks CX first (prompts/001 §1).
 
@@ -39,9 +39,12 @@ Largest level difference between the three Kogut-Susskind encodings: g^2 = 0.5: 
 | twelve | lsh | general | None | 0.37, 0.61 | True | True | 2.7e-13 | 2.0000e-06 (ok=False) |
 | spinnet | twelve | general | None | 0.37, 0.61 | True | True | 1.1e-14 | 2.0000e-06 (ok=False) |
 | lsh | spinnet | general | None | 0.37, 0.61 | True | True | 1.6e-14 | 2.0000e-06 (ok=False) |
-| twelve | spinnet | headline | pending | - | - | - | - | no cache file results/compress/twelve/robust.json; waits for prompts/008 Phase C replay (M2c gate) |
-| spinnet | lsh | headline | pending | - | - | - | - | results/compress/spinnet/robust.json is present but stale for the current code hash; waits for prompts/008 Phase C replay (M2c gate) |
-| lsh | twelve | headline | pending | - | - | - | - | the lsh archive has no ranked valid entry; waits for the LSH loop (M8 phases 1-2, prompts/401) |
+| twelve | spinnet | headline | r05-F2-005 | 0.37, 0.61 | True | True | 1.0e-13 | - |
+| twelve | spinnet | headline | r05-F2-005 | 0.91, 0.23 | True | True | 1.0e-13 | - |
+| spinnet | lsh | headline | r02-F1-002 | 0.37, 0.61 | True | True | 4.8e-15 | - |
+| spinnet | lsh | headline | r02-F1-002 | 0.91, 0.23 | True | True | 5.2e-15 | - |
+| lsh | twelve | headline | r05-F3-005 | 0.37, 0.61 | True | True | 1.4e-14 | - |
+| lsh | twelve | headline | r05-F3-005 | 0.91, 0.23 | True | True | 1.3e-14 | - |
 
 ### 3b. The KS link is a compression of the model link
 
