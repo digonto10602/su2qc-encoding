@@ -1,0 +1,27 @@
+{
+ "commit": "d0a91fa+uncommitted",
+ "worktree": "/home/digimonk/Projects/su2qc-wt/tester447-m11-snapshot",
+ "dirty_start": {
+  "spectra": true,
+  "gate-table": true
+ },
+ "clean_start_commit": "6af9dd8",
+ "clean_start": {
+  "spectra": false,
+  "gate-table": false
+ },
+ "unit_full": {
+  "passed": 1224,
+  "failed": 1
+ },
+ "unit_crosscheck_m11": {
+  "passed": 42
+ },
+ "acceptance_m11_not_slow": {
+  "passed": 23,
+  "failed": 1,
+  "failed_id": "T2"
+ },
+ "seed": null,
+ "machine": "omnicommander"
+}
