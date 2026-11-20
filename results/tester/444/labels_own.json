@@ -1,0 +1,92 @@
+{
+ "commit": "522f8eb",
+ "seed": null,
+ "merge_identity_dev": 0.0,
+ "n_prefix_gates": 87,
+ "prefix_last": [
+  "cx",
+  [
+   0,
+   9
+  ]
+ ],
+ "q14_equals_q13_xor_q9": true,
+ "n_bright_rows": 256,
+ "nonzeros_per_bright_row": [
+  1
+ ],
+ "pair_bad": 0,
+ "max_imag_g": 7.850462293418865e-17,
+ "n_labels": 37,
+ "labels_with_multiple_g": {},
+ "labels_equal_set": true,
+ "labels_only_mine": [],
+ "labels_only_theirs": [],
+ "g_equal": true,
+ "g_equal_up_to_global_sign": false,
+ "my_g": {
+  "0": -4.0,
+  "1": 2.0,
+  "2": 0.0,
+  "3": 0.0,
+  "4": 0.0,
+  "5": 0.0,
+  "6": 0.0,
+  "8": 0.0,
+  "9": 0.0,
+  "10": 0.0,
+  "12": 0.0,
+  "15": 0.0,
+  "16": -1.0,
+  "17": 2.0,
+  "18": 0.0,
+  "20": 0.0,
+  "23": 0.0,
+  "24": 0.0,
+  "29": 0.0,
+  "32": 0.0,
+  "33": 0.0,
+  "34": 0.0,
+  "35": 0.0,
+  "36": 0.0,
+  "39": 0.0,
+  "40": 0.0,
+  "41": 0.0,
+  "43": 0.0,
+  "45": 0.0,
+  "46": 0.0,
+  "48": -1.0,
+  "49": 2.0,
+  "50": 0.0,
+  "52": 0.0,
+  "55": 0.0,
+  "56": 0.0,
+  "61": 0.0
+ },
+ "labels_nonzero_g": {
+  "0": -4.0,
+  "1": 2.0,
+  "16": -1.0,
+  "17": 2.0,
+  "48": -1.0,
+  "49": 2.0
+ },
+ "walk_check": {
+  "F3-006": {
+   "end_point": 0,
+   "n_support": 20,
+   "n_points": 22,
+   "max_dev_vs_my_g": 0.0,
+   "max_dev_vs_minus_g": 8.0,
+   "sum_of_walk_counts": 32
+  },
+  "F3-005": {
+   "end_point": 0,
+   "n_support": 18,
+   "n_points": 23,
+   "max_dev_vs_my_g": 0.0,
+   "max_dev_vs_minus_g": 8.0,
+   "sum_of_walk_counts": 28
+  }
+ }
+}

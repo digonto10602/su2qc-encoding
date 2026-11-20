@@ -1,0 +1,5 @@
+{
+ "A": "AssertionError:  @ line 343: assert d[\"encoding\"] == ENC and d[\"kind\"] == KIND and d[\"provenance\"][\"git_dirty\"] is False and d[\"circuit_id\"] == h[\"id\"]",
+ "B": "AssertionError:  @ line 390: assert ex[\"lean\"][\"theorem_file\"] == \"lean/certs/lsh-best-step.lean\" and len(ex[\"lean\"][\"cert_sha256\"]) == 64",
+ "C": "PASSED"
+}

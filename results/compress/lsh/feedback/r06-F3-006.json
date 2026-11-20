@@ -1,0 +1,166 @@
+{
+ "valid": true,
+ "reason": "ok",
+ "mode": "full",
+ "message": "",
+ "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+ "seeds": {
+  "trial_seed": 0,
+  "transpiler_logical": 20261104,
+  "clifford_t_pass_manager": 12345,
+  "gridsynth": 0
+ },
+ "verdict": {
+  "ok": true,
+  "reason": "ok",
+  "op_norm_error": 1.4270752224567567e-14,
+  "max_leak": 0.0,
+  "dirty_ancilla": 0.0,
+  "phase": [
+   1.0,
+   3.2819525901159515e-17
+  ],
+  "outer_bits_read": 2,
+  "n_blocks": 4,
+  "gauss_residual": 5.933464366067994e-16,
+  "method": "physical",
+  "engine": "sparse",
+  "engine_accuracy": 0.0,
+  "certified": true,
+  "tolerances": {
+   "tol_err": 1e-10,
+   "tol_gauss": 1e-10
+  },
+  "dropped_total": 7.961988648499039e-15,
+  "block_error": 6.308763576068527e-15,
+  "leak_amplitude": 0.0,
+  "seconds": 0.24212908744812012,
+  "n_inputs": 433,
+  "span_leak": 0.0,
+  "total_error": 1.4270752224567567e-14,
+  "failing_inputs": [],
+  "extra": {
+   "op_norm_error_physical": 6.308763576068527e-15,
+   "max_dropped_l2": 1.9099486396878592e-15,
+   "max_span_leak": 0.0,
+   "op_norm_error_inner_span": null,
+   "span_leak_max_state": 0.0,
+   "gauss": "checked"
+  }
+ },
+ "verdicts_alt": [
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.3300117490383535e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.8871227393166732e-16
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 5.461927758452897e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 8.035037695401113e-15,
+   "block_error": 5.265079794982421e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.2286374568939209,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.3300117490383535e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 5.265079794982421e-15,
+    "max_dropped_l2": 1.953475634917304e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  },
+  {
+   "ok": true,
+   "reason": "ok",
+   "op_norm_error": 1.5303210719598626e-14,
+   "max_leak": 0.0,
+   "dirty_ancilla": 0.0,
+   "phase": [
+    1.0,
+    -1.1486834065405846e-16
+   ],
+   "outer_bits_read": 2,
+   "n_blocks": 4,
+   "gauss_residual": 5.347902362062199e-16,
+   "method": "physical",
+   "engine": "sparse",
+   "engine_accuracy": 0.0,
+   "certified": true,
+   "tolerances": {
+    "tol_err": 1e-10,
+    "tol_gauss": 1e-10
+   },
+   "dropped_total": 8.842895536354921e-15,
+   "block_error": 6.460315183243706e-15,
+   "leak_amplitude": 0.0,
+   "seconds": 0.22644901275634766,
+   "n_inputs": 433,
+   "span_leak": 0.0,
+   "total_error": 1.5303210719598626e-14,
+   "failing_inputs": [],
+   "extra": {
+    "op_norm_error_physical": 6.460315183243706e-15,
+    "max_dropped_l2": 1.971025754793434e-15,
+    "max_span_leak": 0.0,
+    "op_norm_error_inner_span": null,
+    "span_leak_max_state": 0.0,
+    "gauss": "checked"
+   }
+  }
+ ],
+ "skeleton_equal": true,
+ "metrics": {
+  "cx": 68,
+  "t_fixed": 24,
+  "n_rot": 24,
+  "t_eps": 1528,
+  "t_estimate": {
+   "1e-06": 1459.0729369913406,
+   "1e-10": 2415.788228318901
+  },
+  "t_measured": {
+   "1e-06": 1528,
+   "1e-10": 2520
+  },
+  "synth_error_bound": 2.4e-05,
+  "depth": 97,
+  "depth_ct": 3485,
+  "qubits": 24,
+  "gates": {
+   "cx": 68,
+   "h": 50,
+   "s": 26,
+   "sdg": 25,
+   "rz": 24,
+   "t": 12,
+   "tdg": 12
+  },
+  "measured": true
+ },
+ "program_sha256": "20359c37c181a24eecbca02343ee8437b68fd183e9bddb0f89fed91fccca514a",
+ "wall_s": 1.8197762966156006,
+ "discoveries": [
+  "DISCOVERY: (claim, exhaustive C search, complete for this model) in the 64-point space (p, y1, y2, y3, e, l_2v(0)) with generators p, y1, y2, y3, e, l_2v(0), l_v1(0) and both ends free in {0, e}, NO exact walk of <= 21 toggles exists (67 CX impossible in this frame's space): every walk projects to a closed Q5 walk at 0 of even length m in {16, 18, 20} visiting all 16 cocircuit classes plus <= 21-m e-moves; all such Q5 walks (9.8e9 DFS nodes, exact class-cover DP bound, e-blind label check on reachable supersets) and all their e-lifts (l_2v vs l_v1 per a-move, none/flip/spur e-moves per position; 9.5e7 nodes) were checked; feasibility by Gram-Schmidt, re-checked by exact rank mod 2^61-1; the same code re-finds the 22-toggle headline walk.",
+  "DISCOVERY: (claim) at 22 toggles the search finds walks outside the headline family (this one, Q5 walk above); its best support needs 20 rotations while the headline walk and its l_2v/l_v1 mirror lift need 18, so the 22-toggle optimum is walk-specific.",
+  "DISCOVERY: (claim, exhaustive) U_E needs 4 rotations: on the 47 physical data codes the 4095 data-bit parities give 255 distinct non-constant characters and no 2 or 3 of them plus a constant reproduce sum_c N_n(c), so the 4 alpha phases cannot be merged into fewer parity phases."
+ ],
+ "summary": "negative-result carrier for the 21-toggle question: parent r05-F3-005 frame unchanged (3-AND fold frame, 46 CX, alpha layer early) with a genuinely different 22-toggle walk found by the new exhaustive two-phase search (closed Q5 walk 0 1 3 7 3 19 23 31 30 14 15 11 27 11 9 25 29 13 5 21 20 4 0 over (p, y1, y2, y3, l_2v(0)), lifted on e, run reversed so it starts free on e); its best exact support has 20 rotations (HiGHS optimal), so 68 CX but 24 rotations instead of 22: worse T than the parent, submitted only because no 21-toggle walk exists in this space."
+}

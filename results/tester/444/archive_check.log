@@ -1,0 +1,152 @@
+{
+ "commit": "522f8eb",
+ "seed": null,
+ "round_keys": [
+  "round",
+  "n_valid",
+  "n_invalid",
+  "best_key",
+  "entries",
+  "lean_seconds",
+  "encoding",
+  "kind",
+  "provenance",
+  "evaluator_sha256",
+  "encoding_sha256",
+  "spec_sha256",
+  "invalid",
+  "external",
+  "candidates",
+  "synthesis_verification",
+  "wall_s",
+  "written_utc"
+ ],
+ "round": {
+  "round": 6,
+  "n_valid": 1,
+  "n_invalid": 0,
+  "best_key": [
+   68,
+   1396,
+   3210,
+   24
+  ],
+  "best_id": null,
+  "evaluator_sha256": "88e0d76bce7b3af635fc895b469d9b2db38c34a69d6ea86c3049f3f9526ec1ca",
+  "spec_sha256": "a16c8a0a69cfa24ea9dbdf21a039cc043c77bebcde4605cdd2b64a6e9de9d335",
+  "external": []
+ },
+ "round_git": {
+  "git_commit": "522f8eb",
+  "git_dirty": true,
+  "versions": {
+   "python": "3.12.16",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1",
+   "qiskit": "2.5.2",
+   "qiskit_aer": "0.17.2",
+   "pygridsynth": "1.2.0"
+  },
+  "platform": "Linux-7.2.15-1-omarchy-x86_64-with-glibc2.44",
+  "cpu_count": 20,
+  "seeds": {
+   "trial_seed": 0
+  },
+  "timestamp_utc": "2026-11-20T06:54:54Z"
+ },
+ "n_entry_files": 29,
+ "index_n_entries": 29,
+ "index_best": "r05-F3-005",
+ "index_keys": [
+  "encoding",
+  "n_entries",
+  "families",
+  "elites",
+  "best",
+  "written_utc"
+ ],
+ "family_best_own": {
+  "F1": "r02-F1-002",
+  "F2": "r02-F2-002",
+  "F3": "r05-F3-005",
+  "F4": "r02-F4-002",
+  "F5": "r05-F5-005",
+  "seed": "r00-seed-005"
+ },
+ "n_cells_own": 15,
+ "cells_own": null,
+ "global_min_key_own": [
+  [
+   68,
+   1396,
+   3210,
+   24
+  ],
+  "r05-F3-005"
+ ],
+ "candidates_in_round": [
+  [
+   "r06-F3-006",
+   true,
+   [
+    68,
+    1528,
+    3485,
+    24
+   ]
+  ]
+ ],
+ "r06-F3-006": {
+  "sha_file_eq_entry": true,
+  "sha_round_eq_entry": true,
+  "key_entry_eq_round": true,
+  "hashes_ok": true,
+  "spec_ok": true,
+  "parent": "r05-F3-005",
+  "parent_in_archive": true,
+  "family": "F3",
+  "round": 6,
+  "cell": [
+   48,
+   84
+  ],
+  "git_commit": "522f8eb",
+  "git_dirty": false,
+  "lean": null,
+  "feedback_exists": true
+ },
+ "attempts_total": 29,
+ "attempts_r6": [
+  {
+   "id": "r06-F3-006",
+   "round": 6,
+   "family": "F3",
+   "valid": true,
+   "reason": "ok",
+   "key": [
+    68,
+    1528,
+    3485,
+    24
+   ],
+   "summary": "negative-result carrier for the 21-toggle question: parent r05-F3-005 frame unchanged (3-AND fold frame, 46 CX, alpha layer early) with a genuinely different 22-toggle walk found by the new exhaustive two-phase search (closed Q5 walk 0 1 3 7 3 19 23 31 30 14 15 11 27 11 9 25 29 13 5 21 20 4 0 over (p, y1, y2, y3, l_2v(0)), lifted on e, run reversed so it starts free on e); its best exact support has 20 rotations (HiGHS optimal), so 68 CX but 24 rotations instead of 22: worse T than the parent, submitted only because no 21-toggle walk exists in this space.",
+   "written_utc": "2026-11-20T06:54:54Z",
+   "program_sha256": "20359c37c181a24eecbca02343ee8437b68fd183e9bddb0f89fed91fccca514a",
+   "parent": "r05-F3-005",
+   "parent_known": true
+  }
+ ],
+ "index_best_equals_global_min": true,
+ "cert": {
+  "gates_sha256": "dd63c8bf6fadb0f75d45bcd7e9bf4f14eda02108029815b5130ff82d3b83553c",
+  "provenance_commit": "4bff9e6",
+  "git_dirty": true,
+  "n_gates": 215,
+  "n_states": 433,
+  "n_qubits": 24
+ },
+ "discoveries_mentions": {
+  "r05-F3-005": 2,
+  "r06-F3-006": 3
+ }
+}

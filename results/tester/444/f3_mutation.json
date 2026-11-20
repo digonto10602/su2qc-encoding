@@ -1,0 +1,25 @@
+{
+ "commit": "522f8eb",
+ "seed": null,
+ "programs": {
+  "r06-F3-006": {
+   "outer_controls": [
+    13,
+    14
+   ],
+   "n_cx_from": {
+    "13": 5,
+    "14": 3
+   },
+   "errors": {
+    "original": 6.308763576068524e-15,
+    "drop_cx_from_13": 1.9999999999999967,
+    "ctrl_13_replaced_by_q1": 1.9999999999999976,
+    "drop_cx_from_14": 1.999999999999997,
+    "ctrl_14_replaced_by_q1": 1.9999999999999976,
+    "drop_all_outer": 1.9999999999999967,
+    "ctrl_all_outer_replaced_by_q1": 1.9999999999999973
+   }
+  }
+ }
+}

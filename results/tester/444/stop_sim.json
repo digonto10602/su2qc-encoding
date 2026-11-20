@@ -1,0 +1,50 @@
+{
+ "commit": "522f8eb",
+ "seed": null,
+ "cli_current": {
+  "rc": 0,
+  "stdout_head": "{\n \"rounds\": [\n  {\n   \"round\": 0,\n   \"headline_id\": \"r00-seed-005\",\n   \"robust_key\": [\n    71,\n    22480,\n    0,\n    46384,\n    25\n   ],\n   \"record\": {\n    \"id\": \"r00-seed-005\",\n    \"cx\": 71,\n    \"t_sum\": 22480,\n    \"rho\": 0,\n    \"qubits\": 25,\n    \"n_rot\": 17,\n    \"t_fixed\": 48\n   },\n   \"improved\": true\n  },\n  {\n   \"round\": 1,\n   \"headline_id\": \"r00-seed-005\",\n   \"robust_key\": [\n    71,\n    22480,"
+ },
+ "a_current": {
+  "streak": 2,
+  "sessions": 20,
+  "stop": true,
+  "reason": "max_sessions",
+  "reasons": [
+   "max_sessions"
+  ]
+ },
+ "real_file": {
+  "streak": 2,
+  "sessions": 20,
+  "stop": true,
+  "reason": "max_sessions",
+  "reasons": [
+   "max_sessions"
+  ]
+ },
+ "b_round5_state": {
+  "streak": 1,
+  "sessions": 19,
+  "stop": false,
+  "reason": null,
+  "reasons": []
+ },
+ "c_improving_round6": {
+  "streak": 0,
+  "sessions": 20,
+  "stop": true,
+  "reason": "max_sessions",
+  "reasons": [
+   "max_sessions"
+  ]
+ },
+ "d": {
+  "r6_vs_r4": false,
+  "r6_equals_r5_record": true,
+  "cx_67": true,
+  "qubits_23": true,
+  "t_sum_minus_441": true,
+  "t_sum_minus_440": false
+ }
+}
