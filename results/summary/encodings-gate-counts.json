@@ -214,8 +214,9 @@
     "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
     "depth_CT": "1421",
     "verdict": "valid (err 2.72136e-13, leak 0)",
-    "Lean": "not_run",
-    "entry / commit": "r00-seed-000 @ b8f2302"
+    "Lean": "certified",
+    "entry / commit": "r00-seed-000 @ b8f2302",
+    "Lean source": "certificate: results/lean/general_step_certificate.json"
    },
    "headline": {
     "row": "best of family F2",
@@ -230,7 +231,8 @@
     "depth_CT": "1663",
     "verdict": "valid (err 1.03681e-13, leak 0)",
     "Lean": "certified",
-    "entry / commit": "r05-F2-005 @ b8f2302"
+    "entry / commit": "r05-F2-005 @ b8f2302",
+    "Lean source": "archive: results/compress/twelve/summary.json"
    },
    "headline_id": "r05-F2-005",
    "archive_best": "r05-F2-005",
@@ -259,7 +261,8 @@
     "depth_CT": "861",
     "verdict": "valid (err 1.22976e-14, leak 0)",
     "Lean": "certified",
-    "entry / commit": "r00-seed-000 @ 02c499d"
+    "entry / commit": "r00-seed-000 @ 02c499d",
+    "Lean source": "archive: results/compress/spinnet/summary.json"
    },
    "headline": {
     "qubits": 17,
@@ -268,6 +271,7 @@
     "T(1e-6)": 1086,
     "verdict": "valid (err 5.12669e-15)",
     "Lean": "certified",
+    "Lean source": "certificate: results/spinnet/m4-compressed.json",
     "entry / commit": "r02-F1-002 @ 5bbaf0f"
    },
    "headline_id": "r02-F1-002",
@@ -296,8 +300,9 @@
     "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
     "depth_CT": "35639",
     "verdict": "valid (err 4.12516e-13, leak 0)",
-    "Lean": "n_a",
-    "entry / commit": "r00-seed-000 @ f7bca4f"
+    "Lean": "certified",
+    "entry / commit": "r00-seed-000 @ f7bca4f",
+    "Lean source": "certificate: results/rishon/m6-compressed.json"
    },
    "headline": {
     "qubits": 52,
@@ -306,6 +311,7 @@
     "T(1e-6)": 832,
     "verdict": "valid (err 1.34848e-13)",
     "Lean": "certified",
+    "Lean source": "certificate: results/rishon/m6-compressed.json",
     "entry / commit": "r06-F3-006 @ 072cdfe"
    },
    "headline_id": "r06-F3-006",
@@ -334,8 +340,9 @@
     "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
     "depth_CT": "880",
     "verdict": "valid (err 1.63514e-14, leak 0)",
-    "Lean": "not_run",
-    "entry / commit": "r00-seed-000 @ 58e4574"
+    "Lean": "certified",
+    "entry / commit": "r00-seed-000 @ 58e4574",
+    "Lean source": "certificate: results/lsh/step.json"
    },
    "headline": {
     "qubits": 24,
@@ -344,6 +351,7 @@
     "T(1e-6)": 1396,
     "verdict": "valid (err 1.44056e-14)",
     "Lean": "certified",
+    "Lean source": "certificate: results/lsh/m8-compressed.json",
     "entry / commit": "r05-F3-005 @ b422e78"
    },
    "headline_id": "r05-F3-005",
@@ -372,8 +380,9 @@
     "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
     "depth_CT": "4916",
     "verdict": "valid (err 3.81199e-14, leak 0)",
-    "Lean": "not_run",
-    "entry / commit": "r00-seed-000 @ 220730e"
+    "Lean": "n_a",
+    "entry / commit": "r00-seed-000 @ 220730e",
+    "Lean source": "no exact Lean exporter (plan 302 s0.5)"
    },
    "headline": {
     "qubits": 10,
@@ -382,6 +391,7 @@
     "T(1e-6)": 638,
     "verdict": "valid (err 5.43744e-14)",
     "Lean": "n_a",
+    "Lean source": "no exact Lean exporter (plan 302 s0.5)",
     "entry / commit": "r10-F1-010 @ 220730e"
    },
    "headline_id": "r10-F1-010",
@@ -410,8 +420,9 @@
     "T (Paulo, Qiskit CT pass, U_B only, beta=1)": "-",
     "depth_CT": "1515",
     "verdict": "valid (err 3.41658e-15, leak 0)",
-    "Lean": "not_run",
-    "entry / commit": "r00-seed-000 @ 02c499d"
+    "Lean": "n_a",
+    "entry / commit": "r00-seed-000 @ 02c499d",
+    "Lean source": "no exact Lean exporter (plan 302 s0.5)"
    },
    "headline": {
     "row": "best of family F2",
@@ -426,7 +437,8 @@
     "depth_CT": "1183",
     "verdict": "valid (err 5.50205e-15, leak 0)",
     "Lean": "n_a",
-    "entry / commit": "r02-F2-001 @ 02c499d"
+    "entry / commit": "r02-F2-001 @ 02c499d",
+    "Lean source": "archive: results/compress/fuzzy_link/summary.json"
    },
    "headline_id": "r02-F2-001",
    "archive_best": "r02-F2-001",
@@ -522,9 +534,9 @@
   "commit": "cd468e2"
  },
  "provenance": {
-  "git_commit": "b8e8d76",
+  "git_commit": "941e2f0",
   "results_dirty": false,
   "command": "python scripts/summary_table.py",
-  "written_utc": "2026-11-20T22:36:30+00:00"
+  "written_utc": "2026-11-22T18:01:55+00:00"
  }
 }
