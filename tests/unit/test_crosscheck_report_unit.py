@@ -3,6 +3,7 @@ Headline caches are replaced by synthetic rankings (monkeypatch), so nothing is 
 from __future__ import annotations
 
 import json
+import os
 import pathlib
 
 import pytest
@@ -162,3 +163,54 @@ def test_m11_results_takes_one_git_snapshot_before_any_write(monkeypatch, tmp_pa
     assert [p["git_dirty"] for p in ps] == [False, False]
     assert ps[0]["git_commit"] == ps[1]["git_commit"] == "abc1234"
     assert P._git("status") != ""                                      # the simulated first write did dirty the tree
+
+
+def _make_repo(path):
+    import subprocess
+
+    path.mkdir(parents=True, exist_ok=True)
+    env = {"GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@x", "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@x",
+           "GIT_CONFIG_GLOBAL": "/dev/null", "GIT_CONFIG_SYSTEM": "/dev/null", "PATH": os.environ["PATH"], "HOME": str(path)}
+
+    def git(*a):
+        return subprocess.run(["git", "-C", str(path), *a], check=True, capture_output=True, text=True, env=env).stdout.strip()
+
+    git("init", "-q")
+    (path / "f.txt").write_text("1\n")
+    git("add", "f.txt")
+    git("commit", "-q", "-m", "c1")
+    return git
+
+
+def test_git_snapshot_uses_the_repository_of_root(tmp_path):
+    """--root R: the snapshot comes from the repository holding R, not from the checkout the code lives in (audit 309 N10)."""
+    repo = tmp_path / "other"
+    git = _make_repo(repo)
+    snap = R.git_snapshot(repo)
+    assert snap == {"git_commit": git("rev-parse", "--short", "HEAD"), "git_dirty": False}
+    assert snap["git_commit"] != R.git_snapshot()["git_commit"]
+    (repo / "f.txt").write_text("2\n")                                  # tracked change -> dirty; untracked files are not counted
+    (repo / "new.txt").write_text("x\n")
+    assert R.git_snapshot(repo)["git_dirty"] is True
+    sub = repo / "results"
+    sub.mkdir()
+    assert R.git_snapshot(sub)["git_commit"] == snap["git_commit"]      # a subdirectory of the repository works the same
+
+
+def test_git_snapshot_outside_a_repository_is_unknown(tmp_path):
+    snap = R.git_snapshot(tmp_path)
+    if snap["git_commit"] != "unknown":                                  # tmp_path happens to sit inside some repository
+        pytest.skip("tmp_path is inside a git repository")
+    assert snap == {"git_commit": "unknown", "git_dirty": None}
+
+
+def test_prov_records_resolved_root_and_its_commit(tmp_path):
+    repo = tmp_path / "other"
+    git = _make_repo(repo)
+    p = R._prov("cmd", None, repo)
+    assert p["root"] == str(repo.resolve()) and p["git_commit"] == git("rev-parse", "--short", "HEAD") and p["git_dirty"] is False
+    assert p["command"] == "cmd"
+    q = R._prov("cmd", {"git_commit": "abc1234", "git_dirty": False}, repo)       # an explicit snapshot wins
+    assert q["git_commit"] == "abc1234" and q["root"] == str(repo.resolve())
+    d = R._prov("cmd")                                                             # default: this checkout
+    assert d["root"] == str(pathlib.Path(R._root(None)).resolve())

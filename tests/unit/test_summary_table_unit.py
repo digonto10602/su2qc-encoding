@@ -76,3 +76,53 @@ def test_build_composed_row_and_lsh_row_in_markdown(st, tmp_path):
     data = json.loads((tmp_path / "encodings-gate-counts.json").read_text())
     assert data["fuzzy_composed_step"]["composed"]["cx"] == fz["composed"]["cx"]
     assert any(l["loop"].startswith("4. Loop-string-hadron") for l in data["loops"])
+
+
+# ---- Lean status of the GENERAL rows: read from the certificate records Report 11 Table 1a cites -----------------------------
+GENERAL_LEAN_REPORT11 = {                     # Report 11 Table 1a, Lean column (spin network: "certified (compiled checker)")
+    "1. 12-qubit, step": "certified", "2. Spin network, step": "certified", "3. Rishon, step (no det)": "certified",
+    "4. Loop-string-hadron, step": "certified", "5. Fuzzy, U_B": "n_a", "5. Fuzzy, link U_E": "n_a",
+}
+
+
+@pytest.mark.parametrize("loop,expect", sorted(GENERAL_LEAN_REPORT11.items()))
+def test_general_row_lean_matches_report11_table1a(rows, loop, expect):
+    g = rows[loop]["general"]
+    assert g["Lean"] == expect and g["Lean source"]
+
+
+def test_general_lean_read_from_certificate_records(st, rows):
+    assert rows["1. 12-qubit, step"]["general"]["Lean"] == _j("results/lean/general_step_certificate.json")["status"]
+    assert rows["1. 12-qubit, step"]["general"]["Lean source"] == "certificate: results/lean/general_step_certificate.json"
+    assert rows["4. Loop-string-hadron, step"]["general"]["Lean"] == _j("results/lsh/step.json")["extra"]["lean"]["status"]
+    assert rows["4. Loop-string-hadron, step"]["general"]["Lean source"] == "certificate: results/lsh/step.json"
+    ba = {(r["row"], r["layer"]): r for r in _j("results/rishon/m6-compressed.json")["extra"]["before_after"]}
+    assert rows["3. Rishon, step (no det)"]["general"]["Lean"] == ba[("general", "unit")]["lean"]
+    # spin network: no separate certificate record -> the archive field, labelled as such
+    assert rows["2. Spin network, step"]["general"]["Lean source"].startswith("archive: ")
+
+
+def test_general_lean_certificate_is_not_hard_coded_and_needs_a_match(st, tmp_path, monkeypatch):
+    """The status comes from the record (a 'rejected' record gives 'rejected'); a record about another circuit is ignored."""
+    rec = {"status": "rejected", "n_qubits_circuit": 50}
+    (tmp_path / "c.json").write_text(json.dumps(rec))
+    monkeypatch.setattr(st, "ROOT", tmp_path)
+    monkeypatch.setitem(st.GENERAL_LEAN_SOURCES, "twelve", ("c.json", st._read_twelve_cert))
+    gen = {"Lean": "not_run", "qubits": "50"}
+    assert st.general_lean("twelve", gen) == ("rejected", "certificate: c.json")
+    assert st.general_lean("twelve", {"Lean": "not_run", "qubits": "49"}) == ("not_run", "archive: results/compress/twelve/summary.json")
+    rec["status"] = None
+    (tmp_path / "c.json").write_text(json.dumps(rec))                     # record without a status -> archive fallback
+    assert st.general_lean("twelve", gen)[1].startswith("archive: ")
+    monkeypatch.setitem(st.GENERAL_LEAN_SOURCES, "twelve", ("missing.json", st._read_twelve_cert))
+    assert st.general_lean("twelve", {"Lean": "certified", "qubits": "50"}) == ("certified", "archive: results/compress/twelve/summary.json")
+
+
+def test_markdown_has_lean_source_column_and_general_rows_certified(st, tmp_path):
+    st.build(tmp_path)
+    md = (tmp_path / "encodings-gate-counts.md").read_text()
+    assert "| Lean | Lean source |" in md
+    lines = [l for l in md.splitlines() if "| general |" in l and "certificate:" in l]
+    assert len(lines) == 3 and all("| certified |" in l for l in lines)       # twelve, rishon, LSH
+    data = json.loads((tmp_path / "encodings-gate-counts.json").read_text())
+    assert all(l["general"]["Lean source"] for l in data["loops"]) and all(l["headline"]["Lean source"] for l in data["loops"])

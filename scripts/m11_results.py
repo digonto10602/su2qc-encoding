@@ -27,7 +27,7 @@ def main(argv=None):
 
     root = pathlib.Path(a.root) if a.root else None
     command = "python scripts/m11_results.py" + (" --no-headline" if a.no_headline else "") + (f" --root {a.root}" if a.root else "")
-    git = R.git_snapshot()          # once, before any output file is written (the first write would otherwise dirty the tree for the second)
+    git = R.git_snapshot(root)      # repository of --root (default: this checkout); once, before any output file is written (the first write would otherwise dirty the tree for the second)
     s = R.spectra_results(root=root, headline=not a.no_headline, command=command, git=git)
     t = R.gate_table(root=root, command=command, git=git)
     fig = R.tradeoff_figure(root=root)

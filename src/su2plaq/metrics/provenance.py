@@ -11,9 +11,10 @@ import sys
 _ROOT = pathlib.Path(__file__).resolve().parents[3]
 
 
-def _git(*args) -> str | None:
+def _git(*args, cwd=None) -> str | None:
+    """Run `git <args>` in `cwd` (default: the checkout this module lives in)."""
     try:
-        r = subprocess.run(["git", *args], cwd=_ROOT, capture_output=True, text=True, timeout=30)
+        r = subprocess.run(["git", *args], cwd=_ROOT if cwd is None else cwd, capture_output=True, text=True, timeout=30)
     except (OSError, subprocess.TimeoutExpired):
         return None
     return r.stdout.strip() if r.returncode == 0 else None

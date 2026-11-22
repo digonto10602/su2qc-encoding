@@ -45,22 +45,32 @@ def _root(root):
     return pathlib.Path(root) if root is not None else pathlib.Path(ROOT)
 
 
-def git_snapshot():
+def git_snapshot(root=None):
     """{"git_commit","git_dirty"} as of now.  A script that writes several tracked files takes this ONCE, before the first write, and
-    passes it to every writer (`git=`): otherwise the second file sees the first one as an uncommitted change (git_dirty always true)."""
+    passes it to every writer (`git=`): otherwise the second file sees the first one as an uncommitted change (git_dirty always true).
+    `root` given: the state of the git repository holding `root` (`git -C <root>`), the repository whose files are being written;
+    `root=None`: the checkout this package lives in (unchanged behaviour).  Same conventions as `provenance()` ("unknown" /
+    None outside a repository; dirty = uncommitted tracked changes)."""
+    from su2plaq.metrics import provenance as P
+
+    kw = {} if root is None else {"cwd": pathlib.Path(root)}
+    commit = P._git("rev-parse", "--short", "HEAD", **kw)
+    status = P._git("status", "--porcelain", "--untracked-files=no", **kw)
+    return {"git_commit": commit if commit else "unknown", "git_dirty": bool(status) if status is not None else None}
+
+
+def _prov(command, git=None, root=None):
+    """Provenance dict; `git` = a `git_snapshot()` taken earlier (default: take one now, in `root` if given).  `root` = the project
+    root the files are read from / written to (default: this checkout); its resolved path is recorded as `root`.  Everything else is
+    read per file."""
     from su2plaq.metrics.provenance import provenance
 
     p = provenance({})
-    return {"git_commit": p["git_commit"], "git_dirty": p["git_dirty"]}
-
-
-def _prov(command, git=None):
-    """Provenance dict; `git` = a `git_snapshot()` taken earlier (default: take one now).  Everything else is read per file."""
-    from su2plaq.metrics.provenance import provenance
-
-    p = provenance({})
+    if git is None and root is not None:
+        git = git_snapshot(root)
     if git is not None:
         p["git_commit"], p["git_dirty"] = git["git_commit"], git["git_dirty"]
+    p["root"] = str(_root(root).resolve())
     p["command"] = command
     return p
 
@@ -229,7 +239,7 @@ def spectra_results(out=None, root=None, headline=True, command=None, git=None):
         d["not_comparable"] = {"rishon_step_distance_to_ks_step": float(x), "source": f"results/rishon/ks_projection.json: {path}"}
     else:
         d["not_comparable"] = {"rishon_step_distance_to_ks_step": None, "source": "results/rishon/ks_projection.json missing"}
-    d["provenance"] = _prov(command or SPECTRA_COMMAND, git)
+    d["provenance"] = _prov(command or SPECTRA_COMMAND, git, root)
     if out is not False:
         _write_json(d, root / "results" / "crosscheck" / "spectra.json" if out is None else out)
     return d
@@ -326,7 +336,7 @@ def gate_table(out=None, root=None, command=None, git=None):
          "unit": "first-order step on the inner links; outer rows separate; T at eps = 1e-6 per rotation (pygridsynth); "
                  "T_avg = mean over the 20 locked angle pairs; headline = smallest robust key (CX first), T-first = same with the first "
                  "two key components exchanged",
-         "rows": rows, "provenance": _prov(command or SPECTRA_COMMAND, git)}
+         "rows": rows, "provenance": _prov(command or SPECTRA_COMMAND, git, root)}
     if out is not False:
         _write_json(d, root / "results" / "crosscheck" / "gate-table.json" if out is None else out)
     return d
