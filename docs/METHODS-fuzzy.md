@@ -47,7 +47,7 @@ H_B^{\rm fz}=-(\square+\square^\dagger)=-2\square,$$
 $$\square=\sum_{abcd}\mathcal U_{ab}(b)\,\mathcal U_{bc}(r)\,(\mathcal U_{dc}(t))^\dagger\,(\mathcal U_{ad}(l))^\dagger\quad\text{(P Eq. 35; loop }[b^+,r^+,t^-,l^-]\text{, METHODS §1)}.$$
 Electric normalisation = Paulo Eq. 16 literally ($\tfrac{g^2}{4}\mathcal K_1$ equals $\tfrac{g^2}{2}j(j+1)$ on flux links; a flux
 link costs $\tfrac38g^2$ as in KS). $r=\kappa_2/\kappa_1$ is **not fixed by N**: nominal $r=1$, and $r=0$ (the $\mathcal K_1$ theory)
-is always tested too (assumption Digonto may override). Step angles $\alpha=g^2dt/2$, $\beta=dt/g^2$, and
+is always tested too (assumption; accepted by Digonto 2026-11-22). Step angles $\alpha=g^2dt/2$, $\beta=dt/g^2$, and
 $$U_E(\alpha)=\bigotimes_\ell e^{-i\frac{\alpha}{2}\mathcal K_1(\ell)},\qquad U_K(\kappa_2)=\bigotimes_\ell e^{-i\kappa_2\mathcal K_2(\ell)},\ \kappa_2=r\,\alpha/2,\qquad
 U_B(\beta)=e^{-i\beta H_B^{\rm fz}}=e^{+2i\beta\square}.$$
 $U_E$ phases on a link: $e^{-i\alpha\{0,3/4,1\}}$ (flux link $e^{-3i\alpha/4}$ = KS $j=\tfrac12$). $U_K$ eigenphases

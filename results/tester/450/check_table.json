@@ -1,0 +1,1459 @@
+{
+ "title": "Report 12 number check",
+ "date": "2026-11-22",
+ "git_commit": "3ccce75",
+ "prompt_in_force": "prompts/009",
+ "mode": "step (document check)",
+ "seed_note": "no stochastic computation; angle set seed 20261107 read from robust.json",
+ "n_checks": 106,
+ "n_pass": 96,
+ "n_fail": 10,
+ "checks": [
+  {
+   "id": "pct_cx_twelve",
+   "report12_line": "75-84",
+   "claim": "twelve CX 294->111 (-62.2%)",
+   "source_value": -62.2,
+   "recomputed_or_found": -62.24,
+   "status": "PASS",
+   "source": "arithmetic on gate-table.json / summary Table 2",
+   "note": ""
+  },
+  {
+   "id": "pct_cx_spin network",
+   "report12_line": "75-84",
+   "claim": "spin network CX 54->31 (-42.6%)",
+   "source_value": -42.6,
+   "recomputed_or_found": -42.59,
+   "status": "PASS",
+   "source": "arithmetic on gate-table.json / summary Table 2",
+   "note": ""
+  },
+  {
+   "id": "pct_cx_LSH",
+   "report12_line": "75-84",
+   "claim": "LSH CX 94->68 (-27.7%)",
+   "source_value": -27.7,
+   "recomputed_or_found": -27.66,
+   "status": "PASS",
+   "source": "arithmetic on gate-table.json / summary Table 2",
+   "note": ""
+  },
+  {
+   "id": "pct_cx_rishon unit",
+   "report12_line": "75-84",
+   "claim": "rishon unit CX 10102->216 (-97.9%)",
+   "source_value": -97.9,
+   "recomputed_or_found": -97.86,
+   "status": "PASS",
+   "source": "arithmetic on gate-table.json / summary Table 2",
+   "note": ""
+  },
+  {
+   "id": "pct_cx_rishon 3 layers",
+   "report12_line": "75-84",
+   "claim": "rishon 3 layers CX 10134->248 (-97.6%)",
+   "source_value": -97.6,
+   "recomputed_or_found": -97.55,
+   "status": "PASS",
+   "source": "arithmetic on gate-table.json / summary Table 2",
+   "note": ""
+  },
+  {
+   "id": "pct_cx_fuzzy inner",
+   "report12_line": "75-84",
+   "claim": "fuzzy inner CX 1862->131 (-93.0%)",
+   "source_value": -93.0,
+   "recomputed_or_found": -92.96,
+   "status": "PASS",
+   "source": "arithmetic on gate-table.json / summary Table 2",
+   "note": ""
+  },
+  {
+   "id": "pct_cx_fuzzy +outer",
+   "report12_line": "75-84",
+   "claim": "fuzzy +outer CX 2150->227 (-89.4%)",
+   "source_value": -89.4,
+   "recomputed_or_found": -89.44,
+   "status": "PASS",
+   "source": "arithmetic on gate-table.json / summary Table 2",
+   "note": ""
+  },
+  {
+   "id": "pct_tbar_twelve",
+   "report12_line": "75-84",
+   "claim": "twelve Tbar 943.2->927.4 (-1.7%)",
+   "source_value": -1.7,
+   "recomputed_or_found": -1.68,
+   "status": "PASS",
+   "source": "arithmetic on robust.json means",
+   "note": ""
+  },
+  {
+   "id": "pct_tbar_spin network",
+   "report12_line": "75-84",
+   "claim": "spin network Tbar 560.6->1092.0 (94.8%)",
+   "source_value": 94.8,
+   "recomputed_or_found": 94.79,
+   "status": "PASS",
+   "source": "arithmetic on robust.json means",
+   "note": ""
+  },
+  {
+   "id": "pct_tbar_LSH",
+   "report12_line": "75-84",
+   "claim": "LSH Tbar 592.6->1417.4 (139.2%)",
+   "source_value": 139.2,
+   "recomputed_or_found": 139.18,
+   "status": "PASS",
+   "source": "arithmetic on robust.json means",
+   "note": ""
+  },
+  {
+   "id": "pct_tbar_rishon unit",
+   "report12_line": "75-84",
+   "claim": "rishon unit Tbar 20620.2->829.8 (-96.0%)",
+   "source_value": -96.0,
+   "recomputed_or_found": -95.98,
+   "status": "PASS",
+   "source": "arithmetic on robust.json means",
+   "note": ""
+  },
+  {
+   "id": "pct_tbar_rishon 3 layers",
+   "report12_line": "75-84",
+   "claim": "rishon 3 layers Tbar 21121.0->1330.6 (-93.7%)",
+   "source_value": -93.7,
+   "recomputed_or_found": -93.7,
+   "status": "PASS",
+   "source": "arithmetic on robust.json means",
+   "note": ""
+  },
+  {
+   "id": "pct_tbar_fuzzy inner",
+   "report12_line": "75-84",
+   "claim": "fuzzy inner Tbar 5336.2->3149.6 (-41.0%)",
+   "source_value": -41.0,
+   "recomputed_or_found": -40.98,
+   "status": "PASS",
+   "source": "arithmetic on robust.json means",
+   "note": ""
+  },
+  {
+   "id": "tbar_twelve_r00-seed-000",
+   "report12_line": "75-82",
+   "claim": "twelve r00-seed-000 Tbar = 943.2 +- 2.3",
+   "source_value": [
+    943.2,
+    2.3
+   ],
+   "recomputed_or_found": [
+    943.2,
+    2.3
+   ],
+   "status": "PASS",
+   "source": "results/compress/twelve/robust.json t_eps (20 values), s/sqrt(20)",
+   "note": ""
+  },
+  {
+   "id": "tbar_twelve_r05-F2-005",
+   "report12_line": "75-82",
+   "claim": "twelve r05-F2-005 Tbar = 927.4 +- 2.7",
+   "source_value": [
+    927.4,
+    2.7
+   ],
+   "recomputed_or_found": [
+    927.4,
+    2.7
+   ],
+   "status": "PASS",
+   "source": "results/compress/twelve/robust.json t_eps (20 values), s/sqrt(20)",
+   "note": ""
+  },
+  {
+   "id": "tbar_spinnet_r00-seed-000",
+   "report12_line": "75-82",
+   "claim": "spinnet r00-seed-000 Tbar = 560.6 +- 1.6",
+   "source_value": [
+    560.6,
+    1.6
+   ],
+   "recomputed_or_found": [
+    560.6,
+    1.6
+   ],
+   "status": "PASS",
+   "source": "results/compress/spinnet/robust.json t_eps (20 values), s/sqrt(20)",
+   "note": ""
+  },
+  {
+   "id": "tbar_spinnet_r02-F1-002",
+   "report12_line": "75-82",
+   "claim": "spinnet r02-F1-002 Tbar = 1092.0 +- 3.1",
+   "source_value": [
+    1092.0,
+    3.1
+   ],
+   "recomputed_or_found": [
+    1092.0,
+    3.1
+   ],
+   "status": "PASS",
+   "source": "results/compress/spinnet/robust.json t_eps (20 values), s/sqrt(20)",
+   "note": ""
+  },
+  {
+   "id": "tbar_lsh_r00-seed-000",
+   "report12_line": "75-82",
+   "claim": "lsh r00-seed-000 Tbar = 592.6 +- 1.6",
+   "source_value": [
+    592.6,
+    1.6
+   ],
+   "recomputed_or_found": [
+    592.6,
+    1.6
+   ],
+   "status": "PASS",
+   "source": "results/compress/lsh/robust.json t_eps (20 values), s/sqrt(20)",
+   "note": ""
+  },
+  {
+   "id": "tbar_lsh_r05-F3-005",
+   "report12_line": "75-82",
+   "claim": "lsh r05-F3-005 Tbar = 1417.4 +- 8.0",
+   "source_value": [
+    1417.4,
+    8.0
+   ],
+   "recomputed_or_found": [
+    1417.4,
+    8.0
+   ],
+   "status": "PASS",
+   "source": "results/compress/lsh/robust.json t_eps (20 values), s/sqrt(20)",
+   "note": ""
+  },
+  {
+   "id": "tbar_rishon_r00-seed-000",
+   "report12_line": "75-82",
+   "claim": "rishon r00-seed-000 Tbar = 20620.2 +- 58.8",
+   "source_value": [
+    20620.2,
+    58.8
+   ],
+   "recomputed_or_found": [
+    20620.2,
+    58.8
+   ],
+   "status": "PASS",
+   "source": "results/compress/rishon/robust.json t_eps (20 values), s/sqrt(20)",
+   "note": ""
+  },
+  {
+   "id": "tbar_rishon_r06-F3-006",
+   "report12_line": "75-82",
+   "claim": "rishon r06-F3-006 Tbar = 829.8 +- 2.2",
+   "source_value": [
+    829.8,
+    2.2
+   ],
+   "recomputed_or_found": [
+    829.8,
+    2.2
+   ],
+   "status": "PASS",
+   "source": "results/compress/rishon/robust.json t_eps (20 values), s/sqrt(20)",
+   "note": ""
+  },
+  {
+   "id": "tbar_fuzzy_ub_r10-F1-010",
+   "report12_line": "75-82",
+   "claim": "fuzzy_ub r10-F1-010 Tbar = 634.4 +- 3.2",
+   "source_value": [
+    634.4,
+    3.2
+   ],
+   "recomputed_or_found": [
+    634.4,
+    3.2
+   ],
+   "status": "PASS",
+   "source": "results/compress/fuzzy_ub/robust.json t_eps (20 values), s/sqrt(20)",
+   "note": ""
+  },
+  {
+   "id": "tbar_fuzzy_link_r02-F2-001",
+   "report12_line": "75-82",
+   "claim": "fuzzy_link r02-F2-001 Tbar = 628.8 +- 3.8",
+   "source_value": [
+    628.8,
+    3.8
+   ],
+   "recomputed_or_found": [
+    628.8,
+    3.8
+   ],
+   "status": "PASS",
+   "source": "results/compress/fuzzy_link/robust.json t_eps (20 values), s/sqrt(20)",
+   "note": ""
+  },
+  {
+   "id": "tbar_fuzzy_comp_general",
+   "report12_line": "80",
+   "claim": "5336.2 +- 17",
+   "source_value": [
+    5336.2,
+    17
+   ],
+   "recomputed_or_found": [
+    5336.2,
+    16.68
+   ],
+   "status": "PASS",
+   "source": "quadrature of unit s.e.",
+   "note": ""
+  },
+  {
+   "id": "tbar_fuzzy_comp_headline",
+   "report12_line": "80",
+   "claim": "3149.6 +- 16",
+   "source_value": [
+    3149.6,
+    16
+   ],
+   "recomputed_or_found": [
+    3149.6,
+    15.51
+   ],
+   "status": "PASS",
+   "source": "quadrature of unit s.e. (15.51 rounds to 16)",
+   "note": ""
+  },
+  {
+   "id": "tbar_fuzzy_ub_general",
+   "report12_line": "81",
+   "claim": "U_B general Tbar 2821.0",
+   "source_value": 2821.0,
+   "recomputed_or_found": 2821.0,
+   "status": "PASS",
+   "source": "fuzzy_ub robust.json",
+   "note": ""
+  },
+  {
+   "id": "qubits_s31_twelve",
+   "report12_line": "75-82",
+   "claim": "twelve qubits 50->31",
+   "source_value": [
+    50,
+    31
+   ],
+   "recomputed_or_found": [
+    50,
+    31
+   ],
+   "status": "PASS",
+   "source": "robust.json qubits 50 / summary Table 2",
+   "note": ""
+  },
+  {
+   "id": "qubits_s31_spin network",
+   "report12_line": "75-82",
+   "claim": "spin network qubits 23->17",
+   "source_value": [
+    23,
+    17
+   ],
+   "recomputed_or_found": [
+    23,
+    17
+   ],
+   "status": "PASS",
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "qubits_s31_LSH",
+   "report12_line": "75-82",
+   "claim": "LSH qubits 31->24",
+   "source_value": [
+    31,
+    24
+   ],
+   "recomputed_or_found": [
+    31,
+    24
+   ],
+   "status": "PASS",
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "qubits_s31_rishon",
+   "report12_line": "75-82",
+   "claim": "rishon qubits 58->52",
+   "source_value": [
+    58,
+    52
+   ],
+   "recomputed_or_found": [
+    58,
+    52
+   ],
+   "status": "PASS",
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "qubits_s31_fuzzy inner step",
+   "report12_line": "75-82",
+   "claim": "fuzzy inner step qubits 23->18",
+   "source_value": [
+    23,
+    18
+   ],
+   "recomputed_or_found": [
+    23,
+    18
+   ],
+   "status": "PASS",
+   "source": "Report 11 Table 1a/1b; compressed_step_headline.json inner.qubits=18",
+   "note": ""
+  },
+  {
+   "id": "qubits_s31_fuzzy U_B",
+   "report12_line": "75-82",
+   "claim": "fuzzy U_B qubits 15->10",
+   "source_value": [
+    15,
+    10
+   ],
+   "recomputed_or_found": [
+    15,
+    10
+   ],
+   "status": "PASS",
+   "source": "fuzzy_ub robust.json r00-seed-000 qubits=15; headline 10",
+   "note": ""
+  },
+  {
+   "id": "qubits_s31_fuzzy link",
+   "report12_line": "75-82",
+   "claim": "fuzzy link qubits 4->4",
+   "source_value": [
+    4,
+    4
+   ],
+   "recomputed_or_found": [
+    4,
+    4
+   ],
+   "status": "PASS",
+   "source": "fuzzy_link robust.json",
+   "note": ""
+  },
+  {
+   "id": "qubits_s22_twelve",
+   "report12_line": "48-52",
+   "claim": "twelve step qubits 34",
+   "source_value": 34,
+   "recomputed_or_found": 34,
+   "status": "PASS",
+   "source": "results/twelve/step.json = summary Table 1",
+   "note": ""
+  },
+  {
+   "id": "qubits_s22_spin network",
+   "report12_line": "48-52",
+   "claim": "spin network step qubits 15",
+   "source_value": 15,
+   "recomputed_or_found": 15,
+   "status": "PASS",
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "qubits_s22_rishon",
+   "report12_line": "48-52",
+   "claim": "rishon step qubits 26",
+   "source_value": 26,
+   "recomputed_or_found": 26,
+   "status": "PASS",
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "qubits_s22_LSH",
+   "report12_line": "48-52",
+   "claim": "LSH step qubits 19",
+   "source_value": 19,
+   "recomputed_or_found": 19,
+   "status": "PASS",
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "qubits_s22_fuzzy",
+   "report12_line": "48-52",
+   "claim": "fuzzy step qubits 23",
+   "source_value": 23,
+   "recomputed_or_found": 23,
+   "status": "PASS",
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "qubit_rule",
+   "report12_line": "46,69",
+   "claim": "explanatory sentence: sec 2.2 = register without outer-link qubits; sec 3.1 also counts outer-link qubits \"read as controls\"; so columns differ",
+   "source_value": "column differences 50-34=16, 23-15=8, 31-19=12, 58-26=32, 23-23=0",
+   "recomputed_or_found": "differences equal the SIZE of the outer register of each encoding (16,8,12,32), whether or not the circuit reads it: rishon circuits read 0 outer bits (Report 6 sec 2 validity rule v; \"never touched\"), spin-network general and headline read 0 (Report 3 sec 3.1; spectra.json cross_verdicts[5] outer_bits_read 0), LSH general reads 0 (Report 7 sec 3.1). Fuzzy inner step has no outer register in either column (Report 11 sec 3.2; 55 only with the outer rows), hence 23=23. Fuzzy U_B 15 vs step.json U_B 23: unit register 8 row + 7 work = 15 (Report 9 sec 2) versus 16 inner data + 7 work.",
+   "status": "FAIL (wording)",
+   "source": "Report 11 sec 3.2 paragraph \"Which circuit is counted\"; reports 3,6,7; spectra.json",
+   "note": ""
+  },
+  {
+   "id": "gen_twelve step",
+   "report12_line": "48-52",
+   "claim": "twelve step: q=34 CX=294 rot=10 T=952 err=2.7e-13",
+   "source_value": [
+    34,
+    294,
+    10,
+    952,
+    "2.7e-13"
+   ],
+   "recomputed_or_found": [
+    34,
+    294,
+    10,
+    952,
+    "2.7e-13"
+   ],
+   "status": "PASS",
+   "source": "results/summary/encodings-gate-counts.md Table 1 (= step.json)",
+   "note": ""
+  },
+  {
+   "id": "gen_spin step",
+   "report12_line": "48-52",
+   "claim": "spin step: q=15 CX=54 rot=8 T=566 err=1.1e-14",
+   "source_value": [
+    15,
+    54,
+    8,
+    566,
+    "1.1e-14"
+   ],
+   "recomputed_or_found": [
+    15,
+    54,
+    8,
+    566,
+    "1.1e-14"
+   ],
+   "status": "PASS",
+   "source": "results/summary/encodings-gate-counts.md Table 1 (= step.json)",
+   "note": ""
+  },
+  {
+   "id": "gen_rishon step",
+   "report12_line": "48-52",
+   "claim": "rishon step: q=26 CX=10102 rot=166 T=20650 err=4.1e-13",
+   "source_value": [
+    26,
+    10102,
+    166,
+    20650,
+    "4.1e-13"
+   ],
+   "recomputed_or_found": [
+    26,
+    10102,
+    166,
+    20650,
+    "4.1e-13"
+   ],
+   "status": "PASS",
+   "source": "results/summary/encodings-gate-counts.md Table 1 (= step.json)",
+   "note": ""
+  },
+  {
+   "id": "gen_rishon step+det",
+   "report12_line": "48-52",
+   "claim": "rishon step+det: q=26 CX=10134 rot=174 T=21146 err=5.0e-13",
+   "source_value": [
+    26,
+    10134,
+    174,
+    21146,
+    "5.0e-13"
+   ],
+   "recomputed_or_found": [
+    26,
+    10134,
+    174,
+    21146,
+    "5.0e-13"
+   ],
+   "status": "PASS",
+   "source": "results/summary/encodings-gate-counts.md Table 1 (= step.json)",
+   "note": ""
+  },
+  {
+   "id": "gen_LSH step",
+   "report12_line": "48-52",
+   "claim": "LSH step: q=19 CX=94 rot=8 T=598 err=1.6e-14",
+   "source_value": [
+    19,
+    94,
+    8,
+    598,
+    "1.6e-14"
+   ],
+   "recomputed_or_found": [
+    19,
+    94,
+    8,
+    598,
+    "1.6e-14"
+   ],
+   "status": "PASS",
+   "source": "results/summary/encodings-gate-counts.md Table 1 (= step.json)",
+   "note": ""
+  },
+  {
+   "id": "gen_fuzzy step",
+   "report12_line": "48-52",
+   "claim": "fuzzy step: q=23 CX=1862 rot=56 T=5398 err=1.0e-14",
+   "source_value": [
+    23,
+    1862,
+    56,
+    5398,
+    "1.0e-14"
+   ],
+   "recomputed_or_found": [
+    23,
+    1862,
+    56,
+    5398,
+    "1.0e-14"
+   ],
+   "status": "PASS",
+   "source": "results/summary/encodings-gate-counts.md Table 1 (= step.json)",
+   "note": ""
+  },
+  {
+   "id": "head_twelve",
+   "report12_line": "75-82",
+   "claim": "twelve headline CX,rot,T,err=(111, 13, 912, '1.0e-13')",
+   "source_value": [
+    111,
+    13,
+    912,
+    "1.0e-13"
+   ],
+   "recomputed_or_found": [
+    111,
+    13,
+    912,
+    "1.0e-13"
+   ],
+   "status": "PASS",
+   "source": "summary Table 2 / gate-table.json / three-layer.json (1.535e-13) / m6 verification 1.35e-13 / compressed_step_headline.json (1.2047e-14) / fuzzy_link summary.json 5.502e-15",
+   "note": ""
+  },
+  {
+   "id": "head_spin",
+   "report12_line": "75-82",
+   "claim": "spin headline CX,rot,T,err=(31, 17, 1086, '5.1e-15')",
+   "source_value": [
+    31,
+    17,
+    1086,
+    "5.1e-15"
+   ],
+   "recomputed_or_found": [
+    31,
+    17,
+    1086,
+    "5.1e-15"
+   ],
+   "status": "PASS",
+   "source": "summary Table 2 / gate-table.json / three-layer.json (1.535e-13) / m6 verification 1.35e-13 / compressed_step_headline.json (1.2047e-14) / fuzzy_link summary.json 5.502e-15",
+   "note": ""
+  },
+  {
+   "id": "head_LSH",
+   "report12_line": "75-82",
+   "claim": "LSH headline CX,rot,T,err=(68, 22, 1396, '1.4e-14')",
+   "source_value": [
+    68,
+    22,
+    1396,
+    "1.4e-14"
+   ],
+   "recomputed_or_found": [
+    68,
+    22,
+    1396,
+    "1.4e-14"
+   ],
+   "status": "PASS",
+   "source": "summary Table 2 / gate-table.json / three-layer.json (1.535e-13) / m6 verification 1.35e-13 / compressed_step_headline.json (1.2047e-14) / fuzzy_link summary.json 5.502e-15",
+   "note": ""
+  },
+  {
+   "id": "head_rishon unit",
+   "report12_line": "75-82",
+   "claim": "rishon unit headline CX,rot,T,err=(216, 10, 832, '1.35e-13')",
+   "source_value": [
+    216,
+    10,
+    832,
+    "1.35e-13"
+   ],
+   "recomputed_or_found": [
+    216,
+    10,
+    832,
+    "1.35e-13"
+   ],
+   "status": "PASS",
+   "source": "summary Table 2 / gate-table.json / three-layer.json (1.535e-13) / m6 verification 1.35e-13 / compressed_step_headline.json (1.2047e-14) / fuzzy_link summary.json 5.502e-15",
+   "note": ""
+  },
+  {
+   "id": "head_rishon 3L",
+   "report12_line": "75-82",
+   "claim": "rishon 3L headline CX,rot,T,err=(248, 18, 1328, '1.54e-13')",
+   "source_value": [
+    248,
+    18,
+    1328,
+    "1.54e-13"
+   ],
+   "recomputed_or_found": [
+    248,
+    18,
+    1328,
+    "1.54e-13"
+   ],
+   "status": "PASS",
+   "source": "summary Table 2 / gate-table.json / three-layer.json (1.535e-13) / m6 verification 1.35e-13 / compressed_step_headline.json (1.2047e-14) / fuzzy_link summary.json 5.502e-15",
+   "note": ""
+  },
+  {
+   "id": "head_fuzzy inner",
+   "report12_line": "75-82",
+   "claim": "fuzzy inner headline CX,rot,T,err=(131, 49, 3214, '1.2e-14')",
+   "source_value": [
+    131,
+    49,
+    3214,
+    "1.2e-14"
+   ],
+   "recomputed_or_found": [
+    131,
+    49,
+    3214,
+    "1.2e-14"
+   ],
+   "status": "PASS",
+   "source": "summary Table 2 / gate-table.json / three-layer.json (1.535e-13) / m6 verification 1.35e-13 / compressed_step_headline.json (1.2047e-14) / fuzzy_link summary.json 5.502e-15",
+   "note": ""
+  },
+  {
+   "id": "head_fuzzy UB",
+   "report12_line": "75-82",
+   "claim": "fuzzy UB headline CX,rot,T,err=(83, 9, 638, '5.4e-14')",
+   "source_value": [
+    83,
+    9,
+    638,
+    "5.4e-14"
+   ],
+   "recomputed_or_found": [
+    83,
+    9,
+    638,
+    "5.4e-14"
+   ],
+   "status": "PASS",
+   "source": "summary Table 2 / gate-table.json / three-layer.json (1.535e-13) / m6 verification 1.35e-13 / compressed_step_headline.json (1.2047e-14) / fuzzy_link summary.json 5.502e-15",
+   "note": ""
+  },
+  {
+   "id": "head_fuzzy link",
+   "report12_line": "75-82",
+   "claim": "fuzzy link headline CX,rot,T,err=(12, 10, 644, '5.5e-15')",
+   "source_value": [
+    12,
+    10,
+    644,
+    "5.5e-15"
+   ],
+   "recomputed_or_found": [
+    12,
+    10,
+    644,
+    "5.5e-15"
+   ],
+   "status": "PASS",
+   "source": "summary Table 2 / gate-table.json / three-layer.json (1.535e-13) / m6 verification 1.35e-13 / compressed_step_headline.json (1.2047e-14) / fuzzy_link summary.json 5.502e-15",
+   "note": ""
+  },
+  {
+   "id": "fuzzy_link_general",
+   "report12_line": "82",
+   "claim": "fuzzy link general CX 36, rot 10, T 644",
+   "source_value": [
+    36,
+    10,
+    644
+   ],
+   "recomputed_or_found": [
+    36,
+    10,
+    644
+   ],
+   "status": "PASS",
+   "source": "fuzzy_link summary.json row general; Report 10 sec 3.2",
+   "note": ""
+  },
+  {
+   "id": "fuzzy_ub_qubits_cite",
+   "report12_line": "84",
+   "claim": "\"fuzzy U_B qubits and general Tbar from Report 11 Table 2 and summary Table 2\"",
+   "source_value": "Report 11 Table 2 has no qubit column",
+   "recomputed_or_found": "qubits 15/10 only in summary Table 2 and robust.json (Report 11 Table 1b has the headline 10)",
+   "status": "FAIL (citation, minor)",
+   "source": "Report 11 sec 3.3",
+   "note": ""
+  },
+  {
+   "id": "fuzzy_lean",
+   "report12_line": "75-82",
+   "claim": "\"certified (compiled checker)\" for the spin-network general circuit",
+   "source_value": "Report 4 sec 3.8: Other certificates certified: general seed, pairs9, r01-F1-001; summary Table 2 spin general Lean=certified",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "Report 4 sec 3.8",
+   "note": ""
+  },
+  {
+   "id": "err_sources",
+   "report12_line": "84",
+   "claim": "errors from summary Table 1 (general) / Table 2 (headline); rishon headline 1.35e-13 Report 6 sec 3.7; three-layer 1.54e-13 Report 6 sec 3.2",
+   "source_value": "all match (spin general 1.15e-14 in step.json prints 1.1e-14 in Table 1 and 1.2e-14 in Table 2; fuzzy link headline 5.50e-15 in summary.json vs 5.6e-15 in Report 10 sec 3.2 (pre-replay))",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "see note",
+   "note": ""
+  },
+  {
+   "id": "headline_exact_scope",
+   "report12_line": "84",
+   "claim": "\"Every headline is exact on all physical states of its encoding with error between 5e-15 and 1.4e-13 (audit 309 sec 4.2)\"",
+   "source_value": "audit 309 sec 4.2: own-archive verdict errors of the SIX HEADLINES 5.1e-15 (spin) to 1.39e-13 (rishon); Report 11 Table 1b: two composed rows are checked differently",
+   "recomputed_or_found": "fuzzy composed step: 40 sampled inputs only; rishon three-layer: 1.54e-13 by composition (outside the stated range)",
+   "status": "FAIL (scope)",
+   "source": "audit 309 sec 4.2; Report 11 Table 1b intro",
+   "note": ""
+  },
+  {
+   "id": "fuzzy_composed_check",
+   "report12_line": "84",
+   "claim": "2150->227 CX (-89.4%), 50 qubits (Report 10 sec 3.3)",
+   "source_value": [
+    2150,
+    227,
+    50
+   ],
+   "recomputed_or_found": [
+    2150,
+    227,
+    50
+   ],
+   "status": "PASS",
+   "source": "compressed_step_headline.json; Report 10 sec 3.3",
+   "note": ""
+  },
+  {
+   "id": "loop_twelve",
+   "report12_line": "57-62",
+   "claim": "rounds 0-5, candidates 22, valid 22, programs 17",
+   "source_value": [
+    5,
+    22,
+    22,
+    17
+   ],
+   "recomputed_or_found": [
+    5,
+    22,
+    22,
+    17
+   ],
+   "status": "PASS",
+   "source": "results/compress/twelve/summary.json; programs from Report 2 sec 2 (17), Report 4 sec 2 (16), Report 6 sec 3.1 (19), Report 8 sec 2 (19)",
+   "note": ""
+  },
+  {
+   "id": "loop_spin",
+   "report12_line": "57-62",
+   "claim": "rounds 0-5, candidates 23, valid 23, programs 16",
+   "source_value": [
+    5,
+    23,
+    23,
+    16
+   ],
+   "recomputed_or_found": [
+    5,
+    23,
+    23,
+    16
+   ],
+   "status": "PASS",
+   "source": "results/compress/spinnet/summary.json; programs from Report 2 sec 2 (17), Report 4 sec 2 (16), Report 6 sec 3.1 (19), Report 8 sec 2 (19)",
+   "note": ""
+  },
+  {
+   "id": "loop_rishon",
+   "report12_line": "57-62",
+   "claim": "rounds 0-6, candidates 24, valid 23, programs 19",
+   "source_value": [
+    6,
+    24,
+    23,
+    19
+   ],
+   "recomputed_or_found": [
+    6,
+    24,
+    23,
+    19
+   ],
+   "status": "PASS",
+   "source": "results/compress/rishon/summary.json; programs from Report 2 sec 2 (17), Report 4 sec 2 (16), Report 6 sec 3.1 (19), Report 8 sec 2 (19)",
+   "note": ""
+  },
+  {
+   "id": "loop_LSH",
+   "report12_line": "57-62",
+   "claim": "rounds 0-6, candidates 29, valid 29, programs 19",
+   "source_value": [
+    6,
+    29,
+    29,
+    19
+   ],
+   "recomputed_or_found": [
+    6,
+    29,
+    29,
+    19
+   ],
+   "status": "PASS",
+   "source": "results/compress/lsh/summary.json; programs from Report 2 sec 2 (17), Report 4 sec 2 (16), Report 6 sec 3.1 (19), Report 8 sec 2 (19)",
+   "note": ""
+  },
+  {
+   "id": "loop_fuzzy_ub",
+   "report12_line": "57-62",
+   "claim": "rounds 0-13, candidates 42, valid 41, programs None",
+   "source_value": [
+    13,
+    42,
+    41,
+    null
+   ],
+   "recomputed_or_found": [
+    13,
+    42,
+    41,
+    null
+   ],
+   "status": "PASS",
+   "source": "results/compress/fuzzy_ub/summary.json; programs from Report 2 sec 2 (17), Report 4 sec 2 (16), Report 6 sec 3.1 (19), Report 8 sec 2 (19)",
+   "note": ""
+  },
+  {
+   "id": "loop_fuzzy_link",
+   "report12_line": "57-62",
+   "claim": "rounds 0-2, candidates 5, valid 4, programs None",
+   "source_value": [
+    2,
+    5,
+    4,
+    null
+   ],
+   "recomputed_or_found": [
+    2,
+    5,
+    4,
+    null
+   ],
+   "status": "PASS",
+   "source": "results/compress/fuzzy_link/summary.json; programs from Report 2 sec 2 (17), Report 4 sec 2 (16), Report 6 sec 3.1 (19), Report 8 sec 2 (19)",
+   "note": ""
+  },
+  {
+   "id": "lsh_stop",
+   "report12_line": "60",
+   "claim": "stop.json reason max_sessions",
+   "source_value": "max_sessions",
+   "recomputed_or_found": "max_sessions",
+   "status": "PASS",
+   "source": "results/compress/lsh/stop.json",
+   "note": ""
+  },
+  {
+   "id": "headline_id_twelve",
+   "report12_line": "57-62",
+   "claim": "twelve headline r05-F2-005",
+   "source_value": "r05-F2-005",
+   "recomputed_or_found": "r05-F2-005",
+   "status": "PASS",
+   "source": "summary.json headline.id",
+   "note": ""
+  },
+  {
+   "id": "headline_id_spinnet",
+   "report12_line": "57-62",
+   "claim": "spinnet headline r02-F1-002",
+   "source_value": "r02-F1-002",
+   "recomputed_or_found": "r02-F1-002",
+   "status": "PASS",
+   "source": "summary.json headline.id",
+   "note": ""
+  },
+  {
+   "id": "headline_id_rishon",
+   "report12_line": "57-62",
+   "claim": "rishon headline r06-F3-006",
+   "source_value": "r06-F3-006",
+   "recomputed_or_found": "r06-F3-006",
+   "status": "PASS",
+   "source": "summary.json headline.id",
+   "note": ""
+  },
+  {
+   "id": "headline_id_lsh",
+   "report12_line": "57-62",
+   "claim": "lsh headline r05-F3-005",
+   "source_value": "r05-F3-005",
+   "recomputed_or_found": "r05-F3-005",
+   "status": "PASS",
+   "source": "summary.json headline.id",
+   "note": ""
+  },
+  {
+   "id": "headline_id_fuzzy_ub",
+   "report12_line": "57-62",
+   "claim": "fuzzy_ub headline r10-F1-010",
+   "source_value": "r10-F1-010",
+   "recomputed_or_found": "r10-F1-010",
+   "status": "PASS",
+   "source": "summary.json headline.id",
+   "note": ""
+  },
+  {
+   "id": "headline_id_fuzzy_link",
+   "report12_line": "57-62",
+   "claim": "fuzzy_link headline r02-F2-001",
+   "source_value": "r02-F2-001",
+   "recomputed_or_found": "r02-F2-001",
+   "status": "PASS",
+   "source": "summary.json headline.id",
+   "note": ""
+  },
+  {
+   "id": "spec_levels",
+   "report12_line": "105",
+   "claim": "level difference <= 2.8e-14,1.2e-14,2.7e-14",
+   "source_value": [
+    2.8e-14,
+    1.2e-14,
+    2.7e-14
+   ],
+   "recomputed_or_found": [
+    2.75e-14,
+    1.2e-14,
+    2.66e-14
+   ],
+   "status": "PASS",
+   "source": "spectra.json ks.max_pairwise_level_dev",
+   "note": ""
+  },
+  {
+   "id": "spec_cross",
+   "report12_line": "105",
+   "claim": "nine cross-verdicts, 3 general + 6 headline, all ok, errors <= 2.7e-13",
+   "source_value": [
+    9,
+    2.7e-13
+   ],
+   "recomputed_or_found": [
+    9,
+    2.721351977491546e-13,
+    true
+   ],
+   "status": "PASS",
+   "source": "spectra.json ks.cross_verdicts",
+   "note": ""
+  },
+  {
+   "id": "spec_mutant",
+   "report12_line": "105",
+   "claim": "negative control rejected at 2.0e-6, window [1.9,2.1]e-6",
+   "source_value": "2.0e-6",
+   "recomputed_or_found": [
+    2.0000000012264015e-06,
+    2.0000000018364537e-06,
+    2.0000000033521785e-06
+   ],
+   "status": "PASS",
+   "source": "spectra.json; tests m11 test_cross_ks.py:122",
+   "note": ""
+  },
+  {
+   "id": "spec_embed",
+   "report12_line": "106",
+   "claim": "compressed operators equal KS to <=4.7e-16 (tol 1e-12); leak^2 15, 33/8, 4",
+   "source_value": "4.7e-16;15;4.125;4.0",
+   "recomputed_or_found": [
+    4.718447854656915e-16,
+    14.999999999999973,
+    4.124999999999993,
+    3.9999999999999973
+   ],
+   "status": "PASS",
+   "source": "spectra.json embedding; tolerance ALG=1e-12 in tests/acceptance/m11",
+   "note": ""
+  },
+  {
+   "id": "spec_step_dist",
+   "report12_line": "106",
+   "claim": "rishon step distance 1.990",
+   "source_value": 1.99,
+   "recomputed_or_found": 1.99,
+   "status": "PASS",
+   "source": "spectra.json not_comparable",
+   "note": ""
+  },
+  {
+   "id": "spec_slopes",
+   "report12_line": "107",
+   "claim": "slopes -0.9973,-1.0010,-1.0043 (tol 0.02)",
+   "source_value": [
+    -0.9973,
+    -1.001,
+    -1.0043
+   ],
+   "recomputed_or_found": [
+    -0.9973,
+    -1.001,
+    -1.0043
+   ],
+   "status": "PASS",
+   "source": "spectra.json rishon_ks_limit.full; test_cross_results.py:88",
+   "note": ""
+  },
+  {
+   "id": "spec_coeff",
+   "report12_line": "107",
+   "claim": "coefficient match 0.17%,0.08%,0.30% (tol 1%)",
+   "source_value": [
+    0.17,
+    0.08,
+    0.3
+   ],
+   "recomputed_or_found": [
+    0.17,
+    0.08,
+    0.3
+   ],
+   "status": "PASS",
+   "source": "spectra.json rishon_ks_limit.closed L=128 upper level",
+   "note": ""
+  },
+  {
+   "id": "spec_fuzzy_flavour",
+   "report12_line": "108",
+   "claim": "2 of 16 sectors match; others miss by >=0.608 (locked >=0.5); match to 1.8e-15",
+   "source_value": "2;0.608;1.8e-15",
+   "recomputed_or_found": [
+    2,
+    0.608,
+    1.7763568394002505e-15
+   ],
+   "status": "PASS (note)",
+   "source": "spectra.json fuzzy.flavour_blocks. NOTE: stored distance for the 2 matching sectors is <=8.9e-16; the figure 1.8e-15 is tester 422 check F1 (own measurement), inherited via Report 11",
+   "note": ""
+  },
+  {
+   "id": "spec_fuzzy_slope",
+   "report12_line": "108",
+   "claim": "exponent 7.0286 (tol 7+-0.06)",
+   "source_value": 7.0286,
+   "recomputed_or_found": 7.0286,
+   "status": "PASS",
+   "source": "spectra.json fuzzy.isolated.r1",
+   "note": ""
+  },
+  {
+   "id": "tfirst_table",
+   "report12_line": "92-99",
+   "claim": "T-first picks (twelve r00-seed-001 162,666.6; spin r01-F5-001 46,486.7; LSH r00-seed-002 84,585.1; rishon r06-F1-006 218,829.2; fuzzy_ub r13-F3-013 89,520.0; link same)",
+   "source_value": "gate-table.json t_first + robust.json",
+   "recomputed_or_found": "all equal",
+   "status": "PASS",
+   "source": "results/crosscheck/gate-table.json; robust.json; angle_linear False for r01-F5-001 and r13-F3-013",
+   "note": ""
+  },
+  {
+   "id": "tags",
+   "report12_line": "5",
+   "claim": "16 tags incl. milestone-11 at 9b83d10; acceptance-v23",
+   "source_value": "git tag",
+   "recomputed_or_found": "all 16 milestone tags exist; git rev-list -n1 milestone-11 = 9b83d10; acceptance-v23 exists",
+   "status": "PASS",
+   "source": "git tag",
+   "note": ""
+  },
+  {
+   "id": "plans_table",
+   "report12_line": "6-14",
+   "claim": "\"copied from the table in notes/STATUS.md\"",
+   "source_value": "STATUS table: twelve milestones \"-0,-1,-2,-2-gate,-11\"; rishon \"-5,-5x,-5d\"",
+   "recomputed_or_found": "Report 12 adds -2c and -6 (tags exist); plan numbers/test folders match",
+   "status": "FAIL (minor wording)",
+   "source": "notes/STATUS.md \"Plans in force\"",
+   "note": ""
+  },
+  {
+   "id": "gate_m11",
+   "report12_line": "17",
+   "claim": "tester 448: 407/407 acceptance, 1235 unit; audit 309 PASS WITH NOTES; benchmark 307 PASS",
+   "source_value": "448: 407 passed 0 failed; unit 1235 passed; audit 309 PASS WITH NOTES; benchmark 307 PASS",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "reports/tests/448, audits/309, benchmarks/307",
+   "note": ""
+  },
+  {
+   "id": "gate_M2",
+   "report12_line": "119",
+   "claim": "M2: tester 039-042, audit 004, benchmark 003",
+   "source_value": "files exist; tester PASS; audit PASS WITH NOTES; benchmark exists",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "reports/tests/039-042, audits/004, benchmarks/003",
+   "note": ""
+  },
+  {
+   "id": "gate_M4",
+   "report12_line": "119",
+   "claim": "M4: tester 404, audit 302, benchmark 301",
+   "source_value": "files exist; tester PASS; audit PASS WITH NOTES; benchmark exists",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "reports/tests/404, audits/302, benchmarks/301",
+   "note": ""
+  },
+  {
+   "id": "gate_M6",
+   "report12_line": "119",
+   "claim": "M6: tester 435, audit 307, benchmark 305",
+   "source_value": "files exist; tester PASS; audit PASS WITH NOTES; benchmark exists",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "reports/tests/435, audits/307, benchmarks/305",
+   "note": ""
+  },
+  {
+   "id": "gate_M8",
+   "report12_line": "119",
+   "claim": "M8: tester 446, audit 308, benchmark 306",
+   "source_value": "files exist; tester PASS; audit PASS WITH NOTES; benchmark exists",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "reports/tests/446, audits/308, benchmarks/306",
+   "note": ""
+  },
+  {
+   "id": "gate_M11",
+   "report12_line": "119",
+   "claim": "M11: tester 448, audit 309, benchmark 307",
+   "source_value": "files exist; tester PASS; audit PASS WITH NOTES; benchmark exists",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "reports/tests/448, audits/309, benchmarks/307",
+   "note": ""
+  },
+  {
+   "id": "gate_M10",
+   "report12_line": "119",
+   "claim": "M10: tester 428/429 (headline update), audits 301 and 306; no separate benchmark (Report 10 sec 5)",
+   "source_value": "audits 301 and 306 PASS WITH NOTES; Report 10 line 126 (sec 5) says benchmark not run; tester 428/429 PASS",
+   "recomputed_or_found": "the M10 milestone-gate tester report is 303 (m10-gate-full-round-3, PASS) and 302; 428/429 verify the later headline rule update",
+   "status": "PASS (note)",
+   "source": "reports/tests/303, 428, 429",
+   "note": ""
+  },
+  {
+   "id": "gate_every",
+   "report12_line": "119",
+   "claim": "\"Every milestone passed a full test run, an audit and (except M10) a benchmark\"",
+   "source_value": "benchmark reports exist for M0 001, M1 002, M2 003, M3 100, M4 301, M5 200, M5d 303, M2c 304, M6 305, M7 302, M8 306, M9 300, M11 307",
+   "recomputed_or_found": "no benchmark report found for M5x (nor M10)",
+   "status": "FAIL (overstatement)",
+   "source": "ls reports/benchmarks",
+   "note": ""
+  },
+  {
+   "id": "gate_audits",
+   "report12_line": "119",
+   "claim": "\"All audits returned PASS WITH NOTES, none blocking\"",
+   "source_value": "004,302,307,308,301,306,309 all PASS WITH NOTES, no blocking issue",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "reports/audits",
+   "note": ""
+  },
+  {
+   "id": "s4_report8_item6",
+   "report12_line": "124",
+   "claim": "no 67-CX LSH circuit over one 64-point walk space (Report 8 sec 4 item 6)",
+   "source_value": "Report 8 sec 4 item 6: 67 CX (46+21) impossible inside the F3 frame walk space F_2^6; tester 444; not a lower bound",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "Report 8 sec 4",
+   "note": ""
+  },
+  {
+   "id": "s4_lean_pairs",
+   "report12_line": "133",
+   "claim": "program emits angle-linear family checked at 23-25 pairs (Reports 2 sec 6, 6 sec 3.8)",
+   "source_value": "Report 6 sec 3.0 (line 37): 25 pairs; METHODS-rishon R12: 23 angle pairs (audit 307 N2,N3); Report 6 sec 3.8: \"angle fit confirmed at the 20 pairs\"; Report 2 sec 6: no number (alternate-pair checks)",
+   "recomputed_or_found": "citation does not contain 23-25; the two numbers are in Report 6 sec 3.0 and METHODS-rishon R12 and disagree with each other",
+   "status": "FAIL (citation)",
+   "source": "docs/report-6 line 37; docs/METHODS-rishon.md line 117",
+   "note": ""
+  },
+  {
+   "id": "s4_audit301",
+   "report12_line": "141",
+   "claim": "audit 301 A1, A2 remain open for fuzzy (Report 10 sec 5)",
+   "source_value": "Report 10 sec 5 last bullet: open for the next session",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "Report 10 sec 5",
+   "note": ""
+  },
+  {
+   "id": "s4_byte",
+   "report12_line": "134",
+   "claim": "\"reproduced byte for byte by tester 301\"",
+   "source_value": "tester 301: all seven JSON files identical, floats compared at relative 1e-9, excluding timings, provenance and hashes; 10 of 10 numbers equal",
+   "recomputed_or_found": "not byte for byte",
+   "status": "FAIL (wording)",
+   "source": "reports/tests/301",
+   "note": ""
+  },
+  {
+   "id": "s4_not_compressed",
+   "report12_line": "126",
+   "claim": "\"order-2 steps and outer rows were not compressed\"",
+   "source_value": "fuzzy composed step with outer rows = 227 CX uses the compressed link unit (96 CX on the 8 outer links; Report 11 Table 1c; line 84 of Report 12 itself)",
+   "recomputed_or_found": "fuzzy outer links are compressed; rishon outer rows (24 and 96 CX) are not",
+   "status": "FAIL (wording)",
+   "source": "Report 11 Table 1c, compressed_step_headline.json",
+   "note": ""
+  },
+  {
+   "id": "s4_008_D",
+   "report12_line": "139",
+   "claim": "prompts/008 sec 15 D1-D10",
+   "source_value": "prompts/008 sec 15 lists D1-D16; STATUS decision 2026-11-16 item 4 says D1-D10",
+   "recomputed_or_found": "differs",
+   "status": "FAIL (minor)",
+   "source": "prompts/008 line 231-232; notes/STATUS.md",
+   "note": ""
+  },
+  {
+   "id": "s4_scripts",
+   "report12_line": "164",
+   "claim": "script names exist in scripts/",
+   "source_value": "m1_results m3_results m4_results m5_results m5_det_results m6_results m7_results m8_results m9_results m10_round m11_results summary_table",
+   "recomputed_or_found": "all 12 exist",
+   "status": "PASS",
+   "source": "ls scripts",
+   "note": ""
+  },
+  {
+   "id": "s5_walltimes",
+   "report12_line": "164",
+   "claim": "m11_results 76.9 s [76.3,78.6] n=6, 1.08 GB; 2243 values; m5 4131 s; m5_det 55 531 s",
+   "source_value": "benchmark 307 row 1,1b (76.9; 1082 MB); tester 448 (2243); Report 5 line 4 (4131 s); addendum line 5 (55 531 s)",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "as stated",
+   "note": ""
+  },
+  {
+   "id": "s4_misc_notes",
+   "report12_line": "141-148",
+   "claim": "audit 309 N10; audit 308 N2/N4/N5; CLAUDE.md 2.2 GB vs STATUS Next action item 4 (7.4 and 5.2 GiB); worktrees; Report 11 21/28 ranked; addendum 3.6 r04-F1-004 228/260; Report 2 sec 4.3 awaits; Report 4 5bbaf0f",
+   "source_value": "all verified in sources at HEAD",
+   "recomputed_or_found": "match (but see note: uncommitted working-tree edits to Reports 2, 4, 5-addendum, 11 and CLAUDE.md now resolve several of these)",
+   "status": "PASS (note)",
+   "source": "git diff in working tree",
+   "note": ""
+  },
+  {
+   "id": "lsh_transcoder",
+   "report12_line": "51",
+   "claim": "\"per-site transcoder (cx, cx, rccx per site, 20 CX and 16 T)\"",
+   "source_value": "Report 7 sec 3.4: transcoder = 20 CX, 16 T over 4 sites (5 CX, 4 T per site), used twice (+40 CX, +32 T)",
+   "recomputed_or_found": "ambiguous: 20 CX/16 T is per transcoder, not per site",
+   "status": "FAIL (wording)",
+   "source": "Report 7 sec 3.2/3.4",
+   "note": ""
+  },
+  {
+   "id": "lsh_lean_twice",
+   "report12_line": "51",
+   "claim": "433 states counted twice in Lean by different rules",
+   "source_value": "Report 7 sec 3.6: proved twice by different rules (LSH rules in Lean vs corner-fusion card_physical)",
+   "recomputed_or_found": "match",
+   "status": "PASS",
+   "source": "Report 7 sec 3.6",
+   "note": ""
+  },
+  {
+   "id": "rowing_prose",
+   "report12_line": "88-89",
+   "claim": "\"spin network and LSH roughly doubled Tbar\"; \"81 pairs reduced to one rotation on one qubit\"",
+   "source_value": "+94.8% (x1.95), +139.2% (x2.39); headline has 6 Walsh rotations on one flip qubit (Report 6 sec 3.6)",
+   "recomputed_or_found": "wording only",
+   "status": "PASS (note)",
+   "source": "Report 6 sec 3.5-3.6",
+   "note": ""
+  },
+  {
+   "id": "gate_table_cite",
+   "report12_line": "69",
+   "claim": "numbers from Report 11 Tables 1a-c \"results/crosscheck/gate-table.json\"",
+   "source_value": "gate-table.json general.qubits = 34,15,19,26,23 (step.json); 50,23,31,58 are in Report 11 Table 1a and summary Table 2/robust.json",
+   "recomputed_or_found": "differs only in the general qubit cells",
+   "status": "PASS (note)",
+   "source": "results/crosscheck/gate-table.json",
+   "note": ""
+  }
+ ]
+}

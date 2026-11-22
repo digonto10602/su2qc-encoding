@@ -1,6 +1,6 @@
 # STATUS — su2qc-encoding
 
-Last updated: 2026-11-10 (coordinator, omnicommander; merged repo, all tracks on master)
+Last updated: 2026-11-22 (coordinator, omnicommander; all milestones done, master = merge-desktop-tracks, pushed)
 
 ## Goal
 One SU(2) plaquette with 8 outer links (12 links, 4 four-valent corners), $j_{\max}=1/2$.
@@ -31,6 +31,7 @@ Latest acceptance tag: acceptance-v23 (m8 G2 erratum, prompts/402); previously a
 | — | — | — | — | — |
 
 ## Decisions
+- 2026-11-22 (Digonto, chat): accepts all remaining stated defaults: fuzzy (r = kappa2/kappa1 = 1, H_B^fz = -2 plaquette, the paper's Gauss orientation; Report 9 §5, METHODS-fuzzy F3), LSH prompts/400 D1-D8 and prompts/401 D1-D13, consolidation prompts/008 §15 (D1-D16), spinnet prompts/104 §9. Not covered: prompts/402 §11 planner additions (still stated defaults). Asked for: fix the drafting issues and a final project report (docs/report-12).
 - 2026-11-20 (Digonto, chat): (1) Report 11 states the four planner derivations (compression identity, rishon limit 13/(4g^4), 2 of 16 fuzzy flavour sectors, no fuzzy-KS limit) as the project's own results -> markers removed, Report 11 FINAL; (2) accepts all 12 prompts/204 §14 defaults (Report 6 updated); (3) fast-forward master to merge-desktop-tracks and push master, the branch and the tags (milestone-8, milestone-11, acceptance-v23).
 - 2026-11-20 (Digonto, chat): M8-G2 blocked by the outer-reading headline r05-F3-005 -> "Planner amends M8-G2" (option chosen over reporting the 71-CX circuit or accepting a red). Planner writes prompts/402 erratum + amended G2 (full-register Aer on seeded physical states when outer qubits are read as controls only); lock as acceptance-v23.
 - 2026-11-16 (Digonto, chat): (1) approve 008 erratum E1 -> lock acceptance-v21; (2) Report 5 addendum: save it (re-write from audit 304 N1/N3; old draft lost); (3) retry Reports 4 and 7 only if possible within machine resources without crashing, else skip; (4) autonomy-grant defaults (008 §15 D1-D10, 401 D1-D13, 204 det defaults) are STATED in the reports as defaults; (5) final cross-encoding report = option (c): one/two tables + planner cross-check of energy spectra (rishon QLM+det and fuzzy are different models from KS j<=1/2); (6) final report goes in docs/.

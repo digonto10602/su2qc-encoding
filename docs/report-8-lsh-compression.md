@@ -418,7 +418,7 @@ At corners 1 and 3 the uniform splitting of Raychowdhury–Stryker re-pairs the 
 
 - 17 deliberately broken circuits (writes to outer qubits, wrong signs, a rotation off by $10^{-8}$, a dirty ancilla) all gave the expected pass or fail (planner; re-run by tester 446). A rotation off by $10^{-13}$, below tolerance, correctly passes.
 - Limits: a circuit that reads outer qubits **and** uses an ancilla is refused at 25 qubits (memory limit, `prompts/402` §5); the archive does not contain one. The test's amplitude threshold of $10^{-13}$ can hide up to $4.3\times10^{-11}$ of operator-norm error, and the per-column leak weight bounds the leak block only to $2.1\times10^{-9}$ (audit 308 N1, inherited per-state convention). Measured values are $\le3.1\times10^{-15}$ and 0, so no verdict depends on this. M8-G2 now takes 112 s of the 115 s m8 run and about 74 % of the 2.2 GB memory budget.
-- **Defaults of `prompts/401` §12, taken without asking ("default, not reviewed by Digonto").** `notes/STATUS.md` 2026-11-13 lists D1–D13 "for Digonto". The acceptance of 2026-11-17 covered `prompts/009` and `prompts/010` only.
+- **Defaults of `prompts/401` §12, taken without asking ("default, not reviewed by Digonto").** *Update 2026-11-22: Digonto accepted these defaults (`notes/STATUS.md` Decisions).* `notes/STATUS.md` 2026-11-13 lists D1–D13 "for Digonto". The acceptance of 2026-11-17 covered `prompts/009` and `prompts/010` only.
 - **D1:** target = full LSH-register first-order step, transcoder included.
 - **D2:** Phase 0 first; registry entry inside the 008 window; rounds after the freeze; no shim.
 - **D3:** ten seeds, including three pinned spin-network programs.
